@@ -1,0 +1,17 @@
+define({
+  expanded: 'Ampliat',
+  collapsed: 'Reduït',
+  panel: 'Subfinestra lateral',
+  overlay: 'Superposició',
+  resizable: 'Redimensionable',
+  defaultState: 'Estat per defecte',
+  toggleBtn: 'Botó per reduir',
+  divider: 'Divisor',
+  leftPanel: 'Subfinestra esquerra',
+  topPanel: 'Subfinestra superior',
+  rightPanel: 'Subfinestra dreta',
+  bottomPanel: 'Subfinestra inferior',
+  size: 'Mida',
+  dockSide: 'Lateral d\'acoblament',
+  visible: 'Visible',
+});

@@ -1,0 +1,17 @@
+define({
+  expanded: 'Uitgeklapt',
+  collapsed: 'Samengevouwen',
+  panel: 'Zijpaneel',
+  overlay: 'Overlay',
+  resizable: 'Grootte aanpasbaar',
+  defaultState: 'Standaardstaat',
+  toggleBtn: 'Knop inklappen',
+  divider: 'Verdeler',
+  leftPanel: 'Linkerpaneel',
+  topPanel: 'Bovenpaneel',
+  rightPanel: 'Rechterpaneel',
+  bottomPanel: 'Onderpaneel',
+  size: 'Grootte',
+  dockSide: 'Dockzijde',
+  visible: 'Zichtbaar',
+});

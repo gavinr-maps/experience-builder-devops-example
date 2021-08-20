@@ -1,0 +1,17 @@
+define({
+  expanded: 'Expandido',
+  collapsed: 'Contraído',
+  panel: 'Panel lateral',
+  overlay: 'Superposición',
+  resizable: 'Redimensionable',
+  defaultState: 'Estado predeterminado',
+  toggleBtn: 'Botón Contraer',
+  divider: 'Divisor',
+  leftPanel: 'Panel izquierdo',
+  topPanel: 'Panel superior',
+  rightPanel: 'Panel derecho',
+  bottomPanel: 'Panel inferior',
+  size: 'Tamaño',
+  dockSide: 'Acoplar lado',
+  visible: 'Visible',
+});

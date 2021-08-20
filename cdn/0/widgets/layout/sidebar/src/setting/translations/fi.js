@@ -1,0 +1,17 @@
+define({
+  expanded: 'Laajennettu',
+  collapsed: 'Kutistettu',
+  panel: 'Sivupaneeli',
+  overlay: 'Päällekkäisyys',
+  resizable: 'Koko muutettavissa',
+  defaultState: 'Oletustila',
+  toggleBtn: 'Tiivistä-painike',
+  divider: 'Jakaja',
+  leftPanel: 'Vasen paneeli',
+  topPanel: 'Yläpaneeli',
+  rightPanel: 'Oikea paneeli',
+  bottomPanel: 'Alapaneeli',
+  size: 'Koko',
+  dockSide: 'Kiinnitysreuna',
+  visible: 'Näkyvä',
+});

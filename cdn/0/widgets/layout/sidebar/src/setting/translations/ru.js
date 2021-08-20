@@ -1,0 +1,17 @@
+define({
+  expanded: 'Развернуто',
+  collapsed: 'Свернуто',
+  panel: 'Боковая панель',
+  overlay: 'Наложение',
+  resizable: 'С изменением размера',
+  defaultState: 'Состояние по умолчанию',
+  toggleBtn: 'Кнопка сворачивания',
+  divider: 'Разделить',
+  leftPanel: 'Левая панель',
+  topPanel: 'Верхняя панель',
+  rightPanel: 'Правая панель',
+  bottomPanel: 'Нижняя панель',
+  size: 'Размер',
+  dockSide: 'Размер области прикрепления',
+  visible: 'Видимый',
+});

@@ -1,0 +1,126 @@
+{
+  "name": "arcgis-map",
+  "label": "Map",
+  "type": "widget",
+  "version": "1.5.0",
+  "exbVersion": "1.5.0",
+  "author": "Esri R&D Center Beijing",
+  "description": "This is the widget used in developer guide",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "publishMessages": [
+    "EXTENT_CHANGE",
+    "DATA_RECORDS_SELECTION_CHANGE"
+  ],
+  "messageActions": [
+    {
+      "name": "panTo",
+      "label": "Pan to",
+      "uri": "message-actions/pan-to-action",
+      "settingUri": "message-actions/pan-to-action-setting"
+    },
+    {
+      "name": "zoomToFeature",
+      "label": "Zoom to",
+      "uri": "message-actions/zoom-to-feature-action",
+      "settingUri": "message-actions/zoom-to-feature-action-setting"
+    },
+    {
+      "name": "flash",
+      "label": "Flash",
+      "uri": "message-actions/flash-action",
+      "settingUri": "message-actions/flash-action-setting"
+    },
+    {
+      "name": "filter",
+      "label": "Filter",
+      "uri": "message-actions/filter-action",
+      "settingUri": "message-actions/filter-action-setting"
+    },
+    {
+      "name": "showOnMap",
+      "label": "Show on map",
+      "uri": "message-actions/show-on-map-action"
+    }
+  ],
+  "defaultSize": {
+    "width": 400,
+    "height": 400
+  },
+  "properties": {
+    "canCreateMapView": true,
+    "hasEmbeddedLayout": true,
+    "passDataSourceToChildren": false,
+    "coverLayoutBackground": true,
+    "watchViewportVisibility": true,
+    "supportAutoSize": false
+  },
+  "dataActions": [
+    {
+      "name": "zoomToFeature",
+      "label": "Zoom to",
+      "uri": "data-actions/zoom-to",
+      "icon": "runtime/assets/icons/select-tool/select-zoomto.svg"
+    },
+    {
+      "name": "panTo",
+      "label": "Pan to",
+      "uri": "data-actions/pan-to",
+      "icon": "runtime/assets/icons/basemap.svg"
+    },
+    {
+      "name": "showOnMap",
+      "label": "Show on map",
+      "uri": "data-actions/show-on-map",
+      "icon": "runtime/assets/icons/ds-map-view.svg"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "MapFixedLayout",
+      "label": "Map FixedLayout",
+      "type": "FIXED"
+    }
+  ],
+  "translatedLocales": [
+    "en",
+    "ar",
+    "bs",
+    "ca",
+    "cs",
+    "da",
+    "de",
+    "el",
+    "es",
+    "et",
+    "fi",
+    "fr",
+    "he",
+    "hr",
+    "hu",
+    "id",
+    "it",
+    "ja",
+    "ko",
+    "lt",
+    "lv",
+    "nb",
+    "nl",
+    "pl",
+    "pt-br",
+    "pt-pt",
+    "ro",
+    "ru",
+    "sk",
+    "sl",
+    "sr",
+    "sv",
+    "th",
+    "tr",
+    "zh-cn",
+    "uk",
+    "vi",
+    "zh-hk",
+    "zh-tw"
+  ]
+}

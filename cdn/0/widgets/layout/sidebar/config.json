@@ -1,0 +1,54 @@
+{
+  "direction": "HORIZONTAL",
+  "collapseSide": "FIRST",
+  "overlay": false,
+  "size": "300px",
+  "divider": {
+    "visible": true,
+    "lineStyle": {
+      "type": "solid",
+      "color": "var(--light-500)",
+      "width": "1px"
+    }
+  },
+  "resizable": true,
+  "toggleBtn": {
+    "visible": true,
+    "icon": "LEFT",
+    "offsetX": 15,
+    "offsetY": 0,
+    "position": "CENTER",
+    "iconSize": 14,
+    "width": 15,
+    "height": 60,
+    "color": {
+      "normal": {
+        "icon": {
+          "useTheme": false,
+          "color": "#FFFFFF"
+        },
+        "bg": {
+          "useTheme": true,
+          "color": "var(--primary)"
+        }
+      },
+      "hover": {
+        "bg": {
+          "useTheme": true,
+          "color": "var(--primary-700)"
+        }
+      }
+    },
+    "expandStyle": {
+      "style": {
+        "borderRadius": "0 92px 92px 0"
+      }
+    },
+    "collapseStyle": {
+      "style": {
+        "borderRadius": "0 92px 92px 0"
+      }
+    }
+  },
+  "defaultState": 1
+}

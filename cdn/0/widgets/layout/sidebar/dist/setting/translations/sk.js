@@ -1,0 +1,17 @@
+define({
+  expanded: 'Rozšírené',
+  collapsed: 'Sklapnuté',
+  panel: 'Bočný panel',
+  overlay: 'Prekrytie',
+  resizable: 'Možné zmeniť veľkosť',
+  defaultState: 'Predvolený stav',
+  toggleBtn: 'Tlačidlo zvinutia',
+  divider: 'Rozdeľovač',
+  leftPanel: 'Ľavý panel',
+  topPanel: 'Horný panel',
+  rightPanel: 'Pravý panel',
+  bottomPanel: 'Dolný panel',
+  size: 'Veľkosť',
+  dockSide: 'Strana ukotvenia',
+  visible: 'Viditeľný',
+});

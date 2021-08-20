@@ -1,0 +1,17 @@
+define({
+  expanded: 'Expanderade',
+  collapsed: 'Dold',
+  panel: 'Sidopanel',
+  overlay: 'Överlagring',
+  resizable: 'Ändringsbar storlek',
+  defaultState: 'Standardstatus',
+  toggleBtn: 'Knappen Dölj',
+  divider: 'Avgränsare',
+  leftPanel: 'Vänster panel',
+  topPanel: 'Övre panel',
+  rightPanel: 'Höger panel',
+  bottomPanel: 'Nedre panel',
+  size: 'Storlek',
+  dockSide: 'Docka sida',
+  visible: 'Synlig',
+});

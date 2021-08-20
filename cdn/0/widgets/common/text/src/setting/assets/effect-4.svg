@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Effect04</title>
+    <defs>
+        <path d="M8.394,18 L9.546,15.084 L15.072,15.084 L16.26,18 L18.852,18 L13.362,5.256 L11.4,5.256 L5.856,18 L8.394,18 Z M14.28,13.14 L10.32,13.14 L12.318,7.956 L14.28,13.14 Z" id="path-1"></path>
+        <filter x="-11.5%" y="-11.8%" width="123.1%" height="147.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowOffsetOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.498039216   0 0 0 0 0.580392157  0 0 0 1 0" type="matrix" in="shadowOffsetOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Text" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Character-effect" transform="translate(-1392.000000, -815.000000)" fill-rule="nonzero">
+            <g id="SettingPanel" transform="translate(1180.000000, 49.000000)">
+                <g id="Character-effect" transform="translate(16.000000, 728.000000)">
+                    <g id="Effect04" transform="translate(196.000000, 38.000000)">
+                        <g id="A">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

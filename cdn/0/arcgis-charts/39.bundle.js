@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[39],{123:function(t,i,n){"use strict";n.r(i),n.d(i,"statistics",(function(){return e}));const e={mean:"平均值",median:"中位數",sum:"總和",discretePercentitle:"離散百分位數",minimum:"最小值",maximum:"最大值",variance:"變異",count:"計數",aggregation:"${ statistics }/${ fieldName }",percent:"百分比",noAggregation:"無匯聚"};var s={statistics:e};i.default=s}}]);

@@ -1,0 +1,17 @@
+define({
+  expanded: 'מורחב',
+  collapsed: 'מצומצם',
+  panel: 'לוח צדדי',
+  overlay: 'חפיפה',
+  resizable: 'ניתן לשינוי גודל',
+  defaultState: 'מדינת ברירת מחדל',
+  toggleBtn: 'לחצן כיווץ',
+  divider: 'מפריד',
+  leftPanel: 'לוח שמאלי',
+  topPanel: 'לוח עליון',
+  rightPanel: 'לוח ימני',
+  bottomPanel: 'לוח תחתון',
+  size: 'גודל',
+  dockSide: 'עגן צד',
+  visible: 'מוצג',
+});

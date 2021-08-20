@@ -1,0 +1,89 @@
+{
+  "name": "controller",
+  "label": "Widget Controller",
+  "type": "widget",
+  "version": "1.5.0",
+  "exbVersion": "1.5.0",
+  "author": "Esri R&D Center Beijing",
+  "description": "This is the widget used in developer guide",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "defaultSize": {
+    "height": 54,
+    "width": 400
+  },
+  "properties": {
+    "hasSettingPage": true,
+    "layoutType": "CONTROLLER",
+    "hasEmbeddedLayout": true,
+    "hasBuilderSupportModule": true
+  },
+  "layouts": [
+    {
+      "name": "controller",
+      "label": "Controller layout"
+    },
+    {
+      "name": "_openwidget",
+      "label": "Open widget layout"
+    }
+  ],
+  "extensions": [
+    {
+      "name": "previous",
+      "point": "CONTEXT_TOOL",
+      "uri": "tools/previous"
+    },
+    {
+      "name": "next",
+      "point": "CONTEXT_TOOL",
+      "uri": "tools/next"
+    },
+    {
+      "name": "layoutAbility",
+      "point": "CONTEXT_TOOL",
+      "uri": "tools/layout-ability"
+    }
+  ],
+  "translatedLocales": [
+    "en",
+    "ar",
+    "bs",
+    "ca",
+    "cs",
+    "da",
+    "de",
+    "el",
+    "es",
+    "et",
+    "fi",
+    "fr",
+    "he",
+    "hr",
+    "hu",
+    "id",
+    "it",
+    "ja",
+    "ko",
+    "lt",
+    "lv",
+    "nb",
+    "nl",
+    "pl",
+    "pt-br",
+    "pt-pt",
+    "ro",
+    "ru",
+    "sk",
+    "sl",
+    "sr",
+    "sv",
+    "th",
+    "tr",
+    "zh-cn",
+    "uk",
+    "vi",
+    "zh-hk",
+    "zh-tw"
+  ]
+}

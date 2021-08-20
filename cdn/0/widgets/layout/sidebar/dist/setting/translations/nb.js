@@ -1,0 +1,17 @@
+define({
+  expanded: 'Utvidet',
+  collapsed: 'Skjult',
+  panel: 'Sidepanel',
+  overlay: 'Overlegg',
+  resizable: 'Størrelse kan endres',
+  defaultState: 'Standardtilstand',
+  toggleBtn: 'Skjul knapp',
+  divider: 'Skillelinje',
+  leftPanel: 'Venstre panel',
+  topPanel: 'Øvre panel',
+  rightPanel: 'Høyre panel',
+  bottomPanel: 'Nedre panel',
+  size: 'Størrelse',
+  dockSide: 'Forankre side',
+  visible: 'Synlig',
+});

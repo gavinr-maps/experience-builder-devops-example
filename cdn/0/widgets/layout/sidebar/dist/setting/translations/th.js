@@ -1,0 +1,17 @@
+define({
+  expanded: 'ขยายแล้ว',
+  collapsed: 'ย่อ',
+  panel: 'แผงด้านข้าง',
+  overlay: 'โอเวอร์เลย์',
+  resizable: 'ปรับขนาดได้',
+  defaultState: 'สถานะเริ่มต้น',
+  toggleBtn: 'ปุ่มย่อ',
+  divider: 'ตัวแบ่ง',
+  leftPanel: 'แผงด้านซ้าย',
+  topPanel: 'แผงด้านบน',
+  rightPanel: 'แผงด้านขวา',
+  bottomPanel: 'แผงด้านล่าง',
+  size: 'ขนาด',
+  dockSide: 'ฝั่งด็อค',
+  visible: 'มองเห็น',
+});
