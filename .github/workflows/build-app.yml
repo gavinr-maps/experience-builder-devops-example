@@ -42,13 +42,17 @@ jobs:
       - name: Run download script
         run: node download.js
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+      - name: ls
+        run: ls -al
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
       - name: Unzip
         # ExB has non-standard file permissions so use chmod after unzip
         run: |
           unzip -q app.zip -d app
           chmod -R 777 app
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
       - name: Deploy to GH Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: app
+          folder: working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/app
