@@ -1,0 +1,1 @@
+define({_widgetLabel:"Tekst",defaultPlaceholder:"Dvaput kliknite da biste uredili tekst"});

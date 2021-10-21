@@ -1,0 +1,1 @@
+define({_widgetLabel:"Texto",defaultPlaceholder:"Haga doble clic para editar texto"});

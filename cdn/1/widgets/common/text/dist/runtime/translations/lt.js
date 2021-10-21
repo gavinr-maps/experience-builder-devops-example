@@ -1,0 +1,1 @@
+define({_widgetLabel:"Tekstas",defaultPlaceholder:"Dukart spustelėkite, norėdami redaguoti tekstą"});

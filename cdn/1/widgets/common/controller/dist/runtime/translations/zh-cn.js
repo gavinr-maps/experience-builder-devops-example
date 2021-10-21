@@ -1,0 +1,1 @@
+define({_widgetLabel:"微件控制器"});

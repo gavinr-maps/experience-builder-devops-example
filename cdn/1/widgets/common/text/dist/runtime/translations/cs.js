@@ -1,0 +1,1 @@
+define({_widgetLabel:"Text",defaultPlaceholder:"Dvojitým kliknutím zahájíte editaci textu"});

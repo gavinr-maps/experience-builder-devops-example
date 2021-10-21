@@ -1,0 +1,1 @@
+define({expanded:"Laiendatud",collapsed:"Ahendatud",panel:"Külgpaneel",overlay:"Ülekate",resizable:"Muudetava suurusega",defaultState:"Vaikeolek",toggleBtn:"Ahenda nupp",divider:"Jagaja",leftPanel:"Vasak paneel",topPanel:"Ülapaneel",rightPanel:"Parempoolne paneel",bottomPanel:"Alapaneel",size:"Suurus",dockSide:"Doki külg",visible:"Nähtav"});

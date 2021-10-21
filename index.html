@@ -1,4 +1,4 @@
-<!doctype html><html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/><meta http-equiv="X-UA-Compatible" content="IE=EDGE"/><title>Title</title><link rel="shortcut icon" href="assets/exb.ico"><base href="./cdn/0/"/><style>html {
+<!doctype html><html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/><meta http-equiv="X-UA-Compatible" content="IE=EDGE"/><title>Untitled experience 1</title><link rel="shortcut icon" href="assets/exb.ico"><base href="./cdn/1/"/><style>html {
 				scrollbar-color: var(--light-600) var(--light-200);
 			}
 			html, body{
@@ -24,12 +24,12 @@
 
 			var appFolderName = '.';
 			var useStructuralUrl = false;
-			var arcgisJsApiUrl = 'https://js.arcgis.com/4.20/';
+			var arcgisJsApiUrl = 'https://js.arcgis.com/4.21/';
 
 			// isDevEdition is set to false in webpack, developer edition node server will replace it to true
 			var isDevEdition = false;
 
-			var buildNumber = '0';
+			var buildNumber = '1';
 			var isBuilder = false;
 			var isSite = false;
 
@@ -125,20 +125,6 @@
 				};
 			}
 
-			function getQueryObject(){
-				var query = window.location.search;
-				if (query.indexOf('?') > -1) {
-					query = query.substr(1);
-				}
-				var pairs = query.split('&');
-				var queryObject = {};
-				for(var i = 0; i < pairs.length; i++){
-					var splits = decodeURIComponent(pairs[i]).split('=');
-					queryObject[splits[0]] = splits[1];
-				}
-				return queryObject;
-			}
-
 			initJimuConfig();
 
 			//to make react devtools works in iframe.
@@ -195,8 +181,11 @@
 		"imports": {
 			"jimu-core": "https://BASE_URL/jimu-core/index.js",
 			"jimu-core/": "https://BASE_URL/jimu-core/",
+			"jimu-theme": "https://BASE_URL/jimu-theme/index.js",
+			"jimu-theme/": "https://BASE_URL/jimu-theme/",
 			"jimu-ui": "https://BASE_URL/jimu-ui/index.js",
 			"jimu-ui/": "https://BASE_URL/jimu-ui/",
+			"jimu-icons/": "https://BASE_URL/jimu-icons/",
 			"jimu-arcgis": "https://BASE_URL/jimu-arcgis/index.js",
 			"jimu-arcgis/": "https://BASE_URL/jimu-arcgis/",
 			"jimu-layouts": "https://BASE_URL/jimu-layouts/index.js",
@@ -209,6 +198,7 @@
 			"site/": "https://BASE_URL/site/",
 			"experience/": "https://BASE_URL/experience/",
 			"template/": "https://BASE_URL/template/",
+			"templates/": "https://BASE_URL/templates/",
 			"arcgis-charts": "https://BASE_URL/arcgis-charts/arcgis-charts.js",
 
 			"esri/": "https://API_URL/esri/"
@@ -238,23 +228,6 @@
 			resolveUrl = resolveUrl + '.js';
 		}
 		return resolveUrl;
-	};
-
-	const existingGetRegisterHook = SystemJS.constructor.prototype.getRegister;
-	SystemJS.constructor.prototype.getRegister = function () {
-		let register = existingGetRegisterHook.apply(this, arguments);
-		// update the setter function to support default export
-		return [register[0], function (_export) {
-			const result = register[1](_export);
-			if(result.setters){
-				result.setters = result.setters.map(function(s){
-					return function(ns) {
-						s(ns.__useDefault ? ns.default : ns)
-					}
-				})
-			}
-			return result;
-		}];
 	};
 
 	const existingInstantiateHook = SystemJS.constructor.prototype.instantiate;

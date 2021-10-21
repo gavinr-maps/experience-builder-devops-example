@@ -1,0 +1,1 @@
+define({_widgetLabel:"Szöveg",defaultPlaceholder:"Kattintson duplán a szöveg szerkesztéséhez"});

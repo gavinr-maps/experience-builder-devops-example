@@ -1,3 +1,0 @@
-define({
-  layerIsNotSupported: 'このレイヤー タイプはサポートされていません。'
-});

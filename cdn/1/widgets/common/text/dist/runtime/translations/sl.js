@@ -1,0 +1,1 @@
+define({_widgetLabel:"Besedilo",defaultPlaceholder:"Dvokliknite za urejanje besedila"});

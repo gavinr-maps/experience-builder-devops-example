@@ -1,0 +1,1 @@
+define({expanded:"Extins",collapsed:"Restrâns",panel:"Panou lateral",overlay:"Suprapunere",resizable:"Redimensionabil",defaultState:"Stare implicită",toggleBtn:"Butonul Restrângere",divider:"Divizor",leftPanel:"Panou stâng",topPanel:"Panou superior",rightPanel:"Panou drept",bottomPanel:"Panou inferior",size:"Dimensiune",dockSide:"Partea de andocare",visible:"Vizibilă"});

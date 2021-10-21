@@ -1,0 +1,1 @@
+define({expanded:"Dibentangkan",collapsed:"Ditutup",panel:"Panel sisi",overlay:"Overlay",resizable:"Dapat diubah ukurannya",defaultState:"Status default",toggleBtn:"Tombol tutup",divider:"Pemisah",leftPanel:"Panel kiri",topPanel:"Panel atas",rightPanel:"Panel kanan",bottomPanel:"Panel bawah",size:"Ukuran",dockSide:"Dok samping",visible:"Terlihat"});

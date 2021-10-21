@@ -1,0 +1,1 @@
+define({_widgetLabel:"Tekst",defaultPlaceholder:"Teksti muutmiseks tehke palun topeltklõps"});

@@ -1,0 +1,1 @@
+"use strict";"serviceWorker"in navigator&&window.addEventListener("load",(function(){navigator.serviceWorker.register(window.jimuConfig.mountPath+"service-worker.js").then((function(r){console.log("Register a service worker.")})).catch((function(r){console.error("Error during service worker registration:",r)}))}));

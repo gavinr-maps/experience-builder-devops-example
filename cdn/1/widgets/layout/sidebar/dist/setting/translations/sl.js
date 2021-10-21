@@ -1,0 +1,1 @@
+define({expanded:"Razširjeno",collapsed:"Strnjeno",panel:"Stranska plošča",overlay:"Prekrivanje",resizable:"Spreminjanje velikosti",defaultState:"Privzeto stanje",toggleBtn:"Gumb za strnitev",divider:"Delitelj",leftPanel:"Leva plošča",topPanel:"Plošča na vrhu",rightPanel:"Desna plošča",bottomPanel:"Plošča na dnu",size:"Velikost",dockSide:"Zasidraj na strani",visible:"Vidno"});

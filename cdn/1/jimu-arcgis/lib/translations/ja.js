@@ -1,0 +1,1 @@
+define({layerIsNotSupported:"このレイヤー タイプはサポートされていません。"});

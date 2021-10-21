@@ -1,0 +1,1 @@
+define({expanded:"Rozwinięte",collapsed:"Zwinięte",panel:"Panel boczny",overlay:"Nakładanie",resizable:"Możliwa zmiana rozmiaru",defaultState:"Stan domyślny",toggleBtn:"Przycisk Zwiń",divider:"Ogranicznik",leftPanel:"Lewy panel",topPanel:"Panel górny",rightPanel:"Panel prawy",bottomPanel:"Panel dolny",size:"Rozmiar",dockSide:"Strona dokowania",visible:"Widoczne"});

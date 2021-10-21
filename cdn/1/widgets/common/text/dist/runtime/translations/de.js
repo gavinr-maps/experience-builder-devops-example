@@ -1,0 +1,1 @@
+define({_widgetLabel:"Text",defaultPlaceholder:"Doppelklicken, um Text zu bearbeiten"});
