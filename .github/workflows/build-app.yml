@@ -20,6 +20,12 @@ jobs:
         run: unzip -q arcgis-experience-builder-1.6.zip -d arcgis-experience-builder-1.6
       - name: ls
         run: ls -al
+      - name: Copy Custom Widgets
+        run: cp widgets/* client/your-extensions/widgets
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+      - name: ls
+        run: ls -al client/your-extensions/widgets
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
       # - name: Unzip
       #   # ExB has non-standard file permissions so use chmod after unzip
       #   run: |
