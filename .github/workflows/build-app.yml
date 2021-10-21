@@ -21,8 +21,7 @@ jobs:
       - name: ls
         run: ls -al
       - name: Copy Custom Widgets
-        run: cp widgets/* client/your-extensions/widgets
-        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+        run: cp widgets/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client/your-extensions/widgets
       - name: ls
         run: ls -al client/your-extensions/widgets
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
