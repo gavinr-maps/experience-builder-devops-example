@@ -11,24 +11,42 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Download Experience Builder
-        run: npx arcgis-lib-downloader -p arcgis-experience-builder -v 1.5
+        run: npx arcgis-lib-downloader -p arcgis-experience-builder -v 1.6
         env:
           ARCGIS_LIB_DOWNLOADER_USERNAME: ${{ secrets.ARCGIS_LIB_DOWNLOADER_USERNAME }}
           ARCGIS_LIB_DOWNLOADER_PASSWORD: ${{ secrets.ARCGIS_LIB_DOWNLOADER_PASSWORD }}
-      - name: Docker Build ExB Image
-        run: docker build --tag exb .
-      - name: Docker Run Server
-        run: |
-          docker run -d --publish 3001:3001 exb
-          sleep 5
-          wget https://localhost:3001/download/0?locale=en-us --no-check-certificate -O app.zip
-      - name: Unzip
+      - name: Unzip Experience Builder
+        run: unzip -q arcgis-experience-builder-1.6.zip -d arcgis-experience-builder-1.6
+      - name: Copy Custom Widgets
+        run: cp -r widgets/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client/your-extensions/widgets
+      - name: Create app directory
+        run: mkdir public && cd public && mkdir apps && cd apps
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server
+      - name: Copy apps
+        run: cp -r apps/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server/public/apps
+      - name: NPM install client folder
+        run: npm ci
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client
+      - name: NPM install in server folder
+        run: npm ci
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server
+      - name: Build widgets
+        run: npm run build:dev
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client
+      - name: Create download script
+        run: echo "const zipApp = require('./server/src/middlewares/dev/apps/app-download.js');zipApp.zipApp('0', 'app.zip');" > download.js
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+      - name: Run download script
+        run: node download.js
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+      - name: Unzip app zip
         # ExB has non-standard file permissions so use chmod after unzip
         run: |
           unzip -q app.zip -d app
           chmod -R 777 app
-      - name: Deploy to GH Pages
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+      - name: Deploy app zip to GH Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: app
+          folder: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/app
