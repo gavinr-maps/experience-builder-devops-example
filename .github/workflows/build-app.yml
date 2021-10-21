@@ -1,9 +1,8 @@
 name: Build and Deploy
-on: push
-# on:
-#   push:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   Build-and-Deploy:
@@ -18,8 +17,6 @@ jobs:
           ARCGIS_LIB_DOWNLOADER_PASSWORD: ${{ secrets.ARCGIS_LIB_DOWNLOADER_PASSWORD }}
       - name: Unzip Experience Builder
         run: unzip -q arcgis-experience-builder-1.6.zip -d arcgis-experience-builder-1.6
-      - name: ls
-        run: ls -al
       - name: Copy Custom Widgets
         run: cp -r widgets/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client/your-extensions/widgets
       - name: Create app directory
@@ -27,10 +24,10 @@ jobs:
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server
       - name: Copy apps
         run: cp -r apps/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server/public/apps
-      - name: Run npm ci in client folder
+      - name: NPM install client folder
         run: npm ci
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client
-      - name: Run npm ci in server folder
+      - name: NPM install in server folder
         run: npm ci
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server
       - name: Build widgets
@@ -42,16 +39,13 @@ jobs:
       - name: Run download script
         run: node download.js
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
-      - name: ls
-        run: ls -al
-        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
-      - name: Unzip
+      - name: Unzip app zip
         # ExB has non-standard file permissions so use chmod after unzip
         run: |
           unzip -q app.zip -d app
           chmod -R 777 app
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
-      - name: Deploy to GH Pages
+      - name: Deploy app zip to GH Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
