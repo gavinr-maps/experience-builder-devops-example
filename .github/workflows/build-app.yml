@@ -22,16 +22,33 @@ jobs:
         run: ls -al
       - name: Copy Custom Widgets
         run: cp -r widgets/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client/your-extensions/widgets
-      - name: ls
-        run: ls -al client/your-extensions/widgets
+      - name: Create app directory
+        run: mkdir public && cd public && mkdir apps && cd apps
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server
+      - name: Copy apps
+        run: cp -r apps/* arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server/public/apps
+      - name: Run npm ci in client folder
+        run: npm ci
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client
+      - name: Run npm ci in server folder
+        run: npm ci
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/server
+      - name: Build widgets
+        run: npm run build:dev
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder/client
+      - name: Create download script
+        run: echo "const zipApp = require('./server/src/middlewares/dev/apps/app-download.js');zipApp.zipApp('0', 'app.zip');" > download.js
         working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
-      # - name: Unzip
-      #   # ExB has non-standard file permissions so use chmod after unzip
-      #   run: |
-      #     unzip -q app.zip -d app
-      #     chmod -R 777 app
-      # - name: Deploy to GH Pages
-      #   uses: JamesIves/github-pages-deploy-action@4.1.4
-      #   with:
-      #     branch: gh-pages
-      #     folder: app
+      - name: Run download script
+        run: node download.js
+        working-directory: arcgis-experience-builder-1.6/ArcGISExperienceBuilder
+      - name: Unzip
+        # ExB has non-standard file permissions so use chmod after unzip
+        run: |
+          unzip -q app.zip -d app
+          chmod -R 777 app
+      - name: Deploy to GH Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: app
