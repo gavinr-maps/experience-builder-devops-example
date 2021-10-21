@@ -1,8 +1,9 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
+on: push
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   Build-and-Deploy:
@@ -11,24 +12,21 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Download Experience Builder
-        run: npx arcgis-lib-downloader -p arcgis-experience-builder -v 1.5
+        run: npx arcgis-lib-downloader -p arcgis-experience-builder -v 1.6
         env:
           ARCGIS_LIB_DOWNLOADER_USERNAME: ${{ secrets.ARCGIS_LIB_DOWNLOADER_USERNAME }}
           ARCGIS_LIB_DOWNLOADER_PASSWORD: ${{ secrets.ARCGIS_LIB_DOWNLOADER_PASSWORD }}
-      - name: Docker Build ExB Image
-        run: docker build --tag exb .
-      - name: Docker Run Server
-        run: |
-          docker run -d --publish 3001:3001 exb
-          sleep 5
-          wget https://localhost:3001/download/0?locale=en-us --no-check-certificate -O app.zip
-      - name: Unzip
-        # ExB has non-standard file permissions so use chmod after unzip
-        run: |
-          unzip -q app.zip -d app
-          chmod -R 777 app
-      - name: Deploy to GH Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages
-          folder: app
+      - name: Unzip Experience Builder
+        run: unzip -q arcgis-experience-builder-1.6.zip -d arcgis-experience-builder-1.6
+      - name: ls
+        run: ls -al
+      # - name: Unzip
+      #   # ExB has non-standard file permissions so use chmod after unzip
+      #   run: |
+      #     unzip -q app.zip -d app
+      #     chmod -R 777 app
+      # - name: Deploy to GH Pages
+      #   uses: JamesIves/github-pages-deploy-action@4.1.4
+      #   with:
+      #     branch: gh-pages
+      #     folder: app
