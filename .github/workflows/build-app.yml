@@ -1,13 +1,18 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
+on: push
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   Build-and-Deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Install gnu parallel
+        run: |
+          (wget -O - pi.dk/3 || lynx -source pi.dk/3 || curl pi.dk/3/ || fetch -o - http://pi.dk/3 ) > install.sh
+          bash install.sh
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Download Experience Builder
