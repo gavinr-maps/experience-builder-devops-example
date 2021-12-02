@@ -141,7 +141,7 @@ export default class Widget extends React.PureComponent<
             />
           )}
 
-        <p>{defaultMessages.instructions}</p>
+        <p>{defaultMessages.instructions} (<a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0" target="_blank">example</a>)</p>
 
         <form onSubmit={this.formSubmit}>
           <div>
