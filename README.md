@@ -12,3 +12,5 @@
 The built app is deployed to GitHub Pages: https://gavinr.github.io/experience-builder-devops-example/
 
 More information on how the GitHub Action script generates the Experience Builder app export can be found [here](https://community.esri.com/t5/arcgis-experience-builder-blog/experience-builder-devops-generating-the-app/ba-p/1112247).
+
+[![](https://gavinr.github.io/experience-builder-devops-example/screenshot.png)](https://gavinr.github.io/experience-builder-devops-example/)
