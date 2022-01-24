@@ -64,7 +64,6 @@
       "order": [
         "0",
         "1",
-        "2",
         "3"
       ],
       "content": {
@@ -88,7 +87,7 @@
         "1": {
           "type": "WIDGET",
           "bbox": {
-            "left": "82px",
+            "left": "20.00px",
             "top": "50%",
             "width": "291px",
             "height": "42px",
@@ -98,25 +97,6 @@
           "setting": {
             "vCenter": true,
             "hCenter": false,
-            "autoProps": {
-              "top": false,
-              "bottom": true
-            }
-          }
-        },
-        "2": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "380px",
-            "top": "50%",
-            "width": "207px",
-            "height": "32px",
-            "bottom": "0px",
-            "right": "NaNpx"
-          },
-          "setting": {
-            "hCenter": false,
-            "vCenter": true,
             "autoProps": {
               "top": false,
               "bottom": true
@@ -683,7 +663,7 @@
           "LARGE": "layout_2"
         }
       },
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "Fixed Panel 1"
     },
     "widget_2": {
@@ -715,7 +695,7 @@
         },
         "styleConfig": {}
       },
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "Image 1"
     },
     "widget_3": {
@@ -723,7 +703,6 @@
       "uri": "widgets/common/text/",
       "config": {
         "text": "<p><span style=\"color: var(--light); font-size: 24px;\">Demo App!</span></p>",
-        "placeholder": "<p><span style=\"font-size: 24px; color: var(--light);\">Here is the title</span></p>",
         "style": {
           "verticalAlign": "center",
           "wrap": true,
@@ -731,7 +710,7 @@
           "padding": "p-1"
         }
       },
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "Text 1"
     },
     "widget_5": {
@@ -754,7 +733,8 @@
               "type": "primary",
               "size": "default",
               "shape": "rectangle"
-            }
+            },
+            "showTooltip": true
           }
         }
       },
@@ -774,7 +754,7 @@
         "widget_14",
         "widget_15"
       ],
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "Widget Controller 1"
     },
     "widget_6": {
@@ -839,7 +819,7 @@
           "LARGE": "layout_14"
         }
       },
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "Sidebar 1"
     },
     "widget_10": {
@@ -900,7 +880,7 @@
           "MEDIUM": "layout_30"
         }
       },
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "Map 1"
     },
     "widget_12": {
@@ -1135,7 +1115,7 @@
     },
     "widget_18": {
       "uri": "widgets/add-layers/",
-      "version": "1.5.0",
+      "version": "1.7.0",
       "label": "add-layers 1",
       "config": {
         "zoomToLayer": true
@@ -1146,11 +1126,11 @@
       ]
     }
   },
-  "exbVersion": "1.5.0",
+  "exbVersion": "1.7.0",
   "mainSizeMode": "LARGE",
   "theme": "themes/default/",
   "forBuilderAttributes": {
-    "lockLayout": true
+    "lockLayout": false
   },
   "template": "jewelrybox",
   "widgetsManifest": {},
@@ -1163,20 +1143,19 @@
       "home": []
     }
   ],
-  "timestamp": 1629502955612,
+  "timestamp": 1643069231963,
   "attributes": {
     "portalUrl": "https://prof-services.maps.arcgis.com"
   },
-  "customTheme": {
-    "sharedThemeVariables": {
-      "header": {},
-      "body": {},
-      "button": {},
-      "logo": {
-        "small": null,
-        "link": null
-      }
+  "customTheme": {},
+  "dialogs": {},
+  "sharedThemeVariables": {
+    "header": {},
+    "body": {},
+    "button": {},
+    "logo": {
+      "small": null,
+      "link": null
     }
-  },
-  "dialogs": {}
+  }
 }

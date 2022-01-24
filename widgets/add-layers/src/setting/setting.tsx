@@ -2,7 +2,7 @@
 /**
   Licensing
 
-  Copyright 2021 Esri
+  Copyright 2022 Esri
 
   Licensed under the Apache License, Version 2.0 (the "License"); You
   may not use this file except in compliance with the License. You may
@@ -22,7 +22,7 @@ import { React, FormattedMessage, css, jsx } from "jimu-core";
 import { AllWidgetSettingProps } from "jimu-for-builder";
 import { Switch } from "jimu-ui";
 import {
-  JimuMapViewSelector,
+  MapWidgetSelector,
   SettingSection,
   SettingRow
 } from "jimu-ui/advanced/setting-components";
@@ -73,7 +73,7 @@ export default class Setting extends React.PureComponent<
             </SettingRow>
             */}
             <SettingRow>
-              <JimuMapViewSelector
+              <MapWidgetSelector
                 onSelect={this.onMapWidgetSelected}
                 useMapWidgetIds={this.props.useMapWidgetIds}
               />

@@ -2,7 +2,7 @@
 /**
   Licensing
 
-  Copyright 2021 Esri
+  Copyright 2022 Esri
 
   Licensed under the Apache License, Version 2.0 (the "License"); You
   may not use this file except in compliance with the License. You may
@@ -141,7 +141,7 @@ export default class Widget extends React.PureComponent<
             />
           )}
 
-        <p>{defaultMessages.instructions} (<a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0" target="_blank">example</a>)</p>
+        <p>{defaultMessages.instructions}</p>
 
         <form onSubmit={this.formSubmit}>
           <div>
