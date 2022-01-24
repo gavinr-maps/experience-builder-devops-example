@@ -1,4 +1,4 @@
-<!doctype html><html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/><meta http-equiv="X-UA-Compatible" content="IE=EDGE"/><title>Demo App</title><link rel="shortcut icon" href="assets/exb.ico"><base href="./cdn/1/"/><style>html {
+<!doctype html><html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/><meta http-equiv="X-UA-Compatible" content="IE=EDGE"/><title>Add Layers</title><link rel="shortcut icon" href="assets/exb.ico"><base href="./cdn/1/"/><style>html {
 				scrollbar-color: var(--light-600) var(--light-200);
 			}
 			html, body{
@@ -6,6 +6,15 @@
 				height: 100%;
 				margin: 0;
 				overflow: hidden;
+			}
+			html.scrollable {
+				overflow: auto;
+			}
+			html.scrollable body {
+				overflow: unset;
+			}
+			html.scrollable body, html.scrollable #app {
+				height: auto;
 			}
 			#loading{
 				width: 100vw;
@@ -24,7 +33,7 @@
 
 			var appFolderName = '.';
 			var useStructuralUrl = false;
-			var arcgisJsApiUrl = 'https://js.arcgis.com/4.21/';
+			var arcgisJsApiUrl = 'https://js.arcgis.com/4.22/';
 
 			// isDevEdition is set to false in webpack, developer edition node server will replace it to true
 			var isDevEdition = false;

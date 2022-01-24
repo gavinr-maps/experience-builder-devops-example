@@ -87,4 +87,10 @@ export default {
 
   versionIsHigh: 'Oops.. It seems this experience is built with a higher version of ArcGIS Experience Builder. Please upgrade to the latest version to view.',
   badVersion: 'Oops.. It seems the version of this experience is incorrect. Please check its configuration file.',
+
+  // set client id for ArcGIS Enterprise
+  setClientIdMessage1: 'This service is hosted on an ArcGIS Enterprise that the Experience Builder not registered with. Please provide Client ID to {register} first.',
+  registerText: 'register',
+  arcgisEnterpriseText: 'ArcGIS Enterprise',
+  setClientIdMessage2: 'Provide the Client ID for Experience Builder registered in the ArcGIS Enterprise you specify above'
 }

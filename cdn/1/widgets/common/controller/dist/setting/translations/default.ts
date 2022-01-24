@@ -9,7 +9,7 @@ export default {
   iconInterval: 'Spacing',
   textFormatOverride: 'Text',
   iconBackgroundOverride: 'Icon',
-  openStart: 'Open widgets when the page is loaded',
+  openStart: 'Open widgets on loading',
   widgetsSelected: '{widgetNumber} widgets selected',
   appearanceTip: 'Select the widgets inside the Widget Controller, and customize their icons, labels, or styles to change their appearances.'
 }

@@ -8,7 +8,6 @@ export default {
   altText: 'Alt text',
   imageSetLink: 'Set link',
   imageShape: 'Shape',
-  setLinkForImage: 'Set link',
   imagePosition: 'Position',
   imageFit: 'Fit',
   imageFill: 'Fill',
@@ -24,5 +23,10 @@ export default {
   imagerhombus: 'Rhombus',
   imagetriangle: 'Triangle',
   imageShapeSettings: 'Shape settings',
-  imageUploadBlankStatus: 'Click the "{ButtonString}" button to select an image from your device.'
+  imageUploadBlankStatus: 'Click the "{ButtonString}" button to select an image from your device.',
+  imageDisplayQuality: 'Image display quality',
+  displayQualityTooltipWithLow: 'Low',
+  displayQualityTooltipWithMedium: 'Medium',
+  displayQualityTooltipWithHigh: 'High',
+  displayQualityTooltipWithOriginal: 'Original',
 }

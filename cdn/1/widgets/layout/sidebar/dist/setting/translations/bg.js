@@ -1,0 +1,1 @@
+define({expanded:"Разгънат",collapsed:"Сгънат",panel:"Страничен панел",overlay:"Наслагване",resizable:"Преоразмеряване",defaultState:"Състояние по подразбиране",toggleBtn:"Бутон за сгъване",divider:"Разделител",leftPanel:"Ляв панел",topPanel:"Горен панел",rightPanel:"Десен панел",bottomPanel:"Долен панел",size:"Размер",dockSide:"Доксайд",visible:"Видимост"});

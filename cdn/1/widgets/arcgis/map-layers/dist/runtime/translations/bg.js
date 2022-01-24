@@ -1,0 +1,1 @@
+define({_widgetLabel:"Слоеве на карта",goto:"Приближаване",information:"Подробни данни",increaseOpacity:"Увеличете непрозрачността",decreaseOpacity:"Намалете непрозрачността"});
