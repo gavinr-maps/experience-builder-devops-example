@@ -33,7 +33,7 @@
 
 			var appFolderName = '.';
 			var useStructuralUrl = false;
-			var arcgisJsApiUrl = 'https://js.arcgis.com/4.22/';
+			var arcgisJsApiUrl = 'https://js.arcgis.com/4.23/';
 
 			// isDevEdition is set to false in webpack, developer edition node server will replace it to true
 			var isDevEdition = false;
@@ -50,7 +50,7 @@
 
 			var hostEnv = 'prod';
 			if(!isDevEdition && !isInPortal){ // online host version.
-				if(location.hostname === 'experiencedev.arcgis.com' || location.hostname === 'experiencedevtest.arcgis.com'){
+				if(location.hostname === 'experiencedev.arcgis.com'){
           hostEnv = 'dev';
 				}else if(location.hostname === 'experienceqa.arcgis.com'){
           hostEnv = 'qa';
@@ -209,6 +209,8 @@
 			"template/": "https://BASE_URL/template/",
 			"templates/": "https://BASE_URL/templates/",
 			"arcgis-charts": "https://BASE_URL/arcgis-charts/arcgis-charts.js",
+			"calcite-components": "https://BASE_URL/calcite-components/index.js",
+			"calcite-components/": "https://BASE_URL/calcite-components/",
 
 			"esri/": "https://API_URL/esri/"
 		}
@@ -388,4 +390,13 @@
 				window.location.href = mountPath + 'unsupported-browser/index.html';
 			}else{
 				SystemJS.import(jimuConfig.appFolderName + '/index.js');
+
+				// These libs are requried by all apps, load them here for performance.
+				SystemJS.import('jimu-core/react');
+				SystemJS.import('jimu-core/react-dom');
+				SystemJS.import('jimu-core');
+				SystemJS.import('jimu-ui');
+				SystemJS.import('jimu-layouts/layout-runtime');
+				SystemJS.import('jimu-theme');
+				SystemJS.import('jimu-arcgis');
 			}</script><script></script></body></html>

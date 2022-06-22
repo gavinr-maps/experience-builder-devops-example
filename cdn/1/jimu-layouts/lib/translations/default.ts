@@ -23,7 +23,7 @@ export default {
   moveToRight: 'Move to right',
   moveToTop: 'Move to top',
   moveToBottom: 'Move to bottom',
-  addView: 'Add view',
+  addView: 'New view',
   duplicateScreen: 'Duplicate screen',
   deleteScreen: 'Delete screen',
   applyToFirstPanel: 'Apply to the first panel',
