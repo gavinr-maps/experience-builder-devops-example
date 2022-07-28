@@ -27,6 +27,7 @@ export default {
   message_DataRecordsSelectionChange: 'Record selection changes',
   message_DataRecordSetChange: 'Records created',
   message_SelectDataRecord: 'Select data record',
+  message_LocationChange: 'Location change',
 
   actions: 'Actions',
   noActions: 'No available actions',
@@ -40,6 +41,7 @@ export default {
   dataAction_ExportJson: 'Export to JSON',
   dataAction_ExportCSV: 'Export to CSV',
   dataAction_ExportGeoJson: 'Export to GeoJSON',
+  dataAction_ExportItem: 'Export to Item',
   messageAction_SelectDataRecord: 'Select data records',
   messageAction_FilterDataRecord: 'Filter data records',
 

@@ -1,1 +1,1 @@
-define({_widgetLabel:"Camadas do Mapa",goto:"Zoom para",information:"Detalhes",increaseOpacity:"Aumentar opacidade",decreaseOpacity:"Diminuir opacidade"});
+define({_widgetLabel:"Camadas do Mapa",goto:"Zoom para",information:"Detalhes",increaseOpacity:"Aumentar opacidade",decreaseOpacity:"Diminuir opacidade",showLabels:"Mostrar rótulos",hideLabels:"Ocultar rótulos"});

@@ -2,8 +2,8 @@
   "name": "arcgis-map",
   "label": "Map",
   "type": "widget",
-  "version": "1.8.0",
-  "exbVersion": "1.8.0",
+  "version": "1.9.0",
+  "exbVersion": "1.9.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -40,7 +40,8 @@
     {
       "name": "showOnMap",
       "label": "Show on map",
-      "uri": "message-actions/show-on-map-action"
+      "uri": "message-actions/show-on-map-action",
+      "settingUri": "message-actions/show-on-map-action-setting"
     }
   ],
   "defaultSize": {
@@ -72,6 +73,7 @@
       "name": "showOnMap",
       "label": "Show on map",
       "uri": "data-actions/show-on-map",
+      "settingUri": "data-actions/show-on-map-setting",
       "icon": "runtime/assets/icons/ds-map-view.svg"
     }
   ],

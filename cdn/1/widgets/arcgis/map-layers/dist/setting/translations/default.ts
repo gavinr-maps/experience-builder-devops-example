@@ -6,6 +6,7 @@ export default {
   information: 'View layer details',
   options: 'Options',
   setVisibility: 'Toggle layer visibility',
+  showOrHideLabels: 'Show or hide labels',
   showLayerForMap: 'Show layers for map data only',
   interactWithMap: 'Interact with a Map widget'
 }

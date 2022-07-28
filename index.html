@@ -33,7 +33,7 @@
 
 			var appFolderName = '.';
 			var useStructuralUrl = false;
-			var arcgisJsApiUrl = 'https://js.arcgis.com/4.23/';
+			var arcgisJsApiUrl = 'https://js.arcgis.com/4.24/';
 
 			// isDevEdition is set to false in webpack, developer edition node server will replace it to true
 			var isDevEdition = false;
@@ -386,7 +386,7 @@
 		head.removeChild(script);
 		window.onerror = orgOnerror;
 	}</script><script>window.jimuUA = bowser.parse(window.navigator.userAgent);
-			if(window.jimuUA.browser.name === 'Internet Explorer'){
+			if(window.jimuUA.browser.name === 'Internet Explorer' || typeof window.ResizeObserver !== 'function'){
 				window.location.href = mountPath + 'unsupported-browser/index.html';
 			}else{
 				SystemJS.import(jimuConfig.appFolderName + '/index.js');

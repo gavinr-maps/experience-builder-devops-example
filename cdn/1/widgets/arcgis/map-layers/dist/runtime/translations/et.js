@@ -1,1 +1,1 @@
-define({_widgetLabel:"Kaardikihid",goto:"Suumi",information:"Detailid",increaseOpacity:"Suurenda läbipaistmatust",decreaseOpacity:"Vähenda läbipaistmatust"});
+define({_widgetLabel:"Kaardikihid",goto:"Suumi",information:"Detailid",increaseOpacity:"Suurenda läbipaistmatust",decreaseOpacity:"Vähenda läbipaistmatust",showLabels:"Kuva sildid",hideLabels:"Peida sildid"});

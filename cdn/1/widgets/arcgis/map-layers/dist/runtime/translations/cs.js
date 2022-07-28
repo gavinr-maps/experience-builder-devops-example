@@ -1,1 +1,1 @@
-define({_widgetLabel:"Vrstvy mapy",goto:"Zvětšit na",information:"Detaily",increaseOpacity:"Zvýšit krytí",decreaseOpacity:"Snížit krytí"});
+define({_widgetLabel:"Vrstvy mapy",goto:"Zvětšit na",information:"Detaily",increaseOpacity:"Zvýšit krytí",decreaseOpacity:"Snížit krytí",showLabels:"Zobrazit popisky",hideLabels:"Skrýt popisky"});

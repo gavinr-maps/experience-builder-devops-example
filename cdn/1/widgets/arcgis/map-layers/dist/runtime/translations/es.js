@@ -1,1 +1,1 @@
-define({_widgetLabel:"Capas del mapa",goto:"Acercar a",information:"Detalles",increaseOpacity:"Aumentar opacidad",decreaseOpacity:"Reducir opacidad"});
+define({_widgetLabel:"Capas del mapa",goto:"Acercar a",information:"Detalles",increaseOpacity:"Aumentar opacidad",decreaseOpacity:"Reducir opacidad",showLabels:"Mostrar etiquetas",hideLabels:"Ocultar etiquetas"});

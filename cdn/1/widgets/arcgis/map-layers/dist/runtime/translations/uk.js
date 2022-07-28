@@ -1,1 +1,1 @@
-define({_widgetLabel:"Шари карти",goto:"Масштабувати до",information:"Детальна інформація",increaseOpacity:"Збільшити прозорість",decreaseOpacity:"Зменшити прозорість"});
+define({_widgetLabel:"Шари карти",goto:"Масштабувати до",information:"Детальна інформація",increaseOpacity:"Збільшити прозорість",decreaseOpacity:"Зменшити прозорість",showLabels:"Показати написи",hideLabels:"Приховати написи"});

@@ -1,1 +1,1 @@
-define({_widgetLabel:"Θεματικά επίπεδα χάρτη",goto:"Εστίαση σε",information:"Αναλυτικές πληροφορίες",increaseOpacity:"Αύξηση αδιαφάνειας",decreaseOpacity:"Μείωση αδιαφάνειας"});
+define({_widgetLabel:"Θεματικά επίπεδα χάρτη",goto:"Εστίαση σε",information:"Αναλυτικές πληροφορίες",increaseOpacity:"Αύξηση αδιαφάνειας",decreaseOpacity:"Μείωση αδιαφάνειας",showLabels:"Εμφάνιση ετικετών",hideLabels:"Απόκρυψη ετικετών"});
