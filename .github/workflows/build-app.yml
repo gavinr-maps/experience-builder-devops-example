@@ -19,7 +19,7 @@ jobs:
         run: unzip -q arcgis-experience-builder-1.9.zip -d arcgis-experience-builder-1.9
       - name: Copy Custom Widgets
         run: cp -r widgets/* arcgis-experience-builder-1.9/ArcGISExperienceBuilder/client/your-extensions/widgets
-      - name: Create app directory
+      - name: Create App directory
         run: mkdir public && cd public && mkdir apps && cd apps
         working-directory: arcgis-experience-builder-1.9/ArcGISExperienceBuilder/server
       - name: Copy apps
