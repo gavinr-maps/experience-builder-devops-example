@@ -1,1 +1,1 @@
-define({_widgetLabel:"Fiksna plošča",widgetProperties:"Lastnosti pripomočka",widgetFunctions:"Funkcije pripomočka",widgetName:"ime pripomočka:",widgetProps:"lastnosti pripomočka:",tips:"Fiksna plošča"});
+System.register([],(function(i){return{execute:function(){i({_widgetLabel:"Fiksna plošča",widgetProperties:"Lastnosti pripomočka",widgetFunctions:"Funkcije pripomočka",widgetName:"ime pripomočka:",widgetProps:"lastnosti pripomočka:",tips:"Fiksna plošča"})}}}));

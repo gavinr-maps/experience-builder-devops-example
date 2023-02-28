@@ -1,1 +1,1 @@
-define({_widgetLabel:"Miniprogramkontroller"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Miniprogramkontroller"})}}}));

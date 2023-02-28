@@ -1,1 +1,1 @@
-define({_widgetLabel:"ตัวอักษร",defaultPlaceholder:"ดับเบิลคลิกเพื่อแก้ไขข้อความ"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"ตัวอักษร",defaultPlaceholder:"ดับเบิลคลิกเพื่อแก้ไขข้อความ"})}}}));

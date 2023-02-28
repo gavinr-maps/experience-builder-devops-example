@@ -1,1 +1,1 @@
-define({wrap:"Umotaj",verticalAlignment:"Vertikalno poravnanje"});
+System.register([],(function(e){return{execute:function(){e({wrap:"Umotaj",verticalAlignment:"Vertikalno poravnanje"})}}}));

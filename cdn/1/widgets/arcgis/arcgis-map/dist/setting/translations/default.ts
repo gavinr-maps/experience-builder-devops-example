@@ -46,7 +46,7 @@ export default {
   mapAction_Point: 'Point',
   mapAction_Polyline: 'Polyline',
   mapAction_Polygon: 'Polygon',
-  mapAction_UseLayerDefinedSymbols: 'Use layer defined symbols',
+  mapAction_UseLayerDefinedSymbols: 'Use layer-defined symbols',
   mapAction_UseCustomSymbols: 'Use custom symbols',
   mapZoomToAction_ZoomScale: 'Zoom scale',
   mapZoomToAction_Automatic: 'Automatic',

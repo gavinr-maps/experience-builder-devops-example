@@ -1,1 +1,1 @@
-define({wrap:"Опаковане",verticalAlignment:"Вертикално подравняване"});
+System.register([],(function(e){return{execute:function(){e({wrap:"Опаковане",verticalAlignment:"Вертикално подравняване"})}}}));

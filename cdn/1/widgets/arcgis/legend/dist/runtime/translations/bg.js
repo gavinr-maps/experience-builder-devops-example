@@ -1,1 +1,1 @@
-define({_widgetLabel:"Легенда"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Легенда"})}}}));

@@ -1,1 +1,1 @@
-define({_widgetLabel:"Karttatasot",goto:"Tarkenna kohteeseen",information:"Tiedot",increaseOpacity:"Lisää peittävyyttä",decreaseOpacity:"Vähennä peittävyyttä",showLabels:"Näytä tunnustekstit",hideLabels:"Piilota tunnustekstit"});
+System.register([],(function(t){return{execute:function(){t({_widgetLabel:"Karttatasot",goto:"Tarkenna kohteeseen",information:"Tiedot",increaseOpacity:"Lisää peittävyyttä",decreaseOpacity:"Vähennä peittävyyttä",showLabels:"Näytä tunnustekstit",hideLabels:"Piilota tunnustekstit"})}}}));

@@ -66,6 +66,7 @@ export default {
   block: 'Block',
   screenGroup: 'Screen group',
   screen: 'Screen',
+  grid: 'Grid',
 
   dialogConfirmationDefaultText: 'I agree to the above terms and conditions',
   dialogPreventDisplayAgainDefaultText: 'Don\'t show this again',
@@ -79,10 +80,17 @@ export default {
   roleError2: 'Experience Builder Developer Edition requires an ArcGIS organization account with a user type that includes privileges to create content.',
   invalidResourceExperience: 'This is not a supported item.',
   invalidResourceItem: 'Item does not exist or is inaccessible.',
-  invalidResourcePermission: 'You do not have permissions to access this resource.',
+  invalidResourcePermission: 'Sorry, you do not have permissions to access this application.',
   dataSourceCreateError: 'Data is inaccessible.',
   blockedByAdminErrorForApp: 'Your organization has blocked access to this application. Please contact your administrator for details.',
   blockedByAdminErrorForBuilder: 'Your organization has blocked access to Experience Builder. Please contact your administrator for details.',
+  goToAnotherExperienceBtn: 'Go to another experience',
+  switchAccoutBtn: 'Switch account',
+
+  // sign-in error
+  signInErrorDefault: 'Sorry, you do not have permission to access this resource.',
+  signInErrorEnterCredential: 'Sorry, you do not have permission to access this resource. Click to enter credential.',
+  signInErrorTryAgain: 'Sorry, you do not have permission to access this resource. Please try again.',
 
   //in upgrade
   upgradedFrom: 'Upgraded from previous config',
@@ -94,5 +102,12 @@ export default {
   setClientIdMessage1: 'This service is hosted on an ArcGIS Enterprise that the Experience Builder not registered with. Please provide Client ID to {register} first.',
   registerText: 'register',
   arcgisEnterpriseText: 'ArcGIS Enterprise',
-  setClientIdMessage2: 'Provide the Client ID for Experience Builder registered in the ArcGIS Enterprise you specify above'
+  setClientIdMessage2: 'Provide the Client ID for Experience Builder registered in the ArcGIS Enterprise you specify above',
+
+  experienceVersionRemind: 'This experience is in higher version. Incompatible contents may not work.',
+  templateVersionRemind: 'This template is in higher version. Incompatible contents may not work.',
+  publishedExperienceVersionRemind: 'The published version of this experience is in higher version. Incompatible contents may not work.',
+  publishedTemplateVersionRemind: 'The published version of this template is in higher version. Incompatible contents may not work.',
+  draftTemplateVersionRemind: 'The draft version of this template is in higher version. Incompatible contents may not work.',
+  draftExperienceVersionRemind: 'The draft version of this experience is in higher version. Incompatible contents may not work.',
 }

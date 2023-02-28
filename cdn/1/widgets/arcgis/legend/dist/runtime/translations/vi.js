@@ -1,1 +1,1 @@
-define({_widgetLabel:"Chú giải"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Chú giải"})}}}));

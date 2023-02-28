@@ -1,1 +1,1 @@
-define({wrap:"עטוף",verticalAlignment:"יישור אנכי"});
+System.register([],(function(e){return{execute:function(){e({wrap:"עטוף",verticalAlignment:"יישור אנכי"})}}}));

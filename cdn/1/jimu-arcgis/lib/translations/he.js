@@ -1,1 +1,1 @@
-define({layerIsNotSupported:"סוג שכבה זה אינו נתמך."});
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"סוג שכבה זה אינו נתמך."})}}}));

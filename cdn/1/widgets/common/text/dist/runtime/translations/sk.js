@@ -1,1 +1,1 @@
-define({_widgetLabel:"Text",defaultPlaceholder:"Dvojklikom upravíte text"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Text",defaultPlaceholder:"Dvojklikom upravíte text"})}}}));

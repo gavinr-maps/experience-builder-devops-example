@@ -1,1 +1,1 @@
-define({_widgetLabel:"النص",defaultPlaceholder:"انقر نقرًا مزدوجًا لتحرير النص"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"النص",defaultPlaceholder:"انقر نقرًا مزدوجًا لتحرير النص"})}}}));

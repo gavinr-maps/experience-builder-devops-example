@@ -1,1 +1,1 @@
-define({layerIsNotSupported:"Jenis layer ini tidak didukung."});
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Jenis layer ini tidak didukung."})}}}));

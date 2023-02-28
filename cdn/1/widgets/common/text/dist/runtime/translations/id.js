@@ -1,1 +1,1 @@
-define({_widgetLabel:"Teks",defaultPlaceholder:"Klik dua kali untuk mengedit teks"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Teks",defaultPlaceholder:"Klik dua kali untuk mengedit teks"})}}}));

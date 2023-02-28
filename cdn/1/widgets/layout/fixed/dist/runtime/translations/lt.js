@@ -1,1 +1,1 @@
-define({_widgetLabel:"Fiksuotas skydelis",widgetProperties:"Valdiklio savybės",widgetFunctions:"Valdiklio funkcijos",widgetName:"valdiklio pavadinimas:",widgetProps:"valdiklio savybės:",tips:"Fiksuotas skydelis"});
+System.register([],(function(i){return{execute:function(){i({_widgetLabel:"Fiksuotas skydelis",widgetProperties:"Valdiklio savybės",widgetFunctions:"Valdiklio funkcijos",widgetName:"valdiklio pavadinimas:",widgetProps:"valdiklio savybės:",tips:"Fiksuotas skydelis"})}}}));

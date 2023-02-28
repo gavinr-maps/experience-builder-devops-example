@@ -1,1 +1,1 @@
-define({_widgetLabel:"Widget-controller"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget-controller"})}}}));

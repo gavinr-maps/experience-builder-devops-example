@@ -1,1 +1,1 @@
-define({_widgetLabel:"Vidina kontroller"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Vidina kontroller"})}}}));

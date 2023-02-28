@@ -1,1 +1,1 @@
-define({layerIsNotSupported:"Этот тип слоя не поддерживается."});
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Этот тип слоя не поддерживается."})}}}));

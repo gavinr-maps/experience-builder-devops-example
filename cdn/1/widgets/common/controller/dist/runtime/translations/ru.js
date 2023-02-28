@@ -1,1 +1,1 @@
-define({_widgetLabel:"Контроллер виджетов"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Контроллер виджетов"})}}}));

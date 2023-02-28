@@ -1,1 +1,1 @@
-define({_widgetLabel:"テキスト",defaultPlaceholder:"ダブルクリックしてテキストを編集"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"テキスト",defaultPlaceholder:"ダブルクリックしてテキストを編集"})}}}));

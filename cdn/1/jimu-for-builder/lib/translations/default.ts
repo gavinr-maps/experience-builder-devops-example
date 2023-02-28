@@ -25,5 +25,7 @@ export default {
   cardTitle: 'Card title',
   bookmark: 'Bookmark',
   number: 'Number',
+  templateSearchResult: 'Search result',
+  logo: 'Logo',
   appItemCopy: 'Copy'
 }

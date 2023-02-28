@@ -1,1 +1,1 @@
-define({_widgetLabel:"Panel Tetap",widgetProperties:"Properti widget",widgetFunctions:"Fungsi widget",widgetName:"nama widget:",widgetProps:"properti widget:",tips:"Panel Tetap"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Panel Tetap",widgetProperties:"Properti widget",widgetFunctions:"Fungsi widget",widgetName:"nama widget:",widgetProps:"properti widget:",tips:"Panel Tetap"})}}}));

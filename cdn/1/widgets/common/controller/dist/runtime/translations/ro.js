@@ -1,1 +1,1 @@
-define({_widgetLabel:"Controler widget"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controler widget"})}}}));

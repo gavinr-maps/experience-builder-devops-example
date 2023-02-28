@@ -1,1 +1,1 @@
-define({_widgetLabel:"Slojevi mape",goto:"Zumiraj na",information:"Detalji",increaseOpacity:"Povećaj neprozirnost",decreaseOpacity:"Smanji neprozirnost",showLabels:"Prikaži oznake",hideLabels:"Sakrij oznake"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Slojevi mape",goto:"Zumiraj na",information:"Detalji",increaseOpacity:"Povećaj neprozirnost",decreaseOpacity:"Smanji neprozirnost",showLabels:"Prikaži oznake",hideLabels:"Sakrij oznake"})}}}));

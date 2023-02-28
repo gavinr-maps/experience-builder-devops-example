@@ -1,1 +1,1 @@
-define({_widgetLabel:"คำอธิบายสัญลักษณ์"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"คำอธิบายสัญลักษณ์"})}}}));

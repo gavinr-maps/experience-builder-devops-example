@@ -1,1 +1,1 @@
-define({layerIsNotSupported:"Ce type de couche n’est pas pris en charge."});
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Ce type de couche n’est pas pris en charge."})}}}));

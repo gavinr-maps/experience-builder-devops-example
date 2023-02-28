@@ -1,1 +1,1 @@
-define({_widgetLabel:"ชั้นข้อมูลแผนที่",goto:"ขยายไปยัง",information:"รายละเอียด",increaseOpacity:"เพิ่มความทึบ",decreaseOpacity:"ลดความทึบ",showLabels:"แสดงตัวหนังสือ",hideLabels:"ซ่อนป้ายกำกับ"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"ชั้นข้อมูลแผนที่",goto:"ขยายไปยัง",information:"รายละเอียด",increaseOpacity:"เพิ่มความทึบ",decreaseOpacity:"ลดความทึบ",showLabels:"แสดงตัวหนังสือ",hideLabels:"ซ่อนป้ายกำกับ"})}}}));

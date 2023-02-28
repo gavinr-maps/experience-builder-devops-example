@@ -1,1 +1,1 @@
-define({wrap:"ครอบ",verticalAlignment:"การจัดวางแนวตั้ง"});
+System.register([],(function(e){return{execute:function(){e({wrap:"ครอบ",verticalAlignment:"การจัดวางแนวตั้ง"})}}}));

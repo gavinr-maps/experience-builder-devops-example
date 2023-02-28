@@ -12,23 +12,29 @@
       function processAuthentication() {
         const {query, hash} = getQueryAndHashObject();
         const popup = query.popup === 'true';
+        window.onbeforeunload = () => {
+          console.log('onbeforeunload');
+        }
         if(hash.error){
-          alert(hash.error_description || hash.error_description);
-          const {portal, clientId, fromUrl} = query;
+          if (hash.error !== 'access_denied') {
+            // alert error message except for clicking cancel
+            alert(hash.error_description || hash.error);
+          }
+          const {portal, clientId, fromUrl, isDevEdition, mountPath} = query;
           const redirectUri = `${window.location.origin}${window.location.pathname}?clientId=${clientId}&portal=${portal}&popup=${popup}&fromUrl=${fromUrl}`
-          const oauth2Options = {
-            portal,
-            clientId,
-            redirectUri,
-            popup: popup,
-            params: {
-              showSignupOption: true,
-              signupType: 'esri'
+          if(popup) {
+            // SessionManager.signIn listens for popup window closing.
+            window.close();
+            return;
+          } else {
+            if (isDevEdition === 'true') {
+              // Redirect to set-portalUrl page
+              window.location.href = `${location.protocol}//${location.host}${mountPath}page/set-portalurl`;
+            } else {
+              // Redirect to landing page
+              window.location.href = `${location.protocol}//${location.host}/page/landing`;
             }
-          };
-
-          arcgisRest.UserSession.beginOAuth2(oauth2Options)
-          return;
+          }
         }
 
         let openerHref = '';

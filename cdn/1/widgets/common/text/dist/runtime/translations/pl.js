@@ -1,1 +1,1 @@
-define({_widgetLabel:"Tekst",defaultPlaceholder:"Kliknij dwukrotnie, aby edytować tekst"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Tekst",defaultPlaceholder:"Kliknij dwukrotnie, aby edytować tekst"})}}}));

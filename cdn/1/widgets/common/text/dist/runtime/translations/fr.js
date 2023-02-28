@@ -1,1 +1,1 @@
-define({_widgetLabel:"Texte",defaultPlaceholder:"Double-cliquer pour modifier le texte"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Texte",defaultPlaceholder:"Double-cliquer pour modifier le texte"})}}}));

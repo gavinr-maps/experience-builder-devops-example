@@ -1,1 +1,1 @@
-define({_widgetLabel:"圖例"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"圖例"})}}}));

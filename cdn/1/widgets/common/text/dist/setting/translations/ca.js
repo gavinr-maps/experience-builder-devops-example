@@ -1,1 +1,1 @@
-define({wrap:"Ajusta",verticalAlignment:"Alineació vertical"});
+System.register([],(function(e){return{execute:function(){e({wrap:"Ajusta",verticalAlignment:"Alineació vertical"})}}}));

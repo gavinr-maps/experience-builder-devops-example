@@ -1,1 +1,1 @@
-define({_widgetLabel:"Εργαλείο ελέγχου του widget"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Εργαλείο ελέγχου του widget"})}}}));

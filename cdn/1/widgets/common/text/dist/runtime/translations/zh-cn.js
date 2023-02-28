@@ -1,1 +1,1 @@
-define({_widgetLabel:"文本",defaultPlaceholder:"双击以编辑文本"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"文本",defaultPlaceholder:"双击以编辑文本"})}}}));

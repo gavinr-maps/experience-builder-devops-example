@@ -1,1 +1,1 @@
-define({_widgetLabel:"Ovládač widgetu"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Ovládač widgetu"})}}}));

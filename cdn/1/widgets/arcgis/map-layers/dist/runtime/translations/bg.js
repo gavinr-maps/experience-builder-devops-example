@@ -1,1 +1,1 @@
-define({_widgetLabel:"Слоеве на карта",goto:"Приближаване",information:"Подробни данни",increaseOpacity:"Увеличете непрозрачността",decreaseOpacity:"Намалете непрозрачността",showLabels:"Показване на надписи",hideLabels:"Скриване на надписи"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Слоеве на карта",goto:"Приближаване",information:"Подробни данни",increaseOpacity:"Увеличете непрозрачността",decreaseOpacity:"Намалете непрозрачността",showLabels:"Показване на надписи",hideLabels:"Скриване на надписи"})}}}));

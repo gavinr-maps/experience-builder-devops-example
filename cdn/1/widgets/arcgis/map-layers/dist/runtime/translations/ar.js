@@ -1,1 +1,1 @@
-define({_widgetLabel:"طبقات الخريطة",goto:"تكبير/تصغير إلى",information:"التفاصيل",increaseOpacity:"زيادة الشفافية",decreaseOpacity:"تقليل الشفافية",showLabels:"إظهار لافتات التسمية",hideLabels:"إخفاء التسميات"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"طبقات الخريطة",goto:"تكبير/تصغير إلى",information:"التفاصيل",increaseOpacity:"زيادة الشفافية",decreaseOpacity:"تقليل الشفافية",showLabels:"إظهار لافتات التسمية",hideLabels:"إخفاء التسميات"})}}}));

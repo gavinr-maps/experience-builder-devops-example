@@ -1,1 +1,1 @@
-define({_widgetLabel:"文字",defaultPlaceholder:"按兩下以編輯文字"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"文字",defaultPlaceholder:"按兩下以編輯文字"})}}}));

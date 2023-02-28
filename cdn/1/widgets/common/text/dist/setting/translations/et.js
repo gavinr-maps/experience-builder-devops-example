@@ -1,1 +1,1 @@
-define({wrap:"Paki",verticalAlignment:"Vertikaalne joondus"});
+System.register([],(function(e){return{execute:function(){e({wrap:"Paki",verticalAlignment:"Vertikaalne joondus"})}}}));

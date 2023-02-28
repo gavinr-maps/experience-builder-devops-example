@@ -1,1 +1,1 @@
-define({wrap:"줄 바꿈",verticalAlignment:"수직 정렬"});
+System.register([],(function(e){return{execute:function(){e({wrap:"줄 바꿈",verticalAlignment:"수직 정렬"})}}}));

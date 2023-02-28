@@ -1,1 +1,1 @@
-define({_widgetLabel:"Слои карты",goto:"Приблизить к",information:"Подробная информация",increaseOpacity:"Увеличить непрозрачность",decreaseOpacity:"Уменьшить непрозрачность",showLabels:"Показать надписи",hideLabels:"Скрыть надписи"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Слои карты",goto:"Приблизить к",information:"Подробная информация",increaseOpacity:"Увеличить непрозрачность",decreaseOpacity:"Уменьшить непрозрачность",showLabels:"Показать надписи",hideLabels:"Скрыть надписи"})}}}));

@@ -1,1 +1,1 @@
-define({wrap:"Umbrechen",verticalAlignment:"Vertikale Ausrichtung"});
+System.register([],(function(e){return{execute:function(){e({wrap:"Umbrechen",verticalAlignment:"Vertikale Ausrichtung"})}}}));

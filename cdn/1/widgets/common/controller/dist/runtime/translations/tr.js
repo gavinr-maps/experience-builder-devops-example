@@ -1,1 +1,1 @@
-define({_widgetLabel:"Widget Controller (Araç Denetleyicisi)"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget Controller (Araç Denetleyicisi)"})}}}));

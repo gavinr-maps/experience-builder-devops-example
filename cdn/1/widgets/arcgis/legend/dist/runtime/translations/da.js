@@ -1,1 +1,1 @@
-define({_widgetLabel:"Signaturforklaring"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Signaturforklaring"})}}}));

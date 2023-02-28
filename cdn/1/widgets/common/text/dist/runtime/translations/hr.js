@@ -1,1 +1,1 @@
-define({_widgetLabel:"Tekst",defaultPlaceholder:"Dvaput kliknite da biste uredili tekst"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Tekst",defaultPlaceholder:"Dvaput kliknite da biste uredili tekst"})}}}));

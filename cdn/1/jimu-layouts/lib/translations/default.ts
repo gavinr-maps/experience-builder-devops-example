@@ -47,7 +47,7 @@ export default {
   restoreSize: 'Restore size',
   pendingTip: 'Move to the pending list',
   setting: 'Settings',
-  dragToMove: 'Drag to move',
+  dragToMove: 'Drag to move {label}',
   lockLayout: 'Lock position and size',
   unlockLayout: 'Unlock position and size',
   editHeader: 'Edit header',
@@ -71,4 +71,7 @@ export default {
 
   hideInDesignView: 'Hide in design view',
   showInDesignView: 'Show in design view',
+
+  unlockGridItem: 'Unlock this widget to reorganize its internal widgets.',
+  lockGridItem: 'Lock this widget.'
 }

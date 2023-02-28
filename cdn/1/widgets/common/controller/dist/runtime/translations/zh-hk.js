@@ -1,1 +1,1 @@
-define({_widgetLabel:"Widget 控制器"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget 控制器"})}}}));

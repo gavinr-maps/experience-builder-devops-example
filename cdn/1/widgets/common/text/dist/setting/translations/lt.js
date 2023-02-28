@@ -1,1 +1,1 @@
-define({wrap:"Įvynioti",verticalAlignment:"Vertikalus lygiavimas"});
+System.register([],(function(e){return{execute:function(){e({wrap:"Įvynioti",verticalAlignment:"Vertikalus lygiavimas"})}}}));

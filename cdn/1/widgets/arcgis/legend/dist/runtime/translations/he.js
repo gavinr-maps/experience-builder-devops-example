@@ -1,1 +1,1 @@
-define({_widgetLabel:"מקרא"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"מקרא"})}}}));

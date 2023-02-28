@@ -1,1 +1,1 @@
-define({_widgetLabel:"Pienoisohjelman säädin"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Pienoisohjelman säädin"})}}}));

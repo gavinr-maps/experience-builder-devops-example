@@ -1,1 +1,1 @@
-define({_widgetLabel:"Rögzített panel",widgetProperties:"Widget tulajdonságai",widgetFunctions:"Widget függvényei",widgetName:"widget neve:",widgetProps:"widget tulajdonságai:",tips:"Rögzített panel"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Rögzített panel",widgetProperties:"Widget tulajdonságai",widgetFunctions:"Widget függvényei",widgetName:"widget neve:",widgetProps:"widget tulajdonságai:",tips:"Rögzített panel"})}}}));

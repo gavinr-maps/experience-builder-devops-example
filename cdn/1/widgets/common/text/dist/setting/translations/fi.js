@@ -1,1 +1,1 @@
-define({wrap:"Rivitä",verticalAlignment:"Pystytasaus"});
+System.register([],(function(t){return{execute:function(){t({wrap:"Rivitä",verticalAlignment:"Pystytasaus"})}}}));

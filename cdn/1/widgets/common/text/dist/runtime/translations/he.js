@@ -1,1 +1,1 @@
-define({_widgetLabel:"טקסט",defaultPlaceholder:"לחץ פעמיים לעריכת הטקסט"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"טקסט",defaultPlaceholder:"לחץ פעמיים לעריכת הטקסט"})}}}));

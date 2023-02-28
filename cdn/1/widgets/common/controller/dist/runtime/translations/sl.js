@@ -1,1 +1,1 @@
-define({_widgetLabel:"Kontrolnik pripomočka"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontrolnik pripomočka"})}}}));

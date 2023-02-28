@@ -1,1 +1,1 @@
-define({layerIsNotSupported:"نوع هذه الطبقة غير مدعوم."});
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"نوع هذه الطبقة غير مدعوم."})}}}));

@@ -1,1 +1,1 @@
-define({_widgetLabel:"Valdiklis"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Valdiklis"})}}}));

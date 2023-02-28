@@ -1,1 +1,1 @@
-define({_widgetLabel:"Logrīka kontrolleris"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Logrīka kontrolleris"})}}}));

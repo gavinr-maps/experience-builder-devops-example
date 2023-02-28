@@ -1,1 +1,1 @@
-define({_widgetLabel:"Pengontrol Widget"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Pengontrol Widget"})}}}));

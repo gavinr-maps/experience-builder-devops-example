@@ -1,1 +1,1 @@
-define({_widgetLabel:"Υπόμνημα"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Υπόμνημα"})}}}));

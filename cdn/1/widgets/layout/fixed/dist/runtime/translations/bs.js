@@ -1,1 +1,1 @@
-define({_widgetLabel:"Fiksna ploča",widgetProperties:"Vlasništva widgeta",widgetFunctions:"Funkcije widgeta",widgetName:"naziv widgeta:",widgetProps:"vlasništva widgeta:",tips:"Fiksna ploča"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Fiksna ploča",widgetProperties:"Vlasništva widgeta",widgetFunctions:"Funkcije widgeta",widgetName:"naziv widgeta:",widgetProps:"vlasništva widgeta:",tips:"Fiksna ploča"})}}}));

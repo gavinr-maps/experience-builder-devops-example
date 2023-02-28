@@ -1,1 +1,1 @@
-define({_widgetLabel:"微件控制器"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"微件控制器"})}}}));

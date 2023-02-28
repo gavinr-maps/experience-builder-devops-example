@@ -1,1 +1,1 @@
-define({wrap:"التفاف",verticalAlignment:"محاذاة رأسية"});
+System.register([],(function(e){return{execute:function(){e({wrap:"التفاف",verticalAlignment:"محاذاة رأسية"})}}}));

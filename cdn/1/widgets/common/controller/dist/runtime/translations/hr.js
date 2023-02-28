@@ -1,1 +1,1 @@
-define({_widgetLabel:"Kontoler widgeta"});
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontoler widgeta"})}}}));
