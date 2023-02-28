@@ -34,8 +34,10 @@ jobs:
         run: npm run build:prod
         working-directory: arcgis-experience-builder-1.10/ArcGISExperienceBuilder/client
       - name: Run download script
-        run: export NODE_ENV=production & node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
+        run: node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
         working-directory: arcgis-experience-builder-1.10/ArcGISExperienceBuilder
+        env:
+          NODE_ENV: production
       - name: Unzip app zip
         # ExB has non-standard file permissions so use chmod after unzip
         run: |
