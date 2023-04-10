@@ -8,5 +8,9 @@ export default {
   setVisibility: 'Toggle layer visibility',
   showOrHideLabels: 'Show or hide labels',
   showLayerForMap: 'Show layers for map data only',
-  interactWithMap: 'Interact with a Map widget'
+  interactWithMap: 'Interact with a Map widget',
+  customizeLayers: 'Customize layers',
+  enableCustomizeLayers: 'Enable customize layers',
+  customizeLayerDesc: 'Select the layers to display for users.',
+  customizeLayerWarnings: 'The selected Map widget does not contain a web map or web scene.'
 }

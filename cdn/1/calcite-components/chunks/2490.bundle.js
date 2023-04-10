@@ -1,2 +1,0 @@
-/*! For license information please see 2490.bundle.js.LICENSE.txt */
-"use strict";(self.webpackChunkexb_client=self.webpackChunkexb_client||[]).push([[2490],{2490:(e,n,i)=>{i.r(n),i.d(n,{I:()=>u,S:()=>s,T:()=>t});var s={menuActions:"menu-actions",menuTooltip:"menu-tooltip"},t={more:"More"},u={menu:"ellipsis"}}}]);

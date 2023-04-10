@@ -73,5 +73,8 @@ export default {
   showInDesignView: 'Show in design view',
 
   unlockGridItem: 'Unlock this widget to reorganize its internal widgets.',
-  lockGridItem: 'Lock this widget.'
+  lockGridItem: 'Lock this widget.',
+
+  splitHorizontally: 'Split horizontally',
+  splitVertically: 'Split vertically'
 }

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexb_client=self.webpackChunkexb_client||[]).push([[5350],{45350:(s,l,e)=>{e.r(l),e.d(l,{arcgis_infographic_workflow:()=>c});var r=e(94693);const c=class{constructor(s){(0,r.r)(this,s)}render(){return(0,r.h)(r.H,null,(0,r.h)("slot",null))}};c.style=":host{display:block}"}}]);

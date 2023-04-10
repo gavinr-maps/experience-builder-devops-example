@@ -1,3 +1,3 @@
 export default {
-  _widgetLabel: 'Widget Controller',
+  _widgetLabel: 'Widget Controller'
 }

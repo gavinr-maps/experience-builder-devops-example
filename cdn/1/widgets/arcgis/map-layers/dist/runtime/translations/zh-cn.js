@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"地图图层",goto:"缩放至",information:"详细信息",increaseOpacity:"增加不透明度",decreaseOpacity:"降低不透明度",showLabels:"显示标注",hideLabels:"隐藏标注"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"地图图层",goto:"缩放至",information:"详细信息",increaseOpacity:"增加不透明度",decreaseOpacity:"降低不透明度",increaseTransparency:"提高透明度",decreaseTransparency:"降低透明度",showLabels:"显示标注",hideLabels:"隐藏标注"})}}}));

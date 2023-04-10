@@ -2,10 +2,12 @@ export default {
   // common
   col: 'Column',
   row: 'Row',
+  tab: 'Tab',
   iconSize: 'Icon size',
   showIcon: 'Show icon',
   vertical: 'Vertical',
   horizontal: 'Horizontal',
+  foldable: 'Foldable',
   expand: 'Expand',
   collapse: 'Collapse',
   expandAll: 'Expand all',
@@ -109,6 +111,11 @@ export default {
   count: 'Count',
   mean: 'Mean',
   median: 'Median',
+  sumOfField: 'Sum of {field}',
+  meanOfField: 'Mean of {field}',
+  minOfField: 'Minimum of {field}',
+  maxOfField: 'Maximum of {field}',
+  medianOfField: 'Median of {field}',
   normalDistribution: 'Normal distribution',
   standardDeviation: 'Standard deviation',
   noLimit: 'No limit',
@@ -130,8 +137,12 @@ export default {
   slow: 'Slow',
   slower: 'Slower',
   slowest: 'Slowest',
+
+  // menu
+  submenu: 'Submenu',
   //nav
   currentView: 'Current view',
+  slide: 'Slide',
   slider: 'Slider',
   sliderColor: 'Slider color',
   thumb: 'Thumb',
@@ -486,18 +497,6 @@ export default {
   deleteOption: 'Delete',
 
   // data-source-selector
-  featureLayer: 'Feature Layer',
-  featureSet: 'Feature Set',
-  featureService: 'Feature Service',
-  mapService: 'Map Service',
-  groupLayer: 'Group Layer',
-  map: 'Map',
-  simpleLocal: 'Simple Local',
-  webMap: 'Web Map',
-  webScene: 'Web Scene',
-  csv: 'CSV',
-  sceneService: 'Scene Service',
-  sceneLayer: 'Scene Layer',
   filter: 'Filter',
   records: 'Records',
   pageSize: 'Page size',
@@ -565,6 +564,7 @@ export default {
   addData: 'Add data',
   serviceType: 'Service type',
   url: 'URL',
+  file: 'File',
   add: 'Add',
   done: 'Done',
   undone: 'Undone',
@@ -590,6 +590,8 @@ export default {
   modified: 'Modified',
   title: 'Title',
   numViews: 'View numbers',
+  esriDefault: 'Esri default',
+  organizationDefault: 'Organization default',
   myContent: 'My content',
   myOrganization: 'My organization',
   myGroup: 'My groups',
@@ -749,6 +751,13 @@ export default {
   share4: 'Share 4',
   star: 'Star',
   star2: 'Star 2',
+
+  pill: 'Pill',
+  rhombus: 'Rhombus',
+  hollowCircle: 'Hollow circle',
+  filledDoubleCircle: 'Filled double circle',
+  arrowLeft12: 'Custom left arrow 1',
+  arrowRight12: 'Custom right arrow 2',
 
   // color-picker
   themeColor: 'Theme colors',
@@ -1017,6 +1026,7 @@ export default {
 
   // animation
   animation: 'Animation',
+  animationSetting: 'Animation settings',
   maskColor: 'Mask color',
   trigger: 'Trigger',
   help: 'Help',
@@ -1122,6 +1132,7 @@ export default {
   webPageTemplate: 'Web page',
   websiteTemplate: 'Website',
   lastCreated: 'Last created',
+  selectTemplate: 'Select template',
 
   fileSizeTips: 'The file size exceeds the maximum limit of {maxSize}.',
 
@@ -1191,6 +1202,7 @@ export default {
   weather: 'Weather',
   shadowcast: 'Shadow cast',
   lineofsight: 'Line of sight',
+  slice: 'Slice',
   listMode: 'List',
   iconMode: 'Icon',
   autoPlay: 'Autoplay',
@@ -1263,10 +1275,37 @@ export default {
   gridItems: 'Grid items',
   allowResize: 'Allow resize',
   allowExpansion: 'Allow expansion',
+  maximize: 'Maximize',
+  restore: 'Restore',
+  distributeSpaceH: 'Distribute space horizontally',
+  distributeSpaceV: 'Distribute space vertically',
 
   experienceHigherVersion: 'This experience is in higher version',
   experienceHigherVersionRemind: 'This experience is built with a higher version of ArcGIS Experience Builder. Incompatible contents may not work.',
 
   templateHigherVersion: 'This template is in higher version',
-  templateHigherVersionRemind: ' This template is built with a higher version of ArcGIS Experience Builder. Incompatible contents may not work.'
+  templateHigherVersionRemind: ' This template is built with a higher version of ArcGIS Experience Builder. Incompatible contents may not work.',
+  noConfigNeeded: 'No configuration needed',
+
+  // quick style
+  backgroundStyle1: 'Background style 1',
+  backgroundStyle2: 'Background style 2',
+  backgroundStyle3: 'Background style 3',
+  backgroundStyle4: 'Background style 4',
+  backgroundStyle5: 'Background style 5',
+  backgroundStyle6: 'Background style 6',
+  backgroundStyle7: 'Background style 7',
+  borderStyle1: 'Border style 1',
+  borderStyle2: 'Border style 2',
+  borderStyle3: 'Border style 3',
+  borderStyle4: 'Border style 4',
+  borderStyle5: 'Border style 5',
+  borderStyle6: 'Border style 6',
+  borderStyle7: 'Border style 7',
+  perPage: 'per page',
+
+  invalidWKID: 'Invalid WKID',
+
+  fixedLayoutTip: 'Auto-calculate element tab orders in fixed layouts',
+  fixedLayoutDesc: 'For widgets in full-screen pages or fixed layouts (e.g., Fixed Panel, Card, List, etc.), turning on this option will automatically calculate their tab orders based on positions so that they sync up with the visual order for a better experience when it comes to accessibility support. This option will affect the overlay of widgets, so you may want to move certain elements forward or backward for desired results.'
 }

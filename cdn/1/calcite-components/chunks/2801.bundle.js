@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkexb_client=self.webpackChunkexb_client||[]).push([[2801],{2801:(n,r,t)=>{t.r(r),t.d(r,{g:()=>e});var e=function(){return[2,1,1,1,3].map((function(n){for(var r="",t=0;t<n;t++)r+=(65536*(1+Math.random())|0).toString(16).substring(1);return r})).join("-")}}}]);

@@ -1,3 +1,3 @@
 export default {
-  layerIsNotSupported: 'This layer type is not supported.',
+  layerIsNotSupported: 'This layer type is not supported.'
 }

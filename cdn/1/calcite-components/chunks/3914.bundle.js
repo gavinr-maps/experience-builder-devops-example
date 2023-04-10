@@ -1,2 +1,0 @@
-/*! For license information please see 3914.bundle.js.LICENSE.txt */
-"use strict";(self.webpackChunkexb_client=self.webpackChunkexb_client||[]).push([[3914],{3914:(e,l,a)=>{var c,r;a.r(l),a.d(l,{S:()=>c}),(r=c||(c={})).green="checkCircle",r.yellow="exclamationMarkTriangle",r.red="exclamationMarkTriangle",r.blue="lightbulb"}}]);

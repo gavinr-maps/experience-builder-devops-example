@@ -7,5 +7,9 @@ export default {
   _action_flash_label: 'Flash',
   _action_filter_label: 'Filter',
   _action_showOnMap_label: 'Show on map',
-  showOnMapData: 'Show on map data'
+  _action_addToMap_label: 'Add to map',
+  showOnMapData: 'Show on map data',
+  addedData: 'added data',
+  failToAddTheDataOnMap: 'Fail to add the data.',
+  addToMapData: 'Add to map data'
 }

@@ -1,2 +1,0 @@
-/*! For license information please see 8421.bundle.js.LICENSE.txt */
-"use strict";(self.webpackChunkexb_client=self.webpackChunkexb_client||[]).push([[8421],{8421:(e,t,n)=>{n.r(t),n.d(t,{H:()=>l,c:()=>c});var r=n(3991),a=function(){return a=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++)for(var a in t=arguments[n])Object.prototype.hasOwnProperty.call(t,a)&&(e[a]=t[a]);return e},a.apply(this,arguments)};function c(e){return Math.min(Math.max(Math.ceil(e),1),6)}var l=function(e,t){var n="h".concat(e.level);return delete e.level,(0,r.h)(n,a({},e),t)}}}]);

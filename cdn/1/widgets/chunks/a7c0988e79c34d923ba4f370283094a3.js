@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkexb_client=self.webpackChunkexb_client||[]).push([[2817],{32817:(e,s,l)=>{l.r(s),l.d(s,{arcgis_ba_search:()=>t});var r=l(50337);let t=class{constructor(e){(0,r.r)(this,e)}render(){return(0,r.h)(r.H,null,(0,r.h)("slot",null))}};t.style=":host{display:block}"}}]);
