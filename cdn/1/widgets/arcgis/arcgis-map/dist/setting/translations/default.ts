@@ -1,6 +1,7 @@
 export default {
   sourceLabel: 'Source',
   sourceDescript: 'A web map or web scene, or any combination of the two.',
+  selectThirdMapHint: 'Please unselect a map or scene before you choose another one. Up to two are supported.',
   initialMap: 'Initial map',
   initialMapView: 'Initial view',
   selectMap: 'Select map',

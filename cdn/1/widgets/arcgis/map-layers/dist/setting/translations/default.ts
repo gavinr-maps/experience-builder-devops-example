@@ -12,5 +12,9 @@ export default {
   customizeLayers: 'Customize layers',
   enableCustomizeLayers: 'Enable customize layers',
   customizeLayerDesc: 'Select the layers to display for users.',
-  customizeLayerWarnings: 'The selected Map widget does not contain a web map or web scene.'
+  customizeLayerWarnings: 'The selected Map widget does not contain a web map or web scene.',
+  enableLegend: 'Show legend',
+  showAllLegend: 'Show legend for all visible layers by default',
+  useTickBoxes: 'Use tick boxes',
+  customizeLayerInvalidWarning: 'Map widgets connected with more than one Map Layers widget cannot be customized.'
 }

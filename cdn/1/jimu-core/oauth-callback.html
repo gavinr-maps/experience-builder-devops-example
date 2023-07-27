@@ -29,7 +29,8 @@
           } else {
             if (isDevEdition === 'true') {
               // Redirect to set-portalUrl page
-              window.location.href = `${location.protocol}//${location.host}${mountPath}page/set-portalurl`;
+              const mountPathFinal = mountPath ? mountPath : '/'
+              window.location.href = `${location.protocol}//${location.host}${mountPathFinal}page/set-portalurl`;
             } else {
               // Redirect to landing page
               window.location.href = `${location.protocol}//${location.host}/page/landing`;

@@ -51,9 +51,12 @@ export default {
   icon: 'Icon',
   small: 'Small',
   low: 'Low',
-  medium: 'Medium',
   high: 'High',
   large: 'Large',
+  short: 'Short',
+  medium: 'Medium',
+  long: 'Long',
+  full: 'Full',
 
   // concepts
   experience: 'Experience',
@@ -95,6 +98,9 @@ export default {
   signInErrorDefault: 'Sorry, you do not have permission to access this resource.',
   signInErrorEnterCredential: 'Sorry, you do not have permission to access this resource. Click to enter credential.',
   signInErrorTryAgain: 'Sorry, you do not have permission to access this resource. Please try again.',
+  signInBannerListWarning: 'Sorry, you don’t have access to the resources from the following servers or organizations. Click Sign in to provide credential. Click Ignore to avoid loading the resource until you refresh the app.',
+  signInBannerIgnore: 'Ignore',
+  signInBannerIgnoreAll: 'Ignore all',
 
   //in upgrade
   upgradedFrom: 'Upgraded from previous config',

@@ -13,5 +13,6 @@ export default {
   bottomPanel: 'Bottom panel',
   size: 'Size',
   dockSide: 'Dock side',
-  visible: 'Visible'
+  rounded: 'Rounded',
+  square: 'Square'
 }
