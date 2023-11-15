@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Buscar por atributos y ubicaci&oacute;n crea una nueva capa de entidades o partes de entidades que cumplen criterios espaciales o de atributo espec&iacute;ficos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Capa de puntos, l&iacute;neas o pol&iacute;gonos para la que se encontrar&aacute;n entidades a partir de una combinaci&oacute;n de consultas de atributos y espaciales.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Criterios espaciales o de atributos que se emplear&aacute;n para buscar entidades. Haga clic en el atributo  <b>Crear consulta nueva</b> para definir uno o varios criterios espaciales o de atributos. Las entidades o porciones de las entidades que cumplan todos los criterios se escribir&aacute;n en la capa de resultados.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Criterios espaciales o de atributos que se emplear&aacute;n para buscar entidades. Haga clic en el atributo <b>Crear consulte nueva</b> para definir uno o varios criterios espaciales o de atributos. Las entidades o porciones de las entidades que cumplan todos los criterios se escribir&aacute;n en la capa de resultados.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Cuando solo una porci&oacute;n de una entidad cumple los criterios, especifica si el resultado incluye la entidad completa o la porci&oacute;n de esta que cumple todos los criterios &uacute;nicamente. Si se activa, solamente se devolver&aacute;n las porciones de la entidad que cumplan todos los criterios. Cuando se desactiva, se devolver&aacute; la entidad completa siempre que al menos una porci&oacute;n de ella cumpla todos los criterios.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

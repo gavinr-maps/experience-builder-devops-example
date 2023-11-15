@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Sumiraj u blizini izračunava statistiku za geoobjekte unutar navedenog rastojanja drugih geoobjekata. Udaljenost se može izračunati kori&scaron;ćenjem pravolinijske udaljenosti ili načina putovanja.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Udaljenost se može izračunati kori&scaron;ćenjem pravolinijske udaljenosti ili načina putovanja.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Sloj tačke, linije ili poligona koji se koristi kao početne lokacije oko kojih će se kreirati granične oblasti da bi se sumirali obližnji elementi.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Metod kojim će se granične oblasti kreirati. Metoda može biti prava linija udaljenosti ili način putovanja.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Udaljenost ili vreme koje će se koristiti za kreiranje graničnih oblasti. Ako se doda vi&scaron;e vrednosti, svaka vrednost će se koristiti za izračunavanje graničnih povr&scaron;ina za sve ulazne karakteristike.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Jedinice koje će se koristiti za određivanje udaljenosti ili vremena.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Odredite da li rezultujući sloj treba da budu granične oblasti (potvrđeno) ili ista geometrija kao ulazni sloj u blizini (nepotvrđeno).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Izračunajte ukupnu veličinu karakteristika sažetih u svakoj graničnoj oblasti. Za linije se izračunava ukupna dužina. Za poligone se izračunava ukupna povr&scaron;ina.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Jedinice koje će se koristiti za izračunavanje ukupne veličine sažetih karakteristika.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Polja sa brojem ili datumom iz ulaznog sloja biće sumiranje i statistika koja će se izračunati za svako polje.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Polje iz ulaznog sloja koje će se koristiti za razdvajanje podataka u različite grupe za statistička izračunavanja.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Izračunajte manjinske (najmanje dominantne) i većinske (najdominantnije) grupe unutar svake zbirne oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Izračunajte procenat sažetih karakteristika koje pripadaju svakoj grupi unutar svake granice.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultati biti sačuvani.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

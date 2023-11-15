@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือตำแหน่งพิกัดทางภูมิศาสตร์จากตาราง จะแปลงที่อยู่หรือสถานที่จากตารางอินพุทเป็นพิกัด
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>ตารางอินพุทซึ่งมีที่อยู่หรือสถานที่ซึ่งต้องการกำหนดรหัสพิกัดทางภูมิศาสตร์ อินพุทต้องเป็นตาราง ไฟล์  <code>.csv</code> หรือไฟล์ Excel </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>บริการตัวระบุตำแหน่งที่จะใช้สำหรับการกำหนดรหัสพิกัดทางภูมิศาสตร์ ถ้าบริการระบุตำแหน่งที่คุณต้องการที่จะใช้ ไม่ได้อยู่ในเมนูแบบเลื่อนลง ติดต่อผู้ดูแลระบบของคุณ ให้จัดหาบริการระบุตำแหน่งพิกัดทางภูมิศาสตร์ให้กำหนดสำหรับการระบุตำแหน่งแบบชุด
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>ระบุว่ามีข้อมูลอินพุทอยู่ในฟิลด์เดียวหรือหลายฟิลด์
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>ฟิลด์ที่ตัวระบุตำแหน่งจะใช้ในการหาตำแหน่งของข้อมูล ระบบอาจคาดเดาว่าจะมีบางฟิลด์อยู่ในข้อมูล เช่น ที่อยู่ เมือง รัฐ และรหัสไปรษณีย์
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>ประเทศซึ่งเป็นที่ตั้งของข้อมูล หากที่อยู่ทั้งหมดมาจากประเทศเดียว ให้ระบุประเทศดังกล่าวเพื่อให้แน่ใจว่าผลลัพธ์จะมีความแม่นยำสูงสุด มิฉะนั้น ให้พารามิเตอร์นี้ว่างไว้
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>ระบุฟิลด์ที่จะรวมไว้ในชุดข้อมูลเอาท์พุท โดยจะมีตัวเลือกดังนี้:
+            </p>
+            <ul>
+                <li> <b>ทั้งหมด</b>&mdash;ฟิลด์เอาท์พุทตัวระบุตำแหน่งที่พร้อมใช้งานทั้งหมดจะถูกรวมไว้ผลลัพธ์รหัสพิกัดทางภูมิศาสตร์
+                </li>
+                <li> <b>มินิมอล</b>&mdash;ชุดย่อยของฟิลด์จากตัวระบุตำแหน่ง รวมถึงฟิลด์จากตารางอินพุทจะถูกรวมไว้ในผลลัพธ์
+                </li>
+                <li> <b>ตำแหน่งเท่านั้น</b>&mdash;ฟิลด์ <i>Shape</i> จากตัวระบุตำแหน่ง รวมถึงฟิลด์จากตารางอินพุทจะถูกรวมไว้ในผลลัพธ์
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>ประเภทของเอาท์พุทที่จะสร้างขึ้น เอาท์พุทอาจอยู่ในรูปแบบฟีเจอร์เซอร์วิส, ไฟล์  <code>.csv</code> หรือไฟล์ <code>.xls</code>
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>ชื่อของรายการเอาท์พุทที่จะจัดเก็บข้อมูลที่ระบุตำแหน่ง
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

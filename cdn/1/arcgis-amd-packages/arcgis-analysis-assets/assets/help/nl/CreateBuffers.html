@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Buffers maken cre&euml;ert polygonen die een gegeven afstand van invoerobjecten bestrijken.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>De punt-, lijn- of polygoonobjecten die gebufferd worden.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Geeft aan of de bufferafstand wordt gedefinieerd door een constante (<b>Waarde</b>) of een numeriek veld (<b>Veld</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>De afstand die wordt gebruikt om de buffer te maken. Indien meerdere waarden worden toegevoegd, zal elke waarde worden gebruikt om een buffer aan te maken bij elk invoerobject.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Het veld met de bufferafstand voor elk object.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>De eenheden die worden gebruikt om de bufferafstand te specificeren.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Specificeert hoe buffers van verschillende invoerfuncties worden behandeld als ze elkaar overlappen.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Geeft aan of de buffers met meerdere afstanden concentrische buffers zijn die elkaar overlappen (<b>Overlappende schijven</b>) of ringen die elkaar niet overlappen (<b>Aparte ringen</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Geeft voor lijnobjecten aan of de buffer aan beide zijden van de lijn (<b>Rond</b>), alleen aan de linkerkant (<b>Links</b>), of alleen aan de rechterkant (<b>Rechts</b>) wordt aangemaakt.
+            </p>
+            <p>Specificeert voor polygoonobjecten of de ingevoerde polygoonobjecten worden opgenomen in de buffer (<b>Opnemen</b>) of uitgesloten van de buffer (<b>Uitsluiten</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Geeft aan of de vorm van de buffer aan het einde van een lijnobject rond (<b>Rond</b>) of vlak (<b>Vlak</b>) moet zijn.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

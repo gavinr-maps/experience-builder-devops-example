@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Znajdź według atrybut&oacute;w i lokalizacji tworzy nową warstwę obiekt&oacute;w lub części obiekt&oacute;w, kt&oacute;re spełniają określone kryteria przestrzenne bądź atrybutowe.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Warstwa punktowa, liniowa lub poligonowa, kt&oacute;rej obiekty będą wyszukiwane za pomocą zapytań obejmujących kombinacje kryteri&oacute;w atrybutowych i przestrzennych.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Kryteria przestrzenne lub atrybutowe, kt&oacute;re będą używane przy wyszukiwaniu obiekt&oacute;w. Kliknij przycisk  <b>Utw&oacute;rz nowe zapytanie</b>, aby zdefiniować jedno lub większą liczbę kryteri&oacute;w przestrzennych bądź atrybutowych. Obiekty lub części obiekt&oacute;w, kt&oacute;re spełniają wszystkie kryteria, zostaną zapisane w warstwie wynikowej.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Kryteria przestrzenne lub atrybutowe, kt&oacute;re będą używane przy wyszukiwaniu obiekt&oacute;w. Kliknij przycisk <b>Utw&oacute;rz nowe zapytanie</b>, aby zdefiniować jedno lub większą liczbę kryteri&oacute;w przestrzennych bądź atrybutowych. Obiekty lub części obiekt&oacute;w, kt&oacute;re spełniają wszystkie kryteria, zostaną zapisane w warstwie wynikowej.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Jeśli tylko część obiektu spełnia kryteria, wskazuje, czy w wyniku uwzględniony zostanie cały obiekt, czy tylko część obiektu spełniająca wszystkie kryteria. Gdy ta opcja będzie zaznaczona, zwracane będą tylko części obiektu, kt&oacute;re spełniają wszystkie kryteria. Gdy ta opcja będzie niezaznaczona, zwracany będzie cały obiekt, pod warunkiem, że co najmniej część tego obiektu spełnia kryteria.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

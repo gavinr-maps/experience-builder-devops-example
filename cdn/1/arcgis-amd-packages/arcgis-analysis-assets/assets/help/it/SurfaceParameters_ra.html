@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Parametri superficie calcola i parametri di una superficie raster come aspetto, pendenza e curvatura usando metodi geodetici.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Il raster di elevazione che verr&agrave; utilizzato per i calcoli.
+            </p>
+            <p>Se &egrave; disponibile una unit&agrave; z nel sistema di coordinate verticali del raster di ingresso, viene applicata automaticamente.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Il tipo di parametro di superficie che verr&agrave; misurato.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Le unit&agrave; di misurazione del raster slope dell'output.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Specifica se gli azimut geodetici verranno proiettati.
+            </p>
+            <p>Se selezionato, gli azimut geodetici verranno proiettati per correggere la distorsione angolare causata dal riferimento spaziale dell'output. Se non selezionato, gli azimut geodetici non verranno proiettati.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Specifica se l'aspetto verr&agrave; misurato da un punto dell'equatore o dal polo nord.
+            </p>
+            <p>Se selezionato, l'aspetto verr&agrave; misurato da un punto dell'equatore. Se non selezionato, l'aspetto verr&agrave; misurato dal polo nord.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Il tipo di funzione di superficie che verr&agrave; applicata intorno alla cella di destinazione.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>La distanza dal centro della cella di destinazione da cui verr&agrave; calcolato l'output. Determina la dimensione del quartiere utilizzata per il calcolo.
+            </p>
+            <p>Il valore predefinito &egrave; la dimensione cella del raster specificato nel parametro  <b>Immettere raster di superficie</b>. Se viene specificato un valore, deve essere maggiore di quello predefinito.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Specifica se la distanza del quartiere varier&agrave; con i cambiamenti del paesaggio.
+            </p>
+            <p>Se selezionato, la distanza del quartiere varier&agrave; con i cambiamenti del paesaggio. Se non selezionato, verr&agrave; utilizzata una distanza del quartiere fissa in tutte le posizioni.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>L'unit&agrave; lineare dei valori z verticali.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer raster di superficie che verr&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Il tipo di output che sar&agrave; creato. L'output pu&ograve; essere un layer immagini di tile o un layer immagini dinamico.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

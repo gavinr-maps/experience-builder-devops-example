@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Sarmala",verticalAlignment:"Dikey hizalama"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Dikey hizalama"})}}}));

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Positionen aus Tabelle geokodieren&quot; wandelt Adressen oder Positionen aus einer Eingabetabelle in Koordinaten um.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Die Eingabetabelle mit den Adressen oder Orten, die geokodiert werden sollen. Die Eingabe muss eine Tabelle, eine  <code>.csv</code>-Datei oder eine Excel-Datei sein. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Der Locator-Service, der f&uuml;r die Geokodierung verwendet werden soll. Wenn der Locator-Service, den Sie verwenden m&ouml;chten, nicht im Dropdown-Men&uuml; aufgef&uuml;hrt ist, wenden Sie sich an Ihren Administrator, um den Locator-Service f&uuml;r Batch-Geokodierung konfigurieren zu lassen.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Gibt an, ob die Eingabedaten in einem einzelnen Feld oder in mehreren Feldern enthalten sind.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Die Felder, die vom Locator verwendet werden, um die Datenspeicherorte zu bestimmen. Es wird davon ausgegangen, dass bestimmte Felder in den Daten enthalten sind, z.&nbsp;B. Adresse, Stadt, Bundesland und Postleitzahl.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Das Land, auf das sich die Daten beziehen. Wenn alle Adressen aus einem Land stammen, geben Sie dieses Land an, um genaueste Ergebnisse sicherzustellen. Andernfalls lassen Sie diesen Parameter leer.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Gibt die Felder an, die im Ausgabe-Dataset ber&uuml;cksichtigt werden sollen. Die folgenden Optionen sind verf&uuml;gbar:
+            </p>
+            <ul>
+                <li> <b>Alle</b>: Alle verf&uuml;gbaren Locator-Ausgabefelder werden in den Geokodierungsergebnissen ber&uuml;cksichtigt.
+                </li>
+                <li> <b>Minimal</b>: In die Ergebnisse werden eine Teilmenge der Felder aus dem Locator sowie die Felder aus der Eingabetabelle einbezogen.
+                </li>
+                <li> <b>Nur Position</b>: Das Feld <i>Shape</i> aus dem Locator sowie die Felder aus der Eingabetabelle werden in die Ergebnisse einbezogen.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgabe kann ein Feature-Service, eine  <code>.csv</code>-Datei oder eine <code>.xls</code>-Datei sein.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Der Name des Ausgabeelements, in dem die verorteten Daten gespeichert werden.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

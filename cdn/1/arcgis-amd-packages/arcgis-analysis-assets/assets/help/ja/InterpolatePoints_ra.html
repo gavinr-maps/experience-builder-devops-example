@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>ポイントの内挿ツールは、ポイントの計測値に基づき、新しい位置の値を推定します。 このツールは、ラスター出力を作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>値が計測されたポイントを含むポイント レイヤー。
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>内挿する値を含む数値フィールド。
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>速度または精度を最適化するかどうかを指定します。 推定の精度を上げると、計算時間が長くなります。
+            </p>
+            <p>このパラメーターは、他の複数のパラメーターのデフォルト値を変更します。
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>出力ラスターのセル サイズと単位。
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>データを変換するかどうかを指定します。 内挿は、データが正規 (釣鐘型) 分布に準拠するための最も正確な方法です。
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>最終的な推定マップを作成するために組み合わせられるローカル内挿モデルのサイズ。
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>使用する近傍の数。 通常、近傍の数を多くすると、生成される結果の精度は高くなりますが、計算にかかる時間が長くなります。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成され、マップに追加される内挿ラスター レイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>推定値に関するオプションの標準誤差ラスターを作成するかどうかを選択します。
+            </p>
+            <p>オンにすると、出力される標準誤差のラスターは  <b>[出力ラスター名]</b> と同じ名前になりますが、「Errors」という単語が追加されます。 レイヤーが作成されてマップに追加されます。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,250 @@
+{
+  "toolName": "FindNearest",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].userSettings.hasNAPrivilege",
+      "valueB": false,
+      "destination": "measurementType",
+      "effectParams": {
+        "value": "StraightLine",
+        "readOnly": true,
+        "validationParams": { "message": "$travelModeRequiresNA", "type": "informative" }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].currentTool.portal.helperServices.asyncClosestFacility.url = null) OR ($[Component].currentTool.portal.helperServices.routingUtilities.url = null))",
+      "destination": "measurementType",
+      "effectParams": {
+        "value": "StraightLine",
+        "readOnly": true,
+        "validationParams": { "message": "$travelModeRequiresRoutingService", "type": "informative" }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "((($[Component].analysisLayer.selectedLayers.geometryType NOT null) AND ($[Component].analysisLayer.selectedLayers.geometryType NOT 'point')) OR (($[Component].nearLayer.selectedLayers.geometryType NOT null) AND ($[Component].nearLayer.selectedLayers.geometryType NOT 'point')))",
+      "destination": "measurementType",
+      "effectParams": {
+        "value": "StraightLine",
+        "readOnly": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].measurementType",
+      "valueB": "StraightLine",
+      "destination": [
+        "timeOfDay",
+        "includeRouteLayers",
+        "barrierLayersGroup",
+        "pointBarrierLayer",
+        "lineBarrierLayer",
+        "polygonBarrierLayer"
+      ],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].measurementType.impedanceAttributeName = $[Data].measurementType.timeAttributeName) AND ($[Data].measurementType NOT 'StraightLine')",
+      "destination": "searchCutoffUnits",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].measurementType.impedanceAttributeName = $[Data].measurementType.timeAttributeName) AND ($[Data].measurementType NOT 'StraightLine')",
+      "destination": "searchCutoff",
+      "effectParams": {
+        "label": "$maxSearchRangeTimeLabel"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'english'",
+      "destination": "searchCutoffUnits",
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'metric'",
+      "destination": "searchCutoffUnits",
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "Feet", "Yards"],
+        "defaultValue": "Kilometers"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].limitNearNumberCheckbox",
+      "valueB": false,
+      "destination": "maxCount",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].limitSearchRangeCheckbox",
+      "valueB": false,
+      "destination": ["searchCutoff", "searchCutoffUnits"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].analysisLayer.user.portal.isPortal = false",
+      "destination": "maxCount",
+      "effectParams": {
+        "max": 100
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersSummaryText",
+      "UIparameters": [
+        {
+          "name": "analysisLayer",
+          "label": "$analysisLayerLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature"],
+          "required": true,
+          "minimumFeatureCount": 1
+        },
+        {
+          "name": "nearLayer",
+          "label": "$nearLayerLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature"],
+          "required": true,
+          "minimumFeatureCount": 1
+        },
+        {
+          "name": "barrierLayersGroup",
+          "label": "$barrierSectionLabel",
+          "componentName": "analysis-section",
+          "visible": true,
+          "UIparameters": [
+            {
+              "name": "pointBarrierLayer",
+              "label": "$pointBarrierLayerLabel",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": ["feature_point"],
+              "visible": true
+            },
+            {
+              "name": "lineBarrierLayer",
+              "label": "$lineBarrierLayerLabel",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": ["feature_line"],
+              "visible": true
+            },
+            {
+              "name": "polygonBarrierLayer",
+              "label": "$polygonBarrierLayerLabel",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": ["feature_polygon"],
+              "visible": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$inputAnalysisSettingGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "label": "$measurementTypeLabel",
+          "name": "measurementType",
+          "required": true
+        },
+        {
+          "name": "timeZoneForTimeOfDay",
+          "label": "$timeZoneForTimeOfDay",
+          "visible": false
+        },
+        {
+          "label": "$departTime",
+          "name": "timeOfDay",
+          "componentName": "analysis-traffic-time-input",
+          "visible": true
+        },
+        {
+          "label": "$limitNearNumberLabel",
+          "name": "limitNearNumberCheckbox",
+          "componentName": "analysis-boolean-input",
+          "defaultValue": true,
+          "displayStyle": "switch"
+        },
+        {
+          "label": "$maxCountLabel",
+          "name": "maxCount",
+          "defaultValue": 1,
+          "min": 1
+        },
+        {
+          "label": "$limitSearchRangeLabel",
+          "name": "limitSearchRangeCheckbox",
+          "componentName": "analysis-boolean-input",
+          "defaultValue": true,
+          "displayStyle": "switch"
+        },
+        {
+          "label": "$maxSearchRangeLabel",
+          "name": "searchCutoff",
+          "defaultValue": 100,
+          "min": 0
+        },
+        {
+          "label": "$maxSearchRangeUnitLabel",
+          "name": "searchCutoffUnits",
+          "choiceListLabels": {
+            "Miles": "$miles",
+            "Kilometers": "$kilometers",
+            "Meters": "$meters",
+            "Feet": "$feet",
+            "Yards": "$yards"
+          },
+          "useDefaultOnReset": true
+        }
+      ]
+    },
+    {
+      "label": "$resultLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "required": true,
+          "placeholderText": "$outputNamePlaceholderText"
+        },
+        {
+          "name": "includeRouteLayers",
+          "label": "$includeRouteLayersLabel",
+          "visible": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

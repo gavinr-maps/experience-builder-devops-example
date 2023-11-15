@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"捲繞",verticalAlignment:"垂直對齊"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"垂直對齊"})}}}));

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Намиране на статистически данни за аргумент извлича стойността на размера или лентовия индекс, при който се постига дадена статистика за всеки пиксел в многоизмерен слой с изображения.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Слоят с многоизмерни изображения, който ще бъде оценен.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Размерът на слоя с многоизмерни изображения, от който ще бъде оценена променливата.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Променливата на слоя с многоизмерни изображения, която ще бъде оценена по време на определения интервал.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Типът статистика, която ще бъде извлечена от променливата или променливите по даден размер.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Минималната стойност, която ще се използва за продължителността на аргумента.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Максималната стойност, която ще се използва за продължителността на аргумента.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Стойността, показваща, че дадена статистика на аргумента е достигната повече от веднъж. По подразбиране е първият път, когато се достигне статистиката на аргумента.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Указва дали стойността на размера ще бъде върната при първото или последното достигане на аргумента. По подразбиране е първото появяване.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Ще бъде извлечена стойността на размера, при която е достигната определената стойност на променливата.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Указва типа сравнение, който ще се използва за извличане на стойността на размера.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Определя как статистическите данни ще бъдат извлечени от размера.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Единицата време, за която ще бъдат извлечени статистически данни.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Показва дали стойностите на NoData ще бъдат игнорирани при извличането.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Типът резултат, който ще бъде създаден. Резултатът може да бъде слой с плочкови изображения или слой с динамични изображения.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Името на папка в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

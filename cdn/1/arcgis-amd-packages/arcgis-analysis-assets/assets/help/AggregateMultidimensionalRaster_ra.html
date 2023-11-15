@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Aggregate Multidimensional Raster tool generates a multidimensional imagery layer by combining existing multidimensional imagery layer variables along a dimension.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>The multidimensional imagery layer that will be aggregated.
+
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>The dimension of the multidimensional imagery layer along which the variable will be aggregated.
+
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Indicates if the layer has dimension values. 
+
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>The variable of the multidimensional imagery layer that will be aggregated along the defined dimension.
+
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>The mathematical method that will be used to aggregate the slices of the multidimensional imagery layer.
+
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>The percentile value that will be used for calculations once the aggregation method is specified.
+
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>The method of percentile interpolation that will be used when there is an even number of values from the input imagery layer.
+
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>The custom raster function that will be used to compute the pixel values of the aggregated imagery layers. 
+
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>The dimension interval that will be used to aggregate the multidimensional data.
+
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Each keyword specifies the unit of time for which each statistic will be aggregated. The list of keywords includes Hourly, Daily, Weekly, Monthly, Quarterly, and Yearly. 
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>The size of the interval that will be used when aggregating along the dimension.
+
+
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>The units of measurement for the interval value.
+
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>The value table that will be used when aggregating along the dimension specified. The minimum and maximum values specify the range to be included.
+
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>The minimum value for the interval range.
+
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>The maximum value for the interval range.
+
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indicates whether NoData values will be ignored in the aggregation.
+
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>The type of output that will be created. The outputs can be Tiled imagery layers or Dynamic imagery layers.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>The name of the folder in  <b>My Content</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

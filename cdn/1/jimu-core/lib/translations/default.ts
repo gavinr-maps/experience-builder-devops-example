@@ -32,6 +32,11 @@ export default {
 
   actions: 'Actions',
   noActions: 'No available actions',
+  selectedData: 'Selected ({count})',
+  allData: 'All data ({count})',
+  allDataWithoutCount: 'All data',
+  loadedData: 'Loaded ({count})',
+  currentData: 'Current',
   export: 'Export',
   exportAll: 'Export all',
   exportSelected: 'Export selected',

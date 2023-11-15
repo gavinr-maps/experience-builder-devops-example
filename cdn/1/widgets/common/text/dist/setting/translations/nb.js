@@ -1,1 +1,1 @@
-System.register([],(function(t){return{execute:function(){t({wrap:"Bryting",verticalAlignment:"Loddrett justering"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Loddrett justering"})}}}));

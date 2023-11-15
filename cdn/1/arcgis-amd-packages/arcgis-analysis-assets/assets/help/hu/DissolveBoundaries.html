@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Dissolve Boundaries eszk&ouml;z egym&aacute;st &aacute;tfedő, k&ouml;z&ouml;s hat&aacute;rral rendelkező polygonokat keres, majd egyes&iacute;t &uacute;gy, hogy egyetlen polygont alkossanak.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Az &ouml;sszeolvasztand&oacute; polygon vektoros elemeket tartalmaz&oacute; r&eacute;teg.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>Meghat&aacute;rozza, hogy az eszk&ouml;z csak azokat a polygonokat olvassza-e &ouml;ssze, amelyek &aacute;tfedik egym&aacute;st vagy k&ouml;z&ouml;s hat&aacute;rral rendelkeznek &eacute;s azonos mező&eacute;rt&eacute;kkel rendelkeznek (enged&eacute;lyezve van), vagy az &ouml;sszes olyan polygont, amelyek &aacute;tfedik egym&aacute;st vagy k&ouml;z&ouml;s hat&aacute;rral rendelkeznek (le van tiltva).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>Megadja a polygonok egyező &eacute;rt&eacute;kek alapj&aacute;n val&oacute; &ouml;sszeolvaszt&aacute;s&aacute;hoz haszn&aacute;lt mezőt.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a kimenet tartalmazhat-e t&ouml;bb r&eacute;szből &aacute;ll&oacute;, polygon t&iacute;pus&uacute; vektoros elemeket, azaz t&ouml;bb olyan polygont, amelyek egyetlen elemk&eacute;nt vannak defini&aacute;lva (enged&eacute;lyezve), vagy csak egyedi elemeket tartalmazhat (letiltva).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>Meghat&aacute;rozza, hogy az &ouml;sszeolvasztott poygonokra kisz&aacute;m&iacute;t&aacute;sra ker&uuml;ljenek-e &ouml;sszefoglal&oacute; statisztik&aacute;k.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Az &ouml;sszes&iacute;tendő bemeneti r&eacute;teg sz&aacute;m- vagy d&aacute;tummezői, valamint az egyes mezőkre kisz&aacute;m&iacute;tand&oacute; statisztik&aacute;k.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

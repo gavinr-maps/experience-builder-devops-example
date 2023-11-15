@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Najdi osamelce bo določilo, ali obstajajo kakr&scaron;ne koli lokacije s statistično drugačnimi vrednostmi od svojih sosedov, na podlagi prostorskega vzorca podatkov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Točkovni ali poligonski sloj v katerem se bo iskalo osamelce.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Določi ali bodo osamelci določeni na podlagi lokacij geoobjekta (<b>&Scaron;tevci točk</b>) ali vrednosti polja geoobjekta (<b>Polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Polje, ki bo analizirano za določanje osamelcev.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Vrsta omejitvenih geoobjektov, znotraj katerih se bodo agregirali vhodni geoobjekti. To je lahko poligonski sloj (<b>Poligonski sloj</b>) ali tesalacijska mreža kvadratov (<b>Celice ribje mreže</b>) ali &scaron;estkotnikov (<b>&Scaron;estkotne celice</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Sloj, ki vsebuje poligonske geoobjekte, v katerih se bodo agregirali vhodni točkovni geoobjekti.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Poligonski sloj, ki bo opredelil razmejitev analize. Geoobjekti znotraj poligona bodo vključeni v analizo osamelcev.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Določi, kako razdeliti vrednosti  <b>Polja analize</b> ali &scaron;tevce agregiranih točk. Možnost <b>Polje</b> bo razdelila vrednosti <b>Polja analize</b> glede na vrednosti določenega polja v parametru <b>Vhodni sloj</b>. Možnost <b>Podatki obogatitve</b> bo obogatila geoobjekte ali oblike agregacije s podatki prebivalstva in razdelila vrednosti <b>Polja analize</b> ali &scaron;tevcev agregiranih točk po prebivalstvu. Ta možnost bo porabila dodatne kredite.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Določa, ali bo orodje optimizirano za hitrej&scaron;i čas obdelave ali večjo natančnost rezultatov.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Vrednost celega &scaron;tevila, ki bo zagnala generator naključnih &scaron;tevil.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Dolžina stranice kvadratnih (ribja mreža) ali &scaron;estkotnih celic, ki bo uporabljena za agregacijo vhodnih geoobjektov.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Določa enote, ki bodo uporabljene za velikost celice.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Pas razdalje, ki bo uporabljen za določanje soseske. Sosednji geoobjekti znotraj pasu razdalje ciljnega geoobjekta bodo med analizo vključeni v sosesko ciljne geoobjekta.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Določa enote, ki bodo uporabljene za pas razdalje.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

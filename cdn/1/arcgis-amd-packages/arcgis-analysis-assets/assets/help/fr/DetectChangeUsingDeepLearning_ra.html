@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil D&eacute;tecter les changements &agrave; l&rsquo;aide du Deep Learning utilise un mod&egrave;le de Deep Learning pour d&eacute;terminer les changements entre deux couches raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="fromRaster">
+        <div>
+            <p>Couche d&rsquo;imagerie en entr&eacute;e avant le changement qui sera utilis&eacute;e comme base de comparaison.
+            </p>
+        </div>
+    </div>
+    <div id="toRaster">
+        <div>
+            <p>Couche d&rsquo;imagerie en entr&eacute;e apr&egrave;s le changement qui sera utilis&eacute;e pour comparaison d&rsquo;apr&egrave;s l&rsquo;originale.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRasterName">
+        <div>
+            <p>Couche d&rsquo;imagerie class&eacute;e en sortie qui affiche le changement.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Arguments du mod&egrave;le pr&eacute;sents dans le mod&egrave;le Deep Learning avec leur valeur par d&eacute;faut.
+            </p>
+        </div>
+    </div>
+    <div id="modelDefinition">
+        <div>
+            <p>Paquetage de Deep Learning qui contient le mod&egrave;le &agrave; utiliser pour d&eacute;tecter les changements entre les couches d&rsquo;imagerie.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Type de sortie &agrave; cr&eacute;er. La sortie peut correspondre &agrave; une couche d&rsquo;imagerie tuil&eacute;e ou une couche d&rsquo;imagerie dynamique.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

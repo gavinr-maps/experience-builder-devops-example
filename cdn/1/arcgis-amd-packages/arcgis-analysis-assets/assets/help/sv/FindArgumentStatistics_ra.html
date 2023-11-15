@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Hitta argumentstatistik extraherar det dimensionsv&auml;rde eller bandindex d&auml;r en given statistik uppn&aring;s f&ouml;r varje pixel i ett flerdimensionellt bildlager.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Det flerdimensionella bildlager som ska utv&auml;rderas.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensionen f&ouml;r det flerdimensionella bildlager fr&aring;n vilket variabeln kommer att utv&auml;rderas.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabeln f&ouml;r det flerdimensionella bildlagret som kommer att utv&auml;rderas l&auml;ngs det definierade intervallet.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Typen av statistik som ska extraheras fr&aring;n variabeln eller variablerna l&auml;ngs en given dimension.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Det minsta v&auml;rdet som ska anv&auml;ndas f&ouml;r varaktigheten f&ouml;r argumentet.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Det h&ouml;gsta v&auml;rdet som ska anv&auml;ndas f&ouml;r varaktigheten f&ouml;r argumentet.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Det v&auml;rde som anger att ett givet statistiskt v&auml;rde f&ouml;r argumentet har uppn&aring;tts fler &auml;n en g&aring;ng. Standardv&auml;rdet &auml;r f&ouml;rsta g&aring;ngen argumentstatistiken uppn&aring;s.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Anger om v&auml;rdet f&ouml;r dimensionen returneras f&ouml;rsta eller sista g&aring;ngen argumentet uppn&aring;s. Standard &auml;r den f&ouml;rsta f&ouml;rekomsten.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Det dimensionsv&auml;rde d&auml;r det angivna variabelv&auml;rdet uppn&aring;s kommer att extraheras.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Anger j&auml;mf&ouml;relsetypen som kommer att anv&auml;ndas f&ouml;r att extrahera dimensionsv&auml;rdet.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Anger hur statistiken ska extraheras fr&aring;n dimensionen.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Den tidsenhet som varje statistik ska extraheras f&ouml;r.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Anger huruvida NoData-v&auml;rden ignoreras i extraktionen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ av utdata som skapas. Utdata kan vara ett bildlager i tileform eller ett dynamiskt bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

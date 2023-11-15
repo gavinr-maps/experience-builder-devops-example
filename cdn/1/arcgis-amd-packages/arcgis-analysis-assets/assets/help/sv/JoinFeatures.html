@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget F&ouml;rena geoobjekt l&auml;gger till attribut fr&aring;n ett lager eller tabell till en annan baserat p&aring; angivna spatiala relationer och attributrelationer. Det g&aring;r ocks&aring; att ber&auml;kna statistik n&auml;r det finns flera matchande poster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Lagret eller tabellen som kommer att f&aring; attribut fr&aring;n f&ouml;reningslagret tillagda i sin attributtabell.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Lagret eller tabellen med attributen som ska l&auml;ggas till i m&aring;llagret.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Ange om lager ska f&ouml;renas baserat p&aring; en spatial relation. Detta kr&auml;ver att b&aring;da lagren har en geometri.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Ange den spatiala relation som avg&ouml;r vilka geoobjekt som f&ouml;renas. Geoobjekt i f&ouml;reningslagret som har den angivna relationen till m&aring;llagret f&ouml;renas. De tillg&auml;ngliga relationerna beror p&aring; geometritypen f&ouml;r indata.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Avst&aring;ndet fr&aring;n geoobjekten i m&aring;llagret som anv&auml;nds f&ouml;r att fastst&auml;lla om geoobjekt ska f&ouml;renas.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Enheterna som anv&auml;nds f&ouml;r att ange avst&aring;ndet.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Ange om lager ska f&ouml;renas baserat p&aring; matchande f&auml;ltv&auml;rden. Det h&auml;r &auml;r det enda alternativet om en eller flera indata &auml;r en tabell.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Ange den attributrelation som avg&ouml;r vilka geoobjekt som f&ouml;renas. Geoobjekten matchas n&auml;r f&auml;ltv&auml;rdena i f&ouml;reningslagret &auml;r lika med f&auml;ltv&auml;rdena i m&aring;llagret.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Ange hur f&ouml;reningar hanteras om flera poster fr&aring;n f&ouml;reningslagret uppfyller f&ouml;reningsvillkoren. V&auml;lj mellan f&ouml;ljande alternativ:
+                <ul>
+                    <li> <b>F&ouml;rena ett till ett</b>&mdash; F&ouml;rena en enda post i f&ouml;reningslagret till varje geoobjekt i m&aring;llagret.
+                    </li>
+                    <li> <b>F&ouml;rena ett till m&aring;nga</b>&mdash; F&ouml;rena alla matchande geoobjekt i f&ouml;reningslagret till m&aring;llagret. Resultatlagret kommer att inneh&aring;lla flera poster av m&aring;lgeoobjektet.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>N&auml;r flera geoobjekt i f&ouml;reningslagret matchar ett m&aring;lgeoobjekt anger du om en enda post fr&aring;n f&ouml;reningslagret ska f&ouml;renas eller om sammanfattningsstatistik f&ouml;r alla matchande poster fr&aring;n f&ouml;reningslagret ska ber&auml;knas.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>N&auml;r det finns flera f&ouml;reningsgeoobjekt som matchar ett m&aring;lgeoobjekt ber&auml;knas sammanfattningsstatistik f&ouml;r alla matchande poster. Ange nummer- eller datumf&auml;lt fr&aring;n f&ouml;reningslagret och statistiken som ska ber&auml;knas f&ouml;r varje f&auml;lt.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>N&auml;r det finns flera f&ouml;reningsgeoobjekt som matchar ett m&aring;lgeoobjekt inkluderas den f&ouml;rsta posten fr&aring;n f&ouml;reningslagrets attributtabell i utdata. Du kan ocks&aring; v&auml;lja ett nummer- eller datumf&auml;lt och sorteringsordningen som ska avg&ouml;ra ordningen f&ouml;r attributtabellen.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Fastst&auml;ller om omatchade m&aring;lgeoobjekt inkluderas i utdata. En  <b>Inre f&ouml;rening</b> returnerar bara matchade m&aring;lposter, medan <b>V&auml;nster f&ouml;rening</b> returnerar alla m&aring;lposter, &auml;ven om m&aring;lgeoobjektet inte har en match i f&ouml;reningslagret.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret eller tabellen som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

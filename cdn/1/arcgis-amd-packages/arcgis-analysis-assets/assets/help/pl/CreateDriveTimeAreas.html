@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Generuj obszary podr&oacute;ży tworzy obszary, do kt&oacute;rych można dotrzeć w określonym czasie lub po pokonaniu określonej odległości.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Obiekty punktowe, wok&oacute;ł kt&oacute;rych zostaną wyznaczone obszary.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Tryb podr&oacute;żowania, kt&oacute;ry będzie używany przy tworzeniu obszar&oacute;w podr&oacute;ży. Tryb podr&oacute;żowania może być oparty na odległości lub czasie.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Limit odległości lub czasu podr&oacute;ży dla każdego punktu wejściowego. Jeśli zostanie dodanych kilka wartości, każda z nich zostanie użyta do obliczenia obszar&oacute;w podr&oacute;ży dla wszystkich punkt&oacute;w wejściowych.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Jednostki używane do określenia odległości lub czasu podr&oacute;ży. Wartość  <b>Odcięcie</b> jest interpretowana w tych jednostkach.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Określa, czy obszary podr&oacute;ży są tworzone dla podr&oacute;ży od punkt&oacute;w wejściowych, czy w kierunku punkt&oacute;w wejściowych.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Określa datę i czas opuszczenia przez podr&oacute;żującego lokalizacji wejściowych lub jego dotarcia do tych lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Określa, w&nbsp;jaki są obsługiwane wsp&oacute;łdzielone obszary z&nbsp;r&oacute;żnych punkt&oacute;w wejściowych w&nbsp;momencie, gdy się zetkną.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Określa, czy każdy obszar wynikowy będzie jednym ciągłym poligonem (opcja niezaznaczona), czy będzie zawierać dziury w przypadku ulic, kt&oacute;re nie są osiągalne, ale są całkowicie otoczone ulicami osiągalnymi (opcja zaznaczona).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Określa, czy ulice używane do tworzenia obszar&oacute;w podr&oacute;ży zostaną dołączone do warstwy wynikowej.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

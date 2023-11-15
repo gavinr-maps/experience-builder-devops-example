@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Geok&oacute;dovať lokality z tabuľky konvertuje adresy alebo miesta zo vstupnej tabuľky na s&uacute;radnice.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Vstupn&aacute; tabuľka s adresami alebo miestami na geok&oacute;dovanie. Vstup mus&iacute; byť tabuľka,  <code>.csv</code> s&uacute;bor alebo Excel s&uacute;bor. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Služba lok&aacute;tora, ktor&aacute; sa m&aacute; použiť na geok&oacute;dovanie. Ak nie je služba lok&aacute;tora, ktor&uacute; chcete použiť, pr&iacute;tomn&aacute; v rozbaľovacom menu, kontaktujte v&aacute;&scaron;ho administr&aacute;tora pre konfigur&aacute;ciu tejto služby na hromadn&eacute; geok&oacute;dovanie.
+
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Určuje, či sa vstupn&eacute; d&aacute;ta nach&aacute;dzaj&uacute; v jednom poli alebo vo viacer&yacute;ch poliach.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Polia, ktor&eacute; lok&aacute;tor použije na určenie lokality d&aacute;t. Predpoklad&aacute; sa, že d&aacute;ta bud&uacute; obsahovať určit&eacute; polia, napr&iacute;klad adresa, mesto, &scaron;t&aacute;t a psč.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Krajina, v ktorej sa d&aacute;ta nach&aacute;dzaj&uacute;. Ak s&uacute; v&scaron;etky adresy z jednej krajiny, uveďte t&uacute;to krajinu, aby ste zaistili najpresnej&scaron;e v&yacute;sledky. V opačnom pr&iacute;pade ponechajte tento parameter nevyplnen&yacute;.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Určuje polia, ktor&eacute; bud&uacute; zahrnut&eacute; do v&yacute;stupn&eacute;ho datasetu. Možnosti s&uacute; nasleduj&uacute;ce:
+            </p>
+            <ul>
+                <li> <b>V&scaron;etky</b>&mdash;Do v&yacute;sledkov geok&oacute;dovania bud&uacute; zahrnut&eacute; v&scaron;etky dostupn&eacute; v&yacute;stupn&eacute; polia lok&aacute;tora.
+                </li>
+                <li> <b>Minim&aacute;lne</b>&mdash;Do v&yacute;sledkov sa zahrnie podmnožina pol&iacute; z lok&aacute;tora, ako aj pol&iacute; zo vstupnej tabuľky.
+                </li>
+                <li> <b>Iba lokalita</b>&mdash;Do v&yacute;sledkov sa zahrnie pole <i>Shape</i> z lok&aacute;tora, ako aj polia zo vstupnej tabuľky.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť prvkov&aacute; služba,  <code>.csv</code> s&uacute;bor alebo <code>.xls</code> s&uacute;bor.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>N&aacute;zov v&yacute;stupnej položky, do ktorej bud&uacute; uložen&eacute; lokalizovan&eacute; d&aacute;ta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

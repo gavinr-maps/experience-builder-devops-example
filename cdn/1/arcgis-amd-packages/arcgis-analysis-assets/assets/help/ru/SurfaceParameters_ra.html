@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Параметры поверхности вычисляет параметры растровой поверхности, такие как экспозиция, уклон и кривизна, с использованием геодезических методов.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Растр высот, который будет использоваться для расчета.
+            </p>
+            <p>Если единицы измерения z-значения имеются вертикальной системе координат входного растра, то они будут применяться автоматически.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Тип параметра поверхности, который будет измерен.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Единицы измерения выходного растра уклонов.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Определяет, будут ли спроецированы геодезические азимуты.
+            </p>
+            <p>Если отмечено, геодезические азимуты будут спроецированы с учетом корректного искажения углов, вызванного выходной пространственной привязкой. Если не отмечено, то геодезические азимуты не будут спроецированы.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Указывает, будет ли экспозиция измеряться от точки на экваторе или от северного полюса.
+            </p>
+            <p>Если отмечено, то экспозиция будет измеряться из точки на экваторе. Если не отмечено, то экспозиция будет измеряться от северного полюса.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Тип функции поверхности, которая будет установлена вокруг целевой ячейки.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Расстояние от центра целевой ячейки, из которого будут вычисляться выходные данные. Оно определяет размер окрестности, которая используется для вычислений.
+            </p>
+            <p>Значением по умолчанию будет размер ячейки растра, заданный в параметре  <b>Входной растр поверхности</b>. Если задано значение, то оно должно быть больше значения по умолчанию.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Указывает, будет ли расстояние до окрестности меняться в зависимости от изменений ландшафта.
+            </p>
+            <p>Если отмечено, то расстояние до окрестности будет меняться в зависимости от изменений ландшафта. Если не отмечено, то во всех местоположениях будет использоваться фиксированное расстояние окрестности.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Линейные единицы измерения вертикальных z-значений.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя растрового слоя поверхности, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип создаваемых выходных данных. Результатом может быть Слой листов изображений или Динамический слой изображений.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

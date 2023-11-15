@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Resumir Mais Pr&oacute;ximo calcula estat&iacute;sticas para fei&ccedil;&otilde;es dentro de uma dist&acirc;ncia especificada de outras fei&ccedil;&otilde;es. A dist&acirc;ncia pode ser calculada usando uma dist&acirc;ncia em linha reta ou um modo de viagem.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>A camada a ser resumida dentro de uma dist&acirc;ncia da camada pr&oacute;xima.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>A camada de ponto, linha ou pol&iacute;gono usada como os locais iniciais em torno dos quais as &aacute;reas delimitadoras ser&atilde;o criadas para resumir as fei&ccedil;&otilde;es pr&oacute;ximas.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>O m&eacute;todo com o qual as &aacute;reas delimitadoras ser&atilde;o criadas. O m&eacute;todo pode ser uma dist&acirc;ncia em linha reta ou um modo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>A dist&acirc;ncia ou tempo que ser&aacute; usado para criar &aacute;reas delimitadoras. Se v&aacute;rios valores forem adicionados, cada valor ser&aacute; usado para calcular &aacute;reas delimitadoras para todos as fei&ccedil;&otilde;es de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>As unidades que ser&atilde;o usadas para especificar dist&acirc;ncia ou tempo.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Especifique se a camada resultante deve ser as &aacute;reas delimitadoras (marcada) ou a mesma geometria da camada pr&oacute;xima de entrada (desmarcada).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Calcule o tamanho total das fei&ccedil;&otilde;es resumidas em cada &aacute;rea delimitadora. Para linhas, o comprimento total ser&aacute; calculado. Para pol&iacute;gonos, a &aacute;rea total ser&aacute; calculada.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>As unidades que ser&atilde;o usadas para calcular o tamanho total das fei&ccedil;&otilde;es resumidas.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Os campos de n&uacute;mero ou data da camada de entrada a serem resumidos e as estat&iacute;sticas que ser&atilde;o calculadas para cada campo.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>O campo da camada de entrada que ser&aacute; usado para separar os dados em grupos distintos para c&aacute;lculos estat&iacute;sticos.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Calcule os grupos minorit&aacute;rios (menos dominantes) e majorit&aacute;rios (mais dominantes) dentro de cada &aacute;rea de resumo.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Calcule a porcentagem das fei&ccedil;&otilde;es resumidas que pertencem a cada grupo dentro de cada limite.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

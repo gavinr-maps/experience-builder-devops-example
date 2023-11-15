@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riistaga &quot;Agregeeri mitmem&otilde;&otilde;tmeline raster&quot; saab luua mitmem&otilde;&otilde;tmelise piltide kihi olemasolevaid mitmem&otilde;&otilde;tmelisi piltide kihtide muutujaid m&ouml;&ouml;da m&otilde;&otilde;det kombineerides.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Agregeeritav mitmem&otilde;&otilde;tmeliste piltide kiht.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Mitmem&otilde;&otilde;tmeliste piltide kihi m&otilde;&otilde;de, m&ouml;&ouml;da mida muutuja agregeeritakse.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>N&auml;itab, kas kihil on m&otilde;&otilde;tmev&auml;&auml;rtused.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Mitmem&otilde;&otilde;tmeliste piltide kihi m&otilde;&otilde;de, mis agregeeritakse m&ouml;&ouml;da m&auml;&auml;ratud m&otilde;&otilde;det.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Matemaatiline meetod, mida kasutatakse mitmem&otilde;&otilde;tmelise piltide kihi l&otilde;ikude agregeerimiseks.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Protsentiili v&auml;&auml;rtus, mida kasutatakse arvutamiseks p&auml;rast agregeerimise meetodi m&auml;&auml;ramist.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Protsentiili interpoleerimise meetod, mida kasutatakse juhul, kui sisendpiltide kihi v&auml;&auml;rtuste arv on paarisarv.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Kohandatud rasterfunktsioon, mille j&auml;rgi arvutatakse agregeeritud piltide kihtide piksliv&auml;&auml;rtusi.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>M&otilde;&otilde;tmete intervall, mida kasutatakse mitmem&otilde;&otilde;tmeliste andmete agregeerimiseks.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Iga m&auml;rks&otilde;na m&auml;&auml;rab aja&uuml;hiku, mille vastav statistika agregeeritakse. M&auml;rks&otilde;nade loendis on valikud Kord tunnis, Kord p&auml;evas, Kord n&auml;dalas, Kord kuus, Kord kvartalis ja Kord aastas.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Intervalli suurus, mida kasutatakse m&ouml;&ouml;da m&otilde;&otilde;det agregeerides.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Intervalli v&auml;&auml;rtuse m&otilde;&otilde;t&uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>V&auml;&auml;rtuste tabel, mida kasutatakse m&ouml;&ouml;da m&auml;&auml;ratud m&otilde;&otilde;det agregeerides. Miinimum- ja maksimumv&auml;&auml;rtused m&auml;&auml;ravad kaasatava vahemiku.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Intervalli vahemiku minimaalne v&auml;&auml;rtus.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Intervalli vahemiku maksimaalne v&auml;&auml;rtus.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>N&auml;itab, kas NoData v&auml;&auml;rtusi ignoreeritakse agregeerimisel.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

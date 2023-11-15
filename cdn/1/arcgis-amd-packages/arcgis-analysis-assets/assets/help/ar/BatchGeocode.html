@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تقوم أداة التكويد الجغرافي للمواقع من الجدول بتحويل العناوين أو الأماكن من جدول مدخل إلى إحداثيات.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>الجدول المدخل الذي يتضمن العناوين أو الأماكن المراد تكويدها جغرافيًا. يجب أن يكون المدخل جدولاً أو ملف  <code>.csv</code> أو ملف Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>خدمة محدد المواقع المراد استخدامها في التكويد الجغرافي. إذا كانت خدمة محدد المواقع التي تريد استخدامها ليست في القائمة المنسدلة، اتصل بالمسئول لتكوين خدمة محدد المواقع للتكويد الجغرافي الدَّفعي.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>تُحدد ما إذا كانت البيانات المدخلة موجودة في حقل واحد أم عدة حقول.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>الحقول التي سيستخدمها محدد المواقع لتحديد مواقع البيانات. يُفترض وجود حقول معينة في البيانات، مثل العنوان والمدينة والولاية والرمز البريدي.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>الدولة التي توجد فيها البيانات. إذا كانت جميع العناوين من دولة واحدة، فأدخل اسم تلك الدولة لضمان الحصول على أكثر النتائج دقة. أو اترك هذه المعلمة فارغة.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>يُحدد الحقول التي سيتم تضمينها في مجموعة البيانات الناتجة. تكون الخيارات على النحو التالي:
+            </p>
+            <ul>
+                <li> <b>الكل</b>&mdash;سيتم تضمين جميع الحقول الناتجة المتاحة لمحدد المواقع في نتائج التكويد الجغرافي.
+                </li>
+                <li> <b>الحد الأدنى</b>&mdash;سيتم تضمين مجموعة فرعية من الحقول من محدد المواقع بالإضافة إلى الحقول من الجدول المدخل في النتائج.
+                </li>
+                <li> <b>الموقع فقط</b>&mdash;سيتم تضمين الحقل <i>Shape</i> من محدد المواقع بالإضافة إلى الحقول من الجدول المدخل في النتائج.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن يكون الناتج خدمة معالم أو ملف  <code>.csv</code> أو ملف <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>اسم العنصر الناتج الذي سيتم فيه تخزين البيانات التي تم تحديد موقعها.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

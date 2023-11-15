@@ -1,0 +1,171 @@
+{
+  "toolName": "FlowDistance",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputSurfaceRaster.user.portal NOT undefined) AND ($[Component].inputSurfaceRaster.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputSurfaceRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputSurfaceRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputSurfaceRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputSurfaceRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["snapRaster", "cellSize", "mask", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputStreamRaster",
+          "label": "$inputStreamRasterLabel",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "selectionMode": "single",
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        },
+        {
+          "name": "inputSurfaceRaster",
+          "label": "$inputSurfaceRasterLabel",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "selectionMode": "single",
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        },
+        {
+          "label": "$optionalLayerSectionLabel",
+          "componentName": "analysis-section",
+          "UIparameters": [
+            {
+              "name": "inputFlowDirectionRaster",
+              "label": "$inputFlowDirectionLabel",
+              "componentName": "analysis-layer-input",
+              "selectionMode": "single",
+              "hideSketch": true,
+              "layerFilterType": ["imagery"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$inputFlowDistanceSettingsGroupLabel",
+      "summaryText": "$inputFlowDistanceSettingsGroupText",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "distanceType",
+          "label": "$distanceTypeLabel",
+          "componentName": "analysis-string-input",
+          "required": false,
+          "selectionMode": "single",
+          "showAsRadioGroup": true,
+          "defaultValue": "VERTICAL",
+          "choiceList": ["VERTICAL", "HORIZONTAL"],
+          "choiceListLabels": {
+            "VERTICAL": "$vertical",
+            "HORIZONTAL": "$horizontal"
+          }
+        },
+        {
+          "name": "flowDirectionType",
+          "label": "$flowDirectionTypeLabel",
+          "componentName": "analysis-string-input",
+          "required": false,
+          "selectionMode": "single",
+          "defaultValue": "D8",
+          "choiceList": ["D8", "MFD", "DINF"],
+          "choiceListLabels": {
+            "D8": "$d8",
+            "MFD": "$mfd",
+            "DINF": "$dinf"
+          }
+        },
+        {
+          "name": "statisticsType",
+          "label": "$statisticsTypeLabel",
+          "componentName": "analysis-string-input",
+          "required": false,
+          "selectionMode": "single",
+          "defaultValue": "MINIMUM",
+          "choiceList": ["MINIMUM", "WEIGHTED_MEAN", "MAXIMUM"],
+          "choiceListLabels": {
+            "MINIMUM": "$minimum",
+            "WEIGHTED_MEAN": "$weightedMean",
+            "MAXIMUM": "$maximum"
+          }
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputRasterNameLabel",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "defaultValue": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

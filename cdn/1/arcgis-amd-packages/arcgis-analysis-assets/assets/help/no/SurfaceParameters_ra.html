@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Overflateparametere beregner parametere for en rasteroverflate som hellingsretning, hellingsgrad og kurvatur ved hjelp av geodetiske metoder.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>H&oslash;yderasteret som blir brukt til beregninger.
+            </p>
+            <p>Hvis en z-enhet er tilgjengelig i det vertikale koordinatsystemet for inndatarasteret, brukes den automatisk.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Overflateparametertypen som blir m&aring;lt.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>M&aring;leenhetene for utg&aring;ende hellingsraster.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Angir om geodesiske asimutter blir projisert.
+            </p>
+            <p>Hvis alternativet er valgt, blir geodesiske asimutter projisert for &aring; korrigere vinkelforvrengningen som for&aring;rsakes av den romlige referansen for utdata. Hvis alternativet ikke er valgt, blir geodesiske asimutter ikke projisert.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Angir om hellingsretningen blir m&aring;lt fra et punkt p&aring; ekvator eller fra nordpolen.
+            </p>
+            <p>Hvis alternativet er valgt, m&aring;les hellingsretningen fra et punkt p&aring; ekvator. Hvis alternativet ikke er valgt, m&aring;les hellingsretningen fra et punkt p&aring; ekvator.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Typen overflatefunksjon som skal tilpasses rundt m&aring;lcellen.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Avstanden fra m&aring;lcellens senter som utdataene blir beregnet fra. Det fastsl&aring;r nabolagsst&oslash;rrelsen som brukes til beregning.
+            </p>
+            <p>Standardverdien er cellest&oslash;rrelsen for rasteret som er angitt i parameteren  <b>Innlagt overflateraster</b>. Hvis verdien angis, m&aring; den v&aelig;re st&oslash;rre enn standardverdien.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Angir om nabolagsavstanden vil variere med endringer i landskapet.
+            </p>
+            <p>Hvis alternativet er valgt, vil nabolagsavstanden variere med endringer i landskapet. Hvis alternativet ikke er valgt, brukes en fast nabolagsavstand p&aring; alle lokasjoner.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Den line&aelig;re enheten for vertikale z-verdier.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; overflaterasterlaget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typen utdata som blir opprettet. Utdata kan v&aelig;re et flisinndelt bildelag eller et dynamisk bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

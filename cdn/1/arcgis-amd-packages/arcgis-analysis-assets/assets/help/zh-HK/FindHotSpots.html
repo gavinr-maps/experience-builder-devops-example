@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「尋找熱點」工具可識別輸入圖徵中具有統計顯著性的叢集。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>將對其執行熱點分析的輸入點或多邊形圖層。
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>指定熱點和冷點將反映圖徵位置 (<b>點數</b>) 還是圖徵欄位值 (<b>欄位</b>)。
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>將針對高與低值叢集分析欄位。
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>將在其中匯聚輸入點圖徵的邊界圖徵的類型。 這可以是多邊形圖層 (<b>多邊形圖層</b>)，或正方形 (<b>魚網儲存格</b>) 或六邊形 (<b>六邊形儲存格</b>) 的鑲嵌網格。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>包含將匯聚輸入點圖徵之多邊形圖徵的圖層。
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>將定義分析邊界的多邊形圖層。 多邊形內的點圖徵將包含在熱點分析中。
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>指定如何除以 <b>分析欄位</b>值或匯聚點計數。 <b>欄位</b>選項會將 <b>分析欄位</b>值除以 <b>輸入圖層</b>參數中指定欄位的值。 <b>豐富資料</b>選項將使用人口資料豐富圖徵或匯聚形狀，並將 <b>分析欄位</b>值或匯聚點計數除以人口。 此選項將耗用其他點數。
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>將用於匯聚輸入圖徵的方形或六邊形儲存格的邊長。
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>指定將用於儲存格大小的單位。
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>將用於定義鄰域的距離頻段。 在熱點分析期間，目標圖徵距離範圍內的相鄰圖徵將包含在目標圖徵的鄰域中。
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>指定將用於距離頻段的單位。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

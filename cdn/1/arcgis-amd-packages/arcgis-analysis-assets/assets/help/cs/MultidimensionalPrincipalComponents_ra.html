@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj V&iacute;cerozměrn&eacute; hlavn&iacute; komponenty (Multidimensional Principal Components) transformuje v&iacute;cerozměrn&eacute; rastrov&eacute; vrstvy na sn&iacute;žen&yacute; počet komponent, kter&eacute; zohledňuj&iacute; rozptyl dat, takže lze snadno identifikovat prostorov&eacute; a&nbsp;časov&eacute; uspoř&aacute;d&aacute;n&iacute; dat.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>V&iacute;cerozměrn&aacute; vrstva obrazov&yacute;ch dat, kter&aacute; bude analyzov&aacute;na.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Metoda, kter&aacute; se použije k proveden&iacute; anal&yacute;zy hlavn&iacute;ch komponent. Mezi možnosti patř&iacute;  <b>Redukce rozměrů</b> a <b>Redukce prostoru</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Rozměr v&iacute;cerozměrn&eacute; obrazov&eacute; vrstvy, pod&eacute;l něhož bude proměnn&aacute; analyzov&aacute;na.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>N&aacute;zev v&yacute;stupn&iacute; obrazov&eacute; nebo tabulkov&eacute; vrstvy zobrazuj&iacute;c&iacute; nalezen&eacute; hlavn&iacute; komponenty v&nbsp;z&aacute;vislosti na n&aacute;sleduj&iacute;c&iacute;ch volb&aacute;ch režimu:
+                <ul>
+                    <li>V&yacute;stupem redukce rozměrů bude v&iacute;cep&aacute;smov&aacute; obrazov&aacute; vrstva.
+                    </li>
+                    <li>V&yacute;stupem redukce prostoru bude tabulkov&aacute; vrstva.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>N&aacute;zev v&yacute;stupn&iacute; obrazov&eacute; nebo tabulkov&eacute; vrstvy zobrazuj&iacute;c&iacute; podpůrn&aacute; data ve v&yacute;běru hlavn&iacute;ch komponent v&nbsp;z&aacute;vislosti na n&aacute;sleduj&iacute;c&iacute;ch volb&aacute;ch režimu:
+                <ul>
+                    <li>V&yacute;stupem redukce rozměrů bude tabulkov&aacute; vrstva.
+                    </li>
+                    <li>V&yacute;stupem redukce prostoru bude obrazov&aacute; vrstva.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>N&aacute;zev tabulky vlastn&iacute;ch č&iacute;sel, kter&aacute; ud&aacute;v&aacute; procento rozptylu každ&eacute; komponenty.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>N&aacute;zev proměnn&eacute; vstupn&iacute; v&iacute;cerozměrn&eacute; obrazov&eacute; vrstvy použit&eacute; při v&yacute;počtu.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Počet hlavn&iacute;ch komponent k v&yacute;počtu, obvykle men&scaron;&iacute; než počet vstupn&iacute;ch rastrů.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ v&yacute;stupu, kter&yacute; bude vytvořen. V&yacute;stupem mohou b&yacute;t vrstvy dlaždicov&yacute;ch sn&iacute;mků nebo dynamick&eacute; vrstvy sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; budou v&yacute;sledky uloženy.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

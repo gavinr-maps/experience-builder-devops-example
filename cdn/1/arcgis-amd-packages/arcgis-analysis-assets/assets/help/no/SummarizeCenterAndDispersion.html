@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Summer midtpunkt og fordeling finner det sentrale geoobjektet, sentraltendens og ellipser for standardavvik for et sett med geoobjekter.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Punkt-, linje- eller polygongeoobjektene som det sentrale geoobjektet, sentraltendensen og ellipsen for standardavvik skal beregnes for.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Angir metodene som skal summere midtpunktet og fordelingen av geoobjektene.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Angir st&oslash;rrelsen, i standardavvik, for det elliptiske polygonet. Hvis avstanden mellom det gjennomsnittlige midpunktet og geoobjektlokasjonene f&oslash;lger en Rayleigh-fordeling, vil alternativene  <b>1 standardavvik</b>, <b>2 standardavvik</b> og <b>3 standardavvik</b> gi et elliptisk polygon som dekker henholdsvis 63 prosent, 89 prosent og 99,9 prosent av geoobjektene.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Feltet som skal brukes til &aring; fastsl&aring; vekten av geoobjektet.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Feltet som skal brukes til &aring; gruppere geoobjekter sammen. De valgte  <b>sammendragstypene</b> blir beregnet for hver gruppe.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

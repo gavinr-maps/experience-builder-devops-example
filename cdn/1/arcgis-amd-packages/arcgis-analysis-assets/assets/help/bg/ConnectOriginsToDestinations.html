@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Изчисление на пътни разходи измерва времето за пътуване или разстоянието между двойки точки.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Точковият слой, представляващ началните местоположения, от които се изчисляват разходите за пътуване. Слоеве с до  5 000 обекта се поддържат. </p> 
+            <p class="PortalOnly">Точковият слой, представляващ началните местоположения, от които се изчисляват разходите за пътуване.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Точковият слой, представляващ местоположения на дестинацията, към които се изчисляват разходите за пътуване. Слоеве с до  5 000 обекта се поддържат. </p> 
+            <p class="PortalOnly">Точковият слой, представляващ местоположения на дестинацията, към които се изчисляват разходите за пътуване.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Полето в  <b>От слой</b>, което дефинира предварително зададената двойка произход-дестинация. Ако има няколко местоположения на произход и местоположения на дестинация, този идентификатор трябва да съответства на стойност в <b>Поле с ИД на маршрут от слой </b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Полето в  <b>До слой</b>, което дефинира предварително зададената двойка произход-дестинация. Ако има няколко местоположения на произход и местоположения на дестинация, този идентификатор трябва да съответства на стойност в <b>Поле с ИД на маршрут от слой</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Един или повече точкови обекти, които действат като временни ограничения (бариери) при движение по основните улици. Движението по улицата е разрешено, но не и през бариерата.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Един или повече линейни обекти, които действат като временни ограничения (бариери) при движение по основните улици. Линейните бариери забраняват движението навсякъде, където бариерите пресичат улиците.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Един или повече полигонови обекти, които действат като временни ограничения (бариери) при движение по основните улици. Полигоновите бариери забраняват движението навсякъде, където полигоните пресичат улиците.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Методът, който ще се използва за измерване на разстоянието или времето. Методът може да бъде разстояние по линия или режим на пътуване.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Датата и часът на заминаване от началните местоположения в  <b>От слой</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Определя дали изходните точки и дестинациите са свързани с помощта на паякообразни линии или линии на желанията (<b>Права линия</b>) или улиците в основната улична мрежа (<b>Следване на улици</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Указва дали всеки маршрут с резултат ще бъде запазен като маршрутен слой.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Името на папката в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

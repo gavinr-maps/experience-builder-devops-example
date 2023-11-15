@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Calcul densitate calculează o estimare a densității din obiectele spațiale punctuale și liniare. Instrumentul creează o ieșire de raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>Stratul tematic de puncte sau linii din care va fi calculată densitatea.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>C&acirc;mpul care specifică numărul de incidente din fiecare locație.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>Stratul tematic care definește barierele. Barierele pot fi un strat tematic cu obiecte spațiale cu polilinii sau poligoane.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>Dimensiunea celulei și unitatea care vor fi utilizate pentru rasterul de ieșire.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Specifică distanța de căutare a punctelor sau liniilor la calcularea densității, folosind o valoare și unitățile sale.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>Unitățile care vor fi utilizate pentru zona de ieșire.
+            </p>
+            <p>Densitatea este un număr &icirc;mpărțit la suprafață, iar acest parametru specifică unitatea de suprafață din calculul densității.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic de raster de densitate care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipul de ieșire care va fi creată. Ieșirile pot fi straturi tematice de imagini satelitare cu structură tile sau straturi tematice de imagini satelitare dinamice.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

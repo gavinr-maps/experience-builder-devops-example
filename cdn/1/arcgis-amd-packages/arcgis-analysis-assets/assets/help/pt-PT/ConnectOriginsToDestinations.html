@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Calcular Custo da Viagem mede o tempo de viagem ou dist&acirc;ncia entre pares de pontos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">A camada de pontos que representa as localiza&ccedil;&otilde;es de origem a partir das quais &eacute; calculado o custo da viagem. S&atilde;o suportadas camadas com at&eacute;  5000 elementos. </p> 
+            <p class="PortalOnly">A camada de pontos que representa as localiza&ccedil;&otilde;es de origem a partir das quais &eacute; calculado o custo da viagem.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">A camada de pontos que representa as localiza&ccedil;&otilde;es de destino para as quais &eacute; calculado o custo da viagem. S&atilde;o suportadas camadas com at&eacute;  5000 elementos. </p> 
+            <p class="PortalOnly">A camada de pontos que representa as localiza&ccedil;&otilde;es de destino para as quais &eacute; calculado o custo da viagem.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>O campo na  <b>camada De</b> que define o par origem-destino pr&eacute;-atribu&iacute;do. Se existirem m&uacute;ltiplas localiza&ccedil;&otilde;es de origem e destino, este ID tem de corresponder a um valor no <b>campo de ID da camada Para</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>O campo na  <b>camada Para</b> que define o par origem-destino pr&eacute;-atribu&iacute;do. Se existirem m&uacute;ltiplas localiza&ccedil;&otilde;es de origem e destino, este ID tem de corresponder a um valor no <b>campo de ID da camada De</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Um ou mais elementos de ponto que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao transitar pelas ruas subjacentes. &Eacute; poss&iacute;vel transitar na rua, mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Um ou mais elementos de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao transitar pelas ruas subjacentes. As barreiras de linha pro&iacute;bem a circula&ccedil;&atilde;o em qualquer ponto onde as barreiras intersectam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Um ou mais elementos de pol&iacute;gono que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao transitar pelas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem que se transite por qualquer ponto de intersec&ccedil;&atilde;o entre o pol&iacute;gono e as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>O m&eacute;todo que ser&aacute; utilizado para medir a dist&acirc;ncia ou o tempo. O m&eacute;todo pode ser uma dist&acirc;ncia em linha ou um modo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>A data e hora de partida a partir das localiza&ccedil;&otilde;es de origem na  <b>camada De</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Determina se as origens e destinos est&atilde;o ligados atrav&eacute;s de linhas de radar ou linhas de desejo (<b>linha reta</b>) ou as ruas da rede de ruas subjacente (<b>Seguir ruas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Especifica se cada rota resultante ser&aacute; guardada como uma camada de rota.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde os resultados ser&atilde;o guardados.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

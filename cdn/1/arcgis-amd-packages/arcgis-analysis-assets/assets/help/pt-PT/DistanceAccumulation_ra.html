@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Acumula&ccedil;&atilde;o de Dist&acirc;ncia calcula a dist&acirc;ncia acumulada para cada c&eacute;lula para introduzir origem, permitindo a dist&acirc;ncia em linha reta, dist&acirc;ncia de custo e dist&acirc;ncia de superf&iacute;cie verdadeira, bem como fatores de custo verticais e horizontais.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>A camada de elementos ou raster de entrada que identifica as origens para as quais as dist&acirc;ncias ser&atilde;o calculadas.
+            </p>
+            <p>Se a entrada for um raster, a mesma tem de consistir em c&eacute;lulas com valores inteiros v&aacute;lidos (zero &eacute; um valor v&aacute;lido) para as origens e &agrave;s c&eacute;lulas restantes tem de ser atribu&iacute;do o valor NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>As barreiras que definem os obst&aacute;culos para os quais t&ecirc;m de ser criadas rotas &agrave; volta.
+            </p>
+            <p>Para uma camada de raster, as c&eacute;lulas com um valor (incluindo zero) ser&atilde;o tratadas como uma barreira.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>O raster que define os valores de eleva&ccedil;&atilde;o em cada localiza&ccedil;&atilde;o da c&eacute;lula.
+            </p>
+            <p>Os valores s&atilde;o utilizados para calcular a dist&acirc;ncia real da superf&iacute;cie coberta ao passar entre c&eacute;lulas.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>O raster que define a imped&acirc;ncia ou custo para se mover por cada c&eacute;lula.
+            </p>
+            <p>O valor na localiza&ccedil;&atilde;o de cada c&eacute;lula representa a dist&acirc;ncia de custo-por-unidade para movimentar atrav&eacute;s da c&eacute;lula. O valor n&atilde;o pode ser negativo ou zero.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Especifica se a dist&acirc;ncia ser&aacute; calculada com um m&eacute;todo planar (terra plana) ou um m&eacute;todo geod&eacute;sico (elipsoide).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>O raster que define os valores z para cada localiza&ccedil;&atilde;o de c&eacute;lula.
+            </p>
+            <p>Os valores s&atilde;o utilizados para calcular a inclina&ccedil;&atilde;o utilizada para identificar o fator vertical incorrido durante o movimento de uma c&eacute;lula para outra.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>O fator que define a rela&ccedil;&atilde;o entre o fator de custo vertical e o &acirc;ngulo de movimento relativo vertical.
+            </p>
+            <p>Existem v&aacute;rias op&ccedil;&otilde;es para fatores com modificadores que identificam um gr&aacute;fico de fator vertical definido. Os gr&aacute;ficos s&atilde;o utilizados para identificar o fator vertical utilizado no c&aacute;lculo do custo total para mover-se para uma c&eacute;lula vizinha.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>O raster que define a dire&ccedil;&atilde;o horizontal em cada c&eacute;lula.
+            </p>
+            <p>Os valores em cada localiza&ccedil;&atilde;o ser&atilde;o utilizados em conjunto com o par&acirc;metro  <b>Fator horizontal</b> para determinar o custo horizontal incorrido ao deslocar-se de uma c&eacute;lula para os seus vizinhos.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>O fator que define a rela&ccedil;&atilde;o entre o fator de custo horizontal e o &acirc;ngulo de movimento relativo horizontal.
+            </p>
+            <p>Existem v&aacute;rias op&ccedil;&otilde;es para fatores com modificadores que identificam um gr&aacute;fico de fator horizontal definido. Os gr&aacute;ficos s&atilde;o utilizados para identificar o fator horizontal utilizado no c&aacute;lculo do custo total para mover-se para uma c&eacute;lula vizinha.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>O custo cumulativo inicial com o qual se inicia o c&aacute;lculo do custo.
+            </p>
+            <p>O padr&atilde;o &eacute; 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>A acumula&ccedil;&atilde;o m&aacute;xima para o viajante para uma origem.
+            </p>
+            <p>A acumula&ccedil;&atilde;o predefinida est&aacute; na extremidade do raster de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Um multiplicador que ser&aacute; aplicado aos valores de custo.
+            </p>
+            <p>O padr&atilde;o &eacute; 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>A dire&ccedil;&atilde;o do viajante ao aplicar os fatores horizontal e vertical.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>O nome da camada de raster da dist&acirc;ncia acumulativa que ser&aacute; criada e adicionada ao mapa. A camada cont&eacute;m a dist&acirc;ncia acumulativa para cada c&eacute;lula a partir de ou at&eacute; &agrave; origem de menor custo.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>O nome da camada de raster da dire&ccedil;&atilde;o de retorno que ser&aacute; criada e adicionada ao mapa. A camada cont&eacute;m a dire&ccedil;&atilde;o em graus.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>O nome da camada de raster da dire&ccedil;&atilde;o de origem que ser&aacute; criada e adicionada ao mapa. A camada cont&eacute;m a dire&ccedil;&atilde;o de azimute da c&eacute;lula de origem do menor custo acumulado em graus.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>O nome da camada de raster multibanda de localiza&ccedil;&atilde;o de origem que ser&aacute; criada e adicionada ao mapa. A camada cont&eacute;m as localiza&ccedil;&otilde;es de origem em que a primeira banda cont&eacute;m um &iacute;ndice de linha e a segunda banda cont&eacute;m um &iacute;ndice de coluna.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. As sa&iacute;das podem ser camadas de imagens em mosaico ou camadas de imagens din&acirc;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde os resultados ser&atilde;o guardados.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

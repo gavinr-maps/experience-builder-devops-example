@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי מצא 'אשכולות של נקודות' מזהה אשכולות של ישויות נקודה בתוך רעש סובב בהתבסס על הפיזור המרחבי שלהן.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>שכבת נקודות הקלט שיקובצו לאשכולות על בסיס הפיזור המרחבי של ישויות הנקודה.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>השיטה שתשמש לזיהוי אשכולות.
+            </p>
+        </div>
+    </div>
+    <div id="minFeaturesCluster">
+        <div>
+            <p>המספר המינימלי של ישויות נקודה שיחשבו לאשכול.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>מציין את המרחב המקסימלי סביב כל ישות נקודה לחיפוש נקודות שניתן לכלול באשכול. אם נשאר ריק, הערך של  <b>מרחק חיפוש</b> יהיה מרחק הליבה הגבוה ביותר שנמצא בשכבה, לא כולל את האחוז האחד העליון של מרחקי הליבה.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistanceUnit">
+        <div>
+            <p>מציין את היחידות אשר ישמשו עבור מרחק החיפוש.
+            </p>
+        </div>
+    </div>
+    <div id="sensitivity">
+        <div>
+            <p>מספר שלם בין 0 ל-100 הקובע את מידת הקומפקטיות של האשכולות. אם נשאר ריק, הערך של  <b>רגישות אשכול</b> יחושב באמצעות דיברגנץ קולבק-ליבלר.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rīks Zonālā statistika kā tabula apkopo rastra vērtības citas datu kopas zonās un uzrāda rezultātus tabulā.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>Ievade, kas norāda zonu robežas vai apkopojamās teritorijas.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Lauks, kas satur vērtības, kuras definē katru zonu.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>Rastra slānis, kas satur &scaron;ūnu vērtības, kuras tiks izmantotas statistikas aprēķinā&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Norāda aprēķināmās statistikas veidu.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>Norāda aprēķināmās procentiles vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Norāda metodi, kas tiks izmantota, ja aprēķināmā ievades rastra vērtību skaits ir pāra skaitlis.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Norāda, kā  <b>ievades vērtības rastra</b> &scaron;ūnu vērtības tiks apstrādātas cirkularājiem datiem.
+            </p>
+            <p>Ja nav atzīmēts, tiek aprēķināta parastā aritmētiskā (lineārā) statistika. Ja atzīmēts, tiks aprēķināta cirkulārā statistika.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Norāda vērtību, kas tiks izmantota lineārās vērtības noapaļo&scaron;anai dotajā cirkulārās statistikas diapazonā.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Norāda, vai  <b>ievades vērtības rastra</b> NoData &scaron;ūnas tiks ignorētas to zonu rezultātos, uz kurām tās attiecas.
+            </p>
+            <p>Ja atzīmēts, vērtību rastra NoData &scaron;ūnas statistiskajā aprēķinā tiks ignorētas. Ja nav atzīmēts, NoData &scaron;ūnas netiks ignorētas, un visa zon a izvades rastrā saņems NoData vērtību.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Norāda, kā tiks apstrādāti ievades rastri, ja tie ir daudzdimensionāli.
+            </p>
+            <p>Ja nav atzīmēts, statistika tiks aprēķināta visām ievades daudzdimensiju datu kopas dimensijām. Ja atzīmēts, statistika tiks aprēķināta no ievades daudzdimensiju datu kopas pa&scaron;reizējā sektora.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>Zonālās statistikas tabulas slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

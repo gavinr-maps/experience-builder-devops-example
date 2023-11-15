@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تنشئ أداة &quot;إنشاء المضلعات الرباعية&quot; شبكة من المضلعات بناءً على النطاق والشكل والحجم المحدد.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>شكل المضلعات الرباعية التي سيتم إنشاؤها.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>يحدد ما إذا كان سيتم تحديد حجم المضلع الرباعي حسب مساحته (<b>المساحة</b>) أو حسب قيمة المسافة (<b>المسافة</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>حجم (مساحة أو مسافة) المضلعات الرباعية التي تم إنشاؤها. بالنسبة إلى المربعات والأشكال السداسية والمثلثات والماسات، تحدد المسافة ارتفاع المضلعات الرباعية. بالنسبة إلى الأشكال السداسية المستعرضة، تحدد المسافة عرض المضلعات الرباعية.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>دقة H3 للمضلعات الرباعية. تتراوح الدقة من 0 إلى 15. مع كل حجم دقة متزايد، ستنخفض مساحة المضلعات إلى سُبع الحجم عند الدقة المنخفضة.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>يحدد الوحدات التي سيتم استخدامها لحجم المضلعات الرباعية.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>النطاق الذي ستغطيه المضلعات الرباعية.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>بالنسبة إلى طبقات المعالم، تحدد ما إذا كانت المضلعات الرباعية ستغطي النطاق بالكامل أم ستغطي فقط المناطق التي تتقاطع فيها المضلعات الرباعية مع المعالم.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

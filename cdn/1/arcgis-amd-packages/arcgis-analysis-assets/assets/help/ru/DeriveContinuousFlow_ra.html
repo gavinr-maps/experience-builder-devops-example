@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Получить непрерывный поток создает растр суммарного стока в каждой ячейке входного растра поверхности без предварительного заполнения впадин или локальных понижений.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Растр высот, который будет использоваться для расчета.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>Определяет реальные локальные понижения или впадины, в которые вода может поступать, но не вытекать из них.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>Растровый слой, который определяет долю стока, которая накапливается в каждой ячейке.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Определяет, какой метод будет использоваться при вычислении направления стока.
+            </p>
+            <p>Метод D8 назначает направление стока до соседнего пиксела, расположенного вниз по склону с максимальным уклоном. Метод MFD распределяет направление стока по всем соседям ниже по склону в соответствии с показателем адаптивного разделения.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Определяет, будет ли поток в краевых ячейках подчиняться обычным (нормальным) правилам определения стока или же всегда вытекать наружу.
+            </p>
+            <p>Если отметка не стоит, направление стока будет направлено к внутренней ячейке с самым крутым падением z-значения. Однако если снижение меньше или равно нулю, сток из ячейки будет &laquo;вытекать&raquo; с растра поверхности. Если опция отмечена, направление потока всегда будет направлено наружу от растра поверхности.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>Имя растрового слоя суммарного стока, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>Имя растрового слоя направления стока, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип создаваемых выходных данных. Результатом может быть Слой листов изображений или Динамический слой изображений.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

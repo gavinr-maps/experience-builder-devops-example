@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>ポイントの内挿ツールは、ポイントの計測値に基づき、新しい位置の値を推定します。 このツールはフィーチャ出力を作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>内挿する位置のポイント レイヤーを選択します。
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>内挿する計測値を含むフィールドを選択します。
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>計算速度を優先するか、精度を優先するかを選択します。 推定の精度と正確さを向上すると、計算時間が長くなります。
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>内挿推定の標準誤差のレイヤーを出力に含めるかどうかを選択します。
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>クラス閾値を計算する方法を選択します。
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>結果レイヤーに含まれるクラス数 (推定値の範囲) を指定します。 各クラスはポリゴンの境界を定義し、推定値のコンターを表します。 クラス閾値は、分類タイプによって決定されます。
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>使用するクラス閾値を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>分析範囲を定義する際に使用するポリゴン レイヤーを選択します。 結果は、分析範囲内にのみ表示されるようクリップされます。
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>値を推定する際に使用する位置を表すポイント レイヤーを選択します。 指定すると、指定位置の推定値を含むポイント レイヤーが作成されます。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成されマップに追加されるレイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

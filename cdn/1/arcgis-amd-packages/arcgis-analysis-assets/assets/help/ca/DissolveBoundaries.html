@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Dissol els l&iacute;mits cerca pol&iacute;gons que se superposen o que comparteixen un l&iacute;mit com&uacute; i els combina per formar un sol pol&iacute;gon.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Capa que cont&eacute; les entitats de pol&iacute;gon que es dissoldran.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>Determina si l'eina dissoldr&agrave; nom&eacute;s els pol&iacute;gons que se superposen o comparteixen un l&iacute;mit com&uacute; i tenen el mateix valor de camp (activat) o tots els pol&iacute;gons que se superposen o comparteixen un l&iacute;mit com&uacute; (desactivat).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>Especifica el camp que s'utilitza per dissoldre pol&iacute;gons segons els valors coincidents.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>Especifica si la sortida pot contenir entitats de pol&iacute;gon multipart, &eacute;s a dir, pol&iacute;gons definits com a una &uacute;nica entitat (activat) o si nom&eacute;s pot contenir entitats individuals (desactivat).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>Determina si es calculen estad&iacute;stiques de resum per als pol&iacute;gons dissolts.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Camps de nombre o de data de la capa d'entrada que es resumir&agrave;, i estad&iacute;stiques que es calcularan per a cada camp.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

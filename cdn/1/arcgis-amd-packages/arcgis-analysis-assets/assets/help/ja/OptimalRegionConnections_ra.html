@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>最適領域接続ツールは、2 つ以上の入力領域間で最適な接続ネットワークを計算します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>最適ネットワークで接続される領域を特定するラスター レイヤーまたはフィーチャ レイヤー。
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>回避する必要がある障害物を特定するラスター レイヤーまたはフィーチャ レイヤー。
+            </p>
+            <p>ラスター レイヤーの場合、値 (0 を含む) を持つセルがバリアとして処理されます。
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>各セル内を通過するときにかかるインピーダンスまたはコストを定義するラスター レイヤー。
+            </p>
+            <p>各セル位置の値は、そのセル上を通過するための単位距離あたりのコストを表します。 負の値またはゼロは指定できません。
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>距離を平面 (平面地球) と測地線 (楕円体) のどちらの方法を用いて計算するかを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>パスが続行し、入力領域内に接続するかどうかを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>作成され、マップに追加される各入力領域を接続するパス レイヤーの最適ネットワークの名前。
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>作成され、マップに追加される隣接接続ライン レイヤーの名前。 このレイヤーは、各領域からそれぞれに最も近い、または最小コストのすべてのパスを特定します。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

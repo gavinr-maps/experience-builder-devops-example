@@ -1,0 +1,92 @@
+{
+  "name": "ExtractData",
+  "displayName": "ExtractData",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/ExtractData.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputLayers",
+      "dataType": "GPMultiValue:GPRecordSet",
+      "displayName": "inputLayers",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "Record Set",
+          "dataType": "GPRecordSet",
+          "displayName": "Record Set"
+        }
+      ]
+    },
+    {
+      "name": "extent",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "extent",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "clip",
+      "dataType": "GPBoolean",
+      "displayName": "clip",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dataFormat",
+      "dataType": "GPString",
+      "displayName": "dataFormat",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "CSV",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["FileGeodatabase", "ShapeFile", "KML", "CSV"]
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "contentID",
+      "dataType": "GPString",
+      "displayName": "contentID",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

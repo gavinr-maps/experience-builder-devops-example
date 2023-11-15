@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Zentrierung und Verteilung zusammenfassen&quot; findet das zentrale Feature, die zentrale Tendenz und die Standardabweichungsellipse einer Reihe von Features.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Die Punkt-, Linien- oder Polygon-Features, f&uuml;r die das zentrale Feature, die zentrale Tendenz und die Standardabweichungsellipse berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Gibt die Methoden an, die die Zentrierung und Verteilung der Features zusammenfassen.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Gibt die Gr&ouml;&szlig;e in Standardabweichungen des elliptischen Polygons an. Wenn die Entfernung zwischen dem Mittelpunkt und den Feature-Positonen einer Rayleigh-Verteilung folgt, geben die Optionen  <b>1 Standardabweichung</b>, <b>2 Standardabweichungen</b> und <b>3 Standardabweichungen</b> ein elliptisches Polygon aus, das 63&nbsp;Prozent, 89&nbsp;Prozent bzw. 99,9&nbsp;Prozent der Features abdeckt.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Das Feld, das zum Bestimmen der Gewichtung des Features verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Das Feld, das zur Gruppierung von Features verwendet wird. Die ausgew&auml;hlten  <b>Zusammenfassungsarten</b> werden f&uuml;r jede Gruppe berechnet.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

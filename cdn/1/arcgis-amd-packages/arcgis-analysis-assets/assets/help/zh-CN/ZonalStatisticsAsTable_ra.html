@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;以表格显示分区统计&rdquo;工具用于汇总栅格中位于另一个数据集的区域内的值，并以表格的形式报告结果。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>定义要汇总的区或区域边界的输入。
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>包含定义每个区域的值的字段。
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>包含将用于计算统计数据的像元值的栅格图层。
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>指定将计算的统计数据类型。
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>指定将计算的百分比值。
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>指定输入栅格中要计算的值数量为偶数时将使用的方法。
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>指定如何处理圆形数据的 <b>输入赋值栅格</b>像元值。
+            </p>
+            <p>如果未选中，将计算普通算术（线性）统计数据。 如果选中，则计算圆形统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>指定用于将线性值舍入到给定圆形统计数据范围的值。
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>指定 <b>输入赋值栅格</b>中的 NoData 像元在其所在分区的结果中是否被忽略。
+            </p>
+            <p>如果选中，则将在统计计算过程忽略赋值栅格内的 NoData 像元。 如果未选中，则不会忽略 NoData 像元，且整个区域将在输出栅格上接收 NoData 值。
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>指定输入栅格的处理方式（如果它们是多维的）。
+            </p>
+            <p>如果未选中，将计算输入多维数据集的所有维度的统计数据。 如果选中，则基于输入多维数据集的当前切片计算统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>将创建并添加到地图的区域统计表图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

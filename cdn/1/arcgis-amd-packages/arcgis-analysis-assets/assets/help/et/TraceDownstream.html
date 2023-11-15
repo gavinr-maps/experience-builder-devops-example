@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Allavoolu j&auml;litus&quot; m&auml;&auml;ratleb allavoolu rajad m&auml;&auml;ratud sisendasukohtadest.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punktobjektid, mida kasutatakse iga allavoolu j&auml;litusjoone alguskohana.
+            </p>
+        </div>
+    </div>
+    <div id="splitDistance">
+        <div>
+            <p>Individuaalsete segmentide pikkus, milleks j&auml;litusjoon jagatakse.
+            </p>
+        </div>
+    </div>
+    <div id="splitUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse parameetri  <b>T&uuml;kelduse vahemaa</b> jaoks.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistance">
+        <div>
+            <p>Tagastatava j&auml;litusjoone kogupikkus.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse parameetri  <b>Maksimaalne allavoolu raja vahemaa</b> jaoks.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Pol&uuml;goonobjektikiht, mis kirjeldab ala, millel j&auml;lgimisjoon piiritletakse.
+            </p>
+            <p>See parameeter kirjutab &uuml;le parameetri  <b>Maksimaalne allavoolu raja vahemaa</b> v&auml;&auml;rtuse.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle allavoolu j&auml;litustee kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

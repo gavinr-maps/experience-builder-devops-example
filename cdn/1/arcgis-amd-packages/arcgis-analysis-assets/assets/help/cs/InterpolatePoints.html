@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Interpolovat body (Interpolate Points) předpov&iacute;d&aacute; hodnoty na nov&yacute;ch m&iacute;stech na z&aacute;kladě bodov&yacute;ch měřen&iacute;. V&yacute;stupem tohoto n&aacute;stroje jsou prvky.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Zvolte bodovou vrstvu m&iacute;st, kter&aacute; budou interpolov&aacute;na.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Zvolte pole obsahuj&iacute;c&iacute; naměřen&eacute; hodnoty, kter&eacute; budou interpolov&aacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Zvolte, zda m&aacute; b&yacute;t upřednostněna rychlost v&yacute;počtu nebo přesnost a preciznost. Přesněj&scaron;&iacute; a precizněj&scaron;&iacute; předpovědi se poč&iacute;taj&iacute; d&eacute;le.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Zvolte, zda bude do v&yacute;stupu zahrnuta vrstva směrodatn&yacute;ch odchylek pro předpovědi interpolace.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Zvolte způsob v&yacute;počtu hodnot zlomů tř&iacute;d.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Zadejte počet tř&iacute;d (rozsahů předpov&iacute;dan&yacute;ch hodnot), kter&eacute; budou zahrnuty do v&yacute;sledn&eacute; vrstvy. Každ&aacute; tř&iacute;da definuje hranici polygonu a představuje obrysy předpov&iacute;dan&yacute;ch hodnot. Hodnoty zlomů tř&iacute;d jsou určeny typem klasifikace.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Zadejte hodnoty zlomů tř&iacute;d, kter&eacute; budou použity.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Zvolte polygonovou vrstvu, kter&aacute; bude použita k vymezen&iacute; z&aacute;jmov&eacute; oblasti. V&yacute;sledky budou oř&iacute;znuty tak, aby se zobrazily pouze uvnitř z&aacute;jmov&eacute; oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Zvolte bodovou vrstvu reprezentuj&iacute;c&iacute; m&iacute;sta, kter&aacute; budou použita k předpov&iacute;d&aacute;n&iacute; hodnot. Pokud je zad&aacute;no, vytvoř&iacute; se bodov&aacute; vrstva obsahuj&iacute;c&iacute; předpovězen&eacute; hodnoty v zadan&yacute;ch m&iacute;stech.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; budou v&yacute;sledky uloženy.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>密度の計算ツールは、ポイント フィーチャとライン フィーチャから密度の推測値を計算します。 このツールは、ラスター出力を作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>密度の計算に使用するポイント レイヤーまたはライン レイヤー。
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>各位置でのインシデント数を指定するフィールド。
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>バリアを定義するレイヤー。 バリアはポリラインまたはポリゴン フィーチャのフィーチャ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>出力ラスターに対して使用するセル サイズと単位。
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>密度を計算する際に、ポイントまたはラインを検索する距離を、値と単位を使用して指定します。
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>出力面積で使用する単位。
+            </p>
+            <p>密度は面積で割って算出しますが、このパラメーターでは、密度の計算におけるこの面積の単位を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成され、マップに追加される密度ラスター レイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تنشئ أداة إنشاء نطاقات مضلعات تشمل مسافة محددة من المعالم المدخلة.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>المعالم النقطية أو الخطية أو معالم المضلع التي سيتم تحديد نطاقها.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>تحديد ما إذا كان سيتم تحديد مسافة النطاق بواسطة (<b>قيمة</b>) ثابتة أم حقل رقمي (<b>حقل</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>المسافة المراد استخدامها لإنشاء النطاق. في حال إضافة قيم متعددة، ستُستخدم كل قيمة لإنشاء نطاق عند كل معلم مدخل.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>الحقل الذي سيحتوي على مسافة النطاق لكل معلم.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>الوحدات التي ستُستخدم لتحديد مسافة النطاق.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>تحديد كيفية التعامل مع النطاقات من المعالم المدخلة المختلفة عند تراكبها.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>تحديد ما إذا كانت النطاقات المتعددة المسافات ستكون متحدة المركز متراكبة (<b>أقراص متراكبة</b>) أو حلقات غير متراكبة (<b>حلقات مميزة</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>بالنسبة إلى المعالم الخطية، تحديد ما إذا كان سيتم إنشاء النطاق على كلا جانبي الخط (<b>حول</b>)، أو على الجانب الأيسر فقط (<b>يسار</b>)، أو على الجانب الأيمن فقط (<b>يمين</b>).
+            </p>
+            <p>بالنسبة إلى معالم المضلع، تحديد ما إذا كان سيتم تضمين معالم المضلع المدخل في النطاق (<b>تضمين</b>) أو استبعادها من النطاق (<b>استبعاد</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>يحدد ما إذا كان شكل النطاق في نهاية معلم الخط سيكون دائريًا(<b>دائري</b>) أم مسطحًا (<b>مسطح</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

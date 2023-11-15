@@ -1,0 +1,150 @@
+{
+  "name": "CalculateDensity",
+  "displayName": "CalculateDensity",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/CalculateDensity.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "inputLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "field",
+      "dataType": "GPString",
+      "displayName": "field",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "cellSize",
+      "dataType": "GPDouble",
+      "displayName": "cellSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "cellSizeUnits",
+      "dataType": "GPString",
+      "displayName": "cellSizeUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Meters",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Meters", "Kilometers", "Feet", "Miles"]
+    },
+    {
+      "name": "radius",
+      "dataType": "GPDouble",
+      "displayName": "radius",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "radiusUnits",
+      "dataType": "GPString",
+      "displayName": "radiusUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Meters", "Kilometers", "Feet", "Miles"]
+    },
+    {
+      "name": "boundingPolygonLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "boundingPolygonLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPolygon"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "areaUnits",
+      "dataType": "GPString",
+      "displayName": "areaUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["SquareKilometers", "SquareMiles"]
+    },
+    {
+      "name": "classificationType",
+      "dataType": "GPString",
+      "displayName": "classificationType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "EqualInterval",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["EqualArea", "EqualInterval", "GeometricInterval", "NaturalBreaks", "StandardDeviation"]
+    },
+    {
+      "name": "numClasses",
+      "dataType": "GPLong",
+      "displayName": "numClasses",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 10,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "resultLayer",
+      "dataType": "GPString",
+      "displayName": "resultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Interpola els punts prediu valors en ubicacions noves en funci&oacute; de mesures de punts. Aquesta eina crea sortides d'entitat.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Trieu la capa de punts de les ubicacions que s'interpolaran.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Trieu el camp que cont&eacute; els valors mesurats que s'interpolaran.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Indiqueu si es donar&agrave; prioritat a la velocitat de c&agrave;lcul o a l'exactitud i a la precisi&oacute;. Les prediccions m&eacute;s exactes i precises tarden m&eacute;s temps a calcular-se.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Indiqueu si a la sortida s'inclour&agrave; una capa d'errors est&agrave;ndard per a les prediccions d'interpolaci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Trieu com es calcularan els valors de tall de classe.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Especifiqueu el nombre de classes (intervals de valors predits) que s'inclouran a la capa de resultats. Cada classe defineix el l&iacute;mit d'un pol&iacute;gon i representa contorns dels valors predits. Els valors de talls de classe es determinen mitjan&ccedil;ant el tipus de classificaci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Especifiqueu els valors de tall de classe que s'utilitzaran.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Trieu la capa de pol&iacute;gon que s'utilitzar&agrave; per definir una &agrave;rea d'estudi. Els resultats es retallaran per mostrar-lo nom&eacute;s dins de l'&agrave;rea d'estudi.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Trieu una capa de punts que representi les ubicacions que s'utilitzaran per predir valors. Si es proporciona, es crear&agrave; una capa de punts que contingui els valors predits a les ubicacions especificades.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Panorama Geod&eacute;sico identifica as localiza&ccedil;&otilde;es numa superf&iacute;cie raster que s&atilde;o vis&iacute;veis para as localiza&ccedil;&otilde;es de observa&ccedil;&atilde;o de entrada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>O raster de eleva&ccedil;&atilde;o a partir do qual ser&aacute; calculado o panorama.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>As localiza&ccedil;&otilde;es de observa&ccedil;&atilde;o para as quais ser&aacute; calculado o panorama.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Otimiza o c&aacute;lculo do panorama com base tanto na velocidade como na precis&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Especifica a dist&acirc;ncia m&aacute;xima de visualiza&ccedil;&atilde;o para o c&aacute;lculo do panorama.
+            </p>
+            <p>A dist&acirc;ncia pode ser definida por um valor e respetivas unidades ou a partir de um campo nos  <b>elementos de ponto ou linha de observa&ccedil;&atilde;o de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Especifica a dist&acirc;ncia m&iacute;nima de visualiza&ccedil;&atilde;o para o c&aacute;lculo do panorama.
+            </p>
+            <p>A dist&acirc;ncia pode ser definida por um valor e respetivas unidades ou a partir de um campo nos  <b>elementos de ponto ou linha de observa&ccedil;&atilde;o de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Especifica o tipo de dist&acirc;ncias m&aacute;ximas e m&iacute;nimas de visualiza&ccedil;&atilde;o.
+            </p>
+            <p>Se desselecionada, as dist&acirc;ncias de visualiza&ccedil;&atilde;o ser&atilde;o tratadas como dist&acirc;ncias euclidianas bidimensionais. Se selecionada, as dist&acirc;ncias de visualiza&ccedil;&atilde;o ser&atilde;o tratadas como dist&acirc;ncias tridimensionais.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Especifica a eleva&ccedil;&atilde;o da superf&iacute;cie das localiza&ccedil;&otilde;es de observa&ccedil;&atilde;o.
+            </p>
+            <p>A eleva&ccedil;&atilde;o pode ser definida por um valor e respetivas unidades ou a partir de um campo nos  <b>elementos de ponto ou linha de observa&ccedil;&atilde;o de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Especifica a altura dos observadores acima do solo.
+            </p>
+            <p>A altura pode ser definida por um valor e respetivas unidades ou a partir de um campo nos  <b>elementos de ponto ou linha de observa&ccedil;&atilde;o de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Especifica a altura dos destinos no solo.
+            </p>
+            <p>A altura pode ser definida por um valor e respetivas unidades ou a partir de um campo nos  <b>elementos de ponto ou linha de observa&ccedil;&atilde;o de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada de raster de panorama que ser&aacute; criada e adicionada ao mapa. Esta camada cont&eacute;m as &aacute;reas vis&iacute;veis onde os observadores podem ver e os valores das c&eacute;lulas representam o n&uacute;mero de observadores que podem ver as c&eacute;lulas.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>O nome da camada de raster acima do n&iacute;vel do solo que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. A sa&iacute;da pode ser uma camada de imagens em mosaico ou uma camada de imagens din&acirc;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

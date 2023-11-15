@@ -1,0 +1,148 @@
+{
+  "name": "InterpolatePoints",
+  "displayName": "InterpolatePoints",
+  "description": "Predicts values at new locations based on measurements from a collection of points. The tool takes point data with values at each point and returns a raster of predicted values.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/InterpolatePoints.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputPointFeatures",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "inputPointFeatures",
+      "description": "The input point features you want to interpolate.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "interpolateField",
+      "dataType": "GPString",
+      "displayName": "interpolateField",
+      "description": "The field containing the data values you want to interpolate. The field must be numeric.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The name of the output raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "optimizeFor",
+      "dataType": "GPString",
+      "displayName": "optimizeFor",
+      "description": "Choose your preference for speed versus accuracy. More accurate predictions will take longer to calculate. Speed—The operation is optimized for speed. Balance—A balance between speed and accuracy. This is the default. Accuracy—The operation is optimized for accuracy.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "BALANCE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["SPEED", "BALANCE", "ACCURACY"]
+    },
+    {
+      "name": "transformData",
+      "dataType": "GPBoolean",
+      "displayName": "transformData",
+      "description": "Choose whether to transform your data to a normal distribution before performing analysis. If your data values do not appear to be normally distributed (bell-shaped), it is recommended to perform a transformation. Checked—A transformation to the normal distribution is applied. Unchecked—No transformation is applied. This is the default.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "sizeOfLocalModels",
+      "dataType": "GPLong",
+      "displayName": "sizeOfLocalModels",
+      "description": "Choose the number of points in each of the local models. A larger value will make the interpolation more global and stable, but small-scale effects may be missed. Smaller values will make the interpolation more local, so small-scale effects are more likely to be captured, but the interpolation may be unstable.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "range",
+        "minimum": 30,
+        "maximum": 500
+      },
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "numberOfNeighbors",
+      "dataType": "GPLong",
+      "displayName": "numberOfNeighbors",
+      "description": "The number of neighbors to use when calculating the prediction at a particular cell.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "range",
+        "minimum": 1,
+        "maximum": 64
+      },
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputCellSize",
+      "dataType": "GPLinearUnit",
+      "displayName": "outputCellSize",
+      "description": "Set the cell size and units of the output raster. If a prediction error raster is created, it will also use this cell size. The units can be Kilometers, Meters, Miles, or Feet. The default units are Meters.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputPredictionError",
+      "dataType": "GPBoolean",
+      "displayName": "outputPredictionError",
+      "description": "Choose whether to output a raster of standard errors of the interpolated predictions. Standard errors are useful because they provide information about the reliability of the predicted values. A simple rule of thumb is that the true value will fall within two standard errors of the predicted value 95 percent of the time. For example, suppose a new location gets a predicted value of 50 with a standard error of 5. This means that this task's best guess is that the true value at that location is 50, but it reasonably could be as low as 40 or as high as 60. To calculate this range of reasonable values, multiply the standard error by 2, add this value to the predicted value to get the upper end of the range, and subtract it from the predicted value to get the lower end of the range. If a raster of standard errors for the interpolated predictions is requested, it will have the same name as the Result layer name but with Errors appended. Unchecked—No output prediction error is generated. This is the default. Checked—An output prediction error is generated.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "outputErrorRaster",
+      "dataType": "GPString",
+      "displayName": "outputErrorRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "processInfo",
+      "dataType": "GPString",
+      "displayName": "processInfo",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

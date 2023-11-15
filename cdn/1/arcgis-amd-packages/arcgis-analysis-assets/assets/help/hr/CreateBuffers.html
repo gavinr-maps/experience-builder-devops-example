@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Izradi pojaseve stvara poligone koji pokrivaju zadanu udaljenost od ulaznih geoobjekata.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Točkasti, linijski ili poligonalni geoobjekt za stvaranje pojasa.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Određuje hoće li pojas biti definiran konstantom (<b>Vrijednost</b>) ili numeričkim poljem (<b>Polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Udaljenost koja će se koristiti za stvaranje pojasa. Ako se doda vi&scaron;e vrijednosti, svaka će se vrijednost koristiti za stvaranje pojasa na svakom ulaznom geoobjektu.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Polje koje će sadržavati udaljenost pojasa za svaki geoobjekt.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Jedinice koje će se koristiti za određivanje udaljenosti pojasa.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Određuje kako će se postupati s različitim ulaznim geoobjektima kada se preklapaju.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Određuje hoće li pojasi s vi&scaron;e udaljenosti biti koncentrični pojasi koji se preklapaju (<b>Preklapajući diskovi</b>) ili prstenovi koji se ne preklapaju (<b>Različiti prsteni</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Za linijske geoobjekte određuje hoće li pojas biti stvoren na obje strane linije (<b>Okolo</b>), samo s lijeve strane (<b>Lijevo</b>), ili samo s desne strane (<b>Desno</b>).
+            </p>
+            <p>Za poligonalne geoobjekte, određuje hoće li poligonalni geoobjekti biti uključeni u pojas (<b>Uključi</b>) ili isključeni s pojasa (<b>Isključi</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Određuje hoće li oblik pojasa na kraju crte biti okrugao (<b>Okrugao</b>) ili ravan (<b>Ravan</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će se stvoriti i dodati karti.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

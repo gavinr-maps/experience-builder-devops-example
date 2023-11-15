@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Pronađi prema atributima i lokaciji stvara novi sloj geoobjekata ili dijelova geoobjekata koji zadovoljava specificirane prostorne ili atributne kriterije.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Točkasti, linijski ili poligonalni sloj za koji će se pronaći geoobjekti na temelju kombinacije atributa i prostornih upita.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Prostorni ili atributni kriteriji koji će se koristiti za pronalaženje geoobjekata. Pritisnite gumb  <b>Izradi novi upit</b> za definiranje jednog ili vi&scaron;e prostornih ili atributnih kriterija. Oni geoobjekti ili dijelovi geoobjekata koji zadovoljavaju sve kriterije bit će zapisani u sloj rezultata.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Prostorni ili atributni kriteriji koji će se koristiti za pronalaženje geoobjekata. Pritisnite gumb <b>Izradi novi upit</b> za definiranje jednog ili vi&scaron;e prostornih ili atributnih kriterija. Oni geoobjekti ili dijelovi geoobjekata koji zadovoljavaju sve kriterije bit će zapisani u sloj rezultata.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Kada samo dio geoobjekta zadovoljava kriterije, određuje uključuje li rezultat cijeli geoobjektili samo dio geoobjekta koji zadovoljava sve kriterije. Kada je označeno, vratit će se samo dijelovi geoobjekta koji zadovoljavaju sve kriterije. Kada nije označeno, vratit će se cijeli geoobjekt pod uvjetom da barem dio geoobjekta ispunjava sve kriterije.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će se stvoriti i dodati karti.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

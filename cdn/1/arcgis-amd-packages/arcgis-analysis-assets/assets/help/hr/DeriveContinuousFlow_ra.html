@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Izvedi kontinuirani protok generira raster akumuliranog protoka u svaku ćeliju iz ulaznog rastera povr&scaron;ine bez prethodnog punjenja udubljenja ili depresija.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster visine terena koji će se koristiti za izračun.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>Sloj koji definira stvarna udubljenja ili ponore, u koje voda može teći, ali ne i iz njih.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>Rasterski sloj koji definira udio protoka koji pridonosi akumulaciji protoka u svakoj ćeliji.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Određuje vrstu metode protoka koja će se koristiti pri izračunavanju smjera protoka.
+            </p>
+            <p>Metoda D8 dodjeljuje smjer toka susjedu s najstrmijom nizbrdicom. Metoda MFD dijeli smjer protoka preko susjeda nizbrdo prema eksponentu prilagodljive podjele.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Određuje hoće li protok na rubnim ćelijama slijediti normalna pravila protoka ili uvijek teći prema van.
+            </p>
+            <p>Ako nije označeno, protok će biti prema unutarnjoj ćeliji s najstrmijim padom z-vrijednosti. Međutim, ako je pad manji ili jednak nuli, ćelija će teći prema van iz povr&scaron;inskog rastera. Ako je označeno, smjer protoka uvijek će biti prema van od povr&scaron;inskog rastera.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>Naziv rasterskog sloja akumulacije protoka koji će se izraditi i dodati na kartu.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>Naziv rasterskog sloja smjera toka koji će se izraditi i dodati na kartu.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Vrsta izlaza koji će se stvoriti. Izlaz mogu biti slojevi s pločastom slikom ili slojevi s dinamičnom slikom.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

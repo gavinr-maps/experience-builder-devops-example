@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>ستضيف أداة &quot;ضم المعالم&quot; البيانات الجدولية من طبقة أو جدول إلى آخر استنادًا إلى علاقات مكانية وجدولية محددة. اختياريًا، يمكن حساب الإحصائيات عند وجود سجلات مطابقة متعددة.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>الجدول أو الطبقة التي ستحتوي على بيانات جدولية من طبقة الضم ملحقة بجدول البيانات الجدولية الخاص بها.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>الجدول أو الطبقة التي تحتوي على البيانات الجدولية التي سيتم إلحاقها بالطبقة المستهدفة.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>حدد ما إذا كنت تريد ضم الطبقات بناءً على علاقة مكانية. وهو ما يتطلب أن تكون كلتا الطبقتين شكلاً هندسيًا.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>حدد العلاقة المكانية التي تحدد المعالم التي يتم ضمها. سيتم ضم المعالم الموجودة في طبقة الضم التي لها علاقة محددة بالطبقة المستهدفة. تعتمد العلاقات المتاحة على نوع الشكل الهندسي للمدخلات.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>المسافة من المعالم الموجودة في الطبقة المستهدفة التي ستُستخدم لتحديد ما إذا كان يجب ضم المعالم أم لا.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>الوحدات التي ستُستخدم لتحديد المسافة.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>حدد ما إذا كنت تريد ضم الطبقات بناءً على قيم الحقول المطابقة. هذا هو الخيار الوحيد إذا كان واحد أو أكثر من المدخلات عبارة عن جدول.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>حدد العلاقة الجدولية التي تحدد المعالم التي يتم ضمها. يتم مطابقة المعالم عندما تكون قيم الحقل في طبقة الضم مساوية لقيم الحقل في الطبقة الهدف.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>حدد كيفية إجراء عمليات الضم إذا كانت السجلات المتعددة من طبقة الضم تفي بمعايير الضم. اختر من الخيارات التالية:
+                <ul>
+                    <li> <b>ضم واحد إلى واحد</b>&mdash; لضم سجل واحد في طبقة الضم إلى كل معلم في الطبقة المستهدفة.
+                    </li>
+                    <li> <b>ضم واحد إلى متعدد</b>&mdash;لضم كل المعالم المطابقة في طبقة الضم إلى الطبقة المستهدفة. ستحتوي الطبقة الناتجة على سجلات متعددة للمعلم الهدف.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>عندما تطابق معالم متعددة في طبقة الضم معلمًا مستهدفًا، حدد ما إذا كنت تريد ضم سجل واحد من طبقة الضم أو حساب إحصائيات موجزة لجميع السجلات المطابقة من طبقة الضم.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>عند وجود العديد من معالم الضم والتي تتطابق مع المعلم المستهدف، سيتم حساب الإحصائيات الموجزة لجميع السجلات المطابقة. حدد حقول العدد أو التاريخ من طبقة الضم، والإحصائيات التي سيتم حسابها لكل حقل.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>عند وجود العديد من معالم الضم التي تتطابق مع المعلم المستهدف، سيتم تضمين السجل الأول من جدول بيانات طبقة الضم في الإخراج. اختياريًا، اختر حقل رقم أو تاريخ وترتيب الفرز الذي سيحدد ترتيب جدول البيانات.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>لتحديد ما إذا كان سيتم تضمين المعالم المستهدفة غير المتطابقة في الإخراج. يرجع  <b>الضم الداخلي</b> السجلات المستهدفة المطابقة فقط، بينما يرجع <b>الضم الأيسر</b> جميع السجلات المستهدفة، حتى إذا لم يوجد مطابق للمعلم المستهدف في طبقة الضم.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الجدول أو الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

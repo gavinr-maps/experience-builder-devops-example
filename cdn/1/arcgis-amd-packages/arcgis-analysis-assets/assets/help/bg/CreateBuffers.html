@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Създаване на буфери създава полигони, които обхващат дадено разстояние от входните данни за обекти.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Точкови, линейни или полигонови обекти, които ще бъдат буферирани.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Указва дали разстоянието на буфера ще бъде определено от постоянно (<b>Стойност</b>) или числово поле (<b>Поле</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Разстоянието, което ще се използва за създаване на буфера. Ако се добавят множество стойности, всяка стойност ще се използва за създаване на буфер при всички входни данни.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Полето, което ще съдържа буферното разстояние за всеки обект.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Мерните единици, които ще се използват за определяне на разстоянието за буфер.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Указва как ще се обработват буферите от различни входни обекти, когато се припокриват.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Указва дали буферите с множество разстояния ще бъдат концентрични буфери, които се припокриват (<b>Припокриващи се дискове</b>) или пръстени, които не се припокриват (<b>Различни пръстени</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>За линейни обекти указва дали буферът ще бъде създаден от двете страни на линията (<b>Около</b>), само от лявата страна (<b>Ляво</b>), или само от дясната страна (<b>Дясно</b>).
+            </p>
+            <p>За полигонови обекти указва дали входните полигонови обекти ще бъдат включени в буфера (<b>Включване</b>) или изключени от буфера (<b>Изключване</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Указва дали формата на буфера в края на линеен обект ще бъде кръгла (<b>Кръгла</b>) или плоска (<b>Плоска</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Името на папка в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

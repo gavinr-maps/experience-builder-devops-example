@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Calcula la densitat calcula una estimaci&oacute; de la densitat a partir d'entitats de punt i de l&iacute;nia. Aquesta eina crea una sortida d'entitat.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Capa de punts o l&iacute;nies a partir de la qual es calcular&agrave; la densitat.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Camp que especifica el nombre d'incidents de cada ubicaci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Capa d'entitats de pol&iacute;gon que defineix on es calcularan les densitats.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Especifica la dist&agrave;ncia als punts o a les l&iacute;nies de cerca en calcular la densitat.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Unitats que es faran servir per al valor del par&agrave;metre  <b>Dist&agrave;ncia de cerca</b>.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Especifiqueu com es classificaran en &agrave;rees els valors de densitat.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Nombre de classes (interval de valors predits) de la capa de resultats.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Unitats que es faran servir per a l'&agrave;rea de sortida.
+            </p>
+            <p>La densitat &eacute;s un recompte dividit per l'&agrave;rea i aquest par&agrave;metre especifica la unitat de l'&agrave;rea en el c&agrave;lcul de la densitat.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

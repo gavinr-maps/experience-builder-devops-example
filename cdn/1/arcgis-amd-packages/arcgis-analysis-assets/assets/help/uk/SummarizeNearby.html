@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Підсумувати поруч&raquo; обчислює статистику для об&rsquo;єктів на певній відстані від інших об&rsquo;єктів. Відстань можна обчислити за допомогою відстані по прямій лінії або режиму переміщення.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Шар для підсумовування на відстані від сусіднього шару.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Шар точок, ліній або полігонів, який використовується як початкове місце розташування, навколо якого буде створено обмежувальні області для підсумування прилеглих об'єктів.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Метод, за допомогою якого будуть створені обмежувальні області. Методом може бути відстань по прямій лінії або режим переміщення.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Відстань або час, який буде використано для створення обмежувальних областей. Якщо додаються кілька значень, кожне значення буде використано для обчислення обмежувальних площ для всіх вхідних об&rsquo;єктів.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Одиниці вимірювання, які будуть використовуватися для визначення відстані або часу.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Укажіть, чи повинен шар результатів бути обмежувальними областями (вибрано) чи такою ж геометрією, що й вхідний прилеглий шар (не вибрано).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Обчисліть загальний розмір об&rsquo;єктів, підсумованих у кожній обмежувальній області. Для ліній обчислюється загальна довжина. Для полігонів обчислюється загальна площа.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Одиниці вимірювання, які будуть використовуватися для обчислення загального розміру підсумованих об'єктів.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Поля чисел або дат із вхідного шару, які будуть підсумовані, і статистика, яка обчислюватиметься для кожного поля.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Поле з вхідного шару, яке буде використане для розділення даних на окремі групи для статистичних обчислень.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Обчислити групу меншості (найменш значущих) і більшості (найбільш значущих) у кожній підсумковій області.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Обчисліть відсоток підсумованих об'єктів, які належать до кожної групи в межах кожного кордону.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

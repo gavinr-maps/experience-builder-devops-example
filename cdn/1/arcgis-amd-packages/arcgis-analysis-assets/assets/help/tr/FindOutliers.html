@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>U&ccedil; Değerleri Bul aracı, verilerin mekansal modeline dayanarak komşularından b&uuml;y&uuml;k &ouml;l&ccedil;&uuml;de farklı değerlere sahip bir konum olup olmadığını belirleyecektir.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>U&ccedil; değerlerin bulunacağı nokta veya &ccedil;okgen katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>U&ccedil; değerlerin detay konumlarına mı (<b>Nokta sayıları</b>), yoksa detay alanı değerlerine mi (<b>Alan</b>) dayanarak belirleneceğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>U&ccedil; değerleri belirlemek i&ccedil;in analiz edilecek alan.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Girdi detaylarının i&ccedil;inde k&uuml;meleneceği sınırlayıcı detayların t&uuml;r&uuml;. Bu bir &ccedil;okgen katmanı (<b>&Ccedil;okgen katmanı</b>) veya ya karelerden (<b>Balık ağı h&uuml;creleri</b>) ya da altıgenlerden (<b>Altıgen h&uuml;creler</b>) oluşan bir mozaik ızgarası olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>İ&ccedil;inde girdi noktası detaylarının biriktirileceği &ccedil;okgen detaylarını i&ccedil;eren katman.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Analizin sınırını tanımlayacak olan &ccedil;okgen katmanı. &Ccedil;okgenin i&ccedil;indeki detaylar u&ccedil; değer analizine dahil edilecektir.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p> <b>Analiz alanı</b> değerlerinin veya k&uuml;melenmiş nokta sayısının nasıl b&ouml;l&uuml;neceğini belirtir. <b>Alan</b> se&ccedil;eneği, <b>Analiz alanı</b> değerlerini, <b>Girdi katmanı</b> parametresinde belirtilen bir alanın değerleriyle b&ouml;lecektir. <b>Zenginleştirme verileri</b> se&ccedil;eneği, detayları veya k&uuml;meleme şekillerini n&uuml;fus verileriyle zenginleştirecek ve <b>Analiz alanı</b> değerlerini veya k&uuml;melenmiş nokta sayılarını n&uuml;fusa b&ouml;lecektir. Bu se&ccedil;enek, ek kredi harcayacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Aracın daha hızlı işleme s&uuml;resi mi, yoksa sonu&ccedil;ların hassasiyeti i&ccedil;in mi optimize edileceğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Bir rastgelen sayı &uuml;reticisini başlatacak bir tamsayı değeri.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Girdi detaylarını biriktirmek i&ccedil;in kullanılacak kare (balık ağı) veya altıgen h&uuml;crelerin bir kenarının uzunluğu.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>H&uuml;cre boyutu i&ccedil;in kullanılacak birimleri belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Bir komşuluk tanımlamak i&ccedil;in kullanılacak mesafe bandı. Analiz sırasında bir hedef detayının mesafe bandı i&ccedil;indeki komşu detaylar hedef detayının komşuluğuna dahil edilecektir.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Mesafe bandı i&ccedil;in kullanılacak birimleri belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

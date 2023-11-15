@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Crear cuenca visual utiliza el servicio An&aacute;lisis de elevaci&oacute;n de Esri para identificar las &aacute;reas visibles desde ubicaciones del observador especificadas.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Las entidades de puntos que se utilizar&aacute;n como ubicaciones del observador.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>Especifica la altura de los observadores por encima del suelo.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p>Las unidades de medida que se usar&aacute;n para el par&aacute;metro  <b>Altura del observador</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>Especifica la altura de los objetivos en el suelo.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p>Las unidades de medida que se usar&aacute;n para el par&aacute;metro  <b>Altura del objetivo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Especifica la distancia de visualizaci&oacute;n m&aacute;xima para el c&aacute;lculo de la cuenca visual.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Las unidades de medida que se utilizar&aacute;n para el par&aacute;metro  <b>Distancia de visualizaci&oacute;n m&aacute;xima</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa de pol&iacute;gonos de cuenca visual que se crear&aacute; y se agregar&aacute; al mapa. Esta capa contiene las &aacute;reas visibles donde los observadores pueden ver y el n&uacute;mero de observadores se registra en el campo de frecuencia.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

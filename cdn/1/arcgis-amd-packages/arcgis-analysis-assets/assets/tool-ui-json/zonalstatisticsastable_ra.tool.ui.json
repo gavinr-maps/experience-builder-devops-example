@@ -1,0 +1,414 @@
+{
+  "toolName": "ZonalStatisticsAsTable",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputZoneRasterOrFeatures.selectedLayers",
+      "destination": "zoneField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputZoneRasterOrFeatures.selectedLayers.type.length > 0) AND ($[Component].inputZoneRasterOrFeatures.selectedLayers.type NOT 'feature')) AND ($[Component].inputZoneRasterOrFeatures.processedLayerProperties.rasterInfo.attributeTable = NULL)",
+      "destination": "zoneField",
+      "effectParams": {
+        "readOnly": true,
+        "value": "Value"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputZoneRasterOrFeatures.selectedLayers.type.length > 0) AND ($[Component].inputZoneRasterOrFeatures.selectedLayers.type NOT 'feature')",
+      "destination": "zoneField",
+      "effectParams": {
+        "fieldTypes": ["integer", "string"]
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType NOT 'f32') AND ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType NOT 'f64')",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": [
+          "ALL",
+          "MEAN",
+          "MAJORITY",
+          "MAXIMUM",
+          "MEDIAN",
+          "MINIMUM",
+          "MINORITY",
+          "PERCENTILE",
+          "RANGE",
+          "STD",
+          "SUM",
+          "VARIETY",
+          "MIN_MAX",
+          "MEAN_STD",
+          "MIN_MAX_MEAN"
+        ],
+        "choiceListLabels": {
+          "ALL": "$all",
+          "MEAN": "$mean",
+          "MAJORITY": "$majority",
+          "MAXIMUM": "$maximum",
+          "MEDIAN": "$median",
+          "MINIMUM": "$minimum",
+          "MINORITY": "$minority",
+          "PERCENTILE": "$percentile",
+          "RANGE": "$range",
+          "STD": "$std",
+          "SUM": "$sum",
+          "VARIETY": "$variety",
+          "MIN_MAX": "$minMax",
+          "MEAN_STD": "$meanStd",
+          "MIN_MAX_MEAN": "$minMaxMean"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": [
+          "ALL",
+          "MEAN",
+          "MAXIMUM",
+          "MEDIAN",
+          "MINIMUM",
+          "PERCENTILE",
+          "RANGE",
+          "STD",
+          "SUM",
+          "MIN_MAX",
+          "MEAN_STD",
+          "MIN_MAX_MEAN"
+        ],
+        "choiceListLabels": {
+          "ALL": "$all",
+          "MEAN": "$mean",
+          "MAXIMUM": "$maximum",
+          "MEDIAN": "$median",
+          "MINIMUM": "$minimum",
+          "PERCENTILE": "$percentile",
+          "RANGE": "$range",
+          "STD": "$std",
+          "SUM": "$sum",
+          "MIN_MAX": "$minMax",
+          "MEAN_STD": "$meanStd",
+          "MIN_MAX_MEAN": "$minMaxMean"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].circularCalculation = true) AND (($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType NOT 'f32') AND ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType NOT 'f64'))",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": ["ALL", "MEAN", "MAJORITY", "MINORITY", "STD", "VARIETY", "MEAN_STD"],
+        "choiceListLabels": {
+          "ALL": "$all",
+          "MEAN": "$mean",
+          "MAJORITY": "$majority",
+          "MINORITY": "$minority",
+          "STD": "$std",
+          "VARIETY": "$variety",
+          "MEAN_STD": "$meanStd"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType NOT 'ALL') AND ($[Data].statisticType NOT 'PERCENTILE'))",
+      "destination": "percentileValues",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType NOT 'ALL') AND ($[Data].statisticType NOT 'PERCENTILE')) AND (($[Data].statisticType NOT 'MEDIAN'))",
+      "destination": ["percentileInterpolationType"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType = 'ALL') AND ($[Data].circularCalculation = true))",
+      "destination": ["percentileValues", "percentileInterpolationType"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].circularCalculation = true)) AND (($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64'))",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": ["ALL", "MEAN", "STD"],
+        "choiceListLabels": {
+          "ALL": "$all",
+          "MEAN": "$mean",
+          "STD": "$std"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].statisticType IN ('MEAN', 'MAJORITY', 'MINORITY','STD', 'VARIETY', 'MEAN_STD'))",
+      "destination": "circularCalculation",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType = 'ALL') AND ($[Data].circularCalculation = true))",
+      "destination": "circularWrapValue",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].circularCalculation",
+      "valueB": true,
+      "destination": "circularWrapValue",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].statisticType IN ('MAXIMUM', 'MEDIAN', 'MINIMUM', 'PERCENTILE', 'RANGE', 'SUM', 'MIN_MAX', 'MIN_MAX_MEAN'))",
+      "destination": ["circularWrapValue", "circularCalculation"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')) AND (($[Data].statisticType = 'MAJORITY'))",
+      "destination": "circularCalculation",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')) AND (($[Data].statisticType = 'MINORITY'))",
+      "destination": "circularCalculation",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')) AND (($[Data].statisticType = 'VARIETY'))",
+      "destination": "circularCalculation",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')) AND (($[Data].statisticType = 'MAJORITY'))",
+      "destination": "circularWrapValue",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')) AND (($[Data].statisticType = 'MINORITY'))",
+      "destination": "circularWrapValue",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputValueRaster.processedLayerProperties.rasterInfo.pixelType = 'f64')) AND (($[Data].statisticType = 'VARIETY'))",
+      "destination": "circularWrapValue",
+      "effectParams": {
+        "visible": false
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["snapRaster", "cellSize", "mask", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "inputZoneRasterOrFeatures",
+          "label": "$inputZoneRasterOrFeatures",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "layerFilterType": ["feature", "imagery_integer"]
+        },
+        {
+          "name": "zoneField",
+          "label": "$zoneField",
+          "componentName": "analysis-field-input",
+          "required": true,
+          "selectionMode": "single",
+          "showFieldInfo": true,
+          "useDefaultValue": true,
+          "readOnly": false,
+          "fieldTypes": ["oid", "integer", "string"]
+        },
+        {
+          "label": "$inputValueRaster",
+          "name": "inputValueRaster",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        }
+      ]
+    },
+    {
+      "label": "$inputStatisticSettingsGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputStatisticSettingsGroupText",
+      "UIparameters": [
+        {
+          "name": "statisticType",
+          "label": "$statisticType",
+          "componentName": "analysis-string-input",
+          "selectionMode": "single",
+          "required": false,
+          "defaultValue": "ALL",
+          "choiceList": [
+            "ALL",
+            "MEAN",
+            "MAJORITY",
+            "MAXIMUM",
+            "MEDIAN",
+            "MINIMUM",
+            "MINORITY",
+            "PERCENTILE",
+            "RANGE",
+            "SUM",
+            "STD",
+            "VARIETY",
+            "MIN_MAX",
+            "MEAN_STD",
+            "MIN_MAX_MEAN"
+          ],
+          "choiceListLabels": {
+            "ALL": "$all",
+            "MEAN": "$mean",
+            "MAJORITY": "$majority",
+            "MAXIMUM": "$maximum",
+            "MEDIAN": "$median",
+            "MINIMUM": "$minimum",
+            "MINORITY": "$minority",
+            "PERCENTILE": "$percentile",
+            "RANGE": "$range",
+            "SUM": "$sum",
+            "STD": "$std",
+            "VARIETY": "$variety",
+            "MIN_MAX": "$minMax",
+            "MEAN_STD": "$meanStd",
+            "MIN_MAX_MEAN": "$minMaxMean"
+          }
+        },
+        {
+          "name": "percentileValues",
+          "label": "$percentileValues",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "defaultValue": [90],
+          "min": 0,
+          "max": 100,
+          "numberType": "float",
+          "visible": true
+        },
+        {
+          "name": "percentileInterpolationType",
+          "label": "$percentileInterpolationType",
+          "componentName": "analysis-string-input",
+          "selectionMode": "single",
+          "required": false,
+          "visible": true,
+          "defaultValue": "AUTO_DETECT",
+          "choiceList": ["AUTO_DETECT", "NEAREST", "LINEAR"],
+          "choiceListLabels": {
+            "AUTO_DETECT": "$autoDetect",
+            "NEAREST": "$nearest",
+            "LINEAR": "$linear"
+          }
+        },
+        {
+          "name": "circularCalculation",
+          "label": "$circularCalculation",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "displayStyle": "switch",
+          "labelLayout": "inline-space-between",
+          "visible": true
+        },
+        {
+          "name": "circularWrapValue",
+          "label": "$circularWrapValue",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "min": 0,
+          "max": 360,
+          "numberType": "float",
+          "visible": false
+        },
+        {
+          "name": "ignoreNodata",
+          "label": "$ignoreNodata",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "displayStyle": "checkbox",
+          "labelLayout": "inline-space-between"
+        },
+        {
+          "name": "processAsMultidimensional",
+          "label": "$processAsMultidimensional",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "displayStyle": "checkbox",
+          "labelLayout": "inline-space-between"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputTableName",
+          "label": "$outputTableName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    },
+    {
+      "name": "resultType",
+      "label": "$resultType",
+      "value": "FEATURE_LAYER",
+      "visible": false
+    }
+  ]
+}

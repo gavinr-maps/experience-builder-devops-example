@@ -1,0 +1,179 @@
+{
+  "toolName": "CalculateDensity",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputPointOrLineFeatures.selectedLayers",
+      "destination": "countField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputPointOrLineFeatures.user.portal NOT undefined) AND ($[Component].inputPointOrLineFeatures.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputPointOrLineFeatures.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputPointOrLineFeatures.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputPointOrLineFeatures.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputPointOrLineFeatures.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["snapRaster", "cellSize", "mask", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputPointOrLineFeatures",
+          "label": "$inputPointOrLineFeaturesLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_line", "feature_point", "feature_multiPoint"],
+          "required": true,
+          "hideSketch": false
+        },
+        {
+          "name": "countField",
+          "label": "$countFieldLabel",
+          "componentName": "analysis-field-input",
+          "required": false,
+          "selectionMode": "single",
+          "fieldTypes": ["double", "integer", "small-integer", "single"],
+          "showFieldInfo": true
+        },
+        {
+          "label": "$optionalLayersSectionLabel",
+          "componentName": "analysis-section",
+          "UIparameters": [
+            {
+              "name": "inBarriers",
+              "label": "$inBarriersLabel",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": ["feature_line", "feature_polygon"],
+              "required": false,
+              "selectionMode": "single",
+              "hideSketch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$inputDensitySettingsGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputDensitySettingsGroupText",
+      "UIparameters": [
+        {
+          "name": "outputCellSize",
+          "label": "$outputCellSizeLabel",
+          "componentName": "analysis-linear-unit-input",
+          "choiceListLabels": {
+            "FEET": "$feet",
+            "MILES": "$miles",
+            "KILOMETERS": "$kilometers",
+            "METERS": "$meters"
+          },
+          "unitChoiceList": ["FEET", "MILES", "KILOMETERS", "METERS"],
+          "required": false,
+          "minimum": 0,
+          "excludeMinValue": true,
+          "placeholderText": "$outputValueText"
+        },
+        {
+          "name": "searchDistance",
+          "label": "$searchDistanceLabel",
+          "componentName": "analysis-linear-unit-input",
+          "choiceListLabels": {
+            "FEET": "$feet",
+            "MILES": "$miles",
+            "KILOMETERS": "$kilometers",
+            "METERS": "$meters"
+          },
+          "unitChoiceList": ["FEET", "MILES", "KILOMETERS", "METERS"],
+          "required": false,
+          "minimum": 0,
+          "placeholderText": "$outputValueText"
+        },
+        {
+          "name": "outputAreaUnits",
+          "label": "$outputAreaUnitsLabel",
+          "componentName": "analysis-string-input",
+          "choiceListLabels": {
+            "Square Meters": "$squareMeters",
+            "Square Kilometers": "$squareKilometers",
+            "Square Feet": "$squareFeet",
+            "Square Miles": "$squareMiles"
+          },
+          "choiceList": ["Square Meters", "Square Kilometers", "Square Feet", "Square Miles"],
+          "required": false
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputRasterNameLabel",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

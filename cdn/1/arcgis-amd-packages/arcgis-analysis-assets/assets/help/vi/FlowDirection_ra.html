@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Hướng D&ograve;ng chảy tạo một raster hướng d&ograve;ng chảy từ mỗi cell đến v&ugrave;ng l&acirc;n cận dốc xuống hoặc v&ugrave;ng l&acirc;n cận của n&oacute; bằng phương ph&aacute;p D8, Hướng Đa D&ograve;ng chảy (MFD) hoặc D V&ocirc; cực (DINF).
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster độ cao sẽ được sử dụng để t&iacute;nh to&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Chỉ định loại d&ograve;ng chảy sẽ được sử dụng khi t&iacute;nh to&aacute;n hướng d&ograve;ng chảy.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Chỉ định xem d&ograve;ng chảy tại c&aacute;c cell cạnh sẽ tu&acirc;n theo quy luật d&ograve;ng chảy th&ocirc;ng thường hay lu&ocirc;n chảy ra ngo&agrave;i.
+            </p>
+            <p>Nếu kh&ocirc;ng được chọn, d&ograve;ng chảy sẽ hướng về ph&iacute;a cell b&ecirc;n trong với gi&aacute; trị z giảm mạnh nhất. Tuy nhi&ecirc;n, nếu độ sụt giảm nhỏ hơn hoặc bằng 0, cell sẽ chảy ra b&ecirc;n ngo&agrave;i từ raster bề mặt. Nếu được chọn, hướng d&ograve;ng chảy sẽ lu&ocirc;n l&agrave; ra ngo&agrave;i từ raster bề mặt.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionName">
+        <div>
+            <p>T&ecirc;n của lớp raster hướng d&ograve;ng chảy sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="outputDropName">
+        <div>
+            <p>T&ecirc;n của lớp raster thả sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ. Lớp n&agrave;y c&oacute; chứa phần trăm của tỷ lệ giữa thay đổi độ cao tối đa v&agrave; độ d&agrave;i con đường dọc theo hướng d&ograve;ng chảy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

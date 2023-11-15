@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'בחר את המתקנים הטובים ביותר' מוצא את קבוצת המתקנים שתענה על הביקוש באופן הטוב ביותר.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>היעד שיש למלא בעת הקצאת מיקומי ביקוש למתקנים.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> הקצה מיקומי ביקוש למתקנים בהתבסס על הקיבולת במתקן ועל מידת הביקוש הקיימת בסביבה. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> בחר מתקנים כך שמרחק או זמן הנסיעה הכולל בין כל מיקומי הביקוש והמתקנים יהיה מינימלי. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> בחר מתקנים כך שתוקצה מידת הביקוש המרבית, כאשר כל הביקוש מכל אחד ממיקומי הביקוש מוקצה למתקן היחיד הקרוב ביותר אליו. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> בחר מתקנים כך שתוקצה מידת הביקוש המרבית, בלי לחרוג מהקיבולת של אף אחד מהמתקנים. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> בחר את המספר המינימלי של מתקנים שנדרש כדי למלא אחוז מסוים מהביקוש. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>שיטת שתשמש למדידת הזמן או המרחק בין מתקנים ומיקומי ביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>התאריך והשעה שבהם הנוסע יוצא מהמתקנים או מיקומי הביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>מציין מתי הנסיעה מתחילה במתקנים ונעה החוצה, לעבר מיקומי הביקוש, או מתחילה במיקומי הביקוש ונעה פנימה, לעבר המתקנים.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>מציין מתי הנסיעה מתחילה במתקנים ונעה החוצה, לעבר מיקומי הביקוש, או מתחילה במיקומי הביקוש ונעה פנימה, לעבר המתקנים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>מציין מתי הנסיעה מתחילה במתקנים ונעה החוצה, לעבר מיקומי הביקוש, או מתחילה במיקומי הביקוש ונעה פנימה, לעבר המתקנים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>מציין מתי הנסיעה מתחילה במתקנים ונעה החוצה, לעבר מיקומי הביקוש, או מתחילה במיקומי הביקוש ונעה פנימה, לעבר המתקנים.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>מציין מתי הנסיעה מתחילה במתקנים ונעה החוצה, לעבר מיקומי הביקוש, או מתחילה במיקומי הביקוש ונעה פנימה, לעבר המתקנים.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>ישות נקודות אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. התנועה ברחוב מותרת, אבל לא בקטע החסום.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>ישות נקודות אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. התנועה ברחוב מותרת, אבל לא בקטע החסום.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>ישות נקודות אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. התנועה ברחוב מותרת, אבל לא בקטע החסום.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>ישות נקודות אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. התנועה ברחוב מותרת, אבל לא בקטע החסום.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>ישות נקודות אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. התנועה ברחוב מותרת, אבל לא בקטע החסום.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>ישות קו אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הקו אוסרים נסיעה לכל מקום שבו המחסומים חותכים את הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>ישות קו אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הקו אוסרים נסיעה לכל מקום שבו המחסומים חותכים את הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>ישות קו אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הקו אוסרים נסיעה לכל מקום שבו המחסומים חותכים את הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>ישות קו אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הקו אוסרים נסיעה לכל מקום שבו המחסומים חותכים את הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>ישות קו אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הקו אוסרים נסיעה לכל מקום שבו המחסומים חותכים את הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>ישות פליגון אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הפוליגון אוסרים על הנסיעה בכל מקום שבו הפוליגונים מצטלבים עם הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>ישות פליגון אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הפוליגון אוסרים על הנסיעה בכל מקום שבו הפוליגונים מצטלבים עם הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>ישות פליגון אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הפוליגון אוסרים על הנסיעה בכל מקום שבו הפוליגונים מצטלבים עם הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>ישות פליגון אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הפוליגון אוסרים על הנסיעה בכל מקום שבו הפוליגונים מצטלבים עם הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>ישות פליגון אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הפוליגון אוסרים על הנסיעה בכל מקום שבו הפוליגונים מצטלבים עם הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>מציין כיצד הביקוש חל בכל מיקום. אם מידת הביקוש זהה בכל המיקומים, בחר  <b>ערך</b>. אם מידת הביקוש משתנה לפי מיקום, בחר <b>שדה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>מציין כיצד הביקוש חל בכל מיקום. אם מידת הביקוש זהה בכל המיקומים, בחר  <b>ערך</b>. אם מידת הביקוש משתנה לפי מיקום, בחר <b>שדה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>מציין כיצד הביקוש חל בכל מיקום. אם מידת הביקוש זהה בכל המיקומים, בחר  <b>ערך</b>. אם מידת הביקוש משתנה לפי מיקום, בחר <b>שדה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>מציין כיצד הביקוש חל בכל מיקום. אם מידת הביקוש זהה בכל המיקומים, בחר  <b>ערך</b>. אם מידת הביקוש משתנה לפי מיקום, בחר <b>שדה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>מציין כיצד הביקוש חל בכל מיקום. אם מידת הביקוש זהה בכל המיקומים, בחר  <b>ערך</b>. אם מידת הביקוש משתנה לפי מיקום, בחר <b>שדה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>מידת הביקוש בכל מיקום עם ביקוש. אותה מידת ביקוש תחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>מידת הביקוש בכל מיקום עם ביקוש. אותה מידת ביקוש תחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>מידת הביקוש בכל מיקום עם ביקוש. אותה מידת ביקוש תחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>מידת הביקוש בכל מיקום עם ביקוש. אותה מידת ביקוש תחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>מידת הביקוש בכל מיקום עם ביקוש. אותה מידת ביקוש תחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>השדה משכבת הביקוש שמציין את מידת הביקוש בכל מיקום.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>השדה משכבת הביקוש שמציין את מידת הביקוש בכל מיקום.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>השדה משכבת הביקוש שמציין את מידת הביקוש בכל מיקום.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>השדה משכבת הביקוש שמציין את מידת הביקוש בכל מיקום.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>השדה משכבת הביקוש שמציין את מידת הביקוש בכל מיקום.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>מציין אם מרחק או זמן הנסיעה המרבי המותר בין מיקום עם ביקוש והמתקן שהוקצה נקבע לפי ערך קבוע (<b>ערך</b>) או ערך שדה (<b>שדה</b>), או שלא חל ערך מקסימום (<b>ללא הגבלה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>מציין אם מרחק או זמן הנסיעה המרבי המותר בין מיקום עם ביקוש והמתקן שהוקצה נקבע לפי ערך קבוע (<b>ערך</b>) או ערך שדה (<b>שדה</b>), או שלא חל ערך מקסימום (<b>ללא הגבלה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>מציין אם מרחק או זמן הנסיעה המרבי המותר בין מיקום עם ביקוש והמתקן שהוקצה נקבע לפי ערך קבוע (<b>ערך</b>) או ערך שדה (<b>שדה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>מציין אם מרחק או זמן הנסיעה המרבי המותר בין מיקום עם ביקוש והמתקן שהוקצה נקבע לפי ערך קבוע (<b>ערך</b>) או ערך שדה (<b>שדה</b>), או שלא חל ערך מקסימום (<b>ללא הגבלה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>מציין אם מרחק או זמן הנסיעה המרבי המותר בין מיקום עם ביקוש והמתקן שהוקצה נקבע לפי ערך קבוע (<b>ערך</b>) או ערך שדה (<b>שדה</b>), או שלא חל ערך מקסימום (<b>ללא הגבלה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש. אותו טווח נסיעה יחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש. אותו טווח נסיעה יחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש. אותו טווח נסיעה יחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש. אותו טווח נסיעה יחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש. אותו טווח נסיעה יחול בכל המיקומים.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>השדה המכיל את מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>השדה המכיל את מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>השדה המכיל את מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>השדה המכיל את מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>השדה המכיל את מרחק או זמן הנסיעה שמעבר לו לא תתבצע הקצאה של ביקוש.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>היחידות אשר משמשות לציון מרחק או זמן הנסיעה המרבי.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>היחידות אשר משמשות לציון מרחק או זמן הנסיעה המרבי.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>היחידות אשר משמשות לציון מרחק או זמן הנסיעה המרבי.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>היחידות אשר משמשות לציון מרחק או זמן הנסיעה המרבי.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>היחידות אשר משמשות לציון מרחק או זמן הנסיעה המרבי.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>אחוז הביקוש המינימלי שעליו המתקנים צריכים לענות.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק. מתקנים מועמדים מייצגים בדרך כלל את המיקומים שבהם ניתן לבנות או למקם מתקנים חדשים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק. מתקנים מועמדים מייצגים בדרך כלל את המיקומים שבהם ניתן לבנות או למקם מתקנים חדשים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק. מתקנים מועמדים מייצגים בדרך כלל את המיקומים שבהם ניתן לבנות או למקם מתקנים חדשים.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים שיש בהם ביקוש לשירות שהמתקנים יכולים לספק. מתקנים מועמדים מייצגים בדרך כלל את המיקומים שבהם ניתן לבנות או למקם מתקנים חדשים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>מציין אם הקיבולת של כל מתקן נקבעת על ידי ערך קבוע (<b>ערך</b>) או שדה מספרי (<b>שדה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>הקיבולת של כל אחד מהמתקנים המהווים התאמה אפשרית. אותה קיבולת תחול בכל אחד מהמתקנים המהווים התאמה אפשרית.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>השדה שמכיל את הקיבולת של כל מתקן המהווה התאמה אפשרית.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>מספר המתקנים הניידים שמתוכו ניתן לבחור את קבוצת המועמדים. אם תציין גם מתקנים נדרשים וגם מתקנים מועמדים, ייעשה שימוש במתקנים בשכבת המתקנים המבוקשים לפני המתקנים משכבת המתקנים המועמדים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>מספר המתקנים הניידים שמתוכו ניתן לבחור את קבוצת המועמדים. אם תציין גם מתקנים נדרשים וגם מתקנים מועמדים, ייעשה שימוש במתקנים בשכבת המתקנים המבוקשים לפני המתקנים משכבת המתקנים המועמדים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>מספר המתקנים הניידים שמתוכו ניתן לבחור את קבוצת המועמדים. אם תציין גם מתקנים נדרשים וגם מתקנים מועמדים, ייעשה שימוש במתקנים בשכבת המתקנים המבוקשים לפני המתקנים משכבת המתקנים המועמדים.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>מציין אם רק המתקנים המועמדים ישמשו כקלט (לא מופעל) או אם חלק מהמתקנים נדרשים (מופעל).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>מציין אם רק המתקנים המועמדים ישמשו כקלט (לא מופעל) או אם חלק מהמתקנים נדרשים (מופעל).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>מציין אם רק המתקנים המועמדים ישמשו כקלט (לא מופעל) או אם חלק מהמתקנים נדרשים (מופעל).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>מציין אם רק המתקנים המועמדים ישמשו כקלט (לא מופעל) או אם חלק מהמתקנים נדרשים (מופעל).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים הפועלים כמתקנים. מתקנים אלה מייצגים בדרך כלל מיקומים קיימים.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים הפועלים כמתקנים. מתקנים אלה מייצגים בדרך כלל מיקומים קיימים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים הפועלים כמתקנים. מתקנים אלה מייצגים בדרך כלל מיקומים קיימים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים הפועלים כמתקנים. מתקנים אלה מייצגים בדרך כלל מיקומים קיימים.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>יישויות הנקודה שמייצגות מיקומים הפועלים כמתקנים. מתקנים אלה מייצגים בדרך כלל מיקומים קיימים.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>מציין אם הקיבולת של כל מתקן נקבעת על ידי קבוע (<b>ערך</b>) או שדה מספרי (<b>שדה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>מציין אם הקיבולת של כל מתקן נקבעת על ידי קבוע (<b>ערך</b>) או שדה מספרי (<b>שדה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>הקיבולת של כל אחד מהמתקנים הנדרשים. אותה קיבולת תחול בכל אחד מהמתקנים הנדרשים.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>הקיבולת של כל אחד מהמתקנים הנדרשים. אותה קיבולת תחול בכל אחד מהמתקנים הנדרשים.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>השדה שמכיל את הקיבולת של כל מתקן.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>השדה שמכיל את הקיבולת של כל מתקן.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאות יישמרו.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

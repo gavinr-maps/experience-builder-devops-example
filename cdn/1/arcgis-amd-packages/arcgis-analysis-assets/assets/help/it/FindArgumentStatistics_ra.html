@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Trova statistiche di argomento estrae il valore di dimensione o l'indice di banda al quale viene raggiunta una determinata statistica per ogni pixel in un layer di immagini multidimensionale
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Il layer di immagini multidimensionali che verr&agrave; valutato.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>La dimensione del layer di immagini multidimensionali da cui verr&agrave; valutata la variabile.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>La variabile del layer di immagini multidimensionali che verr&agrave; valutata lungo l'intervallo definito.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Il tipo di statistica che verr&agrave; estratta dalla variabile o dalle variabili lungo una determinata dimensione.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Il valore minimo che verr&agrave; utilizzato per la durata dell'argomento.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Il valore massimo che verr&agrave; utilizzato per la durata dell'argomento.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Il valore che indica che una determinata statistica dell'argomento &egrave; stata raggiunta pi&ugrave; di una volta. L'impostazione predefinita &egrave; la prima volta che viene raggiunta la statistica dell'argomento.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Specifica se il valore della dimensione verr&agrave; restituito la prima o l'ultima volta che viene raggiunto l'argomento. L'impostazione predefinita &egrave; la prima occorrenza.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Verr&agrave; estratto il valore della dimensione in corrispondenza del quale viene raggiunto il valore della variabile specificata.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Specifica il tipo di confronto che verr&agrave; utilizzato per estrarre il valore della dimensione.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Specifica in che modo la statistica sar&agrave; estratta dalla dimensione.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>L'unit&agrave; di tempo per la quale verr&agrave; estratta ogni statistica.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indica se i valori NoData verranno ignorati nell'estrazione.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Il tipo di output che sar&agrave; creato. L'output pu&ograve; essere un layer immagini di tile o un layer immagini dinamico.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

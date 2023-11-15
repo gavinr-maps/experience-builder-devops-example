@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Generuj raster trendu szacuje trend dla każdego piksela wzdłuż wymiaru dla jednej lub większej liczby zmiennych w wielowymiarowej warstwie zobrazowań.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Wielowymiarowa warstwa zobrazowań, kt&oacute;ra zostanie użyta do wygenerowania trendu.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Wymiar, wzdłuż kt&oacute;rego zostanie wyodrębniony trend dla zmiennej lub zmiennych wybranych w analizie.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Zmienna lub zmienne, dla kt&oacute;rych zostaną obliczone trendy.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Jednostka czasu, kt&oacute;ra będzie używana do określania długości okresu sezonowego, gdy używany jest typ linii Seasonal Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Typ analizy trendu, kt&oacute;ra będzie wykonywana na wartościach pikseli wzdłuż wymiaru.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Częstotliwość lub kolejność wielomianowa, kt&oacute;ra będzie używana na potrzeby dopasowania trendu.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Określa, czy w analizie będą ignorowane wartości Brak danych i wartości brakujące.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Długość cyklu wariacji okresowej na potrzeby modelowania dla cyklu harmonicznego.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Jednostka czasu, kt&oacute;ra będzie używana do określania długości cyklu harmonicznego.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Decyduje o tym, czy będzie obliczany błąd średni kwadratowy (RMSE) linii dopasowania trendu.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Decyduje o tym, czy będzie obliczana statystyka dokładności dopasowania R kwadrat dla linii dopasowania trendu.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Decyduje o tym, czy będzie obliczana statystyka wartości p dla wsp&oacute;łczynnika nachylenia linii dopasowania trendu.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Dane wynikowe mogą być warstwą zobrazowań kafelkowych lub dynamiczną warstwą zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

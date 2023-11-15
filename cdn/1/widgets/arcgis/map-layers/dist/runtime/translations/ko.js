@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"맵 레이어",goto:"확대",information:"세부정보",increaseOpacity:"불투명도 증가",decreaseOpacity:"불투명도 감소",increaseTransparency:"투명성 높이기",decreaseTransparency:"투명성 낮추기",showLabels:"레이블 표시",hideLabels:"레이블 숨기기"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"맵 레이어",goto:"확대",information:"세부정보",increaseOpacity:"불투명도 증가",decreaseOpacity:"불투명도 감소",increaseTransparency:"투명성 높이기",decreaseTransparency:"투명성 낮추기",showLabels:"레이블 표시",hideLabels:"레이블 숨기기",emptyListTip:"현재 표시할 항목이 없습니다."})}}}));

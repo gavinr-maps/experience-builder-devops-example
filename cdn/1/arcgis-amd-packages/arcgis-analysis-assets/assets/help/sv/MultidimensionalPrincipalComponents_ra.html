@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Flerdimensionella huvudkomponenter transformerar de flerdimensionella bildlagren till ett reducerat antal komponenter som utg&ouml;r variansen f&ouml;r data, s&aring; att spatiala och tidsm&auml;ssia m&ouml;nster enkelt kan identifieras.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Det flerdimensionella bildlager som ska analyseras.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Den metod som ska anv&auml;ndas f&ouml;r att utf&ouml;ra huvudkomponentanalysen. I alternativen ing&aring;r  <b>Dimensionsreducering</b> och <b>Spatial reducering</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensionen f&ouml;r det flerdimensionella bildlager l&auml;ngs vilken variabeln kommer att analyseras.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Namnet p&aring; utdatabildlagret eller -tabellagret som visar huvudkomponenterna som hittas beroende p&aring; f&ouml;ljande val av l&auml;ge:
+                <ul>
+                    <li>Dimensionsreduceringsutdata blir ett multibandsbildlager.
+                    </li>
+                    <li>Utdata f&ouml;r spatial reducering blir ett tabellager.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Namnet p&aring; utdatabildlagret eller -tabellagret som visar supportdata i huvudkomponentsvalet beroende p&aring; f&ouml;ljande val av l&auml;ge:
+                <ul>
+                    <li>Utdata f&ouml;r dimensionsreducering blir ett tabellager.
+                    </li>
+                    <li>Utdata f&ouml;r spatial reducering blir ett bildlager.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Namnet p&aring; tabellen med Eigen-v&auml;rden, som indikerar variansprocenttalet f&ouml;r varje komponent.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Namnet p&aring; variabeln i det flerdimensionella indatabildlagret som anv&auml;nds i ber&auml;kningen.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Antalet huvudkomponenter som ska ber&auml;knas, oftast f&auml;rre &auml;n antalet indataraster.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ av utdata som skapas. Utdata kan vara bildlager i tileform eller dynamiska bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultaten ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

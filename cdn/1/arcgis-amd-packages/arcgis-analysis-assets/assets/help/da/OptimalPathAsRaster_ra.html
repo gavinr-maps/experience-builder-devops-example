@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Optimal rute som raster-v&aelig;rkt&oslash;jet beregner den optimale rasterrute fra destinationer til kilder.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Det lag, der identificerer destinationerne, hvorfra afstanden er beregnet til den kilde, der koster mest.
+            </p>
+            <p>Hvis inputtet er en raster, skal den best&aring; af celler, der har gyldige heltalsv&aelig;rdier (nul er en gyldig v&aelig;rdi) for destinationerne, og de resterende celler skal tildeles NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Det felt, der bruges til at f&aring; v&aelig;rdier til destinationsplaceringer.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>Den raster, der bestemmer den optimale rute fra destinationer til kilder.
+            </p>
+            <p>Afstandsakkumuleringsrasteren oprettes normalt med v&aelig;rkt&oslash;jet Afstandsakkumulering eller v&aelig;rkt&oslash;jet Afstandsallokering.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>Den raster, der indeholder beregnede retninger i grader.
+            </p>
+            <p>Tilbageretningsrasteren oprettes normalt med v&aelig;rkt&oslash;jet Afstandsakkumulering eller v&aelig;rkt&oslash;jet Afstandsallokering.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Angiver, hvordan v&aelig;rdier og zonerne p&aring; input-destinationsdataene bliver fortolket i beregningerne af rutens omkostninger.
+            </p>
+        </div>
+    </div>
+    <div id="outputRasterName">
+        <div>
+            <p>Navnet p&aring; den optimale rute som rasterlag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Den type output, der oprettes. Outputtet kan v&aelig;re et tile-billedlag eller et dynamisk billedlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

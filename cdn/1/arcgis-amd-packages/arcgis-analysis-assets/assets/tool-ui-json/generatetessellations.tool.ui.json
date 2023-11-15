@@ -1,0 +1,291 @@
+{
+  "toolName": "GenerateTessellations",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "expression",
+      "destination": "binResolution",
+      "expression": "$[Data].binType = 'H3_HEXAGON'",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "destination": ["binSize", "binSizeUnit", "sizeType"],
+      "expression": "$[Data].binType = 'H3_HEXAGON'",
+      "effectParams": {
+        "visible": false,
+        "required": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "destination": "binResolution",
+      "expression": "$[Data].binType NOT 'H3_HEXAGON'",
+      "effectParams": {
+        "visible": false,
+        "required": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "intersectStudyArea",
+      "valueA": "$[Data].extentLayer",
+      "valueB": null,
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceList": [
+          "SquareMiles",
+          "Acres",
+          "SquareYards",
+          "SquareFeet",
+          "SquareInches",
+          "Hectares",
+          "SquareKilometers",
+          "SquareMeters"
+        ],
+        "choiceListLabels": {
+          "Acres": "$acres",
+          "Hectares": "$hectares",
+          "SquareMeters": "$squareMeters",
+          "SquareKilometers": "$squareKilometers",
+          "SquareFeet": "$squareFeet",
+          "SquareYards": "$squareYards",
+          "SquareMiles": "$squareMiles",
+          "SquareInches": "$squareInches"
+        },
+        "defaultValue": "SquareMiles"
+      },
+      "expression": "$[Data].sizeType = 'AREA'"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].userSettings.unitSystem = 'english') AND ($[Data].sizeType = 'AREA'))",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceList": [
+          "SquareMiles",
+          "Acres",
+          "SquareYards",
+          "SquareFeet",
+          "SquareInches",
+          "Hectares",
+          "SquareKilometers",
+          "SquareMeters"
+        ],
+        "choiceListLabels": {
+          "Acres": "$acres",
+          "Hectares": "$hectares",
+          "SquareMeters": "$squareMeters",
+          "SquareKilometers": "$squareKilometers",
+          "SquareFeet": "$squareFeet",
+          "SquareYards": "$squareYards",
+          "SquareMiles": "$squareMiles",
+          "SquareInches": "$squareInches"
+        },
+        "defaultValue": "SquareMiles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].userSettings.unitSystem = 'metric') AND ($[Data].sizeType = 'AREA'))",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceList": [
+          "SquareKilometers",
+          "SquareMeters",
+          "Hectares",
+          "Acres",
+          "SquareMiles",
+          "SquareYards",
+          "SquareFeet",
+          "SquareInches"
+        ],
+        "choiceListLabels": {
+          "Acres": "$acres",
+          "Hectares": "$hectares",
+          "SquareMeters": "$squareMeters",
+          "SquareKilometers": "$squareKilometers",
+          "SquareFeet": "$squareFeet",
+          "SquareYards": "$squareYards",
+          "SquareMiles": "$squareMiles",
+          "SquareInches": "$squareInches"
+        },
+        "defaultValue": "SquareKilometers"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].sizeType = 'DISTANCE'",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceListLabels": {
+          "Meters": "$meters",
+          "Kilometers": "$kilometers",
+          "Feet": "$feet",
+          "Yards": "$yards",
+          "Miles": "$miles",
+          "NauticalMiles": "$nauticalMiles"
+        },
+        "choiceList": ["Miles", "NauticalMiles", "Yards", "Feet", "Kilometers", "Meters"],
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].userSettings.unitSystem = 'english') AND ($[Data].sizeType = 'DISTANCE'))",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceListLabels": {
+          "Meters": "$meters",
+          "Kilometers": "$kilometers",
+          "Feet": "$feet",
+          "Yards": "$yards",
+          "Miles": "$miles",
+          "NauticalMiles": "$nauticalMiles"
+        },
+        "choiceList": ["Miles", "NauticalMiles", "Yards", "Feet", "Kilometers", "Meters"],
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].userSettings.unitSystem = 'metric') AND ($[Data].sizeType = 'DISTANCE'))",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceListLabels": {
+          "Meters": "$meters",
+          "Kilometers": "$kilometers",
+          "Feet": "$feet",
+          "Yards": "$yards",
+          "Miles": "$miles",
+          "NauticalMiles": "$nauticalMiles"
+        },
+        "choiceList": ["Kilometers", "Meters", "Miles", "NauticalMiles", "Yards", "Feet"],
+        "defaultValue": "Kilometers"
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$tessellationSettingsLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$tessellationSettingsSummaryText",
+      "UIparameters": [
+        {
+          "name": "binType",
+          "label": "$binType",
+          "defaultValue": "SQUARE",
+          "choiceListLabels": {
+            "HEXAGON": "$hexagon",
+            "SQUARE": "$square",
+            "TRIANGLE": "$triangle",
+            "DIAMOND": "$diamond",
+            "TRANSVERSEHEXAGON": "$thexagon",
+            "H3_HEXAGON": "$h3hexagon"
+          },
+          "choiceListIcons": {
+            "HEXAGON": "grid-hexagon",
+            "SQUARE": "grid-unit",
+            "TRIANGLE": "grid-triangle",
+            "DIAMOND": "grid-diamond",
+            "TRANSVERSEHEXAGON": "grid-hexagon",
+            "H3_HEXAGON": "h3-hexagon"
+          }
+        },
+        {
+          "name": "sizeType",
+          "label": "$sizeType",
+          "componentName": "analysis-string-input",
+          "defaultValue": "AREA",
+          "useDefaultOnReset": true,
+          "choiceList": ["AREA", "DISTANCE"],
+          "choiceListLabels": {
+            "AREA": "$area",
+            "DISTANCE": "$distance"
+          },
+          "showAsRadioGroup": true
+        },
+        {
+          "name": "binResolution",
+          "label": "$binResolution",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "visible": false,
+          "min": 0,
+          "max": 15
+        },
+        {
+          "UIparameters": [
+            {
+              "name": "binSize",
+              "label": "$binSizeLabel",
+              "componentName": "analysis-number-input",
+              "required": true,
+              "min": 0,
+              "excludeMinValue": true
+            },
+            {
+              "name": "binSizeUnit",
+              "label": "$binSizeUnitLabel",
+              "useDefaultOnReset": true,
+              "required": true
+            }
+          ],
+          "layout": "horizontal"
+        }
+      ]
+    },
+    {
+      "label": "$extentSectionLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$extentSectionText",
+      "UIparameters": [
+        {
+          "name": "extentLayer",
+          "label": "$extentLayer",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature"],
+          "hideSketch": true
+        },
+        {
+          "name": "intersectStudyArea",
+          "label": "$intersectStudyArea"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputAreasSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "componentName": "analysis-string-input",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true
+        },
+        {
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input",
+          "name": "saveResultIn"
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "expression": "($[Data].extentLayer = null) AND ($[Component].currentTool.environmentSettings.extent = null)",
+      "errorKey": "extentRequired"
+    }
+  ]
+}

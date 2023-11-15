@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Naj&iacute;t shluky bodů (Find Point Clusters) identifikuje shluky bodov&yacute;ch prvků v okoln&iacute;m &scaron;umu na z&aacute;kladě jejich prostorov&eacute;ho rozložen&iacute;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Vstupn&iacute; bodov&aacute; vrstva, kter&aacute; bude seskupena do shluků na z&aacute;kladě prostorov&eacute;ho rozložen&iacute; bodov&yacute;ch prvků.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>Metoda, kter&aacute; bude použita k identifikaci shluků.
+            </p>
+        </div>
+    </div>
+    <div id="minFeaturesCluster">
+        <div>
+            <p>Minim&aacute;ln&iacute; počet bodov&yacute;ch prvků, kter&eacute; budou považov&aacute;ny za shluk.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Určuje maxim&aacute;ln&iacute; vzd&aacute;lenost kolem každ&eacute;ho bodov&eacute;ho prvku pro hled&aacute;n&iacute; bodů, kter&eacute; lze zahrnout do shluku. Pokud je ponech&aacute;no pr&aacute;zdn&eacute;, hodnota  <b>Vzd&aacute;lenosti vyhled&aacute;v&aacute;n&iacute;</b> bude největ&scaron;&iacute; nalezen&aacute; hlavn&iacute; vzd&aacute;lenost ve vrstvě, s&nbsp;vyloučen&iacute;m hlavn&iacute;ch vzd&aacute;lenost&iacute; v&nbsp;horn&iacute;m 1&nbsp;%.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistanceUnit">
+        <div>
+            <p>Určuje jednotky, kter&eacute; se použij&iacute; pro vyhled&aacute;vac&iacute; vzd&aacute;lenost.
+            </p>
+        </div>
+    </div>
+    <div id="sensitivity">
+        <div>
+            <p>Cel&eacute; č&iacute;slo mezi&nbsp;0&nbsp;a&nbsp;100, kter&eacute; určuje kompaktnost shluků. Pokud je ponech&aacute;no pr&aacute;zdn&eacute;, hodnota  <b>Citlivost shluků</b> bude vypoč&iacute;t&aacute;na pomoc&iacute; Kullback&ndash;Leibler divergence.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Sample (&Eacute;chantillon) cr&eacute;e une table ou une classe d&rsquo;entit&eacute;s ponctuelles pour afficher les valeurs de pixel d&rsquo;un raster ou d&rsquo;un jeu de rasters &agrave; des localisations d&eacute;finies.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Couches d'imagerie contenant les valeurs &agrave; &eacute;chantillonner en fonction des donn&eacute;es de localisation en entr&eacute;e.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Couche contenant les localisations de chaque &eacute;chantillon.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Algorithme de r&eacute;&eacute;chantillonnage &agrave; utiliser lors de l'&eacute;chantillonnage.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Champ de la couche qui contient une valeur diff&eacute;rente pour chaque localisation ou entit&eacute; en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Indique si les couches d'imagerie en entr&eacute;e incluent des donn&eacute;es multidimensionnelles.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Sp&eacute;cifie la dur&eacute;e, la profondeur ou d&rsquo;autres donn&eacute;es d&rsquo;acquisition associ&eacute;es aux entit&eacute;s de localisation.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimension de la couche multidimensionnelle en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Champ &agrave; utiliser pour commencer la p&eacute;riode de la couche multidimensionnelle en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Champ &agrave; utiliser pour terminer la p&eacute;riode de la couche multidimensionnelle en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Nombre non n&eacute;gatif &agrave; ajouter au param&egrave;tre  <b>Dimension (Dimension)</b> ou valeur qui doit d&eacute;finir le d&eacute;but d'une plage de valeurs de dimension.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Nombre non n&eacute;gatif &agrave; ajouter au param&egrave;tre  <b>Dimension (Dimension)</b> ou valeur qui doit d&eacute;finir la fin d'une plage de valeurs de dimension.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Statistiques &agrave; g&eacute;n&eacute;rer lors du traitement de couches d&rsquo;imagerie multidimensionnelles.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Valeur en pourcentage &agrave; utiliser pour les statistiques de type centile.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Distance de la zone tampon &agrave; appliquer aux localisations en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Indique si la sortie doit &ecirc;tre de type entit&eacute; ou table.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Indique si la sortie doit &ecirc;tre en ligne ou en colonne.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

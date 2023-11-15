@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Find by Attributes and Location tool creates a new layer of the features or parts of features that meet specified spatial or attribute criteria.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>The point, line, or polygon layer for which features, based on a combination of attribute and spatial queries, will be found.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>The spatial or attribute criteria that will be used to find features. Click the  <b>Build new query</b> button to define one or more spatial or attribute criteria.  Those features, or portions of features, that satisfy all criteria will be written to the result layer.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> The spatial or attribute criteria that will be used to find features. Click the <b>Build new query</b> button to define one or more spatial or attribute criteria.  Those features, or portions of features, that satisfy all criteria will be written to the result layer.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>When only a portion of a feature meets the criteria, specifies whether the result includes the entire feature or only the portion of the feature that meets all criteria. When checked, only the portions of the feature that meet all criteria will be returned. When unchecked, the entire feature will be returned provided at least a portion of the feature meets all criteria.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>The name of the folder in  <b>My Content</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

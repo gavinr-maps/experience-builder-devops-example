@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Labāko objektu izvēles rīks atrod objektu kopumu, kas vislabāk atbilst pieprasījumam.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Mērķis ir jāsasniedz, pie&scaron;ķirot pieprasījuma izvietojumus objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Piešķirt pieprasījumu objektiem, ņemot vērā objekta kapacitāti un pieprasījuma apjomu no apkārtējās teritorijas. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Izvēlieties objektus tā, lai kopējais pārvietošanās laiks vai attālums no visiem pieprasījuma novietojumiem līdz tiem piešķirtajam objektam būtu minimizēts. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Izvēlieties objektus tā, lai tiktu piešķirts maksimālais pieprasījuma apjoms, viss pieprasījums no katra pieprasījuma noviertojuma tiek piešķirts tā tuvākajam objektam. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Izvēlieties objektus tā, lai maksimālais pieprasījuma apjoms tiek piešķirts, nepārsniedzot neviena objekta kapacitāti. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Izvēlieties minimālo objektu skaitu, kas nepieciešams, lai sasniegtu norādīto pieprasījuma procentuālo daļu. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Pārvieto&scaron;anās metode, kas tiks izmantota, lai mērītu laiku vai attālumu starp objektiem un pieprasījuma vietām.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Datums un laiks, kad ceļotājs dodas prom no objekta vai pieprasījuma vietām.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Norāda, vai pārvieto&scaron;anās sākas no objektiem un virzās uz āru uz pieprasījuma vietām, vai sākas no pieprasījuma vietām un virzās uz iek&scaron;u uz objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Norāda, vai pārvieto&scaron;anās sākas no objektiem un virzās uz āru uz pieprasījuma vietām, vai sākas no pieprasījuma vietām un virzās uz iek&scaron;u uz objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Norāda, vai pārvieto&scaron;anās sākas no objektiem un virzās uz āru uz pieprasījuma vietām, vai sākas no pieprasījuma vietām un virzās uz iek&scaron;u uz objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Norāda, vai pārvieto&scaron;anās sākas no objektiem un virzās uz āru uz pieprasījuma vietām, vai sākas no pieprasījuma vietām un virzās uz iek&scaron;u uz objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Norāda, vai pārvieto&scaron;anās sākas no objektiem un virzās uz āru uz pieprasījuma vietām, vai sākas no pieprasījuma vietām un virzās uz iek&scaron;u uz objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Brauk&scaron;ana ir atļauta pa ielu, ne&scaron;ķērsojot barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Brauk&scaron;ana ir atļauta pa ielu, ne&scaron;ķērsojot barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Brauk&scaron;ana ir atļauta pa ielu, ne&scaron;ķērsojot barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Brauk&scaron;ana ir atļauta pa ielu, ne&scaron;ķērsojot barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Brauk&scaron;ana ir atļauta pa ielu, ne&scaron;ķērsojot barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Līnijas barjeras aizliedz pārvietoties jebkur, kur barjeras &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Līnijas barjeras aizliedz pārvietoties jebkur, kur barjeras &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Līnijas barjeras aizliedz pārvietoties jebkur, kur barjeras &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Līnijas barjeras aizliedz pārvietoties jebkur, kur barjeras &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Līnijas barjeras aizliedz pārvietoties jebkur, kur barjeras &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Viens vai vairāki laukuma elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Laukuma barjeras aizliedz pārvietoties jebkur, kur laukums &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Viens vai vairāki laukuma elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Laukuma barjeras aizliedz pārvietoties jebkur, kur laukums &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Viens vai vairāki laukuma elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Laukuma barjeras aizliedz pārvietoties jebkur, kur laukums &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Viens vai vairāki laukuma elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Laukuma barjeras aizliedz pārvietoties jebkur, kur laukums &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Viens vai vairāki laukuma elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Laukuma barjeras aizliedz pārvietoties jebkur, kur laukums &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Punkta elementi norāda atra&scaron;anās vietas, kurās ir pieprasījums pēc pakalpojuma, ko var nodro&scaron;ināt objekti.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Punkta elementi norāda atra&scaron;anās vietas, kurās ir pieprasījums pēc pakalpojuma, ko var nodro&scaron;ināt objekti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Punkta elementi norāda atra&scaron;anās vietas, kurās ir pieprasījums pēc pakalpojuma, ko var nodro&scaron;ināt objekti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Punkta elementi norāda atra&scaron;anās vietas, kurās ir pieprasījums pēc pakalpojuma, ko var nodro&scaron;ināt objekti.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Punkta elementi norāda atra&scaron;anās vietas, kurās ir pieprasījums pēc pakalpojuma, ko var nodro&scaron;ināt objekti.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Norāda, kā pieprasījums tiek izmantots katram novietojumam. Ja pieprasījuma summa visiem novietojumiem ir vienāda, izvēlieties  <b>Vērtība</b>. Ja pieprasījuma apjoms ir atkarīgs no novietojuma, izvēlieties <b>Lauks</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Norāda, kā pieprasījums tiek izmantots katram novietojumam. Ja pieprasījuma summa visiem novietojumiem ir vienāda, izvēlieties  <b>Vērtība</b>. Ja pieprasījuma apjoms ir atkarīgs no novietojuma, izvēlieties <b>Lauks</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Norāda, kā pieprasījums tiek izmantots katram novietojumam. Ja pieprasījuma summa visiem novietojumiem ir vienāda, izvēlieties  <b>Vērtība</b>. Ja pieprasījuma apjoms ir atkarīgs no novietojuma, izvēlieties <b>Lauks</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Norāda, kā pieprasījums tiek izmantots katram novietojumam. Ja pieprasījuma summa visiem novietojumiem ir vienāda, izvēlieties  <b>Vērtība</b>. Ja pieprasījuma apjoms ir atkarīgs no novietojuma, izvēlieties <b>Lauks</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Norāda, kā pieprasījums tiek izmantots katram novietojumam. Ja pieprasījuma summa visiem novietojumiem ir vienāda, izvēlieties  <b>Vērtība</b>. Ja pieprasījuma apjoms ir atkarīgs no novietojuma, izvēlieties <b>Lauks</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Pieprasījuma apjoms katrā pieprasījuma novietojumā. Katram novietojumam tiks piemērots vienāds pieprasījuma apjoms.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Pieprasījuma apjoms katrā pieprasījuma novietojumā. Katram novietojumam tiks piemērots vienāds pieprasījuma apjoms.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Pieprasījuma apjoms katrā pieprasījuma novietojumā. Katram novietojumam tiks piemērots vienāds pieprasījuma apjoms.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Pieprasījuma apjoms katrā pieprasījuma novietojumā. Katram novietojumam tiks piemērots vienāds pieprasījuma apjoms.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Pieprasījuma apjoms katrā pieprasījuma novietojumā. Katram novietojumam tiks piemērots vienāds pieprasījuma apjoms.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Lauks no pieprasījuma slāņa, kas norāda pieprasījuma apjomu katram novietojumam.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Lauks no pieprasījuma slāņa, kas norāda pieprasījuma apjomu katram novietojumam.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Lauks no pieprasījuma slāņa, kas norāda pieprasījuma apjomu katram novietojumam.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Lauks no pieprasījuma slāņa, kas norāda pieprasījuma apjomu katram novietojumam.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Lauks no pieprasījuma slāņa, kas norāda pieprasījuma apjomu katram novietojumam.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Norāda, vai maksimālo pārvieto&scaron;anās attālumu vai atļauto laiku starp pieprasījuma vietu un pie&scaron;ķirto objektu nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>) vai netiek piemērots maksimums (<b>Neierobežots</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Norāda, vai maksimālo pārvieto&scaron;anās attālumu vai atļauto laiku starp pieprasījuma vietu un pie&scaron;ķirto objektu nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>) vai netiek piemērots maksimums (<b>Neierobežots</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Norāda, vai maksimālo pārvieto&scaron;anās attālumu vai atļauto laiku starp pieprasījuma vietu un pie&scaron;ķirto objektu nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Norāda, vai maksimālo pārvieto&scaron;anās attālumu vai atļauto laiku starp pieprasījuma vietu un pie&scaron;ķirto objektu nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>) vai netiek piemērots maksimums (<b>Neierobežots</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Norāda, vai maksimālo pārvieto&scaron;anās attālumu vai atļauto laiku starp pieprasījuma vietu un pie&scaron;ķirto objektu nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>) vai netiek piemērots maksimums (<b>Neierobežots</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts. Katram novietojumam tiks piemērots vienāds maksimālais pārvieto&scaron;anās diapazons.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts. Katram novietojumam tiks piemērots vienāds maksimālais pārvieto&scaron;anās diapazons.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts. Katram novietojumam tiks piemērots vienāds maksimālais pārvieto&scaron;anās diapazons.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts. Katram novietojumam tiks piemērots vienāds maksimālais pārvieto&scaron;anās diapazons.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts. Katram novietojumam tiks piemērots vienāds maksimālais pārvieto&scaron;anās diapazons.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Lauks, kurā ir pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Lauks, kurā ir pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Lauks, kurā ir pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Lauks, kurā ir pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Lauks, kurā ir pārvieto&scaron;anās attālums vai laiks, pēc kura pieprasījums netiks pie&scaron;ķirts.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Vienības, ko izmanto, lai norādītu maksimālo pārvieto&scaron;anās attālumu vai laiku.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Vienības, ko izmanto, lai norādītu maksimālo pārvieto&scaron;anās attālumu vai laiku.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Vienības, ko izmanto, lai norādītu maksimālo pārvieto&scaron;anās attālumu vai laiku.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Vienības, ko izmanto, lai norādītu maksimālo pārvieto&scaron;anās attālumu vai laiku.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Vienības, ko izmanto, lai norādītu maksimālo pārvieto&scaron;anās attālumu vai laiku.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Minimālais procentuālais pieprasījums, kas jānodro&scaron;ina objektam.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā kandidātobjekti. Kandidātobjekti parasti ir tādi novietojumi, kur tiks būvēti vai izvietoti jaunie objekti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā kandidātobjekti. Kandidātobjekti parasti ir tādi novietojumi, kur tiks būvēti vai izvietoti jaunie objekti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā kandidātobjekti. Kandidātobjekti parasti ir tādi novietojumi, kur tiks būvēti vai izvietoti jaunie objekti.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā kandidātobjekti. Kandidātobjekti parasti ir tādi novietojumi, kur tiks būvēti vai izvietoti jaunie objekti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Norāda, vai katra kandidātobjekta noslodzi nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Katra kandidātobjekta kapacitāte. Viena un tā pati kapacitāte tiks piemērota visiem kandidātobjektiem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Lauks, kurā norādīta katra kandidātobjekta kapacitāte.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Kandidātobjektu skaits, kurus izvēlēties no kandidātu kopas. Ja tiek norādīti gan nepiecie&scaron;amie, gan kandidātobjekti, objekti nepiecie&scaron;amajā objektu slānī tiks izmantoti pirms jebkuriem citiem objektiem no kandidātobjektu slāņa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Kandidātobjektu skaits, kurus izvēlēties no kandidātu kopas. Ja tiek norādīti gan nepiecie&scaron;amie, gan kandidātobjekti, objekti nepiecie&scaron;amajā objektu slānī tiks izmantoti pirms jebkuriem citiem objektiem no kandidātobjektu slāņa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Kandidātobjektu skaits, kurus izvēlēties no kandidātu kopas. Ja tiek norādīti gan nepiecie&scaron;amie, gan kandidātobjekti, objekti nepiecie&scaron;amajā objektu slānī tiks izmantoti pirms jebkuriem citiem objektiem no kandidātobjektu slāņa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Norāda, vai kā ievades tiek izmantoti tikai kandidātobjekti (nav iespējots), vai arī daži objekti ir nepiecie&scaron;ami (iespējots).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Norāda, vai kā ievades tiek izmantoti tikai kandidātobjekti (nav iespējots), vai arī daži objekti ir nepiecie&scaron;ami (iespējots).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Norāda, vai kā ievades tiek izmantoti tikai kandidātobjekti (nav iespējots), vai arī daži objekti ir nepiecie&scaron;ami (iespējots).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Norāda, vai kā ievades tiek izmantoti tikai kandidātobjekti (nav iespējots), vai arī daži objekti ir nepiecie&scaron;ami (iespējots).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā objekti. &Scaron;ie objekti parasti attēlo eso&scaron;os novietojumus.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā objekti. &Scaron;ie objekti parasti attēlo eso&scaron;os novietojumus.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā objekti. &Scaron;ie objekti parasti attēlo eso&scaron;os novietojumus.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā objekti. &Scaron;ie objekti parasti attēlo eso&scaron;os novietojumus.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Punktu elementi attēlo novietojumus, kas darbojas kā objekti. &Scaron;ie objekti parasti attēlo eso&scaron;os novietojumus.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Norāda, vai katra objekta kapacitāti nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Norāda, vai katra objekta kapacitāti nosaka konstante (<b>Vērtība</b>) vai lauka vērtība (<b>Lauks</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Katra nepiecie&scaron;amā objekta kapacitāte. Viena un tā pati kapacitāte tiks piemērota visiem nepiecie&scaron;amajiem objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Katra nepiecie&scaron;amā objekta kapacitāte. Viena un tā pati kapacitāte tiks piemērota visiem nepiecie&scaron;amajiem objektiem.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Lauks, kurā norādīta katra objekta kapacitāte.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Lauks, kurā norādīta katra objekta kapacitāte.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

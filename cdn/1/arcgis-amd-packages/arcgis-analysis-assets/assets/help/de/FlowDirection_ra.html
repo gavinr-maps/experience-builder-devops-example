@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeugt &quot;Flie&szlig;richtung&quot; erstellt ein Raster f&uuml;r die Flie&szlig;richtung von jeder Zelle zu dem oder den jeweils tiefer gelegenen Nachbarn, indem die Methoden D8, Multiple Flow Direction (MFD) oder D-Infinity (DINF) verwendet werden.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Das H&ouml;hen-Raster, das f&uuml;r die Berechnung verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Gibt den bei der Berechnung der Flie&szlig;richtung verwendeten Abflusstyp an.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Gibt an, ob der Fluss an Randzellen den normalen Flie&szlig;regeln folgt oder immer nach au&szlig;en flie&szlig;t.
+            </p>
+            <p>Wenn die Option deaktiviert ist, verl&auml;uft der Fluss zur inneren Zelle mit der st&auml;rksten Absenkung im Z-Wert. Wenn die Absenkung jedoch kleiner oder gleich 0 ist, erfolgt der Fluss bei der Zelle aus dem Oberfl&auml;chen-Raster hinaus. Ist die Option aktiviert, verl&auml;uft die Flie&szlig;richtung immer aus dem Oberfl&auml;chen-Raster heraus.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionName">
+        <div>
+            <p>Der Name des Flie&szlig;richtungs-Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="outputDropName">
+        <div>
+            <p>Der Name des Absenkungs-Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird. Dieser Layer enth&auml;lt das prozentuale Verh&auml;ltnis zwischen der maximalen H&ouml;hen&auml;nderung und der Pfadl&auml;nge entlang der Flie&szlig;richtung.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgaben k&ouml;nnen gekachelte Bilddaten-Layer oder dynamische Bilddaten-Layer sein.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

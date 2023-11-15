@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;聚合多维栅格&rdquo;工具通过沿维度组合现有多维影像图层变量来生成多维影像图层。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>将聚合的多维影像图层。
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>聚合变量的多维影像图层的维度。
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>指示图层是否具有维度值。
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>将沿定义维度聚合的多维影像图层的变量。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>将用于聚合多维影像图层切片的数学方法。
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>指定聚合方法后将用于计算的百分比值。
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>当输入影像图层中的值数量为偶数时将使用的百分位数插值方法。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>将用于计算聚合影像图层的像素值的自定义栅格函数。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>用于聚合多维数据的维度间隔。
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>每个关键字用于指定将聚合各统计数据的时间单位。 关键字列表包括每小时、每天、每周、每月、每季度和每年。
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>沿维度聚合时将使用的间隔大小。
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>间隔值的测量单位。
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>沿指定维度聚合时将使用的值表。 最小值和最大值用于指定要包括的范围。
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>间隔范围的最小值。
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>间隔范围的最大值。
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>指示是否将在聚合中忽略 NoData 值。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>要创建的输出的类型。 输出可以为切片影像图层或动态影像图层。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

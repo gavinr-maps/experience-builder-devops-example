@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Pl&aacute;novanie tr&aacute;s vytv&aacute;ra cestovn&eacute; trasy s viacer&yacute;mi zast&aacute;vkami pre flotilu vozidiel.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>Bodov&eacute; prvky, ktor&eacute; predstavuj&uacute;, kde vozidl&aacute; zač&iacute;naj&uacute; svoje trasy.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>Bodov&eacute; prvky, ktor&eacute; musia vozidl&aacute; na svojich tras&aacute;ch nav&scaron;t&iacute;viť. Tieto body sa stan&uacute; priraden&yacute;mi alebo nepriraden&yacute;mi zast&aacute;vkami vo v&yacute;stupe.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>Určuje, či sa vozidl&aacute; musia vr&aacute;tiť na miesto &scaron;tartu (povolen&eacute;) alebo skončiť na určen&yacute;ch miestach (vypnut&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>Bodov&eacute; prvky, ktor&eacute; určuj&uacute;, kde vozidl&aacute; končia svoje trasy. Ak vrstva obsahuje len jeden bod, v&scaron;etky vozidl&aacute; s&uacute; smerovan&eacute; do spoločn&eacute;ho koncov&eacute;ho bodu. Ak vrstva obsahuje viacero bodov, každ&eacute; vozidlo bude nasmerovan&eacute; na jedinečn&eacute; koncov&eacute; miesto.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>Pole v &scaron;tartovacej vrstve, ktor&eacute; jednoznačne identifikuje individu&aacute;lne trasy, vozidl&aacute; alebo vodičov. Ak vozidl&aacute; zač&iacute;naj&uacute; z viacer&yacute;ch lokal&iacute;t a končia na viacer&yacute;ch lokalit&aacute;ch, ID zvolenej trasy pre vrstvu počiatkov a koncov sa mus&iacute; zhodovať.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>Pole v koncovej vrstve, ktor&eacute; jednoznačne identifikuje individu&aacute;lne trasy, vozidl&aacute; alebo vodičov. Ak vozidl&aacute; zač&iacute;naj&uacute; z viacer&yacute;ch lokal&iacute;t a končia na viacer&yacute;ch lokalit&aacute;ch, ID zvolenej trasy pre vrstvu počiatkov a koncov sa mus&iacute; zhodovať.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jeden alebo viac bodov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Cestovanie po cest&aacute;ch je povolen&eacute;, av&scaron;ak nie cez bari&eacute;ry.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jeden alebo viac l&iacute;niov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. L&iacute;niov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde sa bari&eacute;ry pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jeden alebo viac polyg&oacute;nov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Polyg&oacute;nov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde polyg&oacute;ny pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Cestovn&yacute; režim, pomocou ktor&eacute;ho sa vytvoria trasy. Cestovn&yacute; režim m&ocirc;že byť založen&yacute; na vzdialenosti alebo čase.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>D&aacute;tum a čas odchodu vozidiel.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>Maxim&aacute;lny počet vozidiel, ktor&eacute; m&ocirc;žu nav&scaron;t&iacute;viť zast&aacute;vky. Ak  <b>počiatočn&aacute;</b> a <b>koncov&aacute; vrstva</b> obsahuj&uacute; po jednom prvku, m&ocirc;žete zadať do 100 vozidiel. Ak niektor&aacute; z vrstiev obsahuje viac ako jeden prvok, predvolen&uacute; hodnotu nemožno upraviť. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>Maxim&aacute;lny počet zast&aacute;vok, ktor&eacute; m&ocirc;že každ&eacute; vozidlo na trase vykonať. M&ocirc;žete &scaron;pecifikovať hodnotu medzi 1 a  200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Uveďte očak&aacute;van&yacute; priemern&yacute; servisn&yacute; čas str&aacute;ven&yacute; na každej zast&aacute;vke.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>Určuje, či sa na vozidl&aacute; uplatňuje maxim&aacute;lny trasovac&iacute; čas. Trasovac&iacute; čas zahŕňa očak&aacute;van&yacute; cestovn&yacute; čas a čas str&aacute;ven&yacute; na zast&aacute;vkach na trase.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>&Scaron;pecifikujte maxim&aacute;lny čas pre trasu od jej začiatku do konca.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Určuje, či sa každ&aacute; v&yacute;sledn&aacute; trasa ulož&iacute; ako vrstva trasy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

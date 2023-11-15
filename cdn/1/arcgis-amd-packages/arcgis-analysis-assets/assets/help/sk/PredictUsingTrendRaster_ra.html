@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Predpovedať pomocou rastra trendov vypoč&iacute;ta predpovedan&uacute; multidimenzion&aacute;lnu sn&iacute;mkov&uacute; vrstvu pomocou v&yacute;stupnej sn&iacute;mkovej vrstvy trendov vytvorenej n&aacute;strojom Generovať raster trendov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vstupn&aacute; multidimenzion&aacute;lna sn&iacute;mkov&aacute; vrstva trendov, ktor&aacute; sa použije na predikciu.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Premenn&aacute; multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy trendov, ktor&aacute; sa použije na predikciu.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Met&oacute;da, ktor&aacute; sa použije na poskytnutie hodn&ocirc;t predikčn&yacute;ch dimenzi&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Definujte počiatočn&yacute; a konečn&yacute; d&aacute;tum, v&yacute;&scaron;ku alebo hĺbku intervalu dimenzie, ktor&aacute; m&aacute; byť použit&aacute; v predikcii.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>D&aacute;tum začiatku, v&yacute;&scaron;ka alebo hĺbka intervalu dimenzie, ktor&aacute; sa použije pri predpovedi.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Konečn&yacute; d&aacute;tum, v&yacute;&scaron;ka alebo hĺbka intervalu dimenzie, ktor&aacute; sa použije pri predpovedi.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Počet krokov medzi dvoma hodnotami dimenzi&iacute;, ktor&eacute; bud&uacute; zahrnut&eacute; do predpovede.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Jednotka, ktor&aacute; bude použit&aacute; pre hodnotu intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

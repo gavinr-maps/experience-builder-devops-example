@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Avstandsakkumulering beregner akkumulert avstand for hver celle til inndatakilden og tillater rettlinjet avstand, kostnadsavstand og faktisk overflateavstand samt vertikale og horisontale kostnadsfaktorer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Inndatarasteret eller geoobjektlaget som angir kildene som avstanden skal beregnes til.
+            </p>
+            <p>Hvis inndataene er et raster, m&aring; de best&aring; av celler med gyldige verdier (null er en gyldig verdi) for kildene, og de gjenv&aelig;rende cellene m&aring; tilordnes NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Barrierene som definerer hindringer som det m&aring; rutes utenom.
+            </p>
+            <p>For rasterlag blir celler som har en verdi (inkludert null), behandlet som en hindring.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Rasteret som definerer h&oslash;ydeverdiene for hver cellelokasjon.
+            </p>
+            <p>Verdiene brukes til &aring; beregne den faktiske overflatedistansen som tilbakelegges n&aring;r man beveger seg mellom cellene.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Rasteret som definerer impedansen, eller kostanden, ved bevegelse gjennom hver celle.
+            </p>
+            <p>Verdien ved hver celleplassering representerer kostnad-per-enhet-avstanden for bevegelse gjennom cellen. Verdien kan ikke v&aelig;re negativ eller null.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Angir om avstanden skal beregnes ved hjelp av en planmetode (flat jord) eller geodetisk metode (ellipsoide).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Rasteret som definerer z-verdiene for hver cellelokasjon.
+            </p>
+            <p>Disse verdiene brukes til &aring; beregne helningen som brukes til &aring; identifisere den vertikale faktoren n&aring;r man beveger seg fra en celle til en annen.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Faktoren som definerer forholdet mellom den vertikale kostnadsfaktoren og den vertikale relative bevegelsesvinkelen (vertical relative moving angle, VRMA).
+            </p>
+            <p>Du kan velge mellom flere faktorer med modifikatorer som identifiserer en definert vertikal faktorgraf. Grafene brukes til &aring; identifisere den vertikale faktoren som brukes til &aring; beregne totalkostnaden ved &aring; bevege seg over i en nabocelle.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Rasteret som definerer den horisontale retningen i hver celle.
+            </p>
+            <p>Verdiene for hver lokasjon brukes sammen med parameteren  <b>Horisontal faktor</b> til &aring; fastsette den horisontale kostnaden ved &aring; bevege seg fra en celle til nabocellene.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Faktoren som definerer forholdet mellom den horisontale kostnadsfaktoren og den horisontale relative bevegelsesvinkelen.
+            </p>
+            <p>Du kan velge mellom flere faktorer med modifikatorer som identifiserer en definert horisonatal faktorgraf. Grafene brukes til &aring; identifisere den horisontale faktoren som brukes til &aring; beregne totalkostnaden ved &aring; bevege seg inn i en nabocelle.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Den opprinnelige akkumulerte kostnaden som kostnadsberegningen startes med.
+            </p>
+            <p>Standardverdien er 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Maksimal akkumulering for den reisende for en kilde.
+            </p>
+            <p>Standard akkumulering er til kanten av utdatarasteret.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>En multiplikator som skal brukes p&aring; kostnadsverdiene.
+            </p>
+            <p>Standardverdien er 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Retningen for den reisende n&aring;r det brukes horisontale og vertikale faktorer.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for akkumulert avstand som opprettes og legges til kartet. Laget inneholder den akkumulerte avstanden for hver celle fra, eller til, kilden med lavest kostnad.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for motsatt retning som opprettes og legges til kartet. Laget inneholder retningen i grader.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for kilderetning som opprettes og legges til kartet. Laget inneholder asimutregningen for kildecellen med laveste akkumulerte kostnad i grader.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Navnet p&aring; flerb&aring;ndsrasterlaget for kildelokasjon som opprettes og legges til kartet. Laget inneholder kildelokasjonene der det f&oslash;rste b&aring;ndet inneholder en radindeks og det andre b&aring;ndet inneholder en kolonneindeks.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typen utdata som blir opprettet. Utdataene kan v&aelig;re flisinndelte bildelag eller dynamiske bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatene blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

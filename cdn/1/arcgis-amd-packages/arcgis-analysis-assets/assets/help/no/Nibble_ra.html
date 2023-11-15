@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Nibble-verkt&oslash;yet erstatter cellene i et raster som svarer til en maske med verdiene til de n&aelig;rmeste naboene.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Inndatarasteret med maskerte lokasjoner som skal erstattes (&quot;nibbled&quot;) av verdien p&aring; den n&aelig;rmeste naboen.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Maskerasteret som identifiserer lokasjonene i inndatarasteret som skal erstattes. Celler med verdien NoData regnes som innenfor det maskerte arealet.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Inndatasonerasteret. For hver sone vil inndataceller som er innenfor masken bli erstattet bare av de n&aelig;rmeste celleverdiene innenfor den samme sonen.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Spesifiserer om NoData-celler i inndatarasteret kan erstatte (&quot;nibble&quot;) celler i de maskerte arealene hvis de er den n&aelig;rmeste naboen.
+            </p>
+            <p>Hvis dette er krysset av, kan NoData-celler i inndatarasteret nibble inn i det maskerte arealet. Hvis dette ikke er krysset av, kan bare gyldige celler i inndatarasteret nibble inn i det maskerte arealet.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Spesifiserer om NoData-celler i det maskerte arealet skal bevares eller erstattes.
+            </p>
+            <p>Hvis dette ikke er krysset av, vil alle NoData-celler inne i det maskerte arealet bli bevart i resultatet. Hvis dette er krysset av, vil NoData-celler inne i det maskerte arealet bli erstattet (&quot;nibbled&quot;) med verdien av n&aelig;rmeste nabo som er utenfor det maskerte arealet.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; nibbled-rasterlaget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typen utdata som blir opprettet. Utdataene kan v&aelig;re flisinndelte bildelag eller dynamiske bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatene blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Створити буфери&raquo; створює полігони, які покривають дану відстань від вхідних об'єктів.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Точкові, лінійні або полігональні об'єкти, які будуть буферизуватись.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Визначає, чи буферна відстань буде визначена константою (<b>Значення</b>) чи числовим полем (<b>Field</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Відстань, яка буде використана для створення буфера. Якщо додаються кілька значень, кожне значення буде використано для створення буфера для кожного вхідного об'єкта.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Поле, яке буде містити буферну відстань для кожної функції.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Одиниці вимірювання, які будуть використовуватись для визначення буферної відстані.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Визначає, як будуть оброблятися буфери з різних вхідних об'єктів, коли вони накладаються.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Визначає, чи будуть буфери з кількома відстанями концентричними буферами, що перекриваються (<b>Диски, що перекриваються</b>), чи кільцями, які не перекриваються (<b>Окремі кільця</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Для лінійних об&rsquo;єктів указує, чи буфер буде створено з обох сторін лінії (<b>Навколо</b>), лише з лівого боку (<b>Ліворуч</b>) чи лише з правого боку (<b>Праворуч</b>).
+            </p>
+            <p>Для полігональних об&rsquo;єктів указує, чи будуть вхідні полігональні об&rsquo;єкти включені до буфера (<b>Включити</b>) чи виключені з буфера (<b>Виключити</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Визначає, чи буде форма буфера в кінці лінійного об&rsquo;єкта круглою (<b>Кругла</b>) чи плоскою (<b>Плоска</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

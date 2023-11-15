@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「使用深度學習以偵測物件」工具可在輸入影像圖層上使用深度學習模型，以產生包含偵測之物件的圖徵圖層。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>將用來偵測物件的影像或圖徵圖層。
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>指定在鑲嵌後如何處理影像圖層中的點陣項目: 一起或單獨。
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>包含將用於偵測物件之模型的深度學習套件。
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>深度學習模型中存在的模型參數及其預設值。
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>指定是否將執行非最大抑制以移除重複物件。
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>欄位的名稱，該欄位將新增到輸出圖徵圖層以指示報告的信心值。
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>欄位的名稱，該欄位將新增到輸出圖徵圖層以指示物件的分類標籤。
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>每個找到的圖徵與另一個圖徵可重疊的最大比率。 預設值是 0。
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

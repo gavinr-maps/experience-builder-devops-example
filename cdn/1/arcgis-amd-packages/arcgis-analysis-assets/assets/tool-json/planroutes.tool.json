@@ -1,0 +1,251 @@
+{
+  "name": "PlanRoutes",
+  "displayName": "PlanRoutes",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/PlanRoutes.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "stopsLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "stopsLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "routeCount",
+      "dataType": "GPLong",
+      "displayName": "routeCount",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "maxStopsPerRoute",
+      "dataType": "GPLong",
+      "displayName": "maxStopsPerRoute",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "routeStartTime",
+      "dataType": "GPDate",
+      "displayName": "routeStartTime",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "startLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "startLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "startLayerRouteIDField",
+      "dataType": "GPString",
+      "displayName": "startLayerRouteIDField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "returnToStart",
+      "dataType": "GPBoolean",
+      "displayName": "returnToStart",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "endLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "endLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "endLayerRouteIDField",
+      "dataType": "GPString",
+      "displayName": "endLayerRouteIDField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "travelMode",
+      "dataType": "GPString",
+      "displayName": "travelMode",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Driving",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "stopServiceTime",
+      "dataType": "GPDouble",
+      "displayName": "stopServiceTime",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 0,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "maxRouteTime",
+      "dataType": "GPDouble",
+      "displayName": "maxRouteTime",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 525600,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "includeRouteLayers",
+      "dataType": "GPBoolean",
+      "displayName": "includeRouteLayers",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "pointBarrierLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "pointBarrierLayer",
+      "description": "Specify one or more points to act as temporary restrictions or represent additional time or distance that may be required to travel on the underlying streets.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "lineBarrierLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "lineBarrierLayer",
+      "description": "Specify one or more lines that prohibit travel anywhere the lines intersect the streets.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "polygonBarrierLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "polygonBarrierLayer",
+      "description": "Specify polygons that either completely restrict travel or proportionately scale the time or distance required to travel on the streets intersected by the polygons.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPolygon"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "routesLayer",
+      "dataType": "GPString",
+      "displayName": "routesLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "assignedStopsLayer",
+      "dataType": "GPString",
+      "displayName": "assignedStopsLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "unassignedStopsLayer",
+      "dataType": "GPString",
+      "displayName": "unassignedStopsLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "routeLayerItems",
+      "dataType": "GPString",
+      "displayName": "routeLayerItems",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

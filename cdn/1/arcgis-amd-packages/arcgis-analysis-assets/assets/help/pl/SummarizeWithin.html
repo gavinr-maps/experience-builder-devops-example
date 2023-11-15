@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Sumuj w obrębie oblicza statystyki dla obiekt&oacute;w w obrębie podanych koszy lub poligon&oacute;w.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Warstwa, kt&oacute;ra zostanie podsumowana.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Typ obiekt&oacute;w granicznych, w kt&oacute;rych będą podsumowywane obiekty wejściowe. Może to być warstwa poligonowa albo siatka mozaikowania złożona z koszy kwadratowych lub sześciokątnych, kt&oacute;re są generowane podczas działania narzędzia.
+            </p>
+        </div>
+    </div>
+    <div id="sumWithinLayer">
+        <div>
+            <p>Warstwa poligonowa, w kt&oacute;rej będą podsumowywane obiekty wejściowe.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Rozmiar generowanych koszy. W przypadku koszy kwadratowych podana liczba i jednostki decydują o wysokości i długości kwadratu. W przypadku koszy sześciokątnych podana liczba i jednostki decydują o odległości między r&oacute;wnoległymi bokami sześciokąta.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Jednostki, kt&oacute;re zostaną użyte do określenia rozmiaru koszy.
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Oblicz całkowity rozmiar obiekt&oacute;w podsumowanych w każdym poligonie ograniczającym. W przypadku linii obliczana jest długość całkowita. W przypadku poligon&oacute;w obliczane jest całkowite pole powierzchni.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Jednostki, kt&oacute;re zostaną użyte do obliczenia całkowitego rozmiaru podsumowywanych obiekt&oacute;w.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Pola liczbowe lub daty z warstwy wejściowej, kt&oacute;re zostaną podsumowane, oraz statystyki, kt&oacute;re zostaną obliczone dla każdego pola.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Pole z warstwy wejściowej, kt&oacute;re będzie używane do rozdzielania danych na odrębne grupy w obliczeniach statystycznych.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Oblicz grupy mniejszościowe (najmniej dominujące) i większościowe (najbardziej dominujące) w każdym obszarze podsumowania.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Oblicz procent podsumowywanych obiekt&oacute;w, kt&oacute;re należą do każdej grupy w każdym obszarze podsumowania.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

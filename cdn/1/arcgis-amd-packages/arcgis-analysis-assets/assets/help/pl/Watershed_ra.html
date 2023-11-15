@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Zlewnia oblicza obszar spływu powyżej zestawu kom&oacute;rek w rastrze.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div>
+            <p>Kierunek przepływu od każdej kom&oacute;rki.
+            </p>
+            <p>Do określenia kierunku przepływu należy użyć metody D8.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div>
+            <p>Lokalizacje, powyżej kt&oacute;rych zostanie określony obszar spływu.
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div>
+            <p>Pole, kt&oacute;re będzie używane do przypisywania wartości do lokalizacji punkt&oacute;w wylewu.
+            </p> 
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy rastrowej zlewni, kt&oacute;ra zostanie utworzona i dodana do mapy. Warstwa zawiera r&oacute;żne zlewnie reprezentowane przez r&oacute;żne wartości kom&oacute;rek z pola  <b>Pole punktu wylewu</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Dane wynikowe mogą być warstwą zobrazowań kafelkowych lub dynamiczną warstwą zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

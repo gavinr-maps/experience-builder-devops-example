@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Konverter raster til geoobjekt vektoriserer et raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Inndatarasteret som skal konverteres til geoobjekter.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Feltet som inneholder verdiene som blir konvertert.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Typen geoobjekter (punkt, linje eller polygon) som blir opprettet i utdatalaget.
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>Angir om linjer eller polygoner skal forenkles (utjevnes).
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>Angir om utdatapolygonene skal best&aring; av geoobjekter med &eacute;n eller flere deler.
+            </p>
+            <p>Geoobjekter i flere deler behandles vanligvis raskere. Hvis utdataene inneholder et stort antall geoobjekter, er det imidlertid ikke sikkert det er raskere.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>Grensen for topp-punkt som brukes til &aring; dele en polygon opp i mindre polygoner.
+            </p>
+            <p>Hvis dette ikke oppgis, blir utdatapolygonene ikke delt.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; geoobjektlaget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,167 @@
+{
+  "toolName": "OptimalPathAsRaster",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputDestinationRasterOrFeatures.selectedLayers",
+      "destination": "destinationField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputDestinationRasterOrFeatures.selectedLayers.type.length > 0) AND ($[Component].inputDestinationRasterOrFeatures.selectedLayers.type NOT 'feature')",
+      "destination": "destinationField",
+      "effectParams": {
+        "fieldTypes": ["integer", "small-integer", "long"]
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputDestinationRasterOrFeatures.selectedLayers.type.length > 0) AND ($[Component].inputDestinationRasterOrFeatures.selectedLayers.type NOT 'feature')) AND ($[Component].inputDestinationRasterOrFeatures.processedLayerProperties.rasterInfo.attributeTable = NULL)",
+      "destination": "destinationField",
+      "effectParams": {
+        "readOnly": true,
+        "value": "Value"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputDestinationRasterOrFeatures.user.portal NOT undefined) AND ($[Component].inputDestinationRasterOrFeatures.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputDestinationRasterOrFeatures.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputDestinationRasterOrFeatures.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputDestinationRasterOrFeatures.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputDestinationRasterOrFeatures.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": [],
+    "standard": []
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputDestinationRasterOrFeatures",
+          "label": "$inputDestinationRasterOrFeaturesLabel",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": false,
+          "layerFilterType": ["feature", "imagery_integer"]
+        },
+        {
+          "name": "destinationField",
+          "label": "$destinationFieldLabel",
+          "componentName": "analysis-field-input",
+          "required": false,
+          "useDefaultValue": true,
+          "fieldTypes": ["oid", "integer", "small-integer", "long"],
+          "showFieldInfo": true,
+          "readOnly": false
+        },
+        {
+          "name": "inputDistanceAccumulationRaster",
+          "label": "$inputDistanceAccumulationRasterLabel",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        },
+        {
+          "name": "inputBackDirectionRaster",
+          "label": "$inputBackDirectionRasterLabel",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        }
+      ]
+    },
+    {
+      "label": "$inputPathSettingsGroupLabel",
+      "summaryText": "$inputPathSettingGroupText",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "pathType",
+          "label": "$pathTypeLabel",
+          "defaultValue": "EACH_ZONE",
+          "choiceList": ["EACH_ZONE", "BEST_SINGLE", "EACH_CELL"],
+          "choiceListLabels": {
+            "EACH_ZONE": "$eachZone",
+            "BEST_SINGLE": "$bestSingle",
+            "EACH_CELL": "$eachCell"
+          }
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputRasterName",
+          "label": "$outputRasterNameLabel",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

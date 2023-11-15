@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist Vali parimad rajatised leiab rajatised, mis n&otilde;udlust k&otilde;ige paremini teenindavad.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Eesm&auml;rk, mis peab olema t&auml;idetud, kui rajatiste tarbeks n&otilde;udluskohti m&auml;&auml;ratakse.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Määrake nõudlus rajatistele vastavalt selle mahule ja ümbritseva piirkonna nõudluse määrale. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Valige rajatised nii, et üldine liikumisaeg või -kaugus kõigist nõudluskohtadest neile määratud rajatisele oleks minimaalne. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Valige rajatised nii, et nõudlus oleks maksimaalselt jaotatud ning iga nõudlusega seotud koha kogu nõudlus oleks jaotatud ühele lähimale rajatisele. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Valige rajatised nii, et maksimaalne nõudluse määr oleks jaotatud ilma ühegi rajatise mahtu ületamata. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Valige minimaalne arv rajatisi, mis on vajalik määratud nõudlusprotsendi katmiseks. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Liikumismeetod, mida kasutatakse rajatiste ja n&otilde;udluskohtade vahelise aja v&otilde;i vahemaa m&otilde;&otilde;tmiseks.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Kuup&auml;ev ja kellaaeg, mil r&auml;ndur v&auml;ljub rajatistest v&otilde;i n&otilde;udluskohtadest.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>M&auml;&auml;rab, kas liikumine algab rajatistest ja liigub v&auml;ljapoole n&otilde;udluskohtade poole v&otilde;i algab n&otilde;udluskohtadest ja liigub sissepoole rajatiste poole.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>M&auml;&auml;rab, kas liikumine algab rajatistest ja liigub v&auml;ljapoole n&otilde;udluskohtade poole v&otilde;i algab n&otilde;udluskohtadest ja liigub sissepoole rajatiste poole.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>M&auml;&auml;rab, kas liikumine algab rajatistest ja liigub v&auml;ljapoole n&otilde;udluskohtade poole v&otilde;i algab n&otilde;udluskohtadest ja liigub sissepoole rajatiste poole.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>M&auml;&auml;rab, kas liikumine algab rajatistest ja liigub v&auml;ljapoole n&otilde;udluskohtade poole v&otilde;i algab n&otilde;udluskohtadest ja liigub sissepoole rajatiste poole.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>M&auml;&auml;rab, kas liikumine algab rajatistest ja liigub v&auml;ljapoole n&otilde;udluskohtade poole v&otilde;i algab n&otilde;udluskohtadest ja liigub sissepoole rajatiste poole.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, kus on n&otilde;udlus teenuse j&auml;rele, mida need rajatised saavad pakkuda.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, kus on n&otilde;udlus teenuse j&auml;rele, mida need rajatised saavad pakkuda.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, kus on n&otilde;udlus teenuse j&auml;rele, mida need rajatised saavad pakkuda.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, kus on n&otilde;udlus teenuse j&auml;rele, mida need rajatised saavad pakkuda.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, kus on n&otilde;udlus teenuse j&auml;rele, mida need rajatised saavad pakkuda.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>M&auml;&auml;rab, kuidas n&otilde;udlust rakendatakse igas kohas. Kui n&otilde;udluse m&auml;&auml;r on k&otilde;igi kohtade puhul sama, valige  <b>V&auml;&auml;rtus</b>. Kui n&otilde;udluse m&auml;&auml;r on asukohati erinev, valige <b>V&auml;li</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>M&auml;&auml;rab, kuidas n&otilde;udlust rakendatakse igas kohas. Kui n&otilde;udluse m&auml;&auml;r on k&otilde;igi kohtade puhul sama, valige  <b>V&auml;&auml;rtus</b>. Kui n&otilde;udluse m&auml;&auml;r on asukohati erinev, valige <b>V&auml;li</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>M&auml;&auml;rab, kuidas n&otilde;udlust rakendatakse igas kohas. Kui n&otilde;udluse m&auml;&auml;r on k&otilde;igi kohtade puhul sama, valige  <b>V&auml;&auml;rtus</b>. Kui n&otilde;udluse m&auml;&auml;r on asukohati erinev, valige <b>V&auml;li</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>M&auml;&auml;rab, kuidas n&otilde;udlust rakendatakse igas kohas. Kui n&otilde;udluse m&auml;&auml;r on k&otilde;igi kohtade puhul sama, valige  <b>V&auml;&auml;rtus</b>. Kui n&otilde;udluse m&auml;&auml;r on asukohati erinev, valige <b>V&auml;li</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>M&auml;&auml;rab, kuidas n&otilde;udlust rakendatakse igas kohas. Kui n&otilde;udluse m&auml;&auml;r on k&otilde;igi kohtade puhul sama, valige  <b>V&auml;&auml;rtus</b>. Kui n&otilde;udluse m&auml;&auml;r on asukohati erinev, valige <b>V&auml;li</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>N&otilde;udluse m&auml;&auml;r igas n&otilde;udluskohas. Sama n&otilde;udlusem&auml;&auml;r rakendatakse igale kohale.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>N&otilde;udluse m&auml;&auml;r igas n&otilde;udluskohas. Sama n&otilde;udlusem&auml;&auml;r rakendatakse igale kohale.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>N&otilde;udluse m&auml;&auml;r igas n&otilde;udluskohas. Sama n&otilde;udlusem&auml;&auml;r rakendatakse igale kohale.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>N&otilde;udluse m&auml;&auml;r igas n&otilde;udluskohas. Sama n&otilde;udlusem&auml;&auml;r rakendatakse igale kohale.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>N&otilde;udluse m&auml;&auml;r igas n&otilde;udluskohas. Sama n&otilde;udlusem&auml;&auml;r rakendatakse igale kohale.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>N&otilde;udluskihi v&auml;li, mis m&auml;&auml;rab iga koha n&otilde;udluse m&auml;&auml;ra.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>N&otilde;udluskihi v&auml;li, mis m&auml;&auml;rab iga koha n&otilde;udluse m&auml;&auml;ra.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>N&otilde;udluskihi v&auml;li, mis m&auml;&auml;rab iga koha n&otilde;udluse m&auml;&auml;ra.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>N&otilde;udluskihi v&auml;li, mis m&auml;&auml;rab iga koha n&otilde;udluse m&auml;&auml;ra.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>N&otilde;udluskihi v&auml;li, mis m&auml;&auml;rab iga koha n&otilde;udluse m&auml;&auml;ra.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas n&otilde;udluskoha ja m&auml;&auml;ratud rajatise vaheline maksimaalne liikumiskaugus v&otilde;i aeg on m&auml;&auml;ratud konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>), v&otilde;i maksimumv&auml;&auml;rtust ei rakendata (<b>Piiramatu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas n&otilde;udluskoha ja m&auml;&auml;ratud rajatise vaheline maksimaalne liikumiskaugus v&otilde;i aeg on m&auml;&auml;ratud konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>), v&otilde;i maksimumv&auml;&auml;rtust ei rakendata (<b>Piiramatu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas n&otilde;udluskoha ja m&auml;&auml;ratud rajatise vaheline maksimaalne liikumiskaugus v&otilde;i aeg on m&auml;&auml;ratud konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas n&otilde;udluskoha ja m&auml;&auml;ratud rajatise vaheline maksimaalne liikumiskaugus v&otilde;i aeg on m&auml;&auml;ratud konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>), v&otilde;i maksimumv&auml;&auml;rtust ei rakendata (<b>Piiramatu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas n&otilde;udluskoha ja m&auml;&auml;ratud rajatise vaheline maksimaalne liikumiskaugus v&otilde;i aeg on m&auml;&auml;ratud konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>), v&otilde;i maksimumv&auml;&auml;rtust ei rakendata (<b>Piiramatu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Liikumiskaugus v&otilde;i aeg, millest kaugemale n&otilde;udlust ei jaotata. Igas kohas rakendatakse sama maksimaalset liikumiskaugust.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Liikumiskaugus v&otilde;i aeg, millest kaugemale n&otilde;udlust ei jaotata. Igas kohas rakendatakse sama maksimaalset liikumiskaugust.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Liikumiskaugus v&otilde;i aeg, millest kaugemale n&otilde;udlust ei jaotata. Igas kohas rakendatakse sama maksimaalset liikumiskaugust.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Liikumiskaugus v&otilde;i aeg, millest kaugemale n&otilde;udlust ei jaotata. Igas kohas rakendatakse sama maksimaalset liikumiskaugust.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Liikumiskaugus v&otilde;i aeg, millest kaugemale n&otilde;udlust ei jaotata. Igas kohas rakendatakse sama maksimaalset liikumiskaugust.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>V&auml;li, mis sisaldab liikumiskaugust v&otilde;i aega, millest kaugemale n&otilde;udlust ei jaotata.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>V&auml;li, mis sisaldab liikumiskaugust v&otilde;i aega, millest kaugemale n&otilde;udlust ei jaotata.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>V&auml;li, mis sisaldab liikumiskaugust v&otilde;i aega, millest kaugemale n&otilde;udlust ei jaotata.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>V&auml;li, mis sisaldab liikumiskaugust v&otilde;i aega, millest kaugemale n&otilde;udlust ei jaotata.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>V&auml;li, mis sisaldab liikumiskaugust v&otilde;i aega, millest kaugemale n&otilde;udlust ei jaotata.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse maksimaalse s&otilde;idukauguse v&otilde;i aja m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse maksimaalse s&otilde;idukauguse v&otilde;i aja m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse maksimaalse s&otilde;idukauguse v&otilde;i aja m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse maksimaalse s&otilde;idukauguse v&otilde;i aja m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse maksimaalse s&otilde;idukauguse v&otilde;i aja m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Minimaalne protsent n&otilde;udlusest, mida rajatised peavad katma.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad kandidaatrajatistena. Kandidaatrajatised t&auml;histavad &uuml;ldiselt asukohti, kuhu uued rajatised ehitatakse v&otilde;i paigutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad kandidaatrajatistena. Kandidaatrajatised t&auml;histavad &uuml;ldiselt asukohti, kuhu uued rajatised ehitatakse v&otilde;i paigutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad kandidaatrajatistena. Kandidaatrajatised t&auml;histavad &uuml;ldiselt asukohti, kuhu uued rajatised ehitatakse v&otilde;i paigutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad kandidaatrajatistena. Kandidaatrajatised t&auml;histavad &uuml;ldiselt asukohti, kuhu uued rajatised ehitatakse v&otilde;i paigutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas iga kandidaatrajatise maht m&auml;&auml;ratakse konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Iga kandidaatrajatise maht. Sama maht rakendatakse igale kandidaatrajatisele.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Iga kandidaatrajatise mahtu sisaldav v&auml;li.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Kandidaatide hulgast valitav kandidaatrajatiste arv. Kui m&auml;&auml;rate nii n&otilde;utavad kui ka pakutavad rajatised, kasutab t&ouml;&ouml;riist esmalt n&otilde;utavate rajatiste kihis olevaid asukohti ja seej&auml;rel pakutavate rajatiste kihis olevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Kandidaatide hulgast valitav kandidaatrajatiste arv. Kui m&auml;&auml;rate nii n&otilde;utavad kui ka pakutavad rajatised, kasutab t&ouml;&ouml;riist esmalt n&otilde;utavate rajatiste kihis olevaid asukohti ja seej&auml;rel pakutavate rajatiste kihis olevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Kandidaatide hulgast valitav kandidaatrajatiste arv. Kui m&auml;&auml;rate nii n&otilde;utavad kui ka pakutavad rajatised, kasutab t&ouml;&ouml;riist esmalt n&otilde;utavate rajatiste kihis olevaid asukohti ja seej&auml;rel pakutavate rajatiste kihis olevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;rab, kas sisenditena kasutatakse ainult kandidaatrajatisi (pole lubatud) v&otilde;i kas m&otilde;ned rajatised on n&otilde;utavad (lubatud).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;rab, kas sisenditena kasutatakse ainult kandidaatrajatisi (pole lubatud) v&otilde;i kas m&otilde;ned rajatised on n&otilde;utavad (lubatud).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;rab, kas sisenditena kasutatakse ainult kandidaatrajatisi (pole lubatud) v&otilde;i kas m&otilde;ned rajatised on n&otilde;utavad (lubatud).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;rab, kas sisenditena kasutatakse ainult kandidaatrajatisi (pole lubatud) v&otilde;i kas m&otilde;ned rajatised on n&otilde;utavad (lubatud).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad rajatistena. Need rajatised t&auml;histavad tavaliselt olemasolevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad rajatistena. Need rajatised t&auml;histavad tavaliselt olemasolevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad rajatistena. Need rajatised t&auml;histavad tavaliselt olemasolevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad rajatistena. Need rajatised t&auml;histavad tavaliselt olemasolevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Punktobjektid, mis t&auml;histavad asukohti, mis toimivad rajatistena. Need rajatised t&auml;histavad tavaliselt olemasolevaid asukohti.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas iga rajatise maht m&auml;&auml;ratakse konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>M&auml;&auml;rab, kas iga rajatise maht m&auml;&auml;ratakse konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i v&auml;ljav&auml;&auml;rtusega (<b>V&auml;li</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Iga n&otilde;utava rajatise maht. Sama maht rakendatakse igale n&otilde;utavale rajatisele.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Iga n&otilde;utava rajatise maht. Sama maht rakendatakse igale n&otilde;utavale rajatisele.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Iga rajatise mahtu sisaldav v&auml;li.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Iga rajatise mahtu sisaldav v&auml;li.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

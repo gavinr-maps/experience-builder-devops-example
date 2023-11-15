@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Clasificare obiecte folosind &icirc;nvățarea aprofundată utilizează un model de &icirc;nvățare aprofundată pentru a atribui o etichetă de clasă sau categorie unui obiect sau obiect spațial.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Stratul tematic de imagini satelitare sau obiect spațial care va fi utilizat pentru a clasifica obiecte.
+            </p>
+        </div>
+    </div>
+    <div id="inputFeatures">
+        <div>
+            <p>Stratul tematic de obiect spațial care identifică locația fiecărui obiect care urmează să fie clasificat sau etichetat.
+            </p>
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Specifică cum vor fi procesate elementele de raster dintr-un stat tematic de imagistică satelitară după mozaicare: &icirc;mpreună sau individual.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Pachetul de &icirc;nvățare aprofundată care conține modelul care va fi folosit pentru a clasifica obiectele.
+            </p> 
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Argumentele modelului care sunt prezente &icirc;n modelul de &icirc;nvățare aprofundată &icirc;mpreună cu valorile lor implicite.
+            </p>
+        </div>
+    </div>
+    <div id="classLabelField">
+        <div>
+            <p>Numele c&acirc;mpului care va conține eticheta de clasificare din stratul tematic cu obiecte spațiale rezultant.
+            </p>
+        </div>
+    </div>
+    <div id="outputFeatureClass">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

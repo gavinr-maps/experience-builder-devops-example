@@ -1,0 +1,378 @@
+{
+  "toolName": "SummarizeRasterWithin",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputZoneLayer.selectedLayers",
+      "destination": "zoneField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputZoneLayer.selectedLayers.type.length > 0) AND ($[Component].inputZoneLayer.selectedLayers.type NOT 'feature')) AND ($[Component].inputZoneLayer.processedLayerProperties.rasterInfo.attributeTable = NULL)",
+      "destination": "zoneField",
+      "effectParams": {
+        "readOnly": true,
+        "value": "Value"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputZoneLayer.selectedLayers.type.length > 0) AND ($[Component].inputZoneLayer.selectedLayers.type NOT 'feature')",
+      "destination": "zoneField",
+      "effectParams": {
+        "fieldTypes": ["integer", "string"]
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType NOT 'f32') OR ($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType NOT 'f64')",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": [
+          "Mean",
+          "Majority",
+          "Maximum",
+          "Median",
+          "Minimum",
+          "Minority",
+          "Percentile",
+          "Range",
+          "STD",
+          "Sum",
+          "Variety"
+        ],
+        "choiceListLabels": {
+          "Mean": "$mean",
+          "Majority": "$majority",
+          "Maximum": "$maximum",
+          "Median": "$median",
+          "Minimum": "$minimum",
+          "Minority": "$minority",
+          "Percentile": "$percentile",
+          "Range": "$range",
+          "STD": "$std",
+          "Sum": "$sum",
+          "Variety": "$variety"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].circularCalculation = true) AND (($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType NOT 'f32') AND ($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType NOT 'f64'))",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": ["Mean", "Majority", "Minority", "STD", "Variety"],
+        "choiceListLabels": {
+          "Mean": "$mean",
+          "Majority": "$majority",
+          "Minority": "$minority",
+          "STD": "$std",
+          "Variety": "$variety"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType = 'f64')",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": ["Mean", "Maximum", "Median", "Minimum", "Percentile", "Range", "Sum", "STD"],
+        "choiceListLabels": {
+          "Mean": "$mean",
+          "Maximum": "$maximum",
+          "Median": "$median",
+          "Minimum": "$minimum",
+          "Percentile": "$percentile",
+          "Range": "$range",
+          "STD": "$std",
+          "Sum": "$sum"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].circularCalculation = true)) AND (($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType = 'f32') OR ($[Component].inputRasterLayertoSummarize.processedLayerProperties.rasterInfo.pixelType = 'f64'))",
+      "destination": "statisticType",
+      "effectParams": {
+        "choiceList": ["Mean", "STD"],
+        "choiceListLabels": {
+          "Mean": "$mean",
+          "STD": "$std"
+        }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].statisticType IN ('Mean', 'Majority', 'Minority', 'STD','Variety'))",
+      "destination": "circularCalculation",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].statisticType IN ('Maximum', 'Minimum', 'Percentile', 'Median', 'Range', 'Sum')",
+      "destination": ["circularCalculation"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].circularCalculation",
+      "valueB": true,
+      "destination": "circularWrapValue",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType = 'Maximum') OR ($[Data].statisticType = 'Minimum')) OR ($[Data].statisticType = 'Percentile')",
+      "destination": ["circularWrapValue"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType = 'Median') OR ($[Data].statisticType = 'Range')) ",
+      "destination": ["circularWrapValue"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticType",
+      "valueB": "Percentile",
+      "destination": ["percentileValue"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticType = 'Percentile') OR ($[Data].statisticType = 'Median'))",
+      "destination": ["percentileInterpolationType"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputZoneLayer.user.portal NOT undefined) AND ($[Component].inputZoneLayer.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputZoneLayer.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputZoneLayer.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputZoneLayer.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputZoneLayer.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["snapRaster", "cellSize", "mask", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "inputZoneLayer",
+          "label": "$inputZoneRasterOrFeatures",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "layerFilterType": ["feature", "imagery_integer"]
+        },
+        {
+          "name": "zoneField",
+          "label": "$zoneField",
+          "componentName": "analysis-field-input",
+          "defaultValue": "",
+          "required": true,
+          "selectionMode": "single",
+          "showFieldInfo": true,
+          "fieldTypes": ["oid", "integer", "string"],
+          "useDefaultValue": true,
+          "readOnly": false
+        },
+        {
+          "name": "inputRasterLayertoSummarize",
+          "label": "$inputValueRaster",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        }
+      ]
+    },
+    {
+      "label": "$inputStatisticSettingsGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputStatisticSettingsGroupText",
+      "UIparameters": [
+        {
+          "name": "statisticType",
+          "label": "$statisticType",
+          "componentName": "analysis-string-input",
+          "selectionMode": "single",
+          "required": false,
+          "defaultValue": "Mean",
+          "choiceList": [
+            "Mean",
+            "Majority",
+            "Maximum",
+            "Median",
+            "Minimum",
+            "Minority",
+            "Percentile",
+            "Range",
+            "Sum",
+            "STD",
+            "Variety"
+          ],
+          "choiceListLabels": {
+            "Mean": "$mean",
+            "Majority": "$majority",
+            "Maximum": "$maximum",
+            "Median": "$median",
+            "Minimum": "$minimum",
+            "Minority": "$minority",
+            "Percentile": "$percentile",
+            "Range": "$range",
+            "Sum": "$sum",
+            "STD": "$std",
+            "Variety": "$variety"
+          }
+        },
+        {
+          "name": "percentileValue",
+          "label": "$percentileValue",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "defaultValue": 90,
+          "min": 0,
+          "max": 100,
+          "numberType": "float",
+          "visible": false
+        },
+        {
+          "name": "percentileInterpolationType",
+          "label": "$percentileInterpolationType",
+          "componentName": "analysis-string-input",
+          "selectionMode": "single",
+          "required": false,
+          "defaultValue": "AUTO_DETECT",
+          "visible": false,
+          "choiceList": ["AUTO_DETECT", "NEAREST", "LINEAR"],
+          "choiceListLabels": {
+            "AUTO_DETECT": "$autoDetect",
+            "NEAREST": "$nearest",
+            "LINEAR": "$linear"
+          }
+        },
+        {
+          "name": "circularCalculation",
+          "label": "$circularCalculation",
+          "componentName": "analysis-boolean-input",
+          "displayStyle": "switch",
+          "labelLayout": "inline-space-between",
+          "visible": false
+        },
+        {
+          "name": "circularWrapValue",
+          "label": "$circularWrapValue",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "min": 0,
+          "max": 360,
+          "numberType": "float",
+          "visible": false
+        },
+        {
+          "name": "ignoreMissingValues",
+          "label": "$ignoreMissingValues",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "displayStyle": "checkbox",
+          "labelLayout": "inline-space-between"
+        },
+        {
+          "name": "processAsMultidimensional",
+          "label": "$processAsMultidimensional",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "displayStyle": "checkbox",
+          "labelLayout": "inline-space-between"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputRasterNameLabel",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

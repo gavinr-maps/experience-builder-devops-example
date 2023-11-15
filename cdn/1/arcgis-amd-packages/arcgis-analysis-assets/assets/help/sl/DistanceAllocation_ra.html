@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Dodelitev razdalje izračuna razmestitev od vsake celice do vhodnega vira na podlagi razdalje zračne linije, stro&scaron;kovne razdalje in prave povr&scaron;inske razdalje ter navpičnih in vodoravnih faktorjev stro&scaron;kov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Vhodni izvorni rastrski ali geoobjektni sloj, ki prepoznava vire, do katerih bo izračunana razmestitev.
+            </p>
+            <p>Če je vhod raster, mora biti sestavljen iz celic z veljavnimi vrednostmi celega &scaron;tevila (nič je veljavna vrednost) za vire, preostale celice pa morajo imeti dodeljeno vrednost NoData.
+            </p>
+        </div>
+    </div>
+    <div id="sourceField">
+        <div>
+            <p>Polje, ki bo uporabljeno za dodelitev vrednosti izvornih lokacij. Biti mora tip celega &scaron;tevila.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Pregrade, ki določajo ovire, morajo biti usmerjene okoli.
+            </p>
+            <p>Za rastrski sloj morajo biti celice, ki imajo vrednost (vključno z nič), obravnavane kot pregrada.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster, ki določa vi&scaron;inske vrednosti na vsaki vrednosti lokacije.
+            </p>
+            <p>Vrednosti se uporabljajo za izračun dejanske povr&scaron;inske razdalje, zajete pri premikanju med celicami.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Raster, ki določa impendanco, ali stro&scaron;ke, za premikanje skozi celice.
+            </p>
+            <p>Vrednost na lokaciji vsake celice predstavlja razdaljo stro&scaron;kov na enoto za premikanje skozi celice. Vrednost ne more biti negativna ali nič.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Določi, ali bo razdalja izračunana z uporabo ravninske (ravna povr&scaron;ina) ali geodetske (elipsoidne) metode.
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Raster, ki določa z-vrednosti za vsako lokacijo celice.
+            </p>
+            <p>Vrednosti se uporabljajo za izračun naklona, ki se uporablja za prepoznavanje vertikalnega faktorja, ki nastane pri premikanju od ene celice do druge.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Faktor, ki določa odnos med vertikalnim faktorjem stro&scaron;ka in vertikalnim relativnim kotom premikanja.
+            </p>
+            <p>Obstaja več možnosti za faktorje z modifikatorji, ki prepoznavajo grafikon določenega vertikalnega faktorja. Grafikoni se uporabljajo za prepoznavanje vertikalnega faktorja, ki se uporablja pri izračunavanju skupnih stro&scaron;kov premika v sosednjo celico.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Raster, ki določa horizontalno smer pri vsaki celici.
+            </p>
+            <p>Vrednosti na vsaki lokaciji bodo uporabljene skupaj s parametrom  <b>Horizontalni faktor</b> za določanje horizontalnega stro&scaron;ka, ki nastane pri premikanju od celice do sosednjih celic.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Faktor, ki določa odnos med horizontalnim faktorjem stro&scaron;ka in horizontalnim relativnim kotom premikanja.
+            </p>
+            <p>Obstaja več možnosti za faktorje z modifikatorji, ki prepoznavajo grafikon določenega horizontalnega faktorja. Grafikoni se uporabljajo za prepoznavanje horizontalnega faktorja, ki se uporablja pri izračunavanju skupnih stro&scaron;kov premika v sosednjo celico.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Prvotni akumulirani stro&scaron;ek, s katerim se začne izračun stro&scaron;kov.
+            </p>
+            <p>Privzeto je 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Popotnikova maksimalna akumulacija za vir.
+            </p>
+            <p>Privzeta akumulacija je proti robu izhodnega rastra.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Množitelj, ki bo uporabljen pri vrednostih stro&scaron;ka.
+            </p>
+            <p>Privzeta vrednost je 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Popotnikova smer pri uporabi horizontalnih in vertikalnih faktorjev.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAllocationRasterName">
+        <div>
+            <p>Ime rastrskega sloja vrednosti razmestitve razdalje, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Ime rastrskega sloja akumulativne razdalje, ki bo ustvarjen in dodan na karto. Sloj vsebuje akumulativno razdaljo za vsako celico od, ali do, vira najmanj&scaron;ega stro&scaron;ka.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Ime rastrskega sloja obratne smeri, ki bo ustvarjen in dodan na karto. Sloj vsebuje smer v stopinjah.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Ime rastrskega sloja izvorne smeri, ki bo ustvarjen in dodan na karto. Sloj vsebuje smer azimuta izvorne celice najmanj akumuliranega stro&scaron;ka v stopinjah.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Ime rastrskega sloja večpasovne izvorne lokacije, ki bo ustvarjen in dodan na karto. Sloj vsebuje izvorne lokacije, kjer prvi pas vsebuje indeks vrstice, drugi pas pa vsebuje indeks stolpca.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Vrsta rezultata, ki bo ustvarjen. Rezultati so lahko plo&scaron;čični slikovni sloji ali dinamični slikovni sloji.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

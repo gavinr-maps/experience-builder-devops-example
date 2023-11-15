@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Locații geocodificate din instrumentul Tabel convertește adresele sau locurile dintr-un tabel de intrare &icirc;n coordonate.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Tabelul de intrare cu adrese sau locuri care vor fi geocodificate. Intrarea trebuie să fie un tabel, un fișier  <code>.csv</code> sau un fișier Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Serviciul locator pentru a utiliza geocodificarea. Dacă serviciul localizatorului pe care doriţi să &icirc;l utilizaţi nu este &icirc;n meniul vertical, contactaţi administratorul şi solicitaţi-i să configureze serviciul localizatorului pentru geocodificare &icirc;n loturi.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Specifică dacă datele de intrare sunt conținute &icirc;ntr-un singur c&acirc;mp sau &icirc;n mai multe c&acirc;mpuri.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>C&acirc;mpurile care vor fi utilizate de locator pentru a determina locațiile datelor. Se presupune că anumite c&acirc;mpuri sunt &icirc;n date, cum ar fi adresa, orașul, statul și codul poștal.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Țara &icirc;n care sunt localizate datele. Dacă toate adresele sunt dintr-o singură țară, furnizați acea țară pentru a asigura cele mai precise rezultate. &Icirc;n caz contrar, lăsaţi acest parametru gol.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Specifică ce c&acirc;mpuri vor fi incluse &icirc;n setul de date de ieșire. Opţiunile sunt următoarele:
+            </p>
+            <ul>
+                <li> <b>Toate</b>&mdash;Toate c&acirc;mpurile de ieșire din locator disponibile vor fi incluse &icirc;n rezultatele de geocodificare.
+                </li>
+                <li> <b>Minim</b>&mdash;Un subset de date ale c&acirc;mpurilor din locator, dar și c&acirc;mpurile din tabelul de intrare vor fi incluse &icirc;n rezultate.
+                </li>
+                <li> <b>Numai locație</b>&mdash; <i>Shape</i>Un subset de date ale c&acirc;mpurilor din locator, dar și c&acirc;mpurile din tabelul de intrare vor fi incluse &icirc;n rezultate.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Tipul de ieșire care va fi creată. Rezultatul poate fi un serviciu de obiecte spațiale, fișier  <code>.csv</code> sau fișier <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Numele elementului de ieșire &icirc;n care vor fi stocate datele localizate.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

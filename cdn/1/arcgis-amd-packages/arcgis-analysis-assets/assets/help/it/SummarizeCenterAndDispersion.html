@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Riepiloga centro e dispersione trova la feature centrale, la tendenza centrale e l'ellisse della deviazione standard di un insieme di feature.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Le feature punto, linea o poligono per le quali verranno calcolate la feature centrale, la tendenza centrale e l'ellisse di deviazione standard.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Specifica i metodi che riepilogheranno il centro e la dispersione delle feature.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Specifica la dimensione, in deviazioni standard, del poligono ellittico. Se la distanza tra il centro medio e le posizioni delle feature segue una distribuzione di Rayleigh, l'opzione  <b>1 deviazione standard</b>, <b>2 deviazioni standard</b> e <b>3 deviazioni standard</b> produrr&agrave; un poligono ellittico che coprir&agrave; il 63%, l'89% e il 99,9% delle feature, rispettivamente.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Il campo che verr&agrave; utilizzato per determinare il peso della feature.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Il campo che verr&agrave; utilizzato per raggruppare le feature. I  <b>Tipi di riepilogo</b> selezionati saranno calcolati per ogni gruppo.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

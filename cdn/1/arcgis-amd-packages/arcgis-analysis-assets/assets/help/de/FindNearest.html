@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;N&auml;chstgelegene suchen&quot; sucht und bewertet die Features, die den angegebenen Positionen am n&auml;chsten liegen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Der Start-Layer f&uuml;r die Suche nach den n&auml;chstgelegenen Features. Es werden Layer mit bis zu  5.000 Features unterst&uuml;tzt. </p> 
+            <p class="PortalOnly">Der Start-Layer f&uuml;r die Suche nach den n&auml;chstgelegenen Features.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Die Features werden auf der Grundlage ihrer N&auml;he zum Eingabe-Layer gefunden. Es werden Layer mit bis zu  5.000 Features unterst&uuml;tzt. </p> 
+            <p class="PortalOnly">Die Features werden auf der Grundlage ihrer N&auml;he zum Eingabe-Layer gefunden.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Mindestens ein Punkt-Feature, das als vor&uuml;bergehende Einschr&auml;nkung (Barriere) bei der Fahrt auf den zugrunde liegenden Stra&szlig;en fungiert. Die Fahrt auf der Stra&szlig;e ist zul&auml;ssig, jedoch nicht die Fahrt durch die Barriere.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Mindestens ein Linien-Feature, das als vor&uuml;bergehende Einschr&auml;nkung (Barriere) bei der Fahrt auf den zugrunde liegenden Stra&szlig;en fungiert. Die Linien-Barrieren unterbinden den Verkehr an allen Punkten, an denen die Barrieren die Stra&szlig;en schneiden.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Mindestens ein Polygon-Feature, das als vor&uuml;bergehende Einschr&auml;nkung (Barriere) bei der Fahrt auf den zugrunde liegenden Stra&szlig;en fungiert. Die Polygon-Barrieren unterbinden den Verkehr an allen Punkten, an denen die Polygone die Stra&szlig;en schneiden.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Die Methode, mit der die Entfernung oder die Zeit gemessen wird. Die Methode kann Linienentfernung oder ein Reisemodus sein.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Gibt das Datum und die Uhrzeit an, wann Reisende von den Positionen im  <b>Eingabe-Layer</b> abfahren.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Bestimmt, ob eine benutzerdefinierte maximale Anzahl n&auml;chstgelegener Features verwendet werden soll (aktiviert) oder ob der auf 100 festgelegte standardm&auml;&szlig;ige Maximalwert des Werkzeugs verwendet werden soll (deaktiviert).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Die maximale Anzahl der n&auml;chstgelegenen Features, die f&uuml;r jedes Eingabe-Feature gefunden werden kann.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Bestimmt, ob ein maximaler Suchbereich verwendet werden soll (aktiviert) oder ob der Suchbereich unbegrenzt ist (deaktiviert).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Der maximale Suchbereich, um die n&auml;chstgelegenen Features zu finden.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Die Einheiten, die zur Angabe des Suchbereichs verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Gibt an, ob jede Ergebnis-Route als Routen-Layer gespeichert wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

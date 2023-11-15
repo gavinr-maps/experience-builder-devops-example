@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Detectare obiecte folosind &icirc;nvățarea aprofundată utilizează un model de &icirc;nvățare aprofundată pe un strat tematic de imagini satelitare de intrare pentru a produce un strat tematic de obiect spațial care conține obiectele detectate.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Stratul tematic de imagini satelitare sau obiect spațial care va fi utilizat pentru a detecta obiecte.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Specifică cum vor fi procesate elementele de raster dintr-un stat tematic de imagistică satelitară după mozaicare: &icirc;mpreună sau individual.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Pachetul de &icirc;nvățare aprofundată care conține modelul care va fi utilizat pentru a detecta obiecte.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Argumentele modelului care sunt prezente &icirc;n modelul de &icirc;nvățare aprofundată &icirc;mpreună cu valorile lor implicite.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Specifică dacă va fi efectuată suprimarea non-maximală va fi efectuată pentru a elimina obiecte duplicate.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>Denumirea c&acirc;mpului care va fi adăugat la stratul tematic de obiect spațial de ieșire pentru a indica valoarea de &icirc;ncredere raportată.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>Denumirea c&acirc;mpului care va fi adăugat la stratul tematic de obiect spațial de ieșire pentru a indica eticheta clasificată pentru obiect.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Raportul maxim permis pentru fiecare obiect spațial găsit care se suprapune peste un alt obiect spațial. Valoarea implicită este 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

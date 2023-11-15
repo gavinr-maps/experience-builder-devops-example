@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Luokittele pikselit syv&auml;oppimisen avulla -ty&ouml;kalu tuottaa luokitellun rasterin k&auml;ytt&auml;m&auml;ll&auml; koulutettua syv&auml;oppimismallia.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Kuva-aineistokarttataso, jota k&auml;ytet&auml;&auml;n pikselien luokitteluun.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; kuva-aineistokarttatasossa olevien rasterikohteiden k&auml;sittelytavan mosaikoinnin j&auml;ljeen: yhdess&auml; vai erikseen.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Syv&auml;oppimisen paketti, joka sis&auml;lt&auml;&auml; pikselien luokitteluun k&auml;ytett&auml;v&auml;n mallin.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Syv&auml;oppimismallissa olevat malliargumentit ja niiden oletusarvot.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRaster">
+        <div>
+            <p>Luokiteltavan tulosaineiston kuva-aineistokarttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineisto voi olla tiilitetty kuva-aineistokarttataso tai dynaaminen kuvakarttataso.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

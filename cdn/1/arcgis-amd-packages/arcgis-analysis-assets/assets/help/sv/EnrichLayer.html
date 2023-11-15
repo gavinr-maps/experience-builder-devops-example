@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Berika lager berikar indatageoobjekten med demografi och landskapsdata.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkt-, linje- eller polygongeoobjekten som berikas med ytterligare data.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Variablerna som l&auml;ggs till som attribut i indatageoobjekten.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Anger hur omr&aring;det runt indatapunkt- eller linjegeoobjekten definieras. Hela omr&aring;det runt varje geoobjekt berikas.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Ett numeriskt v&auml;rde som anger avst&aring;nd eller tid runt varje indatageoobjekt som omr&aring;det kommer att ut&ouml;ka.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Enheterna som anv&auml;nds f&ouml;r att ange avst&aring;nd eller tid som det berikade omr&aring;det ut&ouml;kas runt varje indatgeoobjekt.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Anger om utdatalagret ska inneh&aring;lla polygongeoobjekt definierade av inst&auml;llningar f&ouml;r  <b>Berikningsomr&aring;den</b> (markerat) eller indatageoobjekt (omarkerat).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

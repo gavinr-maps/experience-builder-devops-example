@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Az Interpolate Points eszk&ouml;z &eacute;rt&eacute;keket jelez előre &uacute;j helyeken pontm&eacute;r&eacute;sek alapj&aacute;n. Az eszk&ouml;z l&eacute;trehoz egy vektoros elem kimenetet.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Az interpol&aacute;lni k&iacute;v&aacute;nt helyek pontr&eacute;teg&eacute;nek kiv&aacute;laszt&aacute;sa.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Az interpol&aacute;land&oacute; m&eacute;rt &eacute;rt&eacute;keket tartalmaz&oacute; numerikus mező kiv&aacute;laszt&aacute;sa.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Annak kiv&aacute;laszt&aacute;sa, hogy a sz&aacute;m&iacute;t&aacute;si sebess&eacute;g vagy a pontoss&aacute;g &eacute;s precizit&aacute;s legyen-e a priorit&aacute;s. A pontosabb &eacute;s prec&iacute;zebb előrejelz&eacute;sek kisz&aacute;m&iacute;t&aacute;sa hosszabb ideig tart.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Annak kiv&aacute;laszt&aacute;sa,, hogy az interpol&aacute;ci&oacute;s előrejelz&eacute;sek standard hib&aacute;inak r&eacute;tege szerepeljen-e a kimenetben.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Az oszt&aacute;sk&ouml;z&eacute;rt&eacute;kek kis&aacute;m&iacute;t&aacute;si m&oacute;dj&aacute;nak kiv&aacute;laszt&aacute;sa.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Az eredm&eacute;ny r&eacute;tegben szereplő oszt&aacute;lyok (előrejelzett &eacute;rt&eacute;kek tartom&aacute;nyai) sz&aacute;m&aacute;nak megad&aacute;sa. Minden oszt&aacute;ly egy polygon hat&aacute;r&aacute;t hat&aacute;rozza meg, &eacute;s az előre jelzett &eacute;rt&eacute;kek kont&uacute;rjait &aacute;br&aacute;zolja. Az oszt&aacute;sk&ouml;z&eacute;rt&eacute;keket az oszt&aacute;lyoz&aacute;s t&iacute;pusa hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>A haszn&aacute;lni k&iacute;v&aacute;nt oszt&aacute;sk&ouml;z&eacute;rt&eacute;kek biztos&iacute;t&aacute;sa.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>A vizsg&aacute;lati ter&uuml;let meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; polygon r&eacute;teg kiv&aacute;laszt&aacute;sa. Az eredm&eacute;nyeket &uacute;gy v&aacute;gja le a rendszer, hogy csak a vizsg&aacute;lt ter&uuml;leten bel&uuml;l jelenjenek meg.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Olyan pontr&eacute;teg kiv&aacute;laszt&aacute;sa, amely az &eacute;rt&eacute;kek előrejelz&eacute;s&eacute;re szolg&aacute;l&oacute; helyeket k&eacute;pviseli. Ha rendelkez&eacute;sre &aacute;ll, akkor olyan pontr&eacute;teg j&ouml;n l&eacute;tre, amely a megadott helyeken előre jelzett &eacute;rt&eacute;keket tartalmaz.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;nyek ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Optimal Region-forbindelser-v&aelig;rkt&oslash;jet beregner det optimale forbindelsesnetv&aelig;rk mellem to eller flere inputregioner.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>Det raster- eller objektlag, der identificerer de omr&aring;der, der er forbundet af det optimale netv&aelig;rk.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Det raster- eller objektlag, der identificerer forhindringer, der skal findes en vej omkring.
+            </p>
+            <p>For et lasterlag vil celler, der har en v&aelig;rdi (inkl. nul), blive behandlet som en barriere.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Det rasterlag, der definerer impedansen eller omkostningen ved at g&aring; gennem hver celle.
+            </p>
+            <p>V&aelig;rdien ved hver cellelokation repr&aelig;senterer omkostning pr. enhed-afstanden ved at bev&aelig;ge sig gennem cellen. Det kan ikke v&aelig;re negativt eller nul.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Angiv, om afstanden skal beregnes ved brug af en planmetode (flad jord) eller en geod&aelig;tisk metode (ellipsoid).
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>Angiver, om ruterne skal forts&aelig;tte og v&aelig;re indbyrdes forbundne inden for inputregionerne.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>Navnet p&aring; laget med det optimale netv&aelig;rk af ruter, som forbinder hver enkelt inputomr&aring;de, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>Navnet p&aring; linjelaget med tilst&oslash;dende forbindelser, der oprettes og f&oslash;jes til kortet. Laget identificerer alle ruter fra hvert omr&aring;de til hvert af dets n&aelig;rmeste eller omkostningstunge naboer.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

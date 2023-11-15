@@ -1,0 +1,2007 @@
+{
+  "newItem": "Item baru",
+  "addLayer": "Tambahkan Layer",
+  "createFeatureLayer": "Buat sebuah feature layer",
+  "createTileLayer": "Buat tile layer",
+  "createSceneLayer": "Buat scene layer",
+  "createRasterFunctionTemplate": "Membuat template fungsi raster baru",
+  "addDataStore": "Tambahkan koneksi ke data store",
+  "next": "Selanjutnya",
+  "publish": "Publikasikan",
+  "save": "Simpan",
+  "cancel": "Batalkan",
+  "back": "Kembali",
+  "error": "Kesalahan",
+  "update": "Pembaruan",
+  "moreInfo": "Informasi selengkapnya",
+  "loadingData": "Memuat...",
+  "creatingLayer": "Membuat layer...",
+  "common": {
+    "add": "Tambahkan",
+    "url": "URL",
+    "addToMap": "Tambahkan ke peta",
+    "createAndAddToMap": "Buat dan tambahkan ke peta",
+    "register": "Daftar",
+    "supportServices": "Layanan yang didukung adalah ${typeList}",
+    "supportLayerTypes": "Jenis layer yang didukung adalah ${typeList}",
+    "supportFileTypes": "Jenis file yang didukung adalah ${typeList}",
+    "learnMore": "Pelajari selengkapnya",
+    "updateAndComplete": "Perbarui dan selesaikan",
+    "proceed": "Lanjutkan",
+    "createConnection": "Buat koneksi",
+    "addAndComplete": "Tambahkan dan lengkapi",
+    "signInAndOverwrite": "Masuk dan timpa",
+    "overwriteAndComplete": "Timpa dan selesaikan"
+  },
+  "application": {
+    "web": "Web pemetaan",
+    "desktop": "Desktop",
+    "mobile": "Seluler",
+    "otherApplication": "Aplikasi lain",
+    "applicationType": "Jenis aplikasi",
+    "application": "Aplikasi",
+    "manifestUrl": "URL Manifes",
+    "appExtension": "Ekstensi Aplikasi (AppBuilder)",
+    "experienceBuilderWidget": "Widget Experience Builder",
+    "appExtensionError": "URL tidak merujuk ke Ekstensi AppBuilder.",
+    "enterManifestUrl": "Masukkan url untuk manifes ekstensi Anda",
+    "File": "File",
+    "selectZip": "Pilih file .zip",
+    "fileRequired": "File yang diperlukan untuk aplikasi desktop",
+    "enterUrl": "Masukkan url untuk aplikasi Anda",
+    "enterValidUrl": "Masukkan url yang valid untuk aplikasi Anda",
+    "URL": "URL"
+  },
+  "auth": {
+    "username": "Nama Pengguna",
+    "enterUsername": "Masukkan nama pengguna",
+    "password": "Kata Sandi",
+    "enterPassword": "Masukkan kata sandi",
+    "invalid": "Nama pengguna atau kata sandi tidak valid.",
+    "requiresCredentials": "Nama pengguna dan kata sandi harus disediakan."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Pilih layer yang akan ditambahkan",
+    "noLayersFound": "Tidak ditemukan layer yang memenuhi kriteria Anda. Cobalah mengubah istilah pencarian untuk menampilkan lebih banyak layer.",
+    "of": "dari",
+    "layers": "layer",
+    "usePro": "Set data ini memiliki lebih dari 1000 layer. Masukkan istilah pencarian untuk menemukan layer tertentu.",
+    "errorTitle": "Tidak ada layer yang dipilih",
+    "noLayersSelected": "Pilih satu atau beberapa layer untuk melanjutkan",
+    "selectAll": "Pilih semua",
+    "deselectAll": "Batalkan semua pilihan"
+  },
+  "csvFields": {
+    "searchFields": "Cari kolom",
+    "fieldType": "Jenis kolom",
+    "fieldTitle": "Kolom",
+    "fieldDescription": "Pilih kolom yang akan disertakan di feature layer yang di-host. Perbarui nama tampilan dan jenis kolom, jika diperlukan.",
+    "fieldNoHostedDescription": "Perbarui nama tampilan dan jenis kolom untuk digunakan di layer, jika diperlukan.",
+    "fieldName": "Nama kolom",
+    "displayName": "Nama tampilan",
+    "displayNameLabel": "Nama tampilan ${name}",
+    "type": "Jenis",
+    "typeLabel": "Jenis ${name}",
+    "allTypes": "Semua jenis",
+    "noFields": "Tidak ditemukan kolom yang memenuhi kriteria pencarian Anda. Coba ubah istilah pencarian atau perluas opsi filter Anda.",
+    "selected": "dipilih",
+    "clearSelection": "Hapus pilihan",
+    "fieldTypes": {
+      "esriFieldTypeString": "String",
+      "esriFieldTypeInteger": "Bilangan bulat",
+      "esriFieldTypeSmallInteger": "Bilangan Bulat Kecil",
+      "esriFieldTypeSingle": "Tunggal",
+      "esriFieldTypeDouble": "Double",
+      "esriFieldTypeDate": "Tanggal",
+      "esriFieldTypeDateOnly": "Khusus Tanggal",
+      "esriFieldTypeTimeOnly": "Khusus Waktu",
+      "esriFieldTypeBigInteger": "Bilangan bulat besar",
+      "esriFieldTypeTimestampOffset": "Offset Stempel Waktu"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "Menganalisis...",
+    "locationSettings": "Pengaturan lokasi",
+    "locationSettingsDescription": "Tentukan jenis informasi lokasi yang ada dalam file.",
+    "advancedSettings": "Pengaturan lokasi lanjutan",
+    "locator": "Penentu Lokasi",
+    "region": "Wilayah",
+    "enrich": "Perkaya layer dengan informasi alamat",
+    "enrichLayer": "Perkaya kolom output penentu lokasi layer",
+    "enrichLayerDescription": "Tambahkan kolom yang memberikan informasi tentang proses geocoding, seperti seberapa cocok informasi lokasi di file Anda dengan penentu lokasi.",
+    "enrichLayerLink": "Pelajari selengkapnya tentang kolom yang ditambahkan tersebut.",
+    "consumesCredits": "Menggunakan kredit",
+    "locationFields": "Kolom lokasi",
+    "locationFieldSingle": "Informasi lokasi ada di satu kolom.",
+    "locationFieldMultiple": "Informasi lokasi ada di beberapa kolom.",
+    "locationFieldsDescription": "Tentukan kolom yang berisi informasi lokasi.",
+    "locationTypes": {
+      "address": {
+        "title": "Alamat atau nama tempat",
+        "description": "Data lokasi adalah alamat, nama tempat, kode pos, dan negara. Dapat menggunakan kredit.",
+        "descriptionDeveloper": "Data lokasi adalah alamat, nama tempat, kode pos, dan negara."
+      },
+      "coordinates": {
+        "title": "Garis lintang dan garis bujur",
+        "description": "Data lokasi adalah lintang dan bujur."
+      },
+      "mgrs": {
+        "title": "Koordinat MGRS",
+        "description": "Data lokasi ada di Sistem Referensi Jaringan Militer."
+      },
+      "usng": {
+        "title": "Koordinat USNG",
+        "description": "Data lokasi ada di Jaringan Nasional Amerika Serikat."
+      },
+      "none": {
+        "title": "Tidak Ada",
+        "description": "${type} ini tidak berisi data lokasi dan akan ditambahkan sebagai tabel"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Tidak ada kolom",
+        "description": "Temukan lokasi alamat, tetapi jangan sertakan kolom tambahan."
+      },
+      "Minimal": {
+        "title": "Beberapa kolom",
+        "description": "Tambahkan empat kolom yang menunjukkan seberapa cocok alamatnya."
+      },
+      "AllFields": {
+        "title": "Semua kolom",
+        "description": "Tambahkan 50 kolom untuk informasi lokasi lengkap."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Tidak ada kolom lokasi yang dipilih",
+        "description": "Pilih bidang yang berisi data lokasi."
+      },
+      "coordinate": {
+        "title": "Pilih kolom koordinat",
+        "description": "Pilih kolom mana yang akan digunakan untuk garis lintang dan bujur."
+      },
+      "insufficientCredits": {
+        "title": "Kredit tidak cukup",
+        "description": "Anda tidak memiliki cukup kredit untuk melakukan tindakan ini. Hubungi administrator Anda untuk memperoleh kredit tambahan."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Tabel harus berisi informasi lokasi",
+        "description": "Anda tidak dapat menambahkan fitur ke dalam layer yang tidak berisi informasi lokasi."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Kredit organisasi tidak cukup - tindakan mungkin tidak selesai",
+      "description": "Organisasi Anda sepertinya tidak memiliki kredit yang cukup untuk menyelesaikan tindakan ini. Jika alur kerja Anda belum selesai, hubungi administrator Anda untuk kredit tambahan."
+    },
+    "recordCount": "Perkiraan catatan untuk geocode: ${num}",
+    "locationType": "Tipe lokasi",
+    "field": "Kolom",
+    "unknown": "Jenis lokasi tidak digunakan",
+    "longitude": "Garis Bujur",
+    "latitude": "Garis Lintang",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Dunia",
+      "EU": "Eropa",
+      "AD": "Andorra",
+      "AE": "Uni Emirat Arab",
+      "AF": "Afganistan",
+      "AG": "Antigua dan Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albania",
+      "AM": "Armenia",
+      "AO": "Angola",
+      "AQ": "Antartika",
+      "AR": "Argentina",
+      "AS": "Samoa Amerika",
+      "AT": "Austria",
+      "AU": "Australia",
+      "AW": "Aruba",
+      "AZ": "Azerbaijan",
+      "BA": "Bosnia dan Herzegovina",
+      "BB": "Barbados",
+      "BD": "Bangladesh",
+      "BE": "Belgia",
+      "BF": "Burkina Faso",
+      "BG": "Bulgaria",
+      "BH": "Bahrain",
+      "BI": "Burundi",
+      "BJ": "Benin",
+      "BL": "Saint Barthélemy",
+      "BM": "Bermuda",
+      "BN": "Brunei Darussalam",
+      "BO": "Bolivia, Negara Plurinasional",
+      "BQ": "Bonaire, Sint Eustatius dan Saba",
+      "BR": "Brasil",
+      "BS": "Bahama",
+      "BT": "Bhutan",
+      "BV": "Pulau Bouvet",
+      "BW": "Botswana",
+      "BY": "Belarus",
+      "BZ": "Belize",
+      "CA": "Kanada",
+      "CD": "Kongo, Republik Demokratik",
+      "CF": "Afrika Tengah",
+      "CG": "Kongo",
+      "CH": "Swiss",
+      "CI": "Pantai Gading",
+      "CK": "Kepulauan Cook",
+      "CL": "Cile",
+      "CM": "Kamerun",
+      "CN": "Tiongkok",
+      "CO": "Kolombia",
+      "CR": "Kosta Rika",
+      "CU": "Kuba",
+      "CV": "Tanjung Verde",
+      "CW": "Curaçao",
+      "CY": "Siprus",
+      "CZ": "Republik Ceko",
+      "DE": "Jerman",
+      "DJ": "Djibouti",
+      "DK": "Denmark",
+      "DM": "Dominika",
+      "DO": "Republik Dominika",
+      "DZ": "Aljazair",
+      "EC": "Ekuador",
+      "EE": "Estonia",
+      "EG": "Mesir",
+      "EH": "Sahara Barat",
+      "ER": "Eritrea",
+      "ES": "Spanyol",
+      "ET": "Etiopia",
+      "FI": "Finlandia",
+      "FJ": "Fiji",
+      "FK": "Kepulauan Falkland (Malvinas)",
+      "FM": "Micronesia, Federasi",
+      "FO": "Kepulauan Faroe",
+      "FR": "Prancis",
+      "GA": "Gabon",
+      "GB": "Inggris Raya",
+      "GD": "Grenada",
+      "GE": "Georgia",
+      "GF": "Guyana Prancis",
+      "GG": "Guernsey",
+      "GH": "Ghana",
+      "GI": "Gibraltar",
+      "GL": "Greenland",
+      "GM": "Gambia",
+      "GN": "Guinea",
+      "GP": "Guadeloupe",
+      "GQ": "Guinea Ekuatorial",
+      "GR": "Yunani",
+      "GS": "Georgia Selatan dan Kepulauan Sandwich Selatan",
+      "GT": "Guatemala",
+      "GW": "Guinea-Bissau",
+      "GY": "Guyana",
+      "HK": "Hong Kong",
+      "HM": "Pulau Heard dan Kepulauan McDonald",
+      "HN": "Honduras",
+      "HR": "Kroasia",
+      "HT": "Haiti",
+      "HU": "Hongaria",
+      "ID": "Indonesia",
+      "IE": "Ireland",
+      "IL": "Israel",
+      "IM": "Pulau Man",
+      "IN": "India",
+      "IO": "Wilayah Samudra Hindia Britania",
+      "IQ": "Iraq",
+      "IR": "Iran",
+      "IS": "Islandia",
+      "IT": "Italia",
+      "JE": "Jersey",
+      "JM": "Jamaika",
+      "JO": "Yordania",
+      "JP": "Jepang",
+      "KE": "Kenya",
+      "KG": "Kirghizia",
+      "KH": "Kamboja",
+      "KI": "Kiribati",
+      "KM": "Komoro",
+      "KN": "Saint Kitts dan Nevis",
+      "KP": "Republik Demokratik Rakyat Korea",
+      "KR": "Korea, Republik",
+      "KW": "Kuwait",
+      "KY": "Pulau Cayman",
+      "KZ": "Kazakstan",
+      "LA": "Republik Demokratik Rakyat Laos",
+      "LB": "Lebanon",
+      "LC": "Saint Lucia",
+      "LI": "Liechtenstein",
+      "LK": "Sri Lanka",
+      "LR": "Liberia",
+      "LS": "Lesotho",
+      "LT": "Lituania",
+      "LU": "Luksemburg",
+      "LV": "Latvia",
+      "LY": "Libya",
+      "MA": "Maroko",
+      "MC": "Monako",
+      "MD": "Moldova, Republik",
+      "ME": "Montenegro",
+      "MF": "Saint Martin (bagian Perancis)",
+      "MG": "Madagaskar",
+      "MH": "Kepulauan Marshall",
+      "MK": "Republik Makedonia",
+      "ML": "Mali",
+      "MM": "Myanmar",
+      "MN": "Mongolia",
+      "MO": "Makao",
+      "MP": "Kepulauan Mariana Utara",
+      "MQ": "Martinik",
+      "MR": "Mauritania",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Mauritius",
+      "MV": "Maladewa",
+      "MW": "Malawi",
+      "MX": "Meksiko",
+      "MY": "Malaysia",
+      "MZ": "Mozambik",
+      "NA": "Namibia",
+      "NC": "Kaledonia Baru",
+      "NE": "Niger",
+      "NG": "Nigeria",
+      "NI": "Nikaragua",
+      "NL": "Belanda",
+      "NO": "Norwegia",
+      "NP": "Nepal",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "Selandia Baru",
+      "OM": "Oman",
+      "PA": "Panama",
+      "PE": "Peru",
+      "PF": "Polinesia Perancis",
+      "PG": "Papua Nugini",
+      "PH": "Filipina",
+      "PK": "Pakistan",
+      "PL": "Polandia",
+      "PM": "Saint Pierre dan Miquelon",
+      "PN": "Pitcairn",
+      "PS": "Palestina",
+      "PT": "Portugal",
+      "PW": "Palau",
+      "PY": "Paraguay",
+      "QA": "Qatar",
+      "RE": "Réunion",
+      "RO": "Rumania",
+      "RS": "Serbia",
+      "RU": "Federasi Rusia",
+      "RW": "Rwanda",
+      "SA": "Arab Saudi",
+      "SB": "Kepulauan Solomon",
+      "SC": "Seychelles",
+      "SD": "Sudan",
+      "SE": "Swedia",
+      "SG": "Singapura",
+      "SH": "Saint Helena, Ascension, dan Tristan da Cunha",
+      "SI": "Slovenia",
+      "SJ": "Svalbard dan Jan Mayen",
+      "SK": "Slovakia",
+      "SL": "Sierra Leone",
+      "SM": "San Marino",
+      "SN": "Senegal",
+      "SO": "Somalia",
+      "SR": "Suriname",
+      "SS": "Sudan Selatan",
+      "ST": "Sao Tome dan Principe",
+      "SV": "El Salvador",
+      "SX": "Sint Maarten (bagian Belanda)",
+      "SY": "Suriah",
+      "SZ": "Swaziland",
+      "TC": "Kepulauan Turks dan Caicos",
+      "TD": "Cad",
+      "TF": "Daratan Selatan Perancis",
+      "TG": "Togo",
+      "TH": "Thailand",
+      "TJ": "Tajikistan",
+      "TK": "Tokelau",
+      "TL": "Timor-Leste",
+      "TM": "Turkmenistan",
+      "TN": "Tunisia",
+      "TO": "Tonga",
+      "TR": "Turki",
+      "TT": "Trinidad dan Tobago",
+      "TV": "Tuvalu",
+      "TW": "Taiwan, Province of China",
+      "TZ": "Tanzania",
+      "UA": "Ukraina",
+      "UG": "Uganda",
+      "UM": "Kepulauan Terluar Kecil Amerika Serikat",
+      "US": "Amerika Serikat",
+      "UY": "Uruguay",
+      "UZ": "Uzbekistan",
+      "VA": "Tahta Suci (Negara Kota Vatikan)",
+      "VC": "Saint Vincent dan Grenadine",
+      "VE": "Venezuela",
+      "VG": "Kepulauan Virgin Britania Raya",
+      "VN": "Vietnam",
+      "VU": "Vanuatu",
+      "WF": "Wallis dan Futuna",
+      "WS": "Samoa",
+      "XK": "Republik Kosovo",
+      "YE": "Yaman",
+      "YT": "Mayotte",
+      "ZA": "Afrika Selatan",
+      "ZM": "Zambia",
+      "ZW": "Zimbabwe"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Boolean",
+    "string": "String",
+    "double": "Double",
+    "number": "Nomor",
+    "date": "Tanggal"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Layer titik",
+      "line": "Layer garis",
+      "polygon": "Layer poligon",
+      "table": "Tabel",
+      "multipoint": "Layer multititik",
+      "multipatch": "Layer multipatch"
+    },
+    "placeholders": {
+      "point": "Nama layer titik",
+      "line": "Nama layer garis",
+      "polygon": "Nama layer poligon",
+      "table": "Nama tabel",
+      "multipoint": "Nama layer multititik"
+    },
+    "creationType": {
+      "template": "Template",
+      "existing": "Feature service yang ada",
+      "link": "URL",
+      "build": "Buat dari awal",
+      "generic": "Sertakan layer atau tabel yang diperlukan yang akan Anda sertakan dalam feature layer."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Tidak ada layer yang dipilih",
+      "description": "Pilih layer fitur untuk melanjutkan."
+    },
+    "invalidUrl": {
+      "title": "Layer tidak valid",
+      "description": "Layer ini mereferensikan jenis layanan yang tidak didukung."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Tentukan nama dan jenis",
+    "layerPreferences": "Opsi",
+    "captureGPS": "Tambahkan kolom metadata GPS",
+    "captureGPSDescription": "Tambahkan kolom ke layer yang mendukung pengambilan informasi penerima GPS.",
+    "enableZDefaults": "Aktifkan nilai Z",
+    "enableZDefaultsDescription": "Memungkinkan fitur poligon, polyline, dan titik pemodelan dalam 3D.",
+    "enableZDefaultsDefaultValue": "Default nilai Z:",
+    "enableMDefaults": "Aktifkan nilai-M",
+    "enableMDefaultsDescription": "Memungkinkan menyimpan ukuran atau nilai pada setiap titik untuk geometri.",
+    "layer": "Layer",
+    "table": "Tabel",
+    "add": "Tambahkan",
+    "error": {
+      "emptyName": {
+        "title": "Nama layer tidak ada",
+        "description": "Nama layer tidak boleh kosong"
+      },
+      "duplicateTitle": {
+        "title": "Nama layer harus unik",
+        "description": "Tidak boleh memiliki layer dengan nama yang sama"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Tidak ada template yang dipilih",
+    "errorDescription": "Pilih template untuk melanjutkan."
+  },
+  "featureLayerFromUrl": {
+    "description": "Tentukan URL ke layanan fitur",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "URL Kosong",
+        "description": "Masukkan URL yang valid"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "URL tidak didukung",
+        "description": "Tentukan URL ke feature layer. Layer harus menyertakan FeatureServer di URL."
+      },
+      "serviceNotExist": {
+        "title": "Layanan tidak ada",
+        "description": "Layanan tidak ada atau tidak dapat diakses."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Detail layer",
+    "deselectAnyLayers": "Batalkan pilihan layer yang ingin Anda hapus.",
+    "deselectAll": "Batalkan semua pilihan",
+    "selectAll": "Pilih semua",
+    "error": {
+      "noLayer": {
+        "title": "Tidak ada layer yang dipilih",
+        "description": "Pilih setidaknya 1 layer"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Pilih opsi untuk membuat feature layer kosong.",
+    "subheading": "YANG DILAKUKAN: cantumkan deksripsi di sini.",
+    "options": {
+      "build": {
+        "title": "Tentukan layer Anda sendiri",
+        "description": "Tentukan layer dan tabel."
+      },
+      "template": {
+        "title": "Gunakan template",
+        "description": "Gunakan layer dan kolom dari template."
+      },
+      "existing": {
+        "title": "Pilih feature layer yang ada",
+        "description": "Gunakan layer dan kolom dari feature layer yang ada dalam organisasi Anda."
+      },
+      "link": {
+        "title": "Cantumkan URL layer ArcGIS Server",
+        "description": "Gunakan layer dan kolom dari feature layer ArcGIS Server."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Jenis Kredensial",
+    "redirectUrlsTitle": "Pengalihan URL",
+    "redirectUrlsDescription": "Tambah URL yang diizinkan ke halaman web atau titik akhir server untuk mengalihkan pengguna setelah menyelesaikan autentikasi.",
+    "refererrUrlsTitle": "Perujuk",
+    "refererrUrlsDescription": "Izinkan akses dari domain HTTP/HTTPS tertentu. Nilai tajuk perujuk HTTP yang akan dicocokkan. Anda dapat menggunakan * sebagai wildcard Contoh http://*.your-app.com. Lihat Keamanan dan autentikasi untuk detail selengkapnya.",
+    "oauth2Hint": "OAuth 2.0 dapat digunakan untuk mengautentikasi pengguna ArcGIS untuk mengakses konten dan layanan berbasis lokasi atas nama pengguna yang diautentikasi tersebut. Pelajari lebih lanjut di ${apiLinkStart}panduan keamanan dan autentikasi.${endLink}",
+    "oauth2HintNoLink": "OAuth 2.0 dapat digunakan untuk mengautentikasi pengguna ArcGIS untuk mengakses konten dan layanan berbasis lokasi atas nama pengguna diautentikasi.",
+    "applicationEnvTitle": "Lingkungan aplikasi",
+    "applicationEnvDescription": "Lingkungan aplikasi ini akan berpengaruh saat item muncul di hasil pencarian yang menggunakan filter.",
+    "registering": "Mendaftakan aplikasi...",
+    "applicationEnvOptions": {
+      "multiple": "Ganda",
+      "browser": "Browser",
+      "native": "Asli",
+      "server": "Server"
+    },
+    "options": {
+      "apiKey": {
+        "title": "Kunci API",
+        "description": "Gunakan kunci API untuk mengakses layanan lokasi dan konten premium di aplikasi Anda."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "Definisi aplikasi OAuth 2.0 digunakan untuk mengautentikasi pengguna ArcGIS, bekerja dengan konten pengguna, dan mengakses layanan lokasi atas nama pengguna yang diautentikasi tersebut."
+      }
+    },
+    "onboard": {
+      "title": "Jenis kredensial",
+      "apiKey": {
+        "title": "Kunci API",
+        "description": "Gunakan kunci API untuk mengakses layanan lokasi dan konten premium di aplikasi Anda. Lihat panduan Pemetaan API dan layanan lokasi untuk mempelajari lebih lanjut tentang menggunakan kunci API untuk mengakses layanan."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 dapat digunakan untuk mengautentikasi pengguna ArcGIS untuk mengakses konten dan layanan berbasis lokasi atas nama pengguna yang diautentikasi tersebut. Pelajari selengkapnya di panduan keamanan dan autentikasi."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "Pengalihan URL tidak boleh kosong",
+        "description": "Tambahkan setidaknya satu URL pengalihan."
+      },
+      "referrerEmpty": {
+        "title": "Perujuk URL tidak dapat kosong",
+        "description": "Tambahkan setidaknya satu URL perujuk."
+      },
+      "registerError": {
+        "title": "Kesalahan saat mendaftarkan aplikasi",
+        "description": "Tidak dapat membuat aplikasi yang terdaftar untuk item."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Karakter tidak valid di URL pengalihan",
+        "description": "Karakter berikut tidak dapat digunakan: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Karakter tidak valid di URL pengalihan",
+        "description": "Karakter spesial tidak diperbolehkan."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Layanan lokasi",
+    "description": "Atur jangkauan untuk memberi izin akses ke layanan lokasi ArcGIS tertentu. Pelajari selengkapnya di Keamanan dan autentikasi.",
+    "requiredService": "Layanan yang diperlukan",
+    "availableServices": "Layanan tersedia",
+    "services": {
+      "basemap": {
+        "heading": "Peta Dasar"
+      },
+      "geocodingStored": {
+        "heading": "Geocoding (disimpan)",
+        "description": "Akses layanan geocoding untuk menjalankan geocode maju dan mundur termasuk dukungan untuk saran dan pencarian tempat. Anda bisa memilih untuk menyimpan hasilnya."
+      },
+      "geocodingNotStored": {
+        "heading": "Geocoding (tidak disimpan)",
+        "description": "Akses layanan geocoding untuk menjalankan geocode maju dan mundur termasuk dukungan untuk saran dan pencarian tempat. Anda bisa memilih untuk tidak menyimpan hasilnya."
+      },
+      "optimizedRouting": {
+        "heading": "Perutean yang dioptimalkan",
+        "description": "Akses layanan Perutean untuk menemukan urutan terbaik untuk mengunjungi lokasi."
+      },
+      "closestFacility": {
+        "heading": "Fasilitas terdekat",
+        "description": "Akses layanan Fasilitas Terdekat untuk menemukan satu atau lebih fasilitas yang terdekat dari kejadian berdasarkan waktu atau jarak perjalanan."
+      },
+      "locationAllocation": {
+        "heading": "Alokasi lokasi",
+        "description": "Akses layanan Alokasi Lokasi untuk memilih fasilitas mana dari sekumpulan fasilitas yang akan beroperasi berdasarkan potensi interaksinya dengan titik permintaan."
+      },
+      "multiVehicleRouting": {
+        "heading": "Perutean multi-kendaraan",
+        "description": "Akses layanan Masalah Perutean Kendaraan untuk menentukan perhentian mana yang harus dilayani oleh setiap rute dan dalam urutan apa perhentian tersebut harus dikunjungi."
+      },
+      "costMatrix": {
+        "heading": "Matriks biaya asal/tujuan",
+        "description": "Akses layanan Matriks OD untuk membuat matriks biaya asal/tujuan (OD) dari beberapa asal ke beberapa tujuan."
+      },
+      "geoEnrichment": {
+        "heading": "GeoEnrichment",
+        "description": "Akses layanan GeoEnrichment untuk mendapatkan atribut, laporanm dan Infografis berbasis data yang menggambarkan demografi, bisnis, dan karakteristik berbasis lokasi lainnya untuk wilayah dan lokasi studi."
+      },
+      "routing": {
+        "heading": "Perutean",
+        "description": "Akses layanan Perutean untuk menemukan jalan terbaik untuk berangkat dari satu lokasi ke lokasi lainnya atau untuk mengunjungi beberapa lokasi."
+      },
+      "serviceArea": {
+        "heading": "Area layanan",
+        "description": "Akses layanan Area Layanan untuk menghasilkan area yang mewakili jarak yang dapat dijangkau saat bepergian dalam jaringan jalan."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Pilih opsi untuk membuat penentu lokasi",
+    "options": {
+      "locator": {
+        "title": "Buat penentu lokasi dari layanan geocode",
+        "description": "Tentukan URL ke layanan geocode ArcGIS Server yang sudah ada."
+      },
+      "locator-view": {
+        "title": "Buat tampilan penentu lokasi dari ArcGIS World Geocoding Service",
+        "description": "Konfigurasikan tampilan Anda agar sesuai dengan jenis lokasi tertentu di dalam suatu negara atau wilayah."
+      }
+    },
+    "url": {
+      "heading": "URL",
+      "description": "Tentukan URL ke layanan geocode"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Jenis tile layer apa yang ingin Anda buat?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Layer tile vektor",
+        "description": "Visualisasi peta cepat menggunakan tile vektor yang digambar sebelumnya yang beradaptasi dengan resolusi perangkat tampilan dan dapat ditata ulang untuk berbagai penggunaan."
+      },
+      "raster": {
+        "title": "Layer tile raster",
+        "description": "Visualisasi peta cepat menggunakan kumpulan tile atau gambar peta yang digambar sebelumnya."
+      },
+      "3dTiles": {
+        "title": "Layer tile 3D",
+        "description": "Visualisasi 3D cepat menggunakan kumpulan data tile 3D mesh."
+      }
+    },
+    "sourceHeading": "Pilih metode untuk membuat tile layer",
+    "sourceOptions": {
+      "existing": {
+        "title": "Telusuri feature layer yang ada",
+        "description": "Pilih feature layer yang di-host dalam konten Anda sebagai sumber untuk tile layer gambar cepat."
+      },
+      "upload": {
+        "title": "Unggah paket tile",
+        "titleRaster": "Unggah paket tile atau definisi layanan",
+        "description": "Unggah paket dari perangkat lokal Anda.",
+        "rasterDescription": "Unggah paket atau file definisi layanan dari perangkat lokal Anda."
+      },
+      "store": {
+        "title": "Pilih kumpulan data di penyimpanan data",
+        "description": "Telusuri konten tile yang berada di penyimpanan data yang terdaftar."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Judul",
+    "titlePlaceholder": "Judul tile layer",
+    "attribution": "Atribusi",
+    "subdomain": "Subdomain",
+    "subDomainPlaceholder": "Misalnya: a, b, c, atau tile1, tile2, tile3",
+    "setTileExtent": "Atur tingkat tile ke tingkat peta saat ini",
+    "setTileExtentTooltip": "URL juga bisa berisi placeholder untuk subdomain tempat tile peta disimpan.",
+    "error": {
+      "title": "Tentukan judul",
+      "attribution": "Tentukan atribusi"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Tidak dapat membuat tile layer",
+        "description": "Tile layer sudah ada untuk feature layer yang dipilih.. Pilih yang lain."
+      },
+      "badRenderer": {
+        "title": "Tidak dapat membuat tile layer",
+        "description": "Feature layer yang dipilih memiliki gaya gambar yang tidak dapat digambar sebagaai tile. Pilih yang lain."
+      },
+      "noLayerSelected": {
+        "title": "Tidak ada layer yang dipilih",
+        "description": "Pilih feature layer untuk melanjutkan."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Pilih opsi untuk membuat scene layer",
+    "options": {
+      "store": {
+        "title": "Pilih kumpulan data di penyimpanan data",
+        "description": "Telusuri konten scene dalam penyimpanan data cloud atau dile yang terdaftar di ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Unggah paket scene",
+        "description": "Unggah paket dari perangkat lokal."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Pilih paket dari perangkat lokal"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Jenis tile layer apa yang ingin Anda buat?",
+    "options": {
+      "vectorTiles": {
+        "title": "Layer tile vektor",
+        "description": "Visualisasi peta cepat menggunakan tile vektor yang digambar sebelumnya yang beradaptasi dengan resolusi perangkat tampilannya dan dapat ditata ulang untuk berbagai penggunaan."
+      },
+      "tiles": {
+        "title": "Layer tile raster",
+        "description": "Visualisasi peta cepat menggunakan kumpulan tile atau gambar peta yang digambar sebelumnya."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Tinjau dan terapkan opsi ke tile layer.",
+    "visibilityRange": "Rentang visibilitas",
+    "visibilityRangeDescription": "Rentang ini akan memengaruhi cara Anda memvisualisasikan tile Anda di peta. Ini dapat diperbarui.",
+    "basemapOption": "Skema tiling",
+    "autoCreateOption": {
+      "title": "Buat tile secara otomatis",
+      "description": "Tile akan dibuat sesuai permintaan sesuai kebutuhan dan disimpan untuk digunakan nanti."
+    },
+    "onlineBasemapOption": {
+      "title": "Peta dasar ArcGIS Online",
+      "description": "Gunakan skema tiling peta dasar ArcGIS Online. Memungkinkan layer Anda untuk ditampilkan dengan peta dasar ArcGIS Online."
+    },
+    "customBasemap": {
+      "title": "Khusus",
+      "description": "Gunakan skema tiling yang sama seperti tile layer atau layer gambar peta yang ada. Memungkinkan layer Anda untuk ditampilkan dengan layer yang dipilih."
+    },
+    "customBasemapUrl": "Tautkan ke tile layer yang ada",
+    "ranges": {
+      "world": "Dunia (1:100.000.000)",
+      "continent": "Benua (1:50.000.000)",
+      "countries": "Negara - Besar (1:25.000.000)",
+      "countriesSmall": "Negara - Kecil (1:12.000.000)",
+      "states": "Negara Bagian/Provinsi (1:6.000.000)",
+      "state": "Negara Bagian/Provinsi (1:3.000.000)",
+      "counties": "Daerah (1:1.500.000)",
+      "county": "Daerah (1:750.000)",
+      "metropolitan": "Area Metropolitan (1:320.000)",
+      "cities": "Kota (1:160.000)",
+      "city": "Kota (1:80.000)",
+      "town": "Kota (1:40.000)",
+      "neighborhood": "Lingkungan (1:20.000)",
+      "streets": "Jalan (1:10.000)",
+      "street": "Jalan (1:5.000)",
+      "buildings": "Gedung (1:2.500)",
+      "building": "Gedung (1:1.250)",
+      "small": "Gedung Kecil (1:800)",
+      "rooms": "Kamar (1:400)",
+      "room": "Kamar (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Kesalahan tile layer",
+      "mapServiceError": "Permintaan untuk mengambil skema tile tidak dapat diselesaikan. Pastikan tile layer ArcGIS aktif dan menanggapi permintaan.",
+      "noTilingSchemeFound": "Tile layer ArcGIS tidak memiliki skema tile yang ditentukan.",
+      "noMatchSpatialRef": "Referensi spasial skema tile harus cocok dengan referensi spasial feature layer.",
+      "noFileSelected": "Anda harus memberikan file skema tile."
+    }
+  },
+  "dataStore": {
+    "header": "Pilih kumpulan data",
+    "fileName": "Nama file",
+    "fileType": "Jenis file",
+    "paginationRange": "${start} - ${end} dari ${total}",
+    "processing": "Membuat daftar konten...",
+    "emptyFolder": "Folder ini kosong.",
+    "error": {
+      "noDatasetErrorHeading": "Tidak ada kumpulan data yang dipilih",
+      "noDatasetErrorDescription": "Pilih kumpulan data untuk melanjutkan",
+      "listing": {
+        "heading": "Tidak dapat membuat daftar konten data store",
+        "description": "Terjadi kesalahan saat mencantumkan konten data store."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Pilih jenis data store yang akan ditambahkan.",
+    "description": "Manfaatkan kerangka kerja tangkas untuk memberikan sinopsis yang kuat",
+    "subOptionsHeading": "Tambahkan koneksi ke data store",
+    "subOptionsCloudDescription": "Pilih jenis lokasi penyimpanan cloud yang akan ditambahkan",
+    "subOptionsDatabaseDescription": "Pilih jenis database yang akan ditambahkan",
+    "databaseDescriptionForOnline": "Sambungkan ke gudang data cloud",
+    "options": {
+      "folder": {
+        "title": "Folder",
+        "description": "Sambungkan ke folder sistem file atau berbagi file"
+      },
+      "database": {
+        "title": "Database",
+        "description": "Sambungkan ke database relasional atau gudang data cloud",
+        "descriptionNoSql": "Sambungkan ke database relasional, database NoSQL, atau gudang data cloud"
+      },
+      "cloud": {
+        "title": "Penyimpanan Cloud",
+        "description": "Sambungkan ke lokasi penyimpanan cloud"
+      },
+      "bdfs": {
+        "title": "Pembagian File Big Data",
+        "description": "Hubungkan ke lokasi yang tersedia untuk situs Server GeoAnalytics Anda"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Koneksi ke database NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Tentukan koneksi atau informasi lokasi untuk mengizinkan situs ArcGIS Server mengakses data.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\\\\\MyFileServer\\\\GlobalData",
+      "heading": "Jalur folder penerbit",
+      "hostname": "Nama host folder penerbit",
+      "hostnameInfo": "Ini diperlukan jika jalur folder penerbit adalah lokasi huruf drive"
+    },
+    "serverFolderPath": {
+      "heading": "Jalur folder server",
+      "sameAsPublisher": "Sama dengan jalur folder penerbit",
+      "newPath": "Jalur baru",
+      "nfsHostAndPath": {
+        "description": "Host dan Jalur NFS",
+        "hostname": "Nama Host NFS:",
+        "sharePath": "Jalur Berbagi NFS:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData or /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Jalur folder penerbit tidak ada",
+        "description": "Anda harus menyediakan jalur folder penerbit untuk penyimpanan data Anda."
+      },
+      "invalidPublisherHostName": {
+        "heading": "Nama host penerbit tidak ada",
+        "description": "Anda harus menyediakan nama host penerbit untuk penyimpanan data Anda"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Jalur folder server penerbit tidak ada",
+        "description": "Anda harus menyediakan jalur folder server untuk penyimpanan data Anda"
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "Nama host NFS dan jalur berbagi NFS tidak ada",
+        "description": "Anda harus menyediakan nama host NFS dan jalur berbagi NFS untuk penyimpanan data Anda"
+      },
+      "invalidNfsHostName": {
+        "heading": "Nama host NFS tidak ada",
+        "description": "Anda harus menyediakan nama host NFS untuk penyimpanan data Anda."
+      },
+      "invalidNfsPath": {
+        "heading": "Jalur berbagi NFS tidak ada",
+        "description": "Anda harus menyediakan jalur berbagi NFS untuk penyimpanan data Anda"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Pilih jenis database.",
+    "options": {
+      "relational": {
+        "title": "Database relasional",
+        "description": "Sambungkan ke database relasional"
+      },
+      "cloudDataWarehouse": {
+        "title": "Gudang data cloud",
+        "description": "Sambungkan ke gudang data cloud"
+      },
+      "nosql": {
+        "title": "Database NoSQL",
+        "description": "Sambungkan ke database NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Tentukan koneksi atau informasi lokasi untuk mengizinkan situs ArcGIS Server mengakses data.",
+    "publisherDatabaseConnection": "Koneksi database penerbit",
+    "serverDatabaseConnection": "Koneksi database server",
+    "sameAsPublisher": "Sama dengan koneksi database penerbit",
+    "newConnection": "Koneksi baru",
+    "sdeFile": "(file .sde)",
+    "dragAndDropOrSelectFile": "Seret dan letakkan atau pilih file .sde Anda",
+    "selectFile": "Pilih File",
+    "chooseDifferentFile": "Pilih file yang berbeda",
+    "importingConnectionFile": "Mengimpor file koneksi...",
+    "fileChosen": "File dipilih",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Sambungkan ke Google BigQuery"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Sambungkan ke Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Sambungkan ke Amazon S3"
+      },
+      "azure": {
+        "title": "Penyimpanan Microsoft Azure",
+        "description": "Sambungkan ke Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "Portal Anda tidak dikonfigurasikan dengan server yang di-host, yang diperlukan untuk menyelesaikan pembuatan penyimpanan data Anda. Periksa konfigurasi server hosting Anda dan coba lagi.",
+      "invalidPublisherConnectionFile": {
+        "heading": "File koneksi penerbit tidak ada",
+        "description": "Anda harus memberikan file koneksi penerbit untuk penyimpanan data Anda."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "File koneksi server tidak ada",
+        "description": "Anda harus memberikan file koneksi server untuk penyimpanan data Anda."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Server",
+    "authenticationType": "Jenis autentikasi",
+    "userAuthentication": "Autentikasi pengguna",
+    "serviceAuthentication": "Autentikasi layanan",
+    "refreshToken": "Token muat ulang",
+    "keyFile": "File kunci",
+    "projectId": "ID proyek",
+    "defaultDataset": "Kumpulan data default",
+    "username": "Nama Pengguna",
+    "password": "Kata Sandi",
+    "role": "Peran",
+    "database": "Database",
+    "schema": "Skema",
+    "warehouse": "Gudang",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Gunakan file .json",
+    "notJson": "Satu-satunya jenis file yang diterima adalah file .json",
+    "dataStoreConnection": "Koneksi data store",
+    "validating": "Memvalidasi koneksi...",
+    "selectKeyFile": "Pilih file kunci",
+    "errors": {
+      "validationFailedTitle": "Validasi gagal",
+      "validationFailedDescription": "Validasi kredensial gagal. Pastikan Anda memberikan informasi yang benar dan coba lagi.",
+      "incorrectLogin": "Kredensial yang Anda berikan salah atau tidak valid.",
+      "noKeyFile": "File kunci adalah bidang yang wajib diisi.",
+      "noProjectId": "Id proyek adalah bidang yang wajib diisi.",
+      "noServer": "Server adalah bidang yang wajib diisi.",
+      "noDatabase": "Database adalah bidang yang wajib diisi.",
+      "noSchema": "Skema adalah bidang yang wajib diisi.",
+      "noWarehouse": "Gudang adalah bidang yang wajib diisi.",
+      "noRole": "Peran adalah bidang yang wajib diisi."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Tentukan jenis pembagian file big data yang akan ditambahkan ke Server GeoAnalytics.",
+    "locationInfo": "Tentukan informasi lokasi untuk mengizinkan GeoAnalytics Server mengakses data.",
+    "username": "Nama Pengguna",
+    "useKerberos": "Gunakan Kerberos",
+    "keytabLocations": "Lokasi Keytab",
+    "principalUser": "Pengguna utama",
+    "principalRealm": "Bidang utama",
+    "cloudSelectType": "Pilih jenis data store yang akan ditambahkan.",
+    "cloudSelectProvider": "Pilih penyedia penyimpanan cloud.",
+    "cloudTypes": {
+      "new": "Baru",
+      "existing": "Yang Ada"
+    },
+    "cloudSearch": "Pilih data store cloud yang sudah ada:",
+    "cloudSearchPlaceholder": "Ketik untuk mencari penyimpanan data",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Penyimpanan Microsoft Azure",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2"
+    },
+    "database": {
+      "heading": "Database",
+      "nonDefault": {
+        "description": "Gunakan database selain default (nama database default)",
+        "placeholder": "default"
+      }
+    },
+    "metastoreUri": {
+      "heading": "URI Metastore",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Jalur",
+      "filesharePlaceholder": "\\\\\\\\MyFileServer\\\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Pembagian File",
+        "description": "Direktori set data di disk lokal atau pembagian jaringan"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Set data direktori Sistem File Terdistribusi Hadoop (HDFS)"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Gudang data Apache Hive"
+      },
+      "cloud": {
+        "title": "Penyimpanan Cloud",
+        "description": "Sambungkan ke lokasi penyimpanan cloud"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Tidak ada jenis pembagian file big data yang dipilih",
+        "description": "Pilih jenis berbagi file data besar untuk melanjutkan."
+      },
+      "noPathSelected": {
+        "heading": "Jalur tidak ada",
+        "description": "Anda harus menyediakan jalur untuk data store Anda."
+      },
+      "noMetastoreUri": {
+        "heading": "URI Metastore tidak ada",
+        "description": "Anda harus menyediakan setidaknya satu URI metastore."
+      },
+      "noDataStoreSelected": {
+        "heading": "Tidak ada penyimpanan data yang dipilih",
+        "description": "Pilih data store untuk melanjutkan."
+      },
+      "noCloudSelected": {
+        "heading": "Tidak ada penyedia penyimpanan cloud yang dipilih",
+        "description": "Pilih penyedia cloud untuk melanjutkan."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Pilih penyedia penyimpanan cloud.",
+    "connectionInfoEnterprise": "Tentukan koneksi atau informasi lokasi untuk mengizinkan situs ArcGIS Server mengakses data.",
+    "connectionInfoOnline": "Tentukan informasi koneksi",
+    "provider": "Penyedia penyimpanan cloud",
+    "authenticationType": "Jenis autentikasi",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Kunci yang Dibagi",
+      "sasToken": "Tanda Tangan Akses Bersama",
+      "anonymous": "Anonim"
+    },
+    "identityType": "Jenis identitas",
+    "identityTypes": {
+      "servicePrincipal": "Kepala layanan",
+      "userAssignedIdentity": "Identitas terkelola yang ditetapkan pengguna"
+    },
+    "token": "Token",
+    "tenantId": "Id Penyewa",
+    "clientId": "Id Klien",
+    "optionalClientId": "Id Klien (opsional)",
+    "clientSecret": "Rahasia klien",
+    "accountName": "Nama akun",
+    "accountKey": "Kunci akun",
+    "environment": "Environment",
+    "storageDomain": "Domain penyimpanan",
+    "other": "Lainnya",
+    "endpoint": "Titik akhir",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net atau DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Nama container",
+    "credentialType": "Jenis kredensial",
+    "accessKey": "Kunci akses",
+    "secretKey": "Kunci rahasia",
+    "sharedKey": "Kunci yang dibagi",
+    "region": "Wilayah",
+    "bucketName": "Nama keranjang",
+    "cloudFolder": "Folder (Opsional)",
+    "validating": "Memvalidasi koneksi...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Penyimpanan Cloud Google",
+      "azure": "Penyimpanan Microsoft Azure",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+      "alibaba": "Penyimpanan Cloud Alibaba"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Tidak ada penyedia penyimpanan cloud yang dipilih",
+        "description": "Pilih penyedia cloud untuk melanjutkan."
+      },
+      "onlineValidationFailed": {
+        "heading": "Kesalahan koneksi",
+        "description": "Koneksi tidak dapat divalidasi, periksa keakuratan informasi."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Kunci akses",
+      "privateKey": "Kunci Pribadi",
+      "IAMRole": "Peran IAM"
+    },
+    "custom": "Khusus",
+    "storageURL": "URL Pribadi",
+    "cloudFolderPlaceHolder": "cloud/arcgis",
+    "errorInfo": "${missingField} diperlukan",
+    "invalidEndpoint": "Titik akhir harus menggunakan https",
+    "and": "dan"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Pilih penyedia penyimpanan NoSQL.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Penyedia",
+    "errorMessage": "Kolom berikut memiliki kesalahan: ${missingFields}",
+    "connectionUri": "URI Koneksi",
+    "username": "Nama Pengguna",
+    "password": "Kata Sandi",
+    "database": "Database",
+    "credentialDescription": "Tentukan informasi koneksi NoSQL untuk mengizinkan situs ArcGIS Server mengakses data.",
+    "connectionUriExample": "Contoh: protocol://nama host:port",
+    "fallBackServers": "Server Fallback (Opsional)",
+    "fallBackServersExample": "Contoh: nama host1:port1,nama host2:port2",
+    "and": "dan",
+    "error": "Kesalahan",
+    "hosts": "Host",
+    "useSsl": "Gunakan SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Konfigurasi server",
+      "subHeading": "Pilih situs ArcGIS Server tempat Anda ingin layer tersebut diterbitkan."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Pilih situs ArcGIS Server tempat Anda ingin menambahkan data store Anda.",
+      "bdfsHeading": "Berbagi file big data Anda akan ditambahkan ke situs ArcGIS GeoAnalytics Server.",
+      "subHeading": "Situs harus memiliki akses ke koneksi atau lokasi yang Anda tentukan di langkah sebelumnya.",
+      "noServerSelected": {
+        "heading": "Tidak ada server yang dipilih",
+        "description": "Pilih setidaknya satu server untuk melanjutkan."
+      }
+    },
+    "list": {
+      "title": "Server",
+      "status": "Status"
+    },
+    "status": {
+      "success": "Normal",
+      "failure": "Tidak Tersedia",
+      "error": "Kesalahan",
+      "validating": "Memvalidasi"
+    },
+    "loader": {
+      "validating": "Memvalidasi server..."
+    },
+    "error": {
+      "noServerSelectedHeading": "Tidak ada server yang dipilih",
+      "noServerSelectedDescription": "Pilih server untuk melanjutkan."
+    },
+    "types": {
+      "hostedSetting": "Server Hosting",
+      "notebookServerSetting": "Server Notebook",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Analisis Raster",
+      "imageHostingSetting": "Hosting Gambar",
+      "missionServerSetting": "Server Misi"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Cari penyimpanan data",
+    "heading": "Pilih penyimpanan data",
+    "subHeading": "Telusuri penyimpanan data cloud atau file yang terdaftar di ArcGIS Enterprise.",
+    "cloud": "Cloud",
+    "folder": "Folder",
+    "processing": "Mengambil penyimpanan data...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Tidak ada penyimpanan data yang dipilih",
+        "description": "Anda harus memilih minimal satu penyimpanan data"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Tidak ada server yang terdaftar untuk penyimpanan data",
+        "description": "Penyimpanan data yang dipilih tidak terdaftar di situs ArcGIS Server. Daftarkan ke situs untuk melanjutkan."
+      },
+      "noContentInDataStore": {
+        "heading": "Tidak ada kumpulan data yang valid di penyimpanan data",
+        "description": "Penyimpanan data yang dipilih tidak berisi kumpulan data yang valid untuk diterbitkan."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Std",
+    "errorDescription": "Terjadi kesalahan saat menambahkan item ini.",
+    "alreadyExists": {
+      "title": "File yang ada",
+      "description": "File bernama \"${fileName}\" sudah ada di folder ini. Ubah folder atau ganti nama file dan coba lagi.",
+      "linkText": "Tampilkan item yang sudah ada"
+    },
+    "arcgisServerUpload": {
+      "title": "Tidak dapat menerbitkan item",
+      "description": "File definisi layanan ini dibuat untuk situs ArcGIS Server dan harus diunggah ke ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Shapefile tidak valid",
+      "description": "File yang diunggah tidak berisi shapefile."
+    },
+    "invalidGeodatabase": {
+      "title": "Geodatabase tidak valid",
+      "description": "File yang diunggah tidak berisi file geodatabase."
+    },
+    "serviceNameExists": {
+      "title": "Nama layanan tidak tersedia",
+      "description": "Layanan yang diterbitkan dengan nama sudah ada dengan organisasi. Nama layanan harus unik di seluruh organisasi. Gunakan nama yang berbeda."
+    },
+    "invalidGeoJSON": {
+      "title": "GeoJSON tidak valid",
+      "description": "File JSON yang Anda unggah bukan GeoJSON yang valid ('jenis' yang hilang)."
+    },
+    "invalidJSON": {
+      "title": "JSON tidak valid",
+      "description": "File JSON yang Anda unggah bukan JSON yang valid."
+    },
+    "failDatastorePublish": {
+      "title": "Tidak dapat menerbitkan dari penyimpanan data",
+      "description": "Gagal menerbitkan ${type}, lihat log server untuk detail lebih lanjut.",
+      "tileLayer": "tile layer",
+      "sceneLayer": "scene layer"
+    },
+    "invalidSpatialRef": {
+      "title": "Referensi spasial tidak valid",
+      "description": "Layanan ini memiliki referensi spasial yang tidak kompatibel"
+    },
+    "uploading": "Mengunggah ${type}...",
+    "adding": "Menambahkan ${type}...",
+    "addDataStore": "Menambahkan Penyimpanan Data ${type}...",
+    "creating": "Membuat ${type}...",
+    "publishing": "Menerbitkan ${type}...",
+    "checkingStatus": "Memeriksa status...",
+    "publishingService": "Menerbitkan layanan...",
+    "appendingPhotos": "Mengunggah foto...",
+    "errorPublishing": "Terjadi kesalahan saat menerbitkan layanan ini.",
+    "howWillAdd": "Bagaimana penambahan ${fileName}?",
+    "howWillAddService": "Bagaimana cara layanan ditambahkan?",
+    "howWillAddDescription": "File ini akan digunakan untuk membuat item ${type}.",
+    "howWillAddSecuredServiceDescription": "Layanan ini akan digunakan untuk membuat proksi item ArcGIS, yang meneruskan permintaan pengguna dengan token yang ditambahkan.",
+    "howWillAddHostedDescription": "File ini akan digunakan untuk membuat feature layer atau tabel yang di-hosting.",
+    "item": "Item",
+    "folder": "Folder",
+    "database": "Database",
+    "amazon": "Amazon S3",
+    "google": "Cloud Google",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+    "alibaba": "Cloud Alibaba",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Tampilkan tips untuk menambahkan konten",
+    "title": "Tips untuk menambahkan konten",
+    "addDocumentTitle": "Tambahkan dokumen, gambar, dan file lain",
+    "addDocumentContent": "Tarik dan lepaskan file PDF, gambar, dokumen Office, dan banyak lagi.",
+    "publishLayerTitle": "Terbitkan layer dari shapefile, CSV, dan spreadsheet",
+    "publishLayerContent": "Ubah file di perangkat atau cloud drive Anda menjadi layer yang dapat Anda tambahkan ke peta.",
+    "publishLayerEnterprise": "Ubah file menjadi layer yang dapat ditambahkan ke peta Anda",
+    "linkLayerTitle": "Tautkan ke layer di web",
+    "linkLayerContent": "Buat layer dari URL yang mereferensikan ArcGIS Server, layanan OGC, dan KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "paket tile",
+      "Vector Tile Package": "paket vector tile",
+      "Service Definition": "definisi layanan",
+      "Scene Package": "paket layer scene",
+      "Desktop Application Template": "template aplikasi desktop",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefile",
+      "File Geodatabase": "file geodatabase",
+      "Map Template": "template peta",
+      "Geoprocessing Sample": "sampel geoprocessing",
+      "Code Sample": "sampel kode",
+      "ArcPad Package": "paket ArcPad",
+      "CAD Drawing": "Gambar CAD",
+      "CSV Collection": "koleksi CSV",
+      "KML Collection": "koleksi KML",
+      "AppBuilder Widget Package": "paket widget AppBuilder",
+      "Photos with Locations": "foto dengan lokasi",
+      "Image Collection": "kumpulan citra",
+      "iWork Pages": "iWork Halaman",
+      "iWork Numbers": "iWork Angka",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "paket deep learning",
+      "GML": "GML",
+      "Application": "aplikasi",
+      "Google Sheets": "Google Spreadsheet",
+      "GeoPackage": "GeoPackage",
+      "Tile Layer": "tile layer",
+      "OGCFeatureServer": "layer fitur OGC",
+      "FeatureServer": "feature service",
+      "3DTiles Package": "Paket tile 3D"
+    },
+    "mvText": {
+      "WMTS": "Layanan web WMTS OGC",
+      "WMS": "Layanan web WMS OGC",
+      "WFS": "Layanan web WFS OGC",
+      "AGS": "Layanan web ArcGIS Server",
+      "OGCFeatureServer": "OGC API - Fitur"
+    },
+    "howToAdd": "Bagaimana cara Anda menambahkan file ini?",
+    "nonHostedTitle": "Hanya tambahkan ${fileName}",
+    "nonHostedDescription": "Tambahkan ${type} tanpa menerbitkan. File dapat dibagikan dan diunduh oleh orang lain atau diterbitkan di kemudian hari."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Kesalahan saat menganalisis file",
+      "description": "Terjadi kesalahan saat mencoba menganalisis file Anda. Pastikan file Anda diformat dengan benar.",
+      "alreadyExists": {
+        "title": "File yang ada",
+        "desciption": "File bernama \"${fileName}\" sudah ada di folder ini. Ubah nama file dan coba lagi.",
+        "linkText": "Tampilkan item yang sudah ada"
+      },
+      "duplicateFields": {
+        "title": "Nama kolom duplikat",
+        "description": "Nama kolom duplikat tidak diizinkan."
+      },
+      "emptyFile": "File yang diunggah tidak berisi data.",
+      "missingGeocoder": {
+        "title": "Penentu lokasi tidak tersedia",
+        "descriptionn": "Penentu lokasi default tidak tersedia. Hubungi administrator Anda untuk meninjau pengaturan Geocoding organisasi Anda."
+      }
+    },
+    "publishThisSheet": "Terbitkan lembar ini:",
+    "largeGeoJsonTitle": "GeoJSON besar",
+    "largeGeoJsonDescription": "GeoJSON ini berisi data dalam jumlah besar, pertimbangkan untuk menerbitkannya sebagai feature layer yang di-host untuk mendapatkan hasil terbaik.",
+    "largeGeoJsonConditionDescription": "Jika GeoJSON berisi data dalam jumlah besar, buat feature layer yang di-hosting untuk hasil terbaik.",
+    "bigGeoJsonHint": "Data ini hanya bisa ditambahkan ke peta sebagai feature layer yang di-hosting untuk performa terbaik.",
+    "bigGeoJsonHintNoPrivilege": "Data ini terlalu besar untuk ditambahkan ke peta. Data ini sebaiknya diterbitkan sebagai feature layer yang di-hosting.",
+    "bigGeoJsonHintPublicAccount": "Data ini terlalu besar untuk ditambahkan ke peta. Data ini sebaiknya diterbitkan sebagai feature layer yang di-hosting. Tingkatkan ke langganan ArcGIS Online untuk menerbitkan data yang lebih besar sebagai layer yang di-hosting.",
+    "uploading": "Mengunggah ${item}...",
+    "analyze": "Menganalisis ${fileName}...",
+    "checkingStatus": "Memeriksa status...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Tambahkan data dan buat feature layer yang di-hosting",
+        "description": "Terbitkan file GeoJSON sebagai feature layer yang di-hosting"
+      },
+      "nonHosted": {
+        "title": "Tambahkan data saja",
+        "description": "Impor file GeoJSON tanpa menerbitkan. File dapat dibagikan atau diunduh oleh orang lain atau diterbitkan di kemudian hari."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Jenis layer"
+    },
+    "hostedTitle": {
+      "CSV": "Tambahkan ${fileName} dan buat feature layer atau tabel yang di-host",
+      "CSVNoTable": "Tambahkan ${fileName} dan buat feature layer yang di-host",
+      "GeoPackage": "Tambahkan ${fileName} dan buat feature layer yang di-host",
+      "GeoJson": "Tambahkan ${fileName} dan buat feature layer yang di-host",
+      "JSON": "Tambahkan ${fileName} dan buat feature layer yang di-host",
+      "Tile Package": "Tambahkan ${fileName} dan buat layer yang di-host",
+      "Vector Tile Package": "Tambahkan ${fileName} dan buat layer ubin yang di-host",
+      "Service Definition": "Tambahkan ${fileName} dan buat layer yang di-host",
+      "Scene Package": "Tambahkan ${fileName} dan buat layer scene yang di-host",
+      "Image Collection": "Tambahkan ${fileName} dan buat layer citra yang di-host",
+      "Desktop Application Template": "Tambahkan ${fileName} dan buat feature layer yang di-host",
+      "Microsoft Excel": "Tambahkan ${fileName} dan buat feature layer atau tabel yang di-host",
+      "Google Sheets": "Tambahkan ${fileName} dan buat feature layer atau tabel yang di-host",
+      "3DTiles Package": "Tambahkan ${fileName} dan buat layer tile 3D yang dihosting"
+    },
+    "hostedDescription": {
+      "CSV": "File CSV dengan informasi lokasi adalah sumber data untuk feature layer yang di-host yang menampilkan titik di peta. File CSV tanpa informasi lokasi menampilkan tabel yang dapat dilihat, dipetakan, dan digabungkan dengan layer lain.",
+      "GeoPackage": "GeoPackage dengan informasi lokasi adalah sumber untuk layer yang di-host yang ditampilkan sebagai titik di peta. GeoPackage tanpa informasi lokasi ditampilkan sebagai tabel yang dapat dilihat, dipetakan, dan digabungkan dengan layer lain.",
+      "GeoJson": "Terbitkan file GeoJSON sebagai feature layer yang di-host. Fitur diterbitkan dalam sistem koordinat Web Mercator 1984 WGS.",
+      "JSON": "Terbitkan file JSON Anda sebagai feature layer yang di-host. Fitur diterbitkan dalam sistem koordinat Web Mercator 1984 WGS.",
+      "tile package": "Terbitkan paket tile raster Anda sebagai layer yang di-host.",
+      "vector tile package": "Terbitkan paket ubin vektor sebagai layer ubin yang di-host.",
+      "Service Definition": "Terbitkan file definisi layanan sebagai layer yang di-host. Jenis layer yang dipublikasikan tergantung konten file SD Anda.",
+      "Scene Package": "Terbitkan paket layer scene Anda sebagai layer scene yang di-host.",
+      "Image Collection": "Terbitkan file ZIP kumpulan gambar sebagai layer citra yang di-host.",
+      "Desktop Application Template": "Terbitkan template aplikasi desktop (ZIP) sebagai feature layer yang di-host. Template aplikasi desktop yang berisi informasi lokasi adalah sumber data untuk feature layer yang di-host yang menampilkan titik pada peta. Template aplikasi desktop tanpa informasi lokasi menampilkan tabel yang dapat dilihat, dipetakan, dan digabungkan dengan layer lain.",
+      "Microsoft Excel": "Terbitkan feature layer yang di-host di spreadsheet Anda. Spreadsheet tanpa informasi lokasi akan ditampilkan sebagai tabel yang dapat dilihat, dipetakan, dan digabungkan dengan layer lain.",
+      "Google Sheets": "Terbitkan feature layer yang di-host di spreadsheet Anda. Spreadsheet tanpa informasi lokasi akan ditampilkan sebagai tabel yang dapat dilihat, dipetakan, dan digabungkan dengan layer lain.",
+      "3DTiles Package": "Publikasikan paket tile 3D Anda sebagai layer tile 3D yang dihosting."
+    },
+    "addDirectlyTitle": "Unggah file sebagai satu item dan tambahkan ke peta",
+    "addDirectlyUrlTitle": "Rujuk file dari URL dan tambahkan ke peta",
+    "addDirectlyDescription": "Tambahkan data tanpa membuat feture layer yang di-hosting Cocok untuk set data yang lebih kecil, dikelola secara eksternal yang tidak memerlukan fitur seperti pengeditan.",
+    "addDirectlyUrlDescription": "Tambahkan data tanpa membuat feature layer yang di-hosting. Cocok untuk set data yang lebih kecil yang tidak memerlukan fitur seperti pengeditan. Data dimuat setiap peta dibuka.",
+    "hostedMVTitle": "Buat feature layer yang di-hosting dan tambahkan ke peta",
+    "hostedMVDescription": "Manfaatkan semua kempuan yang disediakan feature layer, termasuk pengeditan. Kelola seluruh data dengan ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "File",
+    "itemType": "Jenis file",
+    "language": "Bahasa",
+    "other": "Lainnya",
+    "hosted": {
+      "heading": "Tambahkan ${fileName} dan buat feature layer yang di-host",
+      "description": "Tambahkan ${type} dan terbitkan sebagai feature layer yang di-host yang dapat ditambahkan ke peta."
+    },
+    "type": "Jenis",
+    "ArcPad": {
+      "project": "ArcPad Project",
+      "template": "ArcPad Template"
+    },
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Format penyimpanan data vektor untuk menyimpan lokasi, bentuk, dan atribut fitur geografis. Shapefile yang disimpan dalam kumpulan file terkait dan berisi satu kelas fitur."
+    },
+    "File Geodatabase": {
+      "title": "Geodatabase file",
+      "description": "Kumpulan file dalam folder yang digunakan untuk menyimpan, mengkueri, dan mengelola data spasial dan nonspasial."
+    },
+    "Desktop Application Template": {
+      "title": "Template aplikasi desktop",
+      "description": "Kode aplikasi, file, dan data yang akan disebarkan di desktop untuk digunakan dengan ArcGIS."
+    },
+    "Map Template": {
+      "title": "Template peta",
+      "description": "Template peta adalah dokumen peta (.mxd) yang bisa dijadikan dokumen baru di ArcMap."
+    },
+    "Geoprocessing Sample": {
+      "title": "Sampel geoprocessing",
+      "description": "Koleksi kotak alat, skrip, model, data, dan file tambahan yang digunakan untuk menjalankan alat geoprocessing di ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Sampel Kode",
+      "description": "Sampel kode yang dapat dibagikan dalam berbagai bahasa, misalnya Java atau C++."
+    },
+    "ArcPad Package": {
+      "title": "Paket ArcPad",
+      "description": "File paket ArcPad yang dibuat melalui ArcPad Data Manager."
+    },
+    "CAD Drawing": {
+      "title": "Gambar CAD",
+      "description": "File desain dengan bantuan komputer yang dibuat oleh platform AutoCAD atau MicroStation."
+    },
+    "CSV Collection": {
+      "title": "Koleksi CSV",
+      "description": "Koleksi CSV adalah file .zip yang berisi satu file CSV per layer."
+    },
+    "KML Collection": {
+      "title": "Koleksi KML",
+      "description": "Kumpulan KML adalah file .zip yang berisi satu file KML per layer."
+    },
+    "AppBuilder Widget Package": {
+      "title": "Paket widget AppBuilder",
+      "description": "Widget atau tema khusus yang memperluas kemampuan ArcGIS Web AppBuilder"
+    },
+    "Photos with Locations": {
+      "title": "Foto dengan lokasi",
+      "description": "File ZIP yang berisi foto dengan informasi lokasi (foto yang memiliki geotag berisi informasi lokasi EXIF)"
+    },
+    "Image Collection": {
+      "title": "Kumpulan citra",
+      "description": "Koleksi set data raster yang dapat diunduh."
+    },
+    "iWork Pages": {
+      "title": "iWork Halaman",
+      "description": "Format dokumen Apple"
+    },
+    "iWork Numbers": {
+      "title": "iWork Angka",
+      "description": "Format spreadsheet Apple"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Format presentasi Apple"
+    },
+    "Deep Learning Package": {
+      "title": "Paket deep learning",
+      "description": "File dan data yang diperlukan untuk menjalankan alat inferensi deep learning, digunakan sebagai input untuk alat analisis raster deep learning."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geography Markup Language) adalah standar XML OGC untuk mewakili informasi elemen spasial"
+    },
+    "Application": {
+      "title": "Aplikasi",
+      "description": "Aplikasi untuk desktop yang dibuat di platform desktop, seperti Java atau .NET (Microsoft Windows Desktop)>"
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Pilih layer yang akan ditambahkan",
+    "selectTile": "Ubin matriks",
+    "featureType": "Jenis fitur yang akan ditampilkan",
+    "matrixNotSelected": "Pilih matriks petak untuk layanan.",
+    "selectGeometry": "Pilih tipe",
+    "selectGeometryError": "Pilih jenis fitur yang akan ditampilkan.",
+    "points": "Poin",
+    "lines": "Garis",
+    "polygons": "Polygon",
+    "default": "default",
+    "maxFeature": "Batas fitur maks",
+    "layers": "layer",
+    "usePro": "Set data ini memiliki lebih dari 1000 layer. Masukkan istilah pencarian untuk menemukan layer tertentu.",
+    "noLayersFound": "Tidak ditemukan layer yang memenuhi kriteria Anda. Cobalah mengubah istilah pencarian untuk menampilkan lebih banyak layer."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Aplikasi",
+      "description": "Tambahkan referensi URL ke aplikasi yang ada untuk membagikan pekerjaan Anda dengan anggota organisasi dan publik."
+    },
+    "AGS": {
+      "title": "Layanan web ArcGIS Server",
+      "description": "Layanan web ArcGIS Server mewakili sumber daya GIS, seperti peta atau gambar, yang terletak di situs ArcGIS Server dan tersedia untuk aplikasi klien seperti Map Viewer."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "File teks nilai terpisah koma."
+    },
+    "Document Link": {
+      "title": "Dokumen",
+      "description": "Buat tautan ke dokumen online yang direferensikan dengan URL."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Format pertukaran data geospsial standar terbuka yang menggambarkan fitur geografis sederhana."
+    },
+    "Tile Layer": {
+      "title": "Tile Layer",
+      "description": "Set tile gambar peta, tempat URL yang sudah diformat menyediakan tempat teks level, kolom, dan baris dan subdomain opsional: https://domain.com/<path>/{z}{x}{y}.png and https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML adalah format file berbasis XML yang digunakan untuk mewakili fitur geografis dalam aplikasi seperti ArcGIS Earth dan Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "layer fitur OGC",
+      "description": "Layer fitur OGC adalah layanan fitur yang mengikuti OGC API – Spesifikasi fitur."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "Web Feature Service (WFS) OGC adalah feature service dinamis yang mengikuti spesifikasi OGC."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "Web Map Service (WMS) OGC adalah layanan peta dinamis yang mengikuti spesifikasi OGC."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "Web Map Tile Service (WMTS) OGC adalah kumpulan ubin gambar cache yang mengikuti spesifikasi OGC. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Feed web langsung yang melingkupi fitur dan lokasi geografis."
+    },
+    "useAsBaseMap": "Gunakan sebagai peta dasar",
+    "undetected": "Pilih jenis layer",
+    "label": "Jenis",
+    "storeAuth": "Simpan kredensial dengan item layanan. Jangan meminta autentikasi.",
+    "storeAuthMV": "Simpan kredensial dengan layer. Jangan meminta autentikasi.",
+    "learnMore": "Pelajari selengkapnya tentang autentikasi.",
+    "isSecure": "Layanan yang aman terdeteksi.",
+    "serviceNotExist": "Layanan tidak ada atau tidak dapat diakses.",
+    "getServiceInfo": "Mengambil Info Layanan...",
+    "unknownAGSType": "Tipe layanan ini tidak didukung.",
+    "errorMessage": "Kesalahan saat menghubungkan ke layanan.",
+    "serviceNotGIS": "URL yang dimasukkan tidak mengarah ke Layanan GIS.",
+    "unsupportedWFSVersion": "Versi WFS ini tidak didukung.",
+    "unsupportedWFSGeoJSONOutputFormat": "Layanan WFS tidak mendukung format output GeoJSON.",
+    "invalidWMTS": "WMTS ini tidak didukung",
+    "flowAborted": "Kesalahan saat menghubungkan ke layanan. Layanan ini diamankan dan memerlukan autentikasi.",
+    "invalidSpatialRef": "Layanan ini memiliki referensi spasial yang tidak kompatibel",
+    "emptyFeatureLayer": "Layanan ini kosong"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Jalur Tanggal Barat Internasional",
+      "110": "(UTC-11:00) Waktu Universal yang Dikoordinasi -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Hawaii",
+      "300": "(UTC-09:00) Alaska",
+      "400": "(UTC-08:00) Waktu Pasifik (AS dan Kanada)",
+      "410": "(UTC-08:00) Baja California",
+      "500": "(UTC-07:00) Waktu Mountain (AS dan Kanada)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) Amerika Tengah",
+      "620": "(UTC-06:00) Waktu Bagian Tengah (AS dan Kanada)",
+      "630": "(UTC-06:00) Guadalajara, Mexico City, Monterrey",
+      "700": "(UTC-05:00) Waktu Bagian Timur (AS dan Kanada)",
+      "710": "(UTC-05:00) Bogota, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (Timur)",
+      "730": "(UTC-04.30) Caracas",
+      "800": "(UTC-04:00) Waktu Atlantik (Kanada)",
+      "810": "(UTC-04:00) Cuiaba",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Asuncion",
+      "900": "(UTC-03:30) Newfoundland",
+      "910": "(UTC-03:00) Brasilia",
+      "920": "(UTC-03:00) Greenland",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Cayenne, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Atlantik Tengah",
+      "1010": "(UTC-02:00) Waktu Universal yang Dikoordinasi -02",
+      "1100": "(UTC-01:00) Azores",
+      "1110": "(UTC-01:00) Cabo Verde Is.",
+      "1200": "(UTC) Dublin, Edinburgh, Lisbon, London",
+      "1210": "(UTC) Monrovia, Reykjavik",
+      "1220": "(UTC) Casablanca",
+      "1230": "(UTC) Waktu Universal yang Dikoordinasi",
+      "1300": "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Praha",
+      "1310": "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+      "1320": "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
+      "1330": "(UTC+01:00) Afrika Barat bagian Tengah",
+      "1340": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Wina",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) Kairo",
+      "1420": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
+      "1430": "(UTC+02:00) Atena, Bukares",
+      "1440": "(UTC+02:00) Yerusalem",
+      "1450": "(UTC+02:00) Amman",
+      "1460": "(UTC+02:00) Beirut",
+      "1470": "(UTC+02:00) Harare, Pretoria",
+      "1480": "(UTC+02:00) Damaskus",
+      "1490": "(UTC+02:00) Istambul",
+      "1500": "(UTC+03:00) Kuwait, Riyadh",
+      "1510": "(UTC+03:00) Baghdad",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaliningrad",
+      "1535": "(UTC+03:30) Teheran",
+      "1540": "(UTC+04:00) Moscow, St. Petersburg, Volgograd",
+      "1600": "(UTC+04:00) Abu Dhabi, Muscat",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Yerevan",
+      "1640": "(UTC+04:00) Tbilisi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Kabul",
+      "1710": "(UTC+05:00) Tashkent",
+      "1715": "(UTC+05:00) Islamabad, Karachi",
+      "1720": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+      "1730": "(UTC+05:30) Sri Jayawardenepura",
+      "1740": "(UTC+05:45) Kathmandu",
+      "1755": "(UTC+06:00) Ekaterinburg",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Dhaka",
+      "1820": "(UTC+06:30) Yangon (Rangoon)",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
+      "1910": "(UTC+08:00) Krasnoyarsk",
+      "2000": "(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapura",
+      "2030": "(UTC+08:00) Taipei",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulaanbaatar",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Seoul",
+      "2110": "(UTC+09:00) Osaka, Sapporo, Tokyo",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaide",
+      "2150": "(UTC+10:00) Yakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC+11:00) Kepulauan Solomon, Kaledonia Baru",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fiji",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Waktu Universal yang Dikoordinasi +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Tentukan zona waktu",
+    "title": "Zona waktu",
+    "subTitle": "Pilih zona waktu tempat data Anda berada."
+  },
+  "hybridImageSelect": {
+    "heading": "Jenis layer mana yang ingin Anda tambahkan?",
+    "ImageServer": {
+      "title": "Layer citra dinamis",
+      "description": "Tambahkan sebagai layer citra dinamis, yang mendukung pemrosesan dan perenderan sesuai permintaan di sisi server."
+    },
+    "TiledImageServer": {
+      "title": "Layer citra berubin",
+      "description": "Tambahkan sebagai layer citra berubin, yang mendukung proyeksi dan perenderan dari ubin statis di sisi klien."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Buat layer dan lainnya",
+    "developerCredentialsHeading": "Kredensial pengembang",
+    "developerCredentialsDescription": "Buat kredensial kunci API atau OAuth 2.0 untuk mengembangkan aplikasi khusus.",
+    "developerCredentialsNoAPIDescription": "Buat kredensial OAuth 2.0 untuk mengembangkan aplikasi khusus.",
+    "featureLayerHeading": "Feature layer",
+    "featureLayerDescription": "Buat layer yang dapat diedit dengan kolom yang disalin dari template atau feature layer.",
+    "tileLayerHeading": "Tile Layer",
+    "tileLayerDescription": "Buat tile layer vektor gambar cepat atau tile layer raster.",
+    "sceneLayerHeading": "Scene layer",
+    "sceneLayerDescription": "Buat scene layer gambar cepat menggunakan konten 3d.",
+    "imageLayerHeading": "Layer citra",
+    "imageLayerDescription": "Buat layer citra menggunakan citra dari komputer Anda.",
+    "locatorHeading": "Penentu Lokasi",
+    "locatorViewHeading": "Penentu Lokasi (tampilan)",
+    "locatorDescription": "Cari tempat dan alamat menggunakan ArcGIS World Geocoding Service atau layanan geocode Anda sendiri.",
+    "locatorOnlyDescription": "Temukan tempat dan alamat menggunakan layanan geocode Anda sendiri.",
+    "urbanModelHeading": "Model Perkotaan",
+    "urbanModelDescription": "Buat sebuah model untuk pengembangan urban dengan alat perencanaan dan desain interaktif.",
+    "urbanModelPermissionError": "Anda harus memiliki hak istimewa untuk menerbitkan layer fitur yang dihosting untuk membuat model perkotaan. Hubungi Administrator ArcGIS Online Anda untuk mendapatkan bantuan.",
+    "applicationHeading": "Aplikasi",
+    "applicationDescription": "Tautkan ke aplikasi di web atau buat aplikasi terdaftar yang baru.",
+    "urlHeading": "URL",
+    "urlDescription": "Tautkan ke layanan web ArcGIS Server, CSV, layanan web OGC, KML, GeoJSON, atau dokumen.",
+    "urlDescriptionEnterprise": "Tautkan ke layanan web ArcGIS Server, CSV, layanan web OGC, KML, GeoJSON, atau dokumen.",
+    "dataStoreHeading": "Penyimpanan data",
+    "dataStoreConnectionDescription": "Tambahkan koneksi ke penyimpanan data yang Anda miliki.",
+    "dataStoreDescription": "Tambahkan koneksi ke penyimpanan data yang Anda kelola",
+    "rasterFunctionTemplateHeading": "Templat fungsi raster",
+    "rasterFunctionTemplateDescription": "Buat template fungsi raster yang dapat digunakan dengan layer citra dan dalam analisis raster.",
+    "getSubscriptionInfo": "Mengambil informasi berlangganan..."
+  },
+  "url": {
+    "linkExisting": "Tautkan ke layer yang ada atau data di web",
+    "url": "URL",
+    "addUrl": "Tambahkan url",
+    "httpWarning": "Penggunaan URL HTTP tidak didukung. Gunakan HTTPS",
+    "serviceNotExist": "Layanan tidak ada atau tidak dapat diakses.",
+    "invalidUrl": "Masukkan URL yang valid.",
+    "invalidUrlWithType": "Masukkan URL yang valid. Layanan yang didukung adalah ${typeList}",
+    "unknownAGSType": "Tipe layanan ini tidak didukung.",
+    "errorMessage": "Kesalahan saat menghubungkan ke layanan."
+  },
+  "cloud": {
+    "google": "Menghubungkan ke Google Drive...",
+    "dropbox": "Menghubungkan ke Dropbox...",
+    "onedrive": "Menghubungkan ke OneDrive...",
+    "file": "File",
+    "zip": "File Zip",
+    "filterFileType": "Filter berdasarkan jenis file",
+    "selectAFile": "Pilih file",
+    "noResults": "Tidak ditemukan file. Ubah pencarian Anda atau pilih jenis item yang berbeda.",
+    "viewMore": "Tampilan lebih banyak",
+    "errorTitle": "Tidak ada file yang terpilih",
+    "errorMessage": "Pilih file untuk melanjutkan.",
+    "loadingFiles": "Memuat file...",
+    "searchFiles": "Cari file",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "File Zip",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Spreadsheet"
+    },
+    "error": {
+      "generic": {
+        "title": "Kesalahan",
+        "message": "Ada kesalahan."
+      },
+      "popup": {
+        "title": "Popup diblokir",
+        "message": "Tidak dapat terhubung ke akun Drive Cloud Anda. Pastikan Anda menonaktifkan pemblokir popup untuk situs web ini."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Parameter kustom",
+    "parameter": "Parameter",
+    "value": "Nilai",
+    "addParameter": "Tambahkan parameter",
+    "addValue": "Tambahkan nilai",
+    "newCustomParameter": "Tambahkan parameter kustom",
+    "description": "Tambahkan parameter yang harus ditambahkan ke permintaan untuk mengakses layanan ini.",
+    "append": "Hanya tambahkan ke permintaan yang menarik atau mengkueri layer",
+    "remove": "Hapus parameter kustom",
+    "helpText": "Jika layanan web yang Anda rujuk memerlukan parameter tambahan untuk ditambahkan ke permintaan yang dikirim ke layanan, Anda dapat menyertakannya sebagai parameter kustom. Nama dan nilai parameter ditentukan di layanan dan bersifat spesifik untuk layanan tersebut."
+  },
+  "inputReadonly": {
+    "file": "File",
+    "url": "URL",
+    "dataStore": "Koneksi data store"
+  },
+  "layerSearch": {
+    "search": "Cari"
+  },
+  "appendSelect": {
+    "updateLayer": "Perbarui layer",
+    "updateData": "Perbaharui data",
+    "chooseUpdate": "Pilih jenis pembaruan yang ingin Anda lakukan",
+    "insertOnlyEnabled": "Feature service ini hanya mendukung penambahan fitur baru",
+    "options": {
+      "add": {
+        "title": "Tambah fitur",
+        "description": "Tambahkan fitur baru ke layer yang ada."
+      },
+      "update": {
+        "title": "Perbarui fitur",
+        "description": "Perbarui fitur yang ada di layer."
+      },
+      "upsert": {
+        "title": "Menambah dan memperbarui fitur",
+        "description": "Tambahkan fitur baru ke layer dan perbarui fitur yang ada secara bersamaan."
+      },
+      "overwrite": {
+        "title": "Timpa seluruh feature layer",
+        "description": "Timpa seluruh layer dengan data sumber yang diperbarui."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "Mengunggah ${fileName}",
+      "updating": "Memperbarui...",
+      "overwriting": "Menimpa...",
+      "fetchingInfo": "Mengambil info...",
+      "publishing": "Memublikasikan...",
+      "appendCloseNotice": "Biarkan jendela browser Anda tetap terbuka untuk memantau status pekerjaan tambahan. Jika konfigurasi salah, Anda dapat mencoba lagi tanpa harus mengunggah ulang file sumber."
+    },
+    "appendErrorMessages": {
+      "appendError": "Terjadi kesalahan saat menambahkan item."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Pilih data",
+    "editStyle": "Ganti file gaya layer dengan versi terbaru dari komputer Anda.",
+    "file": "File",
+    "updateItem": "Perbarui Item",
+    "overwriteFile": "Timpa file",
+    "analyzing": "Menganalisis...",
+    "sameFileNameDescription": "File yang diunggah harus memiliki nama dan nama kolom yang sama dengan file ${fileName} aslinya",
+    "itemType": "Jenis file",
+    "learnMore": "Pelajari selengkapnya tentang jenis file yang didukung",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Format penyimpanan data vektor untuk menyimpan lokasi, bentuk, dan atribut fitur geografis. Shapefile yang disimpan dalam kumpulan file terkait dan berisi satu kelas fitur."
+    },
+    "File Geodatabase": {
+      "title": "Geodatabase file",
+      "description": "Kumpulan file dalam folder yang digunakan untuk menyimpan, mengkueri, dan mengelola data spasial dan nonspasial."
+    },
+    "errors": {
+      "providePath": "Anda harus menyediakan jalur ke item Anda.",
+      "sameFileName": "Untuk memperbarui item ini, Anda harus mengunggah file bernama ${x}.",
+      "invalidStyleFileExtension": "Ekstensi file tidak valid. Gaya yang diunggah harus memiliki ekstensi file .json.",
+      "invalidStyleFile": "File gaya tidak valid. File gaya yang diunggah harus diformat dengan benar.",
+      "errorWhileUpload": "Terjadi kesalahan saat mengunggah item.",
+      "errorExceedFileSize": "File gagal diunggah. File melebihi ukuran yang diizinkan sebesar 1 GB.",
+      "errorUpdate": "Terjadi kesalahan saat menimpa item.",
+      "multiPatchErrorDescription": "Layer yang Anda coba tambahkan berisi geometri multipatch. Coba lagi dengan file yang memiliki tipe geometri yang sama."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Pilih bagaimana Anda ingin memperbarui fitur yang ada",
+    "itemPropertiesHeader": "Pilih properti item mana yang ingin Anda gunakan",
+    "appendOptions": {
+      "attribute": {
+        "title": "Hanya atribut",
+        "description": "Perbarui atribut yang ada."
+      },
+      "attributeAndGeometry": {
+        "title": "Geometri dan atribut",
+        "description": "Perbarui atribut dan geometri yang ada."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Properti item yang diunggah",
+        "description": "Gunakan properti item dari file yang diunggah. Mengubah properti item tidak akan mengubah data."
+      },
+      "existing": {
+        "title": "Properti item yang ada",
+        "description": "Pertahankan properti item yang ada untuk paket layer. Menggunakan properti yang ada tidak akan mengubah data."
+      }
+    },
+    "noGeometryMatchTitle": "Tidak dapat memperbarui geometri",
+    "noGeometryMatchMessage": "Kemampuan untuk memperbarui geometri tidak tersedia untuk tipe geometri yang berbeda.",
+    "noGeometryTableMessage": "Kemampuan untuk memperbarui atribut dan geometri tidak tersedia untuk tabel."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Pilih data yang diperbarui untuk ${featureLayerName} dari sheet ${uploadedFile}",
+    "chooseLayer": "Pilih data yang diperbarui untuk ${featureLayerName} dari layer ${uploadedFile}",
+    "chooseServiceLayer": "Pilih layer yang akan diperbarui",
+    "paginationHeader": "${start} - ${end} dari ${total}",
+    "noResults": "Tidak ada item ditemukan yang memenuhi kriteria Anda. Cobalah mengubah istilah pencarian Anda atau menghapus beberapa filter untuk menampilkan lebih banyak item.",
+    "sameGeometryWarningTitle": "Layer harus memiliki jenis geometri yang sama",
+    "sameGeometryWarningDescription": "File Anda berisi berbagai jenis geometri layer. Coba lagi dengan layer yang memiliki jenis geometri yang sama.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Tidak ada layer yang ditemukan",
+      "noMatchingLayerTypeError": "Tidak ditemukan layer yang kompatibel dalam file yang diunggah. Periksa file Anda dan coba lagi.",
+      "noSourceLayerSelected": "Untuk menambahkan data, pilih feature layer yang ingin Anda perbarui.",
+      "noDataLayerSelected": "Untuk menambahkan data, pilih layer yang berisi data yang diperbarui."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Timpa file",
+    "header": "Pilih data yang akan ditimpa",
+    "description": "File yang diunggah harus memiliki nama yang sama dengan file ${insert file name} aslinya",
+    "proceed": "Lanjutkan",
+    "errors": {
+      "errorWhileUpdate": "Terjadi kesalahan saat memperbarui item.",
+      "exceedFileSizeLimit": "File gagal diunggah. File melebihi ukuran yang diizinkan sebesar 1 GB.",
+      "errorPublishing": "Terjadi kesalahan saat menerbitkan layanan ini."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Jenis file",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Format penyimpanan data vektor untuk menyimpan lokasi, bentuk, dan atribut fitur geografis. Shapefile yang disimpan dalam kumpulan file terkait dan berisi satu kelas fitur."
+    },
+    "File Geodatabase": {
+      "title": "Geodatabase file",
+      "description": "Kumpulan file dalam folder yang digunakan untuk menyimpan, mengkueri, dan mengelola data spasial dan nonspasial."
+    },
+    "errors": {
+      "errorWhileUpload": "Terjadi kesalahan saat mengunggah item.",
+      "errorShpFile": "Shapefile tidak valid.",
+      "errorFgdbFile": "File Geodatabase tidak valid.",
+      "errorExceedFileSize": "File gagal diunggah. File melebihi ukuran yang diizinkan sebesar 1 GB."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Pilih bidang yang cocok",
+    "description": "Pilih bidang dari ${uploadedFileName} yang cocok dengan bidang di ${featureLayerName}. Kolom yang tidak cocok tidak akan diperbarui di feature layer yang dihosting.",
+    "nonNullable": "Nilai nol tidak diizinkan",
+    "originalField": {
+      "header": "Bisang asli",
+      "moreInfo": "Kolom ini ditemukan di feature layer ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Bidang yang diunggah",
+      "moreInfo": "Kolom ini ditemukan di file ${uploadedFileName} yang diunggah dan difilter menurut jenis kolom yang kompatibel."
+    },
+    "errors": {
+      "noFields": "Tidak ada bidang yang ditemukan.",
+      "noKeyPairs": "Pasangan kunci tidak ditemukan.",
+      "noMatchedFields": "Untuk menambahkan data, berikan satu atau beberapa kolom yang cocok.",
+      "nonNullableErrorTitle": "Nilai kosong tidak diizinkan",
+      "nonNullableErrorTitleSingular": "Satu bidang yang tidak dapat dibatalkan kosong",
+      "nonNullableErrorDescription": "Bidang yang tidak mengizinkan nilai null tidak boleh kosong. Cocokkan bidang sebelum melanjutkan."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Pilih pengidentifikasi unik",
+    "selectUniqueIdentifierDescription": "Pilih bidang unik dari layer asli yang cocok dengan bidang dari file yang diunggah.",
+    "originalField": {
+      "header": "Bidang asli",
+      "moreInfo": "Bidang unik ini ditemukan di feature layer ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Bidang yang diunggah",
+      "moreInfo": "Kolom ini ditemukan di file ${uploadedFileName} yang diunggah dan difilter menurut jenis kolom yang kompatibel."
+    },
+    "title": "Identifikasi pasangan kunci",
+    "description": "Pilih bidang yang digunakan untuk mencocokkan pengidentifikasi unik layer dengan data yang diunggah.",
+    "noKeyPair": "Untuk memperbarui fitur yang sudah ada, cocokkan bidang untuk pengidentifikasi unik Anda.",
+    "timezoneHeader": "Pemilihan zona waktu",
+    "timezoneDescription": "Layer fitur yang dihosting, ${featureLayerName}, berisi data zona waktu yang disimpan dalam ${featureLayerTimezone}. Jika file yang Anda unggah, ${uploadedFileName}, berisi data zona waktu selain UTC, sesuaikan dengan mestinya."
+  }
+}

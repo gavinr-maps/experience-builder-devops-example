@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Utw&oacute;rz bufory tworzy poligony pokrywające daną odległość od obiekt&oacute;w wejściowych.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Obiekty punktowe, liniowe lub poligonowe, kt&oacute;re będą buforowane.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Określa, czy odległość buforowania będzie zdefiniowana przez stałą (<b>Wartość</b>) czy pole liczbowe (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Odległość, kt&oacute;ra zostanie użyta do utworzenia bufora. Jeśli zostanie dodanych wiele wartości, każda z nich zostanie użyta do utworzenia bufora w każdym obiekcie wejściowym.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Pole, kt&oacute;re będzie zawierać odległość buforowania dla każdego obiektu.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Jednostki, kt&oacute;re zostaną użyte do określenia odległości buforowania.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Określa, jak będą obsługiwane bufory z r&oacute;żnych obiekt&oacute;w wejściowych, gdy będą się na siebie nakładać.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Określa, czy bufory wieloelementowe będą koncentrycznymi buforami nakładającymi się na siebie (<b>Nakładające się dyski</b>) czy pierścieniami, kt&oacute;re nie nakładają się na siebie (<b>Odrębne pierścienie</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Dla obiekt&oacute;w liniowych określa, czy bufor zostanie utworzony po obu stronach linii (<b>Wok&oacute;ł</b>), tylko po lewej stronie (<b>Lewa</b>), czy tylko po prawej stronie (<b>Prawa</b>).
+            </p>
+            <p>W przypadku obiekt&oacute;w poligonowych określa, czy wejściowe obiekty poligonowe zostaną włączone do bufora (<b>Uwzględnij</b>) czy wykluczone z bufora (<b>Wyklucz</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Określa, czy kształt bufora na końcu obiektu liniowego będzie okrągły (<b>Okrągły</b>) czy płaski (<b>Płaski</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

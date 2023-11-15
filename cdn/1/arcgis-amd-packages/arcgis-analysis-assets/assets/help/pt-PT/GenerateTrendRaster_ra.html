@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Gerar Raster de Tend&ecirc;ncia estima a tend&ecirc;ncia para cada p&iacute;xel ao longo de uma dimens&atilde;o para uma ou mais vari&aacute;veis numa camada de imagens multidimensionais.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>A camada de imagens multidimensionais que ser&aacute; utilizada para gerar a tend&ecirc;ncia.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>A dimens&atilde;o ao longo da qual uma tend&ecirc;ncia ser&aacute; extra&iacute;da para a vari&aacute;vel ou vari&aacute;veis selecionadas na an&aacute;lise.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>A vari&aacute;vel ou vari&aacute;veis para as quais as tend&ecirc;ncias ser&atilde;o calculadas.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>A unidade de tempo que ser&aacute; utilizada para a dura&ccedil;&atilde;o de um per&iacute;odo sazonal ao utilizar o tipo de linha Sazonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>O tipo de an&aacute;lise de tend&ecirc;ncia que ser&aacute; realizada em valores de p&iacute;xeis ao longo de uma dimens&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>A frequ&ecirc;ncia ou o n&uacute;mero de ordem polinomial que ser&aacute; utilizado para o ajuste de tend&ecirc;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Especifica se os valores em NoData ou em falta ser&atilde;o ignorados na an&aacute;lise.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>A dura&ccedil;&atilde;o da varia&ccedil;&atilde;o peri&oacute;dica que ser&aacute; modelada para o ciclo harm&oacute;nico.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>A unidade de tempo que ser&aacute; utilizada para a dura&ccedil;&atilde;o do ciclo harm&oacute;nico.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Especifica se o erro quadr&aacute;tico m&eacute;dio (RMSE) da linha de ajuste de tend&ecirc;ncia ser&aacute; calculado.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Especifica se a estat&iacute;stica de ajuste de R quadrado para a linha de ajuste de tend&ecirc;ncia ser&aacute; calculada.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Especifica se a estat&iacute;stica do valor p para o coeficiente de inclina&ccedil;&atilde;o da linha de ajuste de tend&ecirc;ncia ser&aacute; calculada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. A sa&iacute;da pode ser uma camada de imagens em mosaico ou uma camada de imagens din&acirc;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

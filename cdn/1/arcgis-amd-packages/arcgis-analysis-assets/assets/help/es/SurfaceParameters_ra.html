@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Par&aacute;metros de superficie calcula los par&aacute;metros de una superficie r&aacute;ster, como la orientaci&oacute;n, la pendiente y la curvatura mediante m&eacute;todos geod&eacute;sicos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>El r&aacute;ster de elevaci&oacute;n que se utilizar&aacute; para los c&aacute;lculos.
+            </p>
+            <p>Si hay una unidad z disponible en el sistema de coordenadas verticales del r&aacute;ster de entrada, se aplicar&aacute; autom&aacute;ticamente.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>El tipo de par&aacute;metro de superficie que se medir&aacute;.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Las unidades de medida del r&aacute;ster de pendiente de salida.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Especifica si se proyectar&aacute;n los acimuts geod&eacute;sicos.
+            </p>
+            <p>Si est&aacute; activada, se proyectar&aacute;n acimuts geod&eacute;sicos para corregir la distorsi&oacute;n de &aacute;ngulo causada por la referencia espacial de salida. Si est&aacute; desactivada, no se proyectar&aacute;n acimuts geod&eacute;sicos.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Especifica si la orientaci&oacute;n se medir&aacute; desde un punto del ecuador o desde el polo norte.
+            </p>
+            <p>Si est&aacute; activada, la orientaci&oacute;n se medir&aacute; a partir de un punto en el ecuador. Si est&aacute; desactivada, la orientaci&oacute;n se medir&aacute; desde el polo norte.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>El tipo de funci&oacute;n de superficie que se ajustar&aacute; alrededor de la celda de destino.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>La distancia desde el centro de la celda de destino desde la que se calcular&aacute; la salida. Determina el tama&ntilde;o de vecindad utilizado para el c&aacute;lculo.
+            </p>
+            <p>El valor predeterminado es el tama&ntilde;o de celda del r&aacute;ster especificado en el par&aacute;metro  <b>R&aacute;ster de superficie de entrada</b>. Si se especifica un valor, debe ser mayor que el predeterminado.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Especifica si la distancia de vecindad variar&aacute; con los cambios del paisaje.
+            </p>
+            <p>Si est&aacute; activada, permite que la distancia de vecindad var&iacute;e con los cambios del paisaje. Si est&aacute; desactivada, se utilizar&aacute; una &uacute;nica distancia de vecindad fija en todas las ubicaciones.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>La unidad lineal de los valores z verticales.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa r&aacute;ster de superficie que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>El tipo de salida que se crear&aacute;. La salida puede ser una capa de im&aacute;genes en teselas o una capa de im&aacute;genes din&aacute;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

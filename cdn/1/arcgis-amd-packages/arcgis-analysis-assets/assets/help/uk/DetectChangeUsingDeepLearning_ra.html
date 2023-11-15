@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &quot;Виявити зміни за допомогою глибокого навчання&quot; використовує модель глибокого навчання для виявлення змін між двома шарами растрів.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="fromRaster">
+        <div>
+            <p>Вхідний шар зображень до зміни, який буде використовуватися як основа для порівняння.
+            </p>
+        </div>
+    </div>
+    <div id="toRaster">
+        <div>
+            <p>Вхідний шар зображень після зміни, який буде використовуватися для порівняння з оригіналом.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRasterName">
+        <div>
+            <p>Вихідний класифікований шар зображень, який показує зміни.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Аргументи моделі, які присутні в моделі глибокого навчання разом зі значеннями за замовчуванням.
+            </p>
+        </div>
+    </div>
+    <div id="modelDefinition">
+        <div>
+            <p>Пакет глибокого навчання, який містить модель, що буде використана для виявлення змін між шарами зображень.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип вихідних даних, які буде створено. Вихідними даними може бути шар зображень з тайлами або динамічний шар зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

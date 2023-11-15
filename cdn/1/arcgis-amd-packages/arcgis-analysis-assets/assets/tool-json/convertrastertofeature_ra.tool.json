@@ -1,0 +1,100 @@
+{
+  "name": "ConvertRasterToFeature",
+  "displayName": "ConvertRasterToFeature",
+  "description": "Converts a raster to a feature dataset, as points, lines, or polygons.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/ConvertRasterToFeature.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputRaster",
+      "dataType": "GPString",
+      "displayName": "inputRaster",
+      "description": "The input raster layer.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The output feature class that will contain the converted points, lines, or polygons.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "field",
+      "dataType": "GPString",
+      "displayName": "field",
+      "description": "A field that specifies the conversion value. It can be any integer or text value. A field containing floating-point values can only be used if the output is to a point dataset. The default is the Value field, which contains the value in each raster cell.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Value",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputType",
+      "dataType": "GPString",
+      "displayName": "outputType",
+      "description": "Specifies the output type. Point—The raster will be converted to a point dataset. This is the default. Line—The raster will be converted to a line feature dataset. Polygon—The raster will be converted to a polygon feature dataset. If the output type is Line or Polygon, an additional parameter appears allowing the simplification of lines or polygons.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Point",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Point", "Line", "Polygon"]
+    },
+    {
+      "name": "simplifyLinesOrPolygons",
+      "dataType": "GPBoolean",
+      "displayName": "simplifyLinesOrPolygons",
+      "description": "Specifies whether lines or polygons will be simplified (smoothed). The smoothing is done in such a way that the line contains a minimum number of segments while remaining as close as possible to the original raster cell edges. Checked—The line or polygon features will be smoothed to produce a more generalized result. This is the default. Unchecked—The line or polygon features will not be smoothed and will follow the cell boundaries of the raster dataset.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "createMultipartFeatures",
+      "dataType": "GPBoolean",
+      "displayName": "createMultipartFeatures",
+      "description": "Specifies whether the output polygons will consist of single-part or multipart features. Checked— Multipart features will be created based on polygons that have the same value. Unchecked— Individual (single-part) features will be created for each polygon. This is the default.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "maxVerticesPerFeature",
+      "dataType": "GPLong",
+      "displayName": "maxVerticesPerFeature",
+      "description": "The vertex limit used to subdivide a polygon into smaller polygons. This parameter produces similar output as that created by the Dice tool in the Data Management toolbox. If left empty, the output polygons will not be split. This is the default. This parameter is only supported if Output Type is Polygon.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputFeatures",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "outputFeatures",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

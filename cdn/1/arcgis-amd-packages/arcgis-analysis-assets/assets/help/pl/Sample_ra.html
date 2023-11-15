@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Pr&oacute;bka tworzy tabelę lub klasę obiekt&oacute;w punktowych w celu pokazania wartości pikseli z rastra lub zestawu rastr&oacute;w dla zdefiniowanych lokalizacji.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Warstwy zobrazowań zawierające wartości, kt&oacute;re będą pr&oacute;bkowane na podstawie danych wejściowych dotyczących lokalizacji.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Warstwa zawierająca lokalizacje dla każdej pr&oacute;bki.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Algorytm ponownego pr&oacute;bkowania, kt&oacute;ry zostanie użyty podczas procesu pr&oacute;bkowania.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Pole w warstwie, kt&oacute;re zawiera inną wartość dla każdej lokalizacji lub obiektu wejściowego.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Wskazuje, czy wejściowe warstwy zobrazowań zawierają dane wielowymiarowe.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Określa czas, głębokość lub inne dane o pozyskaniu powiązane z obiektami lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Wymiar wielowymiarowej warstwy wejściowej.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Pole, kt&oacute;re zostanie użyte do rozpoczęcia zakresu czasu dla wielowymiarowej warstwy wejściowej.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Pole, kt&oacute;re zostanie użyte do zakończenia zakresu czasu dla wielowymiarowej warstwy wejściowej.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Nieujemna liczba, kt&oacute;ra zostanie dodana do parametru  <b>Wymiar</b>, lub wartość, kt&oacute;ra zdefiniuje początek zakresu wartości wymiaru.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Nieujemna liczba, kt&oacute;ra zostanie dodana do parametru  <b>Wymiar</b>, lub wartość, kt&oacute;ra zdefiniuje koniec zakresu wartości wymiaru.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Statystyki, kt&oacute;re będą generowane podczas przetwarzania wielowymiarowych warstw zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Wartość procentowa, kt&oacute;ra zostanie użyta w typie statystyki percentylowej.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Odległość buforowania, kt&oacute;ra zostanie zastosowana do lokalizacji wejściowych.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Określa, czy typem wynikowym będzie obiekt czy tabela.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Określa, czy dane wynikowe będą według wierszy czy kolumn.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

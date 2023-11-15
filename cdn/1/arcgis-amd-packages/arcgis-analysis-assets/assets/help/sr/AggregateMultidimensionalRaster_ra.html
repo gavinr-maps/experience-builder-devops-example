@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Agregatni multidimenzionalni raster generi&scaron;e vi&scaron;edimenzionalni sloj slike kombinovanjem postojećih promenljivih vi&scaron;edimenzionalnog sloja slike duž jedne dimenzije.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vi&scaron;edimenzionalni sloj slike koji će biti agregiran.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzija sloja vi&scaron;edimenzionalne slike duž koje će promenljiva biti agregirana.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Označava da li sloj ima vrednosti dimenzija.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Promenljiva vi&scaron;edimenzionalnog sloja slike koja će biti agregirana duž definisane dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Matematički metod koji će se koristiti za agregiranje delova sloja vi&scaron;edimenzionalnih slika.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Vrednost procenta koja će se koristiti za proračune kada se navede metod agregacije.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Metoda percentilne interpolacije koja će se koristiti kada postoji paran broj vrednosti iz ulaznog sloja slike.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Prilagođena rasterska funkcija koja će se koristiti za izračunavanje vrednosti piksela agregiranih slojeva slika.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Interval dimenzija koji će se koristiti za agregiranje vi&scaron;edimenzionalnih podataka.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Svaka ključna reč specificira jedinicu vremena za koju će svaka statistika biti agregirana. Lista ključnih reči uključuje po satu, dnevno, nedeljno, mesečno, kvartalno i godi&scaron;nje.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Veličina intervala koji će se koristiti prilikom agregiranja duž dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Jedinice mere za vrednost intervala.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Tabela vrednosti koja će se koristiti prilikom agregiranja duž navedene dimenzije. Minimalne i maksimalne vrednosti određuju opseg koji će biti uključen.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Minimalna vrednost za opseg intervala.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Maksimalna vrednost za opseg intervala.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Označava da li će vrednosti NoData biti zanemarene u agregaciji.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Tip izlaza koji će biti kreiran. Izlazi mogu biti slojevi sa popločanim slikama ili slojevi dinamičkih slika.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultat biti sačuvan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

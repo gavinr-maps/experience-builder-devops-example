@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riisaga &quot;Arvuta tihedus&quot; saab arvutada tiheduse hinnang punkt- ja joonobjektidest. T&ouml;&ouml;riist loob rasterv&auml;ljundi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>Punkti- v&otilde;i joonekiht, mille p&otilde;hjal tihedust arvutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>V&auml;li, mis m&auml;&auml;rab iga asukoha juhtumite arvu.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>Kiht, mis defineerib barj&auml;&auml;rid. T&otilde;kked v&otilde;ivad olla murdjoone v&otilde;i pol&uuml;gooni objektikihiks. .
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>V&auml;ljundrastri jaoks kasutatav lahtri suurus ja &uuml;hik.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>M&auml;&auml;rab v&auml;&auml;rtuse ja &uuml;hikutega tiheduse arvutamiseks punktide v&otilde;i joonte otsimise ulatuse.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>V&auml;ljundi ala jaoks kasutatavad &uuml;hikud.
+            </p>
+            <p>Tihedus saadakse ala ja koguarvu jagamisel ning see parameeter m&auml;&auml;rab tihedusarvutuse ala &uuml;hiku.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle tiheduse rasterkihi nimi, mis luuakse jaotises ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือสร้างบัฟเฟอร์จะสร้างโพลีกอนที่จะครอบคลุมระยะทางที่กำหนดจากฟีเจอร์อินพุท
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>ฟีเจอร์จุด เส้น หรือโพลีกอนที่จะบัฟเฟอร์
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>ระบุว่าจะกำหนดระยะทางบัฟเฟอร์ตามค่าคงที่ (<b>ค่า</b>) หรือฟิลด์ตัวเลข (<b>ฟิลด์</b>)
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>ระยะทางที่จะใช้ในการสร้างบัฟเฟอร์ หากมีการเพิ่มหลายค่า จะใช้แต่ละค่าในการสร้างบัฟเฟอร์ ณ ทุกฟีเจอร์อินพุท
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>ฟิลด์ที่จะมีระยะทางบัฟเฟอร์สำหรับแต่ละฟีเจอร์
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>หน่วยที่จะใช้ในการระบุระยะทางบัฟเฟอร์
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>ระบุว่าจะจัดการบัฟเฟอร์จากฟีเจอร์อินพุทที่แตกต่างกันอย่างไรเมื่อทับซ้อนกัน
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>ระบุว่าจะให้บัฟเฟอร์แบบหลายระยะทางเป็นบัฟเฟอร์แบบร่วมศูนย์กลางที่ทับซ้อนกัน (<b>ดิสก์ทับซ้อน</b>) หรือวงแหวนที่ไม่ทับซ้อนกัน (<b>วงแหวนเฉพาะ</b>)
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>สำหรับฟีเจอร์เส้น ระบุว่าจะสร้างบัฟเฟอร์สำหรับทั้งสองด้านของเส้น (<b>รอบๆ </b>) ทางด้านซ้ายเพียงอย่างเดียว (<b>ด้านซ้าย</b>) หรือทางด้านขวาเพียงอย่างเดียว (<b>ด้านขวา</b>)
+            </p>
+            <p>สำหรับฟีเจอร์โพลีกอน ระบุว่าจะรวมฟีเจอร์โพลีกอนอินพุทไว้ในบัฟเฟอร์ (<b>รวม</b>) หรือแยกออกจากบัฟเฟอร์ (<b>ไม่รวม</b>)
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>ระบุว่ารูปทรงของบัฟเฟอร์ ณ จุดสิ้นสุดของฟีเจอร์เส้นจะเป็นวงกลม (<b>วงกลม</b>) หรือแบนราบ (<b>แบนราบ</b>)
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

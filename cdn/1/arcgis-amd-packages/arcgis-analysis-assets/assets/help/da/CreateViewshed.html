@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Opret udsigtsomr&aring;de-v&aelig;rkt&oslash;jet bruger Esris h&oslash;jdeanalysetjeneste til at identificere omr&aring;der, der er synlige fra angivne observat&oslash;rpunkter.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>De punktobjekter, der bruges som observat&oslash;rpunkter.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>Angiver h&oslash;jden af observationerne over jorden.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p>De m&aring;leenheder, der bruges til parameteren  <b>Observat&oslash;rens h&oslash;jde</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>Angiver h&oslash;jden af m&aring;l p&aring; jorden.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p>De m&aring;leenheder, der bruges parametere  <b>H&oslash;jde for destination</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Angiver den maksimale visningsafstand for beregning af udsigtsomr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>De m&aring;leenheder, der bruges til parameteren  <b>Maksimal visningsafstand</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det udsigtsomr&aring;de-polygonlag, der oprettes og f&oslash;jes til kortet. Dette lag indeholder de synlige omr&aring;der, hvor observat&oslash;rerne kan se, og antallet af observat&oslash;rer registreres i hyppighedsfeltet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

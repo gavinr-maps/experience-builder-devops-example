@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Localizar a Jusante determina os percursos de caudais a jusante de localiza&ccedil;&otilde;es especificadas.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Os elementos de ponto que ser&atilde;o utilizados como localiza&ccedil;&otilde;es de in&iacute;cio para cada linha de tra&ccedil;o a jusante.
+            </p>
+        </div>
+    </div>
+    <div id="splitDistance">
+        <div>
+            <p>O comprimento dos segmentos individuais em que a linha de tra&ccedil;o ser&aacute; dividida.
+            </p>
+        </div>
+    </div>
+    <div id="splitUnits">
+        <div>
+            <p>As unidades que ser&atilde;o utilizadas para o par&acirc;metro  <b>Dist&acirc;ncia da divis&atilde;o</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistance">
+        <div>
+            <p>O comprimento total da linha de tra&ccedil;o que ser&aacute; apresentada.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>As unidades que ser&atilde;o utilizadas para o par&acirc;metro  <b>Dist&acirc;ncia m&aacute;xima do rastreio a jusante</b>.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Uma camada de pol&iacute;gonos que descreve a &aacute;rea a que a linha de tra&ccedil;o ser&aacute; cortada.
+            </p>
+            <p>Este par&acirc;metro substitui o valor do par&acirc;metro  <b>Dist&acirc;ncia m&aacute;xima do rastreio a jusante</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada de caminho do rastreio a jusante que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

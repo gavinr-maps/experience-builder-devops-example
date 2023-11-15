@@ -1,0 +1,195 @@
+{
+  "name": "CreateViewshed",
+  "displayName": "CreateViewshed",
+  "description": "Creates areas where an observer can see objects on the ground. The input observer points can represent either observers (such as people on the ground or lookouts in a fire tower) or observed objects (such as wind turbines, water towers, vehicles, or other people)., Both the observers and the observed objects can have a height above ground, and these heights are used to determine visibility. For example, a viewshed computed for 300-foot wind turbines and a 6-foot tall person standing on the ground will typically be larger than a viewshed computed for 200-foot turbines and a 5-foot tall person., The result layer records the number of times that each cell location in the input surface raster can be seen by the input observation points. Nonvisible cells are given NoData values.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/CreateViewshed.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputElevationSurface",
+      "dataType": "GPString",
+      "displayName": "inputElevationSurface",
+      "description": "The elevation surface to use for calculating the viewshed. If the vertical unit of the input surface is different from the horizontal unit, such as when the elevation values are represented in feet but the coordinate system is in meters, the surface must have a defined vertical coordinate system. The reason for this is that the tool uses the vertical (Z) and horizontal (XY) units to compute a z-factor for the viewshed analysis. Without a vertical coordinate system, and thus having no Z unit information available, the tool will assume that the Z unit is the same as the XY unit. The result of this is that an internal Z factor of 1.0 will be used for the analysis, which may give unexpected results. The elevation surface can be integer or floating point.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputObserverFeatures",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "inputObserverFeatures",
+      "description": "The point features that represent the observer locations when calculating the viewsheds.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The name of the output raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "optimizeFor",
+      "dataType": "GPString",
+      "displayName": "optimizeFor",
+      "description": "The optimization method to use for calculating the viewshed. Speed—This method optimizes the processing speed, trading some accuracy in the result for higher performance. This is the default. Accuracy—This method is optimized for accuracy in the results, at the expense of a longer processing time.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "ACCURACY",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["SPEED", "ACCURACY"]
+    },
+    {
+      "name": "maximumViewingDistance",
+      "dataType": "GPLinearUnit",
+      "displayName": "maximumViewingDistance",
+      "description": "This is a cutoff distance, where the computation of visible areas stops. Beyond this distance, it is unknown whether the observer points and the other objects can see each other. The units can be Kilometers, Meters, Miles, Yards, or Feet. The default is miles.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "maximumViewingDistanceField",
+      "dataType": "GPString",
+      "displayName": "maximumViewingDistanceField",
+      "description": "This is a field you can use to specify the maximum viewing distance for each observer. The values contained in the field must be in the same unit as the XY unit of the input elevation surface. The maximum viewing distance is a cutoff distance where the computation of visible areas stops. Beyond this distance, it is unknown whether the observer points and the other objects can see each other.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "minimumViewingDistance",
+      "dataType": "GPLinearUnit",
+      "displayName": "minimumViewingDistance",
+      "description": "This is a distance where the computation of visible areas begins. Cells on the surface closer than this distance are not visible in the output but can still block visibility of the cells between the minimum and maximum viewing distance. The units can be Kilometers, Meters, Miles, Yards, or Feet. The default units are Meters.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "minimumViewingDistanceField",
+      "dataType": "GPString",
+      "displayName": "minimumViewingDistanceField",
+      "description": "This is a field you can use to specify the minimum viewing distance for each observer. The values contained in the field must be in the same unit as the XY unit of the input elevation surface. The minimum viewing distance defines where the computation of visible areas begins. Cells on the surface closer than this distance are not visible in the output but can still block visibility of the cells between the minimum and maximum viewing distance.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "viewingDistanceIs3D",
+      "dataType": "GPBoolean",
+      "displayName": "viewingDistanceIs3D",
+      "description": "Specify whether the minimum and maximum viewing distance parameters are measured in a three-dimensional way or a simpler, two-dimensional way. A 2D distance is the simple linear distance measured between an observer and the target using their projected locations at sea level. A 3D distance gives a more realistic value by taking their relative heights into consideration. Checked—The viewing distance is measured in 3D distance.  Unchecked—The viewing distance is measured in 2D distance. This is the default.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "observersElevation",
+      "dataType": "GPLinearUnit",
+      "displayName": "observersElevation",
+      "description": "This is the elevation of your observer locations. If this parameter is not specified, the observer elevation will be obtained from the surface raster using bilinear interpolation. If this parameter is set to a value, that value will be applied to all the observers. To specify different values for each observer, set this parameter to a field in the input observer features. The units can be Kilometers, Meters, Miles, Yards, or Feet. The default units are Meters.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "observersElevationField",
+      "dataType": "GPString",
+      "displayName": "observersElevationField",
+      "description": "This is a field you can use to specify the elevation for the observers. The value contained in the field must be in the same unit as the Z unit of the input elevation surface. If this parameter is not specified, the observer elevation will be obtained from the surface raster using bilinear interpolation.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "observersHeight",
+      "dataType": "GPLinearUnit",
+      "displayName": "observersHeight",
+      "description": "This is the height used for your observer locations. The units can be Kilometers, Meters, Miles, Yards, or Feet. The default units are Meters.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "observersHeightField",
+      "dataType": "GPString",
+      "displayName": "observersHeightField",
+      "description": "This is a field you can use to specify the height for the observers. The value contained in the field must be in the same unit as the Z unit of the input elevation surface.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "targetHeight",
+      "dataType": "GPLinearUnit",
+      "displayName": "targetHeight",
+      "description": "This is the height of structures or people on the ground used to establish visibility. The result viewshed are those areas where an observer point can see these other objects. The converse is also true; the other objects can see an observer point. The units can be Kilometers, Meters, Miles, Yards, or Feet. The default units are Meters.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "targetHeightField",
+      "dataType": "GPString",
+      "displayName": "targetHeightField",
+      "description": "This is a field used to specify the height for the targets. The value contained in the field must be in the same unit as the Z unit of the input elevation surface.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "aboveGroundLevelOutputName",
+      "dataType": "GPString",
+      "displayName": "aboveGroundLevelOutputName",
+      "description": "The name of the output aboveground-level (AGL) raster. The AGL result is a raster where each cell value is the minimum height that must be added to an otherwise nonvisible cell to make it visible by at least one observer. Cells that were already visible will be assigned 0 in this output raster.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "outputAboveGroundLevelRaster",
+      "dataType": "GPString",
+      "displayName": "outputAboveGroundLevelRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Objecten classificeren met behulp van deep learning gebruikt een deep learning-model om een klasselabel of categorie toe te kennen aan een object of feature.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>De beeld- of objectlaag die zal worden gebruikt om objecten te classificeren.
+            </p>
+        </div>
+    </div>
+    <div id="inputFeatures">
+        <div>
+            <p>De objectlaag die de locatie identificeert van elk object dat moet worden geclassificeerd en gelabeld.
+            </p>
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Specificeert hoe rasteritems in een beeldlaag worden verwerkt na het moza&iuml;eken: samen of afzonderlijk.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Het deep learning-pakket dat het model bevat dat zal worden gebruikt om de objecten te classificeren.
+            </p> 
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>De modelargumenten die aanwezig zijn in het deep learning-model, samen met hun standaardwaarden.
+            </p>
+        </div>
+    </div>
+    <div id="classLabelField">
+        <div>
+            <p>De naam van het veld dat het classificatielabel in de uitvoerobjectlaag zal bevatten.
+            </p>
+        </div>
+    </div>
+    <div id="outputFeatureClass">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Tuvumā eso&scaron;ā apkopo&scaron;anas rīks aprēķina elementu statistiku noteiktā attālumā no citiem elementiem. Attālumu var aprēķināt, izmantojot taisnas līnijas attālumu vai pārvieto&scaron;anās režīmu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Slānis, kas apkopojams tuvējā slāņa attālumā.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Punkta, līnijas vai laukuma slānis, ko izmanto kā sākuma vietas, ap kurām tiks izveidoti ierobežojo&scaron;ie apgabali, lai apkopotu tuvākos elementus.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Metode, ar kuru tiks veidoti ierobežojo&scaron;ie apgabali. Metode var būt taisnas līnijas attālums vai pārvieto&scaron;anās režīms.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Attālums vai laiks, kas tiks izmantots, lai izveidotu ierobežojo&scaron;os apgabalus. Ja tiek pievienotas vairākas vērtības, katra vērtība tiks izmantota, lai aprēķinātu visu ievades elementu ierobežojo&scaron;os apgabalus.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Vienības, kas tiks izmantotas, lai norādītu attālumu vai laiku.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Norādiet, vai rezultātu slānim ir jābūt ierobežojo&scaron;ajiem apgabaliem (atzīmēts) vai tai pa&scaron;ai ģeometrijai kā ievades tuvākajam slānim (neatzīmēts).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Aprēķiniet elementu kopējo lielumu, kas apkopots katrā ierobežojo&scaron;ajā apgabalā. Līnijām tiek aprēķināts kopējais garums. Laukumiem tiek aprēķināta kopējā platība.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Vienības, kas tiks izmantotas, lai aprēķinātu summēto elementu kopējo lielumu.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Skaitļu vai datumu lauki no ievades slāņa, kas tiks izmantoti apkopo&scaron;anai un statistika, kas tiks aprēķināta katram laukam.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Lauks no ievades slāņa, kas tiks izmantots, lai atdalītu datus atsevi&scaron;ķās grupās statistisko aprēķinu veik&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Aprēķina mazākuma (vismazāk dominējo&scaron;ās) un vairākuma (dominējo&scaron;ās) grupas katrā kopsavilkuma teritorijā.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Aprēķināt katrai grupai katrā robežas ietvaros piedero&scaron;o summēto elementu procentuālo daudzumu.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

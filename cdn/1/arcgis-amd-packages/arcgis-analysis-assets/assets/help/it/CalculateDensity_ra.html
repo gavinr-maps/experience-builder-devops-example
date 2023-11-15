@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Calcola densit&agrave; calcola una stima della densit&agrave; dalle feature punto e linea. Lo strumento crea un output raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>Il layer di punti o di linea in base al quale verr&agrave; calcolata la densit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>Il campo che specifica il numero di incidenti in ciascuna posizione.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>Il layer che definisce le barriere. Le barriere possono essere un layer feature di polilinee o feature di poligono.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>La dimensione cella e l'unit&agrave; che saranno utilizzate per il raster di output.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Specifica la distanza dai punti o dalle linee di ricerca quando si calcola la densit&agrave;, utilizzando un valore e le relative unit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>Le unit&agrave; che verranno utilizzate per l'area di output.
+            </p>
+            <p>La densit&agrave; &egrave; data dalla divisione del conteggio per l'area e questo parametro specifica l'unit&agrave; dell'area nel calcolo della densit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer raster di densit&agrave; che verr&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Il tipo di output che sar&agrave; creato. Gli output possono essere layer immagini di tile o layer immagini dinamici.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

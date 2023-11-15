@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>데이터 추출 도구는 범위 내에서 피처를 선택하고 콘텐츠에 항목을 생성합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>추출할 레이어입니다. 지원되는 입력 레이어에는 내가 소유한 레이어 및 내보내기가 활성화된 레이어가 포함됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>추출할 피처의 범위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>범위와 교차하는 피처를 클리핑할지 지정합니다. 선택 해제된 경우 범위와 교차하는 피처 전체가 추출됩니다. 선택된 경우 범위와 교차하는 피처가 클리핑되며 범위 안에 있는 해당 피처의 일부만 추출됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>추출할 데이터의 파일 형식입니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>추출된 파일이 저장될 결과 항목의 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

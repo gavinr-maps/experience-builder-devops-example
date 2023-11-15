@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Nibble tool replaces the cells of a raster corresponding to a mask with the values of the nearest neighbors.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>The input raster with the masked locations that will be replaced (nibbled) by the value of their nearest neighbor.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>The mask raster that identifies the locations in the input raster that will be replaced. Cells with a value of NoData are considered to be within the masked area.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>The input zone raster. For each zone, input cells that are within the mask will be replaced only by the nearest cell values within that same zone.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Specifies whether NoData cells in the input raster can replace (nibble) cells in the masked areas if they are the nearest neighbor.
+            </p>
+            <p>If checked, NoData cells in the input raster can nibble into the masked area. If unchecked, only valid cells in the input raster can nibble into the masked area.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Specifies whether NoData cells in the masked area will be preserved or replaced.
+            </p>
+            <p>If unchecked, any NoData cells within the masked area will be preserved in the output. If checked, NoData cells within the masked area will be replaced (nibbled) with the value of the nearest neighbor that is outside the masked area.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the nibbled raster layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>The type of output that will be created. The outputs can be Tiled imagery layers or Dynamic imagery layers.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>The name of the folder in  <b>My Content</b> where the results will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Zonestatistik-v&aelig;rkt&oslash;jet giver en oversigt over v&aelig;rdierne for en raster inden for et andet datas&aelig;ts zoner.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>Det input, der definerer gr&aelig;nserne for de zoner, eller omr&aring;der, der skal opsummeres.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Det felt, der indeholder de v&aelig;rdier, der definerer hver zone.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>Det rasterlag, der indeholder de cellev&aelig;rdier, der bruges til at beregne statistik.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Angiver den statistiktype, der beregnes.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Angiver den percentilv&aelig;rdi, der beregnes.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Angiver den metode, der bruges, n&aring;r antallet af v&aelig;rdier fra inputrasteren, der skal beregnes, er et lige tal.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Angiver, hvordan cellev&aelig;rdier for  <b>Input-v&aelig;rdiraster</b> behandles for cirkul&aelig;re data.
+            </p>
+            <p>Hvis indstillingen ikke er markeret, beregnes almindelig aritmetisk (line&aelig;r) statistik. Hvis indstillingen er markeret, beregnes cirkul&aelig;r statistik.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Angiver den v&aelig;rdi, der bliver brugt til at afrunde en line&aelig;r v&aelig;rdi til omr&aring;det for en given cirkul&aelig;r statistik.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>Angiver, om NoData-celler i  <b>Inputv&aelig;rdiraster</b> ignoreres i resultaterne for de zoner, de er inden for.
+            </p>
+            <p>Hvis indstillingen er markeret, vil NoData-celler i v&aelig;rdirasteren blive tilsidesat i statistikberegningen. Hvis indstillingen ikke er markeret, bliver NoData-celler ikke ignoreret, og hele zonen modtager NoData-v&aelig;rdien p&aring; outputrasteren.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Angiver, hvordan input-rastere skal behandles, hvis de er flerdimensionale.
+            </p>
+            <p>Hvis indstillingen ikke er markeret bliver statistiske data beregnet for alle dimensioner af det flerdimensionale inputdatas&aelig;t. Hvis indstillingen er markeret, beregnes statistiske data ud fra det aktuelle udsnit af det flerdimensionale inputdatas&aelig;t.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for zonestatistik, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Den type output, der oprettes. Outputtet kan v&aelig;re et tile-billedlag eller et dynamisk billedlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

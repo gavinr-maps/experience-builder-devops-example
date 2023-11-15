@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Ģeodēziskās redzamības lauka rīks identificē rastra virsmas vietas, kas redzamas ievades vērotāja atra&scaron;anās vietās.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Augstuma rastrs, kuram tiks aprēķināts redzamības lauks.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Vērotāja atra&scaron;anās vietas, kurām tiks aprēķināts redzamības lauks.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimizē redzamības lauka aprēķinu atkarībā no ātruma vai precizitātes.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Norāda maksimālo skatī&scaron;anas attālumu redzamības lauka aprēķinam.
+            </p>
+            <p>Attālumu var definēt ar vērtību un tās vienībām vai no lauka  <b>ievades vērotāja punktā vai līnijas elementos</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Norāda minimālo skatī&scaron;anas attālumu redzamības lauka aprēķinam.
+            </p>
+            <p>Attālumu var definēt ar vērtību un tās vienībām vai no lauka  <b>ievades vērotāja punktā vai līnijas elementos</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Norāda maksimālo un minimālo skatī&scaron;anas attālumu veidu.
+            </p>
+            <p>Ja nav atzīmēts, skatī&scaron;anās attālumi tiek uzskatīti par divdimensiju Eiklīda attālumiem. Ja ir atzimēts, skatī&scaron;anās attālumi tiek uzskatīti par trīsdimensiju attālumiem.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Norāda vērotāja atra&scaron;anās vietas virsmas augstumu.
+            </p>
+            <p>Augstumu var definēt ar vērtību un tās vienībām vai no lauka  <b>ievades vērotāja punktā vai līnijas elementos</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Norāda vērotāju augstumu virs zemes.
+            </p>
+            <p>Augstumu var definēt ar vērtību un tās vienībām vai no lauka  <b>ievades vērotāja punktā vai līnijas elementos</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Norāda mērķu augstumu virs zemes.
+            </p>
+            <p>Augstumu var definēt ar vērtību un tās vienībām vai no lauka  <b>ievades vērotāja punktā vai līnijas elementos</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Redzamības lauka rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei. &Scaron;is slānis satur redzamos apgabalus, kurus var redzēt vērotāji, un &scaron;ūnu vērtības attēlo vērotāju skaitu, kas var skatīt &scaron;ūnas.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Virs jūras līmeļa (VJL) rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Izveidotās izvades veids. Izvade var būt mozaīkas attēlu slānis vai dinamisks attēlu slānis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

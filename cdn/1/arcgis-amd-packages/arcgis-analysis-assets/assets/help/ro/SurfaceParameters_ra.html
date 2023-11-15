@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Parametrii suprafeței calculează parametrii unei suprafețe raster cum ar fi aspect, pantă și curbură folosind metode geodezice.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Rasterul de elevație care va fi folosit pentru calcule.
+            </p>
+            <p>Dacă o unitate z este disponibilă &icirc;n sistemul de coordonate verticale al rasterului de intrare, aceasta va fi aplicată automat.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Tipul parametrului de suprafață care va fi măsurat.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Unitățile de măsură ale rasterului de pantă de ieșire.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Specifică dacă azimuturile geodezice vor fi proiectate.
+            </p>
+            <p>Dacă este selectată, azimuturile geodezice vor fi proiectate pentru a corecta distorsiunea unghiului cauzată de referința spațială de ieșire. Dacă nu este selectată, azimuturile geodezice nu vor fi proiectate.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Specifică dacă aspectul va fi măsurat dintr-un punct de pe ecuaqtor sau de la polul nord.
+            </p>
+            <p>Dacă este selectată, aspectul va fi măsurat6 dintr-un punct de pe ecuator. Dacă nu este selectată, aspectul va fi măsurat de la polul nord.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Tipul de funcție a suprafeței care va fi ajustată &icirc;n jurul celulei țintă.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Distanța de la centrul de celule țintă de la care va fi calculată ieșirea. Acesta determină dimensiunea cartierului utilizat pentru calcul.
+            </p>
+            <p>Valoarea implicită este dimensiunea celulei rasterului specificat &icirc;n parametrul  <b>Raster suprafață intrare</b>. Dacă se specifică o valoare, aceasta trebuie să fie mai mare dec&acirc;t cea implicită.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Specifică dacă distanța vecinătății va varia &icirc;n funcție de modificările peisajului.
+            </p>
+            <p>Dacă este selectată, distanța cartierului va varia &icirc;n funcție de modificările peisajului. Dacă nu este selectată, va fi utilizată o distanță a vecinătății adaptive &icirc;n toate locațiile.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Unitatea liniară a valorilor z verticale.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic de raster de suprafață care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipul de ieșire care va fi creată. Ieșirea poate fi un strat tematic de imagini satelitare cu structură tile sau un strat tematic de imagini satelitare dinamic.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

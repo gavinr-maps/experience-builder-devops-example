@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Sp&aring;ra nedstr&ouml;ms avg&ouml;r fl&ouml;desv&auml;garna nedstr&ouml;ms fr&aring;n angivna platser f&ouml;r indata.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punktgeoobjekten som anv&auml;nds som startplats f&ouml;r varje nedstr&ouml;mssp&aring;rningslinje.
+            </p>
+        </div>
+    </div>
+    <div id="splitDistance">
+        <div>
+            <p>L&auml;ngden p&aring; individuella segment som sp&aring;rlinjen delas upp i.
+            </p>
+        </div>
+    </div>
+    <div id="splitUnits">
+        <div>
+            <p>Enheterna som anv&auml;nds f&ouml;r parametern <b>Delningsavst&aring;nd</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistance">
+        <div>
+            <p>Den totala l&auml;ngden f&ouml;r sp&aring;rlinjen som ska returneras.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Enheterna som anv&auml;nds f&ouml;r parametern  <b>Maximalt avst&aring;nd f&ouml;r nedstr&ouml;mssp&aring;rning</b>.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Ett polygongeoobjektlager som beskriver omr&aring;det som sp&aring;rlinjen ska klippas till.
+            </p>
+            <p>Den h&auml;r parametern &ouml;verskrider parameterv&auml;rdet  <b>Maximalt avst&aring;nd f&ouml;r nedstr&ouml;mssp&aring;rning</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; s&ouml;kv&auml;glagret f&ouml;r nedstr&ouml;mningssp&aring;rning som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

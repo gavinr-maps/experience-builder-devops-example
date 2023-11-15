@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Konwertuj raster na obiekt przekształca raster w dane wektorowe.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Wejściowy raster, kt&oacute;ry zostanie przekształcony w obiekty.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Pole zawierające wartości, kt&oacute;re zostaną przekształcone.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Typ obiekt&oacute;w (punktowe, liniowe lub poligonowe), kt&oacute;re zostaną utworzone w warstwie wynikowej.
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>Decyduje, czy linie i poligony będą upraszczane (wygładzane).
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>Decyduje, czy poligony wynikowe będą zawierały obiekty jednoczęściowe czy wieloczęściowe.
+            </p>
+            <p>Obiekty wieloczęściowe zazwyczaj przetwarzane są szybciej. Jednak jeśli wynikowe dane zawierają bardzo dużą liczbę obiekt&oacute;w, może to nie być szybsze.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>Limit liczby wierzchołk&oacute;w, kt&oacute;ry będzie używany do dzielenia poligonu na mniejsze poligony.
+            </p>
+            <p>Jeśli to pole jest puste, poligony wynikowe nie będą dzielone.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy obiektowej, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

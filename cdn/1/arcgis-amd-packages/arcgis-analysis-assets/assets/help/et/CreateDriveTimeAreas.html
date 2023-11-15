@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Loo s&otilde;idualad&quot; loob alad, milleni saab j&otilde;uda reisiaja v&otilde;i vahemaa jooksul.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punktobjektid, mille p&otilde;hjal arvutatakse pinnad.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Liikumisalade loomiseks kasutatav liikumisrežiim. Liikumisviis v&otilde;ib p&otilde;hineda vahemaal v&otilde;i ajal.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Iga sisendpunkti s&otilde;idukaugus v&otilde;i ajapiirang. Kui lisatakse mitu v&auml;&auml;rtust, kasutatakse igat v&auml;&auml;rtust k&otilde;ikide sisendpunktide s&otilde;idualade arvutamiseks.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse s&otilde;idukauguse v&otilde;i aja m&auml;&auml;ramiseks. Nendes &uuml;hikutes t&otilde;lgendatakse v&auml;&auml;rtust  <b>Katkestus</b>.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>M&auml;&auml;rab, kas s&otilde;idualad luuakse sisendpunktidest eemale reisimiseks v&otilde;i sisendpunktide poole reisimiseks.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>M&auml;&auml;rab kuup&auml;eva ja kellaaja, mil r&auml;ndur v&auml;ljub sisendi asukohast v&otilde;i saabub sisendi asukohta.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>M&auml;&auml;rab, kuidas k&auml;sitletakse jagatud piirkondasid erinevatest sisenditest, kui need &uuml;ksteiseni j&otilde;uavad.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>M&auml;&auml;rab, kas iga v&auml;ljundala on &uuml;ks katkematu pol&uuml;goon (m&auml;rkimata) v&otilde;i kas sellel on auke t&auml;navatel, mis pole ligip&auml;&auml;setavad, aga mida &uuml;mbritsevad t&auml;ielikult ligip&auml;&auml;setavad t&auml;navad (m&auml;rgitud).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>M&auml;&auml;rab, kas liikumisalade loomiseks kasutatavad t&auml;navad kaastakse v&auml;ljundkihina.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

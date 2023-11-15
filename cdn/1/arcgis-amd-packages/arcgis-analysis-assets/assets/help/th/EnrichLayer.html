@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือเพิ่มค่าชั้นข้อมูล จะช่วยเสริมค่าให้กับฟีเจอร์อินพุทด้วยสถิติประชากรและข้อมูลภูมิประเทศ
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>ฟีเจอร์จุด เส้น หรือโพลีกอนที่จะได้รับการเพิ่มค่าด้วยข้อมูลเพิ่มเติม
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>ตัวแปรที่จะเพิ่มในรูปแบบแอตทริบิวต์ให้กับฟีเจอร์อินพุท
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>ระบุวิธีที่ใช้ในการกำหนดพื้นที่รอบๆ ฟีเจอร์จุดหรือเส้นอินพุท พื้นที่ทั้งหมดรอบๆ แต่ละฟีเจอร์จะได้รับการเพิ่มค่า
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>ค่าตัวเลขที่กำหนดระยะทางหรือเวลารอบๆ แต่ละฟีเจอร์อินพุทที่พื้นที่จะขยาย
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>หน่วยที่จะใช้ในการระบุระยะทางหรือเวลาที่พื้นที่ที่เพิ่มค่าจะขยายรอบๆ แต่ละฟีเจอร์อินพุท
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>ระบุว่าชั้นข้อมูลเอาท์พุทจะมีฟีเจอร์โพลีกอนที่ถูกกำหนดโดยการตั้งค่า  <b>พื้นที่การเพิ่มค่า</b> (เลือก) หรือฟีเจอร์อินพุท (ไม่เลือก)
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

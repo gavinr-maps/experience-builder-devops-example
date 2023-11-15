@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Genera &agrave;rees de viatge crea &agrave;rees on es pugui arribar en una dist&agrave;ncia o temps de recorregut.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Entitats de punts al voltant de les quals es calcularan les &agrave;rees.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Una o diverses entitats de punt que actuen com a restriccions temporals (barreres) quan viatgeu per carrers subjacents. Es pot viatjar pel carrer, per&ograve; no creuar la barrera.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Una o diverses entitats de l&iacute;nia que actuen com a restriccions temporals (barreres) quan viatgeu per carrers subjacents. Les barreres de l&iacute;nia prohibeixen la circulaci&oacute; a qualsevol punt en qu&egrave; les barreres intersequen els carrers.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Una o diverses entitats de pol&iacute;gon que actuen com a restriccions temporals (barreres) quan viatgeu per carrers subjacents. Les barreres de pol&iacute;gon prohibeixen viatjar a qualsevol lloc on els pol&iacute;gons intersequen amb els carrers.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Mode de viatge que s'utilitzar&agrave; per crear les &agrave;rees de viatge. El mode de viatge es pot basar en la dist&agrave;ncia o en el temps.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Dist&agrave;ncia del trajecte o l&iacute;mit de temps per a cada punt d'entrada. Si s'afegeixen diversos valors, cada valor s'utilitzar&agrave; per calcular les &agrave;rees de viatge per a tots els punts d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Unitats que s'utilitzen per especificar la dist&agrave;ncia o el temps de viatge. El  <b>Valor l&iacute;mit</b> s'interpreta en aquestes unitats.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Determina si les &agrave;rees de viatge es creen per allunyar-se dels punts d'entrada o per apropar-s'hi.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Especifica la data i l'hora de sortida o arribada del viatger a les ubicacions d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Determina com es gestionen les &agrave;rees compartides de diferents entrades quan conflueixen entre si.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Especifica si cada &agrave;rea de sortida ser&agrave; un pol&iacute;gon continu (desactivat) o inclour&agrave; forats a carrers als quals no es pot arribar, per&ograve; que estan envoltats per carrers als quals s&iacute; que es pot arribar (activat).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Especifica si els carrers que s'utilitzen per crear les &agrave;rees de viatge s'inclouran com una capa de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

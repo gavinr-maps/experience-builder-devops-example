@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;计算密度&rdquo;工具可根据点和线要素计算密度估计值。 该工具创建要素输出。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>将用于计算密度的点图层或线图层。
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>用于指定每个位置处的事件点数量的字段。
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>用于定义计算密度位置的面要素图层。
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>指定计算密度时搜索点或线的距离。
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>将用于 <b>搜索距离</b>参数值的单位。
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>指定将密度值分类到区域的方法。
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>结果图层中的类数量（预测值的范围）。
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>将用于输出区域的单位。
+            </p>
+            <p>密度等于计数除以面积，此参数用于指定密度计算中的面积单位。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

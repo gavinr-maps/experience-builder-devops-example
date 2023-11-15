@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือการประมาณค่าในช่วงจุด จะพยากรณ์ค่า ณ ตำแหน่งที่ตั้งใหม่ โดยอิงตามการวัดจุด เครื่องมือจะสร้างเอาท์พุทฟีเจอร์
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>เลือกชั้นข้อมูลจุดของตำแหน่งที่จะประมาณค่าในช่วง
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>เลือกฟิลด์ที่มีค่าที่วัดซึ่งจะประมาณค่าในช่วง
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>เลือกว่าจะให้ความสำคัญกับความเร็วหรือความถูกต้องและความแม่นยำในการคำนวณ การพยากรณ์ที่ถูกต้องและแม่นยำมากขึ้น จะใช้เวลาในการคำนวณมากขึ้น
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>เลือกว่าจะรวมชั้นข้อมูลข้อผิดพลาดมาตรฐานสำหรับพยากรณ์การประมาณค่าในช่วงไว้ในเอาท์พุทหรือไม่
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>เลือกวิธีที่จะใช้ในการคำนวณค่าคลาสเบรก
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>ระบุจำนวนคลาส (ช่วงของค่าที่พยากรณ์) ซึ่งจะรวมไว้ในชั้นข้อมูลผลลัพธ์ แต่ละคลาสจะกำหนดขอบเขตของโพลีกอน และจะแสดงคอนทัวร์ของค่าที่พยากรณ์ ค่าคลาสเบรกจะถูกกำหนดตามชนิดของการจัดประเภท
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>ระบุค่าคลาสเบรกที่จะใช้งาน
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>เลือกชั้นข้อมูลโพลีกอนที่จะใช้ในการกำหนดค่าพื้นที่ศึกษา ผลลัพธ์จะถูกตัดออกให้แสดงเฉพาะภายในพื้นที่ศึกษาเท่านั้น
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>เลือกชั้นข้อมูลจุดที่แสดงตำแหน่งซึ่งจะใช้ในการพยากรณ์ค่า หากระบุ จะสร้างชั้นข้อมูลจุดซึ่งมีค่าที่พยากรณ์ ณ ตำแหน่งที่กำหนดไว้
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,88 @@
+{
+  "name": "Nibble",
+  "displayName": "Nibble",
+  "description": "Replaces cells of a raster corresponding to a mask with the values of the nearest neighbors.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/Nibble.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputRaster",
+      "dataType": "GPString",
+      "displayName": "inputRaster",
+      "description": "The input raster that will be nibbled. The raster can be either integer or floating point type.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputMaskRaster",
+      "dataType": "GPString",
+      "displayName": "inputMaskRaster",
+      "description": "The raster used as the mask. The cells that are NoData define the cells that will be nibbled, or replaced, by the value of the closest nearest neighbour.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The name of the output nibble raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "nibbleValues",
+      "dataType": "GPBoolean",
+      "displayName": "nibbleValues",
+      "description": "Defines if NoData values in the input raster are allowed to nibble into the area defined by the mask raster. Checked—Specifies that the nearest neighbor value will be used whether it is NoData or another data value in the input raster. NoData values in the input raster are free to nibble into areas defined in the mask if they are the nearest neighbor. This is the default. Unchecked—Specifies that only data values are free to nibble into areas defined in the mask raster. NoData values in the input raster are not allowed to nibble into areas defined in the mask raster even if they are the nearest neighbor.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "nibbleNodata",
+      "dataType": "GPBoolean",
+      "displayName": "nibbleNodata",
+      "description": "Defines if NoData cells in the input raster that are within the mask will remain NoData in the output raster. Unchecked—Specifies that NoData cells in the input raster and within the mask will remain NoData in the output. This is the default. Checked—Specifies that NoData cells in the input raster and within the mask can be nibbled into valid output cell values.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "inputZoneRaster",
+      "dataType": "GPString",
+      "displayName": "inputZoneRaster",
+      "description": "The input zone raster. For each zone, input cells that are within the mask will be replaced only by the nearest cell values within that same zone. A zone is all the cells in a raster that have the same value, whether or not they are contiguous. The input zone layer defines the shape, values, and locations of the zones. The zone raster can be either integer or floating point type.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

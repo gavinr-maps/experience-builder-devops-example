@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Redzamības lauka izveides rīks izmanto Esri augstuma analīzes servisu, lai noteiktu teritorijas, kas ir redzamas no noteiktām vērotāja atra&scaron;anās vietām.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkta elementi , kas tiks izmantotai kā vērotāja atra&scaron;anās vietas.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>Norāda vērotāju augstumu virs zemes.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p>Mērvienības, kas tiks izmantotas  <b>vērotāja augstuma</b> parametram.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>Norāda mērķu augstumu virs zemes.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p>Mērvienības, kas tiks izmantotas  <b>mērķa augstuma</b> parametram.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Norāda maksimālo skatī&scaron;anas attālumu redzamības lauka aprēķinam.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Mērvienības, kas tiks izmantotas  <b>maksimālajam skatī&scaron;anas attāluma</b> parametram.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Redzamības lauka slāņa nosaukums, kas tiks izveidots un pievienots kartei. &Scaron;ajā slānī ir vietas, kuras var redzēt vērotāji, un frekvenču laukā ir ierakstīts vērotāju skaits.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

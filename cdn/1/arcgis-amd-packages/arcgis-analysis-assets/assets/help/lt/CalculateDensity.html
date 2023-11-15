@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Apskaičiuoti tankį apskaičiuoja tankio įvertį i&scaron; ta&scaron;kinių ir linijinių elementų. Įrankis sukuria elemento i&scaron;vestį.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Ta&scaron;kų arba linijų sluoksnis, pagal kuriuos bus skaičiuojamas tankis.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Laukas, kuriame nurodomas incidentų skaičius kiekvienoje vietoje.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Poligono elementų sluoksnis, kuriame apibrėžiama vieta, kurioje bus apskaičiuojamas tankis.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Nurodomas atstumas, kuriuo skaičiuojant tankį reikia ie&scaron;koti ta&scaron;kų arba linijų.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Vienetai, kurie bus naudojami  <b>paie&scaron;kos atstumo</b> parametro vertei.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Nurodykite, kaip tankio vertės bus klasifikuojamos į sritis.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Klasių skaičius (prognozuojamų reik&scaron;mių intervalas) rezultatų sluoksnyje.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>I&scaron;vesties zonai naudojami matavimo vienetai.
+            </p>
+            <p>Tankis - tai skaičius, padalytas i&scaron; ploto, o &scaron;is parametras nurodo ploto vienetą skaičiuojant tankį.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

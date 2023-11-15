@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Ringkas Sekitar menghitung statistik untuk fitur dalam jarak yang ditentukan dari fitur lain. Jarak dapat dihitung menggunakan jarak garis lurus atau mode perjalanan.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Layer untuk meringkas dalam jarak dari layer sekitar.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Titik, garis, atau layer poligon yang digunakan sebagai lokasi awal sekitar yang membatasi area akan dibuat untuk meringkas fitur sekitar.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Metode di lokasi pembatas area yang akan dibuat. Metode tersebut dapat berupa jarak garis lurus atau mode perjalanan.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Jarak atau waktu yang akan digunakan untuk membuat area pembatas. Jika ada banyak nilai ditambahkan, tiap nilai akan digunakan untuk menghitung area pembatas untuk semua fitur input.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Unit yang akan digunakan untuk menentukan jarak atau waktu.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Menentukan apakah layer hhasil akan berupa area pembatas (dicentang) atau geometri yang sama seperti layer di sekitar input (tidak dicentang).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Menghitung ukuran total dari fitur yang diringkas dalam tiap area pembatas. Untuk garis, panjang totalnya terhitung. Untuk poligon, panjang totalnya terhitung.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Unit yang akan digunakan untuk menghitung ukuran total dari fitur yang diringkas.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Kolom jumlah atau tanggal dari layer input yang akan diringkas, dan akan digunakan statistiknya untuk menghitung setiap kolom.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Kolom layer input yang akan digunakan untuk memisahkan data ke dalam kelompok yang berbeda untuk perhitungan statistik.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Hitung kelompok minoritas (paling tidak dominan) dan mayoritas (paling dominan) dalam setiap area ringkasan.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Menghitung persentase dari fitur yang diringkas yang merupakan bagian dari tiap grup dalam setiap batasan.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,75 @@
+{
+  "title": "Partager",
+  "titleGroup": "Partage de groupe",
+  "save": "Enregistrer",
+  "apply": "Appliquer",
+  "cancel": "Annuler",
+  "revert": "Rétablir",
+  "update": "Mettre à jour",
+  "ok": "OK",
+  "retrievingInfo": "Récupération des informations de partage...",
+  "updatingInfo": "Mise à jour des informations de partage...",
+  "shareCountLabel": "Nombre de partages",
+  "shareCountHint": "${numItem}/${totalItem} éléments",
+  "sharedCountHint": "${numItem}/${totalItem} éléments déjà partagés",
+  "willShareCountHint": "${numItem}/${totalItem} éléments seront partagés",
+  "shareCountTooltip": "Éléments définis sur le niveau de partage ${shareLevel} : ${numItem}/${totalItem}",
+  "noShareDisclaimer": "Vous ne disposez pas des autorisations requises pour modifier le niveau de partage.",
+  "sharingLimitedItemDisclaimer": "Les options de niveau de partage sont limitées sur certains types d’élément.",
+  "sharingLimitedDisclaimer": "Certaines options de niveau de partage sont limitées par vos privilèges de partage.",
+  "cannotShareToLevelDisclaimer": "Vous ne disposez pas du privilège requis pour définir des éléments sur ce niveau de partage.",
+  "shareLevel": {
+    "title": "Définir le niveau de partage",
+    "noPermission": "Vous ne disposez pas des autorisations requises pour modifier le niveau de partage.",
+    "level": {
+      "private": {
+        "title": "Propriétaire",
+        "description": "Accessible(s) par le propriétaire du ou des éléments"
+      },
+      "org": {
+        "title": "Organisation",
+        "description": "Accessible(s) par tous les membres de votre organisation"
+      },
+      "public": {
+        "title": "Tout le monde (public)",
+        "description": "Accessible(s) par les personnes en dehors de votre organisation",
+        "descriptionPublicUser": "Accès public"
+      }
+    }
+  },
+  "shareGroup": {
+    "title": "Configurer le partage de groupe",
+    "noGroup": "Vous n’avez encore aucun groupe avec lequel partager.",
+    "edit": "Modifier le partage de groupe",
+    "noneYet": "Aucun pour l’instant",
+    "revert": "Rétablir",
+    "remove": "Supprimer",
+    "mixedGroupSharing": "Éléments partagés avec différents groupes"
+  },
+  "shareWarning": {
+    "publicAccountOpenGroupBrowser": {
+      "title": "Modifier le niveau de partage des éléments",
+      "description": "Les éléments appartenant à un compte public doivent être partagés avec tout le monde avant d’être partagés avec un groupe. Définir les niveaux de partage sur Tout le monde et accéder au partage de groupe ?"
+    },
+    "publicAccountSetShareToPrivate": {
+      "title": "Définir le niveau de partage de l’élément sur Privé",
+      "description": "Les éléments appartenant à un compte public ne peuvent pas être partagés avec un groupe s’ils sont privés. Supprimer le partage de groupe ?"
+    },
+    "publicAccountRevertShareLevel": {
+      "title": "Rétablir le niveau de partage de l’élément",
+      "description": "Les éléments appartenant à un compte public ne peuvent pas être partagés avec un groupe s’ils sont privés. Supprimer le partage de groupe ?"
+    },
+    "publicAccountRevertGroup": {
+      "title": "Rétablir le partage de groupe",
+      "description": "Les éléments appartenant à un compte public ne peuvent pas être partagés avec un groupe s’ils sont privés. Définir le niveau de partage de l’élément sur Public ?"
+    },
+    "publicDataCollectionEnabled": {
+      "title": "Avertissement : partage public d’une couche modifiable",
+      "description": "Vous rendez publique votre couche modifiable. Pour optimiser les performances et préserver l’intégrité des données, désactivez la mise à jour ou utilisez une vue de couche non modifiable."
+    },
+    "publicDataCollectionDisabled": {
+      "title": "Impossible de partager la couche modifiable publiquement",
+      "description": "Pour partager une couche publiquement, activez l’option Collecte de données publiques dans l’onglet Paramètres de la page de l’élément de la couche, puis partagez-la à nouveau. Pour optimiser les performances et préserver l’intégrité des données, désactivez la mise à jour ou utilisez une vue de couche non modifiable."
+    }
+  }
+}

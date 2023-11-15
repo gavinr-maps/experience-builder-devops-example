@@ -1,0 +1,118 @@
+{
+  "name": "GenerateMultidimensionalAnomaly",
+  "displayName": "GenerateMultidimensionalAnomaly",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/GenerateMultidimensionalAnomaly.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputMultidimensionalRaster",
+      "dataType": "GPString",
+      "displayName": "inputMultidimensionalRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "variables",
+      "dataType": "GPString",
+      "displayName": "variables",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "method",
+      "dataType": "GPString",
+      "displayName": "method",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "DIFFERENCE_FROM_MEAN",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "DIFFERENCE_FROM_MEAN",
+        "PERCENT_DIFFERENCE_FROM_MEAN",
+        "PERCENT_OF_MEAN",
+        "Z_SCORE",
+        "DIFFERENCE_FROM_MEDIAN",
+        "PERCENT_DIFFERENCE_FROM_MEDIAN",
+        "PERCENT_OF_MEDIAN"
+      ]
+    },
+    {
+      "name": "calculationInterval",
+      "dataType": "GPString",
+      "displayName": "calculationInterval",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "ALL",
+        "YEARLY",
+        "RECURRING_MONTHLY",
+        "RECURRING_WEEKLY",
+        "RECURRING_DAILY",
+        "HOURLY",
+        "EXTERNAL_RASTER"
+      ]
+    },
+    {
+      "name": "ignoreNodata",
+      "dataType": "GPBoolean",
+      "displayName": "ignoreNodata",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "referenceMeanRaster",
+      "dataType": "GPString",
+      "displayName": "referenceMeanRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputMultidimensionalRaster",
+      "dataType": "GPString",
+      "displayName": "outputMultidimensionalRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

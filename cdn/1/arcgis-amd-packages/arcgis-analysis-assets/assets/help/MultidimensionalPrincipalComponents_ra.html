@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Multidimensional Principal Components tool transforms the multidimensional imagery layers into a reduced number of components that account for the variance of the data, so that spatial and temporal patterns can be readily identified.
+
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>The multidimensional imagery layer that will be analyzed.
+
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>The method that will be used to perform the principal component analysis. The options include  <b>Dimension reduction</b> and <b>Spatial reduction</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>The dimension of the multidimensional imagery layer along which the variable will be analyzed. 
+
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>The name of the output imagery layer or table layer showing the principal components found depending on the following choices of mode: 
+                <ul>
+                    <li>Dimension reduction output will be a multiband imagery layer.
+
+                    </li>
+                    <li>Spatial reduction output will be a table layer.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>The name of the output imagery layer or table layer showing the supporting data in the principal components choice depending on the following choices of mode: 
+                <ul>
+                    <li>Dimension reduction output will be a table layer.
+                    </li>
+                    <li>Spatial reduction output will be an imagery layer.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>The name of the Eigenvalues table, which indicates the variance percentage of each component. 
+
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>The name of the variable of the input multidimensional imagery layer used in the computation. 
+
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>The number of principal components to compute, usually fewer than the  number of input rasters.
+
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>The type of output that will be created. The outputs can be Tiled imagery layers or Dynamic imagery layers.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>The name of the folder in  <b>My Content</b> where the results will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

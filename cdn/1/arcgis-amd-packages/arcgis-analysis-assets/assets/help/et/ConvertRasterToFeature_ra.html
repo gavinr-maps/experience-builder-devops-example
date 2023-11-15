@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riistaga &quot;Teisenda raster objektiks&quot; saab rastri vektoriks.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Sisendraster, mis teisendatakse objektideks.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Teisendatavaid v&auml;&auml;rtusi sisaldav v&auml;li.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>V&auml;ljundkihil loodavate objektide t&uuml;&uuml;p (punkt-, joon- v&otilde;i pol&uuml;goonobjekt).
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>M&auml;&auml;rab, kas jooned v&otilde;i pol&uuml;goonid lihtsustatakse (tasandatakse).
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>M&auml;&auml;rab, kas v&auml;ljundpol&uuml;goon koosneb &uuml;he- v&otilde;i mitmeosalistest objektidest.
+            </p>
+            <p>Mitmeosaliste objektide t&ouml;&ouml;tlemine on tavaliselt kiirem. Pange t&auml;hele, et kui v&auml;ljund sisaldab suurt arvu objekte, ei pruugi see kiirem olla.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>Tippude limiit, mida kasutatakse pol&uuml;goonide v&auml;iksemateks pol&uuml;goonideks jagamisel.
+            </p>
+            <p>Kui see j&auml;etakse t&uuml;hjaks, siis v&auml;ljundpol&uuml;goone ei jagata.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Loodava ja kaardile lisatava objektikihi nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

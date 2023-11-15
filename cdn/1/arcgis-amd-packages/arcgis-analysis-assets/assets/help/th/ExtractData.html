@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือแยกข้อมูลจะเลือกฟีเจอร์ภายในขอบเขต แล้วสร้างรายการในเนื้อหาของคุณ
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>ชั้นข้อมูลที่จะแยก ชั้นข้อมูลอินพุทที่รองรับ ได้แก่ ชั้นข้อมูลที่คุณเป็นเจ้าของ และชั้นข้อมูลที่เปิดใช้งานการส่งออกไว้
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>ขอบเขตของฟีเจอร์ที่จะแยก
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>ระบุว่าฟีเจอร์ที่ตัดกับขอบเขตจะถูกตัดออกหรือไม่ เมื่อไม่เลือก ฟีเจอร์ทั้งหมดที่ตัดกับขอบเขตจะถูกแยก เมื่อเลือก ฟีเจอร์ที่ตัดกับขอบเขตจะถูกตัดออก และจะแยกเฉพาะส่วนของฟีเจอร์เหล่านั้นที่อยู่ภายในขอบเขต
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>รูปแบบไฟล์ของข้อมูลที่จะแยก
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของรายการเอาท์พุทที่จะจัดเก็บไฟล์ที่แยก
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

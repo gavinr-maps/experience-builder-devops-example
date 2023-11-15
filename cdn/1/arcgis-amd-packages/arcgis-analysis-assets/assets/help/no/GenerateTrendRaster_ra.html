@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Generer trendraster estimerer trenden for hver piksel langs en dimensjon for &eacute;n eller flere variabler i et flerdimensjonalt bildelag.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Det flerdimensjonale bildelaget som brukes til &aring; generere trenden.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensjonen som det trekkes ut en trend langs for variabelen eller variablene som er valgt i analysen.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabelen eller variablene det skal beregnes trender for.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Tidsenheten som brukes for lengden p&aring; en &aring;rstidsperiode n&aring;r linjetypen Seasonal-Kendall brukes.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Typen trendanalyse som utf&oslash;res p&aring; pikselverdier langs en dimensjon.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Frekvensen eller polynomgraden som brukes til trendtilpasningen.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Angir om NoData-verdier eller manglende verdier blir ignorert i analysen.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Lengden p&aring; periodisk variasjon som skal modelleres for den harmoniske syklusen.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Tidsenheten som brukes for lengden p&aring; den harmoniske syklusen.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Angir om roten av gjennomsnittlig kvadratfeil (RMSE) beregnes for trendtilpasningslinjen.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Angir om determinasjonskoeffisienten (R2) beregnes for trendtilpasningslinjen.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Angir om P-verdi for hellingskoeffisienten beregnes for trendtilpasningslinjen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typen utdata som blir opprettet. Utdata kan v&aelig;re et flisinndelt bildelag eller et dynamisk bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

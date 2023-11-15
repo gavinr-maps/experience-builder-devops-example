@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът за многоизмерни основни компоненти трансформира слоеве с многоизмерни изображения в намален брой компоненти, които отчитат отклонението на данните, така че пространствените и времеви модели могат лесно да бъдат идентифицирани.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Слоят с многоизмерни изображения, който ще бъде анализиран.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Методът, който ще се използва за извършване на анализ на главния компонент. Опциите включват  <b>намаляване на размерите</b> и <b>намаляване на пространството</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Размерът на слоя с многоизмерни изображения, по който променливата ще бъде анализирана.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Името на изходния слой с изображението или слоя с таблицата, показващ основните компоненти, намерени в зависимост от следните избори на режим:
+                <ul>
+                    <li>Изходът за намаляване на размерите ще бъде слой с многочестотни изображения.
+                    </li>
+                    <li>Резултатът от пространственото намаляване ще бъде слой с таблица.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Името на изходния слой с изображението или слоя с таблицата, показващи поддържащите данни в избора на главни компоненти в зависимост от следните избори на режим:
+                <ul>
+                    <li>Резултатът от намаляване на размерите ще бъде слой с таблица.
+                    </li>
+                    <li>Резултатът от пространственото намаляване ще бъде слой с изображения.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Името на таблицата със собствени стойности, което показва процента на отклонението на всеки компонент.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Името на променливата на входния слой с многоизмерни изображения, използван при изчислението.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Броят на основните компоненти за изчисляване, обикновено по-малък от броя на входните растри.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Типът резултат, който ще бъде създаден. Резултатите могат да бъдат слоеве с плочкови изображения или слоеве с динамични изображения.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Името на папката в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

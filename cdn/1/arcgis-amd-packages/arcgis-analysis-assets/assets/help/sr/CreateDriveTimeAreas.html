@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Kreiranje putnih oblasti do kojih se može doći unutar vremena putovanja ili rastojanja.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Tačkasti geoobjekti oko kojih će oblasti biti izračunate.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e tačaka geoobjekata koji će da predstavljaju privremena ograničenja (barijere) prilikom putovanja po pozadinskim ulicama. Kretanje je dozvoljeno na ulici, ali ne kroz barijeru.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e linija geoobjekata koji će da predstavljaju privremena ograničenja (barijere) prilikom putovanja po pozadinskim ulicama. Linijske barijere zabranjuju putovanje svuda gde se barijere ukr&scaron;taju sa ulicama.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e poligona geoobjekata koji će da predstavljaju privremena ograničenja (barijere) prilikom putovanja po pozadinskim ulicama. Poligonalna barijera zabranjuje kretanje svuda gde poligon preseca ulice.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Režim putovanja koji će se koristiti za kreiranje područja putovanja. Režim putovanja može biti zasnovan na udaljenosti ili vremenu.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Udaljenost putovanja ili vremensko ograničenje za svaku ulaznu tačku. Ako se doda vi&scaron;e vrednosti, svaka vrednost će se koristiti za izračunavanje područja putovanja za sve ulazne tačke.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Jedinice koje se koriste za određivanje udaljenosti ili vremena putovanja. Vrednost  <b>Isečka</b> se prikazuje u ovim jedinicama.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Određuje da li su oblasti putovanja kreirane za putovanje dalje od ulaznih tačaka ili prema ulaznim tačkama.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Određuje datum i vreme kada putnik polazi ili stiže na ulazne lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Određuje kako se obrađuju zajedničke oblasti iz različitih ulaza kada stignu jedna do druge.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Određuje da li će svaka izlazna oblast biti jedan neprekidni poligon (neoznačeno) ili će uključivati rupe na ulicama koje nisu dostupne, ali su u potpunosti okružene dostupnim ulicama (označeno).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Određuje da li će ulice koje se koriste za kreiranje oblasti putovanja biti uključene kao izlazni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultati biti sačuvani.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Изчисление на плътност изчислява оценка на плътността от точкови и линейни обекти. Инструментът създава изходен обект.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Точковият или линейният слой, от който да изчислите плътността.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Полето, което указва броя на инцидентите на всяко местоположение.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Полигоновият обектен слой, който определя къде ще се изчисляват плътностите.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Указва разстоянието за търсене на точки или линии при изчисляване на плътността.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Мерните единици, които ще се използват за стойността на параметъра  <b>Разстояние за търсене</b>.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Определете как стойностите за плътност да бъдат класифицирани в области.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Броят на класовете (диапазона на прогнозираните стойности) в слоя с резултати.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Единиците, които ще се използват за изходната площ.
+            </p>
+            <p>Плътността се брои, разделена на площ, и този параметър определя единицата на площта при изчисляване на плътността.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Името на папката в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

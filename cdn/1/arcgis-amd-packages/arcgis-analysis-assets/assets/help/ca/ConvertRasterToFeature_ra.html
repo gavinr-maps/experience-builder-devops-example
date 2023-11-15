@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Converteix un r&agrave;ster a entitat vectoritza un r&agrave;ster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>R&agrave;ster d'entrada que es convertir&agrave; a entitats.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Camp que cont&eacute; els valors que es convertiran.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Tipus d'entitats (punt, l&iacute;nia o pol&iacute;gon) que es crearan a la capa de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>Especifica si les l&iacute;nies o pol&iacute;gons se simplificaran (se suavitzaran).
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>Especifica si els pol&iacute;gons de sortida estan formats per entitats d'una part o multipart.
+            </p>
+            <p>Entitats multipart se solen processar m&eacute;s r&agrave;pidament. Aix&ograve; no obstant, si la sortida t&eacute; un nombre elevat d'entitats, pot ser que el proc&eacute;s no sigui m&eacute;s r&agrave;pid.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>L&iacute;mit de v&egrave;rtexs que es faran servir per subdividir un pol&iacute;gon en pol&iacute;gons m&eacute;s petits.
+            </p>
+            <p>Si es deixa buit, els pol&iacute;gons de sortida no es dividiran.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa d'entitats que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

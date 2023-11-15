@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Estat&iacute;stica Zonal como Tabela resume os valores de um raster dentro das zonas de outro conjunto de dados e registra os resultados em uma tabela.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>A entrada que define os limites das zonas, ou &aacute;reas, que ser&atilde;o resumidas.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>O campo que cont&eacute;m os valores que definem cada zona.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>A camada raster que cont&eacute;m os valores das c&eacute;lulas que ser&atilde;o usadas para calcular as estat&iacute;sticas.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Especifica o tipo de estat&iacute;stica que ser&aacute; calculada.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>Especifica os valores de percentil que ser&atilde;o calculados.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Especifica o tipo de estat&iacute;stica que especifica o m&eacute;todo que ser&aacute; usado quando o n&uacute;mero de valores do raster de entrada a serem calculados for um n&uacute;mero par ser&aacute; calculado.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Especifica como os valores da c&eacute;lula do  <b>raster de valor de entrada </b> ser&atilde;o processados ​​para dados circulares.
+            </p>
+            <p>Se desmarcado, estat&iacute;sticas aritm&eacute;ticas comuns (lineares) ser&atilde;o calculadas. Se marcado, as estat&iacute;sticas circulares ser&atilde;o calculadas.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Especifica o valor que ser&aacute; usado para arredondar um valor linear para o intervalo de uma determinada estat&iacute;stica circular.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Especifica se as c&eacute;lulas NoData no  <b>raster de valor de entrada</b> ser&atilde;o ignoradas nos resultados das zonas em que se enquadram.
+            </p>
+            <p>Se marcado, as c&eacute;lulas NoData no raster de valor ser&atilde;o ignoradas no c&aacute;lculo estat&iacute;stico. Se desmarcada, as c&eacute;lulas NoData n&atilde;o ser&atilde;o ignoradas e toda a zona receber&aacute; o valor NoData no raster de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Especifica como os rasters de entrada ser&atilde;o processados se forem multidimensionais.
+            </p>
+            <p>Se desmarcado, as estat&iacute;sticas ser&atilde;o calculadas para todas as dimens&otilde;es do conjunto de dados multidimensional de entrada. Se marcado, as estat&iacute;sticas ser&atilde;o calculadas a partir da parte atual do conjunto de dados multidimensional de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>O nome de camada da tabela de estat&iacute;stica zonal que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

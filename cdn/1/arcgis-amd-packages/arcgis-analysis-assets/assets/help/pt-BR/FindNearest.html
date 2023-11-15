@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Localizar Mais Pr&oacute;ximo localiza e classifica as fei&ccedil;&otilde;es que est&atilde;o mais pr&oacute;ximas dos locais especificados.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">A camada inicial a partir da qual as fei&ccedil;&otilde;es mais pr&oacute;ximas s&atilde;o encontradas. Camadas com at&eacute;  5,000 fei&ccedil;&otilde;es s&atilde;o suportadas. </p> 
+            <p class="PortalOnly">A camada inicial a partir da qual as fei&ccedil;&otilde;es mais pr&oacute;ximas s&atilde;o encontradas.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">As fei&ccedil;&otilde;es encontradas com base na proximidade da camada de entrada. Camadas com at&eacute;  5,000 fei&ccedil;&otilde;es s&atilde;o suportadas. </p> 
+            <p class="PortalOnly">As fei&ccedil;&otilde;es encontradas com base na proximidade da camada de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>O m&eacute;todo que ser&aacute; usado para medir dist&acirc;ncia ou tempo. O m&eacute;todo pode ser dist&acirc;ncia da linha ou um modo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Especifica a data e hora que o viajante sai dos locais na  <b>Camada de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Determina se um n&uacute;mero m&aacute;ximo personalizado de fei&ccedil;&otilde;es mais pr&oacute;ximas &eacute; usado (habilitado) ou o m&aacute;ximo padr&atilde;o da ferramenta de 100 &eacute; usado (desabilitado).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>O n&uacute;mero m&aacute;ximo de fei&ccedil;&otilde;es mais pr&oacute;ximas que podem ser encontradas para cada fei&ccedil;&atilde;o de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Determina se um intervalo de pesquisa m&aacute;ximo &eacute; usado (habilitado) ou o intervalo de pesquisa &eacute; ilimitado (desabilitado).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>O intervalo de pesquisa m&aacute;ximo para encontrar as fei&ccedil;&otilde;es mais pr&oacute;ximas.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>As unidades usadas para especificar o intervalo de pesquisa.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Especifica se cada rota resultante ser&aacute; salva como uma camada de rota.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

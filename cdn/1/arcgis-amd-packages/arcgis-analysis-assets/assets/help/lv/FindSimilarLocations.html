@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Līdzīgu novietojumu atra&scaron;anas rīks novērtē līdzību starp kandidātnovietojumiem un atsauces novietojumu, pamatojoties uz kritēriju kopu, un sarindo kandidātnovietojumus no visvairāk līdz vismazāk līdzīgajam.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkta, līnijveida vai laukumveida slānis, kas satur atsauces novietojumus, kas tiks salīdzināti. Ja slānī ir vairāki novietojumi, tiks aprēķināta visu novietojumu vidējā vērtība, lai izveidotu vienu atsauces novietojumu.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Punkta, līnijveida vai laukumveida slānis, kas satur meklē&scaron;anas kandidātu novietojumus. Katrs meklē&scaron;anas kandidāta novietojums tiks salīdzināts ar atsauces novietojumu, ņemot vērā norādītās  <b>kritēriju atlases</b> vērtības un sarindots no visvairāk līdz vismazāk līdzīgajam.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Skaitliskie lauki, kas tiks izmantoti, lai novērtētu līdzību starp atsauces novietojumu un katru meklē&scaron;anas kandidāta novietojumu. Katrai  <b>kritēriju atlases</b> vērtībai ir <b>lauks no atsauces slāņa</b> vērtības un <b>lauks no kandidāta slāņa</b> vērtības. <b>Lauks no atsauces slāņa</b> un <b>Lauks no kandidāta slāņa</b> vērtībām ir atbilsto&scaron;ie lauki <b>Atsauču novietojumu slāņa</b> un <b>Meklē&scaron;anas kandidātu slāņa</b> vērtībās.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p> <b>Atsauces novietojumu slāņa</b> lauks, kas atbilst <b>Kandidātslāņu meklē&scaron;anas</b> laukā, kas norādīts <b>Lauks no kandidātslāņa</b> vērtībā. Vērtības &scaron;ajos atbilsto&scaron;ajos laukos tiks salīdzinātas, lai novērtētu līdzību starp atsauces novietojumu un katru meklē&scaron;anas kandidāta novietojumu.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p> <b>Meklē&scaron;anas kandidāta slāņa</b> lauks, kas atbilst <b>atsauces novietojuma slāņa</b> laukam, kas norādīts <b>Lauks no atsauces slāņa</b> vērtībā. Vērtības &scaron;ajos atbilsto&scaron;ajos laukos tiks salīdzinātas, lai novērtētu līdzību starp atsauces novietojumu un katru meklē&scaron;anas kandidāta novietojumu.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Norāda, vai visi novietojumi  <b>meklē&scaron;anas kandidāta slāņa</b> vērtībā tiks iekļauti izvades slānī.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Vislīdzīgāko novietojumu skaits  <b>meklē&scaron;anas kandidāta slāņa</b> vērtībā, kas tiks iekļauti izvades slānī.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

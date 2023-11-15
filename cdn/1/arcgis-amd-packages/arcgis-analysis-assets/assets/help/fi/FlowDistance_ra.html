@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Virtauset&auml;isyys-ty&ouml;kalu laskee laskusuuntaisen vaaka- tai pystyet&auml;isyyden jokaisesta solusta virtaukseen, johon ne virtaavat.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputStreamRaster">
+        <div>
+            <p>Rasteri, joka kuvaa lineaarista virtausverkostoa.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Laskentaan k&auml;ytett&auml;v&auml; korkeusrasteri.
+            </p>
+        </div>
+    </div>
+    <div id="inputFlowDirectionRaster">
+        <div>
+            <p>Rasteri, joka m&auml;&auml;ritt&auml;&auml; virtaussuunnan jokaisesta solusta.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, lasketaanko virtauset&auml;isyyden pystysuuntainen vai vaakasuuntainen komponentti.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; l&auml;ht&ouml;aineiston virtaussuunnan rasterityypin.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tilastotyypin, jota k&auml;ytet&auml;&auml;n virtauset&auml;isyyden laskemiseen useiden virtausreittien l&auml;pi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n virtauset&auml;isyyden rasterikarttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineisto voi olla tiilitetty kuva-aineistokarttataso tai dynaaminen kuvakarttataso.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Rasti i&scaron;skirtis nustatys, ar yra vietų, kurių reik&scaron;mės labai skiriasi nuo kaimyninių, remiantis erdviniu duomenų modeliu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Ta&scaron;kų arba poligonų sluoksnis, kuriame bus ie&scaron;koma i&scaron;skirčių.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Nurodoma, ar i&scaron;skirtys bus nustatomos pagal elementų buvimo vietas <b>(Ta&scaron;kų skaičius</b>), ar pagal elementų laukų vertes <b>(Laukas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Laukas, kuris bus analizuojamas siekiant nustatyti i&scaron;skirtis.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Ribojančių elementų, pagal kuriuos bus agreguojami įvesties elementai, tipas. Tai gali būti poligono sluoksnis <b>(Polygon layer</b>) arba kvadratų <b>(Fishnet cells)</b>arba &scaron;e&scaron;iakampių <b>(Hexagon cells)</b>teseliacijos tinklelis.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Sluoksnis su poligono elementais, kuriame bus agreguoti įvesties ta&scaron;kų elementai.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Poligono sluoksnis, kuris apibrėžia analizės ribą. Poligone esantys elementai bus įtraukti į i&scaron;skirčių analizę.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Nurodo, kaip padalyti  <b>analizės lauko</b> reik&scaron;mes arba ta&scaron;kų sankaupų kiekį. Parinktis <b>Laukas</b> padalys <b>analizės lauko</b> vertes i&scaron; konkretaus lauko, nurodyto parametre <b>Įvesties sluoksnis</b>, reik&scaron;mių. Parinktis <b>Praturtinti duomenis</b> praturtins elementus arba agregacijos figūras populiacijos duomenimis ir padalys <b>analiės lauko</b> reik&scaron;mes arba agreguotų ta&scaron;kų skaičių i&scaron; populiacijos. &Scaron;i parinktis papildomai sunaudos kreditus.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Nurodoma, ar įrankis bus optimizuotas, kad jis greičiau apdorotų duomenis, ar padidinti rezultatų tikslumą.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Sveikojo skaičiaus reik&scaron;mė, kuri naudojama aktyvuoti atsitiktinį skaičių generatorių.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Kvadrato arba &scaron;e&scaron;iakampio, kuris bus naudojamas įvesties elementams agreguoti, kra&scaron;tinės ilgis.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Nurodo vienetus, kurie bus naudojami gardelės dydžiui.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Atstumas, kuris bus naudojamas kaimynystei apibrėžti. Atliekant analizę, į tikslinio elemento apylinkes įtraukiami kaimyniniai elementai, esantys tikslinio elemento atstume.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Nurodo vienetus, kurie bus naudojami kanalo atstumui.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

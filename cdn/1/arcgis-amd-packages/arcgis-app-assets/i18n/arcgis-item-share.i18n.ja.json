@@ -1,0 +1,75 @@
+{
+  "title": "共有",
+  "titleGroup": "グループ共有",
+  "save": "保存",
+  "apply": "適用",
+  "cancel": "キャンセル",
+  "revert": "元に戻す",
+  "update": "更新",
+  "ok": "OK",
+  "retrievingInfo": "共有情報を取得しています...",
+  "updatingInfo": "共有情報を更新しています...",
+  "shareCountLabel": "共有数",
+  "shareCountHint": "${numItem}/${totalItem} アイテム",
+  "sharedCountHint": "${numItem}/${totalItem} 個のアイテムがすでに共有されています",
+  "willShareCountHint": "${numItem}/${totalItem} 個のアイテムが共有されます",
+  "shareCountTooltip": "共有レベルが ${shareLevel} に設定されたアイテム: ${numItem}/${totalItem}",
+  "noShareDisclaimer": "共有レベルを変更する権限が不十分です。",
+  "sharingLimitedItemDisclaimer": "共有レベル オプションは、アイテム タイプで制限されます。",
+  "sharingLimitedDisclaimer": "一部の共有レベル オプションは、共有権限によって制限されます。",
+  "cannotShareToLevelDisclaimer": "アイテムをこの共有レベルに設定する権限がありません。",
+  "shareLevel": {
+    "title": "共有レベルの設定",
+    "noPermission": "共有レベルを変更する権限が不十分です。",
+    "level": {
+      "private": {
+        "title": "所有者",
+        "description": "アイテムの所有者がアクセス可能"
+      },
+      "org": {
+        "title": "組織",
+        "description": "組織のメンバー全員がアクセス可能"
+      },
+      "public": {
+        "title": "すべての人に公開 (パブリック)",
+        "description": "組織外のユーザーがアクセス可能",
+        "descriptionPublicUser": "すべてのユーザーがアクセス可能"
+      }
+    }
+  },
+  "shareGroup": {
+    "title": "グループ共有の設定",
+    "noGroup": "まだ共有するグループがありません。",
+    "edit": "グループ共有の編集",
+    "noneYet": "なし",
+    "revert": "元に戻す",
+    "remove": "削除",
+    "mixedGroupSharing": "別のグループと共有されているアイテム"
+  },
+  "shareWarning": {
+    "publicAccountOpenGroupBrowser": {
+      "title": "アイテムの共有レベルの変更",
+      "description": "個人向けアカウントが所有するアイテムをグループで共有するには、すべてのユーザーと共有する必要があります。 共有レベルをすべてのユーザーに更新して、グループ共有に移動しますか？"
+    },
+    "publicAccountSetShareToPrivate": {
+      "title": "アイテムの共有レベルをプライベートに設定",
+      "description": "個人向けアカウントが所有するアイテムは、プライベートである場合、グループで共有できません。 グループ共有を削除しますか？"
+    },
+    "publicAccountRevertShareLevel": {
+      "title": "アイテムの共有レベルを元に戻す",
+      "description": "個人向けアカウントが所有するアイテムは、プライベートである場合、グループで共有できません。 グループ共有を削除しますか？"
+    },
+    "publicAccountRevertGroup": {
+      "title": "グループ共有を元に戻す",
+      "description": "個人向けアカウントが所有するアイテムは、プライベートである場合、グループで共有できません。 アイテムの共有レベルをパブリックに設定しますか？"
+    },
+    "publicDataCollectionEnabled": {
+      "title": "警告: 編集可能なレイヤーをパブリックに共有しています",
+      "description": "編集可能なレイヤーをパブリックにしています。 最適なパフォーマンスとデータの整合性を確保するために、編集を無効にするか、編集可能でないビュー レイヤーを使用することを検討してください。"
+    },
+    "publicDataCollectionDisabled": {
+      "title": "編集可能なレイヤーをパブリックに共有できません",
+      "description": "パブリックに共有するには、レイヤーのアイテム ページの [設定] タブにある [パブリック データ コレクション] オプションを有効にしてから、もう一度共有します。 最適なパフォーマンスとデータの整合性を確保するために、編集を無効にするか、編集可能でないビュー レイヤーを使用することを検討してください。"
+    }
+  }
+}

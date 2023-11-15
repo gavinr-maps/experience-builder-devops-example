@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'צור ריצופים של מישורים' יוצר גריד של פוליגונים על בסיס תיחום, צורה וגודל שצוינו.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>צורת ריצופי המישורים שייווצרו.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>מציין האם גודל ריצוף המישורים יוגדר על ידי השטח שלו (<b>שטח</b>) או על ידי ערך מרחק <b>(מרחק</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>הגודל (שטח או מרחק) של ריצופי מישורים שהופקו. עבור ריבועים, משושים, משולשים ומעויינים, המרחק קובע את גובה ריצופי המישורים. עבור משושים אלכסוניים, המרחק קובע את רוחב ריצופי המישורים.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>רזולוציית H3 של השיבוצים בפסיפס. טווח הרזולוציה הוא 0 עד 15. עם כל עלייה בגודל הרזולוציה, שטח הפוליגונים ייקטן לשביעית מהגודל ברוזולוציה הנמוכה היותר.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>מציין את היחידות אשר ישמשו עבור גודל השיבוץ בפסיפס.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>התיחום שריצוף המישורים יכסה.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>עבור שכבות ישויות, מציין האם ריצופי המישורים יכסו את התיחום כולו או רק יכסו את האזורים שבהם ריצופי המישורים מצטלבים עם ישויות.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

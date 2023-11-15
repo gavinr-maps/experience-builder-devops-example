@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Predecir con r&aacute;ster de tendencia calcula una capa de im&aacute;genes multidimensional prevista utilizando la capa de im&aacute;genes de tendencia de salida creada por la herramienta Generar r&aacute;ster de tendencia.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>La capa de im&aacute;genes de tendencia multidimensional de entrada que se usar&aacute; para la predicci&oacute;n.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>La variable de la capa de im&aacute;genes de tendencia multidimensional que se usar&aacute; para la predicci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>El m&eacute;todo que se utilizar&aacute; para proporcionar valores de dimensi&oacute;n de predicci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Defina la fecha de inicio y fin, la altura o la profundidad de inicio del intervalo de dimensi&oacute;n que se utilizar&aacute;n en la predicci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>La fecha de inicio, la altura o la profundidad del intervalo de dimensi&oacute;n que se utilizar&aacute;n en la predicci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>La fecha de fin, la altura o la profundidad del intervalo de dimensi&oacute;n que se utilizar&aacute;n en la predicci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>El n&uacute;mero de pasos entre dos valores de dimensi&oacute;n que se incluir&aacute;n en la predicci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>La unidad que se usar&aacute; para el valor del intervalo.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>El tipo de salida que se crear&aacute;. La salida puede ser una capa de im&aacute;genes en teselas o una capa de im&aacute;genes din&aacute;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

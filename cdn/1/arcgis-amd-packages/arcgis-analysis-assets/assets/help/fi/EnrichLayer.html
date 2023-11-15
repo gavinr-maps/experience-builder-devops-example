@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rikasta karttatasoa -ty&ouml;kalu parantaa l&auml;ht&ouml;aineiston kohteita demografia- ja maastoaineistolla.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Piste-, viiva- tai aluekohteet, joita rikastetaan lis&auml;tiedoilla.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Muuttujat, jotka lis&auml;t&auml;&auml;n ominaisuustietoina l&auml;ht&ouml;aineiston kohteisiin.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, miten l&auml;ht&ouml;aineiston piste- tai viivakohteita ymp&auml;r&ouml;iv&auml; alue m&auml;&auml;ritet&auml;&auml;n. Koko alue jokaisen kohteen ymp&auml;rill&auml; rikastetaan.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Numeroarvo, joka m&auml;&auml;ritt&auml;&auml; jokaisen l&auml;ht&ouml;aineiston kohteen ymp&auml;rill&auml; olevan alueen ulottuvuuden et&auml;isyyten&auml; tai aikana.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Yksik&ouml;t, joilla m&auml;&auml;ritet&auml;&auml;n jokaisen l&auml;ht&ouml;aineiston kohteen ymp&auml;r&ouml;iv&auml;n rikastusalueen ulottuvuuden et&auml;isyys tai aika.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, sis&auml;lt&auml;&auml;k&ouml; tulosaineistokarttataso aluekohteita, jotka on m&auml;&auml;ritetty  <b>Rikastusalueet</b>-asetuksilla (valittu) tai l&auml;ht&ouml;aineiston kohteilla (ei valittu).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

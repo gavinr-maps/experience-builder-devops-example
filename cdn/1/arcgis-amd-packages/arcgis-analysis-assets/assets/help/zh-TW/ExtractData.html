@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>擷取資料工具可選擇範圍內的圖徵，並在您的內容中建立項目。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>將擷取的圖層。 支援的輸入圖層包括您擁有的圖層和啟用了匯出的圖層。
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>將擷取之圖徵的範圍。
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>指定是否裁剪與範圍相交的圖徵。 取消勾選時，將擷取與範圍相交的整個圖徵。 勾選時，將裁剪與範圍相交的圖徵，並且只會擷取範圍內的這些圖徵的一部分。
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>將擷取資料的檔案格式。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將儲存擷取檔案的輸出項目的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

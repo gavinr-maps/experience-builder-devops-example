@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تحسب أداة &quot;تراكم المسافة&quot; المسافة المتراكمة من كل خلية إلى مصادر الإدخال، مما يسمح بوجود مسافة خط مستقيم ومسافة التكلفة والمسافة الحقيقية للسطح بالإضافة إلى عوامل التكلفة الرأسية والأفقية.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>البيانات النقطية الخاصة بالإدخال أو طبقة المعالم التي تحدد المصادر المراد حساب المسافة إليها.
+            </p>
+            <p>إذا كان الإدخال بيانات نقطية، يجب أن يتكون من خلايا لها قيم صالحة (الصفر قيمة صالحة) للمصادر، ويجب تعيين الخلايا المتبقية على NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>العوائق التي تحدد عقبات يجب توجيهها حولها.
+            </p>
+            <p>بالنسبة إلى طبقة البيانات النقطية، ستُعامل أي خلايا ذات قيمة (بما في ذلك الصفرية) على أنها حاجز.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>بيانات نقطية تحدد قيم الارتفاع لكل موقع خلية.
+            </p>
+            <p>يتم استخدام القيم لحساب مسافة السطح الفعلي المُغطَّى عند التمرير بين الخلايا.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>بيانات نقطية تحدد المعاوقة أو التكلفة، للتنقل خلال كل خلية.
+            </p>
+            <p>تمثل القيمة في كل موقع خلية مسافة &quot;تكلفة لكل وحدة&quot; للتحريك خلال الخلية. لا يمكن أن تكون القيمة سالبة أو صفرًا.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>تحدد ما إذا كان سيتم حساب المسافة باستخدام طريقة مستوية (الأرض المسطحة) أو طريقة جيوديسية (مجسم ناقص).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>بيانات نقطية تحدد قيم Z لكل موقع خلية.
+            </p>
+            <p>تستخدم القيم لاحتساب الميل (المنحدر) المستخدم لتحديد العامل الرأسي الذي يحدث عند نقله من خلية لأخرى.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>معامل يحدد العلاقة بين عامل التكلفة الرأسي وزاوية الحركة الرأسية ذات الصلة.
+            </p>
+            <p>توجد عدة خيارات لمعاملات بمعدلات تتعرف على رسم بياني لمعامل رأسي محدد. تستخدم الرسوم البيانية لتحديد العامل الرأسي المستخدم في احتساب إجمالي التكلفة للتحرك في الخلية المجاورة.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>بيانات نقطية تحدد الاتجاه الأفقي عند كل خلية.
+            </p>
+            <p>سيتم استخدام القيم في كل موقع بالاقتران مع معلمة  <b>المعامل الأفقي</b> لتحديد التكلفة الأفقية التي حدثت عند الانتقال من خلية إلى ما يجاورها.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>معامل يحدد العلاقة بين عامل التكلفة الأفقي وزاوية الحركة الأفقية ذات الصلة.
+            </p>
+            <p>توجد خيارات متعددة للمعاملات بمعدلات والتي تعرف رسمًا بيانيًا لمعامل أفقي محدد. يتم استخدام الرسومات البيانية لتعريف المعالم الأفقي المستخدم في حساب التكلفة الإجمالية للانتقال في خلية مجاورة.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>التكلفة التراكمية الأولية لبدء حساب التكلفة.
+            </p>
+            <p>القيمة الافتراضية هي 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>الحد الأقصى لتراكم المسافر لمصدر.
+            </p>
+            <p>التراكم الافتراضي يكون إلى حافة البيانات النقطية الناتجة.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>المضاعف الذي سوف يُطبق لقيم التكلفة.
+            </p>
+            <p>القيمة الافتراضية هي 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>اتجاه المسافر عند تطبيق العوامل الأفقية والرأسية.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>اسم طبقة البيانات النقطية للمسافة التراكمية التي سيتم إنشاؤها وإضافتها إلى الخريطة. تحتوي الطبقة على المسافة التراكمية لكل خلية من المصدر الأقل تكلفة أو إليه.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>اسم طبقة البيانات النقطية للاتجاه الخلفي والتي سيتم إنشاؤها وإضافتها إلى الخريطة. تحتوي الطبقة على الاتجاه المحسوب بالدرجات.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>اسم طبقة البيانات النقطية لاتجاه المصدر والتي سيتم إنشاؤها وإضافتها إلى الخريطة. تحتوي الطبقة على اتجاه زاوية السمت لخلية مصدر أقل تكلفة تراكمية بالدرجات.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>اسم طبقة البيانات النقطية المتعددة النطاقات لموقع المصدر والتي سيتم إنشاؤها وإضافتها إلى الخريطة. تحتوي الطبقة على مواقع المصدر حيث يحتوي النطاق الأول على فهرس صف، بينما يحتوي النطاق الثاني على فهرس عمود.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقات صور متجانبة أو طبقات صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

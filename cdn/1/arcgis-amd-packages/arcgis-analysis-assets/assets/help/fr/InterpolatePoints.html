@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Interpolate Points (Interpoler les points) permet de pr&eacute;voir des valeurs &agrave; de nouvelles localisations en fonction de mesures de point. L'outil cr&eacute;e des entit&eacute;s en sortie.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Choisissez la couche de points des localisations &agrave; interpoler.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>S&eacute;lectionnez le champ contenant les valeurs mesur&eacute;es &agrave; interpoler.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Indiquez si la vitesse de calcul ou l'exactitude et la pr&eacute;cision sont prioritaires. Plus les pr&eacute;visions sont pr&eacute;cises et exactes, plus leur calcul est long.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Indiquez si une couche d'erreurs standard pour les pr&eacute;visions d'interpolation doit &ecirc;tre incluse dans la sortie.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>S&eacute;lectionnez le mode de calcul des valeurs d&rsquo;interruption de classe.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Sp&eacute;cifiez le nombre de classes (plages de valeurs pr&eacute;vues) &agrave; inclure dans la couche de r&eacute;sultat. Chaque classe d&eacute;finit l'emprise d'un polygone et repr&eacute;sente les isolignes des valeurs pr&eacute;vues. Les valeurs d&rsquo;interruption de classe sont d&eacute;termin&eacute;es par le type de classification.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Sp&eacute;cifiez les valeurs d&rsquo;interruption de classe &agrave; utiliser.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>S&eacute;lectionnez une couche de polygones &agrave; utiliser pour d&eacute;finir une zone d&rsquo;&eacute;tude. Les r&eacute;sultats sont d&eacute;coup&eacute;s de sorte &agrave; n'&ecirc;tre affich&eacute;s qu'&agrave; l'int&eacute;rieur de la zone d'&eacute;tude.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Choisissez une couche de points repr&eacute;sentant les localisations &agrave; utiliser pour pr&eacute;voir les valeurs. Si elle est fournie, une couche de points contenant les valeurs pr&eacute;vues aux localisations sp&eacute;cifi&eacute;es est cr&eacute;&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel seront enregistr&eacute;s les r&eacute;sultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

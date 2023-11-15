@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Mẫu tạo một lớp đối tượng bảng hoặc điểm để hiển thị gi&aacute; trị pixel từ một raster hoặc bộ raster tại vị tr&iacute; đ&atilde; x&aacute;c định.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>C&aacute;c lớp h&igrave;nh ảnh chứa c&aacute;c gi&aacute; trị sẽ được lấy mẫu dựa tr&ecirc;n dữ liệu vị tr&iacute; đầu v&agrave;o.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Lớp chứa c&aacute;c vị tr&iacute; cho từng mẫu.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Thuật to&aacute;n lấy mẫu lại sẽ được sử dụng trong quy tr&igrave;nh lấy mẫu.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Một trường trong lớp chứa một gi&aacute; trị kh&aacute;c cho từng đối tượng đầu v&agrave;o hoặc vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Cho biết c&aacute;c lớp h&igrave;nh ảnh đầu v&agrave;o c&oacute; bao gồm dữ liệu đa chiều hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Chỉ định thời gian, độ s&acirc;u hoặc dữ liệu thu thập kh&aacute;c được li&ecirc;n kết với c&aacute;c đối tượng vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>K&iacute;ch thước của lớp đầu v&agrave;o đa chiều.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Trường sẽ được sử dụng để bắt đầu khoảng thời gian cho lớp đầu v&agrave;o đa chiều.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Trường sẽ được sử dụng để kết th&uacute;c khoảng thời gian cho lớp đầu v&agrave;o đa chiều.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Một số kh&ocirc;ng &acirc;m sẽ được th&ecirc;m v&agrave;o th&ocirc;ng số  <b>Chiều</b> hoặc một gi&aacute; trị sẽ x&aacute;c định điểm bắt đầu của phạm vi gi&aacute; trị chiều.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Một số kh&ocirc;ng &acirc;m sẽ được th&ecirc;m v&agrave;o th&ocirc;ng số  <b>Chiều</b> hoặc một gi&aacute; trị sẽ x&aacute;c định điểm kết th&uacute;c của phạm vi gi&aacute; trị chiều.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Số liệu thống k&ecirc; sẽ được tạo khi xử l&yacute; c&aacute;c lớp h&igrave;nh ảnh đa chiều.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Gi&aacute; trị phần trăm sẽ được sử dụng cho kiểu số liệu thống k&ecirc; phần trăm.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Khoảng c&aacute;ch v&ugrave;ng đệm sẽ được &aacute;p dụng cho c&aacute;c vị tr&iacute; đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Chỉ định loại đầu ra sẽ l&agrave; đối tượng hay bảng.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Chỉ định đầu ra sẽ theo h&agrave;ng hay theo cột.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

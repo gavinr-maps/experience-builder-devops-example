@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Створити області переміщення&raquo; створює області, яких можна дістатися в межах часу подорожі або відстані.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Точкові об&rsquo;єкти, навколо яких будуть обчислені області.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Один або більше точкових об'єктів, які діють у якості тимчасових обмежень (бар'єрів) під час подорожування нижчележачими вулицями. Рух по вулиці дозволено, але тільки не через бар'єр.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Один або більше лінійних об'єктів, які діють у якості тимчасових обмежень (бар'єрів) під час подорожування нижчележачими вулицями. Лінійні бар'єри забороняють рух у будь-якому місці, де бар'єри перетинаються з вулицями.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Один або більше полігональних об'єктів, які діють у якості тимчасових обмежень (бар'єрів) під час подорожування нижчележачими вулицями. Полігональні бар'єри забороняють рух у будь-якому місці, де полігони перетинають вулиці.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Режим подорожі, який буде використаний для створення областей переміщення. Режим подорожі може залежати від відстані або часу.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Відстань або часовий ліміт переміщення для кожної вхідної точки. Якщо додаються кілька значень, кожне значення буде використано для обчислення областей переміщення для всіх вхідних точок.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Одиниці вимірювання, які використовуються для визначення відстані або часу переміщення.  <b>Граничне</b> значення інтерпретується в цих одиницях.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Визначає, чи створюються області переміщення для переміщень від вхідних точок чи до вихідних точок.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Визначає дату й час, коли мандрівник відправляється з або прибуває до вхідних місць розташування.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Визначає, як обробляються спільні області з різних вхідних точок, коли вони досягають одна одної.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Визначає, чи кожна вихідна область буде одним безперервним полігоном (не вибрано), чи включатиме отвори на вулицях, які недоступні, але повністю оточені доступними вулицями (вибрано).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Указує, чи включати вулиці, які використовуються для створення областей переміщення, як вихідний шар.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

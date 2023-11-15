@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Aggreger punkter beregner antall punkter og annen statistikk innenfor angitte beholdere eller polygoner.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>Punktlaget som aggregeres inn i summeringsomr&aring;dene.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Polygonlaget som punktene aggregeres i.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Typen avgrensende geoobjekter som inndatapunktene blir aggregert innenfor. Dette kan v&aelig;re et polygonlag eller et tesseleringsnett med beholdere av typen kvadrat eller heksagon som genereres n&aring;r verkt&oslash;yet kj&oslash;res.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>St&oslash;rrelsen p&aring; de genererte beholderne. For beholdere av typen kvadrat er det angitt tall og enheter som bestemmer h&oslash;yden og lengden p&aring; kvadratet. For beholdere av typen heksagon er det angitt tall og enheter som bestemmer avstanden mellom de parallelle sidene.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Enhetene som brukes til &aring; angi beholderst&oslash;rrelsen.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>Bestemmer om geoobjekter som ikke inneholder punkter, skal vises i resultatlaget. Hvis alternativet ikke er valgt, vil geoobjekter som ikke inneholder punkter, vises i resultatet. Hvis alternativet er valgt, vil geoobjekter som ikke inneholder punkter, ikke vises i resultatet.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Nummer- eller datofeltene fra inndatalaget som skal summeres, og statistikken som skal statistikken som skal beregnes for hvert felt.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Feltet fra inndatalaget som skal brukes til &aring; dele dataene inn i distinkte grupper for statistiske beregninger.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Beregn minoriteten (minst dominerende) og majoriteten (mest dominerende) for grupper innenfor hvert oppsummeringsomr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Beregner prosenten av punkter som tilh&oslash;rer hver gruppe innenfor hvert summeringsomr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

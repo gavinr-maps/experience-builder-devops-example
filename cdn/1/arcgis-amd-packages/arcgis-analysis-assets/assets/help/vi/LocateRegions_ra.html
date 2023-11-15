@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Định vị V&ugrave;ng x&aacute;c định c&aacute;c khu vực tốt nhất trong raster đầu v&agrave;o đ&aacute;p ứng được y&ecirc;u cầu về k&iacute;ch thước v&agrave; r&agrave;ng buộc về kh&ocirc;ng gian được chỉ định.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Raster tiện &iacute;ch đầu v&agrave;o nơi dẫn xuất c&aacute;c v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>Tổng diện t&iacute;ch của tất cả c&aacute;c v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Chỉ định c&aacute;c đơn vị diện t&iacute;ch được sử dụng cho c&aacute;c tham số  <b>Tổng diện t&iacute;ch</b>, <b>Diện t&iacute;ch tối thiểu của v&ugrave;ng</b> v&agrave; <b>Diện t&iacute;ch tối đa của v&ugrave;ng</b>.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>Chỉ định số v&ugrave;ng sẽ được ph&acirc;n bổ  <b>Tổng diện t&iacute;ch</b>.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>Chỉ định sự c&acirc;n bằng giữa sự đ&oacute;ng g&oacute;p của một cell trong việc duy tr&igrave; h&igrave;nh dạng v&ugrave;ng so với đ&oacute;ng g&oacute;p tiện &iacute;ch của gi&aacute; trị thuộc t&iacute;nh của cell.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Ti&ecirc;u ch&iacute; đ&aacute;nh gi&aacute; để x&aacute;c định v&ugrave;ng ứng vi&ecirc;n được ưu ti&ecirc;n nhất.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>Chỉ định đặc điểm h&igrave;nh dạng cho v&ugrave;ng đầu ra.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>Chỉ định hướng của h&igrave;nh dạng được x&aacute;c định.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>Chỉ định diện t&iacute;ch tối thiểu được ph&eacute;p cho từng v&ugrave;ng. C&aacute;c đơn vị do tham số  <b>Đơn vị diện t&iacute;ch</b> chỉ định sẽ được sử dụng.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>Chỉ định diện t&iacute;ch tối đa được ph&eacute;p cho từng v&ugrave;ng. C&aacute;c đơn vị do tham số  <b>Đơn vị diện t&iacute;ch</b> chỉ định sẽ được sử dụng.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch tối thiểu được ph&eacute;p giữa c&aacute;c v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch tối đa được ph&eacute;p giữa c&aacute;c v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>Chỉ định đơn vị khoảng c&aacute;ch sẽ được sử dụng cho c&aacute;c tham số  <b>Khoảng c&aacute;ch tối thiểu giữa c&aacute;c v&ugrave;ng</b> v&agrave; <b>Khoảng c&aacute;ch tối đa giữa c&aacute;c v&ugrave;ng</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>Lớp đầu v&agrave;o x&aacute;c định những nơi đ&atilde; c&oacute; v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Chỉ định cell l&acirc;n cận sẽ được sử dụng trong qu&aacute; tr&igrave;nh ph&aacute;t triển của c&aacute;c v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>Chỉ định xem đảo c&oacute; được ph&eacute;p nằm trong khu vực tiềm năng hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>Chỉ định số lượng hạt giống để ph&aacute;t triển c&aacute;c v&ugrave;ng tiềm năng.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>Chỉ định độ ph&acirc;n giải cho việc ph&aacute;t triển v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>Chỉ định c&aacute;ch c&aacute;c v&ugrave;ng sẽ được chọn.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp raster Định vị V&ugrave;ng sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

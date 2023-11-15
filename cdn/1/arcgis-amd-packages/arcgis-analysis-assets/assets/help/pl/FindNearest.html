@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Znajdź najbliższe znajduje i szereguje obiekty najbliższe podanym lokalizacjom.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Warstwa początkowa, z kt&oacute;rej będą wyszukiwane najbliższe obiekty. Obsługiwane są warstwy zawierające maksymalnie  5000 obiekt&oacute;w. </p> 
+            <p class="PortalOnly">Warstwa początkowa, z kt&oacute;rej będą wyszukiwane najbliższe obiekty.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Obiekty są wyszukiwane na podstawie bliskości do warstwy wejściowej. Obsługiwane są warstwy zawierające maksymalnie  5000 obiekt&oacute;w. </p> 
+            <p class="PortalOnly">Obiekty są wyszukiwane na podstawie bliskości do warstwy wejściowej.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metoda, kt&oacute;ra będzie używana do pomiaru odległości lub czasu. Metodą może być odległość w linii prostej lub tryb podr&oacute;żowania.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Określa datę i czas opuszczenia przez podr&oacute;żującego lokalizacji w warstwie  <b>Warstwa wejściowa</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Określa, czy używana jest niestandardowa maksymalna liczba najbliższych obiekt&oacute;w (opcja włączona), czy domyślna maksymalna liczba wynosząca 100 obiekt&oacute;w określona dla narzędzia (opcja wyłączona).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Maksymalna liczba najbliższych obiekt&oacute;w, kt&oacute;re można znaleźć dla każdego obiektu wejściowego.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Określa, czy używany jest maksymalny zakres wyszukiwania (opcja włączona), czy zakres wyszukiwania jest nieograniczony (opcja wyłączona).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Maksymalny zakres wyszukiwania najbliższych obiekt&oacute;w.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Jednostki używane do określenia zakresu wyszukiwania.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Określa, czy każda trasa wynikowa zostanie zapisana jako warstwa trasy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

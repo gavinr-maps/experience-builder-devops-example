@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Вычислить стоимость перемещения вычисляет время движения или расстояние между парами точек.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Точечный слой, содержащий исходные местоположения, из которых будет вычислена стоимость перемещения. Поддерживаются слои до  5 000 объектов. </p> 
+            <p class="PortalOnly">Точечный слой, содержащий исходные местоположения, из которых будет вычислена стоимость перемещения.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Точечный слой, содержащий местоположения назначений, до которых будет вычислена стоимость перемещения. Поддерживаются слои до  5 000 объектов. </p> 
+            <p class="PortalOnly">Точечный слой, содержащий местоположения назначений, до которых будет вычислена стоимость перемещения.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Поле в  <b>Слое От</b>, определяющее предварительно назначенные пары &quot;источник-назначение&quot;. Если имеется несколько местоположений источников и назначений, этот идентификатор должен совпадать со значением в <b>Поле ID слоя До маршрута</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Поле в  <b>Слое До</b>, определяющее предварительно назначенные пары &quot;источник-назначение&quot;. Если имеется несколько местоположений источников и назначений, этот идентификатор должен совпадать со значением в <b>Поле ID слоя От маршрута</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Укажите один или более точечный объект, который действует как временное ограничение (иначе говоря, барьер) при перемещении по улицам. Передвижение разрешено по улице, но не через барьер.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Укажите один или более линейный объект, который действует как временное ограничение (иначе говоря, барьер) при перемещении по улицам. Линейные барьеры запрещают проезд в любом месте, где барьеры пересекаются с улицами.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Укажите один или более полигональный объект, который действует как временное ограничение (иначе говоря, барьер) при перемещении по улицам. Полигональные барьеры запрещают проезд в любом месте, где полигоны пересекаются с улицами.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Способ, который будет использоваться для измерения расстояния или времени. Это может быть метод Линейное расстояние или режим передвижения.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Дата и время отправления из местоположений источников в  <b>Слое От</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Определяет, связаны ли точки источников и назначений радиальными линиями или линиями предпочтений (<b>Прямая линия</b>) или улицами базовой уличной сети (<b>Следовать вдоль улиц</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Определяет, будет ли каждый результирующий маршрут сохраняться в виде слоя маршрута.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

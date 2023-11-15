@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تحتسب أداة معلمات السطح معلمات سطح البيانات النقطية مثل الاتجاه والانحدار والانحناء باستخدام الطرق الجيوديسية.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>البيانات النقطية للارتفاع التي ستُستخدم في العمليات الحسابية.
+            </p>
+            <p>إذا كانت وحدة z متوفرة في النظام الإحداثي الرأسي للبيانات النقطية المدخلة، فسيتم تطبيقها تلقائيًا.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>نوع معلمة السطح الذي سيتم قياسه.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>وحدات قياس البيانات النقطية الناتجة للمنحدر.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>تحدد ما إذا كان سيتم إسقاط زوايا السمت الجيوديسية.
+            </p>
+            <p>إذا تم التأشير عليها، سيتم إسقاط زوايا السمت الجيوديسية لتصحيح تشوه الزاوية الناتج من الإسناد المكاني الناتج. إذا لم يتم التأشير عليها، فلن يتم إسقاط زوايا السمت الجيوديسية.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>تحدد ما إذا كان سيتم قياس الاتجاه من نقطة على خط الاستواء أو من القطب الشمالي.
+            </p>
+            <p>إذا تم التأشير عليها، فسيتم قياس الاتجاه من نقطة على خط الاستواء. إذا لم يتم التأشير عليها، فسيتم قياس الاتجاه من القطب الشمالي.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>نوع دالة السطح التي ستتم ملاءمتها حول الخلية المستهدفة.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>المسافة من مركز الخلية المستهدفة التي سيتم احتساب الناتج منها. تحدد حجم الجوار المستخدم في الحساب.
+            </p>
+            <p>القيمة الافتراضية هي حجم خلية البيانات النقطية المحددة في معلمة  <b>البيانات النقطية لسطح الإدخال</b>. إذا تم تحديد قيمة، يجب أن تكون أكبر من القيمة الافتراضية.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>تحدد ما إذا كانت مسافة الجوار ستتغير بتغير المناظر الطبيعية.
+            </p>
+            <p>إذا تم التأشير عليها، فستتغير مسافة الجوار بتغير المناظر الطبيعية. إذا لم يتم التأشير عليها، فستُستخدم مسافة جوار ثابتة في جميع المواقع.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>الوحدة الخطية لقيم z الرأسية.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم طبقة البيانات النقطية للسطح التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقة صور متجانبة أو طبقة صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

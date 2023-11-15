@@ -1,0 +1,52 @@
+{
+  "toolName": "FindCentroids",
+  "version": "0.1.0",
+  "rules": [
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputFeatures",
+      "componentName": "analysis-block",
+      "summaryText": "$inputFeaturesSectionText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputLayerGroupLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_line", "feature_polygon", "feature_multiPoint"],
+          "hideSketch": true
+        },
+        {
+          "label": "$centroidCalculationLabel",
+          "name": "pointLocation",
+          "componentName": "analysis-string-input",
+          "showAsRadioButtonGroup": true,
+          "choiceList": ["false", "true"],
+          "choiceListLabels": {
+            "true": "$containedByInputs",
+            "false": "$geometricCenter"
+          },
+          "defaultValue": "false"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

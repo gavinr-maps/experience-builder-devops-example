@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Flow Direction tool creates a raster of flow direction from each cell to its downslope neighbor or neighbors using the D8, Multiple Flow Direction (MFD), or D-Infinity (DINF) method.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>The elevation raster that will be used for calculation.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Specifies the type of flow that will be used when computing flow direction.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Specifies whether flow at edge cells will follow normal flow rules or always flow outward.
+            </p>
+            <p>If unchecked, the flow will be toward the inner cell with the steepest drop in z-value. However, if the drop is less than or equal to zero, the cell will flow outward from the surface raster. If checked, the flow direction will always be outward from the surface raster.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionName">
+        <div>
+            <p>The name of the flow direction raster layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="outputDropName">
+        <div>
+            <p>The name of the drop raster layer that will be created and added to the map. This layer contains the percentage of the ratio between the maximum elevation change and the path length along the direction of flow.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>The type of output that will be created. The outputs can be Tiled imagery layers or Dynamic imagery layers.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>The name of the folder in  <b>My Content</b> where the results will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Amostra cria uma tabela ou uma classe de fei&ccedil;&atilde;o de ponto para mostrar os valores de pixel de um raster ou conjunto de rasters em locais definidos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>As camadas de imagens contendo valores que ser&atilde;o amostrados com base nos dados de localiza&ccedil;&atilde;o de entrada.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>A camada que cont&eacute;m os locais de cada amostra.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>O algoritmo de reamostragem que ser&aacute; usado durante o processo de amostragem.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Um campo na camada que cont&eacute;m um valor diferente para cada local ou fei&ccedil;&atilde;o de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Indica se as camadas de imagem de entrada incluem dados multidimensionais.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Especifica o tempo, a profundidade ou outros dados de aquisi&ccedil;&atilde;o associadoss &agrave;s fei&ccedil;&otilde;es de localiza&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>A dimens&atilde;o da camada de entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>O campo que ser&aacute; usado para iniciar o intervalo de tempo para a camada de entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>O campo que ser&aacute; usado para finalizar o intervalo de tempo para a camada de entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Um n&uacute;mero n&atilde;o negativo que ser&aacute; adicionado ao par&acirc;metro  <b>Dimens&atilde;o</b> ou um valor que definir&aacute; o in&iacute;cio de um intervalo de valores de dimens&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Um n&uacute;mero n&atilde;o negativo que ser&aacute; adicionado ao par&acirc;metro  <b>Dimens&atilde;o</b> ou um valor que definir&aacute; o final de um intervalo de valores de dimens&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>As estat&iacute;sticas que ser&atilde;o geradas ao processar camadas de imagens multidimensionais.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>O valor percentual que ser&aacute; usado para o tipo de estat&iacute;stica de percentil.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>A dist&acirc;ncia do buffer que ser&aacute; aplicada aos locais de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Especifica se o tipo de sa&iacute;da ser&aacute; uma fei&ccedil;&atilde;o ou tabela.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Especifica se a sa&iacute;da ser&aacute; em linha ou coluna.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

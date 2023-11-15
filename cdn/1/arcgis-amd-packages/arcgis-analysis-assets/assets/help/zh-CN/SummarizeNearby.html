@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;邻近汇总&rdquo;工具用于计算其他要素指定距离内的要素的统计数据。 该距离可以使用直线距离或出行模式来计算。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>要在邻近图层一定距离内汇总的图层。
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>用作起始位置的点、线或面图层，将在其周围创建边界区域以汇总附近的要素。
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>创建边界区域的方法。 方法可以是直线距离，也可以是出行模式。
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>将用于创建边界区域的距离或时间。 如果添加了多个值，则每个值都将用于计算所有输入要素的边界区域。
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>将用于指定距离或时间的单位。
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>指定结果图层是边界区域（已选中）还是与输入邻近图层相同的几何（未选中）。
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>计算每个边界区域中汇总的要素的总大小。 对于线，计算总长度。 对于面，计算总面积。
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>将用于计算汇总要素总大小的单位。
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>将汇总的输入图层中的数值或日期字段，以及将为每个字段计算的统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>来自输入图层的字段，用于将数据划分到不同的组中以进行统计计算。
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>计算每个汇总区域内的少数（所占比例最小）和众数（所占比例最大）群组。
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>计算属于每个边界内各组的汇总要素的百分比。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

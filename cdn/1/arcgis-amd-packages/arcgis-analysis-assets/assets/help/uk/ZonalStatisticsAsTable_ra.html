@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Зональна статистика як таблиця&raquo; підсумовує значення растру в межах зон іншого набору даних та звітує результати у вигляді таблиці.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>Вхідні дані, що визначають кордони зон або областей для підсумування.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Поле, що містить значення, котрі визначають кожну зону.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>Растровий шар, що містить значення осередків, які будуть використовуватися для обчислення статистики.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Визначає тип статистики, яка буде обчислюватися.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>Визначає процентильні значення, які будуть обчислені.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Визначає метод, який буде використовуватися, коли кількість значень у вхідному растрі, які потрібно обчислити, є парною.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Визначає спосіб обробки значень осередку  <b>Вхідний растр значень</b> для циклічних даних.
+            </p>
+            <p>Якщо не вибрано, буде обчислюватися звичайна арифметична (лінійна) статистика. Якщо вибрано, буде обчислюватися циклічна статистика.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Визначає значення, яке буде використовуватися для округлення лінійного значення до діапазону заданої циклічної статистики.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Визначає, чи осередки NoData у  <b>Вхідному растрі значень</b> будуть ігноруватися в результатах зон, до яких вони належать.
+            </p>
+            <p>Якщо вибрано, осередки NoData у растрі значень будуть ігноруватися під час обчислення статистики. Якщо не вибрано, осередки NoData не будуть ігноруватися, і вся зона отримає значення NoData у вихідному растрі.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Указує, як будуть оброблятися вхідні растри, якщо вони є багатовимірними.
+            </p>
+            <p>Якщо не вибрано, статистика буде обчислюватися для всіх вимірів вхідного набору багатовимірних даних. Якщо вибрано, статистика буде обчислюватися, виходячи з поточного зрізу вхідного набору багатовимірних даних.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>Ім'я шару таблиці зональної статистики, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

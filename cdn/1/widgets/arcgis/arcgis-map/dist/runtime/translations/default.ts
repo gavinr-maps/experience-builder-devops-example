@@ -11,5 +11,6 @@ export default {
   showOnMapData: 'Show on map data',
   addedData: 'added data',
   failToAddTheDataOnMap: 'Fail to add the data.',
-  addToMapData: 'Add to map data'
+  addToMapData: 'Add to map data',
+  mapCurrentRecord: '{layerName} map current record'
 }

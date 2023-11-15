@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>ルートの計画ツールは、複数車両用に訪問先が複数ある移動ルートを作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>車両がルートを出発する場所を指定するポイント フィーチャ。
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>車両がルート上で必ず訪問するポイント フィーチャ。 これらのポイントは、割り当て/未割り当ての訪問先として出力されます。
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>車両が開始位置に戻るか (有効)、指定位置で終了するか (無効) を決定します。
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>車両がルートを終了する場所を指定するポイント フィーチャ。 レイヤーにポイントが 1 つしかない場合、すべての車両は共通の終点にルーティングされます。 レイヤーに複数のポイントが含まれる場合、各車両は一意の終了位置にルーティングされます。
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>個々のルート、車両、ドライバーを一意に特定する開始レイヤーのフィールド。 車両が複数の場所から出発し、複数の場所で終了する場合、開始レイヤーおよび終了レイヤーとして選択されたルート ID は一致する必要があります。
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>個々のルート、車両、ドライバーを一意に特定する終了レイヤーのフィールド。 車両が複数の場所から出発し、複数の場所で終了する場合、開始レイヤーおよび終了レイヤーとして選択されたルート ID は一致する必要があります。
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>対象の道路を移動するときに一時的な規制 (バリア) として機能する 1 つ以上のポイント フィーチャを指定します。 道路上の移動は許可されますが、バリアを通過することはできません。
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>対象の道路を移動するときに一時的な規制 (バリア) として機能する 1 つ以上のライン フィーチャを指定します。 ライン バリアは、バリアが道路と交差している場所を移動できないようにします。
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>対象の道路を移動するときに一時的な規制 (バリア) として機能する 1 つ以上のポリゴン フィーチャを指定します。 ポリゴン バリアは、ポリゴンが道路と交差している場所を移動できないようにします。
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>ルートを作成する移動方法を特定します。 移動モードの基準になるのは、距離または時間です。
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>車両の出発日時。
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>訪問先の訪問に使用できる車両の最大数。  <b>[開始レイヤー]</b> と <b>[終了レイヤー]</b> にそれぞれ 1 つのフィーチャが含まれる場合は、最大で 100 台の車両を指定できます。 どちらのレイヤーも複数のフィーチャを含まない場合は、デフォルト値を編集できません。 </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>各車両がルート上で訪問できる最大の訪問先数。 1 〜  200 の任意の値を指定できます。 </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>各訪問先でのサービスにかかる平均予定滞在時間を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>ルートの最大所要時間を車両に適用するかどうかを決定します。 ルートの所要時間には、予定移動時間およびルート沿いの訪問先でかかるサービス時間が含まれます。
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>ルートが起点から終点まで続く最長時間を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成されマップに追加されるレイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>各結果ルートをルート レイヤーとして保存するかどうかを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

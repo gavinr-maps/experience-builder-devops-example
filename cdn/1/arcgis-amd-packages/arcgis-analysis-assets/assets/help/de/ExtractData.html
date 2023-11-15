@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Daten extrahieren&quot; w&auml;hlt Features innerhalb einer Ausdehnung aus und erstellt ein Element in Ihrem Inhalt.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Die Layer, die extrahiert werden. Unterst&uuml;tzte Eingabe-Layer umfassen Layer, die Sie besitzen, und Layer mit aktivierter Exportfunktion.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Die Ausdehnung der Features, die extrahiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>Gibt an, ob Features ausgeschnitten werden, die die Ausdehnung &uuml;berschneiden. Wenn deaktiviert, werden vollst&auml;ndige Features, die die Ausdehnung &uuml;berschneiden, extrahiert. Wenn aktiviert, werden Features, die die Ausdehnung &uuml;berschneiden, ausgeschnitten, und nur die Teile dieser Features, die innerhalb der Ausdehnung liegen, werden extrahiert.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Das Dateiformat der Daten, die extrahiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Ausgabeelements, in dem die extrahierte Datei gespeichert wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

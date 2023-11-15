@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Generovať raster trendov odhaduje trend pre každ&yacute; pixel pozdĺž dimenzie pre jednu alebo viac premenn&yacute;ch v multidimenzion&aacute;lnej sn&iacute;mkovej vrstve.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Multidimenzion&aacute;lna sn&iacute;mkov&aacute; vrstva., ktor&aacute; sa použije na vytvorenie trendu.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzia, pozdĺž ktorej bude trend extrahovan&yacute; pre premenn&uacute; alebo premenn&eacute; zvolen&eacute; v anal&yacute;ze.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Premenn&aacute; alebo premenn&eacute;, pre ktor&eacute; bud&uacute; vypoč&iacute;tan&eacute; trendy.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Časov&aacute; jednotka, ktor&aacute; sa použije pre dĺžku sez&oacute;nneho obdobia pri použit&iacute; typu riadku Seasonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Typ anal&yacute;zy trendov, ktor&aacute; sa vykon&aacute; na hodnot&aacute;ch pixelov pozdĺž dimenzie.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Frekvencia alebo poradov&eacute; č&iacute;slo polyn&oacute;mu, ktor&eacute; sa použije na doplnenie trendu.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Určuje, či sa pri anal&yacute;ze bud&uacute; ignorovať hodnoty NoData alebo ch&yacute;baj&uacute;ce hodnoty.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Dĺžka periodickej zmeny, ktor&aacute; sa bude modelovať pre harmonick&yacute; cyklus.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Časov&aacute; jednotka, ktor&aacute; sa použije pre dĺžku harmonick&eacute;ho cyklu.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Určuje, či sa vypoč&iacute;ta stredn&aacute; kvadratick&aacute; chyba (RMSE) l&iacute;nie trendu.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Určuje, či sa vypoč&iacute;ta &scaron;tatistika dobrej zhody R-kvadr&aacute;t pre l&iacute;niu trendu.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Určuje, či sa vypoč&iacute;ta &scaron;tatistika p-hodnoty pre koeficient sklonu l&iacute;nie trendu.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

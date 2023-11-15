@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Daudzdimensiju galvenās komponentes rīks pārvēr&scaron; daudzdimensiju attēlu slāņus samazinātā komponentu skaitā, kas veido datu dispersiju, lai varētu viegli noteikt telpiskos un laika modeļus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Daudzdimensiju attēlu slānis, kas tiks analizēts.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Metode, kas tiks izmantota galvenā komponenta analīzes veik&scaron;anai. Opcijās ir iekļauta   <b>Dimensiju samazinā&scaron;ana</b> un <b>Telpiskā samazinā&scaron;ana</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Daudzdimensiju attēlu slāņa dimensija, kurā tiek analizēts mainīgais.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Izvades attēlu slāņa vai tabulas slāņa nosaukums, kurā parādīti galvenie atrastie komponenti atkarībā no &scaron;ādām režīma izvēlēm:
+                <ul>
+                    <li>Dimensiju samazinā&scaron;anas izvade būs daudzjoslu attēlu slānis.
+                    </li>
+                    <li>Telpiskās samazinā&scaron;anas izvade būs tabulas slānis.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Izvades attēlu slāņa vai tabulas slāņa nosaukums, kas parāda atbalstītos datus galveno komponentu izvēlē atkarībā no &scaron;ādām režīma izvēlēm:
+                <ul>
+                    <li>Dimensijas samazinā&scaron;anas izvade būs tabulas slānis.
+                    </li>
+                    <li>Telpiskās samazinā&scaron;anas izvade būs attēlu slānis.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Īpa&scaron;vērtības tabulas nosaukums, kas norāda katra komponenta novirzes procentuālo vērtību.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Aprēķinā izmantotā ievades daudzdimensiju attēlu slāņa mainīgā nosaukums.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Aprēķināmo galveno komponentu skaits, kas parasti ir mazāks par ievades rastru skaitu.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Izveidotās izvades veids. Izvades var būt mozaīkas attēlu slāņi vai dinamiski attēlu slāņi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

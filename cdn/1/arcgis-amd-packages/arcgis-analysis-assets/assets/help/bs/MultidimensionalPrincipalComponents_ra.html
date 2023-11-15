@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Vi&scaron;edimenzionalne glavne komponente pretvara vi&scaron;edimenzionalne slojeve slika u smanjeni broj komponenti koje uzimaju u obzir varijancu podataka, tako da se prostorni i vremenski obrasci mogu lako identificirati.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vi&scaron;edimenzionalni sloj sa snimkom koji će biti analiziran.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Metoda koja će se koristiti za izvođenje analize glavnih komponenti. Opcije uključuju  <b>Smanjenje dimenzije</b> i <b>prostora</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzija vi&scaron;edimenzionalnog sloja slike duž kojeg će se varijabla analizirati.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Naziv sloja izlazne slike ili sloja tablice koji prikazuje glavne komponente pronađene ovisno o sljedećim izborima načina:
+                <ul>
+                    <li>Izlaz smanjenja dimenzija bit će vi&scaron;epojasni sloj slika.
+                    </li>
+                    <li>Izlaz smanjenja prostora bit će sloj tablice.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Naziv sloja izlazne slike ili sloja tablice koji prikazuje popratne podatke glavne komponente pronađene ovisno o sljedećim izborima načina:
+                <ul>
+                    <li>Izlaz smanjenja dimenzije bit će sloj tablice.
+                    </li>
+                    <li>Izlaz smanjenja prostora bit će sloj slika.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Naziv tablice Eigenvalues,&scaron;to označava postotak varijance svake komponente.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Naziv varijable ulaznog vi&scaron;edimenzionalnog sloja slike koji se koristi u izračunu.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Broj glavnih komponenti za izračunavanje, obično manji od broja ulaznih rastera.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će se stvoriti i dodati karti.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Vrsta izlaza koji će se stvoriti. Izlaz mogu biti slojevi s pločastom slikom ili slojevi s dinamičnom slikom.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>다차원 기본 컴포넌트 도구는 시공간 패턴을 바로 식별할 수 있도록 다차원 영상 레이어를 데이터의 변수를 처리할 더 적은 컴포넌트로 바꿉니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>분석될 다차원 영상 레이어입니다.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>기본 컴포넌트 분석을 수행하는 데 사용될 방법입니다. 옵션에는  <b>차원 감소</b> 및 <b>공간 감소</b>가 포함됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>변수를 분석할 다차원 영상 레이어의 차원입니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>다음 모드 선택에 따라 찾은 기본 컴포넌트를 보여주는 결과 영상 레이어 또는 테이블 레이어의 이름입니다.
+                <ul>
+                    <li>차원 감소 결과는 다중밴드 영상 레이어가 됩니다.
+                    </li>
+                    <li>공간 감소 결과는 테이블 레이어가 됩니다.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>다음 모드 선택에 따라 선택한 기본 컴포넌트의 지원 데이터를 보여주는 결과 영상 레이어 또는 테이블 레이어의 이름입니다.
+                <ul>
+                    <li>차원 감소 결과는 테이블 레이어가 됩니다.
+                    </li>
+                    <li>공간 감소 결과는 영상 레이어가 됩니다.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>각 컴포넌트의 변수 비율을 나타내는 고유 값 테이블의 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>계산에 사용되는 입력 다차원 영상 레이어의 변수 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>계산할 기본 컴포넌트의 수이며, 일반적으로 입력 래스터 수보다 적습니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>생성될 결과 유형입니다. 결과는 타일 영상 레이어 또는 동적 영상 레이어일 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Planifica les rutes crea rutes de viatge amb diverses parades per a una flota de vehicles.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>Entitats de punts que especifiquen on inicien la seva ruta els vehicles.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>Entitats de punt que els vehicles han de visitar al llarg de la seva ruta. Aquests punts es converteixen en parades assignades o sense assignar a la sortida.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>Determina si els vehicles han de tornar a la ubicaci&oacute; de sortida (activat) o han d'acabar a la ubicaci&oacute; especificada (desactivat).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>Entitats de punts que especifiquen on acaben la seva ruta els vehicles. Si la capa inclou nom&eacute;s un punt, tots els vehicles s'encaminen a un punt final com&uacute;. Si la capa inclou diversos punts, cada vehicle s'encaminar&agrave; a una ubicaci&oacute; &uacute;nica.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>Camp de la capa inicial que identifica de forma &uacute;nica cada ruta, cada vehicle o cada conductor. Si els vehicles surten de diverses ubicacions i acaben les rutes en diverses ubicacions, els ID de ruta que s'hagin triat per a les capes d'inici i de finalitzaci&oacute; han de coincidir.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>Camp de la capa final que identifica de forma &uacute;nica cada ruta, cada vehicle o cada conductor. Si els vehicles surten de diverses ubicacions i acaben les rutes en diverses ubicacions, els ID de ruta que s'hagin triat per a les capes d'inici i de finalitzaci&oacute; han de coincidir.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Una o diverses entitats de punt que actuen com a restriccions temporals (barreres) quan viatgeu per carrers subjacents. Es pot viatjar pel carrer, per&ograve; no creuar la barrera.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Una o diverses entitats de l&iacute;nia que actuen com a restriccions temporals (barreres) quan viatgeu per carrers subjacents. Les barreres de l&iacute;nia prohibeixen la circulaci&oacute; a qualsevol punt en qu&egrave; les barreres intersequen els carrers.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Una o diverses entitats de pol&iacute;gon que actuen com a restriccions temporals (barreres) quan viatgeu per carrers subjacents. Les barreres de pol&iacute;gon prohibeixen viatjar a qualsevol lloc on els pol&iacute;gons intersequen amb els carrers.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>M&egrave;tode de viatge amb el qual es crearan les rutes. El mode de viatge es pot basar en la dist&agrave;ncia o en &nbsp;el temps.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>Data i hora de sortida dels vehicles.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>Nombre m&agrave;xim de vehicles que estan disponibles per visitar les parades. Si tant la  <b>capa inicial</b> com la <b>capa final</b> contenen una entitat, podeu especificar fins a 100 vehicles. Si una de les capes cont&eacute; m&eacute;s d'una entitat, el valor per defecte no es pot modificar. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>Nombre m&agrave;xim de parades que un vehicle pot fer en una ruta. Podeu especificar un valor entre 1 i  200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Especifiqueu el temps de servei mitj&agrave; que s'espera per a cada parada.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>Determina si s'aplica el temps de ruta m&agrave;xim als vehicles. El temps de ruta inclou el temps de recorregut esperat i els temps de servei dedicats a les parades de la ruta.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>Especifiqueu el temps m&agrave;xim que hauria de durar una ruta de principi a fi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Especifica si les rutes resultants es desaran com una capa de ruta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

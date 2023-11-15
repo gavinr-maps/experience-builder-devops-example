@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تبحث أداة العثور على الأقرب المعالم الأقرب إلى المواقع المحددة وتصنفها.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">طبقة البداية التي تم من عندها العثور على أقرب المعالم. تكون الطبقات التي تتضمن ما يصل إلى  5000 من المعالم مدعومة. </p> 
+            <p class="PortalOnly">طبقة البداية التي تم من عندها العثور على أقرب المعالم.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">تم العثور على المعالم بناءً على القرب من طبقة الإدخال. تكون الطبقات التي تتضمن ما يصل إلى  5000 من المعالم مدعومة. </p> 
+            <p class="PortalOnly">تم العثور على المعالم بناءً على القرب من طبقة الإدخال.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>معلم نقطي واحد أو أكثر يعمل كقيود (حواجز) مؤقتة عند التنقل عبر الشوارع الأساسية. يُسمح بالسفر عبر الشارع ولكن ليس من خلال العائق.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>معلم خطي واحد أو أكثر يعمل كقيود (حواجز) مؤقتة عند التنقل عبر الشوارع الأساسية. تمنع الحواجز الخطية التنقل في أي مكان تتقاطع فيه الحواجز مع الشوارع.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>معلم مضلع واحد أو أكثر يعمل كقيود (حواجز) مؤقتة عند التنقل عبر الشوارع الأساسية. تمنع حواجز المضلع التنقل في أي مكان تتقاطع فيه المضلعات مع الشوارع.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>الطريقة التي سيتم استخدامها لقياس المسافة أو الوقت. قد تكون الطريقة مسافة خط أو وضع تنقل.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>تحدد التاريخ والوقت الذي يغادر فيه المسافر المواقع في  <b>طبقة الإدخال</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>تحدد ما إذا كان سيتم استخدام الحد الأقصى المخصص لأقرب معلم (تم التمكين) أو الحد الأقصى الافتراضي للأداة الذي يقدربـ 100 (تم التعطيل).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>أقصى عدد من أقرب المعالم التي يمكن العثور عليها لكل معلم مدخل.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>تحدد ما إذا كان سيتم استخدام الحد الأقصى لنطاق البحث (تم التمكين) أو كون نطاق البحث غير محدود (تم التعطيل).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>الحد الأقصى لنطاق البحث للعثور على أقرب المعالم.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>الوحدات المستخدمة لتحديد نطاق البحث.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>يحدد ما إذا كان سيتم حفظ كل مسار نتيجة كطبقة مسار أم لا.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

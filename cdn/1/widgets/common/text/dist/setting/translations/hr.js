@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Omotaj",verticalAlignment:"Okomito poravnavanje"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Okomito poravnavanje"})}}}));

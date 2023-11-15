@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Distance Accumulation (Accumulation de distance) permet de calculer la distance cumul&eacute;e de chaque cellule &agrave; la source en entr&eacute;e, ce qui permet de d&eacute;terminer la distance en ligne droite, la distance de co&ucirc;t, la distance de surface vraie et les facteurs de co&ucirc;ts verticaux et horizontaux.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Couche d'entit&eacute;s ou raster en entr&eacute;e qui identifie les sources par rapport auxquelles la distance doit &ecirc;tre calcul&eacute;e.
+            </p>
+            <p>Si l&rsquo;entr&eacute;e est un raster, ce dernier doit comporter des cellules qui poss&egrave;dent des valeurs enti&egrave;res valides (z&eacute;ro est une valeur valide) pour les sources et les cellules restantes doivent poss&eacute;der la valeur NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Interruptions qui d&eacute;finissent les obstacles &agrave; contourner.
+            </p>
+            <p>Pour une couche raster, les cellules dot&eacute;es d&rsquo;une valeur (y compris z&eacute;ro) sont trait&eacute;es comme une interruption.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster d&eacute;finissant les valeurs d'altitude &agrave; chaque localisation de cellule.
+            </p>
+            <p>Ces valeurs permettent de calculer la distance &agrave; la surface r&eacute;elle qui est couverte lors du passage d&rsquo;une cellule &agrave; une autre.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Raster d&eacute;finissant l'imp&eacute;dance ou le co&ucirc;t de d&eacute;placement &agrave; travers chaque cellule.
+            </p>
+            <p>La valeur de chaque emplacement de cellule repr&eacute;sente le co&ucirc;t par unit&eacute; de distance du d&eacute;placement &agrave; travers la cellule. La valeur ne doit pas &ecirc;tre n&eacute;gative ou nulle.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Indique si la distance doit &ecirc;tre calcul&eacute;e &agrave; l'aide d'une m&eacute;thode plane (Terre plate) ou g&eacute;od&eacute;sique (ellipso&iuml;de).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Raster d&eacute;finissant les valeurs z de chaque localisation de cellule.
+            </p>
+            <p>Ces valeurs permettent de calculer la pente utilis&eacute;e pour identifier le facteur vertical relatif au d&eacute;placement d&rsquo;une cellule &agrave; une autre.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Facteur qui d&eacute;finit la relation entre le facteur de co&ucirc;t vertical et l&rsquo;angle de d&eacute;placement relatif vertical.
+            </p>
+            <p>Il existe plusieurs options pour les facteurs avec modificateurs qui identifient un diagramme de facteurs verticaux d&eacute;fini. Les diagrammes permettent d'identifier le facteur vertical utilis&eacute; pour le calcul du co&ucirc;t total d'un d&eacute;placement vers une cellule voisine.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Raster d&eacute;finissant la direction horizontale &agrave; chaque cellule.
+            </p>
+            <p>Les valeurs &agrave; chaque emplacement seront utilis&eacute;es conjointement avec le param&egrave;tre  <b>Horizontal factor (Facteur horizontal)</b> afin de d&eacute;terminer le co&ucirc;t horizontal induit lors d&rsquo;un d&eacute;placement &agrave; partir d&rsquo;une cellule vers les cellules voisines.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Facteur qui d&eacute;finit la relation entre le facteur de co&ucirc;t horizontal et l&rsquo;angle de d&eacute;placement relatif horizontal.
+            </p>
+            <p>Il existe plusieurs options pour les facteurs avec modificateurs qui identifient un diagramme de facteurs horizontaux d&eacute;fini. Les diagrammes permettent d&rsquo;identifier le facteur horizontal utilis&eacute; pour le calcul du co&ucirc;t total d&rsquo;un d&eacute;placement vers une cellule voisine.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Co&ucirc;t cumul&eacute; initial permettant de commencer le calcul du co&ucirc;t.
+            </p>
+            <p>La valeur par d&eacute;faut est 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Accumulation maximale pour le voyageur pour une source.
+            </p>
+            <p>L&rsquo;accumulation par d&eacute;faut va jusqu&rsquo;&agrave; la bordure du raster en sortie.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Multiplicateur qui sera appliqu&eacute; aux valeurs de co&ucirc;t.
+            </p>
+            <p>La valeur par d&eacute;faut est 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Sens de d&eacute;placement du voyageur lors de l'application des facteurs horizontal et vertical.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Nom de la couche raster des distances cumul&eacute;es &agrave; cr&eacute;er et ajouter &agrave; la carte. Cette couche contient la distance cumul&eacute;e de chaque cellule depuis ou vers la source de moindre co&ucirc;t.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Nom de la couche raster de direction arri&egrave;re &agrave; cr&eacute;er et ajouter &agrave; la carte. Cette couche contient la direction en degr&eacute;s.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Nom de la couche raster de direction source &agrave; cr&eacute;er et ajouter &agrave; la carte. Cette couche contient la direction azimutale de la cellule source de moindre co&ucirc;t cumul&eacute; en degr&eacute;s.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Nom de la couche raster multicanal des localisations source &agrave; cr&eacute;er et ajouter &agrave; la carte. Cette couche contient les localisations source o&ugrave; le premier canal contient un index de ligne et le deuxi&egrave;me canal, un index de colonne.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Type de sortie &agrave; cr&eacute;er. Les sorties peuvent correspondre &agrave; des couches d&rsquo;imagerie tuil&eacute;e ou des couches d&rsquo;imagerie dynamique.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel seront enregistr&eacute;s les r&eacute;sultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ T&iacute;nh to&aacute;n Chi ph&iacute; Di chuyển gi&uacute;p đo thời gian di chuyển hoặc khoảng c&aacute;ch giữa c&aacute;c cặp điểm.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Lớp điểm đại diện cho c&aacute;c vị tr&iacute; điểm gốc m&agrave; tại đ&oacute; chi ph&iacute; di chuyển được t&iacute;nh to&aacute;n. C&aacute;c lớp c&oacute; tối đa  5.000 đối tượng được hỗ trợ. </p> 
+            <p class="PortalOnly">Lớp điểm đại diện cho c&aacute;c vị tr&iacute; điểm gốc m&agrave; tại đ&oacute; chi ph&iacute; di chuyển được t&iacute;nh to&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Lớp điểm đại diện cho c&aacute;c vị tr&iacute; điểm đến m&agrave; chi ph&iacute; di chuyển được t&iacute;nh to&aacute;n hướng tới. C&aacute;c lớp c&oacute; tối đa  5.000 đối tượng được hỗ trợ. </p> 
+            <p class="PortalOnly">Lớp điểm đại diện cho c&aacute;c vị tr&iacute; điểm đến m&agrave; chi ph&iacute; di chuyển được t&iacute;nh to&aacute;n hướng tới.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Trường trong  <b>Từ lớp</b> x&aacute;c định cặp điểm gốc-điểm đến được chỉ định trước. Nếu c&oacute; nhiều vị tr&iacute; điểm gốc v&agrave; điểm đến, ID n&agrave;y phải tr&ugrave;ng khớp với một gi&aacute; trị trong <b>trường ID tuyến đường Đến lớp</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Trường trong  <b>Đến lớp</b> x&aacute;c định cặp điểm gốc-điểm đến được chỉ định trước. Nếu c&oacute; nhiều vị tr&iacute; điểm gốc v&agrave; điểm đến, ID n&agrave;y phải tr&ugrave;ng khớp với một gi&aacute; trị trong <b>trường ID tuyến đường Từ lớp</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Phương thức n&agrave;y sẽ được sử dụng để đo khoảng c&aacute;ch hoặc thời gian. Phương ph&aacute;p c&oacute; thể l&agrave; khoảng c&aacute;ch đường hoặc phương thức di chuyển.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Ng&agrave;y v&agrave; thời gian khởi h&agrave;nh từ c&aacute;c vị tr&iacute; điểm gốc trong  <b>Từ lớp</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>X&aacute;c định xem điểm gốc v&agrave; điểm đến c&oacute; được kết nối bằng c&aacute;ch sử dụng đường mạng nhện hoặc đường mong muốn (<b>Đường thẳng</b>) hay đường tr&ecirc;n mạng lưới đường phố cơ sở (<b>Đi theo con đường</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>X&aacute;c định xem c&oacute; lưu từng tuyến đường kết quả dưới dạng lớp tuyến đường hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

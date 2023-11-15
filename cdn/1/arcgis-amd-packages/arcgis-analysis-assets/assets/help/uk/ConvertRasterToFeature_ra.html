@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Перетворити растр в об&rsquo;єкт&raquo; векторизує растр.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Вхідний растр, який буде перетворено на об&rsquo;єкти.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Поле, що містить значення, які буде конвертовано.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Тип об&rsquo;єктів (точкові, лінійні або полігональні), які будуть створені у вихідному шарі.
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>Вказує, чи будуть спрощуватися (згладжуватися) лінії або полігони.
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>Вказує, з яких об&rsquo;єктів складатимуться вихідні полігони: з простих чи зі складених.
+            </p>
+            <p>Складені об'єкти зазвичай обробляються швидше. Однак, якщо результат містить дуже велику кількість об'єктів, він може бути не швидшим.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>Межа вершини, яка буде використовуватися для поділу полігону на менші полігони.
+            </p>
+            <p>Якщо залишити пустим, вихідні полігони не розділятися.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ім'я векторного шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

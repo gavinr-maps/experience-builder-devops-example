@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تنشئ أداة &quot;تخطيط المسارات&quot; مسارات التنقل باستخدام نقاط توقف متعددة لأساطيل المركبات.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>المعالم النقطية التي تحدد أماكن بدء مسارات المركبات.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>المعالم النقطية التي يجب على المركبات المرور بها خلال مساراتها. أصبحت هذه النقاط محطات مُعينة أو غير مُعينة في الناتج.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>تحدد ما إذا كان يجب على المركبات الرجوع إلى موقع البدء (المُمكن) أو الانتهاء عند المواقع المحددة (مُعطلة).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>المعالم النقطية التي تحدد أماكن انتهاء مسارات المركبات. عندما تضم الطبقة نقطة واحدة فقط، يتم توجيه مسار جميع المركبات إلى نقطة انتهاء مشتركة. عندما تضم الطبقة نقاطًا متعددة، فسيتم توجيه مسار كل مركبة إلى موقع انتهاء واحد.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>الحقل الموجود في طبقة البدء والذي يحدد بشكل فريد المسارات أو المركبات أو السائقين الفرديين. إذا كانت المركبات تبدأ في مواقع متعددة وتنتهي في مواقع متعددة، يجب مطابقة معرفات المسار المختارة لطبقات البدء والانتهاء.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>الحقل الموجود في طبقة الانتهاء والذي يحدد بشكل فريد المسارات أو المركبات أو السائقين الفرديين. إذا كانت المركبات تبدأ في مواقع متعددة وتنتهي في مواقع متعددة، يجب مطابقة معرفات المسار المختارة لطبقات البدء والانتهاء.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>معلم نقطي واحد أو أكثر يعمل كقيود (حواجز) مؤقتة عند التنقل عبر الشوارع الأساسية. يُسمح بالسفر عبر الشارع ولكن ليس من خلال العائق.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>معلم خطي واحد أو أكثر يعمل كقيود (حواجز) مؤقتة عند التنقل عبر الشوارع الأساسية. تمنع الحواجز الخطية التنقل في أي مكان تتقاطع فيه الحواجز مع الشوارع.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>معلم مضلع واحد أو أكثر يعمل كقيود (حواجز) مؤقتة عند التنقل عبر الشوارع الأساسية. تمنع حواجز المضلع التنقل في أي مكان تتقاطع فيه المضلعات مع الشوارع.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>طريقة التنقل التي سيتم من خلالها إنشاء المسارات. قد يعتمد وضع التنقل على المسافة أو الزمن.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>تاريخ ووقت مغادرة المركبات.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>العدد الأقصى للمركبات التي تكون متاحة للمرور بنقاط التوقف. إذا كانت كل من  <b>طبقة البدء</b> و <b>طبقة الانتهاء</b> تحتوي على معلم واحد، يمكنك تحديد ما يصل إلى 100 من المركبات. إذا كان أي من الطبقتين تحتوي على أكثر من معلم واحد، فلا يمكن تحرير القيمة الافتراضية. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>العدد الأقصى لنقاط التوقف التي يمكن لكل مركبة إنشاؤها على مسار. يمكنك تحديد القيمة بين 1 و 200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>حدد متوسط وقت الخدمة المُستغرق المتوقع عند كل نقطة توقف.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>تحدد ما إذا كان يتم تطبيق الحد الأقصى لوقت التوجيه على المركبات. يشمل وقت المسار وقت التنقل المتوقع وأوقات الخدمة المُستغرقة عند نقاط التوقف على طول المسار.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>حدد الحد الأقصى من قيمة الوقت للمسار الذي يجب أن يستمر خلاله من البداية إلى النهاية.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>يحدد ما إذا كان سيتم حفظ كل مسار نتيجة كطبقة مسار أم لا.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

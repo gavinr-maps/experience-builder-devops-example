@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент Відсікання заміняє осередки растру, що відповідають масці, значеннями найближчих сусідів.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Вхідний растр з маскованими місцями розташування, які будуть замінені (відсічені) значенням їх найближчого сусіда.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Растр маски, який ідентифікує місця розташування у вхідному растрі, що підлягає заміні. Осередки зі значенням NoData вважаються такими, що перебувають всередині маскованої області.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Вхідний растр зони. У кожній зоні вхідні осередки, які перебувають всередині маски, будуть замінені тільки значеннями найближчих осередків із тієї самої зони.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Указує, чи осередки NoData у вхідному растрі можуть замінювати (відсікати) осередки в маскованих областях, якщо вони є найближчим сусідом.
+            </p>
+            <p>Якщо позначено, осередки NoData у вхідному растрі можуть відсікатися в масковану область. Якщо не позначено, в масковану область можуть відсікатися тільки чинні осередки у вхідному растрі.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Указує, чи осередки NoData у маскованій області будуть збережені або замінені.
+            </p>
+            <p>Якщо не позначено, всі осередки NoData в маскованій області будуть збережені у вихідних даних. Якщо позначено, осередки NoData в маскованій області будуть замінені (відсічені) значенням найближчого сусіда, який перебуває поза маскованою областю.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ім'я відсіченого растрового шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип вихідних даних, які буде створено. Вихідними даними можуть бути шари зображень з тайлами або динамічні шари зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

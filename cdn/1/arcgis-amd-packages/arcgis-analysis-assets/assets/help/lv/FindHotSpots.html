@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Karsto punktu atra&scaron;anas rīks identificē statistiski nozīmīgu klasterē&scaron;anu ievades elementos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Ievades punkts vai laukuma slānis, kurā tiks veikta karstā punkta analīze.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Norāda, vai karstie un aukstie punkti atspoguļo elementu novietojumu (<b>Punktu skaits</b>) vai elementa lauka vērtības (<b>Lauks</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Lauks, kas tiks analizēts augstas un zemas vērtības klasteriem.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Ierobežojo&scaron;o elementu veids, kādā tiks apkopoti ievades punkta elementi. Tas var būt laukuma slānis (<b>Laukuma slānis</b>) vai mozaīkas veido&scaron;anas režģis no kvadrātiem (<b>Režģa &scaron;ūnas</b>) vai se&scaron;stūriem (<b>Se&scaron;stūra &scaron;ūnas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Slānis, kas satur laukuma elementus, kuros tiks apkopoti ievades punkta elementi.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Laukuma slānis, kas noteiks analīzes robežu. Punktu elementi, kas atrodas laukumā, tiks iekļauti karsto punktu analīzē.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Norāda, kā sadalīt  <b>analīzes lauka</b> vērtības vai apkopoto punktu skaitu. Opcija <b>Lauks</b> sadala <b>analīzes lauka</b> vērtības ar norādītā lauka vērtībām <b>ievades slāņa</b> parametros. Opcija <b>Bagātinā&scaron;anas dati</b> bagātinās elementus vai apkopo&scaron;anas formas ar populācijas datiem un sadalīs <b>analīzes lauku</b> vērtības vai apkopoto punktu skaitu pēc populācijas. &Scaron;ī iespēja patērēs papildu servisa kredītus.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Kvadrāta vai se&scaron;stūra &scaron;ūnu malas garums, ko izmantos ievades elementu apkopo&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Norāda vienības, kas tiks izmantotas &scaron;ūnas izmēriem.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Attāluma josla, kas tiks izmantota, lai definētu apkaimi. Blakus eso&scaron;ie elementi mērķa elementa attāluma joslā tiks iekļauti mērķa objekta apkaimē karsto punktu analīzes laikā.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Norāda vienības, kas tiks izmantotas attāluma joslai.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

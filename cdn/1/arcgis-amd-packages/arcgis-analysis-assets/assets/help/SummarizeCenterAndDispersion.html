@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Summarize Center and Dispersion tool finds the central feature, central tendency, and standard deviational ellipse of a set of features.  
+
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>The point, line, or polygon features for which the central feature, central tendency, and standard deviational ellipse will be calculated.  
+
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Specifies the methods that will summarize the center and dispersion of the features. 
+
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Specifies the size, in standard deviations, of the elliptical polygon. If distance between the mean center and feature locations follows a Rayleigh distribution, the  <b>1 standard deviation</b>, <b>2 standard deviations</b>, and <b>3 standard deviations</b> option will output an elliptical polygon that will cover 63 percent, 89 percent, and 99.9 percent of the features, respectively.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>The field that will be used to determine the weight of the feature. 
+
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>The field that will be used to group features together. The selected  <b>Summary types</b>  will be calculated for each group.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>The name of the folder in  <b>My Content</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

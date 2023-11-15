@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Resumir Centro e Dispers&atilde;o encontra o elemento central, a tend&ecirc;ncia central e a elipse de desvio-padr&atilde;o de um conjunto de elementos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Os elementos de ponto, linha ou pol&iacute;gono para os quais ser&atilde;o calculados o elemento central, a tend&ecirc;ncia central e a elipse de desvio-padr&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Especifica os m&eacute;todos que ir&atilde;o resumir o centro e a dispers&atilde;o dos elementos.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Especifica o tamanho, em desvios-padr&atilde;o, do pol&iacute;gono el&iacute;ptico. Se a dist&acirc;ncia entre o centro m&eacute;dio e as localiza&ccedil;&otilde;es de elementos seguir uma distribui&ccedil;&atilde;o de Rayleigh, a op&ccedil;&atilde;o de  <b>1 desvio-padr&atilde;o</b>, <b>2 desvios-padr&atilde;o</b> e <b>3 desvios-padr&atilde;o</b> ir&aacute; produzir um pol&iacute;gono el&iacute;ptico que ir&aacute; cobrir 63%, 89% e 99,9% dos elementos, respetivamente.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>O campo que ser&aacute; utilizado para determinar o peso do elemento.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>O campo que ser&aacute; utilizado para agrupar elementos. Os  <b>tipos de Resumo</b> selecionados ser&atilde;o calculados para cada grupo.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

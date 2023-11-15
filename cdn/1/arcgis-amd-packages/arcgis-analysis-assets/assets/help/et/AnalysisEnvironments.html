@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Keskkonna seaded anal&uuml;&uuml;simiseks  Map Vieweris. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>M&auml;&auml;rab anal&uuml;&uuml;si ja tulemuskihi jaoks koordinaats&uuml;steemi.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>M&auml;&auml;rab anal&uuml;&uuml;siks kasutatava ala.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Reguleerib v&auml;ljundi ulatust nii, et see vastaks m&auml;&auml;ratud sn&auml;pirastri kihi pikslite joondusele.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>M&auml;&auml;rab piksli suuruse v&otilde;i resolutsiooni, mida kasutatakse anal&uuml;&uuml;siks ja v&auml;ljundi rasterkihi loomiseks.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>M&auml;&auml;rab maskikihi, kus anal&uuml;&uuml;simiseks kasutatakse ainult maski piirkonnas asuvaid piksleid.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>M&auml;&auml;rab, kuidas interpoleeritakse piksli v&auml;&auml;rtused, kui sisend- ja v&auml;ljundraster ei ole koosk&otilde;las.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>M&auml;&auml;rab kasutatava protsessori t&uuml;&uuml;bi. Valikuvariandid on  <b>CPU</b>, <b>GPU</b> ja <b>automaatne</b>. Kui on m&auml;&auml;ratud t&uuml;&uuml;p <b>automaatne</b>, m&auml;&auml;rab protsessori t&uuml;&uuml;bi t&ouml;&ouml;riist.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>M&auml;&auml;rab rastrit&ouml;&ouml;tlusteenuse instantside arvu, mida kasutatakse t&ouml;&ouml;riista k&auml;ivitamise ajal. Toetatavate v&auml;&auml;rtuste hulka kuuluvad t&uuml;hjad stringid (t&ouml;&ouml;riist m&auml;&auml;rab kasutatava rastrit&ouml;&ouml;tlusteenuse instantside arvu), t&auml;isarvud (0 v&otilde;i positiivsed t&auml;isarvud) ja protsendid. Protsendid peavad sisaldama protsendi v&auml;&auml;rtuse j&auml;rel protsendim&auml;rki (%).
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>M&auml;&auml;rab, kas hoiatuss&otilde;num ilmub, kui hinnanguline krediitide arv &uuml;letab m&auml;&auml;ratud l&auml;viv&auml;&auml;rtuse (lubatud), v&otilde;i kas anal&uuml;&uuml;s k&auml;ivitatakse ilma s&otilde;numit n&auml;itamata, olenemata hinnangulisest krediidikulust (ei ole lubatud). Anal&uuml;&uuml;s j&auml;rgib sellest hoolimata organisatsiooni krediidieelarve seadistusi.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>M&auml;&auml;rab l&auml;viv&auml;&auml;rtuse, mille puhul ilmub hoiatusteade, mis p&otilde;hineb anal&uuml;&uuml;si l&auml;biviimisel saadud hinnangulisel krediidikulul. Anal&uuml;&uuml;si v&otilde;ib siiski teostada, kui hinnang &uuml;letab l&auml;viv&auml;&auml;rtuse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

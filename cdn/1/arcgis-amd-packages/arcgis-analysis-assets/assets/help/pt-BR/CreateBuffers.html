@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Criar Buffers cria pol&iacute;gonos que cobrem uma determinada dist&acirc;ncia das fei&ccedil;&otilde;es de entrada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto, linha ou pol&iacute;gono que ser&atilde;o armazenados no buffer.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Especifica se a dist&acirc;ncia do buffer ser&aacute; definida por uma constante (<b>Valor</b>) ou um campo num&eacute;rico(<b>Campo</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>A dist&acirc;ncia que ser&aacute; usada para criar o buffer. Se v&aacute;rios valores forem adicionados, cada valor ser&aacute; usado para criar um buffer em cada fei&ccedil;&atilde;o de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>O campo que conter&aacute; a dist&acirc;ncia do buffer para cada fei&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>As unidades que ser&atilde;o usadas para especificar a dist&acirc;ncia do buffer.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Especifica como os buffers de diferentes fei&ccedil;&otilde;es de entrada ser&atilde;o tratados quando eles se sobrep&otilde;em.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Especifica se os buffers de m&uacute;ltiplas dist&acirc;ncias ser&atilde;o buffers conc&ecirc;ntricos que se sobrep&otilde;em (<b>Discos sobrepostos</b>) ou an&eacute;is que n&atilde;o se sobrep&otilde;em (<b>An&eacute;is distintos</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Para fei&ccedil;&otilde;es de linha, especifica se o buffer ser&aacute; criado em ambos os lados da linha (<b>Arredondar</b>), do lado esquerdo apenas (<b>Esquerdo</b>),ou apenas do lado direito (<b>Direito</b>).
+            </p>
+            <p>Para fei&ccedil;&otilde;es de pol&iacute;gono, especifica se as fei&ccedil;&otilde;es de pol&iacute;gono de entrada ser&atilde;o inclu&iacute;das no buffer (<b>Incluir</b>) ou exclu&iacute;do do buffer (<b>Excluir</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Especifica se a forma do buffer no final de uma fei&ccedil;&atilde;o de linha ser&aacute; arredondada (<b>Arredondar</b>) ou achatada (<b>Achatar</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تنشئ أداة &quot;تجميع البيانات النقطية المتعددة الأبعاد&quot; طبقة صور متعددة الأبعاد من خلال دمج متغيرات طبقة الصور المتعددة الأبعاد الحالية على طول بُعد معين.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>طبقة الصور المتعددة الأبعاد المراد تجميعها.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>بُعد طبقة الصور المتعددة الأبعاد المراد تجميع المتغير على امتدادها.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>تشير إلى ما إذا كانت الطبقة تحتوي على قيم بُعد.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>متغير طبقة الصور المتعددة الأبعاد المراد تجميعه على امتداد البُعد المحدد.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>الطريقة الرياضية المراد استخدامها لتجميع شرائح طبقة الصور المتعددة الأبعاد.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>القيمة المئوية المراد استخدامها للعمليات الحسابية بمجرد تحديد طريقة التجميع.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>طريقة الاستيفاء المئوي المراد استخدامها عند وجود عدد زوجي من القيم من طبقة الصور المدخلة.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>دالة البيانات النقطية المخصصة المراد استخدامها لحساب قيم وحدات بكسل طبقات الصور المجمعة.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>الفاصل الزمني للبُعد المراد استخدامه لتجميع البيانات المتعددة الأبعاد.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>تحدد كل كلمة رئيسية الوحدة الزمنية التي سيتم تجميع كل إحصائية لها. تتضمن قائمة الكلمات الرئيسية كل ساعة ويوميًا وأسبوعيًا وشهريًا وربع سنوي وسنويًا.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>حجم الفاصل الزمني المراد استخدامه عند التجميع على طول البُعد.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>وحدات القياس الخاصة بقيمة الفاصل الزمني.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>جدول القيمة المراد استخدامه عند التجميع على امتداد البُعد المحدد. يحدد الحدين الأدنى والأقصى لقيم النطاق المراد تضمينه.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>الحد الأدنى للقيمة الخاصة بنطاق الفاصل الزمني.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>الحد الأقصى للقيمة الخاصة بنطاق الفاصل الزمني.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>يحدد ما إذا كان سيتم تجاهل قيم NoData في التحليل.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقات صور متجانبة أو طبقات صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

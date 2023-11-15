@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>ستحدد أداة &quot;البحث عن القيم الشاذة&quot; ما إذا كانت هناك أي مواقع ذات قيم مختلفة بشكل كبير عن المواقع المجاورة لها بناءً على النمط المكاني للبيانات.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>طبقة النقطة أو المضلع التي سيتم العثور على القيم الشاذة منها.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>تحدد ما إذا كان سيتم تحديد القيم الشاذة بناءً على مواقع المعالم (<b>عدد النقاط</b>) أم قيم حقل المعلم (<b>الحقل</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>الحقل الذي سيتم تحليله لتحديد القيم الشاذة.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>نوع معالم الإحاطة التي سيتم تجميع المعالم المدخلة داخلها. يمكن أن تكون هذه طبقة مضلع (<b>طبقة مضلع</b>) أو شبكة مضلعات رباعية من مربعات (<b>خلايا شبكة صيد</b>) أو أشكالًا سداسية (<b>خلايا سداسية</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>الطبقة التي تحتوي على معالم مضلعات سيتم تجميع معالم النقاط المدخلة فيها.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>طبقة المضلع التي ستحدد حدود التحليل. سيتم تضمين المعالم الموجودة داخل المضلع في تحليل القيمة الشاذة.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>يحدد كيفية قسمة قيم  <b>حقل التحليل</b> أو تعداد النقاط المجمعة. سيقوم خيار <b>الحقل</b> بتقسيم قيم <b>حقل التحليل</b> على قيم الحقل المحدد في معلمة <b>طبقة الإدخال</b>. سيعمل خيار <b>بيانات الإثراء</b> على إثراء المعالم أو أشكال التجميع ببيانات السكان قسمة قيم <b>حقل التحليل</b> أو تعداد النقاط المجمعة على المجتمع. هذا الخيار سيستهلك اعتمادات إضافية.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>يحدد ما إذا كان سيتم تحسين الأداة للحصول على وقت معالجة أسرع أو زيادة دقة النتائج.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>قيمة عددية ستبدأ في إنشاء مولد أرقام عشوائي.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>طول جانب المربع (شبكة الصيد) أو الخلايا السداسية التي ستُستخدم لتجميع المعالم المدخلة.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>يحدد الوحدات التي سيتم استخدامها لحجم الخلية.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>نطاق المسافة الذي سيُستخدم لتحديد إحدى المجاورات. سيتم تضمين المعالم المجاورة ضمن نطاق المسافة للمعلم المستهدف في جوار المعلم المستهدف أثناء التحليل.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>يحدد الوحدات التي سيتم استخدامها لنطاق المسافة.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

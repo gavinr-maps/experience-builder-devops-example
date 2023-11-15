@@ -1,0 +1,318 @@
+{
+  "toolName": "BatchGeocode",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].geocodeServiceURL not NULL) AND (($[Data].inputTable NOT null) OR ($[Data].inputFileItem NOT null))",
+      "destination": ["geocodeUIParameters", "singleOrMultiFieldSwitch"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].singleOrMultiFieldSwitch = 'multiField'",
+      "destination": "geocodeUIParameters.UIparameterInfos[0]",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].singleOrMultiFieldSwitch = 'singleField'",
+      "destination": [
+        "geocodeUIParameters.UIparameterInfos[1]",
+        "geocodeUIParameters.UIparameterInfos[2]",
+        "geocodeUIParameters.UIparameterInfos[3]",
+        "geocodeUIParameters.UIparameterInfos[4]",
+        "geocodeUIParameters.UIparameterInfos[5]",
+        "geocodeUIParameters.UIparameterInfos[6]",
+        "geocodeUIParameters.UIparameterInfos[7]",
+        "geocodeUIParameters.UIparameterInfos[8]",
+        "geocodeUIParameters.UIparameterInfos[9]",
+        "geocodeUIParameters.UIparameterInfos[10]"
+      ],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "inputTable",
+      "valueA": "$[Data].inputType",
+      "valueB": "file",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "inputFileItem",
+      "valueA": "$[Data].inputType",
+      "valueB": "file",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "inputTable",
+      "valueA": "$[Data].inputType",
+      "valueB": "layer",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "inputFileItem",
+      "valueA": "$[Data].inputType",
+      "valueB": "layer",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].currentTool.portal.helperServices.geocode.length > 0",
+      "destination": "geocodeServiceURL",
+      "effectParams": {
+        "choiceList": "$[Component].currentTool.portal.helperServices.geocode${filter batch; map url}",
+        "choiceListLabels": "$[Component].currentTool.portal.helperServices.geocode${filter batch; mapkv url name}"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": [],
+    "standard": []
+  },
+  "UIparameters": [
+    {
+      "label": "$inputsSectionLabel",
+      "summaryText": "$inputTableSummaryText",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "inputType",
+          "label": "$inputType",
+          "componentName": "analysis-string-input",
+          "showAsRadioGroup": true,
+          "defaultValue": "layer",
+          "choiceList": ["layer", "file"],
+          "choiceListLabels": {
+            "layer": "$layerInput",
+            "file": "$fileInput"
+          }
+        },
+        {
+          "name": "inputFileItem",
+          "label": "$inputTableLabel",
+          "componentName": "analysis-item-input",
+          "itemTypes": ["CSV", "Microsoft Excel"]
+        },
+        {
+          "name": "inputTable",
+          "label": "$inputTableLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["table"]
+        }
+      ]
+    },
+    {
+      "label": "$fieldMappingLabel",
+      "summaryText": "$fieldMappingSectionText",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "geocodeServiceURL",
+          "label": "$inputLocatorLabel",
+          "required": true,
+          "placeholderText": "$geocodeServiceURLPlaceholderText"
+        },
+        {
+          "name": "sourceCountry",
+          "label": "$countryLabel",
+          "placeholderText": "$countryPlaceholderText",
+          "visible": false
+        },
+        {
+          "name": "singleOrMultiFieldSwitch",
+          "label": "$numberOfFieldsToMapLabel",
+          "choiceList": ["singleField", "multiField"],
+          "choiceListLabels": {
+            "singleField": "$singleField",
+            "multiField": "$multiField"
+          },
+          "componentName": "analysis-string-input",
+          "showAsRadioGroup": true,
+          "useDefaultOnReset": true,
+          "visible": false,
+          "defaultValue": "multiField"
+        },
+        {
+          "name": "geocodeParameters",
+          "label": "$fieldMappingLabel",
+          "componentName": "analysis-string-input",
+          "visible": false
+        },
+        {
+          "name": "geocodeUIParameters",
+          "label": "$fieldMappingLabel",
+          "componentName": "analysis-key-value",
+          "layout": "horizontal",
+          "visible": false,
+          "UIparameterInfos": [
+            {
+              "name": "SingleLine",
+              "label": "$singleLine",
+              "visible": true
+            },
+            {
+              "name": "Address",
+              "label": "$address",
+              "visible": true
+            },
+            {
+              "name": "Address2",
+              "label": "$address2",
+              "visible": true
+            },
+            {
+              "name": "Address3",
+              "label": "$address3",
+              "visible": true
+            },
+            {
+              "name": "Neighborhood",
+              "label": "$neighborhood",
+              "visible": true
+            },
+            {
+              "name": "City",
+              "label": "$city",
+              "visible": true
+            },
+            {
+              "name": "Subregion",
+              "label": "$subregion",
+              "visible": true
+            },
+            {
+              "name": "Region",
+              "label": "$region",
+              "visible": true
+            },
+            {
+              "name": "Postal",
+              "label": "$postal",
+              "visible": true
+            },
+            {
+              "name": "PostalExt",
+              "label": "$postalExtension",
+              "visible": true
+            },
+            {
+              "name": "CountryCode",
+              "label": "$countryCode",
+              "visible": true
+            }
+          ],
+          "parameterInfos": [
+            {
+              "name": "SingleLine",
+              "displayName": "SingleLine",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Address",
+              "displayName": "Address",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Address2",
+              "displayName": "Address2",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Address3",
+              "displayName": "Address3",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Neighborhood",
+              "displayName": "Neighborhood",
+              "dataType": "GPString"
+            },
+            {
+              "name": "City",
+              "displayName": "City",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Subregion",
+              "displayName": "Subregion",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Region",
+              "displayName": "Region",
+              "dataType": "GPString"
+            },
+            {
+              "name": "Postal",
+              "displayName": "Postal",
+              "dataType": "GPString"
+            },
+            {
+              "name": "PostalExt",
+              "displayName": "PostalExt",
+              "dataType": "GPString"
+            },
+            {
+              "name": "CountryCode",
+              "displayName": "CountryCode",
+              "dataType": "GPString"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputType",
+          "label": "$outputTypeLabel",
+          "choiceList": ["Feature Service", "csv", "xls"],
+          "choiceListLabels": {
+            "Feature Service": "$featureService",
+            "csv": "$csv",
+            "xls": "$xls"
+          },
+          "choiceListIcons": {
+            "csv": "file-csv",
+            "xls": "file-excel",
+            "Feature Service": "feature-layer"
+          },
+          "defaultValue": "Feature Service"
+        },
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

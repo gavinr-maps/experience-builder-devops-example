@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p> Map Viewer에서의 분석을 위한 환경 설정입니다. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>분석을 위한 좌표계 및 결과 레이어를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>분석에 사용할 영역을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>지정된 스냅 래스터 레이어의 셀 정렬과 일치하도록 결과 범위를 조정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>분석 및 결과 래스터 레이어 생성에 사용할 셀 크기 또는 해상도를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>마스크 레이어를 지정하며, 마스크 영역 내에 해당하는 셀만 분석에 사용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>입력 래스터와 결과 래스터가 정렬되지 않을 때 픽셀값을 보간하는 방법을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>사용할 프로세서 유형을 지정합니다. 옵션은  <b>CPU</b>, <b>GPU</b>, <b>자동</b>입니다. <b>자동</b>을 지정하는 경우 도구가 프로세서 유형을 정의합니다.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>도구 실행 중에 사용되는 래스터 프로세싱 서비스 인스턴스 수를 지정합니다. 지원되는 값에는 빈 문자열(사용할 래스터 프로세싱 서비스 인스턴스 수는 도구에서 지정됨), 숫자(0 또는 양의 정수), 백분율이 포함됩니다. 백분율은 백분율 값 뒤에 백분율 기호(%)가 포함되어야 합니다.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>예측된 크레딧 수가 지정된 임계값을 초과하는 경우 경고 메시지를 표시할지(활성화) 또는 예측된 크레딧 소비와 관계없이 메시지를 표시하지 않고 분석을 실행할지(활성화되지 않음) 여부를 결정합니다. 분석에는 기관의 크레딧 예산 설정이 계속 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>분석 실행에서 예측된 크레딧 소비를 기반으로 경고 메시지가 표시되는 임계값을 지정합니다. 분석은 예측이 임계값을 초과하는 경우에도 실행할 수 있습니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

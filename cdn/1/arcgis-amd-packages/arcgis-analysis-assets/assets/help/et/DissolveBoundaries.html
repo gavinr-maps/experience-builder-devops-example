@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riistaga &quot;Sulanda piirajad&quot; saab leida kattuvad v&otilde;i &uuml;hise piiriga pol&uuml;goonid ning sulandada need &uuml;heks pol&uuml;gooniks.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Kiht, mis sisaldab sulandatavaid pol&uuml;goonobjekte.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>M&auml;&auml;rab, kas t&ouml;&ouml;riist sulandab ainult sellised kattuvad v&otilde;i &uuml;hise piiriga pol&uuml;goonid, millel on sama v&auml;lja v&auml;&auml;rtus (lubatud) v&otilde;i k&otilde;ik kattuvad v&otilde;i &uuml;hise piiriga pol&uuml;goonid (keelatud).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>M&auml;&auml;rab v&auml;lja, mida kasutatakse pol&uuml;goonide sulandamiseks kokkusobivate v&auml;&auml;rtuste p&otilde;hjal.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>M&auml;&auml;rab, kas v&auml;ljund saab sisaldada mitmeosalisi pol&uuml;goonobjekte, st mitut pol&uuml;gooni, mis on m&auml;&auml;ratletud &uuml;he objektina (lubatud), v&otilde;i ainult eraldiseisvaid objekte (keelatud).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>M&auml;&auml;rab, kas sulandatud pol&uuml;goonide jaoks arvutatakse kokkuv&otilde;tte statistika.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Sisendkihi kokkuv&otilde;etavad numbri- v&otilde;i kuup&auml;evav&auml;ljad ja iga v&auml;lja kohta arvutatav statistika.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

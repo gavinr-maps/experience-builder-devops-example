@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>최적 영역 연결 도구는 두 개 이상의 입력 영역 간의 최적 연결 네트워크를 계산합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>최적의 네트워크로 연결될 영역을 식별하는 래스터 또는 피처 레이어입니다.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>주변으로 경로를 지정해야 하는 장애물을 식별하는 래스터 또는 피처 레이어입니다.
+            </p>
+            <p>래스터 레이어의 경우 값(0 포함)이 있는 셀은 경계로 처리됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>각 셀을 통해 이동할 임피던스 또는 비용을 정의하는 래스터 레이어입니다.
+            </p>
+            <p>각 셀 위치의 값은 셀을 통해 이동하기 위한 단가 거리를 나타냅니다. 값은 음수 또는 0이 될 수 없습니다.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>거리 계산에 평면 거리(평면 지구) 방법을 사용할지 아니면 측지 거리(타원체) 방법을 사용할지 여부를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>경로가 계속되고 입력 영역 내에서 연결되는지 여부를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>생성되고 맵에 추가될 각 입력 영역을 연결하는 최적 경로 네트워크 레이어의 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>생성되고 맵에 추가될 인접 연결 라인 레이어의 이름입니다. 이 레이어는 각 영역에서 가장 가까운 인접 피처 또는 최소 비용 인접 피처까지의 모든 경로를 식별합니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

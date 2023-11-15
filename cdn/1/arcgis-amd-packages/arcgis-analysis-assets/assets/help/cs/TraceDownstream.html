@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Sledovat po proudu (Trace Downstream) určuje trasu toku směrem po proudu ze zadan&yacute;ch vstupn&iacute;ch m&iacute;st.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&eacute; prvky, kter&eacute; budou použity jako poč&aacute;tečn&iacute; um&iacute;stěn&iacute; pro každou linii trasy po proudu.
+            </p>
+        </div>
+    </div>
+    <div id="splitDistance">
+        <div>
+            <p>D&eacute;lka jednotliv&yacute;ch segmentů, na kter&eacute; bude trasa rozdělena.
+            </p>
+        </div>
+    </div>
+    <div id="splitUnits">
+        <div>
+            <p>Jednotky použit&eacute; pro parametr  <b>Vzd&aacute;lenost rozdělen&iacute;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistance">
+        <div>
+            <p>Celkov&aacute; d&eacute;lka v&yacute;sledn&eacute; linie trasy.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Jednotky, kter&eacute; se použij&iacute; pro parametr  <b>Maxim&aacute;ln&iacute; vzd&aacute;lenost sledovan&eacute; trasy</b>.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Vrstva polygonov&yacute;ch prvků, kter&aacute; popisuje oblast, na n&iacute;ž bude oř&iacute;znuta linie trasy.
+            </p>
+            <p>Tento parametr m&aacute; přednost před hodnotou parametru  <b>Maxim&aacute;ln&iacute; vzd&aacute;lenost sledovan&eacute; trasy</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy trasy sledov&aacute;n&iacute; po proudu, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

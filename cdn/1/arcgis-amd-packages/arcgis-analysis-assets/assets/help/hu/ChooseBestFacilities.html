@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Choose Best Facilities eszk&ouml;z az ig&eacute;nyt legink&aacute;bb kiel&eacute;g&iacute;tő l&eacute;tes&iacute;tm&eacute;nyek halmaz&aacute;nak keres&eacute;se haszn&aacute;lhat&oacute;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>A keresleti helyek l&eacute;tes&iacute;tm&eacute;nyekhez val&oacute; hozz&aacute;rendel&eacute;sekor teljes&iacute;tendő c&eacute;l.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Hozzárendeli a keresletet a létesítményekhez a létesítmény kapacitása és a környező terület keresleti mennyisége alapján. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Létesítmények kiválasztása úgy, hogy az összes keresleti hely és a hozzájuk rendelt létesítmény közötti utazási idő vagy távolság a lehető legkisebb legyen. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Létesítmények kiválasztása úgy, hogy a maximális mennyiségű kereslet legyen körülötte, és az egyes keresleti helyek minden kereslete a hozzá legközelebb lévő létesítményhez legyen rendelve. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Létesítmények kiválasztása a maximális keresleti mennyiséget úgy felosztva, hogy egyik létesítmény kapacitását se lépje túl. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Minimális számú létesítmény kiválasztása a kereslet megadott százalékának eléréséhez. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Az az utaz&aacute;si m&oacute;d, amelyet a l&eacute;tes&iacute;tm&eacute;nyek &eacute;s a keresleti helyek k&ouml;z&ouml;tti idő vagy t&aacute;vols&aacute;g m&eacute;r&eacute;s&eacute;re haszn&aacute;lnak.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Az a d&aacute;tum &eacute;s időpont, amikor az utas elindul a l&eacute;tes&iacute;tm&eacute;nyektől vagy a keresleti helyekről.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy az utaz&aacute;s a l&eacute;tes&iacute;tm&eacute;nyekből indul &eacute;s kifel&eacute; halad a keresleti helyek fel&eacute;, vagy a keresleti helyekről indul &eacute;s befel&eacute; halad a l&eacute;tes&iacute;tm&eacute;nyek fel&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy az utaz&aacute;s a l&eacute;tes&iacute;tm&eacute;nyekből indul &eacute;s kifel&eacute; halad a keresleti helyek fel&eacute;, vagy a keresleti helyekről indul &eacute;s befel&eacute; halad a l&eacute;tes&iacute;tm&eacute;nyek fel&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy az utaz&aacute;s a l&eacute;tes&iacute;tm&eacute;nyekből indul &eacute;s kifel&eacute; halad a keresleti helyek fel&eacute;, vagy a keresleti helyekről indul &eacute;s befel&eacute; halad a l&eacute;tes&iacute;tm&eacute;nyek fel&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy az utaz&aacute;s a l&eacute;tes&iacute;tm&eacute;nyekből indul &eacute;s kifel&eacute; halad a keresleti helyek fel&eacute;, vagy a keresleti helyekről indul &eacute;s befel&eacute; halad a l&eacute;tes&iacute;tm&eacute;nyek fel&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy az utaz&aacute;s a l&eacute;tes&iacute;tm&eacute;nyekből indul &eacute;s kifel&eacute; halad a keresleti helyek fel&eacute;, vagy a keresleti helyekről indul &eacute;s befel&eacute; halad a l&eacute;tes&iacute;tm&eacute;nyek fel&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan pontszerű vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A k&ouml;zleked&eacute;s enged&eacute;lyezett az utc&aacute;n, de a hat&aacute;ron kereszt&uuml;l m&aacute;r nem.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan pontszerű vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A k&ouml;zleked&eacute;s enged&eacute;lyezett az utc&aacute;n, de a hat&aacute;ron kereszt&uuml;l m&aacute;r nem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan pontszerű vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A k&ouml;zleked&eacute;s enged&eacute;lyezett az utc&aacute;n, de a hat&aacute;ron kereszt&uuml;l m&aacute;r nem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan pontszerű vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A k&ouml;zleked&eacute;s enged&eacute;lyezett az utc&aacute;n, de a hat&aacute;ron kereszt&uuml;l m&aacute;r nem.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan pontszerű vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A k&ouml;zleked&eacute;s enged&eacute;lyezett az utc&aacute;n, de a hat&aacute;ron kereszt&uuml;l m&aacute;r nem.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan vonalas vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A vonalas hat&aacute;rok minden olyan helyen akad&aacute;lyozz&aacute;k a tov&aacute;bbhalad&aacute;st, ahol a hat&aacute;rok keresztezik az utc&aacute;kat.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan vonalas vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A vonalas hat&aacute;rok minden olyan helyen akad&aacute;lyozz&aacute;k a tov&aacute;bbhalad&aacute;st, ahol a hat&aacute;rok keresztezik az utc&aacute;kat.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan vonalas vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A vonalas hat&aacute;rok minden olyan helyen akad&aacute;lyozz&aacute;k a tov&aacute;bbhalad&aacute;st, ahol a hat&aacute;rok keresztezik az utc&aacute;kat.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan vonalas vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A vonalas hat&aacute;rok minden olyan helyen akad&aacute;lyozz&aacute;k a tov&aacute;bbhalad&aacute;st, ahol a hat&aacute;rok keresztezik az utc&aacute;kat.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan vonalas vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A vonalas hat&aacute;rok minden olyan helyen akad&aacute;lyozz&aacute;k a tov&aacute;bbhalad&aacute;st, ahol a hat&aacute;rok keresztezik az utc&aacute;kat.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan polygon vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A polygon hat&aacute;rok megakad&aacute;lyozz&aacute;k a halad&aacute;st minden&uuml;tt, ahol a polygonok utc&aacute;t kereszteznek.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan polygon vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A polygon hat&aacute;rok megakad&aacute;lyozz&aacute;k a halad&aacute;st minden&uuml;tt, ahol a polygonok utc&aacute;t kereszteznek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan polygon vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A polygon hat&aacute;rok megakad&aacute;lyozz&aacute;k a halad&aacute;st minden&uuml;tt, ahol a polygonok utc&aacute;t kereszteznek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan polygon vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A polygon hat&aacute;rok megakad&aacute;lyozz&aacute;k a halad&aacute;st minden&uuml;tt, ahol a polygonok utc&aacute;t kereszteznek.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan polygon vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A polygon hat&aacute;rok megakad&aacute;lyozz&aacute;k a halad&aacute;st minden&uuml;tt, ahol a polygonok utc&aacute;t kereszteznek.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal biztos&iacute;that&oacute; szolg&aacute;ltat&aacute;sok ir&aacute;nt keresletet mutat&oacute; helyeknek megfelelő, pontszerű vektor elemek.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal biztos&iacute;that&oacute; szolg&aacute;ltat&aacute;sok ir&aacute;nt keresletet mutat&oacute; helyeknek megfelelő, pontszerű vektor elemek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal biztos&iacute;that&oacute; szolg&aacute;ltat&aacute;sok ir&aacute;nt keresletet mutat&oacute; helyeknek megfelelő, pontszerű vektor elemek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal biztos&iacute;that&oacute; szolg&aacute;ltat&aacute;sok ir&aacute;nt keresletet mutat&oacute; helyeknek megfelelő, pontszerű vektor elemek.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal biztos&iacute;that&oacute; szolg&aacute;ltat&aacute;sok ir&aacute;nt keresletet mutat&oacute; helyeknek megfelelő, pontszerű vektor elemek.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Azt adja meg, hogy a keresletet hogyan kell alkalmazni az egyes helyekre. Ha a kereslet mennyis&eacute;ge minden helyen azonos, akkor v&aacute;lassza az  <b>&Eacute;rt&eacute;k</b> lehetős&eacute;get. Ha a kereslet mennyis&eacute;ge hely szerint v&aacute;ltozik, akkor v&aacute;lassza a <b>Mező</b> lehetős&eacute;get.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Azt adja meg, hogy a keresletet hogyan kell alkalmazni az egyes helyekre. Ha a kereslet mennyis&eacute;ge minden helyen azonos, akkor v&aacute;lassza az  <b>&Eacute;rt&eacute;k</b> lehetős&eacute;get. Ha a kereslet mennyis&eacute;ge hely szerint v&aacute;ltozik, akkor v&aacute;lassza a <b>Mező</b> lehetős&eacute;get.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Azt adja meg, hogy a keresletet hogyan kell alkalmazni az egyes helyekre. Ha a kereslet mennyis&eacute;ge minden helyen azonos, akkor v&aacute;lassza az  <b>&Eacute;rt&eacute;k</b> lehetős&eacute;get. Ha a kereslet mennyis&eacute;ge hely szerint v&aacute;ltozik, akkor v&aacute;lassza a <b>Mező</b> lehetős&eacute;get.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Azt adja meg, hogy a keresletet hogyan kell alkalmazni az egyes helyekre. Ha a kereslet mennyis&eacute;ge minden helyen azonos, akkor v&aacute;lassza az  <b>&Eacute;rt&eacute;k</b> lehetős&eacute;get. Ha a kereslet mennyis&eacute;ge hely szerint v&aacute;ltozik, akkor v&aacute;lassza a <b>Mező</b> lehetős&eacute;get.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Azt adja meg, hogy a keresletet hogyan kell alkalmazni az egyes helyekre. Ha a kereslet mennyis&eacute;ge minden helyen azonos, akkor v&aacute;lassza az  <b>&Eacute;rt&eacute;k</b> lehetős&eacute;get. Ha a kereslet mennyis&eacute;ge hely szerint v&aacute;ltozik, akkor v&aacute;lassza a <b>Mező</b> lehetős&eacute;get.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>A kereslet mennyis&eacute;ge az egyes keresleti helyeken. Minden helyen ugyanannyi keresletet fog alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>A kereslet mennyis&eacute;ge az egyes keresleti helyeken. Minden helyen ugyanannyi keresletet fog alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>A kereslet mennyis&eacute;ge az egyes keresleti helyeken. Minden helyen ugyanannyi keresletet fog alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>A kereslet mennyis&eacute;ge az egyes keresleti helyeken. Minden helyen ugyanannyi keresletet fog alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>A kereslet mennyis&eacute;ge az egyes keresleti helyeken. Minden helyen ugyanannyi keresletet fog alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>A keresleti r&eacute;tegből sz&aacute;rmaz&oacute; mező, amely megadja az egyes helyekre vonatkoz&oacute; kereslet mennyis&eacute;g&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>A keresleti r&eacute;tegből sz&aacute;rmaz&oacute; mező, amely megadja az egyes helyekre vonatkoz&oacute; kereslet mennyis&eacute;g&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>A keresleti r&eacute;tegből sz&aacute;rmaz&oacute; mező, amely megadja az egyes helyekre vonatkoz&oacute; kereslet mennyis&eacute;g&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>A keresleti r&eacute;tegből sz&aacute;rmaz&oacute; mező, amely megadja az egyes helyekre vonatkoz&oacute; kereslet mennyis&eacute;g&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>A keresleti r&eacute;tegből sz&aacute;rmaz&oacute; mező, amely megadja az egyes helyekre vonatkoz&oacute; kereslet mennyis&eacute;g&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Megadja, hogy a maxim&aacute;lis utaz&aacute;si t&aacute;vols&aacute;got vagy a keresleti helyek &eacute;s a kijel&ouml;lt l&eacute;tes&iacute;tm&eacute;nyek k&ouml;z&ouml;tt megengedett időt egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg, vagy nem alkalmaz maximumot (<b>Korl&aacute;tlan</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Megadja, hogy a maxim&aacute;lis utaz&aacute;si t&aacute;vols&aacute;got vagy a keresleti helyek &eacute;s a kijel&ouml;lt l&eacute;tes&iacute;tm&eacute;nyek k&ouml;z&ouml;tt megengedett időt egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg, vagy nem alkalmaz maximumot (<b>Korl&aacute;tlan</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Megadja, hogy a maxim&aacute;lis utaz&aacute;si t&aacute;vols&aacute;got vagy a keresleti helyek &eacute;s a kijel&ouml;lt l&eacute;tes&iacute;tm&eacute;nyek k&ouml;z&ouml;tti maxim&aacute;lis utaz&aacute;si időt egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Megadja, hogy a maxim&aacute;lis utaz&aacute;si t&aacute;vols&aacute;got vagy a keresleti helyek &eacute;s a kijel&ouml;lt l&eacute;tes&iacute;tm&eacute;nyek k&ouml;z&ouml;tt megengedett időt egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg, vagy nem alkalmaz maximumot (<b>Korl&aacute;tlan</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Megadja, hogy a maxim&aacute;lis utaz&aacute;si t&aacute;vols&aacute;got vagy a keresleti helyek &eacute;s a kijel&ouml;lt l&eacute;tes&iacute;tm&eacute;nyek k&ouml;z&ouml;tt megengedett időt egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg, vagy nem alkalmaz maximumot (<b>Korl&aacute;tlan</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Az az utaz&aacute;si t&aacute;vols&aacute;g vagy idő, amelyen t&uacute;l a keresletet nem fogja hozz&aacute;rendelni. Minden helyen ugyanazt maxim&aacute;lis utaz&aacute;si tartom&aacute;nyt fogja alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Az az utaz&aacute;si t&aacute;vols&aacute;g vagy idő, amelyen t&uacute;l a keresletet nem fogja hozz&aacute;rendelni. Minden helyen ugyanazt maxim&aacute;lis utaz&aacute;si tartom&aacute;nyt fogja alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Az az utaz&aacute;si t&aacute;vols&aacute;g vagy idő, amelyen t&uacute;l a keresletet nem fogja hozz&aacute;rendelni. Minden helyen ugyanazt maxim&aacute;lis utaz&aacute;si tartom&aacute;nyt fogja alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Az az utaz&aacute;si t&aacute;vols&aacute;g vagy idő, amelyen t&uacute;l a keresletet nem fogja hozz&aacute;rendelni. Minden helyen ugyanazt maxim&aacute;lis utaz&aacute;si tartom&aacute;nyt fogja alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Az az utaz&aacute;si t&aacute;vols&aacute;g vagy idő, amelyen t&uacute;l a keresletet nem fogja hozz&aacute;rendelni. Minden helyen ugyanazt maxim&aacute;lis utaz&aacute;si tartom&aacute;nyt fogja alkalmazni.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Azt az utaz&aacute;si t&aacute;vols&aacute;got vagy időt tartalmaz&oacute; mező, amelyen t&uacute;l a kereslet nem fog hozz&aacute;rendel&eacute;sre ker&uuml;lni.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Azt az utaz&aacute;si t&aacute;vols&aacute;got vagy időt tartalmaz&oacute; mező, amelyen t&uacute;l a kereslet nem fog hozz&aacute;rendel&eacute;sre ker&uuml;lni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Azt az utaz&aacute;si t&aacute;vols&aacute;got vagy időt tartalmaz&oacute; mező, amelyen t&uacute;l a kereslet nem fog hozz&aacute;rendel&eacute;sre ker&uuml;lni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Azt az utaz&aacute;si t&aacute;vols&aacute;got vagy időt tartalmaz&oacute; mező, amelyen t&uacute;l a kereslet nem fog hozz&aacute;rendel&eacute;sre ker&uuml;lni.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Azt az utaz&aacute;si t&aacute;vols&aacute;got vagy időt tartalmaz&oacute; mező, amelyen t&uacute;l a kereslet nem fog hozz&aacute;rendel&eacute;sre ker&uuml;lni.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>A maxim&aacute;lis t&aacute;vols&aacute;g vagy utaz&aacute;si idő meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; m&eacute;rt&eacute;kegys&eacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>A maxim&aacute;lis t&aacute;vols&aacute;g vagy utaz&aacute;si idő meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; m&eacute;rt&eacute;kegys&eacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>A maxim&aacute;lis t&aacute;vols&aacute;g vagy utaz&aacute;si idő meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; m&eacute;rt&eacute;kegys&eacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>A maxim&aacute;lis t&aacute;vols&aacute;g vagy utaz&aacute;si idő meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; m&eacute;rt&eacute;kegys&eacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>A maxim&aacute;lis t&aacute;vols&aacute;g vagy utaz&aacute;si idő meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; m&eacute;rt&eacute;kegys&eacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>A kereslet minim&aacute;lis sz&aacute;zal&eacute;kos ar&aacute;nya, amelyet a l&eacute;tes&iacute;tm&eacute;nyeknek le kell fedni&uuml;k.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>A potenci&aacute;lisan alkalmas l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő pontszerű vektoros elemek. A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban olyan helyeknek felelnek meg, ahov&aacute; &uacute;j l&eacute;tes&iacute;tm&eacute;nyek &eacute;p&uuml;lnek vagy ker&uuml;lnek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>A potenci&aacute;lisan alkalmas l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő pontszerű vektoros elemek. A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban olyan helyeknek felelnek meg, ahov&aacute; &uacute;j l&eacute;tes&iacute;tm&eacute;nyek &eacute;p&uuml;lnek vagy ker&uuml;lnek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>A potenci&aacute;lisan alkalmas l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő pontszerű vektoros elemek. A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban olyan helyeknek felelnek meg, ahov&aacute; &uacute;j l&eacute;tes&iacute;tm&eacute;nyek &eacute;p&uuml;lnek vagy ker&uuml;lnek.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>A potenci&aacute;lisan alkalmas l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő pontszerű vektoros elemek. A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban olyan helyeknek felelnek meg, ahov&aacute; &uacute;j l&eacute;tes&iacute;tm&eacute;nyek &eacute;p&uuml;lnek vagy ker&uuml;lnek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Megadja, hogy az egyes jel&ouml;lt l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;s&aacute;t egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Az egyes potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;sa. A rendszer ugyanazt a kapacit&aacute;st fogja haszn&aacute;lni mindegyik potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyhez.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Az egyes potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;s&aacute;t tartalmaz&oacute; mező.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek sz&aacute;ma a potenci&aacute;lis jel&ouml;ltek halmaz&aacute;b&oacute;l t&ouml;rt&eacute;nő kiv&aacute;laszt&aacute;shoz. Ha mind a sz&uuml;ks&eacute;ges, mind a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyeket megadja, akkor előbb a Sz&uuml;ks&eacute;ges c&eacute;l&aacute;llom&aacute;s r&eacute;teg l&eacute;tes&iacute;tm&eacute;nyeit haszn&aacute;lja, majd azut&aacute;n fogja a Potenci&aacute;lis c&eacute;l&aacute;llom&aacute;s r&eacute;teg l&eacute;tes&iacute;tm&eacute;nyeit haszn&aacute;lni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek sz&aacute;ma a potenci&aacute;lis jel&ouml;ltek halmaz&aacute;b&oacute;l t&ouml;rt&eacute;nő kiv&aacute;laszt&aacute;shoz. Ha mind a sz&uuml;ks&eacute;ges, mind a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyeket megadja, akkor előbb a Sz&uuml;ks&eacute;ges c&eacute;l&aacute;llom&aacute;s r&eacute;teg l&eacute;tes&iacute;tm&eacute;nyeit haszn&aacute;lja, majd azut&aacute;n fogja a Potenci&aacute;lis c&eacute;l&aacute;llom&aacute;s r&eacute;teg l&eacute;tes&iacute;tm&eacute;nyeit haszn&aacute;lni.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>A potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek sz&aacute;ma a potenci&aacute;lis jel&ouml;ltek halmaz&aacute;b&oacute;l t&ouml;rt&eacute;nő kiv&aacute;laszt&aacute;shoz. Ha mind a sz&uuml;ks&eacute;ges, mind a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyeket megadja, akkor előbb a Sz&uuml;ks&eacute;ges c&eacute;l&aacute;llom&aacute;s r&eacute;teg l&eacute;tes&iacute;tm&eacute;nyeit haszn&aacute;lja, majd azut&aacute;n fogja a Potenci&aacute;lis c&eacute;l&aacute;llom&aacute;s r&eacute;teg l&eacute;tes&iacute;tm&eacute;nyeit haszn&aacute;lni.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Azt adja meg, hogy csak a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek haszn&aacute;lhat&oacute;k-e bemenetk&eacute;nt (nem enged&eacute;lyezve), vagy valamennyi l&eacute;tes&iacute;tm&eacute;ny sz&uuml;ks&eacute;ges (enged&eacute;lyezve).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Azt adja meg, hogy csak a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek haszn&aacute;lhat&oacute;k-e bemenetk&eacute;nt (nem enged&eacute;lyezve), vagy valamennyi l&eacute;tes&iacute;tm&eacute;ny sz&uuml;ks&eacute;ges (enged&eacute;lyezve).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Azt adja meg, hogy csak a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek haszn&aacute;lhat&oacute;k-e bemenetk&eacute;nt (nem enged&eacute;lyezve), vagy valamennyi l&eacute;tes&iacute;tm&eacute;ny sz&uuml;ks&eacute;ges (enged&eacute;lyezve).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Azt adja meg, hogy csak a potenci&aacute;lis l&eacute;tes&iacute;tm&eacute;nyek haszn&aacute;lhat&oacute;k-e bemenetk&eacute;nt (nem enged&eacute;lyezve), vagy valamennyi l&eacute;tes&iacute;tm&eacute;ny sz&uuml;ks&eacute;ges (enged&eacute;lyezve).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő, pontszerű vektoros elemek. Ezek a l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban m&aacute;r l&eacute;tező helyeknek felelnek meg.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő, pontszerű vektoros elemek. Ezek a l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban m&aacute;r l&eacute;tező helyeknek felelnek meg.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő, pontszerű vektoros elemek. Ezek a l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban m&aacute;r l&eacute;tező helyeknek felelnek meg.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő, pontszerű vektoros elemek. Ezek a l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban m&aacute;r l&eacute;tező helyeknek felelnek meg.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>A l&eacute;tes&iacute;tm&eacute;nyek szerep&eacute;t bet&ouml;ltő helyeknek megfelelő, pontszerű vektoros elemek. Ezek a l&eacute;tes&iacute;tm&eacute;nyek &aacute;ltal&aacute;ban m&aacute;r l&eacute;tező helyeknek felelnek meg.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Megadja, hogy az egyes l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;s&aacute;t egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Megadja, hogy az egyes l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;s&aacute;t egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy mező &eacute;rt&eacute;ke (<b>Mező</b>) hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Az egyes sz&uuml;ks&eacute;ges l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;sa. A rendszer ugyanazt a kapacit&aacute;st fogja haszn&aacute;lni mindegyik sz&uuml;ks&eacute;ges l&eacute;tes&iacute;tm&eacute;nyhez.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Az egyes sz&uuml;ks&eacute;ges l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;sa. A rendszer ugyanazt a kapacit&aacute;st fogja haszn&aacute;lni mindegyik sz&uuml;ks&eacute;ges l&eacute;tes&iacute;tm&eacute;nyhez.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Az egyes l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;s&aacute;t tartalmaz&oacute; mező.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Az egyes l&eacute;tes&iacute;tm&eacute;nyek kapacit&aacute;s&aacute;t tartalmaz&oacute; mező.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;nyek ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

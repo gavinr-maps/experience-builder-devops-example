@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>V&aelig;rkt&oslash;jet Nibble erstatter celler i en raster, der svarer til en maske, med v&aelig;rdierne for de n&aelig;rmeste naboer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Inputrasteren med de maskerede placeringer, der bliver erstattet med v&aelig;rdien af deres n&aelig;rmeste nabo.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Maskerasteren, der identificerer de steder i inputrasteren, der bliver erstattet. Celler med v&aelig;rdien NoData betragtes som v&aelig;rende inden for det maskerede omr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Inputzone-raster. Inputceller, der er inden for masken i hver zone, bliver kun erstattet af de n&aelig;rmeste cellev&aelig;rdier inden for samme zone.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Angiver, om NoData-celler i input-rasteren kan erstatte celler i de maskerede omr&aring;der, hvis de er n&aelig;rmeste nabo.
+            </p>
+            <p>Hvis denne indstilling er markeret, kan NoData-celler i input-rasteren g&aring; ind i det maskerede omr&aring;de. Hvis indstillingen ikke er markeret, kan kun gyldige celler i input-rasteren g&aring; ind i det maskerede omr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Angiver, om NoData-celler i det maskerede omr&aring;de skal bevares eller erstattes.
+            </p>
+            <p>Hvis denne indstilling ikke er markeret, bevares alle NoData-celler i det maskerede omr&aring;de i outputtet. Hvis indstillingen er markeret, vil NoData-celler inden for det maskerede omr&aring;de blive erstattet med v&aelig;rdien af den n&aelig;rmeste nabo, der er uden for det maskerede omr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det erstattede rasterlag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Den type output, der oprettes. Outputtene kan v&aelig;re tile-billedlag eller dynamiske billedlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

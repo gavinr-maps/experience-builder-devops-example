@@ -1,0 +1,190 @@
+{
+  "name": "SummarizeWithin",
+  "displayName": "SummarizeWithin",
+  "description": "The SummarizeWithin task helps you to summarize and find statistics on the point, line, or polygon features (or portions of these features) that are within the boundaries of polygons in another layer. For example:Given a layer of watershed boundaries and a layer of land-use boundaries by land-use type, calculate total acreage of land-use type for each watershed.Given a layer of parcels in a county and a layer of city boundaries, summarize the average value of vacant parcels within each city boundary.Given a layer of counties and a layer of roads, summarize the total mileage of roads by road type within each county.",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/SummarizeWithin.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "sumWithinLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "sumWithinLayer",
+      "description": "A polygon feature layer or featurecollection. Features, or portions of features, in the summaryLayer (below) that fall within the boundaries of these polygons will be summarized.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPolygon"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "summaryLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "summaryLayer",
+      "description": "Point, line, or polygon features that will be summarized for each polygon in the sumWithinLayer.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "sumShape",
+      "dataType": "GPBoolean",
+      "displayName": "sumShape",
+      "description": "A boolean value that instructs the task to calculate count of points, length of lines or areas of polygons of the summaryLayer within each polygon in sumWithinLayer.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "shapeUnits",
+      "dataType": "GPString",
+      "displayName": "shapeUnits",
+      "description": "Specify units to summarize the length or areas when sumShape is set to true. Units is not required to summarize points.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "Acres",
+        "Hectares",
+        "SquareMeters",
+        "SquareKilometers",
+        "SquareFeet",
+        "SquareYards",
+        "SquareMiles",
+        "Meters",
+        "Kilometers",
+        "Feet",
+        "Yards",
+        "Miles"
+      ]
+    },
+    {
+      "name": "summaryFields",
+      "dataType": "GPMultiValue:GPString",
+      "displayName": "summaryFields",
+      "description": "A list of field names and statistical summary type that you wish to calculate for all features in the  summaryLayer that are within each polygon in the sumWithinLayer . Eg: [\"fieldname1 summary\", \"fieldname2 summary\"]",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "String",
+          "dataType": "GPString",
+          "displayName": "String"
+        }
+      ]
+    },
+    {
+      "name": "groupByField",
+      "dataType": "GPString",
+      "displayName": "groupByField",
+      "description": "Specify a field from the summaryLayer features to calculate statistics separately for each unique attribute value.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "minorityMajority",
+      "dataType": "GPBoolean",
+      "displayName": "minorityMajority",
+      "description": "This boolean parameter is applicable only when a groupByField is specified. If true, the minority (least dominant) or the majority (most dominant) attribute values within each group, within each boundary will be calculated. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "percentShape",
+      "dataType": "GPBoolean",
+      "displayName": "percentShape",
+      "description": "This boolean parameter is applicable only when a groupByField is specified. If set to true, the percentage of shape (eg. length for lines) for each unique groupByField value is calculated.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "Additional properties such as output feature service name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "Additional settings such as processing extent and output spatial reference.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "binType",
+      "dataType": "GPString",
+      "displayName": "binType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "SQUARE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["SQUARE", "HEXAGON"]
+    },
+    {
+      "name": "binSize",
+      "dataType": "GPDouble",
+      "displayName": "binSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "binSizeUnit",
+      "dataType": "GPString",
+      "displayName": "binSizeUnit",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Meters", "Kilometers", "Feet", "Yards", "Miles", "NauticalMiles"]
+    },
+    {
+      "name": "resultLayer",
+      "dataType": "GPString",
+      "displayName": "resultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "groupBySummary",
+      "dataType": "GPString",
+      "displayName": "groupBySummary",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

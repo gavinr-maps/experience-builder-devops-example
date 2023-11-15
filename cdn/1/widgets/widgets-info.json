@@ -5,8 +5,8 @@
       "name": "arcgis-map",
       "label": "Map",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -62,8 +62,14 @@
         "passDataSourceToChildren": false,
         "coverLayoutBackground": true,
         "watchViewportVisibility": true,
-        "supportAutoSize": false
+        "supportAutoSize": false,
+        "canConsumeDataAction": true,
+        "needActiveState": true
       },
+      "excludeDataActions": [
+        "setFilter",
+        "arcgis-map.addToMap"
+      ],
       "dataActions": [
         {
           "name": "zoomToFeature",
@@ -236,8 +242,8 @@
       "name": "basemap-gallery",
       "label": "Basemap Gallery",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "A basemap gallery widget.",
       "copyright": "",
@@ -388,8 +394,8 @@
       "name": "coordinates",
       "label": "Coordinates",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to obtain coordinates from the map or scene.",
       "copyright": "",
@@ -540,8 +546,8 @@
       "name": "legend",
       "label": "Legend",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -694,8 +700,8 @@
       "name": "map-layers",
       "label": "Map Layers",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -713,7 +719,9 @@
       "excludeDataActions": [
         "setFilter",
         "arcgis-map.*",
-        "exportSelected"
+        "exportSelected",
+        "near-me.locate",
+        "elevation-profile.*"
       ],
       "translatedLocales": [
         "en",
@@ -853,8 +861,8 @@
       "name": "swipe",
       "label": "Swipe",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which allows you to easily compare the content of layers, maps, or scenes.",
       "copyright": "",
@@ -1005,8 +1013,8 @@
       "name": "3d-toolbox",
       "label": "3D Toolbox",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "",
       "copyright": "",
@@ -1159,8 +1167,8 @@
       "name": "floor-filter",
       "label": "Floor Filter",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri",
       "description": "",
       "copyright": "",
@@ -1313,8 +1321,8 @@
       "name": "bookmark",
       "label": "Bookmark",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "A bookmark widget.",
       "copyright": "",
@@ -1466,8 +1474,8 @@
       "name": "draw",
       "label": "Draw",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -1622,8 +1630,8 @@
       "name": "directions",
       "label": "Directions",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which can provide a way to build directions.",
       "copyright": "",
@@ -1631,6 +1639,23 @@
       "defaultSize": {
         "width": 400,
         "height": 550
+      },
+      "dataActions": [
+        {
+          "name": "DirectionsTo",
+          "label": "Directions To",
+          "uri": "data-actions/directions-to",
+          "icon": "runtime/assets/directions-to.svg"
+        },
+        {
+          "name": "DirectionsFrom",
+          "label": "Directions From",
+          "uri": "data-actions/directions-from",
+          "icon": "runtime/assets/directions-from.svg"
+        }
+      ],
+      "properties": {
+        "canGenerateMultipleOutputDataSources": true
       },
       "dependency": "jimu-arcgis",
       "translatedLocales": [
@@ -1674,8 +1699,7 @@
         "vi",
         "zh-hk",
         "zh-tw"
-      ],
-      "properties": {}
+      ]
     },
     "i18nLabel": {
       "en": "Directions",
@@ -1772,8 +1796,8 @@
       "name": "print",
       "label": "Print",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -1927,8 +1951,8 @@
         "jimu-arcgis"
       ],
       "settingDependency": "jimu-arcgis",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -2080,8 +2104,8 @@
       "name": "coordinate-conversion",
       "label": "Coordinate Conversion",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -2225,6 +2249,344 @@
     "group": 1
   },
   {
+    "name": "near-me",
+    "manifest": {
+      "name": "near-me",
+      "label": "Near Me",
+      "type": "widget",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
+      "author": "Esri R&D Center Beijing",
+      "description": "This is the widget used in developer guide",
+      "copyright": "",
+      "license": "http://www.apache.org/licenses/LICENSE-2.0",
+      "dependency": "jimu-arcgis",
+      "properties": {
+        "canConsumeDataAction": true,
+        "canGenerateMultipleOutputDataSources": true
+      },
+      "publishMessages": [
+        "DATA_RECORDS_SELECTION_CHANGE"
+      ],
+      "excludeDataActions": [
+        "table.*",
+        "setFilter",
+        "arcgis-map.*",
+        "elevation-profile.*"
+      ],
+      "messageActions": [
+        {
+          "name": "locate",
+          "label": "Set location",
+          "uri": "message-actions/set-location-message-action"
+        }
+      ],
+      "dataActions": [
+        {
+          "name": "locate",
+          "label": "Set location",
+          "uri": "data-actions/set-location-data-action",
+          "icon": "runtime/assets/icons/nearme-icon.svg"
+        }
+      ],
+      "translatedLocales": [
+        "en",
+        "ar",
+        "bg",
+        "bs",
+        "ca",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "he",
+        "hr",
+        "hu",
+        "id",
+        "it",
+        "ja",
+        "ko",
+        "lt",
+        "lv",
+        "nb",
+        "nl",
+        "pl",
+        "pt-br",
+        "pt-pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sr",
+        "sv",
+        "th",
+        "tr",
+        "zh-cn",
+        "uk",
+        "vi",
+        "zh-hk",
+        "zh-tw"
+      ],
+      "defaultSize": {
+        "width": 350,
+        "height": 400
+      }
+    },
+    "i18nLabel": {
+      "en": "Near Me",
+      "ar": "بجواري",
+      "bg": "Близо до мен",
+      "bs": "Blizu mene",
+      "ca": "A prop meu",
+      "cs": "Blízké okolí",
+      "da": "I nærheden af mig",
+      "de": "Umkreissuche",
+      "el": "Κοντά σε μένα",
+      "es": "Cerca de mí",
+      "et": "Minu lähedal",
+      "fi": "Lähelläni",
+      "fr": "Autour de moi",
+      "he": "קרוב אלי",
+      "hr": "Blizu mene",
+      "hu": "Közelemben",
+      "id": "Di Dekat Saya",
+      "it": "Near Me",
+      "ja": "近隣検索",
+      "ko": "내 주변",
+      "lt": "Netoli manęs",
+      "lv": "Manā apkaimē",
+      "nb": "Nær meg",
+      "nl": "Bij mij in de buurt",
+      "pl": "Blisko mnie",
+      "pt-br": "Prómixo à Mim",
+      "pt-pt": "Perto de Mim",
+      "ro": "Aproape de mine",
+      "ru": "Ближайшие",
+      "sk": "Blízko mňa",
+      "sl": "V bližini",
+      "sr": "Blizu mene",
+      "sv": "Nära mig",
+      "th": "ใกล้ฉัน",
+      "tr": "Yakınımda",
+      "zh-cn": "周边",
+      "uk": "Найближчі",
+      "vi": "Ở Gần Tôi",
+      "zh-hk": "靠近我",
+      "zh-tw": "靠近我"
+    },
+    "i18nDescription": {
+      "en": null,
+      "ar": null,
+      "bg": null,
+      "bs": null,
+      "ca": null,
+      "cs": null,
+      "da": null,
+      "de": null,
+      "el": null,
+      "es": null,
+      "et": null,
+      "fi": null,
+      "fr": null,
+      "he": null,
+      "hr": null,
+      "hu": null,
+      "id": null,
+      "it": null,
+      "ja": null,
+      "ko": null,
+      "lt": null,
+      "lv": null,
+      "nb": null,
+      "nl": null,
+      "pl": null,
+      "pt-br": null,
+      "pt-pt": null,
+      "ro": null,
+      "ru": null,
+      "sk": null,
+      "sl": null,
+      "sr": null,
+      "sv": null,
+      "th": null,
+      "tr": null,
+      "zh-cn": null,
+      "uk": null,
+      "vi": null,
+      "zh-hk": null,
+      "zh-tw": null
+    },
+    "uri": "widgets/arcgis/near-me/",
+    "icon": "widgets/arcgis/near-me/icon.svg",
+    "order": 15,
+    "group": 1
+  },
+  {
+    "name": "analysis",
+    "manifest": {
+      "name": "analysis",
+      "label": "Analysis",
+      "type": "widget",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
+      "author": "Esri R&D Center Beijing",
+      "description": "This is the widget used in developer guide",
+      "copyright": "",
+      "license": "http://www.apache.org/licenses/LICENSE-2.0",
+      "messageActions": [],
+      "defaultSize": {
+        "width": 358,
+        "height": 478
+      },
+      "properties": {
+        "coverLayoutBackground": true,
+        "flipIcon": true,
+        "canConsumeDataAction": true
+      },
+      "dependency": "jimu-arcgis",
+      "settingDependency": "jimu-arcgis",
+      "excludeDataActions": [
+        "setFilter",
+        "near-me.locate",
+        "arcgis-map.showOnMap"
+      ],
+      "translatedLocales": [
+        "en",
+        "ar",
+        "bg",
+        "bs",
+        "ca",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "he",
+        "hr",
+        "hu",
+        "id",
+        "it",
+        "ja",
+        "ko",
+        "lt",
+        "lv",
+        "nb",
+        "nl",
+        "pl",
+        "pt-br",
+        "pt-pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sr",
+        "sv",
+        "th",
+        "tr",
+        "zh-cn",
+        "uk",
+        "vi",
+        "zh-hk",
+        "zh-tw"
+      ]
+    },
+    "i18nLabel": {
+      "en": "Analysis",
+      "ar": "تحليل",
+      "bg": "Анализи",
+      "bs": "Analiza",
+      "ca": "Anàlisi",
+      "cs": "Analýza",
+      "da": "Analysis",
+      "de": "Analyse",
+      "el": "Ανάλυση",
+      "es": "Análisis",
+      "et": "Analüüs",
+      "fi": "Analyysi",
+      "fr": "Analyse",
+      "he": "ניתוח",
+      "hr": "Analiza",
+      "hu": "Elemzés",
+      "id": "Analisis",
+      "it": "Analisi",
+      "ja": "解析",
+      "ko": "분석",
+      "lt": "Analizė",
+      "lv": "Analīze",
+      "nb": "Analyse",
+      "nl": "Analyse",
+      "pl": "Analiza",
+      "pt-br": "Análise",
+      "pt-pt": "Análise",
+      "ro": "Analiză",
+      "ru": "Анализ",
+      "sk": "Analýza",
+      "sl": "Analiza",
+      "sr": "Analiza",
+      "sv": "Analys",
+      "th": "การวิเคราะห์",
+      "tr": "Analiz",
+      "zh-cn": "分析",
+      "uk": "Аналіз",
+      "vi": "Phân tích",
+      "zh-hk": "分析",
+      "zh-tw": "分析"
+    },
+    "i18nDescription": {
+      "en": null,
+      "ar": null,
+      "bg": null,
+      "bs": null,
+      "ca": null,
+      "cs": null,
+      "da": null,
+      "de": null,
+      "el": null,
+      "es": null,
+      "et": null,
+      "fi": null,
+      "fr": null,
+      "he": null,
+      "hr": null,
+      "hu": null,
+      "id": null,
+      "it": null,
+      "ja": null,
+      "ko": null,
+      "lt": null,
+      "lv": null,
+      "nb": null,
+      "nl": null,
+      "pl": null,
+      "pt-br": null,
+      "pt-pt": null,
+      "ro": null,
+      "ru": null,
+      "sk": null,
+      "sl": null,
+      "sr": null,
+      "sv": null,
+      "th": null,
+      "tr": null,
+      "zh-cn": null,
+      "uk": null,
+      "vi": null,
+      "zh-hk": null,
+      "zh-tw": null
+    },
+    "uri": "widgets/arcgis/analysis/",
+    "icon": "widgets/arcgis/analysis/icon.svg",
+    "order": 16,
+    "group": 1
+  },
+  {
     "name": "oriented-imagery",
     "manifest": {
       "name": "oriented-imagery",
@@ -2232,10 +2594,10 @@
       "type": "widget",
       "dependency": [
         "jimu-arcgis",
-        "https://oi1.img.arcgis.com/api/v2.14/main.js"
+        "https://oi1.img.arcgis.com/api/v2.15/main.js"
       ],
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri",
       "description": "This is an Oriented Imagery Experience Builder widget",
       "copyright": "",
@@ -2381,7 +2743,7 @@
     },
     "uri": "widgets/arcgis/oriented-imagery/",
     "icon": "widgets/arcgis/oriented-imagery/icon.svg",
-    "order": 15,
+    "order": 17,
     "group": 1
   },
   {
@@ -2390,19 +2752,29 @@
       "name": "elevation-profile",
       "label": "Elevation Profile",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri Solutions",
       "description": "Use this widget to create elevation profiles from single- or multi-segment lines on a web map or scene.",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "dependency": "jimu-arcgis",
-      "properties": {},
+      "properties": {
+        "coverLayoutBackground": true
+      },
       "messageActions": [
         {
           "name": "select",
           "label": "Select line",
-          "uri": "runtime/action"
+          "uri": "message-actions/select-line-message-action"
+        }
+      ],
+      "dataActions": [
+        {
+          "name": "view",
+          "label": "View Elevation Profile",
+          "uri": "data-actions/view-profile-data-action",
+          "icon": "runtime/assets/icons/elevation-icon.svg"
         }
       ],
       "translatedLocales": [
@@ -2538,7 +2910,7 @@
     },
     "uri": "widgets/arcgis/elevation-profile/",
     "icon": "widgets/arcgis/elevation-profile/icon.svg",
-    "order": 16,
+    "order": 18,
     "group": 1
   },
   {
@@ -2547,8 +2919,8 @@
       "name": "suitability-modeler",
       "label": "Suitability Modeler",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri",
       "description": "",
       "copyright": "",
@@ -2690,7 +3062,7 @@
     },
     "uri": "widgets/arcgis/suitability-modeler/",
     "icon": "widgets/arcgis/suitability-modeler/icon.svg",
-    "order": 17,
+    "order": 19,
     "group": 1
   },
   {
@@ -2699,15 +3071,15 @@
       "name": "utility-network-trace",
       "label": "Utility Network Trace",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri Solutions",
       "description": "A widget to trace the ArcGIS Utility Network",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "requireEnterprise": true,
-      "requiredUserTypeExtensions": [
-        "ArcGIS Utility Network"
+      "publishMessages": [
+        "DATA_RECORDS_SELECTION_CHANGE"
       ],
       "properties": {},
       "dependency": "jimu-arcgis",
@@ -2844,7 +3216,7 @@
     },
     "uri": "widgets/arcgis/utility-network-trace/",
     "icon": "widgets/arcgis/utility-network-trace/icon.svg",
-    "order": 18,
+    "order": 20,
     "group": 1
   },
   {
@@ -2853,13 +3225,16 @@
       "name": "ba-infographic",
       "label": "Business Analyst",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri Inc.",
       "description": "Display interactive Business Analyst infographic reports for a location.",
       "copyright": "Copyright 2022 Esri Inc.",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
-      "properties": {},
+      "properties": {
+        "coverLayoutBackground": true,
+        "canCrossLayoutBoundary": true
+      },
       "messageActions": [
         {
           "name": "selectFeatureAction",
@@ -2911,7 +3286,7 @@
       ],
       "dependency": "jimu-arcgis",
       "defaultSize": {
-        "width": 500,
+        "width": 550,
         "height": 325
       }
     },
@@ -3001,62 +3376,7 @@
     },
     "uri": "widgets/ba-infographic/",
     "icon": "widgets/ba-infographic/icon.svg",
-    "order": 19,
-    "group": 1
-  },
-  {
-    "name": "near-me",
-    "manifest": {
-      "name": "near-me",
-      "label": "Near Me (Beta)",
-      "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
-      "author": "Esri R&D Center Beijing",
-      "description": "This is the widget used in developer guide",
-      "copyright": "",
-      "license": "http://www.apache.org/licenses/LICENSE-2.0",
-      "dependency": "jimu-arcgis",
-      "properties": {
-        "canConsumeDataAction": true
-      },
-      "excludeDataActions": [
-        "table.*",
-        "setFilter",
-        "arcgis-map.*"
-      ],
-      "messageActions": [
-        {
-          "name": "locate",
-          "label": "Set location",
-          "uri": "message-actions/set-location-message-action"
-        }
-      ],
-      "dataActions": [
-        {
-          "name": "locate",
-          "label": "Set location",
-          "uri": "data-actions/set-location-data-action",
-          "icon": "runtime/assets/icons/nearme-icon.svg"
-        }
-      ],
-      "translatedLocales": [
-        "en"
-      ],
-      "defaultSize": {
-        "width": 350,
-        "height": 400
-      }
-    },
-    "i18nLabel": {
-      "en": "Near Me (Beta)"
-    },
-    "i18nDescription": {
-      "en": null
-    },
-    "uri": "widgets/arcgis/near-me/",
-    "icon": "widgets/arcgis/near-me/icon.svg",
-    "order": 20,
+    "order": 21,
     "group": 1
   },
   {
@@ -3065,14 +3385,15 @@
       "name": "list",
       "label": "List",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to display data in a list view.",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "publishMessages": [
-        "DATA_RECORDS_SELECTION_CHANGE"
+        "DATA_RECORDS_SELECTION_CHANGE",
+        "DATA_SOURCE_FILTER_CHANGE"
       ],
       "defaultSize": {
         "width": 620,
@@ -3088,21 +3409,23 @@
         "hasGuide": true
       },
       "excludeDataActions": [
-        "setFilter",
         "arcgis-map.addToMap"
       ],
       "layouts": [
         {
-          "name": "REGULAR",
-          "label": "Regular"
+          "name": "DEFAULT",
+          "label": "Default",
+          "type": "FIXED"
         },
         {
           "name": "SELECTED",
-          "label": "Selected"
+          "label": "Selected",
+          "type": "FIXED"
         },
         {
           "name": "HOVER",
-          "label": "Hover"
+          "label": "Hover",
+          "type": "FIXED"
         }
       ],
       "translatedLocales": [
@@ -3243,8 +3566,8 @@
       "name": "table",
       "label": "Table",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget provides an interactive table",
       "copyright": "",
@@ -3261,10 +3584,9 @@
         "coverLayoutBackground": true,
         "canConsumeDataAction": true
       },
+      "dependency": "jimu-arcgis",
       "excludeDataActions": [
-        "table.*",
-        "setFilter",
-        "arcgis-map.addToMap"
+        "table.*"
       ],
       "dataActions": [
         {
@@ -3412,8 +3734,8 @@
       "name": "filter",
       "label": "Filter",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -3565,8 +3887,8 @@
       "name": "query",
       "label": "Query",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -3584,10 +3906,10 @@
       ],
       "properties": {
         "canConsumeDataAction": true,
-        "coverLayoutBackground": true
+        "coverLayoutBackground": true,
+        "canGenerateMultipleOutputDataSources": true
       },
       "excludeDataActions": [
-        "setFilter",
         "arcgis-map.addToMap"
       ],
       "defaultSize": {
@@ -3739,12 +4061,14 @@
       "name": "chart",
       "label": "Chart",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
+      "dependency": "jimu-arcgis",
+      "settingDependency": "jimu-arcgis",
       "publishMessages": [
         {
           "messageType": "DATA_RECORDS_SELECTION_CHANGE",
@@ -3762,7 +4086,10 @@
       },
       "excludeDataActions": [
         "arcgis-map.*",
-        "setFilter"
+        "setFilter",
+        "near-me.locate",
+        "elevation-profile.*",
+        "directions.*"
       ],
       "extensions": [],
       "translatedLocales": [
@@ -3903,8 +4230,8 @@
       "name": "feature-info",
       "label": "Feature Info",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -3923,7 +4250,6 @@
         "canConsumeDataAction": true
       },
       "excludeDataActions": [
-        "setFilter",
         "arcgis-map.addToMap"
       ],
       "translatedLocales": [
@@ -4064,8 +4390,8 @@
       "name": "search",
       "label": "Search",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -4090,7 +4416,8 @@
         "autoHeight": true
       },
       "properties": {
-        "hasSettingPage": true
+        "hasSettingPage": true,
+        "canGenerateMultipleOutputDataSources": true
       },
       "translatedLocales": [
         "en",
@@ -4233,8 +4560,8 @@
       "dependency": [
         "jimu-arcgis"
       ],
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget ...",
       "copyright": "",
@@ -4385,8 +4712,8 @@
       "name": "timeline",
       "label": "Timeline",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -4537,8 +4864,8 @@
       "name": "add-data",
       "label": "Add Data",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which allows you to add data by searching for layers in ArcGIS content, entering URLs, or uploading local files.",
       "copyright": "",
@@ -4551,7 +4878,9 @@
         "DATA_SOURCES_CHANGE"
       ],
       "excludeDataActions": [
-        "arcgis-map.showOnMap"
+        "arcgis-map.showOnMap",
+        "near-me.locate",
+        "elevation-profile.*"
       ],
       "properties": {
         "canConsumeDataAction": true,
@@ -4695,8 +5024,8 @@
       "name": "branch-version-management",
       "label": "Branch Version Management",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri Solutions",
       "description": "This widget supports geodatabase branch versioning management.",
       "copyright": "",
@@ -4847,10 +5176,10 @@
       "name": "survey123",
       "label": "Survey",
       "type": "widget",
-      "version": "1.12.0",
+      "version": "1.13.0",
       "dependency": "jimu-arcgis",
       "settingDependency": "jimu-arcgis",
-      "exbVersion": "1.12.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -5007,8 +5336,8 @@
       "name": "text",
       "label": "Text",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -5173,8 +5502,8 @@
       "name": "image",
       "label": "Image",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget to display an image.",
       "copyright": "",
@@ -5338,8 +5667,8 @@
       "name": "button",
       "label": "Button",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is a button widget, which is represented as a UI element, like an icon, text, or the composition.",
       "copyright": "",
@@ -5500,8 +5829,8 @@
       "name": "card",
       "label": "Card",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to display data in a Card view.",
       "copyright": "",
@@ -5521,12 +5850,14 @@
       },
       "layouts": [
         {
-          "name": "REGULAR",
-          "label": "Regular"
+          "name": "DEFAULT",
+          "label": "Default",
+          "type": "FIXED"
         },
         {
           "name": "HOVER",
-          "label": "Hover"
+          "label": "Hover",
+          "type": "FIXED"
         }
       ],
       "translatedLocales": [
@@ -5667,8 +5998,8 @@
       "name": "embed",
       "label": "Embed",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is a iframe widget, which is represented as a UI element, like an icon, text, or the composition.",
       "copyright": "",
@@ -5820,8 +6151,8 @@
       "name": "divider",
       "label": "Divider",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to display data in a Divider view.",
       "copyright": "",
@@ -5981,8 +6312,8 @@
       "name": "menu",
       "label": "Menu",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6133,8 +6464,8 @@
       "name": "controller",
       "label": "Widget Controller",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6156,11 +6487,8 @@
       "layouts": [
         {
           "name": "controller",
-          "label": "Controller layout"
-        },
-        {
-          "name": "_openwidget",
-          "label": "Open widget layout"
+          "label": "Controller layout",
+          "type": "FIXED"
         }
       ],
       "extensions": [
@@ -6323,8 +6651,8 @@
       "name": "share",
       "label": "Share",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6477,8 +6805,8 @@
       "label": "Fixed Panel",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6639,8 +6967,8 @@
       "label": "Sidebar",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6805,8 +7133,8 @@
       "label": "Row",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6964,8 +7292,8 @@
       "label": "Column",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -7123,8 +7451,8 @@
       "label": "Grid",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -7282,8 +7610,8 @@
       "name": "navigator",
       "label": "Views Navigation",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -7481,8 +7809,8 @@
       "name": "simple",
       "label": "Simple",
       "type": "widget",
-      "version": "1.12.0",
-      "exbVersion": "1.12.0",
+      "version": "1.13.0",
+      "exbVersion": "1.13.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is a barebones, simple widget. It includes an example of how to use the config file, and it includes a placeholder SVG icon. It intentionally does not include the following so you can use this to start from scratch: i18n translations, a Settings panel, unit tests. See the documentation for more information on how to implement these features.",
       "copyright": "",

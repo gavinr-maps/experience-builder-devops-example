@@ -1,0 +1,151 @@
+{
+  "toolName": "DetectChangeUsingDeepLearning",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "destination": "modelArguments",
+      "value": "$[Component].modelDefinition.deepLearningParameters.parameterInfos",
+      "property": "parameterInfos"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].modelArguments",
+      "valueB": null,
+      "destination": "modelArguments",
+      "effectParams": {
+        "value": "$[Component].modelDefinition.deepLearningParameters.value"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].modelDefinition",
+      "valueB": null,
+      "destination": "modelArguments",
+      "effectParams": {
+        "value": "$[Component].modelDefinition.deepLearningParameters.value"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].fromRaster.user.portal NOT undefined) AND ($[Component].fromRaster.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].fromRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].fromRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].fromRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].fromRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["cellSize", "parallelProcessingFactor", "processorType"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$DetectChangeInputSectionText",
+      "UIparameters": [
+        {
+          "name": "fromRaster",
+          "label": "$fromRaster",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        },
+        {
+          "name": "toRaster",
+          "label": "$toRaster",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        }
+      ]
+    },
+    {
+      "label": "$DeepLearningModelGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "modelDefinition",
+          "label": "$model",
+          "componentName": "analysis-item-input",
+          "hidePreview": true,
+          "itemTypes": ["Deep Learning Package"],
+          "selectButtonLabel": "$modelLabel",
+          "replaceTooltipText": "$replaceModel"
+        },
+        {
+          "name": "modelArguments",
+          "label": "$modelArguments",
+          "componentName": "analysis-key-value",
+          "layout": "horizontal"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$DetectChangeResultSectionText",
+      "UIparameters": [
+        {
+          "name": "outputClassifiedRasterName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true,
+          "componentName": "analysis-string-input"
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

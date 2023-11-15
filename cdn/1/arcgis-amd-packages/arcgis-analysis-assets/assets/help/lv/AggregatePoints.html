@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Punktu apkopo&scaron;anas rīks aprēķina punktu skaitu un citu statistiku noteiktos nodalījumos vai laukumos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>Punktu slānis, kas tiks apkopots kopsavilkuma teritorijās.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Laukuma slānis, kurā tiks apkopoti punkti.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Ierobežojo&scaron;o elementu veids, kādā tiks apkopoti ievades punkti. Tas var būt laukuma slānis vai mozaīkas veido&scaron;anas režģis no kvadrātveida vai se&scaron;stūra nodalījumiem, kas tiek ģenerēti rīka darbības laikā.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Ģenerēto nodalījumu lielums. Kvadrātveida nodalījumiem norādītais skaits un vienības nosaka kvadrāta augstumu un garumu. Se&scaron;stūra nodalījumiem norādītais skaitlis un mērvienības nosaka attālumu starp paralēlajām malām.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Vienības, kas tiks izmantotas, lai norādītu nodalījuma lielumu.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>Nosaka, vai elementi, kuriem nav punktu, parādās rezultātu slānī. Ja nav atzīmēts, elementi bez punktiem neparādīsies rezultātā. Ja atzīmēts, rezultātā parādīsies elementi bez punktiem.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Skaitļu vai datumu lauki no ievades slāņa, kas tiks izmantoti apkopo&scaron;anai un statistika, kas tiks aprēķināta katram laukam.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Lauks no ievades slāņa, kas tiks izmantots, lai atdalītu datus atsevi&scaron;ķās grupās statistisko aprēķinu veik&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Aprēķina mazākuma (vismazāk dominējo&scaron;ās) un vairākuma (dominējo&scaron;ās) grupas katrā kopsavilkuma teritorijā.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Aprēķiniet katrai grupai piedero&scaron;o punktu procentuālo daudzumu katrā kopsavilkuma teritorijā.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

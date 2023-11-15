@@ -64,6 +64,7 @@ export default {
   text: 'Text',
   placeholder: 'Placeholder',
   tooltip: 'Tooltip',
+  inUse: 'In use',
   others: 'Others',
   optional: 'Optional',
   degree: 'Degree',
@@ -122,6 +123,7 @@ export default {
   meanOfField: 'Mean of {field}',
   minOfField: 'Minimum of {field}',
   maxOfField: 'Maximum of {field}',
+  maxWidth: 'Maximum width',
   medianOfField: 'Median of {field}',
   normalDistribution: 'Normal distribution',
   standardDeviation: 'Standard deviation',
@@ -146,6 +148,14 @@ export default {
   slowest: 'Slowest',
   dateStyle: 'Date style',
   timeStyle: 'Time style',
+  hoverLabel: 'Hover label',
+  valueDecimal: 'Value decimal',
+  percentageDecimal: 'Percentage decimal',
+  displayFormat: 'Display format',
+  wrap: 'Wrap',
+  dataLabel: 'Data label',
+  alignDataLabel: 'Align data label',
+  optimizeDataLabelOverlaps: 'Optimize data label overlaps',
   // menu
   submenu: 'Submenu',
   menu: 'Menu',
@@ -888,6 +898,13 @@ export default {
   SelectionByCircle: 'Select by circle',
   SelectionByPolygon: 'Select by polygon',
   SwitchMap: 'Switch Map',
+  newSelection: 'New selection',
+  addToCurrentSelection: 'Add to the current selection',
+  removeFromCurrentSelection: 'Remove from current selection',
+  selectFromCurrentSelection: 'Select subset from the current selection',
+  drawShape: 'Draw a shape',
+  draw: 'Draw',
+  selectingFeaturesTip: 'Selecting features now...Click to stop the selection progress.',
 
   // draw component
   drawToolPreview: 'Preview',
@@ -1165,6 +1182,9 @@ export default {
   websiteTemplate: 'Website',
   lastCreated: 'Last created',
   selectTemplate: 'Select template',
+  fullscreenGrid: 'Fullscreen grid',
+  scrolling: 'Scrolling',
+  multipage: 'Multipage',
 
   fileSizeTips: 'The file size exceeds the maximum limit of {maxSize}.',
 
@@ -1214,7 +1234,12 @@ export default {
   supportedUtilityTypes: 'Supported utility types',
   serviceNotAvailable: 'Service not available',
   serviceNotSupported: 'This utility service is not supported.',
-  supportedServices: 'Supported utility service types include Printing, Routing, Geocoding, GeoEnrichment and Geometry.',
+  supportedServices: 'Supported utility service types include Printing, Routing, Geocoding, GeoEnrichment, Geometry and Geoprocessing services.',
+  printTask: 'Printing',
+  geometry: 'Geometry',
+  geoenrichment: 'GeoEnrichment',
+  route: 'Route',
+  geocode: 'Geocoding',
   items: 'Items',
   utility: 'Utility',
   visible: 'Visible',
@@ -1294,12 +1319,15 @@ export default {
 
   //map-widget-selector
   currentWindow: 'Current window',
+  selectMapWidget: 'Select a Map widget',
+  confirmTitle: 'Do you want to continue?',
 
   //hover effects
   skew: 'Skew',
   translate: 'Translate',
   scale: 'Scale',
   rotate: 'Rotate',
+  stagger: 'Stagger',
   opacity: 'Opacity',
   grow: 'Grow',
   shrink: 'Shrink',
@@ -1341,5 +1369,23 @@ export default {
   borderStyle7: 'Border style 7',
   perPage: 'per page',
 
-  invalidWKID: 'Invalid WKID'
+  invalidWKID: 'Invalid WKID',
+  deleteProtectedItemRemind: 'The item can\'t be deleted because they are delete protected or have dependent items.',
+
+  trueKey: 'True',
+  falseKey: 'False',
+
+  // multiple-jimu-map-config
+  multipleMapDefaultWebMap: 'Default web map',
+
+  controller: 'Controller',
+  creatingIndexes: 'Creating indexes',
+
+  firstpanel: 'First Panel',
+  secondpanel: 'Second Panel',
+
+  createApplicationError: 'There was a problem when create new application.',
+
+  cannotDeleteItem: 'Cannot delete: {title}',
+  cannotDeleteItemMessage: 'Items that are deleted protected cannot be deleted.'
 }

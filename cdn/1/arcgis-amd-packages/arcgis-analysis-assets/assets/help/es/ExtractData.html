@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Extraer datos selecciona entidades en una extensi&oacute;n y crea un elemento en su contenido.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Las capas se extraer&aacute;n. Entre las capas de entrada admitidas se incluyen las capas que le pertenecen y las capas en las que se ha habilitado la exportaci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Extensi&oacute;n de las entidades que se extraer&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>Especifica si se recortar&aacute;n las entidades que se crucen con la extensi&oacute;n. Cuando se desactiva, las entidades que se cruzan con la extensi&oacute;n se extraen. Si se activa, las entidades que se cruzan con la extensi&oacute;n se recortan y solo se extraen partes de esas entidades que est&aacute;n dentro de la extensi&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Formato de archivo de los datos que se extraer&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nombre del elemento de salida donde se guardar&aacute; el archivo extra&iacute;do.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

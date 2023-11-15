@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Оптимальний шлях як лінія&raquo; розраховує шлях від місць призначення до джерел як лінію.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Рівень, який визначає пункти призначення, від яких обчислюється відстань до джерела з найменшою вартістю.
+            </p>
+            <p>Якщо вхідними даними є растр, він має складатися з осередків, які мають допустимі цілочисельні значення (нуль є допустимим значенням) для місць призначення, а решті осередків має бути призначено NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Поле, яке буде використовуватися для отримання значень для місць розташування пункту призначення.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>Растр, який визначає оптимальний шлях від місць призначення до джерел.
+            </p>
+            <p>Растр сумарної відстані зазвичай створюється за допомогою інструментів &quot;Сумарна відстань&quot; або &quot;Розподіл відстані&quot;.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>Растр, що містить обчислені напрямки у градусах.
+            </p>
+            <p>Растр зворотного напрямку зазвичай створюється за допомогою інструментів &quot;Сумарна відстань&quot; або &quot;Розподіл відстані&quot;.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Показує, як значення та зони з вхідних даних призначення будуть інтерпретовані при розрахунку оптимального шляху.
+            </p>
+        </div>
+    </div>
+    <div id="createNetworkPaths">
+        <div>
+            <p>Визначає, чи обчислюватимуться повні та, можливо, перекриваючі, шляхи від пунктів призначення до джерел, чи створюватимуться мережеві шляхи, що не перекриваються.
+            </p>
+        </div>
+    </div>
+    <div id="outputPolylineName">
+        <div>
+            <p>Ім'я оптимального шляху як шару ліній, який буде створено та додано до карти.
+            </p>
+            <p>Шар буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

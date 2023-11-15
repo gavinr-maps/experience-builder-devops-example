@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Gener&eacute;r rejsetidsomr&aring;der-v&aelig;rkt&oslash;jet opretter omr&aring;der, der kan n&aring;s inden for en rejsetid eller -afstand.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>De punktobjekter, der skal beregnes omr&aring;der omkring.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Den rejsetilstand, der bruges til at oprette rejseomr&aring;der. Rejsemetoden er baseret p&aring; afstand eller tid.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Gr&aelig;nsen for rejseafstand eller -tid for hvert inputpunkt. Hvis der tilf&oslash;jes flere v&aelig;rdier, bruges hver v&aelig;rdi til at beregne rejseomr&aring;det for alle inputpunkter.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>De enheder, der bruges til at angive rejseafstand eller -tid. V&aelig;rdien for  <b>sk&aelig;ringspunkt</b> fortolkes i disse enheder.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Bestemmer, om rejseomr&aring;der er oprettet til rejse v&aelig;k fra inputpunkterne eller rejse mod inputpunkterne.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Angiver den dato og det klokkesl&aelig;t, hvor den rejsende afrejser fra eller ankommer til inputstederne.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Bestemmer, hvordan delte omr&aring;der fra forskellige inputs skal h&aring;ndteres, n&aring;r de n&aring;r hinanden.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Angiver, om hvert enkelt outputomr&aring;de bliver en kontinuerlig polygon (ikke markeret) eller medtager huller p&aring; veje, der ikke kan n&aring;s, men er fuldt ud omgivet af gader, der kan n&aring;s (markeret).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Angiver, om de gader, der bruges til at oprette rejseomr&aring;der, inkluderes som et outputlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

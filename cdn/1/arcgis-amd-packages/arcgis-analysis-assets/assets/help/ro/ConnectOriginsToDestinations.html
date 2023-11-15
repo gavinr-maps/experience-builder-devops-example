@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Calcularea costului călătoriei măsoară durata de călătorie sau distanța dintre perechi de puncte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Stratul tematic de puncte reprezent&acirc;nd locațiile de origine din care se calculează costul călătoriei. Sunt acceptate straturile tematice cu p&acirc;nă la  5.000 obiecte spațiale. </p> 
+            <p class="PortalOnly">Stratul tematic de puncte reprezent&acirc;nd locațiile de origine din care se calculează costul călătoriei.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Stratul tematic de puncte reprezent&acirc;nd locațiile de destinație spre care se calculează costul de călătorie. Sunt acceptate straturile tematice cu p&acirc;nă la  5.000 obiecte spațiale. </p> 
+            <p class="PortalOnly">Stratul tematic de puncte reprezent&acirc;nd locațiile de destinație spre care se calculează costul de călătorie.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>C&acirc;mpul din categoria  <b>Din strat tematic</b> care definește perechea origine-destinație preatribuită. Dacă sunt mai multe locații de origine și destinație, acest ID trebuie să corespundă unei valori din <b>c&acirc;mpul ID rută către stratul tematic</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>C&acirc;mpul din categoria  <b>Către strat tematic</b> care definește perechea origine-destinație preatribuită. Dacă sunt mai multe locații de origine și destinație, acest ID trebuie să corespundă unei valori din <b>c&acirc;mpul ID rută Din stratul tematic</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Unul sau mai multe obiecte spațiale punctuale care acționează ca restricții temporare (bariere) atunci c&acirc;nd vă deplasați pe străzile subiacente. Deplasarea este permisă pe stradă, dar nu &icirc;n afara barierei.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Unul sau mai multe obiecte spațiale liniare care acționează ca restricții temporare (bariere) atunci c&acirc;nd vă deplasați pe străzile subiacente. Barierele liniare interzic deplasarea oriunde barierele se intersectează cu străzile.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Unul sau mai multe obiecte spațiale poligonale care acționează ca restricții temporare (bariere) atunci c&acirc;nd vă deplasați pe străzile subiacente. Barierele poligonale interzic deplasarea oriunde poligoanele se intersectează cu străzile.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metoda care va fi utilizată pentru a măsura distanța sau timpul. Metoda poate fi distanța liniară sau un mod de deplasare.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Data și ora plecării din locațiile de origine din c&acirc;mpul  <b>Din stratul tematic</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Determină dacă originile și destinațiile sunt conectate folosind linii de păianjen sau linii dorite (<b>Linii drepte</b>) sau străzile din rețeaua de străzi de bază (<b>Urmărire străzi</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Specifică dacă fiecare rută de rezultat va fi salvată ca strat tematic de rută.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

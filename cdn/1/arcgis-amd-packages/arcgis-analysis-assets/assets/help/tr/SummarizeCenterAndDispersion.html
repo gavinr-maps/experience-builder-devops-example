@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Merkez ve Dağılımı &Ouml;zetle aracı, bir dizi detayın merkez detayını, merkez eğilimini ve standart sapma elipsini bulur.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Merkez detayı, merkez eğilimi ve standart sapma elipsi hesaplanacak nokta, &ccedil;izgi veya &ccedil;okgen detayları.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Detayların merkezini ve dağılımını &ouml;zetlemekte kullanılacak y&ouml;ntemleri belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Eliptik &ccedil;okgenin standart sapma cinsinden boyutunu belirtir. Ortalama merkez ve detay konumları arasındaki mesafe Rayleigh dağılımına uyuyorsa  <b>1 standart sapma</b>, <b>2 standart sapma</b> ve <b>3 standart sapma</b> se&ccedil;eneği, detayların sırasıyla y&uuml;zde 63, y&uuml;zde 89 ve y&uuml;zde 99,9'unu kapsayan bir eliptik &ccedil;okgen verecektir.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Detayın ağırlığını belirlemek i&ccedil;in kullanılacak alan.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Detayları birlikte gruplamak i&ccedil;in kullanılacak alan. Her grup i&ccedil;in se&ccedil;ili  <b>&Ouml;zet t&uuml;rleri</b> hesaplanacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

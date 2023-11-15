@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Minta eszk&ouml;z &ndash; T&aacute;bla vagy pontszerű vektoroselem-oszt&aacute;ly l&eacute;trehoz&aacute;sa, amely meghat&aacute;rozott helyekre vonatkoz&oacute;an jelen&iacute;ti meg egy raszter vagy raszterk&eacute;szlet pixel&eacute;rt&eacute;keit.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>A bemeneti helyadatok alapj&aacute;n mintav&eacute;telezendő &eacute;rt&eacute;keket tartalmaz&oacute; t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Az egyes mint&aacute;k hely&eacute;t tartalmaz&oacute; r&eacute;teg.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>A mintav&eacute;telez&eacute;s sor&aacute;n haszn&aacute;lt &uacute;jramintav&eacute;telez&eacute;si algoritmus.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>A r&eacute;teg olyan mezője, amely minden egyes hely vagy bemeneti vektoros elem eset&eacute;ben elt&eacute;rő &eacute;rt&eacute;ket tartalmaz.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Jelzi, hogy a bemeneti t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek tartalmaznak-e t&ouml;bbdimenzi&oacute;s adatokat.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Megadja a helymeghat&aacute;roz&aacute;si vektoros adatokhoz kapcsol&oacute;d&oacute; idő-, m&eacute;lys&eacute;g- vagy egy&eacute;b felv&eacute;teli adatokat.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>A t&ouml;bbdimenzi&oacute;s bemeneti r&eacute;teg dimenzi&oacute;ja.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Az a mező, amely a t&ouml;bbdimenzi&oacute;s bemeneti r&eacute;teg időtartom&aacute;ny&aacute;nak kezdet&eacute;re szolg&aacute;l.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Az a mező, amely a t&ouml;bbdimenzi&oacute;s bemeneti r&eacute;teg időtartom&aacute;ny&aacute;nak v&eacute;gek&eacute;nt szolg&aacute;l.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Egy nemnegat&iacute;v sz&aacute;m, amely hozz&aacute;ad&oacute;dik a  <b>Dimenzi&oacute;</b> param&eacute;terhez, vagy egy olyan &eacute;rt&eacute;k, amely meghat&aacute;rozza a dimenzi&oacute; &eacute;rt&eacute;ktartom&aacute;ny&aacute;nak kezdet&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Egy nemnegat&iacute;v sz&aacute;m, amely hozz&aacute;ad&oacute;dik a  <b>Dimenzi&oacute;</b> param&eacute;terhez, vagy egy olyan &eacute;rt&eacute;k, amely meghat&aacute;rozza a dimenzi&oacute; &eacute;rt&eacute;ktartom&aacute;ny&aacute;nak v&eacute;g&eacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>A t&ouml;bbdimenzi&oacute;s t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek feldolgoz&aacute;sa sor&aacute;n gener&aacute;lt statisztik&aacute;k.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Sz&aacute;zal&eacute;kos &eacute;rt&eacute;k, amelyet a sz&aacute;zal&eacute;kos statisztika t&iacute;pushoz haszn&aacute;lnak.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>A bemeneti helyekre alkalmazott buffert&aacute;vols&aacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Megadja, hogy a kimeneti t&iacute;pus vektoros elem vagy t&aacute;bl&aacute;zat legyen.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Megadja, hogy a kimenet soronk&eacute;nt vagy oszloponk&eacute;nt t&ouml;rt&eacute;njen-e.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+{
+  "name": "FlowDistance",
+  "displayName": "FlowDistance",
+  "description": "Computes, for each cell, the horizontal or vertical component of downslope distance, following the flow paths, to cells on a stream into which they flow. In case of multiple flow paths, minimum, weighted mean, or maximum flow distance can be computed., If an optional flow direction raster is provided, the down slope directions will be limited to those defined by the input flow direction raster.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/FlowDistance.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputStreamRaster",
+      "dataType": "GPString",
+      "displayName": "inputStreamRaster",
+      "description": "The input raster that defines the stream network.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputSurfaceRaster",
+      "dataType": "GPString",
+      "displayName": "inputSurfaceRaster",
+      "description": "The input raster representing a continuous surface.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The name of the output flow distance raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputFlowDirectionRaster",
+      "dataType": "GPString",
+      "displayName": "inputFlowDirectionRaster",
+      "description": "The input raster that shows the direction of flow out of each cell. When a flow direction raster is provided, the down slope direction(s) will be limited to those defined by the input flow directions. The flow direction raster can be created using the D8, Multiple Flow Direction (MFD), or D-Infinity method. Use the Flow Direction Type parameter to specify the method used when the flow direction raster was created.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "distanceType",
+      "dataType": "GPString",
+      "displayName": "distanceType",
+      "description": "The distance type to be calculated. Vertical—The flow distance calculations represent the vertical component of minimum flow distance, following the flow path, from each cell in the domain to cell(s) on the stream into which they flow. This is the default. Horizontal—The flow distance calculations represent the horizontal component of minimum flow distance, following the flow path, from each cell in the domain to cell(s) on the stream into which they flow.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "VERTICAL",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["VERTICAL", "HORIZONTAL"]
+    },
+    {
+      "name": "flowDirectionType",
+      "dataType": "GPString",
+      "displayName": "flowDirectionType",
+      "description": "Specifies the input flow direction raster type. D8—The input flow direction raster is of type D8. This is the default. MFD—The input flow direction raster is of type Multi Flow Direction (MFD). DINF—The input flow direction raster is of type D-Infinity (DINF).",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "D8",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["D8", "MFD", "DINF"]
+    },
+    {
+      "name": "statisticsType",
+      "dataType": "GPString",
+      "displayName": "statisticsType",
+      "description": "Determines the statistics type used to compute flow distance over multiple flow paths. If there exists only a single flow path from each cell to a cell on the stream, all statistics types produce the same result. Minimum—Where multiple flow paths exist, minimum flow distance is computed. This is the default. Weighted Mean—Where multiple flow paths exist, a weighted mean of flow distance is computed. Flow proportion from a cell to its downstream neighboring cells is used as a weight for computing weighted mean. Maximum—When multiple flow paths exist, maximum flow distance is computed.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "MINIMUM",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["MINIMUM", "WEIGHTED_MEAN", "MAXIMUM"]
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

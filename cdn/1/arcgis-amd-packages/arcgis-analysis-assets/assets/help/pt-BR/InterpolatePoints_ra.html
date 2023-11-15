@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Interpolar Pontos prev&ecirc; valores em novos locais com base nas medi&ccedil;&otilde;es de ponto. A ferramenta cria uma sa&iacute;da raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>A camada de ponto que cont&eacute;m os pontos onde os valores foram medidos.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>O campo num&eacute;rico que cont&eacute;m os valores que ser&atilde;o interpolados.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Especifica se a velocidade ou a precis&atilde;o ser&atilde;o otimizadas. Predi&ccedil;&otilde;es mais precisas tomam mais tempo para calcular.
+            </p>
+            <p>Este par&acirc;metro altera os valores padr&atilde;o de v&aacute;rios outros par&acirc;metros.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>O tamanho da c&eacute;lula e a unidade para os rasters de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Especifica se os dados ser&atilde;o transformados ou n&atilde;o. A interpola&ccedil;&atilde;o &eacute; mais precisa para dados que seguem uma distribui&ccedil;&atilde;o normal (em forma de sino).
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>O tamanho dos modelos de interpola&ccedil;&atilde;o local que ser&atilde;o combinados para criar o mapa de previs&atilde;o final.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>O n&uacute;mero de vizinhos que ser&atilde;o usados. Um n&uacute;mero maior de vizinhos geralmente produz resultados mais precisos, mas os resultados levam mais tempo para serem calculados.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada raster interpolada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Escolha se tamb&eacute;m deseja criar um raster opcional de erros padr&atilde;o para os valores previstos.
+            </p>
+            <p>Se marcado, o raster de erro padr&atilde;o de sa&iacute;da ter&aacute; o mesmo nome que o  <b>Nome do raster de sa&iacute;da</b>, mas com a palavra Erros anexada a ele. A camada ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. As sa&iacute;das podem ser camadas de imagens mosaicadas ou camadas de imagens din&acirc;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

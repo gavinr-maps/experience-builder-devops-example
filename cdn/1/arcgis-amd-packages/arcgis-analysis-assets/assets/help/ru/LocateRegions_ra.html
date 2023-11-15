@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Найти регионы находит наилучшие регионы во входном растре, которые удовлетворяют требованиям по размеру и пространственным ограничениям.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Входной растр функциональности, из которого извлекаются регионы.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>Общая площадь для всех регионов.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Задает единицы измерения площади, используемые для параметров  <b>Общая площадь</b>, <b>Минимальная площадь региона</b> и <b>Максимальная площадь региона</b>.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>Определяет количество регионов, по которым будет распределена  <b>Общая площадь</b>.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>Определяет баланс между вкладом ячейки в сохранение формы региона и степенью функциональности атрибутивного значения ячейки.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Критерий оценки для определения, какие из регионов - кандидатов являются наиболее предпочитаемыми.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>Задает характеристики формы выходных регионов.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>Задает ориентацию указанной формы.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>Задает минимально допустимую площадь региона. Используются единицы измерения, заданные параметром  <b>Единицы площади</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>Задает максимально допустимую площадь региона. Используются единицы измерения, заданные параметром  <b>Единицы площади</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>Задает минимальное разрешенное расстояние между регионами.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Задает максимальное разрешенное расстояние между регионами.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>Задает единицы измерения расстояния, использующиеся для параметров  <b>Минимальное расстояние между регионами</b> и <b>Максимальное расстояние между регионами</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>Входной слой, задающий уже имеющиеся регионы.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Определяет соседние ячейки, которые будут использоваться для приращения регионов.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>Разрешает или запрещает использование островов внутри потенциальных регионов.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>Задает число начальных ячеек, с которых начинается прирост потенциальных регионов.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>Задает разрешение, при котором происходит наращивание региона.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>Определяет способ выборки регионов.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя растрового слоя Найти регионы, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип создаваемых выходных данных. Результатом может быть Слой листов изображений или Динамический слой изображений.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Aggreger flerdimensjonalt raster genererer et flerdimensjonalt bildelag ved &aring; kombinere eksisterende flerdimensjonale bildelagvariabler langs en dimensjon.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Det flerdimensjonale bildelaget som skal aggregeres.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensjonen p&aring; det flerdimensjonale bildelaget som variabelen skal genereres langs.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Indikerer om laget har dimensjonsverdier.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabelen for det flerdimensjonale bildelaget som skal aggregeres langs den definerte dimensjonen.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Den matematiske metoden som skal brukes til &aring; aggregere snittene i det flerdimensjonale bildelaget.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Persentilverdien som brukes til beregninger etter at aggregeringsmetoden er angitt.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Metoden for interpolasjon av persentil som brukes n&aring;r antall verdier fra inndatabildelaget er et partall.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Den egendefinerte rasterfunksjonen som blir brukt til &aring; beregne pikselverdiene for de aggregerte bildelagene.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Dimensjonsintervallet som blir brukt til &aring; aggregere de flerdimensjonale dataene.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Hvert n&oslash;kkelord angir tidsenheten som hver statistikk generes for. Listen inkluderer hver time, daglig, ukentlig, m&aring;nedlig, kvartalsvis og &aring;rlig.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>St&oslash;rrelsen p&aring; intervallet som brukes ved aggregering langs dimensjonen.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>M&aring;leenheten for intervallverdien.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Verditabellen som brukes ved aggregering langs den angitte dimensjonen. Minimums- og maksimumsverdiene angir omr&aring;det som skal inkluderes.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Minimumsverdien for intervallomr&aring;det.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Maksimumsverdien for intervallomr&aring;det.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Angir om NoData-verdier skal ignoreres i aggregeringen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typen utdata som blir opprettet. Utdataene kan v&aelig;re flisinndelte bildelag eller dynamiske bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

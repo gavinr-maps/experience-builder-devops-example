@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rasterı Detaya D&ouml;n&uuml;şt&uuml;r aracı, bir rasterı vekt&ouml;re d&ouml;n&uuml;şt&uuml;r&uuml;r.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Detaylara d&ouml;n&uuml;şt&uuml;r&uuml;lecek olan girdi rasterı.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>D&ouml;n&uuml;şt&uuml;r&uuml;lecek değerleri i&ccedil;eren alan.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>&Ccedil;ıktı katmanında oluşturulacak olan detayların t&uuml;r&uuml; (nokta, &ccedil;izgi veya &ccedil;okgen).
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>&Ccedil;izgiler ya da &ccedil;okgenlerin basitleştirileceğini (yumuşatma) belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>&Ccedil;ıktı &ccedil;okgenlerin tek par&ccedil;alı detaylar mı yoksa &ccedil;ok par&ccedil;alı detaylar mı olacağını belirtir.
+            </p>
+            <p>&Ccedil;oklu par&ccedil;a detayları genelde daha hızlı işlenir. Bununla birlikte, &ccedil;ıktı &ccedil;ok fazla sayıda detay i&ccedil;eriyorsa daha hızlı olmayabilir.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>Bir &ccedil;okgeni daha k&uuml;&ccedil;&uuml;k &ccedil;okgenlere b&ouml;lmek i&ccedil;in kullanılacak verteks sınırı.
+            </p>
+            <p>Boş bırakılırsa &ccedil;ıktı &ccedil;okgenleri b&ouml;l&uuml;nmeyecektir.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek detay katmanının adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Optimal Path as Line tool calculates the path from destinations to the optimal source as a line.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>The layer that identifies the destinations from which the distance is calculated to the least costly source.
+            </p>
+            <p>If the input is a raster, it must consist of cells that have valid integer values (zero is a valid value) for the destinations, and the remaining cells must be assigned NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>The field that will be used to obtain values for the destination locations.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>The raster that determines the optimal path from the destinations to the sources.
+            </p>
+            <p>The distance accumulation raster is usually created with the Distance Accumulation or Distance Allocation tool.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>The raster that contains calculated directions in degrees.
+            </p>
+            <p>The back direction raster is usually created with the Distance Accumulation or Distance Allocation tool.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Specifies how the values and zones in the input destination data will be interpreted in the optimal path calculations.
+            </p>
+        </div>
+    </div>
+    <div id="createNetworkPaths">
+        <div>
+            <p>Specifies whether complete, and possibly overlapping, paths from the destinations to the sources will be calculated or if nonoverlapping network paths will be created.
+            </p>
+        </div>
+    </div>
+    <div id="outputPolylineName">
+        <div>
+            <p>The name of the optimal path as line layer that will be created and added to the map.
+            </p>
+            <p>The layer will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>The name of the folder in  <b>My Content</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

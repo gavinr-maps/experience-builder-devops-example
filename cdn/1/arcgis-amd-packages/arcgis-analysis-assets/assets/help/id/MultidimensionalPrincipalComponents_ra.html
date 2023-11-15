@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Komponen Utama Multidimensi mengubah layer citra multidimensi menjadi sejumlah komponen yang dikurangi yang memperhitungkan perbedaan data, sehingga pola spasial dan temporal dapat dengan mudah diidentifikasi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Layer citra multidimensi akan dianalisis.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Metode yang akan digunakan untuk melakukan analisis komponen utama. Pilihannya mencakup  <b>pengurangan Dimensi</b> dan <b>pengurangan Spasial</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensi layer citra multidimensi yang variabelnya akan dianalisis.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Nama layer citra output atau layer tabel yang menunjukkan komponen utama yang ditemukan bergantung pada pilihan mode berikut:
+                <ul>
+                    <li>Output pengurangan dimensi akan menjadi layer citra multiband.
+                    </li>
+                    <li>Output pengurangan spasial akan menjadi layer tabel.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Nama layer citra output atau layer tabel yang memperlihatkan data pendukung dalam pilihan komponen utama tergantung pada pilihan mode berikut:
+                <ul>
+                    <li>Output pengurangan dimensi akan menjadi layer tabel.
+                    </li>
+                    <li>Output pengurangan spasial akan berupa layer citra.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Nama tabel Eigenvalues, yang menunjukkan persentase perbedaan setiap komponen.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Nama variabel layer citra multidimensi input yang digunakan dalam komputasi.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Jumlah komponen utama yang akan dihitung, biasanya lebih sedikit dari jumlah raster input.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Jenis output yang akan dibuat. Output dapat berupa layer citra Ubin atau layer citra Dinamis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

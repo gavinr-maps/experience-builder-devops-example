@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>עיגון כתובות מיקומים מהכלי טבלה ממיר כתובות או מקומות מטבלת קלט לקואורדינטות.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>טבלת הקלט עם הכתובות או המקומות לעיגון. הקלט חייב להיות טבלה, קובץ  <code>.csv</code> או קובץ Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>שירות מדריך עיגון הכתובות לשמוש עבור עיגון כתובות. אם שירות מגדיר עיגון הכתובות הרצוי לא מופיע בתפריט הנפתח, פנה למנהל המערכת שלך כדי להוסיף את מדריך עיגון הכתובות לצורך עיגון כתובות באצווה.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>מציין האם נתוני הקלט מוכלים בשדה אחד או במספר שדות.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>השדות שבהם ישתמש מדריך עיגון הכתובות כדי לקבוע את המיקומים של נתונים. ההנחה היא ששדות מסוימים קיימים בנתונים, כגון כתובת, עיר, מדינה ומיקוד.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>הארץ שבה הנתונים נמצאים. אם כל הכתובות הן מארץ אחת, ציין ארץ זו כדי להבטיח דיוק מרבי של התוצאות. אחרת, השאר פרמטר זה ריק.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>מציין את השדות אשר ייכללו בסט נתוני הפלט. להלן האפשרויות:
+            </p>
+            <ul>
+                <li> <b>כל</b>&mdash;כל שדות הקלט הזמינים של מדריך עיגון הכתובות ייכללו בתוצאות עיגון הכתובות.
+                </li>
+                <li> <b>מינימלי</b>&mdash;קבוצה חלקית של שדות ממדריך עיגון הכתובות וכן השדות מטבלת הקלט ייכללו בתוצאות.
+                </li>
+                <li> <b>מיקום בלבד</b>&mdash;השדה <i>Shape</i> ממדריך עיגון הכתובות וכן השדות מטבלת הקלט ייכללו בתוצאות.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>סוג הקלט שייווצר. הפלט יכול להיות שירות ווב, קובץ  <code>.csv</code> או קובץ <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>השם של פריט הפלט שבו יאוחסנו הנתונים שאותרו.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

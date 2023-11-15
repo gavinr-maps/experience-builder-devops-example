@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>V&aelig;rkt&oslash;jet Find lignende steder evaluerer ligheden mellem kandidatpositioner og en referenceposition baseret p&aring; et s&aelig;t kriterier og rangordner kandidatpositionerne fra ligner mest til ligner mindst.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Det punkt-, linje- eller polygonlag, der indeholder de referencepositioner, der matches. Hvis laget omfatter flere positioner, vil alle positioner blive omregnet til et gennemsnit for at oprette &eacute;n enkelt referenceposition.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Det punkt-, linje- eller polygonlag, der indeholder s&oslash;gekandidatpositioner. Hver s&oslash;gekandidatposition sammenlignes med referencepositionen efter den angivne v&aelig;rdi for  <b>Valg af kriterier</b> og rangordnet fra mest lignende til mindst lignende.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>De numeriske felter, der bruges til at evaluere ligheden mellem referencepositionen og hver enkelt s&oslash;gekandidatposition. Hver v&aelig;rdi for  <b>Valg af kriterier</b> har en v&aelig;rdi for <b>Felt fra referencelag</b> og v&aelig;rdi for <b>Felt fra kandidatlag</b>. V&aelig;rdierne for <b>Felt fra referencelag</b> og <b>Felt fra kandidatlag</b> matcher felter i v&aelig;rdierne for <b>Referencepositionslag</b> og <b>S&oslash;gekandidatlag</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Feltet  <b>Referencepositionslag</b>, som svarer til feltet <b>S&oslash;g p&aring; kandidatlag</b>, der er angivet af v&aelig;rdien for <b>Felt fra kandidatlag</b>. V&aelig;rdierne i disse matchede felter sammenlignes for at evaluere ligheden mellem referencepositionen og hver enkelt s&oslash;gekandidatposition.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Feltet  <b>S&oslash;gekandidatlag</b>, der svarer til feltet <b>Referencepositionslag</b>, der er angivet af v&aelig;rdien for <b>Felt fra referencelag</b>. V&aelig;rdierne i disse matchede felter sammenlignes for at evaluere ligheden mellem referencepositionen og hver enkelt s&oslash;gekandidatposition.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Angiver, om alle positionerne i v&aelig;rdien for  <b>S&oslash;gekandidatlag</b>, der medtages i outputlaget.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Antallet af lignende positioner for v&aelig;rdien  <b>S&oslash;gekandidatalag</b>, der inkluderes i outputlaget.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Pronađi vruće tačke identifikuje statistički značajno grupisanje u ulaznim geoobjektima.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Ulazna tačka ili sloj poligona na kojem će se izvr&scaron;iti analiza vruće tačke.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Određuje da li će tople i hladne tačke odražavati lokacije geoobjekta (<b>broj tačaka</b>) ili vrednosti polja geoobjekta (<b>polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Polje koje će se analizirati za klastere visoke i niske vrednosti.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Tip graničnih obeležja u okviru kojih će ulazne tačke geoobjekta biti agregirane. Ovo može biti sloj poligona (<b>sloj poligona</b>) ili teselaciona mreža kvadratnih (<b>Fishnet ćelije</b>) ili &scaron;estougaonih (<b>&Scaron;estougaone ćelije</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Sloj koji sadrži poligonalne karakteristike u kojima će se agregirati karakteristike ulaznih tačaka.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Sloj poligona koji će definisati granicu analize. Tačkaste karakteristike unutar poligona biće uključene u analizu vruće tačke.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Navodi kako da podelite vrednosti za  <b>polje Analiza</b> ili zbirne brojeve tačke. Opcija <b>Polje</b> podeliće vrednosti za <b>polje Analiza</b> prema vrednostima navedenog polja u parametru <b>Ulazni sloj</b>. Opcija <b>Obogaćeni podaci</b> obogatiće funkcije ili agregacione oblike sa podacima o populaciji i podeliti vrednosti za <b>polje Analiza</b> ili broj agregatnih tačaka prema populaciji. Ova opcija će potro&scaron;iti dodatne kredite.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Dužina stranice kvadratne ili &scaron;estougaone ćelije koja će se koristiti za agregiranje ulaznih karakteristika.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Određuje jedinice koje će se koristiti za veličinu ćelije.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Opseg udaljenosti koji će se koristiti za definisanje kom&scaron;iluka. Susedne karakteristike unutar opsega udaljenosti ciljne karakteristike biće uključene u okolinu ciljne karakteristike tokom analize vruće tačke.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Određuje jedinice koje će se koristiti za opseg udaljenosti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultat biti sačuvan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Vytvoriť plochu viditeľnosti využ&iacute;va službu Esri Elevation Analysis service na identifik&aacute;ciu oblast&iacute;, ktor&eacute; s&uacute; viditeľn&eacute; zo zadan&yacute;ch miest pozorovateľov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&eacute; prvky, ktor&eacute; sa použij&uacute; ako lokality pozorovateľov.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>Určuje v&yacute;&scaron;ku pozorovateľov nad zemou.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p>Mern&eacute; jednotky, ktor&eacute; sa použij&uacute; pre parameter  <b>V&yacute;&scaron;ka pozorovateľa</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>Určuje v&yacute;&scaron;ku cieľov na zemi.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p>Mern&eacute; jednotky, ktor&eacute; sa použij&uacute; pre parameter  <b>Cieľov&aacute; v&yacute;&scaron;ka</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Určuje maxim&aacute;lnu dohľadov&uacute; vzdialenosť pri v&yacute;počte viditeľnej plochy.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Mern&eacute; jednotky, ktor&eacute; sa použij&uacute; pre parameter  <b>Maxim&aacute;lna dohľadov&aacute; vzdialenosť</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov polyg&oacute;novej vrstvy plochy viditeľnosti, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy. T&aacute;to vrstva obsahuje viditeľn&eacute; oblasti vidien&eacute; pozorovateľmi, a počet pozorovateľov je zaznamenan&yacute; v poli frequency.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

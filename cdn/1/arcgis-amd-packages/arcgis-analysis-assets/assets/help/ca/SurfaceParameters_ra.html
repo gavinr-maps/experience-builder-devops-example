@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Par&agrave;metres de superf&iacute;cie calcula els par&agrave;metres d'una superf&iacute;cie r&agrave;ster com l'orientaci&oacute;, el pendent i la curvatura mitjan&ccedil;ant m&egrave;todes geod&egrave;sics.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>R&agrave;ster d'elevaci&oacute; que s'utilitzar&agrave; per als c&agrave;lculs.
+            </p>
+            <p>Si hi ha una unitat z al sistema de coordenades verticals del r&agrave;ster d'entrada, s'aplicar&agrave; autom&agrave;ticament.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Tipus de par&agrave;metre de superf&iacute;cie que es mesurar&agrave;.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Unitats de mesura del r&agrave;ster del pendent de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Especifica si es projectaran els azimuts geod&egrave;sics.
+            </p>
+            <p>Si l'opci&oacute; est&agrave; activada, es projectaran azimuts geod&egrave;sics per corregir l'angle de distorsi&oacute; causat per la refer&egrave;ncia espacial de sortida. Si l'opci&oacute; no est&agrave; activada, els azimuts geod&egrave;sics no es projectaran.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Especifica si l'aspecte es mesurar&agrave; des d'un punt de l'equador o des del pol nord.
+            </p>
+            <p>Si aquesta opci&oacute; est&agrave; activada, l'aspecte es mesurar&agrave; des d'un punt de l'equador. Si no est&agrave; seleccionada, l'aspecte es mesurar&agrave; des del pol nord.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Tipus de funci&oacute; de superf&iacute;cie que s'ajustar&agrave; al voltant de la cel&middot;la de destinaci&oacute;.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Dist&agrave;ncia des del centre de la cel&middot;la objectiu des de la qual es calcular&agrave; la sortida. Determina la mida del ve&iuml;nat que s'utilitza per al c&agrave;lcul.
+            </p>
+            <p>El valor per defecte &eacute;s la mida de la cel&middot;la del r&agrave;ster especificat al par&agrave;metre  <b>R&agrave;ster de superf&iacute;cie d'entrada</b>. Si s'especifica un valor, ha de ser m&eacute;s gran que el valor per defecte.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Especifica si la dist&agrave;ncia de ve&iuml;natge variar&agrave; amb els canvis del paisatge.
+            </p>
+            <p>Si aquesta opci&oacute; est&agrave; activada, la dist&agrave;ncia de ve&iuml;natge variar&agrave; amb els canvis del paisatge. Si no est&agrave; seleccionada, s'utilitzar&agrave; una dist&agrave;ncia de ve&iuml;natge fixa a totes les ubicacions.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Unitat lineal dels valors z verticals.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa de r&agrave;ster de superf&iacute;cie que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipus de sortida que es crear&agrave;. La sortida pot ser una capa d'imatges en mosaic o una capa d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

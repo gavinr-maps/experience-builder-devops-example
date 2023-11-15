@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Jarak Pandang Geodesik mengidentifikasi lokasi pada permukaan raster yang terlihat untuk lokasi pengamat input.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Raster elevasi tempat jarak pandang akan dihitung.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Lokasi pengamat yang jarak pandangnya akan dihitung.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Mengoptimalkan penghitungan jarak pandang berdasarkan kecepatan atau akurasi.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Menentukan jarak penglihatan maksimum untuk penghitungan jarak pandang.
+            </p>
+            <p>Jarak dapat ditentukan oleh nilai dan satuannya, atau dari kolom di  <b>Fitur titik atau garis pengamat input</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Menentukan jarak penglihatan minimum untuk penghitungan jarak pandang.
+            </p>
+            <p>Jarak dapat ditentukan oleh nilai dan satuannya, atau dari kolom di  <b>Fitur titik atau garis pengamat input</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Menentukan jenis jarak penglihatan maksimum dan minimum.
+            </p>
+            <p>Jika tidak dicentang, jarak penglihatan akan dianggap sebagai jarak Euclidean dua dimensi. Jika dicentang, jarak penglihatan akan dianggap sebagai jarak tiga dimensi.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Menentukan elevasi permukaan lokasi pengamat.
+            </p>
+            <p>Elevasi dapat ditentukan oleh nilai dan satuannya, atau dari kolom di  <b>Fitur titik atau garis pengamat input</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Menentukan ketinggian pengamat di atas tanah.
+            </p>
+            <p>Ketinggian dapat ditentukan oleh nilai dan satuannya, atau dari kolom di  <b>Fitur titik atau garis pengamat input</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Menentukan ketinggian target di tanah.
+            </p>
+            <p>Ketinggian dapat ditentukan oleh nilai dan satuannya, atau dari kolom di  <b>Fitur titik atau garis pengamat input</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer raster jarak pandang yang akan dibuat dan ditambahkan ke peta. Layer ini berisi area yang terlihat di mana pengamat dapat melihat, dan nilai sel menunjukkan jumlah pengamat yang dapat melihat sel.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Nama layer raster above ground level (AGL) yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Jenis output yang akan dibuat. Output dapat berupa layer citra Ubin atau layer citra Dinamis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

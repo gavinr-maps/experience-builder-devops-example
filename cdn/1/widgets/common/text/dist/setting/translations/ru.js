@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Разместить",verticalAlignment:"Выровнять по вертикали"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Выровнять по вертикали"})}}}));

@@ -1,0 +1,75 @@
+{
+  "title": "Compartir",
+  "titleGroup": "Uso compartido de grupo",
+  "save": "Guardar",
+  "apply": "Aplicar",
+  "cancel": "Cancelar",
+  "revert": "Revertir",
+  "update": "Actualizar",
+  "ok": "Aceptar",
+  "retrievingInfo": "Recuperando información de uso compartido...",
+  "updatingInfo": "Actualizando información de uso compartido...",
+  "shareCountLabel": "Compartir cuenta",
+  "shareCountHint": "${numItem}/${totalItem} elementos",
+  "sharedCountHint": "Se han compartido ${numItem}/${totalItem} elementos",
+  "willShareCountHint": "Se compartirán ${numItem}/${totalItem} elementos",
+  "shareCountTooltip": "Elementos definidos para compartir el nivel ${shareLevel}: ${numItem}/${totalItem}",
+  "noShareDisclaimer": "No tiene los permisos necesarios para cambiar el nivel de uso compartido.",
+  "sharingLimitedItemDisclaimer": "Algunas opciones de nivel de uso compartido están limitadas en ciertos tipos de elementos.",
+  "sharingLimitedDisclaimer": "Algunas opciones de nivel de uso compartido están limitadas por sus privilegios de uso compartido.",
+  "cannotShareToLevelDisclaimer": "No tiene el privilegio para definir elementos en este nivel de uso compartido.",
+  "shareLevel": {
+    "title": "Definir nivel de uso compartido",
+    "noPermission": "No tiene los permisos necesarios para cambiar el nivel de uso compartido.",
+    "level": {
+      "private": {
+        "title": "Propietario",
+        "description": "El propietario de los elementos tiene acceso"
+      },
+      "org": {
+        "title": "Organización",
+        "description": "Todos los miembros de su organización tienen acceso"
+      },
+      "public": {
+        "title": "Todos (público)",
+        "description": "Los usuarios ajenos a su organización tienen acceso",
+        "descriptionPublicUser": "Todos los usuarios tienen acceso"
+      }
+    }
+  },
+  "shareGroup": {
+    "title": "Definir uso compartido de grupo",
+    "noGroup": "Todavía no hay ningún grupo con el que compartir.",
+    "edit": "Editar uso compartido de grupo",
+    "noneYet": "Nada todavía",
+    "revert": "Revertir",
+    "remove": "Eliminar",
+    "mixedGroupSharing": "Elementos compartidos con diferentes grupos"
+  },
+  "shareWarning": {
+    "publicAccountOpenGroupBrowser": {
+      "title": "Cambiar nivel de uso compartido de los elementos",
+      "description": "Los elementos propiedad de una cuenta pública deben compartirse con Todos antes de compartirlos con un grupo. ¿Desea actualizar los niveles de uso compartido a Todos e ir a Uso compartido de grupo?"
+    },
+    "publicAccountSetShareToPrivate": {
+      "title": "Definir nivel de uso compartido de elemento en Privado",
+      "description": "Los elementos propiedad de una cuenta pública no se pueden compartir con un grupo si son privados. ¿Desea eliminar el uso compartido de grupo?"
+    },
+    "publicAccountRevertShareLevel": {
+      "title": "Revertir nivel de uso compartido de elemento",
+      "description": "Los elementos propiedad de una cuenta pública no se pueden compartir con un grupo si son privados. ¿Desea eliminar el uso compartido de grupo?"
+    },
+    "publicAccountRevertGroup": {
+      "title": "Revertir el uso compartido de grupo",
+      "description": "Los elementos propiedad de una cuenta pública no se pueden compartir con un grupo si son privados. ¿Definir el nivel de uso compartido del elemento como Público?"
+    },
+    "publicDataCollectionEnabled": {
+      "title": "Advertencia: uso compartido de capa editable públicamente",
+      "description": "Está haciendo pública su capa editable. Para un rendimiento óptimo y la integridad de los datos, considere la posibilidad de deshabilitar la edición o el uso de una capa de vista no editable."
+    },
+    "publicDataCollectionDisabled": {
+      "title": "No se puede compartir la capa editable públicamente",
+      "description": "Para compartir públicamente, primero active la opción Recopilación de datos públicos en la pestaña de Configuración de la página del elemento de la capa y, a continuación, comparta de nuevo. Para un rendimiento óptimo y la integridad de los datos, considere la posibilidad de deshabilitar la edición o el uso de una capa de vista no editable."
+    }
+  }
+}

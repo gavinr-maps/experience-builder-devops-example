@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Folyamatos &aacute;raml&aacute;s sz&aacute;m&iacute;t&aacute;sa eszk&ouml;z &ndash; Akkumul&aacute;l&oacute;d&oacute; &aacute;raml&aacute;s raszter&eacute;nek l&eacute;trehoz&aacute;sa mindegyik cell&aacute;ba egy bemeneti fel&uuml;leti raszterből, előzetes helyi er&oacute;zi&oacute;b&aacute;zis vagy depresszi&oacute;felt&ouml;lt&eacute;s ig&eacute;nye n&eacute;lk&uuml;l.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>A sz&aacute;m&iacute;t&aacute;shoz haszn&aacute;lt magass&aacute;gi raszter.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>Az a r&eacute;teg, amely val&oacute;di m&eacute;lyed&eacute;seket vagy s&uuml;llyed&eacute;seket hat&aacute;roz meg, ahov&aacute; a v&iacute;z be tud &aacute;ramlani, de onnan nem tud kifolyni.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>Az a raszteres r&eacute;teg, amely meghat&aacute;rozza az egyes cell&aacute;kban az &aacute;raml&aacute;s felhalmoz&oacute;d&aacute;s&aacute;hoz hozz&aacute;j&aacute;rul&oacute; &aacute;raml&aacute;si h&aacute;nyadot.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Megadja az &aacute;raml&aacute;si m&oacute;dszer t&iacute;pus&aacute;t, amelyet az &aacute;raml&aacute;si ir&aacute;ny kisz&aacute;m&iacute;t&aacute;sakor haszn&aacute;lnak.
+            </p>
+            <p>A D8 m&oacute;dszer az &aacute;raml&aacute;si ir&aacute;nyt a legmeredekebben lejtő szomsz&eacute;dhoz rendeli. Az MFD-m&oacute;dszer az &aacute;raml&aacute;s ir&aacute;ny&aacute;t a lejtőszomsz&eacute;dok k&ouml;z&ouml;tt egy adapt&iacute;v feloszt&aacute;si exponens szerint osztja fel.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a peremcell&aacute;k &aacute;raml&aacute;sa a norm&aacute;l &aacute;raml&aacute;si szab&aacute;lyokat k&ouml;vesse, vagy mindig kifel&eacute; &aacute;ramoljon.
+            </p>
+            <p>Ha nincs bejel&ouml;lve, az &aacute;raml&aacute;s a legmeredekebb z-&eacute;rt&eacute;k-cs&ouml;kken&eacute;ssel rendelkező belső cella fel&eacute; fog haladni. Ha azonban az es&eacute;s kisebb vagy egyenlő null&aacute;val, akkor a cella a felsz&iacute;ni raszterből kifel&eacute; fog &aacute;ramlani. Ha be van jel&ouml;lve, az &aacute;raml&aacute;s ir&aacute;nya mindig a felsz&iacute;ni raszterből kifel&eacute; mutat.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>A l&eacute;trehozand&oacute; &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adand&oacute; &aacute;raml&aacute;si felhalmoz&oacute;d&aacute;si raszteres r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt &aacute;raml&aacute;s ir&aacute;ny&uacute; raszteres r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>A l&eacute;trej&ouml;vő kimenet t&iacute;pusa. A kimenetek csemp&eacute;zett t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek vagy pedig dinamikus t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek lehetnek.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;nyek ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

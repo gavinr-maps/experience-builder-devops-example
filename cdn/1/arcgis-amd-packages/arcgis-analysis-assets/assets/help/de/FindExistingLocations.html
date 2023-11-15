@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Nach Attributen und Position suchen&quot; erstellt einen neuen Layer aus den Features oder Teilen von Features, die bestimmte r&auml;umliche oder Attributkriterien erf&uuml;llen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Der Punkt-, Linien- oder Polygon-Layer, f&uuml;r den Features basierend auf einer Kombination aus Attribut- und r&auml;umlichen Abfragen gesucht werden.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Die r&auml;umlichen oder Attributkriterien, die f&uuml;r die Feature-Suche verwendet werden. Klicken Sie auf die Schaltfl&auml;che  <b>Neue Abfrage erstellen</b>, um mindestens ein r&auml;umliches oder Attributkriterium zu erstellen. Diese Features oder Teile der Features, die allen Kriterien entsprechen, werden in den Ergebnis-Layer geschrieben.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Die r&auml;umlichen oder Attributkriterien, die f&uuml;r die Feature-Suche verwendet werden. Klicken Sie auf die Schaltfl&auml;che <b>Neue Abfrage erstellen</b>, um mindestens ein r&auml;umliches oder Attributkriterium zu erstellen. Diese Features oder Teile der Features, die allen Kriterien entsprechen, werden in den Ergebnis-Layer geschrieben.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Wenn nur ein Teil eines Features die Kriterien erf&uuml;llt, wird angegeben, ob das Ergebnis das vollst&auml;ndige Feature oder nur den Teil des Features enth&auml;lt, der alle Kriterien erf&uuml;llt. Wenn aktiviert, werden nur die Teile der Features zur&uuml;ckgegeben, die alle Kriterien erf&uuml;llen. Wenn nicht aktiviert, wird das vollst&auml;ndige Feature zur&uuml;ckgegeben, sofern zumindest ein Teil des Features alle Kriterien erf&uuml;llt.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент З&rsquo;єднання об'єктів додає атрибути з одного шару або таблиці до іншого шару або таблиці на основі просторових або атрибутивних відношень. Як варіант, статистику можна розрахувати, якщо є кілька відповідних записів.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Шар або таблиця, що матиме атрибути із шару з&rsquo;єднання, приєднані до його/її таблиці.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Шар або таблиця з атрибутами, які будуть приєднані до цільового шару.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Укажіть, чи з&rsquo;єднувати шари на основі просторового відношення. Для цього необхідно, щоб обидва шари мали геометрію.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Укажіть просторове відношення, яке визначає з&rsquo;єднання об&rsquo;єктів. Об&rsquo;єкти в шарі з&rsquo;єднання, які мають вказане відношення до цільового шару, будуть з&rsquo;єднані. Доступні відношення залежать від типу геометрії вхідних даних.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Відстань від об&rsquo;єктів у цільовому шарі, яка використовуватиметься для визначення необхідності з&rsquo;єднання об&rsquo;єктів.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Одиниці вимірювання, які використовуватимуться для визначення відстані.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Укажіть, чи з&rsquo;єднувати шари на основі відповідних значень полів. Це єдиний варіант, якщо один або кілька вхідних даних є таблицею.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Укажіть атрибутивне відношення, яке визначає з&rsquo;єднання об&rsquo;єктів. Об'єкти зіставляються, коли значення полів у шарі з&rsquo;єднання рівні значенням полів у цільовому шарі.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Укажіть, як з&rsquo;єднання оброблятимуться, якщо кілька записів з шару з&rsquo;єднання відповідають критеріям з&rsquo;єднання. Виберіть із наведених нижче варіантів:
+                <ul>
+                    <li> <b>З'єднати один з одним</b>&mdash; з'єднання одного запису в шарі з&rsquo;єднання з кожним об&rsquo;єктом у цільовому шарі.
+                    </li>
+                    <li> <b>З&rsquo;єднати один з багатьма</b>&mdash;з'єднати всі відповідні об&rsquo;єкти в шарі з&rsquo;єднання з цільовим шаром. Результуючий шар буде містити декілька записів про цільовий об'єкт.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Якщо декілька об&rsquo;єктів у шарі з&rsquo;єднання відповідають цільовому об&rsquo;єкту, укажіть, чи потрібно з&rsquo;єднати один запис із шару з&rsquo;єднання чи обчислити підсумкову статистику всіх відповідних записів із шару з&rsquo;єднання.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Якщо існує кілька функцій з&rsquo;єднання, які відповідають цільовому об'єкту, буде обчислено підсумкову статистику для всіх відповідних записів. Укажіть кількість полів або полів дати з шару з&rsquo;єднання та статистику, яка обчислюватиметься для кожного поля.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Якщо існує кілька з&rsquo;єднаних об&rsquo;єктів, які відповідають цільовому об&rsquo;єкту, перший запис із таблиці атрибутів шару з&rsquo;єднання буде включено до вихідних даних. Додатково виберіть поле числа або дати та порядок сортування, який визначатиме порядок таблиці атрибутів.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Визначає, чи будуть невідповідні цільові об'єкти включені до вихідних даних.  <b>Внутрішнє з&rsquo;єднання</b> повертає лише відповідні цільові записи, тоді як <b>Ліве з&rsquo;єднання</b> повертає всі цільові записи, навіть якщо цільовий об&rsquo;єкт не має відповідності в шарі з&rsquo;єднання.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ім'я шару або таблиці, які буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

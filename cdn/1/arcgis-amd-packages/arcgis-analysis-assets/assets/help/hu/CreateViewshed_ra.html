@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Geodesic Viewshed eszk&ouml;z azonos&iacute;tja a raszteres fel&uuml;leten azokat a helyeket, amelyek a bemeneti megfigyel&eacute;si poz&iacute;ci&oacute;kon l&aacute;that&oacute;k.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Az a magass&aacute;graszter, amelyből a bel&aacute;that&oacute; ter&uuml;let sz&aacute;m&iacute;t&aacute;sa t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Azok a megfigyel&eacute;si poz&iacute;ci&oacute;k, amelyek sz&aacute;m&aacute;ra a bel&aacute;that&oacute; ter&uuml;let sz&aacute;m&iacute;t&aacute;sa t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>A sebess&eacute;g vagy a pontoss&aacute;g alapj&aacute;n optimaliz&aacute;lja a bel&aacute;that&oacute; ter&uuml;let sz&aacute;m&iacute;t&aacute;s&aacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>A maxim&aacute;lis l&aacute;t&oacute;t&aacute;vols&aacute;got adja meg a bel&aacute;that&oacute; ter&uuml;let sz&aacute;m&iacute;t&aacute;s&aacute;hoz.
+            </p>
+            <p>A t&aacute;vols&aacute;g meghat&aacute;rozhat&oacute; egy &eacute;rt&eacute;kkel &eacute;s annak m&eacute;rt&eacute;kegys&eacute;geivel, vagy a  <b>Bemeneti megfigyel&eacute;si poz&iacute;ci&oacute; pont vagy vonalas vektoros elemek</b> egy mezőj&eacute;ből.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>A minim&aacute;lis l&aacute;t&oacute;t&aacute;vols&aacute;got adja meg a bel&aacute;that&oacute; ter&uuml;let sz&aacute;m&iacute;t&aacute;s&aacute;hoz.
+            </p>
+            <p>A t&aacute;vols&aacute;g meghat&aacute;rozhat&oacute; egy &eacute;rt&eacute;kkel &eacute;s annak m&eacute;rt&eacute;kegys&eacute;geivel, vagy a  <b>Bemeneti megfigyel&eacute;si poz&iacute;ci&oacute; pont vagy vonalas vektoros elemek</b> egy mezőj&eacute;ből.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>A maxim&aacute;lis &eacute;s a minim&aacute;lis l&aacute;t&oacute;t&aacute;vols&aacute;g t&iacute;pus&aacute;t adja meg.
+            </p>
+            <p>Ha nincs bejel&ouml;lve, akkor a l&aacute;t&oacute;t&aacute;vols&aacute;got k&eacute;tdimenzi&oacute;s euklideszi t&aacute;vols&aacute;gokk&eacute;nt kezeli a rendszer. Ha be van jel&ouml;lve, akkor a l&aacute;t&oacute;t&aacute;vols&aacute;got h&aacute;romdimenzi&oacute;s t&aacute;vols&aacute;gokk&eacute;nt kezeli a rendszer.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>A megfigyel&eacute;si poz&iacute;ci&oacute; helyek felsz&iacute;nmagass&aacute;g&aacute;t adja meg.
+            </p>
+            <p>A magass&aacute;g meghat&aacute;rozhat&oacute; egy &eacute;rt&eacute;kkel &eacute;s annak m&eacute;rt&eacute;kegys&eacute;geivel, vagy a  <b>Bemeneti megfigyel&eacute;si poz&iacute;ci&oacute; pont vagy vonalas vektoros elemek</b> egy mezőj&eacute;ből.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>A megfigyel&eacute;si poz&iacute;ci&oacute;k felsz&iacute;n feletti magass&aacute;g&aacute;t adja meg.
+            </p>
+            <p>A magass&aacute;g meghat&aacute;rozhat&oacute; egy &eacute;rt&eacute;kkel &eacute;s annak m&eacute;rt&eacute;kegys&eacute;geivel, vagy a  <b>Bemeneti megfigyel&eacute;si poz&iacute;ci&oacute; pont vagy vonalas vektoros elemek</b> egy mezőj&eacute;ből.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>A felsz&iacute;nen l&eacute;vő c&eacute;lt&aacute;rgyak magass&aacute;g&aacute;t adja meg.
+            </p>
+            <p>A magass&aacute;g meghat&aacute;rozhat&oacute; egy &eacute;rt&eacute;kkel &eacute;s annak m&eacute;rt&eacute;kegys&eacute;geivel, vagy a  <b>Bemeneti megfigyel&eacute;si poz&iacute;ci&oacute; pont vagy vonalas vektoros elemek</b> egy mezőj&eacute;ből.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt bel&aacute;that&oacute; ter&uuml;let raszteres r&eacute;teg neve. Ez a r&eacute;teg tartalmazza azokat a l&aacute;that&oacute; ter&uuml;leteket, amelyre a megfigyelők r&aacute;l&aacute;tnak, a cell&aacute;k &eacute;rt&eacute;kei pedig a cell&aacute;kra r&aacute;l&aacute;t&oacute; megfigyelők sz&aacute;m&aacute;t mutatj&aacute;k
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt felsz&iacute;n feletti (above ground level, AGL) raszteres r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>A l&eacute;trej&ouml;vő kimenet t&iacute;pusa. A kimenet csemp&eacute;zett t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;teg vagy pedig dinamikus t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;teg lehet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

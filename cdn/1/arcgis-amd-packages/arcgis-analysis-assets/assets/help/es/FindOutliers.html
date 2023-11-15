@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Buscar valores at&iacute;picos determinar&aacute; si hay alguna ubicaci&oacute;n con valores significativamente diferentes de sus vecinos en funci&oacute;n del patr&oacute;n espacial de los datos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>La capa de puntos o de pol&iacute;gonos donde se buscar&aacute;n valores at&iacute;picos.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Especifica si los valores at&iacute;picos se determinar&aacute;n en funci&oacute;n de las ubicaciones de entidades (<b>Recuentos de puntos</b>) o valores de campo de entidad (<b>Campo</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>El campo que se analizar&aacute; para determinar valores at&iacute;picos.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>El tipo de entidades de delimitaci&oacute;n en las que se agregar&aacute;n las entidades de entrada. Puede ser una capa de pol&iacute;gonos (<b>Capa de pol&iacute;gonos</b>), o bien una cuadr&iacute;cula de teselaci&oacute;n de cuadrados (<b>Celdas de red</b>) o hex&aacute;gonos (<b>Celdas hexagonales</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>La capa que contiene las entidades poligonales en las que se agregar&aacute;n las entidades de puntos de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>La capa de pol&iacute;gonos que definir&aacute; el l&iacute;mite del an&aacute;lisis. Las entidades dentro del pol&iacute;gono se incluir&aacute;n en el an&aacute;lisis de valores at&iacute;picos.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Especifica c&oacute;mo dividir los valores del  <b>Campo de an&aacute;lisis</b> o los recuentos de puntos agregados. La opci&oacute;n <b>Campo</b> dividir&aacute; los valores del <b>Campo de an&aacute;lisis</b> por valores de un campo concreto del par&aacute;metro <b>Capa de entrada</b>. La opci&oacute;n <b>Datos de enriquecimiento</b> enriquecer&aacute; las entidades o las formas de agregaci&oacute;n con datos de poblaci&oacute;n y dividir&aacute; los valores del <b>Campo de an&aacute;lisis</b> o los recuentos de puntos agregados por la poblaci&oacute;n. Esta opci&oacute;n consumir&aacute; cr&eacute;ditos adicionales.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Especifica si la herramienta se optimizar&aacute; para que el tiempo de procesamiento sea m&aacute;s r&aacute;pido o los resultados tengan una mayor precisi&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Valor entero que dar&aacute; inicio a un generador de n&uacute;meros aleatorios.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>La longitud de un lado de las celdas cuadradas (red) o hexagonales que se utilizar&aacute;n para agregar las entidades de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Especifica las unidades que se utilizar&aacute;n para el tama&ntilde;o de celda.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>La banda de distancia que se utilizar&aacute; para definir una vecindad. Las entidades vecinas dentro de la banda de distancia de una entidad de destino se incluir&aacute;n en la vecindad de la entidad de destino durante el an&aacute;lisis.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Especifica las unidades que se utilizar&aacute;n para la banda de distancia.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

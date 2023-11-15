@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'סיכום פריטים סמוכים' מחשב נתונים סטטיסטיים עבור ישויות בטווח מרחק שצוין מיישויות אחרות. ניתן לחשב מרחק באמצעות מרחק של קו ישר או מצב נסיעה.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>השכבה לסיכום בתוך מרחק של השכבה הקרובה.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>שכבת הנקודות, הקווים או הפוליגון שתשמש כמיקומי ההתחלה שסביבם אזורי תיחום ייוצרו לסיכום ישויות סמוכות.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>השיטה שלפיה ייווצרו אזורי התיחום. השיטה יכולה להיות מרחק קו ישר או מצב נסיעה.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>המרחק או הזמן אשר ישמשו ליצירת אזורי התיחום. אם מתווספים ערכים מרובים, כל ערך ישמש לחישוב אזורי תיחום עבור כל ישויות הקלט.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>היחידות אשר ישמשו לציון מרחק או זמן.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>ציין האם שכבת התוצאה צריכה להיות אזורי התיחום (מסומן) או אותה גיאומטריה כמו קלט השכבה הסמוכה (לא מסומן).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>חשב את הגודל הכולל של היישויות שמסוכמות בכל אזור תיחום. עבור קווים, מחושב האורך הכולל. עבור פוליגונים, מחושב השטח הכולל.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>היחידות אשר ישמשו לחישוב הגודל הכולל של היישויות המסוכמות.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>שדות התאריך או המספר משכבת הקלט לסיכום, והסטטיסטיקה שתחושב עבור כל שדה.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>השדה משכבת הקלט אשר ישמש להפרדת הנתונים לקבוצות נבדלות עבור חישובים סטטיסטיים.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>חשב את קבוצות המיעוט (הכי פחות דומיננטיות) והרוב (הכי דומיננטיות) בתוך כל אזור סיכום.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>חשב את האחוז של היישויות המסוכמות ששייכות לכל קבוצה בתוך כל תיחום.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאות יישמרו.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

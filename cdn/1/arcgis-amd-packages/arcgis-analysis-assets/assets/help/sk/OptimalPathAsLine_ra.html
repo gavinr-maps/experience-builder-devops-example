@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Optim&aacute;lna trasa ako l&iacute;nia vypoč&iacute;ta trasu z destinačn&yacute;ch lokal&iacute;t k optim&aacute;lnemu zdroju ako l&iacute;niu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Vrstva, ktor&aacute; identifikuje destinačn&eacute; lokality, z ktor&yacute;ch sa poč&iacute;ta vzdialenosť k najmenej n&aacute;kladn&eacute;mu zdroju.
+            </p>
+            <p>Ak je vstupom raster, mus&iacute; pozost&aacute;vať z buniek, ktor&eacute; maj&uacute; platn&eacute; celoč&iacute;seln&eacute; hodnoty (nula je platn&aacute; hodnota) pre destin&aacute;cie a ostatn&eacute; bunky musia mať hodnotu NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Pole, ktor&eacute; sa použije na z&iacute;skanie hodn&ocirc;t pre lokality destin&aacute;ci&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>Raster, ktor&yacute; určuje optim&aacute;lnu cestu z destinačn&yacute;ch lokal&iacute;t k zdrojom.
+            </p>
+            <p>Raster akumul&aacute;cie vzdialenosti sa zvyčajne vytv&aacute;ra pomocou n&aacute;stroja Akumul&aacute;cia vzdialenosti alebo Alok&aacute;cia vzdialenosti.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>Raster, ktor&yacute; obsahuje vypoč&iacute;tan&eacute; smery v stupňoch.
+            </p>
+            <p>Raster sp&auml;tnej vzdialenosti je obyčajne vytvoren&yacute; použit&iacute;m n&aacute;jstroja Akumul&aacute;cia vzdialenosti alebo Alok&aacute;cia vzdialenosti.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Určuje, ako sa bud&uacute; interpretovať hodnoty a z&oacute;ny vo vstupn&yacute;ch d&aacute;tach destin&aacute;ci&iacute; pri v&yacute;počtoch optim&aacute;lnej trasy.
+            </p>
+        </div>
+    </div>
+    <div id="createNetworkPaths">
+        <div>
+            <p>Určuje, či sa z destin&aacute;ci&iacute; do zdrojov vypoč&iacute;taj&uacute; &uacute;pln&eacute; a pr&iacute;padn&eacute; prekr&yacute;vaj&uacute;ce sa trasy, alebo sa vytvoria neprekr&yacute;vaj&uacute;ce sa sieťov&eacute; trasy.
+            </p>
+        </div>
+    </div>
+    <div id="outputPolylineName">
+        <div>
+            <p>N&aacute;zov optim&aacute;lnej trasy ako l&iacute;niovej vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+            <p>Vrstva sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

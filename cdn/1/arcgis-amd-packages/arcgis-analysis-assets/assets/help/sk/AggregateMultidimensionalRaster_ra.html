@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Agregovať multidimenzion&aacute;lny raster vytv&aacute;ra multidimenzion&aacute;lnu sn&iacute;mkov&uacute; vrstvu kombin&aacute;ciou existuj&uacute;cich premenn&yacute;ch multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy v r&aacute;mci dimenzie.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Multidimenzion&aacute;lna sn&iacute;mkov&aacute; vrstva, ktor&aacute; sa bude agregovať.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzia multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy, v r&aacute;mci ktorej sa bude premenn&aacute; agregovať.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Indikuje, či m&aacute; či m&aacute; vrstva hodnoty rozmerov.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Premenn&aacute; multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy, ktor&aacute; bude agregovan&aacute; v r&aacute;mci definovanej dimenzie.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Matematick&aacute; met&oacute;da, ktor&aacute; sa použije na agreg&aacute;ciu segmentov multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Percentilov&aacute; hodnota, ktor&aacute; sa použije na v&yacute;počty po zadan&iacute; met&oacute;dy agreg&aacute;cie.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Met&oacute;da percentilovej interpol&aacute;cie, ktor&aacute; sa použije v pr&iacute;pade p&aacute;rneho počtu hodn&ocirc;t zo vstupnej sn&iacute;mkovej vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Vlastn&aacute; rastrov&aacute; funkcia, ktor&aacute; sa použije na v&yacute;počet hodn&ocirc;t pixelov agregovan&yacute;ch sn&iacute;mkov&yacute;ch vrstiev.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Interval dimenzie, ktor&yacute; sa použije na agreg&aacute;ciu multidimenzion&aacute;lnych d&aacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Každ&eacute; kľ&uacute;čov&eacute; slovo určuje časov&uacute; jednotku, za ktor&uacute; bude každ&aacute; &scaron;tatistika agregovan&aacute;. Zoznam kľ&uacute;čov&yacute;ch slov zahŕňa Hodinov&eacute;, Denn&eacute;, T&yacute;ždenn&eacute;, Mesačn&eacute;, &Scaron;tvrťročn&eacute; a Ročn&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Veľkosť intervalu, ktor&yacute; sa použije pri agreg&aacute;cii v r&aacute;mci dimenzie.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Mern&eacute; jednotky pre hodnotu intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Tabuľka hodn&ocirc;t, ktor&aacute; sa použije pri agreg&aacute;cii v r&aacute;mci zadanej dimenzie. Minim&aacute;lne a maxim&aacute;lne hodnoty určuj&uacute; rozsah, ktor&yacute; sa m&aacute; zahrn&uacute;ť.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Minim&aacute;lna hodnota pre rozsah intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Maxim&aacute;lna hodnota pre rozsah intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Označuje, či sa pri agreg&aacute;cii bud&uacute; ignorovať hodnoty NoData.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

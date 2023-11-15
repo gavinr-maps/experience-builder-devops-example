@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Aggregera flerdimensionellt raster genererar ett flerdimensionellt bildlager genom att kombinera befintliga flerdimensionella bildlagervariabler l&auml;ngs en dimension.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Det flerdimensionella bildlager som kommer att aggregeras.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensionen f&ouml;r det flerdimensionella bildlager l&auml;ngs vilken variabeln kommer att aggregeras.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Anger om lagret har dimensionsv&auml;rden.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabeln f&ouml;r det flerdimensionella bildlagret som aggregeras l&auml;ngs den definierade dimensionen.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Den matematiska metod som anv&auml;nds f&ouml;r att aggregera sektorerna i det flerdimensionella bildlagret.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Percentilv&auml;rdet som anv&auml;nds f&ouml;r ber&auml;kningar n&auml;r aggregeringsmetoden anges.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Metoden f&ouml;r interpolering av percentil som ska anv&auml;ndas n&auml;r antalet v&auml;rden fr&aring;n indatabildlagret &auml;r j&auml;mnt.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Den anpassade rasterfunktion som anv&auml;nds f&ouml;r att ber&auml;kna pixelv&auml;rden f&ouml;r aggregerade bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Dimensionsintervallet som anv&auml;nds f&ouml;r att aggregera flerdimensionella data.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Varje nyckelord anger den tidsenhet som varje statistik ska aggregeras f&ouml;r. Listan &ouml;ver nyckelord inkluderar timvis, dagligen, veckovis, m&aring;nadsvis, kvartalsvis eller &aring;rsvis.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Storleken p&aring; det intervall som kommer att anv&auml;ndas vid aggregering l&auml;ngs dimensionen.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>M&auml;tenheterna f&ouml;r intervallv&auml;rdet.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>V&auml;rdetabellen som kommer att anv&auml;ndas vid aggregering l&auml;ngs angiven dimension. Minimi- och maximiv&auml;rden anger intervallet som ska inkluderas.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Minsta v&auml;rde f&ouml;r intervallet.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Maximalt v&auml;rde f&ouml;r intervallet.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Anger huruvida NoData-v&auml;rden ignoreras i aggregeringen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ av utdata som skapas. Utdata kan vara bildlager i tileform eller dynamiska bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

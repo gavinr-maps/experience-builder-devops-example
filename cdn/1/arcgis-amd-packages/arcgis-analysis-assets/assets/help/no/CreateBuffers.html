@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Opprett buffere oppretter polygoner som dekker en gitt avstand fra inndatageoobjekter.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkt-, linje- eller polygongeoobjektene som skal bufres.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Angir om bufferavstanden defineres av en konstant (<b>Verdi</b>) eller et numerisk felt (<b>Felt</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Avstanden som brukes til &aring; opprette bufferen. Hvis det legges til flere verdier, brukes hver enkelt verdi til &aring; opprette en buffer ved hvert inndatageoobjekt.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Feltet som inneholder bufferavstanden for hvert geoobjekt.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Enhetene som brukes til &aring; angi bufferavstanden.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Angir hvordan buffere fra ulike inndatageoobjekter skal h&aring;ndteres n&aring;r de overlapper.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Angir om buffere med flere avstander skal v&aelig;re konsentriske buffere som overlapper (<b>Overlappende runde skiver</b>) eller ringer som ikke overlapper (<b>Distinkte ringer</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>For linjegeoobjekter angir det om bufferen opprettes p&aring; begge sider av linjen (<b>Rundt</b>), bare p&aring; venstre side (<b>Venstre</b>) eller bare p&aring; h&oslash;yre side (<b>H&oslash;yre</b>).
+            </p>
+            <p>For polygongeoobjekter angir det om inndata-polygongeoobjektene skal inkluderes i bufferen (<b>Inkluder</b>) eller utelates fra bufferen (<b>Ekskluder</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Angir om formen p&aring; bufferen p&aring; slutten av et linjegeoobjekt skal v&aelig;re rund (<b>Rund</b>) eller flat (<b>Flat</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

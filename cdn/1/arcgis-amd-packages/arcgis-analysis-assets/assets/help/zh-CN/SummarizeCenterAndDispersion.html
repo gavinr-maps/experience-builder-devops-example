@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;汇总中心和离差&rdquo;工具用于确定一组要素的中心要素、中心趋势和标准差椭圆。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>将计算其中心要素、中心趋势和标准差椭圆的点、线或面要素。
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>指定将用于汇总要素的中心和离差的方法。
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>指定椭圆面的大小（以标准差表示）。 如果平均中心和要素位置之间的距离服从瑞利分布，则  <b>1 个标准差</b>、 <b>2 个标准差</b>和 <b>3 个标准差</b>选项将输出一个椭圆面，分别覆盖 63%、89% 和 99.9% 的要素。
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>将用于确定要素权重的字段。
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>将用于将要素分组在一起的字段。 将为每个组计算所选 <b>汇总类型</b>。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

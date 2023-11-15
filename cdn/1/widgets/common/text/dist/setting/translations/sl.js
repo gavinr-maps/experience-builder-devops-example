@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Prelomi",verticalAlignment:"Vertikalna poravnava"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Vertikalna poravnava"})}}}));

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>データの抽出ツールは、範囲内のフィーチャを選択し、コンテンツにアイテムを作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>抽出するレイヤー。 サポートされる入力レイヤーは、ユーザーが所有しているレイヤーとエクスポートが有効になっているレイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>抽出するフィーチャの範囲。
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>範囲と交差するフィーチャをクリップするかどうかを指定します。 オフの場合、範囲と交差するフィーチャ全体が抽出されます。 オンの場合、範囲と交差するフィーチャはクリップされ、範囲内にあるフィーチャの一部のみが抽出されます。
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>抽出するデータのファイル形式。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>抽出したファイルを格納する出力アイテムの名前。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

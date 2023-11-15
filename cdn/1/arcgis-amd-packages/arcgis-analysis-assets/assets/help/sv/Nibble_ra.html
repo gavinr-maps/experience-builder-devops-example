@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Nagga ers&auml;tter celler i ett raster enligt en mask med v&auml;rdena f&ouml;r de n&auml;rmaste grannarna.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Indatarastret med de maskerade platser som ska ers&auml;ttas (naggas) med v&auml;rdet f&ouml;r deras n&auml;rmaste granne.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Det maskraster som identifierar de platser i indatarastret som ska ers&auml;ttas. Celler med v&auml;rdet NoData anses vara inom det maskerade omr&aring;det.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Indatazonrastret. F&ouml;r varje zon ers&auml;tts indataceller som &auml;r inom masken endast av de n&auml;rmaste cellv&auml;rdena inom samma zon.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Specificerar om NoData-celler i indatarastret kan ers&auml;tta (nagga) celler i de maskerade omr&aring;dena om de &auml;r den n&auml;rmaste grannen.
+            </p>
+            <p>Om inst&auml;llningen &auml;r markerad kan NoData-celler i indatarastret nagga i det maskerade omr&aring;det. Om den &auml;r avmarkerad kan endast giltiga celler i indatarastret nagga i det maskerade omr&aring;det.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Anger om NoData-celler i det maskerade omr&aring;det bevaras eller ers&auml;tts.
+            </p>
+            <p>Om alternativet &auml;r avmarkerat bevaras alla NoData-celler i det maskerade omr&aring;det i utdata. Om alternativet &auml;r markerat ers&auml;tts (naggas) NoData-celler inom det maskerade omr&aring;det med v&auml;rdet f&ouml;r den n&auml;rmaste grannen som &auml;r utanf&ouml;r det maskerade omr&aring;det.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; det naggade rasterlagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ av utdata som skapas. Utdata kan vara bildlager i tileform eller dynamiska bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultaten ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Pak ind",verticalAlignment:"Lodret justering"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Lodret justering"})}}}));

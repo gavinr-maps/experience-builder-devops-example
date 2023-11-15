@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Setări de mediu pentru analiză &icirc;n  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Specifică sistemul de coordonate pentru analiză și stratul tematic de rezultate.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Specifică zona de utilizat pentru analiză.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Se reglează extinderea ieșirii pentru a se potrivi cu alinierea celulelor stratului tematic specificat de fixare raster.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Specifică dimensiunea celulei sau rezoluția care va fi utilizată pentru analiză și pentru a crea stratul tematic de raster de ieșire.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Specifică un strat tematic mască, &icirc;n care doar celulele care intră &icirc;n zona măștii vor fi folosite pentru analiză.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Specifică cum vor fi interpolate valorile pixelilor c&acirc;nd rasterele de intrare și de ieșire nu se aliniază.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Specifică tipul de procesor care se va utiliza. Opțiunile sunt  <b>CPU</b>, <b>GPU</b> și <b>Automat</b>. Dacă se specifică <b>Automat</b>, instrumentul va defini tipul procesorului.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Specifică numărul de instanțe ale serviciului de procesare a rasterului folosit &icirc;n timpul executării instrumentului. Valorile acceptate includ șiruri goale (instrumentul va stabili numărul de instanțe ale serviciului de procesare a rasterului care vor fi folosite), numere &icirc;ntregi (0 sau numere &icirc;ntregi pozitive) și procente. Procentele trebuie să includă un semn de procent (%) urmat de valoarea procentului.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>Determină dacă un mesaj de avertizare va apărea dacă numărul estimat de credite depășește pragul specificat (activat) sau dacă analiza va rula fără afișarea unui mesaj indiferent de consumul de credite estimat (neactivat). Analiza va respecta &icirc;n continuare setările de bugetare a creditelor pentru organizație.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Specifică pragul la care va apărea un mesaj de avertizare despre consumul de credite estimat din executarea analizei. Analiza poate fi totuși efectuată dacă estimarea depășește pragul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

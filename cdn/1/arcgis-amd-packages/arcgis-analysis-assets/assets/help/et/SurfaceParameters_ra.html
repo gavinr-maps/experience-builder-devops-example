@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Pinna parameetrid&quot; arvutab geodeetilisi meetodeid kasutades rasterpinna parameetrid, nt aspekt, kalle ja k&otilde;verus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Arvutamiseks kasutatav k&otilde;rgusraster.
+            </p>
+            <p>Kui sisendrastri vertikaalses koordinaats&uuml;steemis on z-&uuml;hik saadaval, rakendatakse see automaatselt.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>M&otilde;&otilde;detava pinnaparameetri t&uuml;&uuml;p.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>V&auml;ljundkalde rastri m&otilde;&otilde;t&uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>M&auml;&auml;rab, kas geodeetilised asimuudid projitseeritakse.
+            </p>
+            <p>Kui see on m&auml;rgitud, siis geodeetilised asimuudid projitseeritakse, et korrigeerida v&auml;ljundi ruumilise v&otilde;rdlusaluse p&otilde;hjustatud nurgamoonutusi. Kui see pole m&auml;rgitud, siis geodeetilisi asimuute ei projitseerita.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>M&auml;&auml;rab, kas aspekti m&otilde;&otilde;detakse ekvaatoril v&otilde;i p&otilde;hjapoolusel asuvast punktist.
+            </p>
+            <p>Kui see on m&auml;rgitud, siis aspekti m&otilde;&otilde;detakse ekvaatoril asuvast punktist. Kui see on m&auml;rkimata, siis aspekti m&otilde;&otilde;detakse p&otilde;hjapoolusel asuvast punktist.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Sihtpiksli &uuml;mber paigaldatava pinnafunktsiooni t&uuml;&uuml;p.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Vahemaa sihtpiksli keskpunktist, millest arvutatakse v&auml;ljund. See m&auml;&auml;rab arvutuseks kasutatava naabruse suuruse.
+            </p>
+            <p>Vaikev&auml;&auml;rtus on parameetris  <b>Sisendpinnaraster</b> m&auml;&auml;ratud rastri pikslisuurus. Kui v&auml;&auml;rtus m&auml;&auml;ratakse, peab see olema vaikev&auml;&auml;rtusest suurem.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>M&auml;&auml;rab, kas naabruskonna kaugus muutub vastavalt maastikumuutustele.
+            </p>
+            <p>Kui see on m&auml;rgitud, siis naabruskonna kaugus muutub vastavalt maastikumuutustele. Kui see on m&auml;rkimata, kasutatakse k&otilde;igis asukohtades fikseeritud naabruskonna kaugust.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Vertikaalse z-v&auml;&auml;rtuse lineaarne m&otilde;&otilde;t&uuml;hik.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle pinnarasterkihi nimi, mis luuakse jaotises ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljund v&otilde;ib olla paanitud pildikiht v&otilde;i d&uuml;naamiline pildikiht.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

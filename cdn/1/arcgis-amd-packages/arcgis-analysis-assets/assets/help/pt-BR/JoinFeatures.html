@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Ligar Fei&ccedil;&otilde;es adiciona atributos de uma camada ou tabela para outra com base em rela&ccedil;&otilde;es espaciais e de atributos especificadas. Opcionalmente, as estat&iacute;sticas podem ser calculadas quando houver v&aacute;rios registros correspondentes.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>A camada ou tabela que ter&aacute; atributos da camada de uni&atilde;o anexados &agrave; sua tabela de atributos.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>A camada ou tabela com os atributos que ser&atilde;o anexados &agrave; camada de destino.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Especifique se deseja unir camadas com base em uma rela&ccedil;&atilde;o espacial. Este exige que ambas as camadas tenham uma geometria.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Especifique a rela&ccedil;&atilde;o espacial que determina quais fei&ccedil;&otilde;es s&atilde;o ligadas. As fei&ccedil;&otilde;es na camada de liga&ccedil;&atilde;o que possuem o relacionamento especificado com a camada de destino ser&atilde;o ligadas. As rela&ccedil;&otilde;es dispon&iacute;veis dependem do tipo de geometria das entradas.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>A dist&acirc;ncia das fei&ccedil;&otilde;es na camada de destino que ser&aacute; usada para determinar se as fei&ccedil;&otilde;es devem ser ligadas.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>As unidades que ser&atilde;o usadas para especificar a dist&acirc;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Especifique se deseja ligar as camadas com base nos valores de campo correspondentes. Esta &eacute; a &uacute;nica op&ccedil;&atilde;o se uma ou mais das entradas for uma tabela.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Especifique o relacionamento de atributo que determina quais fei&ccedil;&otilde;es s&atilde;o ligadas. As fei&ccedil;&otilde;es s&atilde;o correspondidas quando os valores de campo na camada de liga&ccedil;&atilde;o s&atilde;o iguais aos valores de campo na camada de destino.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Especifique como as liga&ccedil;&otilde;es ser&atilde;o tratadas se v&aacute;rios registros da camada de liga&ccedil;&atilde;o atenderem aos crit&eacute;rios de liga&ccedil;&atilde;o. Escolha uma das op&ccedil;&otilde;es seguintes:
+                <ul>
+                    <li> <b>Liga&ccedil;&atilde;o um para um</b>&mdash; Una um &uacute;nico registro na camada de liga&ccedil;&atilde;o a cada fei&ccedil;&atilde;o na camada de destino.
+                    </li>
+                    <li> <b>Liga&ccedil;&atilde;o um para muitos</b>&mdash;Una todas as fei&ccedil;&otilde;es correspondentes na camada de liga&ccedil;&atilde;o &agrave; camada de destino. A camada resultante conter&aacute; m&uacute;ltiplos registros da fei&ccedil;&atilde;o de destino.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Quando m&uacute;ltiplas fei&ccedil;&otilde;es na camada de liga&ccedil;&atilde;o correspondem a uma fei&ccedil;&atilde;o de destino, especifique se deseja unir um &uacute;nico registro da camada de liga&ccedil;&atilde;o ou calcular estat&iacute;sticas resumidas de todos os registros correspondentes da camada de liga&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Quando houver m&uacute;ltiplas fei&ccedil;&otilde;es de liga&ccedil;&atilde;o que correspondam a uma fei&ccedil;&atilde;o de destino, as estat&iacute;sticas resumidas de todos os registros correspondentes ser&atilde;o calculadas. Especifique os campos de n&uacute;mero ou data da camada de jun&ccedil;&atilde;o e as estat&iacute;sticas que ser&atilde;o calculadas para cada campo.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Quando houver m&uacute;ltiplas fei&ccedil;&otilde;es de liga&ccedil;&atilde;o que correspondam a uma fei&ccedil;&atilde;o de destino, o primeiro registro da tabela de atributos da camada de liga&ccedil;&atilde;o ser&aacute; inclu&iacute;do na sa&iacute;da. Opcionalmente, escolha um campo de n&uacute;mero ou data e a ordem de classifica&ccedil;&atilde;o que determinar&aacute; a ordem da tabela de atributos.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Determina se as fei&ccedil;&otilde;es de destino incompat&iacute;veis ser&atilde;o inclu&iacute;das na sa&iacute;da. Uma  <b>Liga&ccedil;&atilde;o interna</b> retorna apenas registros de destino correspondentes, enquanto uma <b>Liga&ccedil;&atilde;o &agrave; esquerda</b> retorna todos os registros de destino, mesmo se a fei&ccedil;&atilde;o de destino n&atilde;o tiver uma correspondente na camada de liga&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada ou tabela que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

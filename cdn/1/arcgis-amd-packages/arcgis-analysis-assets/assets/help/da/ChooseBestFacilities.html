@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>V&aelig;rkt&oslash;jet V&aelig;lg bedste faciliteter, der bedst opfylder eftersp&oslash;rgsel.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Den m&aring;ls&aelig;tning, der skal opfyldes, n&aring;r eftersp&oslash;rgselspositionerne skal allokeres til faciliteterne.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Tildel efterspørgslen til faciliteter baseret på faciliteternes kapacitet og efterspørgslens størrelse i det omgivende område. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Vælg faciliteter, så den generelle rejsetid eller -afstand fra alle efterspørgselspositioner til deres tildelte facilitet minimeres. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Vælg faciliteter, således at den maksimale efterspørgsel allokeres, med al efterspørgslen fra den enkelte efterspørgselsposition allokeret til den facilitet, der ligger nærmest efterspørgselspositionen. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Vælg faciliteter på en sådan måde, at den maksimale efterspørgsel allokeres uden at overskride nogen faciliteters kapacitet overhovedet. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Vælg det mindst mulige antal faciliteter, der behøves for at nå den givne procent af efterspørgslen. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Den rejsemetode, der bruges til at m&aring;le tid og afstand mellem faciliteter og eftersp&oslash;rgselspositioner.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Den dato og det klokkesl&aelig;t, hvor den rejsende afrejser fra faciliteterne eller eftersp&oslash;rgselspositionerne.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Angiver, om rejsen begynder ved faciliteterne og bev&aelig;ger sig fremad mod eftersp&oslash;rgselspositioner, eller om den begynder ved eftersp&oslash;rgselspositioner og bev&aelig;ger sig indad mod faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Angiver, om rejsen begynder ved faciliteterne og bev&aelig;ger sig fremad mod eftersp&oslash;rgselspositioner, eller om den begynder ved eftersp&oslash;rgselspositioner og bev&aelig;ger sig indad mod faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Angiver, om rejsen begynder ved faciliteterne og bev&aelig;ger sig fremad mod eftersp&oslash;rgselspositioner, eller om den begynder ved eftersp&oslash;rgselspositioner og bev&aelig;ger sig indad mod faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Angiver, om rejsen begynder ved faciliteterne og bev&aelig;ger sig fremad mod eftersp&oslash;rgselspositioner, eller om den begynder ved eftersp&oslash;rgselspositioner og bev&aelig;ger sig indad mod faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Angiver, om rejsen begynder ved faciliteterne og bev&aelig;ger sig fremad mod eftersp&oslash;rgselspositioner, eller om den begynder ved eftersp&oslash;rgselspositioner og bev&aelig;ger sig indad mod faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der har eftersp&oslash;rgsel p&aring; en tjeneste, som faciliteter kan levere.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der har eftersp&oslash;rgsel p&aring; en tjeneste, som faciliteter kan levere.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der har eftersp&oslash;rgsel p&aring; en tjeneste, som faciliteter kan levere.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der har eftersp&oslash;rgsel p&aring; en tjeneste, som faciliteter kan levere.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der har eftersp&oslash;rgsel p&aring; en tjeneste, som faciliteter kan levere.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Angiver, hvordan eftersp&oslash;rgsel anvendes p&aring; hver position. Hvis st&oslash;rrelsen af eftersp&oslash;rgslen er den samme for alle positioner, skal du v&aelig;lge  <b>V&aelig;rdi</b>. Hvis st&oslash;rrelsen p&aring; eftersp&oslash;rgslen varierer efter position, skal du v&aelig;lge <b>Felt</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Angiver, hvordan eftersp&oslash;rgsel anvendes p&aring; hver position. Hvis st&oslash;rrelsen af eftersp&oslash;rgslen er den samme for alle positioner, skal du v&aelig;lge  <b>V&aelig;rdi</b>. Hvis st&oslash;rrelsen p&aring; eftersp&oslash;rgslen varierer efter position, skal du v&aelig;lge <b>Felt</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Angiver, hvordan eftersp&oslash;rgsel anvendes p&aring; hver position. Hvis st&oslash;rrelsen af eftersp&oslash;rgslen er den samme for alle positioner, skal du v&aelig;lge  <b>V&aelig;rdi</b>. Hvis st&oslash;rrelsen p&aring; eftersp&oslash;rgslen varierer efter position, skal du v&aelig;lge <b>Felt</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Angiver, hvordan eftersp&oslash;rgsel anvendes p&aring; hver position. Hvis st&oslash;rrelsen af eftersp&oslash;rgslen er den samme for alle positioner, skal du v&aelig;lge  <b>V&aelig;rdi</b>. Hvis st&oslash;rrelsen p&aring; eftersp&oslash;rgslen varierer efter position, skal du v&aelig;lge <b>Felt</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Angiver, hvordan eftersp&oslash;rgsel anvendes p&aring; hver position. Hvis st&oslash;rrelsen af eftersp&oslash;rgslen er den samme for alle positioner, skal du v&aelig;lge  <b>V&aelig;rdi</b>. Hvis st&oslash;rrelsen p&aring; eftersp&oslash;rgslen varierer efter position, skal du v&aelig;lge <b>Felt</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>St&oslash;rrelsen p&aring; eftersp&oslash;rgslen ved hver eftersp&oslash;rgselsposition. St&oslash;rrelsen p&aring; eftersp&oslash;rgsel anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>St&oslash;rrelsen p&aring; eftersp&oslash;rgslen ved hver eftersp&oslash;rgselsposition. St&oslash;rrelsen p&aring; eftersp&oslash;rgsel anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>St&oslash;rrelsen p&aring; eftersp&oslash;rgslen ved hver eftersp&oslash;rgselsposition. St&oslash;rrelsen p&aring; eftersp&oslash;rgsel anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>St&oslash;rrelsen p&aring; eftersp&oslash;rgslen ved hver eftersp&oslash;rgselsposition. St&oslash;rrelsen p&aring; eftersp&oslash;rgsel anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>St&oslash;rrelsen p&aring; eftersp&oslash;rgslen ved hver eftersp&oslash;rgselsposition. St&oslash;rrelsen p&aring; eftersp&oslash;rgsel anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Det felt fra eftersp&oslash;rgselslaget, der angiver st&oslash;rrelsen p&aring; eftersp&oslash;rgslen for hver position.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Det felt fra eftersp&oslash;rgselslaget, der angiver st&oslash;rrelsen p&aring; eftersp&oslash;rgslen for hver position.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Det felt fra eftersp&oslash;rgselslaget, der angiver st&oslash;rrelsen p&aring; eftersp&oslash;rgslen for hver position.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Det felt fra eftersp&oslash;rgselslaget, der angiver st&oslash;rrelsen p&aring; eftersp&oslash;rgslen for hver position.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Det felt fra eftersp&oslash;rgselslaget, der angiver st&oslash;rrelsen p&aring; eftersp&oslash;rgslen for hver position.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Angiver, om den maksimale rejseafstand eller -tid, der er tilladt mellem en eftersp&oslash;rgselsposition og den tildelte facilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller en feltv&aelig;rdi (<b>Felt</b>), eller om der ikke anvendes nogen maksimumv&aelig;rdi (<b>Ubegr&aelig;nset</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Angiver, om den maksimale rejseafstand eller -tid, der er tilladt mellem en eftersp&oslash;rgselsposition og den tildelte facilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller en feltv&aelig;rdi (<b>Felt</b>), eller om der ikke anvendes nogen maksimumv&aelig;rdi (<b>Ubegr&aelig;nset</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Angiver, om den maksimale rejseafstand eller -tid, der er tilladt mellem en eftersp&oslash;rgselsposition og den tildelte facilitet, bestemmes af en konstant (<b>V&aelig;rdi</b>) eller en feltv&aelig;rdi (<b>Felt</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Angiver, om den maksimale rejseafstand eller -tid, der er tilladt mellem en eftersp&oslash;rgselsposition og den tildelte facilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller en feltv&aelig;rdi (<b>Felt</b>), eller om der ikke anvendes nogen maksimumv&aelig;rdi (<b>Ubegr&aelig;nset</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Angiver, om den maksimale rejseafstand eller -tid, der er tilladt mellem en eftersp&oslash;rgselsposition og den tildelte facilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller en feltv&aelig;rdi (<b>Felt</b>), eller om der ikke anvendes nogen maksimumv&aelig;rdi (<b>Ubegr&aelig;nset</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres. Det samme maksimale rejseinterval anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres. Det samme maksimale rejseinterval anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres. Det samme maksimale rejseinterval anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres. Det samme maksimale rejseinterval anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres. Det samme maksimale rejseinterval anvendes p&aring; hver position.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Det felt, der indeholder rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Det felt, der indeholder rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Det felt, der indeholder rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Det felt, der indeholder rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Det felt, der indeholder rejseafstanden eller -tiden, ud over hvilken eftersp&oslash;rgsel ikke kan allokeres.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>De enheder, der bruges til at angive den maksimale rejseafstand eller -tid.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>De enheder, der bruges til at angive den maksimale rejseafstand eller -tid.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>De enheder, der bruges til at angive den maksimale rejseafstand eller -tid.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>De enheder, der bruges til at angive den maksimale rejseafstand eller -tid.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>De enheder, der bruges til at angive den maksimale rejseafstand eller -tid.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Minimumprocentdelen for den eftersp&oslash;rgsel, som faciliteterne skal registrere.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som kandidatfaciliteter. Kandidatfaciliteter repr&aelig;senterer som regel de positioner, ved hvilke der bygges eller placeres nye faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som kandidatfaciliteter. Kandidatfaciliteter repr&aelig;senterer som regel de positioner, ved hvilke der bygges eller placeres nye faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som kandidatfaciliteter. Kandidatfaciliteter repr&aelig;senterer som regel de positioner, ved hvilke der bygges eller placeres nye faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som kandidatfaciliteter. Kandidatfaciliteter repr&aelig;senterer som regel de positioner, ved hvilke der bygges eller placeres nye faciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Angiver, om kapaciteten for hver enkelt kandidatfacilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller en feltv&aelig;rdi (<b>Felt</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Kapaciteten af hver enkelt kandidatfacilitet. Den samme kapacitet anvendes p&aring; hver enkelt kandidatfacilitet.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Det felt, der indeholder kapaciteten for hver enkelt kandidatfacilitet.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Det antal kandidatfaciliteter, der skal v&aelig;lges blandt ud af s&aelig;ttet af kandidater. Hvis du angiver b&aring;de p&aring;kr&aelig;vede faciliteter og kandidatfaciliteter, vil faciliteterne i laget med kr&aelig;vede faciliteter blive brugt f&oslash;r nogen faciliteter fra laget med kandidatfaciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Det antal kandidatfaciliteter, der skal v&aelig;lges blandt ud af s&aelig;ttet af kandidater. Hvis du angiver b&aring;de p&aring;kr&aelig;vede faciliteter og kandidatfaciliteter, vil faciliteterne i laget med kr&aelig;vede faciliteter blive brugt f&oslash;r nogen faciliteter fra laget med kandidatfaciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Det antal kandidatfaciliteter, der skal v&aelig;lges blandt ud af s&aelig;ttet af kandidater. Hvis du angiver b&aring;de p&aring;kr&aelig;vede faciliteter og kandidatfaciliteter, vil faciliteterne i laget med kr&aelig;vede faciliteter blive brugt f&oslash;r nogen faciliteter fra laget med kandidatfaciliteter.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Angiver, om kandidatfaciliteter bruges som input (ikke aktiveret), eller om nogle faciliteter er p&aring;kr&aelig;vede (arkiveret).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Angiver, om kandidatfaciliteter bruges som input (ikke aktiveret), eller om nogle faciliteter er p&aring;kr&aelig;vede (arkiveret).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Angiver, om kandidatfaciliteter bruges som input (ikke aktiveret), eller om nogle faciliteter er p&aring;kr&aelig;vede (arkiveret).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Angiver, om kandidatfaciliteter bruges som input (ikke aktiveret), eller om nogle faciliteter er p&aring;kr&aelig;vede (arkiveret).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som faciliteter. Disse faciliteter repr&aelig;senterer som regel eksisterende positioner.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som faciliteter. Disse faciliteter repr&aelig;senterer som regel eksisterende positioner.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som faciliteter. Disse faciliteter repr&aelig;senterer som regel eksisterende positioner.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som faciliteter. Disse faciliteter repr&aelig;senterer som regel eksisterende positioner.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>De punktobjekter, der repr&aelig;senterer positioner, der fungerer som faciliteter. Disse faciliteter repr&aelig;senterer som regel eksisterende positioner.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Angiver, om kapaciteten for hver enkelt kandidatfacilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller feltv&aelig;rdi (<b>Felt</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Angiver, om kapaciteten for hver enkelt kandidatfacilitet bestemmes af en konstant (<b>V&aelig;rdi</b>) eller feltv&aelig;rdi (<b>Felt</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Kapaciteten af hver p&aring;kr&aelig;vet facilitet. Den samme kapacitet anvendes p&aring; hver enkelt p&aring;kr&aelig;vet facilitet.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Kapaciteten af hver p&aring;kr&aelig;vet facilitet. Den samme kapacitet anvendes p&aring; hver enkelt p&aring;kr&aelig;vet facilitet.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Det felt, der indeholder kapaciteten for hver enkelt facilitet.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Det felt, der indeholder kapaciteten for hver enkelt facilitet.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

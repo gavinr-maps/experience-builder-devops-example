@@ -1,0 +1,352 @@
+{
+  "toolName": "GenerateTrendRaster",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "destination": "dimension",
+      "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensions",
+      "property": "choiceList"
+    },
+    {
+      "ruleType": "set",
+      "destination": "variables",
+      "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.variablesDataset",
+      "property": "analysisDataset"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdZ",
+      "destination": "variables",
+      "effectParams": {
+        "analysisDataset": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionVariableDatasets.StdZ"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].trendLineType",
+      "valueB": "LINEAR",
+      "destination": "linearGroup",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].trendLineType",
+      "valueB": "HARMONIC",
+      "destination": ["cycleLength", "cycleUnit", "linearGroup"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].trendLineType",
+      "valueB": "POLYNOMIAL",
+      "destination": "polynomialGroup",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].trendLineType",
+      "valueB": "SEASONAL-KENDALL",
+      "destination": "seasonalPeriod",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].trendLineType IN ('LINEAR', 'MANN-KENDALL', 'SEASONAL-KENDALL')",
+      "destination": "frequency",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].trendLineType = 'HARMONIC' ",
+      "destination": "frequency",
+      "effectParams": {
+        "defaultValue": 1,
+        "min": 0,
+        "excludeMinValue": true,
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].trendLineType = 'POLYNOMIAL' ",
+      "destination": "frequency",
+      "effectParams": {
+        "defaultValue": 2,
+        "min": 0,
+        "excludeMinValue": true,
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "destination": "dimension",
+      "expression": "$[Data].dimension = null",
+      "effectParams": {
+        "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensions[0]"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].dimension = 'StdZ' ",
+      "destination": "cycleUnit",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputMultidimensionalRaster.user.portal NOT undefined) AND ($[Component].inputMultidimensionalRaster.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputMultidimensionalRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputMultidimensionalRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputMultidimensionalRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputMultidimensionalRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["cellSize", "snapRaster", "resamplingMethod", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayerGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "inputMultidimensionalRaster",
+          "label": "$inputMultidimensionalRaster",
+          "componentName": "analysis-layer-input",
+          "hideSketch": true,
+          "layerFilterType": "imagery_multidimension"
+        },
+        {
+          "name": "dimension",
+          "label": "$dimension",
+          "placeholderText": "$dimensionLabel",
+          "componentName": "analysis-string-input"
+        },
+        {
+          "name": "variables",
+          "label": "$variables",
+          "placeholderText": "$variableLabel",
+          "componentName": "analysis-field-input",
+          "selectionMode": "multi",
+          "useDefaultValue": true,
+          "showSort": false,
+          "heading": "$selectVariables",
+          "filterPlaceholderText": "$selectVariables"
+        }
+      ]
+    },
+    {
+      "label": "$settingsGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "trendLineType",
+          "label": "$trendLineType",
+          "choiceListLabels": {
+            "LINEAR": "$linear",
+            "HARMONIC": "$harmonic",
+            "POLYNOMIAL": "$polynomial",
+            "MANN-KENDALL": "$mankendall",
+            "SEASONAL-KENDALL": "$seasonalkendall"
+          }
+        },
+        {
+          "name": "harmonicGroup",
+          "UIparameters": [
+            {
+              "name": "cycleLength",
+              "label": "$cycleLength",
+              "defaultValue": 1,
+              "min": 0,
+              "excludeMinValue": true,
+              "componentName": "analysis-number-input",
+              "visible": false
+            },
+            {
+              "name": "cycleUnit",
+              "label": "$cycleUnit",
+              "componentName": "analysis-string-input",
+              "choiceList": ["DAYS", "YEARS"],
+              "choiceListLabels": {
+                "DAYS": "$days",
+                "YEARS": "$years"
+              },
+              "visible": false
+            }
+          ]
+        },
+        {
+          "name": "frequency",
+          "label": "$frequencypolynomial",
+          "visible": false,
+          "placeholderText": "$frequencypolynomialplaceholder",
+          "componentName": "analysis-number-input"
+        },
+        {
+          "layout": "horizontal",
+          "name": "seasonalGroup",
+          "UIparameters": [
+            {
+              "name": "seasonalPeriod",
+              "label": "$seasonalPeriod",
+              "componentName": "analysis-string-input",
+              "choiceList": ["DAYS", "MONTHS"],
+              "choiceListLabels": {
+                "DAYS": "$days",
+                "MONTHS": "$months"
+              },
+              "visible": false
+            }
+          ]
+        },
+        {
+          "name": "ignoreNodata",
+          "label": "$ignoreNodata"
+        },
+        {
+          "layout": "vertical",
+          "name": "polynomialGroup",
+          "label": "$linearGroup",
+          "componentName": "analysis-section",
+          "open": false,
+          "visible": false,
+          "UIparameters": [
+            {
+              "name": "RMSE",
+              "label": "$rmse",
+              "componentName": "analysis-boolean-input",
+              "displayStyle": "checkbox",
+              "labelLayout": "inline-space-between",
+              "defaultValue": true
+            },
+            {
+              "name": "R2",
+              "label": "$r2",
+              "componentName": "analysis-boolean-input",
+              "displayStyle": "checkbox",
+              "labelLayout": "inline-space-between",
+              "defaultValue": false
+            }
+          ]
+        },
+        {
+          "layout": "vertical",
+          "name": "linearGroup",
+          "label": "$linearGroup",
+          "componentName": "analysis-section",
+          "open": false,
+          "visible": false,
+          "UIparameters": [
+            {
+              "name": "RMSE",
+              "label": "$rmse",
+              "componentName": "analysis-boolean-input",
+              "displayStyle": "checkbox",
+              "labelLayout": "inline-space-between",
+              "defaultValue": true
+            },
+            {
+              "name": "R2",
+              "label": "$r2",
+              "componentName": "analysis-boolean-input",
+              "displayStyle": "checkbox",
+              "labelLayout": "inline-space-between",
+              "defaultValue": false
+            },
+            {
+              "name": "slopePValue",
+              "label": "$slopePValue",
+              "componentName": "analysis-boolean-input",
+              "displayStyle": "checkbox",
+              "labelLayout": "inline-space-between",
+              "defaultValue": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true,
+          "componentName": "analysis-string-input"
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "label": "$saveResultIn",
+          "name": "saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "expression": "(($[Data].dimension = 'StdZ') AND ($[Data].trendLineType = 'SEASONAL-KENDALL'))",
+      "errorKey": "generateTrendRaster_1"
+    }
+  ]
+}

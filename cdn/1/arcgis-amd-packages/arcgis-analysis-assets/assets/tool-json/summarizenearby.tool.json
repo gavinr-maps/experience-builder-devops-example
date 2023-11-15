@@ -1,0 +1,227 @@
+{
+  "name": "SummarizeNearby",
+  "displayName": "SummarizeNearby",
+  "description": "The SummarizeNearby task finds features that are within a specified distance of features in the input layer. Distance can be measured as a straight-line distance, a drive-time distance (for example, within 10 minutes), or a drive distance (within 5 kilometers). Statistics are then calculated for the nearby features. For example:Calculate the total population within five minutes of driving time of a proposed new store location.Calculate the number of freeway access ramps within a one-mile driving distance of a proposed new store location to use as a measure of store accessibility.",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/SummarizeNearby.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "sumNearbyLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "sumNearbyLayer",
+      "description": "Point, line, or polygon features from which distances will be measured to features in the summarizeLayer.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "summaryLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "summaryLayer",
+      "description": "Point, line, or polygon features. Features in this layer that are within the specified distance to features in the sumNearbyLayer will be summarized.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "nearType",
+      "dataType": "GPString",
+      "displayName": "nearType",
+      "description": "Defines what kind of distance measurement you want to use to create areas around the nearbyLayer features. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "StraightLine",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "distances",
+      "dataType": "GPMultiValue:GPDouble",
+      "displayName": "distances",
+      "description": "An array of double values that defines the search distance for creating areas mentioned above",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "Double",
+          "dataType": "GPDouble",
+          "displayName": "Double"
+        }
+      ]
+    },
+    {
+      "name": "units",
+      "dataType": "GPString",
+      "displayName": "units",
+      "description": "The linear unit for distances parameter above. Eg. Miles, Kilometers, Minutes Seconds etc",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Meters",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Meters", "Kilometers", "Feet", "Yards", "Miles", "Seconds", "Minutes", "Hours"]
+    },
+    {
+      "name": "timeOfDay",
+      "dataType": "GPDate",
+      "displayName": "timeOfDay",
+      "description": "For timeOfDay, set the time and day according to the number of milliseconds elapsed since the Unix epoc (January 1, 1970 UTC). When specified and if relevant for the nearType parameter, the traffic conditions during the time of the day will be considered.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "timeZoneForTimeOfDay",
+      "dataType": "GPString",
+      "displayName": "timeZoneForTimeOfDay",
+      "description": "Determines if the value specified for timeOfDay is specified in UTC or in a time zone that is local to the location of the origins. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "GeoLocal",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["UTC", "GeoLocal"]
+    },
+    {
+      "name": "returnBoundaries",
+      "dataType": "GPBoolean",
+      "displayName": "returnBoundaries",
+      "description": "If true, will return a result layer of areas that contain the requested summary information.  The resulting areas are defined by the specified nearType.  For example, if using a StraightLine of 5 miles, your result will contain areas with a 5 mile radius around the input features and specified summary information.If false, the resulting layer will return the same features as the input analysis layer with requested summary information. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "sumShape",
+      "dataType": "GPBoolean",
+      "displayName": "sumShape",
+      "description": "A boolean value that instructs the task to calculate count of points, length of lines or areas of polygons of the summaryLayer within each polygon in sumWithinLayer.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "shapeUnits",
+      "dataType": "GPString",
+      "displayName": "shapeUnits",
+      "description": "Specify units to summarize the length or areas when sumShape is set to true. Units is not required to summarize points.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "Meters",
+        "Kilometers",
+        "Feet",
+        "Yards",
+        "Miles",
+        "Acres",
+        "Hectares",
+        "SquareMeters",
+        "SquareKilometers",
+        "SquareFeet",
+        "SquareYards",
+        "SquareMiles"
+      ]
+    },
+    {
+      "name": "summaryFields",
+      "dataType": "GPMultiValue:GPString",
+      "displayName": "summaryFields",
+      "description": "A list of field names and statistical summary type that you wish to calculate for all features in the summaryLayer that are within each polygon in the sumWithinLayer . Eg: [\"fieldname1 summary\", \"fieldname2 summary\"]",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "String",
+          "dataType": "GPString",
+          "displayName": "String"
+        }
+      ]
+    },
+    {
+      "name": "groupByField",
+      "dataType": "GPString",
+      "displayName": "groupByField",
+      "description": "Specify a field from the summaryLayer features to calculate statistics separately for each unique value of the field.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "minorityMajority",
+      "dataType": "GPBoolean",
+      "displayName": "minorityMajority",
+      "description": "This boolean parameter is applicable only when a groupByField is specified. If true, the minority (least dominant) or the majority (most dominant) attribute values within each group, within each boundary will be calculated.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "percentShape",
+      "dataType": "GPBoolean",
+      "displayName": "percentShape",
+      "description": "This boolean parameter is applicable only when a groupByField is specified. If set to true, the percentage of shape (eg. length for lines) for each unique groupByField value is calculated.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "Additional properties such as output feature service name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "Additional settings such as processing extent and output spatial reference.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "resultLayer",
+      "dataType": "GPString",
+      "displayName": "resultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "groupBySummary",
+      "dataType": "GPString",
+      "displayName": "groupBySummary",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;查找热点&rdquo;工具可识别输入要素中具有统计显着性的聚类。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>将对其执行热点分析的输入点或面图层。
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>指定热点和冷点是否将反映要素位置（ <b>点数</b>）或要素字段值（ <b>字段</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>将分析高值和低值聚类的字段。
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>将在其中聚合输入点要素的边界要素类型。 这可以是面图层（ <b>面图层</b>）或正方形（ <b>鱼网像元</b>）或六边形（ <b>六边形像元</b>）的镶嵌格网。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>包含将聚合其中输入点要素的面要素的图层。
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>将用于定义分析边界的面图层。 面内的点要素将包含在热点分析中。
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>指定如何除以 <b>分析字段</b>值或聚合点计数。 <b>字段</b>选项会将 <b>分析字段</b>值除以 <b>输入图层</b>参数中指定字段的值。 <b>丰富数据</b>选项将使用人口数据丰富要素或聚合形状，并将 <b>分析字段</b>值或聚合点计数除以人口。 此选项将消耗附加配额。
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>将用于聚合输入要素的正方形或六边形像元的边长。
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>指定将用于像元大小的单位。
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>将用于定义邻域的距离范围。 在热点分析过程中，目标要素距离范围内的相邻要素将包含在目标要素的邻域中。
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>指定将用于距离范围的单位。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Tėkmės atstumo įrankis apskaičiuoja horizontalų arba vertikalų nuolydžio atstumą nuo kiekvienos gardelės iki srauto, į kurį jos įteka.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputStreamRaster">
+        <div>
+            <p>Rastras, reprezentuojantis linijinį tėkmių tinklą.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Auk&scaron;čio rastras, kuris bus naudojamas skaičiavimams.
+            </p>
+        </div>
+    </div>
+    <div id="inputFlowDirectionRaster">
+        <div>
+            <p>Rastras, nustatantis tėkmės i&scaron; kiekvienos gardelės kryptį.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Nurodo, ar bus skaičiuojamas tėkmės atstumo vertikalus, ar horizontalus komponentas.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Nurodo įvesties tėkmės krypties rastro tipą.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Nurodo statistikos tipą, naudojamą skaičiuojant tėkmės atstumą per įvairius tėkmės kelius.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tėkmės atstumo rastrinio sluoksnio, kuris bus sukurtas ir pridėtas prie žemėlapio, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Sukuriamos i&scaron;vesties tipas. I&scaron;vestis gali būti i&scaron;klotinių vaizdų sluoksnis arba dinaminis vaizdų sluoksnis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

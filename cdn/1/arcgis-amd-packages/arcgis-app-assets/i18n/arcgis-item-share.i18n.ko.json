@@ -1,0 +1,75 @@
+{
+  "title": "공유",
+  "titleGroup": "그룹 공유",
+  "save": "저장",
+  "apply": "적용",
+  "cancel": "취소",
+  "revert": "되돌리기",
+  "update": "업데이트",
+  "ok": "확인",
+  "retrievingInfo": "공유 정보를 검색하는 중...",
+  "updatingInfo": "공유 정보를 업데이트하는 중...",
+  "shareCountLabel": "공유 개수",
+  "shareCountHint": "${totalItem}개 중 ${numItem}개 항목",
+  "sharedCountHint": "${numItem}/${totalItem}개의 항목이 이미 공유됨",
+  "willShareCountHint": "${numItem}/${totalItem}개의 항목이 공유될 예정임",
+  "shareCountTooltip": "${shareLevel} 공유 수준으로 설정된 항목: ${totalItem}개 중 ${numItem}개",
+  "noShareDisclaimer": "권한이 부족하여 공유 레벨을 변경할 수 없습니다.",
+  "sharingLimitedItemDisclaimer": "특정 항목 유형의 공유 단계 옵션이 제한되어 있습니다.",
+  "sharingLimitedDisclaimer": "공유 권한으로 인해 일부 공유 수준 옵션이 제한되어 있습니다.",
+  "cannotShareToLevelDisclaimer": "항목을 이 공유 수준으로 설정할 권한이 없습니다.",
+  "shareLevel": {
+    "title": "공유 레벨 설정",
+    "noPermission": "권한이 부족하여 공유 레벨을 변경할 수 없습니다.",
+    "level": {
+      "private": {
+        "title": "소유자",
+        "description": "항목 소유자에게 접근 권한이 있음"
+      },
+      "org": {
+        "title": "기관",
+        "description": "기관의 모든 구성원에게 접근 권한 있음"
+      },
+      "public": {
+        "title": "모든 사람(공개)",
+        "description": "기관 외부 사용자가 접근할 수 있음",
+        "descriptionPublicUser": "모든 사용자에게 접근 권한이 있음"
+      }
+    }
+  },
+  "shareGroup": {
+    "title": "그룹 공유 설정",
+    "noGroup": "아직 공유할 그룹이 없습니다.",
+    "edit": "그룹 공유 편집",
+    "noneYet": "아직 없음",
+    "revert": "되돌리기",
+    "remove": "제거",
+    "mixedGroupSharing": "다른 그룹과 공유된 항목"
+  },
+  "shareWarning": {
+    "publicAccountOpenGroupBrowser": {
+      "title": "항목의 공유 수준 변경",
+      "description": "공용 계정에서 소유한 항목을 그룹과 공유하려면 먼저 모든 사용자와 공유해야 합니다. 공유 수준을 모든 사용자로 업데이트하고 그룹 공유로 이동하시겠습니까?"
+    },
+    "publicAccountSetShareToPrivate": {
+      "title": "항목 공유 수준을 비공개로 설정",
+      "description": "공용 계정에서 소유한 항목이 비공개면 그룹과 공유할 수 없습니다. 그룹 공유를 제거하시겠습니까?"
+    },
+    "publicAccountRevertShareLevel": {
+      "title": "항목 공유 수준 되돌리기",
+      "description": "공용 계정에서 소유한 항목이 비공개면 그룹과 공유할 수 없습니다. 그룹 공유를 제거하시겠습니까?"
+    },
+    "publicAccountRevertGroup": {
+      "title": "그룹 공유 되돌리기",
+      "description": "공용 계정에서 소유한 항목이 비공개면 그룹과 공유할 수 없습니다. 항목 공유 수준을 공개로 설정하시겠습니까?"
+    },
+    "publicDataCollectionEnabled": {
+      "title": "경고: 편집 가능한 레이어를 공개적으로 공유하는 중",
+      "description": "편집 가능한 레이어를 공개 설정하고 있습니다. 최적의 성능 및 데이터 무결성을 위해 편집을 비활성화하거나 편집할 수 없는 뷰 레이어 사용을 고려해 보세요."
+    },
+    "publicDataCollectionDisabled": {
+      "title": "편집 가능한 레이어를 공개적으로 공유할 수 없음",
+      "description": "공개적으로 공유하려면 우선 레이어 항목 페이지의 설정 탭에서 공개 데이터 수집 옵션을 켠 다음 다시 공유합니다. 최적의 성능 및 데이터 무결성을 위해 편집을 비활성화하거나 편집할 수 없는 뷰 레이어 사용을 고려해 보세요."
+    }
+  }
+}

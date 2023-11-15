@@ -1,0 +1,182 @@
+{
+  "name": "FindArgumentStatistics",
+  "displayName": "FindArgumentStatistics",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/FindArgumentStatistics.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputRaster",
+      "dataType": "GPString",
+      "displayName": "inputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "dimension",
+      "dataType": "GPString",
+      "displayName": "dimension",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dimensionDefinition",
+      "dataType": "GPString",
+      "displayName": "dimensionDefinition",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "ALL",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["ALL", "INTERVAL_KEYWORD"]
+    },
+    {
+      "name": "intervalKeyword",
+      "dataType": "GPString",
+      "displayName": "intervalKeyword",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "HOURLY",
+        "DAILY",
+        "WEEKLY",
+        "MONTHLY",
+        "QUARTERLY",
+        "YEARLY",
+        "RECURRING_DAILY",
+        "RECURRING_WEEKLY",
+        "RECURRING_MONTHLY",
+        "RECURRING_QUARTERLY"
+      ]
+    },
+    {
+      "name": "variables",
+      "dataType": "GPString",
+      "displayName": "variables",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "statisticsType",
+      "dataType": "GPString",
+      "displayName": "statisticsType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "ARGUMENT_MIN",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["ARGUMENT_MIN", "ARGUMENT_MAX", "ARGUMENT_MEDIAN", "DURATION", "ARGUMENT_VALUE"]
+    },
+    {
+      "name": "minValue",
+      "dataType": "GPDouble",
+      "displayName": "minValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "maxValue",
+      "dataType": "GPDouble",
+      "displayName": "maxValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "multipleOccurrenceValue",
+      "dataType": "GPLong",
+      "displayName": "multipleOccurrenceValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "ignoreNodata",
+      "dataType": "GPBoolean",
+      "displayName": "ignoreNodata",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "argumentValue",
+      "dataType": "GPLong",
+      "displayName": "argumentValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "comparison",
+      "dataType": "GPString",
+      "displayName": "comparison",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "EQUAL_TO",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["EQUAL_TO", "GREATER_THAN", "SMALLER_THAN"]
+    },
+    {
+      "name": "occurrence",
+      "dataType": "GPString",
+      "displayName": "occurrence",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "FIRST_OCCURRENCE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["FIRST_OCCURRENCE", "LAST_OCCURRENCE"]
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

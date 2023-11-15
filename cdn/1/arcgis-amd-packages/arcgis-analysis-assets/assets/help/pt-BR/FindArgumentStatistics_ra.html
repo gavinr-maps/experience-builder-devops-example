@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Localizar Estat&iacute;stica de Par&acirc;metro extrai o valor da dimens&atilde;o ou &iacute;ndice de banda no qual uma determinada estat&iacute;stica &eacute; obtida para cada pixel em uma camada de imagens multidimensionais
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>A camada de imagens multidimensionais que ser&aacute; avaliada.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>A dimens&atilde;o da camada de imagens multidimensionais a partir da qual a vari&aacute;vel ser&aacute; avaliada.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>A vari&aacute;vel da camada de imagens multidimensionais que ser&aacute; avaliada ao longo do intervalo definido.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>O tipo de estat&iacute;stica que ser&aacute; extra&iacute;da da vari&aacute;vel ou vari&aacute;veis ao longo de uma determinada dimens&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>O valor m&iacute;nimo que ser&aacute; usado para a dura&ccedil;&atilde;o do par&acirc;metro.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>O valor m&aacute;ximo que ser&aacute; usado para a dura&ccedil;&atilde;o do par&acirc;metro.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>O valor que indica que uma determinada estat&iacute;stica de par&acirc;metro foi alcan&ccedil;ada mais de uma vez. O padr&atilde;o &eacute; a primeira vez que a estat&iacute;stica do par&acirc;metro &eacute; alcan&ccedil;ada.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Especifica se o valor de dimens&atilde;o ser&aacute; retornado na primeira ou &uacute;ltima vez que o par&acirc;metro for alcan&ccedil;ado. O padr&atilde;o &eacute; a primeira ocorr&ecirc;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>O valor de dimens&atilde;o no qual o valor de vari&aacute;vel especificado &eacute; alcan&ccedil;ado ser&aacute; extra&iacute;do.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Especifica o tipo de compara&ccedil;&atilde;o que ser&aacute; usado para extrair o valor de dimens&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Especifica como a estat&iacute;stica ser&aacute; extra&iacute;da a partir da dimens&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>A unidade de tempo para a qual a estat&iacute;stica ser&aacute; extra&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indica se os valores de NoData ser&atilde;o ignorados na extra&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. A sa&iacute;da pode ser uma camada de imagem mosaicada ou uma camada de imagem din&acirc;mica.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

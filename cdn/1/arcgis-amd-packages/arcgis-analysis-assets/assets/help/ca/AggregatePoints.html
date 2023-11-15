@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Consolida punts calcula el recompte de punts i altres estad&iacute;stiques dins dels bins o pol&iacute;gons especificats.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>Capa de punts que es consolidar&agrave; a les &agrave;rees resumides.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Capa de pol&iacute;gons en qu&egrave; s'agregaran els punts.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Tipus d'entitats de l&iacute;mit a les quals s'agregaran els punts d'entrada. Pot ser una capa d'entitats o una graella de tessel&middot;laci&oacute; de bins quadrats o hexagonals que es generen en executar una eina.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Mida dels bins generats. Per a bins quadrats, el nombre i les unitats que s'especifiquen determinen l'altura i la longitud del quadrat. En el cas hexagonals, el nombre i les unitats que s'especifiquen determinen la dist&agrave;ncia entre els costats paral&middot;lels.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Unitats que s'utilitzaran per especificar la mida del bin.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>Determina si les entitats que no tenen punts apareixen a la capa de resultats. Si l'opci&oacute; est&agrave; desactivada, les entitats sense cap punt no apareixeran al resultat. Si l'opci&oacute; est&agrave; activada, les entitats sense cap punt apareixeran al resultat.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Camps de nombre o de data de la capa d'entrada que es resumir&agrave;, i estad&iacute;stiques que es calcularan per a cada camp.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Camp de la capa d'entrada que s'utilitzar&agrave; per separar les dades en diferents grups per a c&agrave;lculs estad&iacute;stics.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Calculeu els grups minoritaris (menys dominants) i majoritaris (m&eacute;s dominants) de cada &agrave;rea de resum.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Calcula el percentatge de punts que pertanyen a cada grup dins de cada &agrave;rea resumida.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

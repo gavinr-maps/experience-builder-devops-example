@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>포인트 보간 도구는 포인트 측정을 기반으로 새로운 위치에서 값을 예측합니다. 이 도구는 래스터 결과를 생성합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>값이 측정된 포인트를 포함하는 포인트 레이어입니다.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>보간할 값이 포함된 숫자 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>속도 또는 정확도를 최적화할지 여부를 선택합니다. 더 정확하게 예측할수록 계산하는 데 오랜 시간이 걸립니다.
+            </p>
+            <p>이 매개변수는 다른 여러 매개변수의 기본값을 변경합니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>결과 래스터의 셀 크기와 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>데이터를 변환할지 여부를 지정합니다. 내삽은 일반(벨 모양) 배포를 따르는 데이터에 가장 정확합니다.
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>최종 예측 맵을 생성하도록 결합될 로컬 보간 모델의 크기입니다.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>사용될 인접 피처 수입니다. 더 큰 수의 인접 피처를 사용하면 일반적으로 더욱 정확한 결과가 생성되지만 계산 결과에 시간이 더 소요됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가될 보간 래스터 레이어의 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>예측된 값에 대한 표준 오차의 선택적 래스터도 생성할지 여부를 선택합니다.
+            </p>
+            <p>선택한 경우 결과 표준 오차 래스터는  <b>결과 래스터 이름</b>과 동일한 이름이지만 오차라는 단어가 추가됩니다. 레이어가 생성되어 맵에 추가됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>생성될 결과 유형입니다. 결과는 타일 영상 레이어 또는 동적 영상 레이어일 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

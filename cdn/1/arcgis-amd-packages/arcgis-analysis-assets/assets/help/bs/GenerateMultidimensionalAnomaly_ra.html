@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Generiraj vi&scaron;edimenzionalnu anomaliju izračunava anomaliju za svaki isječak u postojećem vi&scaron;edimenzionalnom sloju sa snimkom kako bi generirao novi vi&scaron;edimenzionalni sloj sa snimkom.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vi&scaron;edimenzionalni sloj sa snimkom koji će biti analiziran.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Varijable vi&scaron;edimenzionalnog sloja sa snimkom koji će biti kori&scaron;ten za lociranje anomalija.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>Metoda koja će se koristiti za izračunavanje anomalija u sloju sa snimkom.
+            </p>
+        </div>
+    </div>
+    <div id="calculationInterval">
+        <div>
+            <p>Vremenski interval koji će se upotrijebiti za izračun srednje vrijednosti.
+            </p>
+        </div>
+    </div>
+    <div id="referenceMeanRaster">
+        <div>
+            <p>Referentni sloj sa snimkom koji sadrži izračunate srednje vrijednosti za svaki piksel.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Određuje hoće li Bez podataka ili vrijednosti koje nedostaju biti zanemarene u analizi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će se stvoriti i dodati karti.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Vrsta izlaza koji će se stvoriti. Izlaz može biti sloj s pločastom slikom ili sloj s dinamičnom slikom.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Entfernungsallokation&quot; berechnet die Entfernungsallokation von jeder Zelle zur Eingabequelle. Dabei werden geradlinige Entfernung, Kostenentfernung, tats&auml;chliche Oberfl&auml;chenentfernung sowie vertikale und horizontale Kostenfaktoren ber&uuml;cksichtigt.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Der Eingabe-Quell-Raster- oder -Feature-Layer, der die Quellen identifiziert, zu denen die Allokation berechnet wird.
+            </p>
+            <p>Wenn die Eingabe ein Raster ist, muss sie aus Quellenzellen mit g&uuml;ltigen ganzzahligen Werten (0 ist ein g&uuml;ltiger Wert) bestehen, und den restlichen Zellen muss &quot;NoData&quot; zugewiesen werden.
+            </p>
+        </div>
+    </div>
+    <div id="sourceField">
+        <div>
+            <p>Das Feld, das f&uuml;r die Zuweisung von Werten zu den Quellenpositionen verwendet wird. Die Eingabe muss den Typ &quot;Ganzzahl&quot; aufweisen.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Die Barrieren, die zu umgehende Hindernisse definieren.
+            </p>
+            <p>Bei einem Raster-Layer werden Zellen, die &uuml;ber einen Wert (einschlie&szlig;lich 0) verf&uuml;gen, als Barriere behandelt.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Das Raster, das die H&ouml;henwerte an jeder Zellenposition definiert.
+            </p>
+            <p>Beim &Uuml;bergang zwischen Zellen werden die Werte verwendet, um die tats&auml;chliche Oberfl&auml;chenentfernung zu berechnen.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Das Raster, das die Impedanz oder die Kosten f&uuml;r die Bewegung durch jede Zelle definiert.
+            </p>
+            <p>Der Wert an jeder Zellenposition stellt die Kosten pro Einheitenentfernung f&uuml;r die Bewegung durch die Zelle dar. Der Wert darf nicht negativ oder null sein.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Gibt an, ob die Berechnung der Entfernung mit einer planaren Methode (flache Erde) oder einer geod&auml;tischen Methode (Ellipsoid) erfolgt.
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Das Raster, das die Z-Werte f&uuml;r jede Zellenposition definiert.
+            </p>
+            <p>Die Werte werden zum Berechnen der Neigung verwendet, die zum Identifizieren des vertikalen Faktors beim &Uuml;bergang von einer Zelle zur anderen dient.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Der Faktor, der die Beziehung zwischen dem vertikalen Kostenfaktor und dem vertikalen relativen Bewegungswinkel definiert.
+            </p>
+            <p>Es stehen mehrere Optionen f&uuml;r Faktoren mit Modifikatoren zur Auswahl, durch die ein definiertes Diagramm f&uuml;r den vertikalen Faktor festgelegt wird. Die Diagramme identifizieren den vertikalen Faktor, der zum Berechnen der Gesamtkosten f&uuml;r die Bewegung in eine benachbarte Zelle verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Das Raster, das die horizontale Richtung an jeder Zelle definiert.
+            </p>
+            <p>Beim &Uuml;bergang von einer Zelle zu einer benachbarten Zelle werden die Werte an jeder Position zusammen mit dem Parameter  <b>Horizontaler Faktor</b> verwendet, um die anfallenden horizontalen Kosten zu bestimmen.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Der Faktor, der die Beziehung zwischen dem horizontalen Kostenfaktor und dem horizontalen relativen Bewegungswinkel definiert.
+            </p>
+            <p>Es stehen mehrere Optionen f&uuml;r Faktoren mit Modifikatoren zur Auswahl, durch die ein definiertes Diagramm f&uuml;r den horizontalen Faktor festgelegt wird. Die Diagramme identifizieren den horizontalen Faktor, der zum Berechnen der Gesamtkosten f&uuml;r die Bewegung in eine benachbarte Zelle verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Die anf&auml;nglichen akkumulativen Kosten zu Beginn der Kostenberechnung.
+            </p>
+            <p>Die Standardeinstellung ist 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Die maximale Akkumulation f&uuml;r den Reisenden f&uuml;r eine Quelle.
+            </p>
+            <p>Die Standardakkumulation reicht bis zur Kante des Ausgabe-Rasters.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Ein Multiplikator, der auf die Kostenwerte angewendet wird.
+            </p>
+            <p>Die Standardeinstellung ist 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Die Richtung des Reisenden, wenn horizontale und vertikale Faktoren angewendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAllocationRasterName">
+        <div>
+            <p>Der Name des Raster-Layers mit dem Wert f&uuml;r die Entfernungsallokation, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Der Name des Raster-Layers mit der akkumulativen Entfernung, der erstellt und der Karte hinzugef&uuml;gt wird. Der Layer enth&auml;lt die akkumulative Entfernung jeder Zelle zu oder von der kosteng&uuml;nstigsten Quelle.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Der Name des Gegenrichtungs-Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird. Der Layer enth&auml;lt die Richtung in Grad.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Der Name des Quellenrichtungs-Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird. Der Layer enth&auml;lt die azimutale Richtung der Quellenzelle mit den geringsten akkumulativen Kosten in Grad.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Der Name des Quellenpositions-Multiband-Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird. Der Layer enth&auml;lt die Quellenpositionen, an denen das erste Band einen Zeilenindex und das zweite Band einen Spaltenindex enth&auml;lt.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgaben k&ouml;nnen gekachelte Bilddaten-Layer oder dynamische Bilddaten-Layer sein.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

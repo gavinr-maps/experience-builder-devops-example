@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Создать замощение создает сетку полигонов на основе заданного экстента, формы и размера.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>Форма создаваемого замощения.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Определяет, будет ли размер замощения определяться его площадью (<b>Площадь</b>) или по значению расстояния (<b>Расстояние</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Размер (площадь или расстояние) создаваемых полигонов замощения. Для квадратов, шестиугольников, треугольников и ромбов расстояние определяет высоту элементов сетки. Для поперечных шестиугольников расстояние определяет ширину элементов сетки.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Разрешение H3 замощений. Разрешение находится в диапазоне от 0 до 15. С каждым увеличением размера разрешения площадь полигонов будет уменьшаться на одну седьмую размера при более низком разрешении.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Указывает единицы, которые будут использоваться для размера замощения.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Экстент, который покрывается замощением.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>Для векторных слоев определяет, будет ли замощение покрывать экстент целиком, либо только те области, где замощение пересекается с объектами.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

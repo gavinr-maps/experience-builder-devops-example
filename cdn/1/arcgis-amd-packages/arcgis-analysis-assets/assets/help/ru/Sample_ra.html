@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Образец создает таблицу или класс точечных объектов, где показаны значения ячеек растра или набора растров, для конкретных местоположений.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Слои изображений, значения которых будут отобраны в качестве образцов на основании исходных данных местоположений.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Слой, содержащий местоположения для каждого образца.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Алгоритм пересчета, который используется в ходе процесса отбора образцов.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Поле в слое, которое содержит разные значения для каждого местоположения или входного объекта.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Указывает, включают ли входные слои изображений многомерные данные.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Определяет время, глубину или другие сведения, связанные с пространственными объектами.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Измерение входного многомерного слоя.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Поле, которое будет использоваться в качестве начала временного диапазона для многомерного входного слоя.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Поле, которое будет использоваться в качестве конца временного диапазона для многомерного входного слоя.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Положительное число, которое будет добавлено к параметру  <b>Измерение</b> или значение, которое будет определять начало диапазона значений измерений.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Положительное число, которое будет добавлено к параметру  <b>Измерение</b> или значение, которое будет определять конец диапазона значений измерений.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Статистика, которая будет создаваться в ходе обработки многомерных слоев изображений.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Значение в процентах, которое будет использоваться для типа статистики процентилей.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Буферное расстояние, которое будет применено к входным местоположениям.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Определяет, будет ли выходной тип объектом или таблицей.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Указывает, будет ли результат выводиться по строкам или по столбцам.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

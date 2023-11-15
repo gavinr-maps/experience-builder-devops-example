@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Componenti multidimensionali principali trasforma i layer immagini multidimensionali in un numero ridotto di componenti che tengono conto della varianza dei dati in modo che i modelli spaziali e temporali possano essere facilmente identificati.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Il layer di immagini multidimensionali che verr&agrave; analizzato.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Il metodo che verr&agrave; utilizzato per eseguire l'analisi dei componenti principali. Le opzioni sono   <b>Riduzione dimensione</b> e <b>Riduzione spaziale</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>La dimensione del layer immagini multidimensionali insieme a cui sar&agrave; analizzata la variabile.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Il nome del layer immagini o layer tabella di output che mostra i componenti principali trovati a seconda delle seguenti scelte di modalit&agrave;:
+                <ul>
+                    <li>L'output della riduzione della dimensione sar&agrave; un layer immagini multibanda.
+                    </li>
+                    <li>L'output della riduzione spaziale sar&agrave; un layer tabella.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Il nome del layer immagini o layer tabella di output che mostra i dati di supporto nella scelta dei componenti principali a seconda delle seguenti scelte di modalit&agrave;:
+                <ul>
+                    <li>L'output della riduzione della dimensione sar&agrave; un layer tabella.
+                    </li>
+                    <li>L'output della riduzione spaziale sar&agrave; un layer immagini.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Il nome della tabella di autovalori, che indica la percentuale di varianza di ogni componente.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Il nome della variabile del layer immagini multidimensionali utilizzato nel calcolo.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Il numero di componenti principali da calcolare, di solito inferiore al numero di raster di input.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Il tipo di output che sar&agrave; creato. Gli output possono essere layer immagini di tile o layer immagini dinamici.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'צבירת רסטר רב-ממדי' מפיק שכבת תצלומית רב-ממדית על ידי שילוב משתני שכבת תצלומים רב-ממדית קיימת לאורך ממד.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>שכבת התצלומים הרב-ממדית לצבירה.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>הממד של שכבת התצלומים הרב-ממדית שלאורכו יצטבר המשתנה.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>מציין אם יש לשכבה ערכי ממד.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>המשתנה של שכבת התצלומים הרב-ממדית אשר ייצבר לאורך הממד שהוגדר.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>השיטה המתמטית אשר תשמש לצבירת הפלחים של שכבת תצלומים רב-ממדית.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>ערך האחוזון אשר ישמש עבור חישובים לאחר ציון שיטת הצבירה.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>שיטת האינטרפולציה של אחוזונים שבה יעשה שימוש כאשר קיים מספר זוגי של ערכים משכבת התצלומים של הקלט.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>פונקציית הרסטר המותאמת אישית אשר תשמש לחישוב ערכי הפיקסל של שכבות התצלומים הצבורות.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>מרווח הממד אשר ישמש לצבירת הנתונים הרב-ממדיים.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>כל מילת מפתח מציינת את יחידת המזן שעבורו תתבצע צבירה של כל נתון סטטיסטי. רשימת מילות המפתח כוללת, אחת לשעה, אחת ליום, אחת לשבוע, אחת לחודש, אחת לרבעון ואחת לשנה.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>גודל המרווח אשר ישמש בעת צבירה לאורך הממד.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>יחידות המדידה עבור ערך המרווח.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>טבלת הערכים אשר תשמש בעת צבירה לאורך הממד שצוין. ערכי המינימום והמקסימום מציינים את הטווח שייכלל.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>הערך המינימלי עבור טווח המרווח.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>הערך המקסימלי עבור טווח המרווח.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>מציין האם הצבירה תתעלם מערכי NoData.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>סוג הקלט שייווצר. פריטי הפלט יכולים להיות Tiled imagery או Dynamic imagery.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

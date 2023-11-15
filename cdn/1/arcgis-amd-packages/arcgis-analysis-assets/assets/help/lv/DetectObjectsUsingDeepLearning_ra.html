@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rīks Atpazīt objektus, izmantojot Deep Learning izmanto Deep Learning modeli ievades attēlu slānī, lai izveidotu elementu slāni, kas satur atpazītos objektus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Attēlu vai elementu slānis, kas tiks izmantots objektu atpazī&scaron;anai.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Norāda, kā rastra vienības attēlu slānī tiks apstrādātas pēc mozaīkas veido&scaron;anas: kopā vai atsevi&scaron;ķi.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Deep Learning pakete, kurā ir modelis, kas tiks izmantots objektu atpazī&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Modeļa argumenti, kas ir iekļauti Deep Learning modelī, kopā ar to noklusējuma vērtībām.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Norāda, vai tiks veikta ne maksimuma nomāk&scaron;ana, lai noņemtu objektu dublikātus.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>Lauka nosaukums, kas tiks pievienots izvades elementu slānim, lai norādītu uzrādīto ticamības vērtību.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>Lauka nosaukums, kas tiks pievienots izvades elementu slānim, lai norādītu objekta klasificēto apzīmējumu.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Maksimālā pieļaujamā attiecība katram atrastajam elementam, kas pārklājas ar citu elementu. Noklusējuma vērtība ir 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Environment settings for analysis in  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Specifies the coordinate system for analysis and the result layer.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Specifies the area to be used for analysis.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Adjusts the extent of the output so it matches the cell alignment of the specified snap raster layer.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Specifies the cell size or resolution that will be used for analysis and to create the output raster layer.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Specifies a mask layer in which only the cells that fall within the mask area will be used for analysis.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Specifies how pixel values will be interpolated when the input and output rasters do not align.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Specifies the
+type of processor to be used. The options are  <b>CPU</b>, <b>GPU</b>, and <b>Automatic</b>. If <b>Automatic</b> is specified, the tool will define the processor type.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Specifies the number of raster processing service instances used during the tool run. Supported values include empty strings (the tool will determine the number of raster processing service instances to use), whole numbers (0 or positive integers), and percentages. Percentages must include a percent sign (%) following the percentage value.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>Determines whether 
+a warning message will appear if the estimated number of credits surpasses the specified threshold (enabled) or if the analysis will run without displaying a message regardless of the estimated credit consumption (not enabled). The analysis will still honor credit budgeting settings for the organization.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Specifies the threshold at which a warning message will appear based on the estimated credit consumption from running the analysis. The analysis can still be run if the estimate surpasses the threshold.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

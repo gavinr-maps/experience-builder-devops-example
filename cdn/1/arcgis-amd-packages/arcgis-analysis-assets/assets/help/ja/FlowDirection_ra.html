@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>流向ツールは、D8、MFD (Multi-Flow Direction)、DINF (D-Infinity) のいずれかの方法を使用して、各セルから下降傾斜の近傍セルへの流向ラスターを作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>計算に使用する標高ラスター。
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>流向の計算に使用するフロー タイプを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>エッジ セルが通常のフロー規則に従うか、常に外向きに流れるかを指定します。
+            </p>
+            <p>オフの場合、フローは Z 値で最も急な下り坂である、内側のセルに向かいます。 ただし、降下が 0 またはそれより小さい場合、そのセルはサーフェス ラスターから外側に流れ出ます。 オンの場合、フロー方向は常にサーフェス ラスターから外側に流れ出ます。
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionName">
+        <div>
+            <p>作成され、マップに追加される流向ラスター レイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="outputDropName">
+        <div>
+            <p>作成され、マップに追加される降下率ラスター レイヤーの名前。 このレイヤーには、標高の最大変化とフロー方向に沿ったパス長さの比率の割合が含まれます。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

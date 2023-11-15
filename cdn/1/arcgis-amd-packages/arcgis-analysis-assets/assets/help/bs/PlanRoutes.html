@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Planiraj rute stvara putne rute s vi&scaron;e zaustavljanja za flotu vozila.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>Točkasti geoobjekti koji određuju gdje vozila počinju svoje rute.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>Točkasti geoobjekti koji vozila moraju posjetiti na svojim rutama. Te točke postaju dodijeljene ili nedodijeljene postaje u izlaznom rezultatu.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>Određuje moraju li se vozila vratiti na početnu lokaciju (omogućeno) ili zavr&scaron;iti na određenim lokacijama (onemogućeno).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>Točkasti geoobjekti koji određuju gdje vozila zavr&scaron;avaju svoje rute. Ako sloj uključuje samo jednu točku, sva vozila se usmjeravaju na zajedničku krajnju točku. Ako sloj uključuje vi&scaron;e točaka, svako će vozilo biti usmjereno na jedinstvenu krajnju lokaciju.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>Polje u početnom sloju koje jedinstveno identificira pojedinačne rute, vozila ili vozače. Ako vozila kreću sa vi&scaron;e lokacija i zavr&scaron;avaju na vi&scaron;e lokacija, ID-ovi ruta odabrani za početni i zavr&scaron;ni sloj moraju se podudarati.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>Polje u zavr&scaron;nom sloju koje jedinstveno identificira pojedinačne rute, vozila ili vozače. Ako vozila kreću sa vi&scaron;e lokacija i zavr&scaron;avaju na vi&scaron;e lokacija, ID-ovi ruta odabrani za početni i zavr&scaron;ni sloj moraju se podudarati.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e točkastih geoobjekata koji djeluju kao privremena ograničenja (barijere) kad se krećete odgovarajućim ulicama. Kretanje je dopu&scaron;teno po ulici, ali ne kroz ograničenje.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e linijskih geoobjekata koji djeluju kao privremena ograničenja (barijere) kad se krećete odgovarajućim ulicama. Linijske barijere zabranjuju kretanje bilo gdje gdje se barijere sijeku s ulicama.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e poligonalnih geoobjekata koji djeluju kao privremena ograničenja (barijere) kad se krećete odgovarajućim ulicama. Poligonske barijere zabranjuju kretanje bilo gdje gdje poligoni sijeku ulice.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Način putovanja kojim će se kreirati rute. Način putovanja može se temeljiti na udaljenosti ili vremenu.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>Datum i vrijeme polaska vozila.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>Maksimalan broj vozila koji je dostupan za posjet stajali&scaron;tima. Ako  <b>početni sloj</b> i <b>zavr&scaron;ni sloj</b> sadrže po jedan geoobjekt, možete navesti najvi&scaron;e 100 vozila. Ako bilo koji sloj sadrži vi&scaron;e od jednog geoobjekta, zadana vrijednost ne može se uređivati. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>Maksimalni broj zaustavljanja koje svako vozilo može napraviti na ruti. Možete odrediti vrijednost između 1  200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Navedite očekivano prosječno vrijeme usluge provedeno na svakom zaustavljanju.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>Određuje primjenjuje li se maksimalno vrijeme rute na vozila. Vrijeme rute uključuje očekivano vrijeme putovanja i vrijeme usluge provedeno na stajali&scaron;tima duž rute.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>Odredite koliko bi ruta trebala maksimalno trajati od početka do zavr&scaron;etka.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će se stvoriti i dodati karti.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Određuje hoće li svaka rezultatska ruta biti spremljena kao sloj rute.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

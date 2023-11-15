@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>測地線可視領域ツールでは、入力観測点位置から見えるラスター サーフェスの位置を特定します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>可視領域を計算する標高ラスター。
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>可視領域の計算対象となる観測点の位置。
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>速度または精度のいずれかに基づき、可視領域の計算を最適化します。
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>可視領域の計算の最大可視距離を指定します。
+            </p>
+            <p>距離は値とその単位、または  <b>[入力観測ポイントまたはライン フィーチャ]</b> のフィールドから定義できます。
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>可視領域の計算の最小可視距離を指定します。
+            </p>
+            <p>距離は値とその単位、または  <b>[入力観測ポイントまたはライン フィーチャ]</b> のフィールドから定義できます。
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>最大可視距離タイプと最小可視距離タイプを指定します。
+            </p>
+            <p>オフにすると、可視距離は 2 次元のユークリッド距離として扱われます。 オンにすると、可視距離は 3 次元の距離として扱われます。
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>観測点の位置のサーフェス標高を指定します。
+            </p>
+            <p>標高は値とその単位、または  <b>[入力観測ポイントまたはライン フィーチャ]</b> のフィールドから定義できます。
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>観測点が地表からどれだけ上にあるかを指定します。
+            </p>
+            <p>高さは値とその単位、または  <b>[入力観測ポイントまたはライン フィーチャ]</b> のフィールドから定義できます。
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>地上の目標点の高さを指定します。
+            </p>
+            <p>高さは値とその単位、または  <b>[入力観測ポイントまたはライン フィーチャ]</b> のフィールドから定義できます。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成され、マップに追加される可視領域ラスター レイヤーの名前。 このレイヤーには、観測者から見える可視の領域が含まれ、セルの値は、セルを見ることができる観測者の数を表します。
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>作成され、マップに追加される地上レベル (AGL) ラスター レイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

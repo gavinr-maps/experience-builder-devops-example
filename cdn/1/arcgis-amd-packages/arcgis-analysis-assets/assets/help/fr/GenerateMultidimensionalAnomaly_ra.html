@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Generate Multidimensional Anomaly (G&eacute;n&eacute;rer une anomalie multidimensionnelle) calcule l'anomalie de chaque tranche d&rsquo;une couche d'imagerie multidimensionnelle existante pour g&eacute;n&eacute;rer une nouvelle couche d'imagerie multidimensionnelle.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Couche d&rsquo;imagerie multidimensionnelle &agrave; analyser.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variable de la couche d'imagerie multidimensionnelle &agrave; utiliser pour localiser les anomalies.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>M&eacute;thode &agrave; utiliser pour calculer les anomalies dans la couche d&rsquo;imagerie.
+            </p>
+        </div>
+    </div>
+    <div id="calculationInterval">
+        <div>
+            <p>Intervalle temporel &agrave; utiliser pour calculer la moyenne.
+            </p>
+        </div>
+    </div>
+    <div id="referenceMeanRaster">
+        <div>
+            <p>Couche d&rsquo;imagerie de r&eacute;f&eacute;rence qui contient les moyennes calcul&eacute;es pour chaque pixel.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indique si les valeurs NoData ou manquantes sont ignor&eacute;es lors de l&rsquo;analyse.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Type de sortie &agrave; cr&eacute;er. La sortie peut correspondre &agrave; une couche d&rsquo;imagerie tuil&eacute;e ou une couche d&rsquo;imagerie dynamique.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

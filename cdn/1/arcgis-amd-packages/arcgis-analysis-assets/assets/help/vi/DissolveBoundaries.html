@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Ph&acirc;n r&atilde; Ranh giới t&igrave;m c&aacute;c v&ugrave;ng chồng l&ecirc;n nhau hoặc c&oacute; chung một ranh giới v&agrave; hợp nhất ch&uacute;ng để tạo th&agrave;nh một v&ugrave;ng duy nhất.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Lớp chứa c&aacute;c đối tượng v&ugrave;ng sẽ bị ph&acirc;n r&atilde;.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>X&aacute;c định xem c&ocirc;ng cụ sẽ chỉ ph&acirc;n r&atilde; c&aacute;c v&ugrave;ng chồng ch&eacute;o hoặc c&oacute; chung đường viền v&agrave; c&oacute; c&ugrave;ng gi&aacute; trị trường (bật) hay sẽ ph&acirc;n r&atilde; tất cả c&aacute;c v&ugrave;ng chồng ch&eacute;o hoặc c&oacute; chung đường viền (tắt).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>Chỉ định trường sẽ được sử dụng để ph&acirc;n r&atilde; c&aacute;c đối tượng v&ugrave;ng dựa tr&ecirc;n c&aacute;c gi&aacute; trị tr&ugrave;ng khớp.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>Chỉ định xem đầu ra c&oacute; thể chứa c&aacute;c đối tượng v&ugrave;ng dạng nhiều phần hay kh&ocirc;ng, nghĩa l&agrave; nhiều v&ugrave;ng được x&aacute;c định l&agrave; một đối tượng duy nhất (bật) hay chỉ c&oacute; thể chứa c&aacute;c đối tượng ri&ecirc;ng lẻ (tắt).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>X&aacute;c định xem số liệu thống k&ecirc; tổng kết c&oacute; được t&iacute;nh to&aacute;n cho c&aacute;c v&ugrave;ng bị ph&acirc;n r&atilde; hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>C&aacute;c trường dạng số hoặc dạng ng&agrave;y từ lớp đầu v&agrave;o sẽ được t&oacute;m tắt v&agrave; số liệu thống k&ecirc; sẽ được t&iacute;nh cho từng trường.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

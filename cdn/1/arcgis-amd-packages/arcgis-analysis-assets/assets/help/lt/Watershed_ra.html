@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Baseino įrankiu nustatoma vir&scaron; rastrinių gardelių rinkinio esanti ploto dalis.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputFlowDirectionRaster">
+        <div>
+            <p>Srauto kryptis i&scaron; kiekvienos gardelės.
+            </p>
+            <p>Srauto krypčiai nustatyti turi būti taikomas D8 metodas.
+            </p>
+        </div>
+    </div>
+    <div id="inPourPointRasterOrFeatures">
+        <div>
+            <p>Vietos, vir&scaron; kurių bus nustatyta prisidedanti teritorija.
+            </p>
+        </div>
+    </div>
+    <div id="pourPointField">
+        <div>
+            <p>Laukas, kuris bus naudojamas priskirti vertes užpylimo ta&scaron;kų vietoms.
+            </p> 
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sukurto ir į žemėlapį pridėto baseino rastrinio sluoksnio pavadinimas. Sluoksnį sudaro skirtingi baseinai, kuriuos atspindi skirtingos gardelių reik&scaron;mės i&scaron;  <b>užpylimo ta&scaron;ko lauko</b>.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Sukuriamos i&scaron;vesties tipas. I&scaron;vestis gali būti i&scaron;klotinių vaizdų sluoksnis arba dinaminis vaizdų sluoksnis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

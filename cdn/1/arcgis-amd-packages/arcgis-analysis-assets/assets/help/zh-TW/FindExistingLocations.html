@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>按屬性和位置尋找工具可建立新的圖徵圖層，或符合指定空間或屬性條件的圖徵組件。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>將根據屬性和空間查詢的組合為其尋找圖徵的點、線或多邊形圖層。
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>將用於尋找圖徵的空間或屬性條件。 按一下 <b>建立新查詢</b>按鈕以定義一或多個空間或屬性條件。 會將滿足所有條件的那些圖徵或圖徵部分寫入結果圖層。
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> 將用於尋找圖徵的空間或屬性條件。 按一下 <b>建立新查詢</b>按鈕以定義一或多個空間或屬性條件。 會將滿足所有條件的那些圖徵或圖徵部分寫入結果圖層。
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>當只有部分圖徵符合條件時，指定結果是包含整個圖徵還是僅包含符合所有條件的特徵部分。 勾選後，將僅傳回符合所有條件的圖徵部分。 取消勾選後，如果至少有一部分圖徵符合所有條件，則將傳回整個圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

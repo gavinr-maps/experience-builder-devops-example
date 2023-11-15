@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist Leia sarnased asukohad hindab kandidaatasukohtade ja v&otilde;rdlusasukoha sarnasust kriteeriumide kogumi alusel ning j&auml;rjestab kandidaatasukohad k&otilde;ige sarnasematest k&otilde;ige v&auml;hem sarnasteni.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkti-, joone- v&otilde;i pol&uuml;goonikiht, mis sisaldab vastendatavaid v&otilde;rdlusasukohti. Kui kiht sisaldab mitut asukohta, arvutatakse k&otilde;igi asukohtade keskmine, et luua &uuml;ks v&otilde;rdlusasukoht.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Punkti-, joone- v&otilde;i pol&uuml;goonikiht, mis sisaldab otsingu kandidaatasukohti. Iga otsingu kandidaatasukohta v&otilde;rreldakse v&otilde;rdlusasukohaga m&auml;&auml;ratud v&auml;lja  <b>Kriteeriumide valik</b> v&auml;&auml;rtuse j&auml;rgi ja j&auml;rjestatakse k&otilde;ige sarnasemast v&auml;hem sarnaseni.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Numbriv&auml;ljad, mida kasutatakse v&otilde;rdlusasukoha ja iga otsingu kandidaatasukoha vahelise sarnasuse hindamiseks Igal v&auml;lja  <b>Kriteeriumide valik</b> v&auml;&auml;rtusel on v&auml;lja <b>V&auml;li v&otilde;rdluskihist</b> v&auml;&auml;rtus ja v&auml;lja <b>V&auml;li kandidaatkihist</b> v&auml;&auml;rtus. V&auml;ljade <b>V&auml;li v&otilde;rdluskihist</b> ja <b>V&auml;li kandidaatkihist</b> v&auml;&auml;rtused vastavad v&auml;ljade <b>V&otilde;rdlusasukohtade kiht</b> ja <b>Otsingu kandidaatide kiht</b> v&auml;&auml;rtustele.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>V&auml;li  <b>V&otilde;rdlusasukohtade kiht</b>, mis vastab v&auml;ljale <b>Otsingu kandidaatide kiht</b>, mille m&auml;&auml;rab v&auml;lja <b>V&auml;li kandidaatkihist</b> v&auml;&auml;rtus. Neid vastendatud v&auml;ljade v&auml;&auml;rtusi kasutatakse v&otilde;rdlusasukoha ja iga otsingu kandidaatasukoha vahelise sarnasuse hindamiseks.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>V&auml;li  <b>Otsingu kandidaatide kiht</b> vastab v&auml;ljale <b>V&otilde;rdlusasukohtade kiht</b>, mille m&auml;&auml;rab v&auml;lja <b>V&auml;li v&otilde;rdluskihist</b> v&auml;&auml;rtus. Neid vastendatud v&auml;ljade v&auml;&auml;rtusi kasutatakse v&otilde;rdlusasukoha ja iga otsingu kandidaatasukoha vahelise sarnasuse hindamiseks.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>M&auml;&auml;rab, kas k&otilde;ik v&auml;lja  <b>Otsingu kandidaatkiht</b> v&auml;&auml;rtuses nimetatud asukohad kaasatakse v&auml;ljundkihti.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>V&auml;lja  <b>Otsingu kandidaatkiht</b> v&auml;&auml;rtuses nimetatud k&otilde;ige sarnasemate asukohtade arv, mis kaasatakse v&auml;ljundkihti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>多次元主成分分析ツールは、多次元イメージ レイヤーをデータの分散の原因となっている少数の成分に変換して、空間パターンと時間パターンを簡単に特定できるようにします。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>解析する多次元イメージ レイヤー。
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>主成分分析の実行に使用する方法。 オプションには、  <b>[ディメンションの削減]</b> と <b>[空間の削減]</b> があります。
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>多次元イメージ レイヤーのディメンションで、これに沿って変数が解析されます。
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>次のモードの選択肢に応じて、見つかった主成分を示す出力イメージ レイヤーまたはテーブル レイヤーの名前。
+                <ul>
+                    <li>ディメンションの削減の出力は、マルチバンド イメージ レイヤーになります。
+                    </li>
+                    <li>空間の削減の出力は、テーブル レイヤーになります。
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>次のモードの選択肢に応じて、主成分の選択をサポートするデータを示す出力イメージ レイヤーまたはテーブル レイヤーの名前。
+                <ul>
+                    <li>ディメンションの削減の出力は、テーブル レイヤーになります。
+                    </li>
+                    <li>空間の削減の出力は、イメージ レイヤーになります。
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>各成分の分散の割合を示す固有値テーブルの名前。
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>計算に使用する入力多次元イメージ レイヤーの変数の名前。
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>計算する主成分の数。通常は入力ラスターの数より少なくなります。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成されマップに追加されるレイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

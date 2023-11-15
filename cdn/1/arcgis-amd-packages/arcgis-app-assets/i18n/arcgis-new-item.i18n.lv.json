@@ -1,0 +1,2007 @@
+{
+  "newItem": "Jauna vienība",
+  "addLayer": "Pievienot slāni",
+  "createFeatureLayer": "Izveidot elementu slāni",
+  "createTileLayer": "Izveidot mozaīkas slāni",
+  "createSceneLayer": "Izveidot scēnas slāni",
+  "createRasterFunctionTemplate": "Izveidot jaunu rastra funkcijas veidni",
+  "addDataStore": "Pievienot savienojumu datu krātuvei",
+  "next": "Tālāk",
+  "publish": "Publicēt",
+  "save": "Saglabāt",
+  "cancel": "Atcelt",
+  "back": "Atpakaļ",
+  "error": "Kļūda",
+  "update": "Atjaunināt",
+  "moreInfo": "Vairāk informācijas",
+  "loadingData": "Ielādē...",
+  "creatingLayer": "Notiek slāņa izveide…",
+  "common": {
+    "add": "Pievienot",
+    "url": "URL",
+    "addToMap": "Pievienot kartei",
+    "createAndAddToMap": "Izveidot un pievienot kartei",
+    "register": "Reģistrēties",
+    "supportServices": "Atbalstītie servisi ir ${typeList}",
+    "supportLayerTypes": "Atbalstītie slāņu veidi ir ${typeList}",
+    "supportFileTypes": "Atbalstītie failu veidi ir ${typeList}",
+    "learnMore": "Uzzināt vairāk",
+    "updateAndComplete": "Atjaunināt un pabeigt",
+    "proceed": "Turpināt",
+    "createConnection": "Izveidot savienojumu",
+    "addAndComplete": "Pievienot un pabeigt",
+    "signInAndOverwrite": "Pierakstīties un pārrakstīt",
+    "overwriteAndComplete": "Pārrakstīt un pabeigt"
+  },
+  "application": {
+    "web": "Tīmekļa kartēšana",
+    "desktop": "Darbvirsma",
+    "mobile": "Mobilie risinājumi",
+    "otherApplication": "Cita lietotne",
+    "applicationType": "Lietotnes veids",
+    "application": "Lietotne",
+    "manifestUrl": "Manifesta URL:",
+    "appExtension": "Lietotnes paplašinājums (AppBuilder)",
+    "experienceBuilderWidget": "Experience Builder logrīks",
+    "appExtensionError": "Vietrādim URL nav atsauces uz lietotņu konstruktora (AppBuilder) paplašinājumu.",
+    "enterManifestUrl": "Ievadiet paplašinājuma manifesta vietrādi URL",
+    "File": "Fails",
+    "selectZip": "Izvēlieties .zip failu",
+    "fileRequired": "Darbvirsmas lietotnēm nepieciešamais fails",
+    "enterUrl": "Ievadiet lietotnes URL",
+    "enterValidUrl": "Ievadiet derīgu lietotnes URL",
+    "URL": "URL"
+  },
+  "auth": {
+    "username": "Lietotājvārds",
+    "enterUsername": "Ievadiet lietotājvārdu",
+    "password": "Parole",
+    "enterPassword": "Ievadiet paroli",
+    "invalid": "Nederīgs lietotāja vārds vai parole.",
+    "requiresCredentials": "Jānorāda gan lietotājvārds, gan parole."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Izvēlēties slāņus, ko pievienot",
+    "noLayersFound": "Nav atrasts neviena slānis, kas atbilstu jūsu kritērijiem. Mēģiniet mainīt savu meklēšanas kritēriju, lai redzētu vairāk slāņu.",
+    "of": "no",
+    "layers": "slāņi",
+    "usePro": "Šai datu kopai ir vairāk nekā 1000 slāņu. Ievadiet meklējamo terminu, lai atrastu noteiktu slāni.",
+    "errorTitle": "Nav izvēlēts(-ti) slānis(-ņi)",
+    "noLayersSelected": "Lai turpinātu, izvēlieties vienu vai vairākus slāņus",
+    "selectAll": "Izvēlēties visu",
+    "deselectAll": "Noņemt izvēli visam"
+  },
+  "csvFields": {
+    "searchFields": "Meklēt lauku",
+    "fieldType": "Lauka veids",
+    "fieldTitle": "Lauki",
+    "fieldDescription": "Izvēlēties laukus, kas tiks iekļauti viesotajā elementu slānī. Pēc izvēles atjauniniet parādāmo nosaukumu un lauka veidu.",
+    "fieldNoHostedDescription": "Pēc izvēles atjauniniet šajā slānī izmantojamos attēlojamos nosaukumus un lauku veidus.",
+    "fieldName": "Lauka nosaukums",
+    "displayName": "Parādāmais nosaukums",
+    "displayNameLabel": "${name} parādāmais nosaukums",
+    "type": "Veids",
+    "typeLabel": "${name} veids",
+    "allTypes": "Visi veidi",
+    "noFields": "Nav atrasts neviens lauks, kas atbilstu jūsu meklēšanas kritērijiem. Mēģiniet mainīt meklējamo terminu vai izvērsiet filtra opcijas.",
+    "selected": "izvēlēts",
+    "clearSelection": "Notīrīt izvēli",
+    "fieldTypes": {
+      "esriFieldTypeString": "Virkne",
+      "esriFieldTypeInteger": "Vesels skaitlis",
+      "esriFieldTypeSmallInteger": "Mazs vesels skaitlis",
+      "esriFieldTypeSingle": "Viens",
+      "esriFieldTypeDouble": "Dubults",
+      "esriFieldTypeDate": "Datums",
+      "esriFieldTypeDateOnly": "Tikai datums",
+      "esriFieldTypeTimeOnly": "Tikai laiks",
+      "esriFieldTypeBigInteger": "Liels vesels skaitlis",
+      "esriFieldTypeTimestampOffset": "Laikspiedola nobīde"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "Notiek analīze...",
+    "locationSettings": "Novietojuma iestatījumi",
+    "locationSettingsDescription": "Norādiet faila novietojuma informācijas veidu.",
+    "advancedSettings": "Novietojuma papildiestatījumi",
+    "locator": "Meklētājs",
+    "region": "Reģions",
+    "enrich": "Papildiniet slāni ar adrešu informāciju",
+    "enrichLayer": "Papildiniet slāņa meklētāja izvades laukus",
+    "enrichLayerDescription": "Pievienojiet laukus, kas sniedz informāciju par ģeokodēšanas procesu, piemēram, cik precīzi novietojuma informācija jūsu failā atbilst meklētājam.",
+    "enrichLayerLink": "Uzzināt vairāk par šiem pievienotajiem laukiem.",
+    "consumesCredits": "Patērē servisa kredītus",
+    "locationFields": "Novietojuma lauki",
+    "locationFieldSingle": "Novietojuma informācija ir vienā laukā.",
+    "locationFieldMultiple": "Novietojuma informācija ir vairākos laukos.",
+    "locationFieldsDescription": "Norādiet laukus, kuros ir informācija par novietojumu.",
+    "locationTypes": {
+      "address": {
+        "title": "Adreses vai vietu nosaukumi",
+        "description": "Novietojuma dati ir adreses, vietu nosaukumi, pasta indeksi un valstis. Var patērēt servisa kredītus.",
+        "descriptionDeveloper": "Novietojuma dati ir adreses, vietu nosaukumi, pasta indeksi un valstis."
+      },
+      "coordinates": {
+        "title": "Platums un garums",
+        "description": "Novietojuma dati ir ģeogrāfiskais platums un garums."
+      },
+      "mgrs": {
+        "title": "MGRS koordinātas",
+        "description": "Novietojuma dati ir militārajā koordinātu tīkla atsauces sistēmā (MGRS – Military Grid Reference System)."
+      },
+      "usng": {
+        "title": "USNG koordinātas",
+        "description": "Novietojuma dati ir ASV Nacionālajā tīklā (USNG – United States National Grid)."
+      },
+      "none": {
+        "title": "Neviens",
+        "description": "Šajā ${type} nav novietojuma datu, un tas tiks pievienots kā tabula"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Nav lauku",
+        "description": "Atrast adreses, bet neiekļaut nekādus papildu laukus."
+      },
+      "Minimal": {
+        "title": "Daži lauki",
+        "description": "Pievienot četrus laukus, kas parāda, cik labi ir saskaņotas adreses."
+      },
+      "AllFields": {
+        "title": "Visi lauki",
+        "description": "Pievienot 50 laukus pilnai informācijai par novietojumu."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Nav izvēlēts novietojuma lauks",
+        "description": "Izvālieties lauku, kurā ir atrašanās vietas dati."
+      },
+      "coordinate": {
+        "title": "Izvēlēties koordinātu laukus",
+        "description": "Izvēlieties, kuru lauku izmantot gan ģeogrāfiskajam platumam, gan garumam."
+      },
+      "insufficientCredits": {
+        "title": "Nepietiekams servisa kredītu skaits",
+        "description": "Jums nav pietiekami daudz servisa kredītu, lai izpildītu šo darbību. Lai saņemtu papildu servisa kredītus, sazinieties ar administratoru."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Tabulās jābūt informācijai par atrašanās vietu",
+        "description": "Nevar pievienot elementus slānim, kurā nav atrašanās vietas informācijas."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Nepietiek organizācijas servisa kredītu - darbība var netikt pabeigta",
+      "description": "Jūsu organizācijai, iespējams, nepietiek servisa kredītu, lai pabeigtu šo darbību. Ja darbplūsma netiek pabeigta, sazinieties ar administratoru, lai saņemtu papildu servisa kredītus."
+    },
+    "recordCount": "Aptuvenie ģeokodēšanas ieraksti: ${num}",
+    "locationType": "Izkārtojuma veids",
+    "field": "Lauks",
+    "unknown": "Novietojuma veids nav izmantots",
+    "longitude": "Garums",
+    "latitude": "Platums",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Pasaule",
+      "EU": "Eiropa",
+      "AD": "Andora",
+      "AE": "Apvienotie Arābu Emirāti",
+      "AF": "Afganistāna",
+      "AG": "Antigva un Barbuda",
+      "AI": "Angilja",
+      "AL": "Albānija",
+      "AM": "Armēnija",
+      "AO": "Angola",
+      "AQ": "Antarktīda",
+      "AR": "Argentīna",
+      "AS": "Amerikāņu Samoa",
+      "AT": "Austrija",
+      "AU": "Austrālija",
+      "AW": "Aruba",
+      "AZ": "Azerbaidžāna",
+      "BA": "Bosnija un Hercegovina",
+      "BB": "Barbadosa",
+      "BD": "Bangladeša",
+      "BE": "Beļģija",
+      "BF": "Burkinafaso",
+      "BG": "Bulgārija",
+      "BH": "Bahreina",
+      "BI": "Burundi",
+      "BJ": "Benina",
+      "BL": "Senbartelmī",
+      "BM": "Bermuda",
+      "BN": "Bruneja",
+      "BO": "Bolīvijas Daudznacionālā Valsts",
+      "BQ": "Bonēra, Sintestatiusa un Saba",
+      "BR": "Brazīlija",
+      "BS": "Bahamu Salas",
+      "BT": "Butāna",
+      "BV": "Buvē sala",
+      "BW": "Botsvāna",
+      "BY": "Baltkrievija",
+      "BZ": "Beliza",
+      "CA": "Kanāda",
+      "CD": "Kongo Demokrātiskā Republika",
+      "CF": "Centrālāfrikas Republika",
+      "CG": "Kongo",
+      "CH": "Šveice",
+      "CI": "Kotdivuāra",
+      "CK": "Kuka salas",
+      "CL": "Čīle",
+      "CM": "Kamerūna",
+      "CN": "Ķīna",
+      "CO": "Kolumbija",
+      "CR": "Kostarika",
+      "CU": "Kuba",
+      "CV": "Kaboverde",
+      "CW": "Kirasao",
+      "CY": "Kipra",
+      "CZ": "Čehijas Republika",
+      "DE": "Vācija",
+      "DJ": "Džibuti",
+      "DK": "Dānija",
+      "DM": "Dominika",
+      "DO": "Dominikānas Republika",
+      "DZ": "Alžīrija",
+      "EC": "Ekvadora",
+      "EE": "Igaunija",
+      "EG": "Ēģipte",
+      "EH": "Rietumsahāra",
+      "ER": "Eritreja",
+      "ES": "Spānija",
+      "ET": "Etiopija",
+      "FI": "Somija",
+      "FJ": "Fidži",
+      "FK": "Folklenda (Malvinu) salas",
+      "FM": "Mikronēzijas Federatīvās Valstis",
+      "FO": "Farēru salas",
+      "FR": "Francija",
+      "GA": "Gabona",
+      "GB": "Lielbritānija",
+      "GD": "Grenāda",
+      "GE": "Gruzija",
+      "GF": "Franču Gviāna",
+      "GG": "Gernsija",
+      "GH": "Gana",
+      "GI": "Gibraltārs",
+      "GL": "Grenlande",
+      "GM": "Gambija",
+      "GN": "Gvineja",
+      "GP": "Gvadalupe",
+      "GQ": "Ekvatoriālā Gvineja",
+      "GR": "Grieķija",
+      "GS": "Dienviddžordžija un Dienvidsendviču salas",
+      "GT": "Gvatemala",
+      "GW": "Gvineja Bisava",
+      "GY": "Gviāna",
+      "HK": "Honkonga",
+      "HM": "Hērda un Makdonalda Salas",
+      "HN": "Hondurasa",
+      "HR": "Horvātija",
+      "HT": "Haiti",
+      "HU": "Ungārija",
+      "ID": "Indonēzija",
+      "IE": "Īrija",
+      "IL": "Izraēla",
+      "IM": "Menas sala",
+      "IN": "Indija",
+      "IO": "Britu Indijas Okeāna Teritorija",
+      "IQ": "Irāka",
+      "IR": "Irānas Islāma Republika",
+      "IS": "Islande",
+      "IT": "Itālija",
+      "JE": "Džērsija",
+      "JM": "Jamaika",
+      "JO": "Jordānija",
+      "JP": "Japāna",
+      "KE": "Kenija",
+      "KG": "Kirgizstāna",
+      "KH": "Kambodža",
+      "KI": "Kiribati",
+      "KM": "Komoras",
+      "KN": "Sentkitsa un Nevisa",
+      "KP": "Korejas Tautas Demokrātiskā Republika",
+      "KR": "Korejas Republika",
+      "KW": "Kuveita",
+      "KY": "Kaimanu salas",
+      "KZ": "Kazahstāna",
+      "LA": "Laosas Tautas Demokrātiskā Republika",
+      "LB": "Libāna",
+      "LC": "Sentlūsija",
+      "LI": "Lihtenšteina",
+      "LK": "Šrilanka",
+      "LR": "Libērija",
+      "LS": "Lesota",
+      "LT": "Lietuva",
+      "LU": "Luksemburga",
+      "LV": "Latvija",
+      "LY": "Lībija",
+      "MA": "Maroka",
+      "MC": "Monako",
+      "MD": "Moldovas Republika",
+      "ME": "Montenegro",
+      "MF": "Senmartēna (Francijas daļa)",
+      "MG": "Madagaskara",
+      "MH": "Māršala Salas",
+      "MK": "Maķedonija, bijusī Dienvidslāvijas Republika",
+      "ML": "Mali",
+      "MM": "Mjanma",
+      "MN": "Mongolija",
+      "MO": "Makao",
+      "MP": "Ziemeļu Marianas salas",
+      "MQ": "Martinika",
+      "MR": "Mauritānija",
+      "MS": "Montserrata",
+      "MT": "Malta",
+      "MU": "Maurīcija",
+      "MV": "Maldīvas",
+      "MW": "Malāvija",
+      "MX": "Meksika",
+      "MY": "Malaizija",
+      "MZ": "Mozambika",
+      "NA": "Namībija",
+      "NC": "Jaunkaledonija",
+      "NE": "Nigēra",
+      "NG": "Nigērija",
+      "NI": "Nikaragva",
+      "NL": "Nīderlande",
+      "NO": "Norvēģija",
+      "NP": "Nepāla",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "Jaunzēlande",
+      "OM": "Omāna",
+      "PA": "Panama",
+      "PE": "Peru",
+      "PF": "Francijas Polinēzija",
+      "PG": "Papua Jaungvineja",
+      "PH": "Filipīnas",
+      "PK": "Pakistāna",
+      "PL": "Polija",
+      "PM": "Senpjēra un Mikelona",
+      "PN": "Pitkērna",
+      "PS": "Palestīniešu pašpārvalde",
+      "PT": "Portugāle",
+      "PW": "Palau",
+      "PY": "Paragvaja",
+      "QA": "Katara",
+      "RE": "Reinjona",
+      "RO": "Rumānija",
+      "RS": "Serbija",
+      "RU": "Krievijas Federācija",
+      "RW": "Ruanda",
+      "SA": "Saūda Arābija",
+      "SB": "Zālamanu Salas",
+      "SC": "Seišelas",
+      "SD": "Sudāna",
+      "SE": "Zviedrija",
+      "SG": "Singapūra",
+      "SH": "Svētās Helēnas, Debesbraukšanas un Tristana da Kuņas Salas",
+      "SI": "Slovēnija",
+      "SJ": "Svalbāra un Jana Majena sala",
+      "SK": "Slovākija",
+      "SL": "Sjerraleone",
+      "SM": "Sanmarīno",
+      "SN": "Senegāla",
+      "SO": "Somālija",
+      "SR": "Surinama",
+      "SS": "Dienvidsudāna",
+      "ST": "Santome un Prinsipi",
+      "SV": "Salvadora",
+      "SX": "Sintmārtena (Nīderlandes daļa)",
+      "SY": "Sīrijas Arābu Republika",
+      "SZ": "Svazilenda",
+      "TC": "Tērksas un Kaikosas Salas",
+      "TD": "Čada",
+      "TF": "Francijas Dienvidjūru teritorija",
+      "TG": "Togo",
+      "TH": "Taizeme",
+      "TJ": "Tadžikistāna",
+      "TK": "Tokelau",
+      "TL": "Austrumtimora",
+      "TM": "Turkmenistāna",
+      "TN": "Tunisija",
+      "TO": "Tonga",
+      "TR": "Turcija",
+      "TT": "Trinidāda un Tobāgo",
+      "TV": "Tuvalu",
+      "TW": "Taivāna, Ķīnas province",
+      "TZ": "Tanzānija",
+      "UA": "Ukraina",
+      "UG": "Uganda",
+      "UM": "ASV Mazās Aizjūras salas",
+      "US": "Amerikas Savienotās Valstis",
+      "UY": "Urugvaja",
+      "UZ": "Uzbekistāna",
+      "VA": "Vatikāns",
+      "VC": "Sentvinsenta un Grenadīnas",
+      "VE": "Venecuēla, Bolivāra Republika",
+      "VG": "Britu Virdžīnu salas",
+      "VN": "Vjetnama",
+      "VU": "Vanuatu",
+      "WF": "Volisa un Futunas salas",
+      "WS": "Samoa",
+      "XK": "Kosovas Republika",
+      "YE": "Jemena",
+      "YT": "Majota",
+      "ZA": "Dienvidāfrika",
+      "ZM": "Zambija",
+      "ZW": "Zimbabve"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Būla",
+    "string": "Virkne",
+    "double": "Dubults",
+    "number": "Skaitlis",
+    "date": "Datums"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Punktu slānis",
+      "line": "Līniju slānis",
+      "polygon": "Poligonu slānis",
+      "table": "Tabula",
+      "multipoint": "Vairākpunktu slānis",
+      "multipatch": "Daudzformu slānis"
+    },
+    "placeholders": {
+      "point": "Punktu slāņa nosaukums",
+      "line": "Līniju slāņa nosaukums",
+      "polygon": "Laukumu slāņa nosaukums",
+      "table": "Tabulas nosaukums",
+      "multipoint": "Vairākpunktu slāņa nosaukums"
+    },
+    "creationType": {
+      "template": "Veidne",
+      "existing": "Esošs elementu serviss",
+      "link": "URL",
+      "build": "Izveidot no nulles",
+      "generic": "Iekļaut nepieciešamos slāņus vai tabulas, kuras vēlaties iekļaut elementu slānī."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Nav izvēlēts neviens slānis",
+      "description": "Lai turpinātu, atlasiet elementu slāni."
+    },
+    "invalidUrl": {
+      "title": "Nederīgs slānis",
+      "description": "Šajā slānī ir atsauces uz pakalpojuma veidu, kas netiek atbalstīts."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Norādīt nosaukumu un veidu",
+    "layerPreferences": "Opcijas",
+    "captureGPS": "Pievienot GPS metadatu laukus",
+    "captureGPSDescription": "Pievienojiet laukus slāņiem, kas atbalsta GPS uztvērēja informācijas tveršanu.",
+    "enableZDefaults": "Iespējot Z-vērtības",
+    "enableZDefaultsDescription": "Atļauj modelēt punktu, polilīniju un laukumu elementus 3D vidē.",
+    "enableZDefaultsDefaultValue": "Z vērtības noklusējums:",
+    "enableMDefaults": "Iespējot M vērtības",
+    "enableMDefaultsDescription": "Ļauj saglabāt mērījumu vai vērtību katrā ģeometrijas virsotnē.",
+    "layer": "Slānis",
+    "table": "Tabula",
+    "add": "Pievienot",
+    "error": {
+      "emptyName": {
+        "title": "Trūkst slāņa nosaukuma",
+        "description": "Nedrīkst būt tukši slāņu nosaukumi"
+      },
+      "duplicateTitle": {
+        "title": "Slāņu nosaukumiem ir jābūt unikāliem.",
+        "description": "Nevar būt slāņi ar tādu pašu nosaukumu"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Nav izvēlēta neviena veidne",
+    "errorDescription": "Lai turpinātu, atlasiet veidni."
+  },
+  "featureLayerFromUrl": {
+    "description": "Norādiet URL uz elementu pakalpojumu",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "Tukšs URL",
+        "description": "Ievadiet derīgu URL"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "Neatbalstīts URL",
+        "description": "Norādiet URL uz elementu slāni. Slānim URL ir jāietver FeatureServer."
+      },
+      "serviceNotExist": {
+        "title": "Serviss nepastāv",
+        "description": "Serviss nepastāv vai tam nevar piekļūt."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Slāņa dati",
+    "deselectAnyLayers": "Noņemiet atlasi visiem slāņiem, kurus vēlaties noņemt.",
+    "deselectAll": "Noņemt izvēli visam",
+    "selectAll": "Izvēlēties visu",
+    "error": {
+      "noLayer": {
+        "title": "Nav izvēlēts neviens slānis",
+        "description": "Izvēlieties vismaz vienu slāni"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Izvēlēties opciju, lai izveidotu tukšu elementu slāni.",
+    "subheading": "TODO: sniedziet aprakstu šeit.",
+    "options": {
+      "build": {
+        "title": "Definēt savu slāni",
+        "description": "Norādiet slāņus un tabulas."
+      },
+      "template": {
+        "title": "Izmantot veidni",
+        "description": "Izmantot veidnes slāņus un laukus."
+      },
+      "existing": {
+        "title": "Atlasiet esošu elementu slāni",
+        "description": "Izmantot slāņus un laukus no esošā organizācijas elementu slāņa."
+      },
+      "link": {
+        "title": "Nodrošiniet ArcGIS Server slāņa URL",
+        "description": "Izmantot slāņus un laukus no ArcGIS Server elementu slāņa."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Akreditācijas datu veidi",
+    "redirectUrlsTitle": "Novirzīšanas URL",
+    "redirectUrlsDescription": "Pievienojiet atļautos URL tīmekļa lapai vai servera galapunktam, lai novirzītu lietotājus pēc autentifikācijas pabeigšanas.",
+    "refererrUrlsTitle": "Atsauces avoti",
+    "refererrUrlsDescription": "Atļaut piekļuvi no noteiktiem HTTP/HTTPS domēniem. HTTP atsauces galvenes vērtība, ar kuru saskaņot. Varat izmantot *, kā aizstājējzīmi. Piemēram, http://*.your-app.com. Lai iegūtu plašāku informāciju, skatiet sadaļu Drošība un autentifikācija.",
+    "oauth2Hint": "OAuth 2.0 var izmantot, lai autentificētā lietotāja vārdā autentificētu ArcGIS lietotājus piekļūt saturam un ar atrašanās vietu saistītiem pakalpojumiem. Lai uzzinātu vairāk, skatiet ${apiLinkStart}drošības un autentifikācijas ceļvedi.${endLink}",
+    "oauth2HintNoLink": "OAuth 2.0 var izmantot, lai autentificētā lietotāja vārdā autentificētu ArcGIS lietotājus piekļūt saturam un ar atrašanās vietu saistītiem pakalpojumiem.",
+    "applicationEnvTitle": "Lietotnes vide",
+    "applicationEnvDescription": "Lietotnes vide ietekmēs to, kad vienība tiks parādīta filtrētajos meklēšanas rezultātos.",
+    "registering": "Lietotnes reģistrēšana...",
+    "applicationEnvOptions": {
+      "multiple": "Vairāki",
+      "browser": "Pārlūks",
+      "native": "Vietējais",
+      "server": "Serveris"
+    },
+    "options": {
+      "apiKey": {
+        "title": "API atslēga",
+        "description": "Izmantojiet API atslēgas, lai piekļūtu ArcGIS novietojuma servisiem un papildu saturam savās lietotnēs."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 lietotnes definīcijas tiek izmantotas, lai autentificētu ArcGIS lietotājus, strādātu ar lietotāja saturu un piekļūtu novietojuma servisiem autentificēto lietotāju vārdā."
+      }
+    },
+    "onboard": {
+      "title": "Akreditācijas datu veidi",
+      "apiKey": {
+        "title": "API atslēgas",
+        "description": "Izmantojiet API atslēgas, lai piekļūtu novietojuma servisiem un papildu saturam savās lietotnēs. Skatiet kartēšanas API un novietojuma servisu ceļvedi, lai uzzinātu vairāk par API atslēgu izmantošanu, lai piekļūtu servisiem."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 var izmantot, lai autentificētā lietotāja vārdā autentificētu ArcGIS lietotājus piekļūt saturam un ar atrašanās vietu saistītiem pakalpojumiem. Lai uzzinātu vairāk, skatiet drošības un autentifikācijas ceļvedi."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "Novirzīšanas URL nevar būt tukši",
+        "description": "Pievienojiet vismaz vienu novirzīšanas URL."
+      },
+      "referrerEmpty": {
+        "title": "Atsauces URL nevar būt tukši",
+        "description": "Pievienojiet vismaz vienu atsauces URL."
+      },
+      "registerError": {
+        "title": "Reģistrējot lietotni, radās kļūda",
+        "description": "Vienībai nevar izveidot reģistrētu lietotni."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Novirzīšanas URL nederīga(-as) rakstzīme(-es)",
+        "description": "Nevar izmantot šādas rakstzīmes: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Novirzīšanas URL nederīga(-as) rakstzīme(-es)",
+        "description": "Speciālās rakstzīmes nav atļautas."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Novietojuma servisi",
+    "description": "Iestatiet tvērumus, lai piešķirtu piekļuvi noteiktiem ArcGIS novietojuma servisiem. Uzzināt vairāk par drošību un autentifikāciju.",
+    "requiredService": "Nepieciešamais serviss",
+    "availableServices": "Pieejamie servisi",
+    "services": {
+      "basemap": {
+        "heading": "Pamatkartes"
+      },
+      "geocodingStored": {
+        "heading": "Ģeokodēšana (saglabāts)",
+        "description": "Piekļūstiet ģeokodēšanas servisam, lai veiktu ģeokodēšanu un reverso ģeokodēšanu, ieskaitot ieteikumu un vietas meklēšanas atbalstu. Jūs varat saglabāt rezultātus."
+      },
+      "geocodingNotStored": {
+        "heading": "Ģeokodēšana (nav saglabāts)",
+        "description": "Piekļūstiet ģeokodēšanas servisam, lai veiktu ģeokodēšanu un reverso ģeokodēšanu, ieskaitot ieteikumu un vietas meklēšanas atbalstu. Jūs nedrīkstat saglabāt rezultātus."
+      },
+      "optimizedRouting": {
+        "heading": "Optimizēta maršrutēšana",
+        "description": "Piekļūstiet maršrutēšanas servisam, lai atrastu labāko secību novietojumu apmeklēšanai."
+      },
+      "closestFacility": {
+        "heading": "Tuvākā ēka",
+        "description": "Piekļūstiet Tuvāka ēka servisam, lai atrastu vienu vai vairākas ēkas, kas ir vistuvāk negadījumam atkarībā no braukšanas laika vai attāluma."
+      },
+      "locationAllocation": {
+        "heading": "Novietojuma piešķiršana",
+        "description": "Piekļūstiet novietojuma piešķiršanas servisam, lai izvēlētos, kuras ēkas no ēku kopas izmantot, ņemot vērā to potenciālo mijiedarbību ar pieprasījuma punktiem."
+      },
+      "multiVehicleRouting": {
+        "heading": "Vairāku transportlīdzekļu maršrutēšana",
+        "description": "Piekļūstiet transportlīdzekļa maršrutēšanas problēmu servisam, lai noteiktu, kādas pieturas jāveic katrā maršrutā un kādā secībā jāapmeklē pieturas."
+      },
+      "costMatrix": {
+        "heading": "Sākumpunkta/galamērķa izmaksu matrica",
+        "description": "Piekļūstiet OD matricas servisam, lai izveidotu sākumpunkta/galamērķa (OD) izmaksu matricu no vairākiem avotiem vairākiem adresātiem."
+      },
+      "geoEnrichment": {
+        "heading": "GeoEnrichment",
+        "description": "Piekļūstiet GeoEnrichment servisam, lai iegūtu atribūtus, pārskatus un datos balstītas infografikas, kas apraksta demogrāfiskos, uzņēmējdarbības un citus novietojumā balstītus raksturlielumus pētāmajiem apgabaliem un vietām."
+      },
+      "routing": {
+        "heading": "Maršrutēšana",
+        "description": "Piekļūstiet maršrutēšanas servisam, lai atrastu labāko veidu, kā nokļūt no viena novietojuma citā vai apmeklēt vairākus novietojumus."
+      },
+      "serviceArea": {
+        "heading": "Servisa teritorija",
+        "description": "Piekļūstiet servisa teritorijas pakalpojumam, lai izveidotu teritoriju, kas norāda attālumu, ko var sasniegt, pārvietojoties pa ceļu tīklu."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Izvēlieties opciju, lai izveidotu meklētāju",
+    "options": {
+      "locator": {
+        "title": "Izveidojiet meklētāju no ģeokodēšanas pakalpojuma",
+        "description": "Norādiet vietrādi (URL) esošajam ArcGIS Server ģeokodēšanas pakalpojumam."
+      },
+      "locator-view": {
+        "title": "Izveidojiet meklētāja skatu no ArcGIS World Geocoding Service.",
+        "description": "Konfigurējiet savu skatu, lai tas atbilstu noteiktiem novietojuma veidiem noteiktās valstīs vai apgabalos."
+      }
+    },
+    "url": {
+      "heading": "URL",
+      "description": "Norādiet ģeokodēšanas pakalpojuma vietrādi (URL)"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Kāda veida mozaīku slāni vēlaties izveidot?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Vektoru mozaīkas slānis",
+        "description": "Ātra karšu vizualizācija, izmantojot iepriekš zīmētu vektora mozaīku kolekciju, kas pielāgojas ierīces displeja izšķirtspējai un ko var atkārtoti izmantot dažādiem mērķiem."
+      },
+      "raster": {
+        "title": "Rastra mozaīkas slānis",
+        "description": "Ātra karšu vizualizācija, izmantojot iepriekš zīmētus karšu attēlus vai mozaīkas."
+      },
+      "3dTiles": {
+        "title": "3D mozaīkas slānis",
+        "description": "Ātra 3D vizualizācija, izmantojot tīkla 3D mozaīkas datu kopu."
+      }
+    },
+    "sourceHeading": "Izvēlēties metodi, lai izveidotu mozaīkas slāni",
+    "sourceOptions": {
+      "existing": {
+        "title": "Pārlūkojiet esošu elementu slāni",
+        "description": "Kā ātrās zīmēšanas mozaīku slāņa avotu izvēlieties viesoto elementu slāni no jūsu satura."
+      },
+      "upload": {
+        "title": "Augšupielādēt mozaīkas pakotni",
+        "titleRaster": "Augšupielādēt mozaīkas pakotni vai servisa definīciju",
+        "description": "Augšupielādēt pakotni no jūsu vietējās ierīces.",
+        "rasterDescription": "Augšupielādēt pakotni vai pakalpojuma definīciju no jūsu vietējās ierīces."
+      },
+      "store": {
+        "title": "Izvēlēties datu kopu no datu krātuves",
+        "description": "Pārlūkojiet mozaīkas saturu, kas atrodas reģistrētā datu krātuvē."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Nosaukums",
+    "titlePlaceholder": "Mozaīkas slāņa nosaukums",
+    "attribution": "Attiecinājums",
+    "subdomain": "Apakšdomēns",
+    "subDomainPlaceholder": "Piemēram: a, b, c vai mozaīka1, mozaīka2, mozaīka3",
+    "setTileExtent": "Iestatīt mozaīkas pārklājumu pašreizējam kartes pārklājumam",
+    "setTileExtentTooltip": "Vietrādī URL var būt arī vietturis apakšdomēniem, kuros tiek glabātas kartes mozaīkas.",
+    "error": {
+      "title": "Norādiet virsrakstu",
+      "attribution": "Norādiet attiecinājumu"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Nevarēja izveidot mozaīku slāni",
+        "description": "Izvēlētajam elementu slānim jau pastāv mozaīkas slānis. Izvēlieties citu."
+      },
+      "badRenderer": {
+        "title": "Nevarēja izveidot mozaīku slāni",
+        "description": "Atlasītajam elementu slānim ir zīmēšanas stils, ko nevar zīmēt kā mozaīkas. Izvēlieties citu."
+      },
+      "noLayerSelected": {
+        "title": "Nav izvēlēts neviens slānis",
+        "description": "Lai turpinātu, atlasiet elementu slāni."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Izvēlēties opciju, lai izveidotu scēnas slāni",
+    "options": {
+      "store": {
+        "title": "Izvēlēties datu kopu no datu krātuves",
+        "description": "Pārlūkot scēnu saturu failā vai mākoņdatu krātuvē, kas reģistrēta ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Augšupielādēt scēnu pakotni",
+        "description": "Augšupielādēt pakotni no vietējās ierīces."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Izvēlēties pakotni no vietējās ierīces"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Kāda veida mozaīku slāni vēlaties izveidot?",
+    "options": {
+      "vectorTiles": {
+        "title": "Vektoru mozaīkas slānis",
+        "description": "Ātra karšu vizualizācija, izmantojot iepriekš zīmētu vektora mozaīku kolekciju, kas pielāgojas ierīces displeja izšķirtspējai un ko var atkārtoti izmantot dažādiem mērķiem."
+      },
+      "tiles": {
+        "title": "Rastra mozaīkas slānis",
+        "description": "Ātra karšu vizualizācija, izmantojot iepriekš zīmētus karšu attēlus vai mozaīkas."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Pārskatīt un lietot opcijas mozaīkas slānim.",
+    "visibilityRange": "Redzamības diapazons",
+    "visibilityRangeDescription": "Šis diapazons ietekmēs mozaīku vizualizāciju kartē. To var atjaunināt.",
+    "basemapOption": "Mozaīkas veidošanas shēma",
+    "autoCreateOption": {
+      "title": "Izveidojiet elementus automātiski",
+      "description": "Elementi tiks izveidoti pēc pieprasījuma un saglabāti vēlākai lietošanai."
+    },
+    "onlineBasemapOption": {
+      "title": "ArcGIS Online pamatkartes",
+      "description": "Izmantot ArcGIS Online pamatkartes mozaīkas veidošanas shēmu. Ļauj rādīt slāni, izmantojot ArcGIS Online pamatkartes."
+    },
+    "customBasemap": {
+      "title": "Pielāgots",
+      "description": "Izmantot tādu pašu mozaīkas veidošanas shēmu kā esošam mozaīkas slānim vai kartes attēla slānim. Ļauj rādīt slāni ar izvēlēto slāni."
+    },
+    "customBasemapUrl": "Saite uz esošu mozaīku slāni",
+    "ranges": {
+      "world": "Pasaule (1:100 000 000)",
+      "continent": "Kontinents (1:50 000 000)",
+      "countries": "Valstis — lielas (1:25 000 000)",
+      "countriesSmall": "Valstis — mazas (1:12 000 000)",
+      "states": "Štati/Provinces (1:6 000 000)",
+      "state": "Štats/Province (1:3 000 000)",
+      "counties": "Apgabali (1:1 500 000)",
+      "county": "Apgabals (1:750 000)",
+      "metropolitan": "Lielpilsētas teritorija (1:320 000)",
+      "cities": "Pilsētas (1:160 000)",
+      "city": "Pilsēta (1:80 000)",
+      "town": "Pilsēta (1:40 000)",
+      "neighborhood": "Apkaime (1:20 000)",
+      "streets": "Ielas (1:10 000)",
+      "street": "Iela (1:5000)",
+      "buildings": "Ēkas (1:2500)",
+      "building": "Ēka (1:1250)",
+      "small": "Maza ēka (1:800)",
+      "rooms": "Telpas (1:400)",
+      "room": "Telpa (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Mozaīku slāņa kļūda",
+      "mapServiceError": "Pieprasījumu izgūt mozaīkas veidošanas shēmu nevarēja izpildīt. Pārliecinieties, vai ArcGIS mozaīkas slānis ir aktīvs un reaģē uz pieprasījumiem.",
+      "noTilingSchemeFound": "ArcGIS mozaīkas slānim nav noteikta mozaīkas slāņa veidošanas shēma.",
+      "noMatchSpatialRef": "Mozaīkas veidošanas shēmas telpiskai atskaitei jāatbilst elementu slāņa telpiskai atsaucei.",
+      "noFileSelected": "Jānorāda mozaīkas veidošanas shēmas fails."
+    }
+  },
+  "dataStore": {
+    "header": "Izvēlēties datu kopu",
+    "fileName": "Faila nosaukums",
+    "fileType": "Faila veids",
+    "paginationRange": "${start} - ${end} no ${total}",
+    "processing": "Satura uzskaitīšana...",
+    "emptyFolder": "Šī mape ir tukša.",
+    "error": {
+      "noDatasetErrorHeading": "Nav izvēlēta neviena datu kopa",
+      "noDatasetErrorDescription": "Izvēlieties datu kopu, lai turpinātu",
+      "listing": {
+        "heading": "Nevar uzskaitīt datu krātuves saturu",
+        "description": "Uzskaitot datu krātuves saturu, radās kļūda."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Atlasiet pievienojamo datu krātuves veidu.",
+    "description": "Līdzsvarojiet kustīgas struktūras, lai nodrošinātu stabilu saikni",
+    "subOptionsHeading": "Pievienot savienojumu datu krātuvei",
+    "subOptionsCloudDescription": "Izvēlieties pievienojamās mākoņkrātuves noviedojuma veidu",
+    "subOptionsDatabaseDescription": "Izvēlieties pievienojamo datu bāzes veidu",
+    "databaseDescriptionForOnline": "Izveidot savienojumu ar mākoņa datu noliktavu",
+    "options": {
+      "folder": {
+        "title": "Mape",
+        "description": "Izveidot savienojumu ar failu sistēmas mapi vai failu koplietošanu"
+      },
+      "database": {
+        "title": "Datu bāze",
+        "description": "Izveidot savienojumu ar saistījumu datubāzi vai mākoņdatu krātuvi",
+        "descriptionNoSql": "Izveidot savienojumu ar saistījumu datu bāzi, NoSQL datu bāzi vai mākoņdatu krātuvi"
+      },
+      "cloud": {
+        "title": "Mākoņkrātuve",
+        "description": "Izveidot savienojumu ar mākoņkrātuves novietojumu"
+      },
+      "bdfs": {
+        "title": "Lielapjoma datu faila koplietošana",
+        "description": "Izveidot savienojumu ar novietojumu, kas ir pieejama jūsu GeoAnalytics Server vietnē"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Savienojums ar NoSQL datu bāzi"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Norādiet savienojuma vai atrašanās vietas informāciju, lai ArcGIS Server vietnes varētu piekļūt datiem.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MyFileServer\\GlobalData",
+      "heading": "Izdevēja mapes ceļš",
+      "hostname": "Izdevēja mapes resursdatora nosaukums",
+      "hostnameInfo": "Tas ir nepieciešams, kad izdevēja mapes ceļš ir dziņa burta novietojums"
+    },
+    "serverFolderPath": {
+      "heading": "Servera mapes ceļš",
+      "sameAsPublisher": "Tāds pats kā izdevēja mapes ceļš",
+      "newPath": "Jauns ceļš",
+      "nfsHostAndPath": {
+        "description": "NFS resursdators un ceļš",
+        "hostname": "NFS resursdatora nosaukums:",
+        "sharePath": "NFS koplietošanas ceļš:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData or /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Trūkst izdevēja mapes ceļš",
+        "description": "Datu krātuvei ir jānorāda izdevēja mapes ceļš"
+      },
+      "invalidPublisherHostName": {
+        "heading": "Trūkst izdevēja resursdatora nosaukums",
+        "description": "Datu krātuvei ir jānorāda izdevēja resursdatora nosaukums"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Trūkst izdevēja servera mapes ceļš",
+        "description": "Datu krātuvei ir jānorāda izdevēja servera mapes ceļš"
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "Trūkst NFS resursdatora nosaukuma un NFS koplietošanas ceļa",
+        "description": "Datu krātuvei ir jānorāda NFS resursdatora nosaukums un NFS koplietošanas ceļš"
+      },
+      "invalidNfsHostName": {
+        "heading": "Trūkst NFS resursdatora nosaukums",
+        "description": "Datu krātuvei ir jānorāda NFS resursdatora nosaukums"
+      },
+      "invalidNfsPath": {
+        "heading": "Trūkst NFS koplietošanas ceļa",
+        "description": "Datu krātuvei ir jānorāda NFS koplietošanas ceļš"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Izvēlieties datu bāzes veidu.",
+    "options": {
+      "relational": {
+        "title": "Saistījumu datubāze",
+        "description": "Izveidot savienojumu ar saistījumu datubāzi"
+      },
+      "cloudDataWarehouse": {
+        "title": "Mākoņa datu noliktava",
+        "description": "Izveidot savienojumu ar mākoņa datu noliktavu"
+      },
+      "nosql": {
+        "title": "NoSQL datu bāze",
+        "description": "Izveidot savienojumu ar NoSQL datu bāzi"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Norādiet savienojuma vai atrašanās vietas informāciju, lai ArcGIS Server vietnes varētu piekļūt datiem.",
+    "publisherDatabaseConnection": "Izdevēja datubāzes savienojums",
+    "serverDatabaseConnection": "Servera datubāzes savienojums",
+    "sameAsPublisher": "Tāpat kā izdevēja datubāzes savienojums",
+    "newConnection": "Jauns savienojums",
+    "sdeFile": "(.sde fails)",
+    "dragAndDropOrSelectFile": "Velciet un nometiet vai izvēlieties .sde failu",
+    "selectFile": "Izvēlieties failu",
+    "chooseDifferentFile": "Izvēlēties citu failu",
+    "importingConnectionFile": "Importē savienojuma failu...",
+    "fileChosen": "Izvēlētais fails",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Izveidot savienojumu ar Google BigQuery"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Izveidot savienojumu ar Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Izveidot savienojumu ar Amazon S3"
+      },
+      "azure": {
+        "title": "Microsoft Azure krātuve",
+        "description": "Izveidot savienojumu ar Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "Jūsu portāls nav konfigurēts, izmantojot viesošanas serveri; tas ir nepieciešams, lai pabeigtu datu krātuves izveidi. Pārbaudiet viesošanas servera konfigurāciju un mēģiniet vēlreiz.",
+      "invalidPublisherConnectionFile": {
+        "heading": "Trūkst izdevēja savienojuma faila",
+        "description": "Datu krātuvei ir jānorāda izdevēja savienojuma fails."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "Trūkst servera savienojuma faila",
+        "description": "Datu krātuvei ir jānorāda servera savienojuma fails."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Serveris",
+    "authenticationType": "Autentifikācijas veids",
+    "userAuthentication": "Lietotāja autentifikācija",
+    "serviceAuthentication": "Servisa autentifikācija",
+    "refreshToken": "Atsvaidzināt pilnvaru",
+    "keyFile": "Atslēgas fails",
+    "projectId": "Projekta ID",
+    "defaultDataset": "Noklusējuma datu kopa",
+    "username": "Lietotājvārds",
+    "password": "Parole",
+    "role": "Loma",
+    "database": "Datu bāze",
+    "schema": "Shēma",
+    "warehouse": "Noliktava",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Izmantot .json failu",
+    "notJson": "Vienīgais akceptētais faila veids ir .json fails",
+    "dataStoreConnection": "Datu krātuves savienojums",
+    "validating": "Savienojuma validēšana...",
+    "selectKeyFile": "Izvēlēties atslēgas failu",
+    "errors": {
+      "validationFailedTitle": "Validācija neizdevās",
+      "validationFailedDescription": "Akreditācijas datu validācija neizdevās. Pārbaudiet, vai norādījāt pareizo informāciju, un mēģiniet vēlreiz.",
+      "incorrectLogin": "Norādītie akreditācijas dati ir nepareizi vai nederīgi.",
+      "noKeyFile": "“Atslēgas fails” ir obligāti aizpildāms lauks.",
+      "noProjectId": "“Projekta ID” ir obligāti aizpildāms lauks.",
+      "noServer": "“Serveris” ir obligāti aizpildāms lauks.",
+      "noDatabase": "“Datu bāze” ir obligāti aizpildāms lauks.",
+      "noSchema": "“Shēma” ir obligāti aizpildāms lauks.",
+      "noWarehouse": "“Noliktava” ir obligāti aizpildāms lauks.",
+      "noRole": "“Loma” ir obligāti aizpildāms lauks."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Norādiet lielapjoma datu faila koplietojuma veidu, kas tiks pievienots GeoAnalytics serverim.",
+    "locationInfo": "Norādiet novietojuma informāciju, lai GeoAnalytics serveris varētu piekļūt datiem.",
+    "username": "Lietotājvārds",
+    "useKerberos": "Izmantot Kerberos",
+    "keytabLocations": "Keytab novietojumi",
+    "principalUser": "Galvenais lietotājs",
+    "principalRealm": "Galvenais nozarojums",
+    "cloudSelectType": "Atlasiet pievienojamo datu krātuves veidu.",
+    "cloudSelectProvider": "Atlasiet mākoņkrātuves pakalpojuma nodrošinātāju.",
+    "cloudTypes": {
+      "new": "Jauns",
+      "existing": "Esošs"
+    },
+    "cloudSearch": "Izvēlēties esošo mākoņkrātuvi:",
+    "cloudSearchPlaceholder": "Ierakstiet, lai meklētu datu krātuvēs",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Microsoft Azure krātuve",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2"
+    },
+    "database": {
+      "heading": "Datu bāze",
+      "nonDefault": {
+        "description": "Izmantojiet datubāzi, kas nav noklusējuma datubāze (noklusējuma datubāzes nosaukums)",
+        "placeholder": "noklusējums"
+      }
+    },
+    "metastoreUri": {
+      "heading": "Metadatu krātuves URL",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Ceļš",
+      "filesharePlaceholder": "\\\\MyFileServer\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Faila koplietošana",
+        "description": "Lokālā diska vai tīkla koplietojuma datu kopu direktorijs"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Hadoop Distributed File System (HDFS) datu kopas direktorijs"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Apache Hive datu noliktava"
+      },
+      "cloud": {
+        "title": "Mākoņkrātuve",
+        "description": "Izveidot savienojumu ar mākoņkrātuves novietojumu"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Nav atlasīts neviens lielapjoma datu faila koplietošanas veids",
+        "description": "Lai turpinātu, izvēlieties liela datu faila koplietošanas veidu."
+      },
+      "noPathSelected": {
+        "heading": "Trūkst ceļa",
+        "description": "Datu krātuvei ir jānorāda ceļš."
+      },
+      "noMetastoreUri": {
+        "heading": "Trūkst metadatu krātuves URI",
+        "description": "Jums jānorāda vismaz viens metadatu krātuves URI."
+      },
+      "noDataStoreSelected": {
+        "heading": "Nav izvēlēta neviena datu krātuve",
+        "description": "Lai turpinātu, izvēlieties datu krātuvi."
+      },
+      "noCloudSelected": {
+        "heading": "Nav izvēlēts neviens mākoņpakalpojumu sniedzējs",
+        "description": "Lai turpinātu, izvēlieties mākoņpakalpojumu sniedzēju."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Atlasiet mākoņkrātuves pakalpojuma nodrošinātāju.",
+    "connectionInfoEnterprise": "Norādiet savienojuma vai atrašanās vietas informāciju, lai ArcGIS Server vietnes varētu piekļūt datiem.",
+    "connectionInfoOnline": "Norādiet savienojuma informāciju",
+    "provider": "Mākoņkrātuves pakalpojuma nodrošinātājs",
+    "authenticationType": "Autentifikācijas veids",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Koplietota atslēga",
+      "sasToken": "Koplietots piekļuves paraksts",
+      "anonymous": "Anonīmi"
+    },
+    "identityType": "Identificēt veidu",
+    "identityTypes": {
+      "servicePrincipal": "Galvenais serviss",
+      "userAssignedIdentity": "Lietotāja piešķirta pārvaldāma identitāte"
+    },
+    "token": "Pilnvara",
+    "tenantId": "Nomnieka ID",
+    "clientId": "Klienta ID",
+    "optionalClientId": "Klienta ID (pēc izvēles)",
+    "clientSecret": "Klienta noslēpums",
+    "accountName": "Konta nosaukums",
+    "accountKey": "Konta atslēga",
+    "environment": "Vide",
+    "storageDomain": "Krātuves domēns",
+    "other": "Cits",
+    "endpoint": "Galapunkts",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net vai DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Konteinera nosaukums",
+    "credentialType": "Lietotāja rekvizītu veids",
+    "accessKey": "Piekļuves atslēga",
+    "secretKey": "Slepenā atslēga",
+    "sharedKey": "Koplietota atslēga",
+    "region": "Reģions",
+    "bucketName": "Intervāla nosaukums",
+    "cloudFolder": "Mape (pēc izvēles)",
+    "validating": "Savienojuma validēšana...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Google mākoņkrātuve",
+      "azure": "Microsoft Azure krātuve",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+      "alibaba": "Alibaba mākoņkrātuve"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Nav izvēlēts neviens mākoņpakalpojumu sniedzējs",
+        "description": "Lai turpinātu, izvēlieties mākoņpakalpojumu sniedzēju."
+      },
+      "onlineValidationFailed": {
+        "heading": "Savienojuma kļūda",
+        "description": "Savienojumu nevarēja validēt; pārbaudiet, vai informācija ir pareiza."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Piekļuves atslēga",
+      "privateKey": "Privāta atslēga",
+      "IAMRole": "IAM loma"
+    },
+    "custom": "Pielāgots",
+    "storageURL": "Privāts vietrādis (URL)",
+    "cloudFolderPlaceHolder": "mākonis/arcgis",
+    "errorInfo": "${missingField} ir nepieciešams",
+    "invalidEndpoint": "Galapunktam jāizmanto https",
+    "and": "un"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Atlasiet NoSQL pakalpojumu sniedzēju.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Pakalpojuma sniedzējs",
+    "errorMessage": "Kļūdas ir šādos laukos: ${missingFields}",
+    "connectionUri": "Savienojuma URI",
+    "username": "Lietotājvārds",
+    "password": "Parole",
+    "database": "Datu bāze",
+    "credentialDescription": "Norādiet NoSQL savienojuma informāciju, lai atļautu ArcGIS Server vietnēm piekļūt datiem.",
+    "connectionUriExample": "Piemērs: protocol://hostname:port",
+    "fallBackServers": "Atrites serveri (neobligāti)",
+    "fallBackServersExample": "Piemērs: hostname1:port1,hostname2:port2",
+    "and": "un",
+    "error": "Kļūda",
+    "hosts": "Resursdators (-i)",
+    "useSsl": "Lietot SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Konfigurēt serverus",
+      "subHeading": "Izvēlēties ArcGIS Server vietni, kurā vēlaties publicēt slāni."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Izvēlieties ArcGIS Server vietnes, kurām pievienot savu datu krātuvi.",
+      "bdfsHeading": "Jūsu koplietotie lielie dati tiks pievienoti vietnei ArcGIS GeoAnalytics Server.",
+      "subHeading": "Vietnei jānodrošina piekļuve savienojumam vai atrašanās vietai, ko norādījāt iepriekšējā darbībā.",
+      "noServerSelected": {
+        "heading": "Nav izvēlēts neviens serveris",
+        "description": "Izvēlieties vismaz vienu serveri, lai turpinātu."
+      }
+    },
+    "list": {
+      "title": "Serveris",
+      "status": "Statuss"
+    },
+    "status": {
+      "success": "Parasts",
+      "failure": "Nav pieejams",
+      "error": "Kļūda",
+      "validating": "Notiek validācija"
+    },
+    "loader": {
+      "validating": "Serveru validēšana..."
+    },
+    "error": {
+      "noServerSelectedHeading": "Nav izvēlēts neviens serveris",
+      "noServerSelectedDescription": "Izvēlieties serveri, lai turpinātu."
+    },
+    "types": {
+      "hostedSetting": "Viesošanas serveris",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Raster Analysis",
+      "imageHostingSetting": "Image Hosting",
+      "missionServerSetting": "Mission Server"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Meklēt datu krātuvi",
+    "heading": "Izvēlēties datu krātuvi",
+    "subHeading": "Meklēt failu vai mākoņdatu krātuvi, kas reģistrēta ArcGIS Enterprise.",
+    "cloud": "Mākonis",
+    "folder": "Mape",
+    "processing": "Datu krātuves tveršana...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Nav izvēlēta neviena datu krātuve",
+        "description": "Jums jāizvēlas vismaz viena datu krātuve."
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Datu krātuvei nav reģistrētu serveru",
+        "description": "Izvēlētā datu krātuve nav reģistrēta ArcGIS Server vietnē. Reģistrējiet to vietnē, lai turpinātu."
+      },
+      "noContentInDataStore": {
+        "heading": "Datu krātuvē nav derīgu datu kopu",
+        "description": "Izvēlētajā datu krātuvē nav publicēšanai derīgu datu kopu."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Kļūda",
+    "errorDescription": "Pievienojot šo vienību, radās kļūda.",
+    "alreadyExists": {
+      "title": "Esošs fails",
+      "description": "Šajā mapē jau ir fails ar nosaukumu “${fileName}”. Mainiet mapi vai pārdēvējiet failu un mēģiniet vēlreiz.",
+      "linkText": "Skatīt esošo vienību"
+    },
+    "arcgisServerUpload": {
+      "title": "Nevar publicēt vienību",
+      "description": "Šis servisa definīcijas fails tika izveidots ArcGIS Server vietnei, un ir jāaugšupielādē ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Nederīgs Shape fails",
+      "description": "Augšupielādētais fails nesatur shape failu."
+    },
+    "invalidGeodatabase": {
+      "title": "Nederīga ģeodatubāze",
+      "description": "Augšupielādētais fails nesatur faila ģeodatubāzi."
+    },
+    "serviceNameExists": {
+      "title": "Pakalpojuma nosaukums nav pieejams",
+      "description": "Organizācijā jau pastāv publicēts serviss ar šādu nosaukumu. Servisu nosaukumiem organizācijā jābūt unikāliem. Izmantojiet citu nosaukumu."
+    },
+    "invalidGeoJSON": {
+      "title": "Nederīgs GeoJSON",
+      "description": "JSON fails, kuru augšupielādējat, nav derīgs GeoJSON (trūkst “veids”)."
+    },
+    "invalidJSON": {
+      "title": "Nederīgs JSON",
+      "description": "JSON fails, kuru augšupielādējat, nav derīgs JSON."
+    },
+    "failDatastorePublish": {
+      "title": "Nevar publicēt no datu krātuves",
+      "description": "Neizdevās publicēt ${type}, lai iegūtu vairāk informācijas, skatiet servera žurnālus.",
+      "tileLayer": "mozaīkas slānis",
+      "sceneLayer": "scēnas slānis"
+    },
+    "invalidSpatialRef": {
+      "title": "Nederīga telpiskā atskaite",
+      "description": "Šim servisam ir nesaderīga telpiskā atskaite"
+    },
+    "uploading": "Augšupielādē ${type}...",
+    "adding": "${type} pievienošana...",
+    "addDataStore": "Pievieno ${type} datu glabātuvi...",
+    "creating": "Izveido ${type}...",
+    "publishing": "Publicē ${type}...",
+    "checkingStatus": "Notiek statusa pārbaude...",
+    "publishingService": "Publicē servisu...",
+    "appendingPhotos": "Augšupielādē fotoattēlus...",
+    "errorPublishing": "Publicējot šo servisu, radās kļūda.",
+    "howWillAdd": "Kā tiks pievienots ${fileName}?",
+    "howWillAddService": "Kā serviss tiks pievienots?",
+    "howWillAddDescription": "Šis fails tiks izmantots, lai izveidotu ${type} vienību.",
+    "howWillAddSecuredServiceDescription": "Šis serviss tiks izmantots, lai izveidotu ArcGIS vienības starpniekserveri, kas pārsūta lietotāja pieprasījumus ar pievienotu pilnvaru.",
+    "howWillAddHostedDescription": "Šis fails tiks izmantots, lai izveidotu viesotu elementu slāni vai tabulu.",
+    "item": "Vienība",
+    "folder": "Mape",
+    "database": "Datu bāze",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Skatīt satura pievienošanas padomus",
+    "title": "Satura pievienošanas padomi",
+    "addDocumentTitle": "Pievienot dokumentus, attēlus un citus failus",
+    "addDocumentContent": "Velciet un nometiet PDF failu, attēlu, Office dokumentu un citus formātus.",
+    "publishLayerTitle": "Publicējiet slāņus no shape failiem, CSV un izklājlapām",
+    "publishLayerContent": "Pārveidojiet failus, kas ir jūsu ierīcē vai mākoņu diskos, par slāņiem, kurus varat pievienot kartēm.",
+    "publishLayerEnterprise": "Pārveidojiet failus slāņos, kurus var pievienot kartēm",
+    "linkLayerTitle": "Saite uz slāņiem tīmeklī",
+    "linkLayerContent": "Izveidojiet slāņus no vietrāžu URL, kas norāda uz ArcGIS Server, OGC servisiem un KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "mozaīkas pakotne",
+      "Vector Tile Package": "vektoru mozaīkas pakotne",
+      "Service Definition": "servisa definīcija",
+      "Scene Package": "scēnas slāņa pakotne",
+      "Desktop Application Template": "darbvirsmas lietotnes veidne",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shape fails",
+      "File Geodatabase": "faila ģeodatubāze",
+      "Map Template": "kartes sagatave",
+      "Geoprocessing Sample": "ģeoapstrādes paraugs",
+      "Code Sample": "koda paraugs",
+      "ArcPad Package": "ArcPad pakotne",
+      "CAD Drawing": "CAD zīmējums",
+      "CSV Collection": "CSV kolekcija",
+      "KML Collection": "KML kolekcija",
+      "AppBuilder Widget Package": "AppBuilder logrīku pakotne",
+      "Photos with Locations": "attēli ar atrašanās vietām",
+      "Image Collection": "attēlu kolekcija",
+      "iWork Pages": "iWork Pages",
+      "iWork Numbers": "iWork Numbers",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "deep learning pakotne",
+      "GML": "GML",
+      "Application": "lietotne",
+      "Google Sheets": "Google Sheets",
+      "GeoPackage": "GeoPackage",
+      "Tile Layer": "mozaīkas slānis",
+      "OGCFeatureServer": "OGC elementu slānis",
+      "FeatureServer": "elementu serviss",
+      "3DTiles Package": "3D mozaīkas pakotne"
+    },
+    "mvText": {
+      "WMTS": "OGC WMTS tīmekļa serviss",
+      "WMS": "OGC WMS tīmekļa serviss",
+      "WFS": "OGC WFS tīmekļa serviss",
+      "AGS": "ArcGIS Servera tīmekļa serviss",
+      "OGCFeatureServer": "OGC API - Elementi"
+    },
+    "howToAdd": "Kā vēlaties pievienot šo failu?",
+    "nonHostedTitle": "Pievienot tikai ${fileName}",
+    "nonHostedDescription": "Pievienot ${type} bez publicēšanas. Failu var koplietot un lejupielādēt citi lietotāji vai varat publicēt to vēlāk."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Kļūda, analizējot failu",
+      "description": "Mēģinot analizēt failu, radās kļūda. Pārbaudiet, vai fails ir pareizi formatēts.",
+      "alreadyExists": {
+        "title": "Esošs fails",
+        "desciption": "Šajā mapē jau ir fails ar nosaukumu “${fileName}”. Pārdēvējiet failu un mēģiniet vēlreiz.",
+        "linkText": "Skatīt esošo vienību"
+      },
+      "duplicateFields": {
+        "title": "Dublēt lauku nosaukumus",
+        "description": "Dublēti lauku nosaukumi nav atļauti."
+      },
+      "emptyFile": "Augšupielādētajā failā nav datu.",
+      "missingGeocoder": {
+        "title": "Meklētājs nav pieejams",
+        "descriptionn": "Noklusējuma meklētājs nav pieejams. Sazinieties ar administratoru, lai pārskatītu savas organizācijas ģeokodēšanas iestatījumu."
+      }
+    },
+    "publishThisSheet": "Publicēt šo lapu:",
+    "largeGeoJsonTitle": "Liels GeoJSON",
+    "largeGeoJsonDescription": "Ja šajā GeoJSON ir liels datu apjoms, apsveriet iespēju publicēt to kā viesotu elementu slāni, lai panāktu labāko rezultātu.",
+    "largeGeoJsonConditionDescription": "Ja šajā GeoJSON ir liels datu apjoms, lai iegūtu vislabākos rezultātus, tā vietā izveidojiet viesotu elementu slāni.",
+    "bigGeoJsonHint": "Lai nodrošinātu labāku veiktspēju, šos datus kartei var pievienot tikai kā viesotu elementu slāni.",
+    "bigGeoJsonHintNoPrivilege": "Šie dati ir pārāk lieli, lai tos pievienotu kartei. Tā vietā tie ir jāpublicē kā viesots elementu slānis.",
+    "bigGeoJsonHintPublicAccount": "Šie dati ir pārāk lieli, lai tos pievienotu kartei. Tā vietā tie ir jāpublicē kā viesots elementu slānis. Jauniniet uz ArcGIS Online abonementu, lai publicētu lielākus datus kā viesotus slāņus.",
+    "uploading": "Augšupielādē ${item}...",
+    "analyze": "Notiek analīze ${fileName}...",
+    "checkingStatus": "Notiek statusa pārbaude...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Pievienot datus un izveidot viesotu elementu slāni",
+        "description": "Publicēt GeoJSON failu kā viesotu elementu slāni"
+      },
+      "nonHosted": {
+        "title": "Pievienot tikai datus",
+        "description": "Importēt GeoJSON failu bez publicēšanas. Failu var koplietot vai lejupielādēt citi lietotāji, vai publicēt vēlāk."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Slāņa veids"
+    },
+    "hostedTitle": {
+      "CSV": "Pievienot ${fileName} un izveidot viesotu elementu slāni vai tabulu",
+      "CSVNoTable": "Pievienot ${fileName} un izveidot viesotu elementu slāni",
+      "GeoPackage": "Pievienot ${fileName} un izveidot viesotu elementu slāni",
+      "GeoJson": "Pievienot ${fileName} un izveidot viesotu elementu slāni",
+      "JSON": "Pievienot ${fileName} un izveidot viesotu elementu slāni",
+      "Tile Package": "Pievienot ${fileName} un izveidot viesotu slāni",
+      "Vector Tile Package": "Pievienot ${fileName} un izveidot viesotu mozaīkas slāni",
+      "Service Definition": "Pievienot ${fileName} un izveidot viesotu slāni",
+      "Scene Package": "Pievienot ${fileName} un izveidot viesotu scēnas slāni",
+      "Image Collection": "Pievienot ${fileName} un izveidot viesotu attēlu slāni",
+      "Desktop Application Template": "Pievienot ${fileName} un izveidot viesotu elementu slāni",
+      "Microsoft Excel": "Pievienot ${fileName} un izveidot viesotu elementu slāni vai tabulu",
+      "Google Sheets": "Pievienot ${fileName} un izveidot viesotu elementu slāni vai tabulu",
+      "3DTiles Package": "Pievienojiet ${fileName} un izveidojiet viesotu 3D mozaīkas slāni"
+    },
+    "hostedDescription": {
+      "CSV": "CSV fails ar informāciju par novietojumu ir datu avots viesotam elementu slānim, kas attēlo punktus kartē. CSV failā bez informācijas par novietojumu tiek attēlota tabula, ko var skatīt, kartēt un savienot ar citiem slāņiem.",
+      "GeoPackage": "GeoPackage ar informāciju par novietojumu ir avots viesotam slānim, kas attēlo punktus kartē. GeoPackage bez informācijas par novietojumu tiek attēlots kā tabula, ko var skatīt, kartēt un savienot ar citiem slāņiem.",
+      "GeoJson": "Publicēt GeoJSON failu kā viesotu elementu slāni. Elementi tiek publicēti WGS 1984 Web Mercator koordinātu sistēmā.",
+      "JSON": "Publicēt JSON failu kā viesotu elementu slāni. Elementi tiek publicēti WGS 1984 Web Mercator koordinātu sistēmā.",
+      "tile package": "Publicējiet rastra mozaīku pakotni kā viesotu slāni.",
+      "vector tile package": "Publicēt vektoru mozaīku pakotni kā viesotu mozaīku slāni.",
+      "Service Definition": "Publicēt servisa definīcijas failu kā viesotu slāni. Publicētais slāņa veids ir atkarīgs no SD faila satura.",
+      "Scene Package": "Publicēt scēnu slāņa pakotni kā viesotu scēnu slāni.",
+      "Image Collection": "Publicēt attēlu kolekcijas ZIP failu kā viesotu attēlu slāni.",
+      "Desktop Application Template": "Publicēt darbvirsmas lietotnes veidni (ZIP) kā viesotu elementu slāni. Darbvirsmas lietotnes veidne, kurā ir novietojuma informācija, ir datu avots viesotam elementu slānim, kas attēlo punktus kartē. Darbvirsmas lietotnes veidne bez novietojuma informācijas tiek attēlota kā tabula, ko var skatīt, kartēt un savienot ar citiem slāņiem.",
+      "Microsoft Excel": "Publicēt viesotu elementu slāni, ņemot vērā jūsu izklājlapu. Izklājlapas bez informācijas par novietojumu tiks attēlotas kā tabulas, ko var skatīt, kartēt un savienot ar citiem slāņiem.",
+      "Google Sheets": "Publicēt viesotu elementu slāni, ņemot vērā jūsu izklājlapu. Izklājlapas bez informācijas par novietojumu tiks attēlotas kā tabulas, ko var skatīt, kartēt un savienot ar citiem slāņiem.",
+      "3DTiles Package": "Publicējiet savu 3D mozaīkas pakotni kā viesotu 3D mozaīkas slāni."
+    },
+    "addDirectlyTitle": "Augšupielādēt failu kā vienību un pievienot to kartei",
+    "addDirectlyUrlTitle": "Izveidot atsauci uz failu, izmantojot URL, un pievienot to kartei",
+    "addDirectlyDescription": "Pievienot datus, neveidojot viesotu elementu slāni. Ideāli piemērots mazākām, ārēji pārvaldītām datu kopām, kurām nav nepieciešamas tādas funkcijas kā rediģēšana.",
+    "addDirectlyUrlDescription": "Pievienot datus, neveidojot viesotu elementu slāni. Ideāli piemērots mazākām datu kopām, kurām nav nepieciešamas tādas funkcijas kā rediģēšana. Dati tiek ielādēti ikreiz, kad karte tiek atvērta.",
+    "hostedMVTitle": "Izveidot viesotu elementu slāni un pievienot to kartei",
+    "hostedMVDescription": "Izmantot visas funkcijas, ko nodrošina elementu slānis, ieskaitot rediģēšanu. Pilnībā pārvaldiet datus pakalpojumā ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "Fails",
+    "itemType": "Faila veids",
+    "language": "Valoda",
+    "other": "Cits",
+    "hosted": {
+      "heading": "Pievienot ${fileName} un izveidot viesotu elementu slāni",
+      "description": "Pievienot ${type} un publicēt kā viesnotu elementu slāni, ko var pievienot kartei."
+    },
+    "type": "Veids",
+    "ArcPad": {
+      "project": "ArcPad projekts",
+      "template": "ArcPad veidne"
+    },
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Vektora datu glabāšanas formāts ģeogrāfisko elementu novietojuma, formas un atribūtu uzglabāšanai. Shape fails tiek glabāts saistītu failu kopā un satur vienu elementu klasi."
+    },
+    "File Geodatabase": {
+      "title": "Faila ģeodatubāze",
+      "description": "Failu kolekcija mapē, ko izmanto gan telpisko, gan netelpisko datu glabāšanai, apkopošanai un pārvaldībai."
+    },
+    "Desktop Application Template": {
+      "title": "Darbvirsmas lietotnes veidne",
+      "description": "Faili, dati un lietotnes kods, kas izvietots darbvirsmā, lai lietotu to kopā ar ArcGIS."
+    },
+    "Map Template": {
+      "title": "Kartes veidne",
+      "description": "Kartes veidne ir kartes dokuments (.mxd), no kura programmā ArcMap var izveidot jaunus dokumentus."
+    },
+    "Geoprocessing Sample": {
+      "title": "Ģeoapstrādes paraugs",
+      "description": "Rīklodziņu, skriptu, modeļu, datu un papildfailu kolekcija, ko izmanto ģeoapstrādes rīku palaišanai pakalpojumā ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Koda paraugs",
+      "description": "Koplietojams koda paraugs dažādās programmēšanas valodās, piemēram, Java vai C++."
+    },
+    "ArcPad Package": {
+      "title": "ArcPad pakotne",
+      "description": "ArcPad pakotnes faili, kas ģenerēti, izmantojot ArcPad datu pārvaldnieku."
+    },
+    "CAD Drawing": {
+      "title": "CAD zīmējums",
+      "description": "Datorizēti dizaina faili, ko ģenerē AutoCAD vai MicroStation platformas."
+    },
+    "CSV Collection": {
+      "title": "CSV kolekcija",
+      "description": "CSV kolekcija ir .zip fails, kurā katram slānim ir viens CSV fails."
+    },
+    "KML Collection": {
+      "title": "KML kolekcija",
+      "description": "KML kolekcija ir .zip fails, kurā katram slānim ir viens KML fails."
+    },
+    "AppBuilder Widget Package": {
+      "title": "AppBuilder logrīku pakotne",
+      "description": "Pielāgots logrīks vai motīvs paplašina ArcGIS Web AppBuilder iespējas"
+    },
+    "Photos with Locations": {
+      "title": "Attēli ar atrašanās vietām",
+      "description": "ZIP fails, kurā ir fotoattēli ar informāciju par novietojumu (ģeoreferencēti fotoattēli ar EXIF novietojuma informāciju)"
+    },
+    "Image Collection": {
+      "title": "Attēlu kolekcija",
+      "description": "Lejupielādējamo rastra datu kopu kolekcija."
+    },
+    "iWork Pages": {
+      "title": "iWork Pages",
+      "description": "Apple dokumentu formāts"
+    },
+    "iWork Numbers": {
+      "title": "iWork Numbers",
+      "description": "Apple izklājlapas formāts"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Apple prezentācijas formāts"
+    },
+    "Deep Learning Package": {
+      "title": "Deep Learning pakotne",
+      "description": "Faili un dati, kas nepieciešami, lai palaistu Deep learning mašīnmācīšanās loģisko secinājumu rīkus, ko izmanto kā ievadi padziļinātās mašīnmācīšanās rastra analīzes rīkiem."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML ir OGC XML standarts, kas attēlo telpisko elementu informāciju"
+    },
+    "Application": {
+      "title": "Lietotne",
+      "description": "Darbvirsmām paredzēta lietotne, kas izveidota uz darbvirsmas platformas, piemēram, Java vai .NET (Microsoft Windows Desktop)."
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Atlasīt slāni, ko pievienot",
+    "selectTile": "Matricas nosaukums",
+    "featureType": "Attēlojamā elementa veids",
+    "matrixNotSelected": "Izvēlieties servisa mozaīkas matricu.",
+    "selectGeometry": "Izvēlieties veidu",
+    "selectGeometryError": "Izvēlieties parādāmā elementa veidu.",
+    "points": "Punkti",
+    "lines": "Līnijas",
+    "polygons": "Poligoni",
+    "default": "noklusējums",
+    "maxFeature": "Maksimālais elementu limits",
+    "layers": "slāņi",
+    "usePro": "Šai datu kopai ir vairāk nekā 1000 slāņu. Ievadiet meklējamo terminu, lai atrastu konkrētu slāni.",
+    "noLayersFound": "Nav atrasts neviena slānis, kas atbilstu jūsu kritērijiem. Mēģiniet mainīt savu meklēšanas kritēriju, lai redzētu vairāk slāņu."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Lietotne",
+      "description": "Pievienot URL atsauci esošai lietotnei, lai koplietotu savu darbu ar jūsu organizācijas dalībniekiem un plašu sabiedrību."
+    },
+    "AGS": {
+      "title": "ArcGIS Servera tīmekļa serviss",
+      "description": "ArcGIS Server tīmekļa serviss ataino ĢIS resursu, piemēram, karti vai attēlu, kas atrodas ArcGIS Server vietnē un ir pieejams klientu lietotnēm, piemēram, Map Viewer."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "Ar komatiem atdalītu vērtību teksta fails"
+    },
+    "Document Link": {
+      "title": "Dokuments",
+      "description": "Izveidot saiti uz tiešsaistes dokumentu, kuram ir URL atsauce."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Atvērta standarta ģeotelpisko datu apmaiņas formāts, kas attēlo vienkāršus ģeogrāfiskos elementus."
+    },
+    "Tile Layer": {
+      "title": "Mozaīkas slānis",
+      "description": "Karšu attēlu mozaīku kopa, kur formatētais URL nodrošina līmeņa, kolonnu un rindu vietturus un papildu apakšdomēnu: https://domain.com/<path>/{z}{x}{y}.png un https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML ir XML failu formāts, ko izmanto, lai attēlotu ģeogrāfiskos elementus tādās lietotnēs kā ArcGIS Earth un Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "OGC elementu slānis",
+      "description": "OGC elementu slānis ir elementu pakalpojums, kas seko OGC API — elementu specifikācijai."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "OGC Web Feature Service (WFS) ir dinamisks elementu serviss, kas atbilst OGC specifikācijām."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "OGC Web Map Service (WMS) ir dinamisks elementu serviss, kas atbilst OGC specifikācijām."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "OGC Web Map Title Service (WMTS) ir kešoto attēlu mozaīku kopa, kas atbilst OGC specifikācijām. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Tiešraides tīmekļa plūsma, kurā ir iekļauti ģeogrāfiskie elementi un novietojumi."
+    },
+    "useAsBaseMap": "Lietot kā pamatkarti",
+    "undetected": "Izvēlieties slāņa veidu",
+    "label": "Veids",
+    "storeAuth": "Glabāt akreditācijas datus (credentials) kopā ar servisa vienību. Neprasīt autentifikāciju.",
+    "storeAuthMV": "Saglabāt akreditācijas datus kopā ar slāni. Neprasīt autentifikāciju.",
+    "learnMore": "Uzzināt vairāk par autentifikāciju.",
+    "isSecure": "Noteikts drošs serviss",
+    "serviceNotExist": "Serviss nepastāv vai tam nevar piekļūt.",
+    "getServiceInfo": "Izgūst servisa informāciju...",
+    "unknownAGSType": "Šis servisa veids netiek atbalstīts.",
+    "errorMessage": "Veidojot savienojumu ar servisu, radās kļūda.",
+    "serviceNotGIS": "Ievadītais vietrādis URL nenorāda uz ĢIS servisu.",
+    "unsupportedWFSVersion": "Šī WFS versija netiek atbalstīta.",
+    "unsupportedWFSGeoJSONOutputFormat": "WFS serviss neatbalsta GeoJSON izvades formātu.",
+    "invalidWMTS": "Šis WMTS netiek atbalstīts.",
+    "flowAborted": "Veidojot savienojumu ar servisu, radās kļūda. Šis pakalpojums ir drošs, un tam nepieciešama autentifikācija.",
+    "invalidSpatialRef": "Šim servisam ir nesaderīga telpiskā atskaite",
+    "emptyFeatureLayer": "Serviss ir tukšs"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00)  Rietumu datuma maiņas līnija",
+      "110": "(UTC-11:00) Universālais koordinētais laiks -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Havajas",
+      "300": "(UTC-09:00) Aļaska",
+      "400": "(UTC-08:00) Klusā okeāna laika josla (ASV un Kanāda)",
+      "410": "(UTC-08:00) Lejaskalifornija",
+      "500": "(UTC-07:00) Ziemas laika josla (ASV un Kanāda)",
+      "510": "(UTC-07:00) Čivava, Lapasa, Masatlana",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskačevana",
+      "610": "(UTC-06:00) Centrālamerika",
+      "620": "(UTC-06:00) Centrālā laika josla (ASV un Kanāda)",
+      "630": "(UTC-06:00) Gvadalahara, Mehiko, Montereja",
+      "700": "(UTC-05:00) Austrumu laika josla (ASV un Kanāda)",
+      "710": "(UTC-05:00) Bogota, Lima, Kito",
+      "720": "(UTC-05:00) Indiāna (austrumi)",
+      "730": "(UTC-04:30) Karakasa",
+      "800": "(UTC-04:00) Atlantijas laiks (Kanāda)",
+      "810": "(UTC-04:00) Kujaba",
+      "820": "(UTC-04:00) Santjago",
+      "830": "(UTC-04:00) Džordžtauna, Lapasa, Manausa, Sanhuana",
+      "850": "(UTC-04:00) Asunsjona",
+      "900": "(UTC-03:30) Ņūfaundlenda",
+      "910": "(UTC-03:00) Brazilja",
+      "920": "(UTC-03:00) Grenlande",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Kajenna, Fortaleza",
+      "950": "(UTC-03:00) Buenosairesa",
+      "1000": "(UTC-02:00) Vidusatlantija",
+      "1010": "(UTC-02:00) Koordinētais universālais laiks -02",
+      "1100": "(UTC-01:00) Azoras",
+      "1110": "(UTC-01:00) Kaboverde",
+      "1200": "(UTC) Dublina, Edinburga, Lisabona, Londona",
+      "1210": "(UTC) Monrovija, Reikjavīka",
+      "1220": "(UTC) Kasablanka",
+      "1230": "(UTC) Universālais koordinētais laiks",
+      "1300": "(UTC+01:00) Belgrada, Bratislava, Budapešta, Ļubļana, Prāga",
+      "1310": "(UTC+01:00) Sarajeva, Skopje, Varšava, Zagreba",
+      "1320": "(UTC+01:00) Brisele, Kopenhāgena, Madride, Parīze",
+      "1330": "(UTC+01:00) Centrālāfrikas rietumdaļa",
+      "1340": "(UTC+01:00) Amsterdama, Berlīne, Berne, Roma, Stokholma, Vīne",
+      "1350": "(UTC+01:00) Vindhūka",
+      "1400": "(UTC+02:00) Minska",
+      "1410": "(UTC+02:00) Kaira",
+      "1420": "(UTC+02:00) Helsinki, Kijeva, Rīga, Sofija, Tallina, Viļņa",
+      "1430": "(UTC+02:00) Atēnas, Bukareste",
+      "1440": "(UTC+02:00) Jeruzaleme",
+      "1450": "(UTC+02:00) Ammāna",
+      "1460": "(UTC+02:00) Beirūta",
+      "1470": "(UTC+02:00) Harare, Pretorija",
+      "1480": "(UTC+02:00) Damaska",
+      "1490": "(UTC+02:00) Stambula",
+      "1500": "(UTC+03:00) Kuveita, Rijāda",
+      "1510": "(UTC+03:00) Bagdāde",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaļiņingrada",
+      "1535": "(UTC+03:30) Teherāna",
+      "1540": "(UTC+04:00) Maskava, Sanktpēterburga, Volgograda",
+      "1600": "(UTC+04:00) Abū Dabī, Maskata",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Erevāna",
+      "1640": "(UTC+04:00) Tbilisi",
+      "1650": "(UTC+04:00) Portluī",
+      "1660": "(UTC+04:30) Kabula",
+      "1710": "(UTC+05:00) Taškenta",
+      "1715": "(UTC+05:00) Islāmābāda, Karāči",
+      "1720": "(UTC+05:30) Čennai, Kalkāta, Mumbaja, Ņūdeli",
+      "1730": "(UTC+05:30) Šri Džajavardenepūra",
+      "1740": "(UTC+05:45) Katmandu",
+      "1755": "(UTC+06:00) Jekaterinburga",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Daka",
+      "1820": "(UTC+06:30) Jangona (Rangūna)",
+      "1830": "(UTC+07:00) Novosibirska",
+      "1900": "(UTC+07:00) Bangkoka, Hanoja, Džakarta",
+      "1910": "(UTC+08:00) Krasnojarska",
+      "2000": "(UTC+08:00) Pekina, Čuncjina, Honkonga, Urumči",
+      "2020": "(UTC+08:00) Kualalumpura, Singapūra",
+      "2030": "(UTC+08:00) Taibei",
+      "2040": "(UTC+08:00) Pērta",
+      "2050": "(UTC+08:00) Ulanbatora",
+      "2060": "(UTC+09:00) Irkutska",
+      "2100": "(UTC+09:00) Seula",
+      "2110": "(UTC+09:00) Osaka, Saporo, Tokija",
+      "2130": "(UTC+09:30) Dārvina",
+      "2140": "(UTC+09:30) Adelaida",
+      "2150": "(UTC+10:00) Jakutska",
+      "2200": "(UTC+10:00) Kanbera, Melburna, Sidneja",
+      "2210": "(UTC+10:00) Brisbena",
+      "2220": "(UTC+10:00) Hobārta",
+      "2240": "(UTC+10:00) Guama, Portmorsbi",
+      "2250": "(UTC+11:00) Vladivostoka",
+      "2300": "(UTC+11:00) Zālamana salas, Jaunkaledonija",
+      "2310": "(UTC+12:00) Magadana",
+      "2400": "(UTC+12:00) Fidži",
+      "2410": "(UTC+12:00) Oklenda, Velingtona",
+      "2430": "(UTC+12:00) Univerālais koordinētais laiks +12",
+      "2500": "(UTC+13:00) Nukualofa"
+    },
+    "defineTimezone": "Definējiet laika joslu",
+    "title": "Laika josla",
+    "subTitle": "Atlasiet laika joslu, kurā atrodas dati."
+  },
+  "hybridImageSelect": {
+    "heading": "Kuru slāņa veidu vēlaties pievienot?",
+    "ImageServer": {
+      "title": "Dinamisks attēlu slānis",
+      "description": "Pievienojiet dinamisku attēlu slāni, kas atbalsta apstrādi serverī pēc pieprasījuma, kā arī atveidošanu."
+    },
+    "TiledImageServer": {
+      "title": "Mozaīkas attēlu slānis",
+      "description": "Pievienojiet mozaīkas attēlu slāni, kas atbalsta klienta projekcijas iespējas un atveidošanu no statiskas mozaīkas."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Izveidot slāņus un vairāk",
+    "developerCredentialsHeading": "Developer akreditācijas dati",
+    "developerCredentialsDescription": "Izveidojiet API atslēgu vai OAuth 2.0 akreditācijas datus, lai izveidotu pielāgotas lietotnes.",
+    "developerCredentialsNoAPIDescription": "Izveidojiet OAuth 2.0 akreditācijas datus, lai izveidotu pielāgotas lietotnes.",
+    "featureLayerHeading": "Elementu slānis",
+    "featureLayerDescription": "Izveidojiet rediģējamus slāņus ar laukiem, kas nokopēti no veidnes vai elementu slāņa.",
+    "tileLayerHeading": "Mozaīkas slānis",
+    "tileLayerDescription": "Izveidojiet ātri uzzīmējamu vektora mozaīkas slāni vai rastra mozaīkas slāni.",
+    "sceneLayerHeading": "Scēnas slānis",
+    "sceneLayerDescription": "Izveidojiet ātri uzzīmējamu scēnas slāni, izmantojot 3D saturu.",
+    "imageLayerHeading": "Attēlu slānis",
+    "imageLayerDescription": "Izveidojiet tālizpētes attēlu slāni, izmantojot attēlus no sava datora.",
+    "locatorHeading": "Meklētājs",
+    "locatorViewHeading": "Meklētājs (skats)",
+    "locatorDescription": "Atrodiet vietas un adreses, izmantojot ArcGIS World Geocoding Service vai savu ģeokodēšanas pakalpojumu.",
+    "locatorOnlyDescription": "Atrodiet vietas un adreses, izmantojot savu ģeokodēšanas pakalpojumu.",
+    "urbanModelHeading": "Urban modelis",
+    "urbanModelDescription": "Izveidojiet pilsētas attīstības modeli, izmantojot interaktīvus plānošanas un dizaina rīkus.",
+    "urbanModelPermissionError": "Lai izveidotu Urban modeli, jums jābūt privilēģijām publicēt viesotu elementu slāni. Lai saņemtu palīdzību, sazinieties ar ArcGIS Online administratoru.",
+    "applicationHeading": "Lietotne",
+    "applicationDescription": "Saite uz lietotni tīmeklī vai izveidot jaunu reģistrētu lietotni.",
+    "urlHeading": "Vietrādis URL",
+    "urlDescription": "Saite uz ArcGIS Server tīmekļa pakalpojumu, CSV, OGC tīmekļa pakalpojumu, KML, GeoJSON vai dokumentu.",
+    "urlDescriptionEnterprise": "Saite uz ArcGIS Server tīmekļa pakalpojumu, CSV, OGC tīmekļa pakalpojumu, KML, GeoJSON vai dokumentu.",
+    "dataStoreHeading": "Datu krātuve",
+    "dataStoreConnectionDescription": "Pievienot savienojumu savai datu krātuvei.",
+    "dataStoreDescription": "Pievienot savienojumu jūsu pārvaldītai datu krātuvei",
+    "rasterFunctionTemplateHeading": "Rastra funkciju veidne",
+    "rasterFunctionTemplateDescription": "Izveidojiet rastra funkciju veidni, ko var izmantot ar attēlu slāņiem un rastra analīzē.",
+    "getSubscriptionInfo": "Notiek abonementa informācijas izgūšana..."
+  },
+  "url": {
+    "linkExisting": "Saite uz tīmeklī esošajiem slāņiem vai datiem",
+    "url": "URL",
+    "addUrl": "Pievienot URL",
+    "httpWarning": "HTTP URL izmantošana netiek atbalstīta. Izmantot HTTPS",
+    "serviceNotExist": "Serviss nepastāv vai tam nevar piekļūt.",
+    "invalidUrl": "Ievadiet derīgu URL.",
+    "invalidUrlWithType": "Ievadiet derīgu URL. Atbalstītie pakalpojumi ir ${typeList}",
+    "unknownAGSType": "Šis servisa veids netiek atbalstīts.",
+    "errorMessage": "Veidojot savienojumu ar servisu, radās kļūda."
+  },
+  "cloud": {
+    "google": "Savienojuma izveide ar Google Drive...",
+    "dropbox": "Savienojuma izveide ar Dropbox...",
+    "onedrive": "Savienojuma izveide ar OneDrive...",
+    "file": "Fails",
+    "zip": "Zip fails",
+    "filterFileType": "Filtrēt pēc faila veida",
+    "selectAFile": "Izvēlieties failu",
+    "noResults": "Faili nav atrasti. Mainīt meklēšanas terminu vai izvēlēties citu vienības veidu.",
+    "viewMore": "Skatīt vairāk",
+    "errorTitle": "Nav izvēlēts fails",
+    "errorMessage": "Izvēlieties failu, lai turpinātu",
+    "loadingFiles": "Failu ielāde...",
+    "searchFiles": "Meklēt failus",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "Zip fails",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Sheets"
+    },
+    "error": {
+      "generic": {
+        "title": "Kļūda",
+        "message": "Kļūda."
+      },
+      "popup": {
+        "title": "Uznirstošais logs bloķēts",
+        "message": "Nevar izveidot savienojumu ar jūsu Cloud Drive kontu. Pārbaudiet, vai ir izslēgts uznirstošo logu bloķētājs šai tīmekļa vietnei."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Parametru pielāgošana",
+    "parameter": "Parametrs",
+    "value": "Vērtība",
+    "addParameter": "Pievienot parametru",
+    "addValue": "Pievienot vērtību",
+    "newCustomParameter": "Pievienot pielāgotu parametru",
+    "description": "Pievienojiet parametrus, kas jāpievieno pieprasījumiem, lai piekļūtu šim servisam.",
+    "append": "Pievienot tikai tiem pieprasījumiem, kas zīmē vai veic vaicājumus slāņos",
+    "remove": "Noņemt pielāgoto parametru",
+    "helpText": "Ja tīmekļa pakalpojumam, kuru izmantojat, ir nepieciešams pievienot papildu parametrus pakalpojumam nosūtītajiem pieprasījumiem, varat tos iekļaut kā pielāgotus parametrus. Parametru nosaukumi un vērtības ir definētas pakalpojumā un ir specifiskas šim pakalpojumam."
+  },
+  "inputReadonly": {
+    "file": "Fails",
+    "url": "Vietrādis URL",
+    "dataStore": "Datu krātuves savienojums"
+  },
+  "layerSearch": {
+    "search": "Meklēt"
+  },
+  "appendSelect": {
+    "updateLayer": "Atjaunināt slāni",
+    "updateData": "Atjaunināt datus",
+    "chooseUpdate": "Izvēlieties, kāda veida atjaunināšana jāveic",
+    "insertOnlyEnabled": "Šis elementu pakalpojums atbalsta tikai jaunu elementu pievienošanu",
+    "options": {
+      "add": {
+        "title": "Pievienot elementus",
+        "description": "Pievienot jaunus elementus esošam slānim."
+      },
+      "update": {
+        "title": "Atjaunināt elementus",
+        "description": "Atjaunināt esošos elementus slānī."
+      },
+      "upsert": {
+        "title": "Pievienot un atjaunināt elementus",
+        "description": "Pievienot jaunus elementus slānim un vienlaikus atjaunināt esošos elementus."
+      },
+      "overwrite": {
+        "title": "Pārrakstīt visu elementu slāni",
+        "description": "Pārrakstiet visu slāni ar atjauninātajiem avota datiem."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "Notiek augšupielāde ${fileName}",
+      "updating": "Notiek atjaunināšana...",
+      "overwriting": "Notiek pārrakstīšana...",
+      "fetchingInfo": "Notiek informācijas iegūšana...",
+      "publishing": "Publicē...",
+      "appendCloseNotice": "Atstājiet pārlūka logu atvērtu, lai pārraudzītu pievienošanas darba statusu. Nepareizas konfigurācijas gadījumā varat mēģināt vēlreiz, neveicot avota faila atkārtotu augšupielādi."
+    },
+    "appendErrorMessages": {
+      "appendError": "Pievienojot vienību, radās kļūda."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Atlasīt datus",
+    "editStyle": "Aizstājiet slāņa stila failu ar atjauninātu versiju no datora.",
+    "file": "Fails",
+    "updateItem": "Atjaunināt vienību",
+    "overwriteFile": "Pārrakstīt failu",
+    "analyzing": "Notiek analīze...",
+    "sameFileNameDescription": "Augšupielādētajam failam ir jābūt ar tādu pašu nosaukumu un lauku nosaukumiem kā oriģinālajam failam ${fileName}",
+    "itemType": "Faila veids",
+    "learnMore": "Uzzināt vairāk par atbalstīto failu veidiem",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Vektora datu glabāšanas formāts ģeogrāfisko elementu novietojuma, formas un atribūtu uzglabāšanai. Shape fails tiek glabāts saistītu failu kopā un satur vienu elementu klasi."
+    },
+    "File Geodatabase": {
+      "title": "Faila ģeodatubāze",
+      "description": "Failu kolekcija mapē, ko izmanto gan telpisko, gan netelpisko datu glabāšanai, apkopošanai un pārvaldībai."
+    },
+    "errors": {
+      "providePath": "Jums ir jānorāda ceļš uz savu vienību.",
+      "sameFileName": "Lai atjauninātu šo vienumu, ir jāaugšupielādē fails ar nosaukumu ${x}.",
+      "invalidStyleFileExtension": "Nederīgs faila paplašinājums. Augšupielādētajam stilam jābūt .json faila paplašinājumam.",
+      "invalidStyleFile": "Nederīgs stila fails. Augšupielādētajiem stila failiem ir jābūt pareizi formatētiem.",
+      "errorWhileUpload": "Augšupielādējot vienību, radās kļūda.",
+      "errorExceedFileSize": "Failu neizdevās augšupielādēt. Tas pārsniedz pieļaujamo lielumu 1 GB.",
+      "errorUpdate": "Pārrakstot vienību, radās kļūda.",
+      "multiPatchErrorDescription": "Slānis, kuru mēģināt pievienot, satur daudzformas ģeometriju. Mēģiniet vēlreiz, izmantojot failu ar tādu pašu ģeometrijas veidu."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Izvēlieties, kā atjaunināt esošos elementus",
+    "itemPropertiesHeader": "Izvēlieties, kuras vienības rekvizītus vēlaties izmantot",
+    "appendOptions": {
+      "attribute": {
+        "title": "Tikai atribūti",
+        "description": "Atjaunināt esošos atribūtus."
+      },
+      "attributeAndGeometry": {
+        "title": "Ģeometrijas un atribūti",
+        "description": "Atjaunināt gan esošos atribūtus, gan ģeometrijas."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Augšupielādētās vienības rekvizīti",
+        "description": "Izmantot vienības rekvizītus no augšupielādētā faila. Mainot vienības rekvizītus, dati netiks mainīti."
+      },
+      "existing": {
+        "title": "Esošie vienības rekvizīti",
+        "description": "Saglabāt slāņa pakotnei esošos vienības rekvizītus. Izmantojot esošos rekvizītus, dati netiks mainīti."
+      }
+    },
+    "noGeometryMatchTitle": "Nevar atjaunināt ģeometriju",
+    "noGeometryMatchMessage": "Iespēja atjaunināt ģeometriju nav pieejama dažādiem ģeometrijas veidiem.",
+    "noGeometryTableMessage": "Tabulai nevar atjaunināt atribūtus un ģeometrijas."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "${uploadedFile} lapā izvēlieties ${featureLayerName} atjauninātos datus",
+    "chooseLayer": "${uploadedFile} slānī izvēlieties ${featureLayerName} atjauninātos datus",
+    "chooseServiceLayer": "Izvēlieties atjaunināmo slāni",
+    "paginationHeader": "${start} - ${end} no ${total}",
+    "noResults": "Nav atrastas vienības, kas atbilstu jūsu meklēšanas kritērijiem. Mēģiniet mainīt meklēšanas terminu vai notīrīt dažus filtrus, lai rādītu vairāk vienību.",
+    "sameGeometryWarningTitle": "Slāņiem jābūt ar vienādu ģeometrijas veidu",
+    "sameGeometryWarningDescription": "Failā ir dažādu slāņu ģeometriju veidi. Mēģiniet vēlreiz, izmantojot slāņus ar tādu pašu ģeometrijas veidu.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Nav atrasts neviens slānis",
+      "noMatchingLayerTypeError": "Augšupielādētajā failā netika atrasts neviens saderīgs slānis. Pārbaudiet failu un mēģiniet vēlreiz.",
+      "noSourceLayerSelected": "Lai pievienotu datus, izvēlieties atjaunināmo elementu slāni.",
+      "noDataLayerSelected": "Lai pievienotu datus, izvēlieties slāni, kas satur atjauninātos datus."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Pārrakstīt failu",
+    "header": "Izvēlēties pārrakstāmos datus",
+    "description": "Augšupielādētajam failam ir jābūt ar tādu pašu nosaukumu kā oriģinālajam failam ${insert file name}",
+    "proceed": "Turpināt",
+    "errors": {
+      "errorWhileUpdate": "Atjauninot vienību, radās kļūda.",
+      "exceedFileSizeLimit": "Failu neizdevās augšupielādēt. Tas pārsniedz pieļaujamo lielumu 1 GB.",
+      "errorPublishing": "Publicējot šo servisu, radās kļūda."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Faila veids",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Vektora datu glabāšanas formāts ģeogrāfisko elementu novietojuma, formas un atribūtu uzglabāšanai. Shape fails tiek glabāts saistītu failu kopā un satur vienu elementu klasi."
+    },
+    "File Geodatabase": {
+      "title": "Faila ģeodatubāze",
+      "description": "Failu kolekcija mapē, ko izmanto gan telpisko, gan netelpisko datu glabāšanai, apkopošanai un pārvaldībai."
+    },
+    "errors": {
+      "errorWhileUpload": "Kļūda, augšupielādējot vienību.",
+      "errorShpFile": "Nederīgs Shape fails.",
+      "errorFgdbFile": "Nederīga faila ģeodatubāze.",
+      "errorExceedFileSize": "Failu neizdevās augšupielādēt. Tas pārsniedz pieļaujamo lielumu 1 GB."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Izvēlēties atbilstošos laukus",
+    "description": "Izvēleties laukus no ${uploadedFileName}, kas atbilst laukiem ${featureLayerName}. Neatbilstoši lauki netiek atjaunināti viesotajā elementu slānī.",
+    "nonNullable": "Vērtības Null nav atļautas",
+    "originalField": {
+      "header": "Sākotnējais lauks",
+      "moreInfo": "Šie lauki ir atrodami elementu slānī ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Augšupielādētais lauks",
+      "moreInfo": "Šie lauki ir atrodami augšupielādētajā failā ${uploadedFileName} un tiek filtrēti pēc saderīgiem lauku veidiem."
+    },
+    "errors": {
+      "noFields": "Nav atrasts neviens lauks.",
+      "noKeyPairs": "Nav atrasts neviens atslēgu pāris.",
+      "noMatchedFields": "Lai pievienotu datus, nodrošiniet vienu vai vairāk atbilstošu lauku.",
+      "nonNullableErrorTitle": "Tukšas vērtības nav atļautas",
+      "nonNullableErrorTitleSingular": "Viens nedzēšams lauks ir tukšs",
+      "nonNullableErrorDescription": "Lauki, kas nepieļauj vērtības Null, nevar būt tukši. Pirms turpināt, saskaņojiet laukus."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Izvēlieties unikālo identifikatoru",
+    "selectUniqueIdentifierDescription": "Izvēlieties unikālu lauku no sākotnējā slāņa, kas atbilst augšupielādētā faila laukam.",
+    "originalField": {
+      "header": "Sākotnējais lauks",
+      "moreInfo": "Šie unikālie lauki ir atrodami elementu slānī ${featureLayerName}"
+    },
+    "uploadedField": {
+      "header": "Augšupielādētais lauks",
+      "moreInfo": "Šie lauki ir atrodami augšupielādētajā failā ${uploadedFileName} un tiek filtrēti pēc saderīgiem lauku veidiem."
+    },
+    "title": "Identificējiet atslēgas pāri",
+    "description": "Izvēlieties laukus, kas tika izmantoti slāņa unikālā identifikatora un augšupielādēto datu atbilstībai.",
+    "noKeyPair": "Lai atjauninātu esošos elementus, nodrošiniet sava unikālā identifikatora lauku atbilstību.",
+    "timezoneHeader": "Laika joslas izvēle",
+    "timezoneDescription": "Viesotajā elementu slānī ${featureLayerName} ir laika joslas dati, kas saglabāti ${featureLayerTimezone}. Ja augšupielādētajā failā ${uploadedFileName} ir laika joslas dati, kas nav UTC, pielāgojiet tos, kā paredzēts."
+  }
+}

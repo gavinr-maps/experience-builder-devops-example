@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Forudsig ved brug af tendensraster-v&aelig;rkt&oslash;jet beregner en forventet flerdimensional billedraster ved hj&aelig;lp af output-tendensbilledrasteren fra v&aelig;rkt&oslash;jet Generer tendensraster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Det flerdimensionale tendensbilledlag, der bruges til at analysere forudsigelsen.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variablen for det flerdimensionale tendensbilledlag, der bruges til at analysere forudsigelsen.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Den metode, der bruges til at tilvejebringe forudsigelsesdimensionv&aelig;rdier.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Defin&eacute;r start- og slutdato, h&oslash;jde eller dybde af dimensionsintervallet, der skal bruges i forudsigelsen.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>Startdato, h&oslash;jde eller dybde af dimensionsintervallet, der bruges i forudsigelsen.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Slutdato, h&oslash;jde eller dybde af dimensionsintervallet, der bruges i forudsigelsen.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Antallet af trin mellem to dimensionsv&aelig;rdier, der inkluderes i forudsigelsen.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Den enhed, der bliver brugt som intervalv&aelig;rdi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Den type output, der oprettes. Outputtet kan v&aelig;re et tile-billedlag eller et dynamisk billedlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

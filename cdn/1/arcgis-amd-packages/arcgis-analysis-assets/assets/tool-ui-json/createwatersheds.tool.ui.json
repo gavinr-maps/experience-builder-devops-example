@@ -1,0 +1,95 @@
+{
+  "toolName": "CreateWatersheds",
+  "version": "0.1.0",
+  "rules": [
+  ],
+  "environmentSettings": {
+    "raster": []
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputLayerLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_point", "feature_multiPoint"],
+          "required": true,
+          "hideSketch": false
+        }
+      ]
+    },
+    {
+      "label": "$inputPourPointSettingsGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputPourPointSettingsGroupText",
+      "UIparameters": [
+        {
+          "layout": "horizontal",
+          "name": "searchDistanceUnitGroup",
+          "UIparameters": [
+            {
+              "name": "searchDistance",
+              "label": "$searchDistanceLabel",
+              "componentName": "analysis-number-input",
+              "required": false,
+              "min": 0
+            },
+            {
+              "name": "searchUnits",
+              "label": "$searchDistanceUnitLabel",
+              "componentName": "analysis-string-input",
+              "choiceList": ["Feet", "Miles", "Kilometers", "Meters", "Yards"],
+              "choiceListLabels": {
+                "Feet": "$feet",
+                "Miles": "$miles",
+                "Kilometers": "$kilometers",
+                "Meters": "$meters",
+                "Yards": "$yards"
+              },
+              "defaultValue": "Meters",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "sourceDatabase",
+          "label": "$sourceDatabase",
+          "componentName": "analysis-string-input",
+          "required": false,
+          "visible": false
+        },
+        {
+          "name": "generalize",
+          "label": "$generalize",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "visible": false
+        }
+      ]
+    },
+
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputPolygonNameLabel",
+          "componentName": "analysis-string-input",
+          "required": true,
+          "placeholderText": "$outputNamePlaceholderText"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

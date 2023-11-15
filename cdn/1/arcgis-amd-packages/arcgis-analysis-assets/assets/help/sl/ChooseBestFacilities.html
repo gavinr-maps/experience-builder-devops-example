@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Izberi najbolj&scaron;e lokacije poi&scaron;če nabor lokacij, ki bodo najbolj zadovoljile povpra&scaron;evanje.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Cilj, ki mora biti uresničen pri razporejanju lokacij povpra&scaron;evanja za lokacije storitve.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Dodeli povpraševanje lokacijam storitve na podlagi kapacitete lokacije storitve in količine povpraševanja iz okolice. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Izbere lokacije storitev, tako da je skupni čas potovanja ali razdalje od vseh lokacij povpraševanja do njihove dodeljene lokacije storitve minimiziran. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Izbere lokacije storitev, tako je dodeljena največja količina povpraševanja, s celotnim povpraševanjem iz vsake lokacije povpraševanja, dodeljene eni lokaciji storitve, ki ji je najbližja. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Izbere lokacije storitev tako, da največja količina povpraševanj dodeljena brez preseganja kapacitete lokacij storitev. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Izbere najmanjše število lokacij storitev, potrebnih za doseganje določenega odstotka povpraševanja. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Način potovanja, ki bo uporabljen za določanje časa ali razdalje med lokacijami storitev in lokacijami povpra&scaron;evanja.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Datum in čas, ko se popotnik odpravi od lokacij storitev ali lokacij povpra&scaron;evanja.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Določa, ali se potovanje začne v objektih in se pomika navzven proti lokacijam povpra&scaron;evanja ali se začne na lokacijah povpra&scaron;evanja in se pomika navznoter proti objektom.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Določa, ali se potovanje začne v objektih in se pomika navzven proti lokacijam povpra&scaron;evanja ali se začne na lokacijah povpra&scaron;evanja in se pomika navznoter proti objektom.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Določa, ali se potovanje začne v objektih in se pomika navzven proti lokacijam povpra&scaron;evanja ali se začne na lokacijah povpra&scaron;evanja in se pomika navznoter proti objektom.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Določa, ali se potovanje začne v objektih in se pomika navzven proti lokacijam povpra&scaron;evanja ali se začne na lokacijah povpra&scaron;evanja in se pomika navznoter proti objektom.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Določa, ali se potovanje začne v objektih in se pomika navzven proti lokacijam povpra&scaron;evanja ali se začne na lokacijah povpra&scaron;evanja in se pomika navznoter proti objektom.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije s povpra&scaron;evanjem po storitvi, ki jo zagotavljajo lokacije storitve.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije s povpra&scaron;evanjem po storitvi, ki jo zagotavljajo lokacije storitve.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije s povpra&scaron;evanjem po storitvi, ki jo zagotavljajo lokacije storitve.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije s povpra&scaron;evanjem po storitvi, ki jo zagotavljajo lokacije storitve.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije s povpra&scaron;evanjem po storitvi, ki jo zagotavljajo lokacije storitve.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Določa, kako se povpra&scaron;evanje uporabi na vsaki lokaciji. Če je količina povpra&scaron;evanja enako za vse lokacije, izberite  <b>Vrednost</b>. Če se količina povpra&scaron;evanja razlikuje po lokaciji, izberite <b>Polje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Določa, kako se povpra&scaron;evanje uporabi na vsaki lokaciji. Če je količina povpra&scaron;evanja enako za vse lokacije, izberite  <b>Vrednost</b>. Če se količina povpra&scaron;evanja razlikuje po lokaciji, izberite <b>Polje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Določa, kako se povpra&scaron;evanje uporabi na vsaki lokaciji. Če je količina povpra&scaron;evanja enako za vse lokacije, izberite  <b>Vrednost</b>. Če se količina povpra&scaron;evanja razlikuje po lokaciji, izberite <b>Polje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Določa, kako se povpra&scaron;evanje uporabi na vsaki lokaciji. Če je količina povpra&scaron;evanja enako za vse lokacije, izberite  <b>Vrednost</b>. Če se količina povpra&scaron;evanja razlikuje po lokaciji, izberite <b>Polje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Določa, kako se povpra&scaron;evanje uporabi na vsaki lokaciji. Če je količina povpra&scaron;evanja enako za vse lokacije, izberite  <b>Vrednost</b>. Če se količina povpra&scaron;evanja razlikuje po lokaciji, izberite <b>Polje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Količina povpra&scaron;evanja na vsaki lokaciji povpra&scaron;evanja: Enako količina povpra&scaron;evanja se bo uporabila na vsaki lokaciji.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Količina povpra&scaron;evanja na vsaki lokaciji povpra&scaron;evanja: Enako količina povpra&scaron;evanja se bo uporabila na vsaki lokaciji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Količina povpra&scaron;evanja na vsaki lokaciji povpra&scaron;evanja: Enako količina povpra&scaron;evanja se bo uporabila na vsaki lokaciji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Količina povpra&scaron;evanja na vsaki lokaciji povpra&scaron;evanja: Enako količina povpra&scaron;evanja se bo uporabila na vsaki lokaciji.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Količina povpra&scaron;evanja na vsaki lokaciji povpra&scaron;evanja: Enako količina povpra&scaron;evanja se bo uporabila na vsaki lokaciji.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Polje iz sloja povpra&scaron;evanja, ki določa količino povpra&scaron;evanja za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Polje iz sloja povpra&scaron;evanja, ki določa količino povpra&scaron;evanja za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Polje iz sloja povpra&scaron;evanja, ki določa količino povpra&scaron;evanja za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Polje iz sloja povpra&scaron;evanja, ki določa količino povpra&scaron;evanja za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Polje iz sloja povpra&scaron;evanja, ki določa količino povpra&scaron;evanja za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Določa, ali je največja razdalja ali čas potovanja, dovoljena med lokacijami povpra&scaron;evanja in dodeljeno lokacijo storitve, določena z vrednostjo konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>) ali pa se največja meja ne uporabi (<b>Neomejeno</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Določa, ali je največja razdalja ali čas potovanja, dovoljena med lokacijami povpra&scaron;evanja in dodeljeno lokacijo storitve, določena z vrednostjo konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>) ali pa se največja meja ne uporabi (<b>Neomejeno</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Določa, ali je največja razdalja ali čas potovanja, dovoljena med lokacijami povpra&scaron;evanja in dodeljeno lokacijo storitve, določena z vrednostjo konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Določa, ali je največja razdalja ali čas potovanja, dovoljena med lokacijami povpra&scaron;evanja in dodeljeno lokacijo storitve, določena z vrednostjo konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>) ali pa se največja meja ne uporabi (<b>Neomejeno</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Določa, ali je največja razdalja ali čas potovanja, dovoljena med lokacijami povpra&scaron;evanja in dodeljeno lokacijo storitve, določena z vrednostjo konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>) ali pa se največja meja ne uporabi (<b>Neomejeno</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Razdalja ali čas potovanja, izven katerega povpra&scaron;evanje ne bo dodeljeno. Isti največji razpon potovanja bo uporabljen za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Razdalja ali čas potovanja, izven katerega povpra&scaron;evanje ne bo dodeljeno. Isti največji razpon potovanja bo uporabljen za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Razdalja ali čas potovanja, izven katerega povpra&scaron;evanje ne bo dodeljeno. Isti največji razpon potovanja bo uporabljen za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Razdalja ali čas potovanja, izven katerega povpra&scaron;evanje ne bo dodeljeno. Isti največji razpon potovanja bo uporabljen za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Razdalja ali čas potovanja, izven katerega povpra&scaron;evanje ne bo dodeljeno. Isti največji razpon potovanja bo uporabljen za vsako lokacijo.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Polje, ki vsebuje razdaljo ali čas potovanja izven katerega povpra&scaron;evanje ne bo dodeljeno.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Polje, ki vsebuje razdaljo ali čas potovanja izven katerega povpra&scaron;evanje ne bo dodeljeno.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Polje, ki vsebuje razdaljo ali čas potovanja izven katerega povpra&scaron;evanje ne bo dodeljeno.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Polje, ki vsebuje razdaljo ali čas potovanja izven katerega povpra&scaron;evanje ne bo dodeljeno.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Polje, ki vsebuje razdaljo ali čas potovanja izven katerega povpra&scaron;evanje ne bo dodeljeno.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Enote, ki se uporabijo za določanje največje razdalje ali časa potovanja.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Enote, ki se uporabijo za določanje največje razdalje ali časa potovanja.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Enote, ki se uporabijo za določanje največje razdalje ali časa potovanja.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Enote, ki se uporabijo za določanje največje razdalje ali časa potovanja.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Enote, ki se uporabijo za določanje največje razdalje ali časa potovanja.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Najmanj&scaron;i odstotek povpra&scaron;evanj, za katerega želite, da ga lokacije storitev zajamejo.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki prestavljajo lokacije, ki delujejo kot kandidati za lokacije storitev. Kandidati za lokacije storitev predstavljajo lokacije na katerih bodo zgrajene ali postavljene nove lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki prestavljajo lokacije, ki delujejo kot kandidati za lokacije storitev. Kandidati za lokacije storitev predstavljajo lokacije na katerih bodo zgrajene ali postavljene nove lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki prestavljajo lokacije, ki delujejo kot kandidati za lokacije storitev. Kandidati za lokacije storitev predstavljajo lokacije na katerih bodo zgrajene ali postavljene nove lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki prestavljajo lokacije, ki delujejo kot kandidati za lokacije storitev. Kandidati za lokacije storitev predstavljajo lokacije na katerih bodo zgrajene ali postavljene nove lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Določi, ali kapaciteto za vsakega kandidata za lokacijo storitev določa vrednost konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Kapaciteta vsakega kandidata za lokacijo storitve. Ista kapaciteta bo uporabljena za vsakega kandidata za lokacijo storitve.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Polje, ki vsebuje kapaciteto za vsako lokacijo storitve.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>&Scaron;tevilo kandidatov za lokacije storitev izmed katerih se izbira iz nabora kandidatov. Če navedete tako zahtevane kot kandidate za lokacije storitev, bodo lokacije storitev v sloju obveznih lokacij storitev uporabljene pred katerimi koli lokacijami storitev iz sloja kandidatov za lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>&Scaron;tevilo kandidatov za lokacije storitev izmed katerih se izbira iz nabora kandidatov. Če navedete tako zahtevane kot kandidate za lokacije storitev, bodo lokacije storitev v sloju obveznih lokacij storitev uporabljene pred katerimi koli lokacijami storitev iz sloja kandidatov za lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>&Scaron;tevilo kandidatov za lokacije storitev izmed katerih se izbira iz nabora kandidatov. Če navedete tako zahtevane kot kandidate za lokacije storitev, bodo lokacije storitev v sloju obveznih lokacij storitev uporabljene pred katerimi koli lokacijami storitev iz sloja kandidatov za lokacije storitev.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Določa ali so kot vnosi uporabljeni samo kandidati za lokacije storitev (ni omogočeno) ali če so obvezne nekatere lokacije storitev (omogočeno).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Določa ali so kot vnosi uporabljeni samo kandidati za lokacije storitev (ni omogočeno) ali če so obvezne nekatere lokacije storitev (omogočeno).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Določa ali so kot vnosi uporabljeni samo kandidati za lokacije storitev (ni omogočeno) ali če so obvezne nekatere lokacije storitev (omogočeno).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Določa ali so kot vnosi uporabljeni samo kandidati za lokacije storitev (ni omogočeno) ali če so obvezne nekatere lokacije storitev (omogočeno).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije, ki delujejo kot lokacije storitev. Te lokacije storitev običajno predstavljajo obstoječe lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije, ki delujejo kot lokacije storitev. Te lokacije storitev običajno predstavljajo obstoječe lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije, ki delujejo kot lokacije storitev. Te lokacije storitev običajno predstavljajo obstoječe lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije, ki delujejo kot lokacije storitev. Te lokacije storitev običajno predstavljajo obstoječe lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki predstavljajo lokacije, ki delujejo kot lokacije storitev. Te lokacije storitev običajno predstavljajo obstoječe lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Določi, ali kapaciteto za vsako lokacijo storitev določa vrednost konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Določi, ali kapaciteto za vsako lokacijo storitev določa vrednost konstante (<b>Vrednost</b>) ali polja (<b>Polje</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Kapaciteta vsake obvezne lokacije storitev. Ista kapaciteta bo uporabljena za vsako obvezno lokacijo storitev.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Kapaciteta vsake obvezne lokacije storitev. Ista kapaciteta bo uporabljena za vsako obvezno lokacijo storitev.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Polje, ki vsebuje kapaciteto za vsako lokacijo storitve.*
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Polje, ki vsebuje kapaciteto za vsako lokacijo storitve.*
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

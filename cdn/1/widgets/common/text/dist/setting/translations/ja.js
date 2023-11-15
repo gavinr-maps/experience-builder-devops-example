@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"折り返し",verticalAlignment:"垂直方向の配置"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"垂直方向の配置"})}}}));

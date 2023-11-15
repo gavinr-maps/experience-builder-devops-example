@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Extragere date selectează obiecte spațiale dintr-o extindere și creează un element &icirc;n conținutul dvs.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Straturile tematice care vor fi extrase. Straturile tematice de intrare acceptate includ straturi tematice pe care le dețineți și straturi tematice cu export activat.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Extinderea obiectelor spațiale care vor fi extrase.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>Specifică dacă obiectele spațiale care intersectează extinderea vor fi decupate. C&acirc;nd este deselectată, toate obiectele spațiale care intersectează extinderea vor fi extrase. C&acirc;nd este selectată, obiectele spațiale care intersectează extinderea vor fi decupate și doar porțiuni in acele obiecte spațiale din extindere vor fi extrase.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Formatul fișierelor de date care vor fi extrase.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele elementului de ieșire unde va fi stocat fișierul extras.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

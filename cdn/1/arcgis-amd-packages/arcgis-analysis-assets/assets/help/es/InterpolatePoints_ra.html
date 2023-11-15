@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Interpolar puntos predice los valores de las nuevas ubicaciones en funci&oacute;n de las mediciones de puntos. La herramienta crea una salida de r&aacute;ster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>La capa de puntos que contiene los puntos donde se han medido los valores.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>El campo num&eacute;rico que contiene los valores que se interpolar&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Especifica si se optimizar&aacute; la velocidad o la precisi&oacute;n. Las predicciones m&aacute;s precisas tardan m&aacute;s tiempo en calcularse.
+            </p>
+            <p>Este par&aacute;metro modifica los valores predeterminados de muchos otros par&aacute;metros.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>El tama&ntilde;o de celda y las unidades para los r&aacute;steres de salida.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Especifica si los datos se transformar&aacute;n o no. La interpolaci&oacute;n es m&aacute;s exacta para aquellos datos que siguen una distribuci&oacute;n normal (en forma de campana).
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>El tama&ntilde;o de los modelos de interpolaci&oacute;n local que se combinar&aacute;n para crear el mapa de predicci&oacute;n final.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>La cantidad de vecinos que se utilizar&aacute;. Un mayor n&uacute;mero de vecinos normalmente produce resultados m&aacute;s precisos, pero pueden tardar m&aacute;s en calcularse.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa r&aacute;ster interpolada que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Elija si tambi&eacute;n desea crear un r&aacute;ster de errores est&aacute;ndar opcional para los valores predichos.
+            </p>
+            <p>Si est&aacute; activado, el r&aacute;ster de error est&aacute;ndar de salida tendr&aacute; el mismo nombre que el  <b>nombre del r&aacute;ster de salida</b>, pero con la palabra Errores incorporado al mismo. La capa se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>El tipo de salida que se crear&aacute;. Las salidas pueden ser capas de im&aacute;genes en teselas o capas de im&aacute;genes din&aacute;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute;n los resultados.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

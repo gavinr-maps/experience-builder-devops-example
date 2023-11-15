@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Načrtuj pot ustvari potovalne poti z več postanki za floto vozil.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki določajo kje vozila začnejo svojo pot.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki jih vozila morajo obiskati tekom svoje poti. Te točke postanejo dodeljeni ali nedodeljeni postanki v izhodnem rezultatu.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>Določa, ali se morajo vozila vrniti na svojo začetno lokacijo (omogočeno) ali končati na določenih lokacijah (onemogočeno).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>Točkovni geoobjekti, ki določajo kje vozila končajo svoje poti. Če sloj vključuje samo eno točko, so vsa vozila usmerjena v skupno končno točko. Če sloj vključuje več točk, bo vsako vozilo usmerjeno v enolično končno točko.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>Polje v začetnem sloju, ki enolično določa posamezne poti, vozila ali voznike. Če vozila začnejo in končajo na več lokacijah, se morajo ID-ji poti, izbrani za začetni in končni sloj, ujemati.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>Polje v končnem sloju, ki enolično določa posamezne poti, vozila ali voznike. Če vozila začnejo in končajo na več lokacijah, se morajo ID-ji poti, izbrani za začetni in končni sloj, ujemati.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Metoda potovanja, s katero bodo ustvarjene poti. Način potovanja lahko temelji na razdalji ali času.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>Datum in čas odhoda za vozila.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>Največje &scaron;tevilo vozil, ki so na voljo za obisk postankov. Če  <b>Začetni sloj</b> in <b>Končni sloj</b> vsak vsebujeta en geoobjekt, lahko določite do 100 vozil. Če kateri koli od slojev vsebuje več kot en geoobjekt, privzete vrednosti ni mogoče urejati. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>Največje &scaron;tevilo postankov, ki jih lahko vsako vozilo opravi na poti. Navedete lahko vrednost med 1 in  200, </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Navedite pričakovan povprečen servisni čas, ki ga porabite na vsakem postanku.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>Določa, ali najdalj&scaron;i čas usmerjanja velja za vozila. Čas usmerjanja vključuje pričakovan potovalni čas in servisne čase, porabljene na postankih vzdolž poti.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>Navedite največje trajanje poti od začetka do konca.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Določa, ali bo vsaka pot rezultata shranjena kot usmerjevalni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

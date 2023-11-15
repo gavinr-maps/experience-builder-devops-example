@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تستخدم أداة &quot;اكتشاف الكائنات باستخدام نموذج التعلم الشامل&quot; نموذج تعلم شامل على طبقة صور إخراج لإنتاج طبقة معالم تحتوي على الكائنات التي تم اكتشافها.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>طبقة الصور أو طبقة المعالم المراد استخدامها لاكتشاف الكائنات.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>تحدد كيفية معالجة عناصر البيانات النقطية في طبقة صور بعد معالجتها في صورة فيسفساء: معًا أو كل على حدة.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>حزمة التعلم الشامل التي تحتوي على النموذج المراد استخدامه لاكتشاف الكائنات.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>وسيطات النموذج الموجودة في نموذج التعلم الشامل مع قيمها الافتراضية.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>تحدد ما إذا كان سيتم تنفيذ الحد غير الأقصى من المنع لإزالة الكائنات المكررة.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>اسم الحقل المراد إضافته إلى طبقة معالم الإخراج للإشارة إلى قيمة الثقة التي تم الإبلاغ بها.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>اسم الحقل المراد إضافته إلى طبقة معالم الإخراج للإشارة إلى التسمية المصنفة للكائن.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>الحد الأقصى للنسبة المسموح بها لكل معلم موجود والتي تتراكب مع معلم آخر. القيمة الافتراضية هي 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

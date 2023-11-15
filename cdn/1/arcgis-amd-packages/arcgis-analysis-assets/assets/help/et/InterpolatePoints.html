@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Interpoleeri punktid&quot; prognoosib v&auml;&auml;rtusi uutes asukohtades punktide m&otilde;&otilde;tmiste p&otilde;hjal. T&ouml;&ouml;riist loob objektiv&auml;ljundid.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Valige interpoleeritavate asukohtade punktikiht.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Valige m&otilde;&otilde;detud v&auml;&auml;rtusi sisaldav v&auml;li, mis interpoleeritakse.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Valige, kas prioriseeritakse arvutuse kiirust v&otilde;i t&auml;psust. T&auml;psemate ennustuste arvutamine v&otilde;tab kauem aega.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Valige, kas v&auml;ljundis kaasatakse interpolatsiooni ennustuste kohta standardvigade kiht.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Valige, kuidas arvutatakse klassipiiri v&auml;&auml;rtused.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>M&auml;&auml;rab klasside arvu (prognoositavate v&auml;&auml;rtuste ulatused), mis kaasatakse tulemkihis. Iga klass m&auml;&auml;ratleb pol&uuml;gooni piiri ja kujutab prognoositavate v&auml;&auml;rtuste kontuure. Klassipiiri v&auml;&auml;rtused m&auml;&auml;ratakse klassifikatsiooni t&uuml;&uuml;biga.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Sisestage kasutatavad klassipiiri v&auml;&auml;rtused.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Valige pol&uuml;goonikiht, mida kasutatakse uuringuala m&auml;&auml;ratlemiseks. Tulemused k&auml;rbitakse, et kuvada neid ainult uuringuala piires.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Valige punktikiht, mis t&auml;histab asukohti, mida kasutatakse v&auml;&auml;rtuste prognoosimiseks. Kui see on sisestatud, luuakse punktikiht, mis sisaldab m&auml;&auml;ratud asukohtades prognoositud v&auml;&auml;rtusi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

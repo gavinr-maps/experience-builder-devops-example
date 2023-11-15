@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ T&igrave;m Cụm Điểm x&aacute;c định c&aacute;c cụm đối tượng dạng điểm trong phạm vi nhiễu xung quanh dựa tr&ecirc;n sự ph&acirc;n bổ kh&ocirc;ng gian của ch&uacute;ng.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Lớp điểm đầu v&agrave;o sẽ được nh&oacute;m th&agrave;nh c&aacute;c cụm dựa tr&ecirc;n sự ph&acirc;n bố kh&ocirc;ng gian của c&aacute;c đối tượng dạng điểm.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>Phương ph&aacute;p sẽ được sử dụng để x&aacute;c định c&aacute;c cụm.
+            </p>
+        </div>
+    </div>
+    <div id="minFeaturesCluster">
+        <div>
+            <p>Số lượng đối tượng dạng điểm tối thiểu để được xem l&agrave; một cụm.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch tối đa xung quanh mỗi đối tượng dạng điểm để t&igrave;m kiếm c&aacute;c điểm c&oacute; thể nằm trong cụm. Nếu để trống, gi&aacute; trị  <b>Khoảng c&aacute;ch t&igrave;m kiếm</b> sẽ l&agrave; khoảng c&aacute;ch l&otilde;i lớn nhất c&oacute; trong lớp n&agrave;y, ngoại trừ 1 phần trăm khoảng c&aacute;ch l&otilde;i ph&iacute;a tr&ecirc;n.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistanceUnit">
+        <div>
+            <p>X&aacute;c định c&aacute;c đơn vị sẽ được sử dụng cho khoảng c&aacute;ch t&igrave;m kiếm.
+            </p>
+        </div>
+    </div>
+    <div id="sensitivity">
+        <div>
+            <p>Một số nguy&ecirc;n từ 0 đến 100 x&aacute;c định độ chặt của c&aacute;c cụm. Nếu để trống, gi&aacute; trị  <b>Độ nhạy cụm</b> sẽ được t&iacute;nh bằng ph&eacute;p đo Kullback-Leibler Divergence.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Генериране на теселации създава решетка от полигони въз основа на определен обхват, форма и размер.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>Формата на теселациите, които ще бъдат създадени.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Указва дали размерът на теселацията ще бъде определен от неговата площ (<b>Площ</b>) или чрез стойност на разстояние (<b>Разстояние</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Размерът (площ или разстояние) на генерираните теселации. За квадрати, шестоъгълници, триъгълници и диаманти разстоянието определя височината на теселациите. За напречните шестоъгълници разстоянието определя ширината на теселациите.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Разделителната способност H3 на мозайките. Разделителната способност варира от 0 до 15. С всяко увеличаване на разделителната способност площта на полигоните ще намалява до една седма от размера при по-ниската разделителна способност.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Определя единиците, които ще се използват за размера на мозайките.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Обхватът, който покрива тесалациите.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>За обектните слоеве указва дали теселациите ще покрият целия обхват или само областите, където теселациите се пресичат с обекти.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Името на папка в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

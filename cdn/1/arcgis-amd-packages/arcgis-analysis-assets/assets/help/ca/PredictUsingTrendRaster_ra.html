@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Prediu mitjan&ccedil;ant el r&agrave;ster de tend&egrave;ncia calcula una capa d'imatges multidimensional prevista mitjan&ccedil;ant la capa d'imatges de tend&egrave;ncia de sortida creada per l'eina Genera el r&agrave;ster de tend&egrave;ncia.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Capa d'imatges de tend&egrave;ncia multidimensional d'entrada que es far&agrave; servir per a la predicci&oacute;.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variable de la capa d'imatges de tend&egrave;ncia multidimensional que es far&agrave; servir per a la predicci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>M&egrave;tode que es far&agrave; servir per proporcionar valors de dimensi&oacute; de predicci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Definiu la data d'inici i la de finalitzaci&oacute;, l'altura o la profunditat de l'interval de dimensi&oacute; que s'utilitzar&agrave; a la predicci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>Data d'inici, altura o profunditat de l'interval de dimensi&oacute; que es far&agrave; servir a la predicci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Data de finalitzaci&oacute;, altura o profunditat de l'interval de dimensi&oacute; que es far&agrave; servir a la predicci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Nombre de passos entre dos valors de dimensi&oacute; que s'inclouran a la predicci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Unitat que s'utilitzar&agrave; per al valor de l'interval.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Tipus de sortida que es crear&agrave;. La sortida pot ser una capa d'imatges en mosaic o una capa d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

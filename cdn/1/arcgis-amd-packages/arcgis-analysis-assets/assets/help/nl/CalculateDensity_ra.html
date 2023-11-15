@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Dichtheid berekenen berekent een dichtheidsschatting uit punt- en lijnobjecten. De tool cre&euml;ert een rasteruitvoer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>De punten- of lijnenlaag waarmee de dichtheid wordt berekend.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>Het veld dat het aantal incidenten op elke locatie weergeeft.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>De laag die de barri&egrave;res definieert. De barri&egrave;res kunnen een objectlaag van polylijn- of veelhoekige kenmerken zijn.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>De celgrootte en de eenheid die gebruikt worden voor het uitvoerraster.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Specificeert de afstand tot zoekpunten of -lijnen bij het berekenen van de dichtheid, met behulp van een waarde en de eenheden daarvan.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>De eenheden die worden gebruikt voor het uitvoergebied.
+            </p>
+            <p>Dichtheid is een telling gedeeld door gebied en deze parameter geeft de eenheid van het gebied op in de berekening van de dichtheid.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de rasterlaag dichtheid die wordt aangemaakt en aan de kaart wordt toegevoegd.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Het type uitvoer dat wordt gemaakt. De uitvoer kan bestaan uit getegelde beeldlagen of dynamische beeldlagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar de resultaten worden opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

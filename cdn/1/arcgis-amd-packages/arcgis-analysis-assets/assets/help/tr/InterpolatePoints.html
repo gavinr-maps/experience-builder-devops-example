@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Noktaların Ara Değerlerini Hesapla aracı, nokta &ouml;l&ccedil;&uuml;mlerini temel alarak yeni konumlardaki değerleri tahmin eder. Ara&ccedil; detay &ccedil;ıktıları oluşturur.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Ara değeri hesaplanacak konumların nokta katmanını se&ccedil;in.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Ara değerleri hesaplanacak &ouml;l&ccedil;&uuml;len değerleri i&ccedil;eren alanı se&ccedil;in.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Hesaplama hızının mı yoksa doğruluk ve hassasiyetin mi &ouml;nceliklendirileceğini se&ccedil;in. Daha doğru ve hassas tahminlerin hesaplanmasının daha uzun s&uuml;receğini unutmayın.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>&Ccedil;ıktıya, ara değer hesaplama tahminleri i&ccedil;in bir standart hatalar katmanı dahil edilip edilmeyeceğini se&ccedil;in.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Sınıf kesme değerlerinin nasıl hesaplanacağını se&ccedil;in.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Sonu&ccedil; katmanına dahil edilecek sınıf sayısını (tahmin edilen değerler aralığı) belirtin. Her bir sınıf, bir &ccedil;okgenin sınırını tanımlar ve tahmin edilen değerlerin konturlarını temsil eder. Sınıf kesme değerleri, sınıflandırma t&uuml;r&uuml;ne g&ouml;re belirlenir.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Kullanılacak sınıf kesme değerlerini sağlayın.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Bir &ccedil;alışma alanı tanımlamak i&ccedil;in kullanılacak bir &ccedil;okgen katmanı se&ccedil;in. Sonu&ccedil;lar, sadece &ccedil;alışma alanında g&ouml;r&uuml;nt&uuml;lenecek şekilde kırpılır.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Değerleri tahmin etmek i&ccedil;in kullanılacak konumları temsil eden bir nokta katmanı se&ccedil;in. Bu sağlandığında, belirtilen konumlarda tahmin edilen değerleri i&ccedil;eren bir nokta katmanı oluşturulacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonu&ccedil;ların kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

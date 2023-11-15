@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>래스터 형식 최적 경로 도구는 목적지에서 시작지점까지의 최적 래스터 경로를 결정합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>최저 비용 시작지점까지의 거리가 계산되는 목적지를 식별하는 레이어입니다.
+            </p>
+            <p>입력이 래스터인 경우 목적지에 유효한 정수 값(0은 유효한 값)을 갖는 셀로 구성되어야 하며 나머지 셀에는 NoData가 할당되어야 합니다.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>목적지 위치의 값을 얻는 데 사용되는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>목적지에서 시작지점까지의 최적 경로를 결정하는 래스터입니다.
+            </p>
+            <p>거리 누적 래스터는 일반적으로 거리 누적 또는 거리 할당 도구를 사용하여 생성됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>도 단위로 계산된 방향이 포함된 래스터입니다.
+            </p>
+            <p>역방향 래스터는 일반적으로 거리 누적 또는 거리 할당 도구를 사용하여 생성됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>최적 경로 계산에서 입력 목적지 데이터의 값과 구역을 해석하는 방식을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputRasterName">
+        <div>
+            <p>생성되어 맵에 추가되는 래스터 형식 최적 경로 레이어의 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>생성될 결과 유형입니다. 결과는 타일 영상 레이어 또는 동적 영상 레이어일 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

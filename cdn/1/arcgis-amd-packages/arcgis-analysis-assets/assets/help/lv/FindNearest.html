@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rīks Atrast tuvāko atrod un sarindo elementus, kas ir vistuvāk norādītajam novietojumam.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Starta slānis, kurā tiek atrasti tuvākie elementi. Tie akbalstīti slāņi ar līdz  5000 elementiem. </p> 
+            <p class="PortalOnly">Starta slānis, kurā tiek atrasti tuvākie elementi.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Atrastie elementi ir atkarīgi no ievades slāņa tuvuma. Tie akbalstīti slāņi ar līdz  5000 elementiem. </p> 
+            <p class="PortalOnly">Atrastie elementi ir atkarīgi no ievades slāņa tuvuma.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Brauk&scaron;ana ir atļauta pa ielu, ne&scaron;ķērsojot barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Viens vai vairāki punktu elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Līnijas barjeras aizliedz pārvietoties jebkur, kur barjeras &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Viens vai vairāki laukuma elementi, kas darbojas kā īslaicīgi ierobežojumi (barjeras), braucot pa ielām. Laukuma barjeras aizliedz pārvietoties jebkur, kur laukums &scaron;ķērso ielas.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metode, kas tiks izmantota attāluma vai laika mērī&scaron;anai. Metode var būt līnijas attālums vai pārvieto&scaron;anās režīms.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Norāda datumu un laiku, kad ceļotājs iziet no novietojumiem  <b>ievades slānī</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Nosaka, vai tiek izmantots pielāgots tuvāko elementu maksimālais skaits (iespējots) vai tiek izmantots rīka noklusējuma maksimums 100 (atspējots).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Maksimālais tuvāko elementu skaits, ko var atrast katram ievades elementam.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Nosaka, vai tiek izmantots maksimālais meklē&scaron;anas diapazons (iespējots) vai meklē&scaron;anas diapazons ir neierobežots (atspējots).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Maksimālais meklē&scaron;anas diapazons tuvāko elementu atra&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Vienības, ko izmanto meklē&scaron;anas diapazona norādī&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Norāda, vai katrs rezultātu mar&scaron;ruts tiks saglabāts kā mar&scaron;ruta slānis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj V&yacute;počet hustoty poč&iacute;ta odhad hustoty z bodov&yacute;ch a l&iacute;niov&yacute;ch prvkov. N&aacute;stroj vytvor&iacute; prvkov&yacute; v&yacute;stup.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&aacute; alebo l&iacute;niov&aacute; vrstva, z ktorej sa vypoč&iacute;ta hustota.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Pole &scaron;pecifikuj&uacute;ce počet incidentov na každej lokalite.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Vrstva polyg&oacute;nov&yacute;ch prvkov, ktor&aacute; definuje, kde sa bud&uacute; poč&iacute;tať hustoty.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Určuje vzdialenosť, v ktorej sa bud&uacute; pri v&yacute;počte hustoty hľadať body alebo čiary.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Jednotky, ktor&eacute; sa použij&uacute; na hodnotu parametra  <b>Vzdialenosť vyhľad&aacute;vania</b>.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>&Scaron;pecifikujte, ako sa bud&uacute; hodnoty hustoty klasifikovať do oblast&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Počet tried (rozsah predpovedan&yacute;ch hodn&ocirc;t) vo v&yacute;slednej vrstve.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Jednotky, ktor&eacute; sa použij&uacute; pre v&yacute;stupn&uacute; oblasť.
+            </p>
+            <p>Hustota je počet vydelen&yacute; plochou a tento parameter určuje jednotku plochy pri v&yacute;počte hustoty.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Nibble&quot; ersetzt die Zellen eines Rasters entsprechend einer Maske durch die Werte der n&auml;chsten Nachbarn.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Das Eingabe-Raster gibt die maskierten Positionen an, die mit Nibble bearbeitet und durch den Wert des n&auml;chsten Nachbarn ersetzt werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Das Masken-Raster, das die zu ersetzenden Positionen im Eingabe-Raster identifiziert. Zellen mit dem Wert &quot;NoData&quot; werden als Zellen in der maskierten Fl&auml;che behandelt.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Das Eingabe-Zonen-Raster. F&uuml;r jede Zone gilt, dass Eingabezellen, die sich innerhalb der Maske befinden, nur durch den Wert des n&auml;chsten Nachbarn innerhalb derselben Zone ersetzt werden.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Gibt an, ob NoData-Zellen im Eingabe-Raster Zellen in den maskierten Fl&auml;chen ersetzen k&ouml;nnen, wenn es sich dabei um den n&auml;chsten Nachbarn handelt.
+            </p>
+            <p>Bei Aktivierung k&ouml;nnen NoData-Zellen im Eingabe-Raster f&uuml;r die Nibble-Ersetzung in der maskierten Fl&auml;che verwendet werden. Bei Deaktivierung k&ouml;nnen nur g&uuml;ltige Zellen im Eingabe-Raster f&uuml;r die Nibble-Ersetzung in der maskierten Fl&auml;che verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Gibt an, ob NoData-Zellen in der maskierten Fl&auml;che beibehalten oder ersetzt werden.
+            </p>
+            <p>Bei Deaktivierung werden in der maskierten Fl&auml;che enthaltene NoData-Zellen in der Ausgabe beibehalten. Bei Aktivierung werden NoData-Zellen in der maskierten Fl&auml;che mit Nibble bearbeitet und durch den Wert des n&auml;chsten Nachbarn, der sich au&szlig;erhalb der maskierten Fl&auml;che befindet, ersetzt.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des per Nibble bearbeiteten Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgaben k&ouml;nnen gekachelte Bilddaten-Layer oder dynamische Bilddaten-Layer sein.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

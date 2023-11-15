@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Găsire cele mai apropiate găsește și clasifică obiectele spațiale care sunt cele mai apropiate de locații specificate.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Stratul tematic de &icirc;nceput din care sunt găsite cele mai apropiate obiecte spațiale. Sunt acceptate straturile tematice cu p&acirc;nă la  5.000 obiecte spațiale. </p> 
+            <p class="PortalOnly">Stratul tematic de &icirc;nceput din care sunt găsite cele mai apropiate obiecte spațiale.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Obiectele spațiale găsite &icirc;n apropierea stratului tematic de intrare. Sunt acceptate straturile tematice cu p&acirc;nă la  5.000 obiecte spațiale. </p> 
+            <p class="PortalOnly">Obiectele spațiale găsite &icirc;n apropierea stratului tematic de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Unul sau mai multe obiecte spațiale punctuale care acționează ca restricții temporare (bariere) atunci c&acirc;nd vă deplasați pe străzile subiacente. Deplasarea este permisă pe stradă, dar nu &icirc;n afara barierei.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Unul sau mai multe obiecte spațiale liniare care acționează ca restricții temporare (bariere) atunci c&acirc;nd vă deplasați pe străzile subiacente. Barierele liniare interzic deplasarea oriunde barierele se intersectează cu străzile.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Unul sau mai multe obiecte spațiale poligonale care acționează ca restricții temporare (bariere) atunci c&acirc;nd vă deplasați pe străzile subiacente. Barierele poligonale interzic deplasarea oriunde poligoanele se intersectează cu străzile.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metoda care va fi utilizată pentru a măsura distanța sau timpul. Metoda poate fi distanța liniară sau un mod de deplasare.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Specifică data și ora la care călătorul pleacă din locațiile din  <b>Stratul tematic de intrare</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Determină dacă este utilizat un număr maxim personalizat de obiecte spațiale cele mai apropiate (activată) sau este utilizat numărul maxim implicit al instrumentului de 100 (dezactivată).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Numărul maxim de obiecte spațiale cele mai apropiate care pot fi găsite &icirc;n fiecare obiect spațial de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Determină dacă un se utilizează un interval maxim de căutare (activată) sau intervalul de căutare este nelimitat (dezactivată).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Intervalul de căutare maxim pentru găsirea celor mai apropiate obiecte spațiale.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Unitățile utilizate pentru a specifica intervalul de căutare.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Specifică dacă fiecare rută de rezultat va fi salvată ca strat tematic de rută.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

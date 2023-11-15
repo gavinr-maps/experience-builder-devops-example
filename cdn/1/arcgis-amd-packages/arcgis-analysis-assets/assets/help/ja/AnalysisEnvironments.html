@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p> Map Viewer での解析の環境設定 </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>解析と結果レイヤーの座標系を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>解析に使用するエリアを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>指定したスナップ対象ラスター レイヤーのセルの配置に一致するように、出力の範囲を調整します。
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>解析の実施と、出力ラスター レイヤーの作成に使用するセル サイズまたは解像度を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>マスク エリアの範囲内にあるセルのみが解析に使用されるマスク レイヤーを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>入力ラスターと出力ラスターが配置されない場合に、ピクセル値を内挿する方法を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>使用するプロセッサのタイプを指定します。 オプションには、 <b>[CPU]</b>、 <b>[GPU]</b>、 <b>[自動]</b> があります。 <b>[自動]</b> が指定されると、ツールがプロセッサ タイプを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>ツールの実行中に使用されるラスター処理サービス インスタンスの数を指定します。 サポートされる値には、空白の文字列 (使用されるラスター処理サービス インスタンスの数は、ツールが決定)、整数 (0 または正の整数)、パーセンテージなどがあります。 パーセンテージは、パーセント値の後にパーセント記号 (%) を付ける必要があります。
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>推定クレジット数が指定した閾値を超えた場合に警告メッセージを表示するか (有効)、推定クレジット消費量に関係なくメッセージを表示しないで解析を実行するか (無効) を決定します。 解析には、組織のクレジット使用制限設定が引き続き適用されます。
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>解析の実行による推定クレジット消費量に基づいて警告メッセージが表示される閾値を指定します。 解析は、推定が閾値を超えた場合でも実行できます。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

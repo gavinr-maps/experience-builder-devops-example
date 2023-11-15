@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Optim&aacute;ln&iacute; trasa jako linie (Optimal Path As Line) vypoč&iacute;t&aacute; optim&aacute;ln&iacute; trasu jako linii z c&iacute;lov&yacute;ch ke zdrojov&yacute;m bodům.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Vrstva, kter&aacute; identifikuje c&iacute;lov&aacute; m&iacute;sta, z nichž se vypoč&iacute;t&aacute; vzd&aacute;lenost k nejm&eacute;ně n&aacute;kladn&eacute;mu zdroji.
+            </p>
+            <p>Pokud je vstup rastr, mus&iacute; se skl&aacute;dat z&nbsp;buněk, kter&eacute; maj&iacute; pro destinace platn&eacute; celoč&iacute;seln&eacute; hodnoty (včetně nuly). Zb&yacute;vaj&iacute;c&iacute;m buňk&aacute;m mus&iacute; b&yacute;t přiřazena hodnota NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Pole, kter&eacute; se použije k z&iacute;sk&aacute;n&iacute; hodnot pro c&iacute;lov&aacute; m&iacute;sta.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>Rastr, kter&yacute; určuje optim&aacute;ln&iacute; cestu z c&iacute;lů ke zdrojům.
+            </p>
+            <p>Rastr akumulace vzd&aacute;lenosti je obvykle vytvořen pomoc&iacute; n&aacute;strojů Akumulace vzd&aacute;lenosti (Distance Accumulation) nebo Přidělen&iacute; vzd&aacute;lenosti (Distance Allocation).
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>Rastr, kter&yacute; obsahuje vypočten&eacute; směry ve stupn&iacute;ch.
+            </p>
+            <p>Rastr zpětn&eacute;ho směru je obvykle vytvořen pomoc&iacute; n&aacute;strojů Akumulace vzd&aacute;lenosti (Distance Accumulation) nebo Přidělen&iacute; vzd&aacute;lenosti (Distance Allocation).
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Určuje, jak budou hodnoty a z&oacute;ny ve vstupn&iacute;ch c&iacute;lov&yacute;ch datech interpretov&aacute;ny při v&yacute;počtech optim&aacute;ln&iacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="createNetworkPaths">
+        <div>
+            <p>Určuje, zda budou vypočteny &uacute;pln&eacute; a př&iacute;padně překr&yacute;vaj&iacute;c&iacute; se cesty z c&iacute;lů ke zdrojům, nebo zda budou vytvořeny nepřekr&yacute;vaj&iacute;c&iacute; se s&iacute;ťov&eacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="outputPolylineName">
+        <div>
+            <p>N&aacute;zev vrstvy optim&aacute;ln&iacute; trasy jako linie, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+            <p>Vytvoř&iacute; se vrstva a přid&aacute; se do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

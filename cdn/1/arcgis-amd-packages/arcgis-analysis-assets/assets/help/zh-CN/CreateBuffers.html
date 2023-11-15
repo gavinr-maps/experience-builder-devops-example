@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;创建缓冲区&rdquo;工具通过输入要素创建覆盖指定距离的面。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>将进行缓冲的点、线或面要素。
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>指定缓冲距离是由常量（ <b>值</b>）还是数值字段（ <b>字段</b>）定义的。
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>将用于创建缓冲区的距离。 如果添加了多个值，则将使用各值在各输入要素位置创建一个缓冲区。
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>将包含每个要素缓冲距离的字段。
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>将用于指定缓冲距离的单位。
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>指定在重叠时将如何处理来自不同输入要素的缓冲区。
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>指定多距离缓冲区是重叠的同心缓冲区（ <b>重叠盘</b>）还是不重叠的环（ <b>不同的环</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>对于线要素，指定是在线的两侧（ <b>周围</b>）、仅左侧（ <b>左</b>）还是仅右侧（ <b>右</b>）创建缓冲区。
+            </p>
+            <p>对于面要素，指定输入面要素是包含在缓冲区内（ <b>包含</b>）还是从缓冲区中排除（ <b>排除</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>指定线要素末端缓冲区的形状是圆形（ <b>圆形</b>）还是平面（ <b>平面</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

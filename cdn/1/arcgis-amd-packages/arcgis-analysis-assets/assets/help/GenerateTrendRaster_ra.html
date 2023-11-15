@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Generate Trend Raster tool estimates the trend for each pixel along a dimension for one or more variables in a multidimensional imagery layer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>The multidimensional imagery layer that will be used to generate the trend.
+
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>The dimension along which a trend will be extracted for the variable or variables selected in the analysis. 
+
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>The variable or variables for which trends will be calculated.
+
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>The time unit that will be used for the length of a seasonal period when using the Seasonal-Kendall line type. 
+
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>The type of trend analysis that will be performed on pixel values along a dimension.
+
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>The frequency or the polynomial order number that will be used for the trend fitting.
+
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Specifies whether NoData or missing values will be ignored in the analysis.
+
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>The length of periodic variation that will be modeled for the harmonic cycle.
+
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>The time unit that will be used for the length of the harmonic cycle.
+
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Specifies whether the root mean square error (RMSE) of the trend fit line will be calculated.
+
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Specifies whether the R-squared goodness-of-fit statistic for the trend fit line will be calculated.
+
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Specifies whether the p-value statistic for the slope coefficient of the trend fit line will be calculated.
+
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>The type of output that will be created. The output can be a Tiled imagery layer or a Dynamic imagery layer.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>The name of the folder in  <b>My Content</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

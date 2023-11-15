@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Ruta &ograve;ptima com a r&agrave;ster determina la ruta r&agrave;ster &ograve;ptima de les destinacions als or&iacute;gens.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Capa que identifica les destinacions des de les quals es calcula la dist&agrave;ncia a l'origen de menor cost.
+            </p>
+            <p>Si l'entrada &eacute;s un r&agrave;ster, ha d'estar formada per cel&middot;les que tinguin valors enters v&agrave;lids (zero &eacute;s un valor v&agrave;lid) per a les destinacions, i les cel&middot;les restants tindran assignat el valor NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Camp que s'utilitzar&agrave; per obtenir els valors de les ubicacions de destinaci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>R&agrave;ster que determina la ruta &ograve;ptima des de les destinacions als or&iacute;gens.
+            </p>
+            <p>El r&agrave;ster d'acumulaci&oacute; de dist&agrave;ncia normalment es crea amb l'eina Acumulaci&oacute; de dist&agrave;ncia o Assignaci&oacute; de dist&agrave;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>R&agrave;ster que cont&eacute; direccions calculades en graus.
+            </p>
+            <p>El r&agrave;ster de direcci&oacute; inversa normalment es crea amb l'eina Acumulaci&oacute; de dist&agrave;ncia o Assignaci&oacute; de dist&agrave;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Especifica com s'interpretaran els valors i les zones de les dades de destinaci&oacute; d'entrada als c&agrave;lculs de la ruta &ograve;ptima.
+            </p>
+        </div>
+    </div>
+    <div id="outputRasterName">
+        <div>
+            <p>Nom de la ruta &ograve;ptima com una capa r&agrave;ster que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipus de sortida que es crear&agrave;. La sortida pot ser una capa d'imatges en mosaic o una capa d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

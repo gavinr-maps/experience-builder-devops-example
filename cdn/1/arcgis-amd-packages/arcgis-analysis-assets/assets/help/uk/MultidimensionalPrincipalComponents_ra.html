@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &quot;Багатовимірні основні компоненти&quot; перетворює багатовимірні шари зображень у скорочене число компонентів з урахуванням дисперсії даних, що дозволить легко ідентифіковувати просторові й часові закономірності.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Багатовимірний шар зображень, який буде аналізовано.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Метод, який використовуватиметься для виконання аналізу основного компонента. Наявні опції   <b>Скорочення розмірів</b> і <b>Просторове зменшення</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Вимір багатовимірного шару зображень, за яким буде проаналізовано змінну.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Ім'я вихідного шару зображень або шару таблиць, який показує основні знайдені компоненти залежно від наступного вибору режиму:
+                <ul>
+                    <li>Результатом скорочення розмірів буде багатоканальний шар зображень.
+                    </li>
+                    <li>Результатом просторового зменшення буде шар таблиць.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Ім'я вихідного шару зображень або шару таблиць, який показує дані підтримки у вибірці основних компонентів залежно від наступного вибору режиму:
+                <ul>
+                    <li>Результатом скорочення розмірів буде шар таблиць.
+                    </li>
+                    <li>Результатом просторового зменшення буде шар зображень.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Ім'я таблиці власних значень, яка вказує відсоткову дисперсію кожного компонента.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Ім'я змінної вхідного багатовимірного шару зображень, використовуваного в обчисленнях.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Число основних компонентів для обчислення, зазвичай менше за число вхідних растрів.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Тип вихідних даних, які буде створено. Вихідними даними можуть бути шари зображень з тайлами або динамічні шари зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

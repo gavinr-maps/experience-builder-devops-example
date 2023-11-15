@@ -1,0 +1,154 @@
+{
+  "name": "SummarizeRasterWithin",
+  "displayName": "SummarizeRasterWithin",
+  "description": "Calculates statistics on values of a raster within the zones of another dataset.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/SummarizeRasterWithin.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputZoneLayer",
+      "dataType": "GPString",
+      "displayName": "inputZoneLayer",
+      "description": "The input that defines the zones.Both raster and feature can be used for the zone input.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "zoneField",
+      "dataType": "GPString",
+      "displayName": "zoneField",
+      "description": "The field that defines each zone.It can be an integer or a string field of the zone dataset.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Value",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputRasterLayertoSummarize",
+      "dataType": "GPString",
+      "displayName": "inputRasterLayertoSummarize",
+      "description": "Raster that contains the values on which to summarize a statistic.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The name of the output raster service.If the image service layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "statisticType",
+      "dataType": "GPString",
+      "displayName": "statisticType",
+      "description": "Choose the statistic to calculate.The available options when the summarize raster is integer are Average, Majority, Maximum, Median, Minimum, Minority, Range, Standard deviation, Sum, and Variety.If the summarize raster is float, the options are Average, Maximum, Minimum, Range, Standard deviation, and Sum.Average— Calculates the average of all cells in the raster layer to be summarized that belong to the same zone as the output cell. This is the default.Majority— Determines the value that occurs most often of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Maximum— Determines the largest value of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Median— Determines the median value of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Minimum— Determines the smallest value of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Minority— Determines the value that occurs least often of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Range— Calculates the difference between the largest and smallest value of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Standard deviation— Calculates the standard deviation of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Sum— Calculates the total value of all cells in the raster layer to be summarized that belong to the same zone as the output cell.Variety— Calculates the number of unique values for all cells in the raster layer to be summarized that belong to the same zone as the output cell.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Mean",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "Mean",
+        "Majority",
+        "Maximum",
+        "Median",
+        "Minimum",
+        "Minority",
+        "Percentile",
+        "Range",
+        "STD",
+        "Sum",
+        "Variety"
+      ]
+    },
+    {
+      "name": "ignoreMissingValues",
+      "dataType": "GPBoolean",
+      "displayName": "ignoreMissingValues",
+      "description": "Denotes whether missing values in the image service layer to summarize will influence the results of the zones that they fall within.Checked—Within any particular zone, only cells that have a value in the image service layer being summarized will be used in determining the output value for that zone. Any missing or NoData cells will be ignored in the statistic calculation. This is the default. Unchecked—Within any particular zone, if any cells in the image service layer being summarized do not have a value, it is deemed that there is insufficient information to perform statistical calculations for all the cells in that zone; therefore, the entire zone will receive the NoData value on the output image service.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "processAsMultidimensional",
+      "dataType": "GPBoolean",
+      "displayName": "processAsMultidimensional",
+      "description": "Determines how the input rasters will be processed if they are multidimensional.Unchecked—Statistics will be calculated from the current slice of a multidimensional image service. This is the default.Checked—Statistics will be calculated for all dimensions (such as time or depth) of a multidimensional image service.CURRENT_SLICE— Statistics will be calculated from the current slice of a multidimensional image service. This is the default.ALL_SLICES— Statistics will be calculated for all dimensions (such as time or depth) of a multidimensional image service.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "percentileValue",
+      "dataType": "GPDouble",
+      "displayName": "percentileValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 90,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "percentileInterpolationType",
+      "dataType": "GPString",
+      "displayName": "percentileInterpolationType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "AUTO_DETECT",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["AUTO_DETECT", "NEAREST", "LINEAR"]
+    },
+    {
+      "name": "circularCalculation",
+      "dataType": "GPBoolean",
+      "displayName": "circularCalculation",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "circularWrapValue",
+      "dataType": "GPDouble",
+      "displayName": "circularWrapValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 360,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

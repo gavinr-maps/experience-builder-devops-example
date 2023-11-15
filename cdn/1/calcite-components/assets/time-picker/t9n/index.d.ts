@@ -1,4 +1,7 @@
 export type TimePickerMessages = {
+  fractionalSecond: string;
+  fractionalSecondDown: string;
+  fractionalSecondUp: string;
   hour: string;
   hourDown: string;
   hourUp: string;

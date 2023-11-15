@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Zusammenfassen (in der N&auml;he)&quot; berechnet Statistiken f&uuml;r Features, die sich innerhalb einer angegebenen Entfernung von anderen Features befinden. Die Entfernung kann anhand einer geradlinigen Entfernung oder eines Reisemodus berechnet werden.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Der Layer f&uuml;r die Zusammenfassung innerhalb einer Entfernung des nahe gelegenen Layers.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Der Punkt-, Linien- oder Polygon-Layer, der f&uuml;r die Angabe der Startpositionen verwendet wird, um die herum umgebende Fl&auml;chen f&uuml;r die Zusammenfassung nahe gelegener Features erstellt werden.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Die Methode, mit der die umgebenden Fl&auml;chen erstellt werden. Die Methode kann eine geradlinige Entfernung oder ein Reisemodus sein.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Die Entfernung oder die Zeit, die f&uuml;r die Erstellung von umgebenden Fl&auml;chen verwendet wird. Wenn mehrere Werte hinzugef&uuml;gt werden, wird jeder Wert zur Berechnung der umgebenden Fl&auml;chen f&uuml;r alle Eingabe-Features verwendet.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Die Einheiten, die zur Angabe der Entfernung oder Zeit verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Geben Sie an, ob der Ergebnis-Layer die umgebenden Fl&auml;chen (aktiviert) oder dieselbe Geometrie wie der nahe gelegene Eingabe-Layer (deaktiviert) aufweisen soll.
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Berechnet die Gesamtgr&ouml;&szlig;e der Features, die in jeder umgebenden Fl&auml;che zusammengefasst wurden. Bei Linien wird die Gesamtl&auml;nge berechnet. Bei Polygonen wird die Gesamtfl&auml;che berechnet.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Die Einheiten, die zur Berechnung der Gesamtgr&ouml;&szlig;e der zusammengefassten Features verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Die Zahlen- oder Datumsfelder aus dem Eingabe-Layer, die zusammengefasst werden, und die Statistiken, die f&uuml;r jedes Feld berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Das Feld aus dem Eingabe-Layer, das zum Trennen der Daten in verschiedene Gruppen verwendet wird, um statistische Berechnungen durchzuf&uuml;hren.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Zur Berechnung der Minderheit (geringste Dominanz) und Mehrheit (h&ouml;chste Dominanz) f&uuml;r die Gruppen in jedem Zusammenfassungsgebiet.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Berechnet den Prozentsatz der zusammengefassten Features, die jeder Gruppe innerhalb jeder Grenze angeh&ouml;ren.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Sample-v&aelig;rkt&oslash;jet opretter en tabel eller en punktobjektklasse, der viser pixelv&aelig;rdierne fra en raster eller et s&aelig;t af rastere p&aring; definerede steder.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Billedlagene, der indeholder v&aelig;rdier, der samples p&aring; basis af input-positionsdata.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Det lag, der indeholder positionerne for hver sample.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Den resamplingsalgoritme, der anvendes under samplingprocessen.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Et felt i det lag, der indeholder en forskellig v&aelig;rdi for hver position eller hvert inputobjekt.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Angiver, om inputbilledlagene inkluderer flerdimensionale data.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Angiv den tid, dybde eller andre data om erhvervelse, der er knyttet til positionsobjekterne.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensionen af det flerdimensionale inputlag.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Det felt, der bruges til at starte tidsintervallet for det flerdimensionale inputlag.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Det felt, der bruges til at afslutte tidsintevallet for det flerdimensionale inputlag.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Et ikke-negativt tal, der l&aelig;gges til parameteren  <b>Dimension</b>, eller en v&aelig;rdi, der definerer starten p&aring; et interval af dimensionsv&aelig;rdier.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Et ikke-negativt tal, der l&aelig;gges til parameteren  <b>Dimension</b> eller en v&aelig;rdi, der definerer slutningen p&aring; et interval af dimensionsv&aelig;rdier.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Den statistik, der genereres, n&aring;r flerdimensionalt billedlag behandles.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Den procentv&aelig;rdi, der bruges til percentil-statistiktypen.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Den bufferafstand, der anvendes til inputpositioner.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Angiver, om outputtypen er et objekt eller en tabel.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Angiver, om outputtet vil v&aelig;re relateret til r&aelig;kker eller kolonner.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

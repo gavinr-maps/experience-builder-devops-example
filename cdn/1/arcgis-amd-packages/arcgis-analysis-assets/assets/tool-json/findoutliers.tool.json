@@ -1,0 +1,162 @@
+{
+  "name": "FindOutliers",
+  "displayName": "FindOutliers",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/FindOutliers.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "analysisLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "analysisLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "analysisField",
+      "dataType": "GPString",
+      "displayName": "analysisField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dividedByField",
+      "dataType": "GPString",
+      "displayName": "dividedByField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "boundingPolygonLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "boundingPolygonLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "aggregationPolygonLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "aggregationPolygonLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "permutations",
+      "dataType": "GPString",
+      "displayName": "permutations",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Speed", "Balance", "Precision"]
+    },
+    {
+      "name": "shapeType",
+      "dataType": "GPString",
+      "displayName": "shapeType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Fishnet", "Hexagon"]
+    },
+    {
+      "name": "cellSize",
+      "dataType": "GPDouble",
+      "displayName": "cellSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "cellSizeUnits",
+      "dataType": "GPString",
+      "displayName": "cellSizeUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Miles", "Feet", "Kilometers", "Meters"]
+    },
+    {
+      "name": "distanceBand",
+      "dataType": "GPDouble",
+      "displayName": "distanceBand",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "distanceBandUnits",
+      "dataType": "GPString",
+      "displayName": "distanceBandUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Miles", "Feet", "Kilometers", "Meters"]
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outliersResultLayer",
+      "dataType": "GPString",
+      "displayName": "outliersResultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "processInfo",
+      "dataType": "GPString",
+      "displayName": "processInfo",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

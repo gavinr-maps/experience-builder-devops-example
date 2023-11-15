@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil G&eacute;ocoder des localisations &agrave; partir d&rsquo;une table convertit des adresses ou des lieux depuis une table en entr&eacute;e en coordonn&eacute;es.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Table en entr&eacute;e avec les adresses ou lieux &agrave; g&eacute;ocoder. L&rsquo;entr&eacute;e doit &ecirc;tre une table, un fichier&nbsp; <code>.csv</code> ou un fichier Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Service de localisation &agrave; utiliser pour le g&eacute;ocodage. Si le service de localisation que vous souhaitez utiliser ne figure pas dans le menu d&eacute;roulant, contactez votre administrateur afin qu'il soit configur&eacute; pour le g&eacute;ocodage par lots.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Indique si les donn&eacute;es en entr&eacute;e sont contenues dans un ou plusieurs champs.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Champs utilis&eacute;s par le localisateur pour d&eacute;terminer les localisations des donn&eacute;es. Certains champs sont cens&eacute;s figurer dans les donn&eacute;es, comme l&rsquo;adresse, la ville, l&rsquo;&eacute;tat et le code postal.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Pays dans lequel se trouvent les donn&eacute;es. Si toutes les adresses proviennent d&rsquo;un m&ecirc;me pays, indiquez ce pays pour optimiser la pr&eacute;cision des r&eacute;sultats. Sinon, laissez ce param&egrave;tre vide.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Sp&eacute;cifie les champs qui seront inclus dans le jeu de donn&eacute;es en sortie. Les options sont les suivantes :
+            </p>
+            <ul>
+                <li> <b>All (Tous)</b>&nbsp;: tous les champs en sortie du localisateur disponibles seront inclus dans les r&eacute;sultats de g&eacute;ocodage.
+                </li>
+                <li> <b>Minimal</b>&nbsp;: un sous-ensemble de champs du localisateur ainsi que les champs de la table en entr&eacute;e seront inclus dans les r&eacute;sultats.
+                </li>
+                <li> <b>Location only (Localisation uniquement)</b>&nbsp;: le champ <i>Shape</i> du localisateur ainsi que les champs de la table en entr&eacute;e seront inclus dans les r&eacute;sultats.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Type de sortie &agrave; cr&eacute;er. La sortie peut &ecirc;tre un service d&rsquo;entit&eacute;s, un fichier&nbsp; <code>.csv</code> ou un fichier <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Nom de l&rsquo;&eacute;l&eacute;ment en sortie o&ugrave; les donn&eacute;es de localisation seront stock&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

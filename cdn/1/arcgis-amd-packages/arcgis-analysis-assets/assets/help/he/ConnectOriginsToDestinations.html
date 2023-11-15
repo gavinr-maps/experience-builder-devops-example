@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'חשב עלות נסיעה' מודד את זמן ההגעה או מרחק ההגעה בין זוג נקודות.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">שכבת הנקודות שמייצגת את מיקומי המוצא שמהם תחושב עלות נסיעה. שכבות עם עד  5,000 ישויות נתמכות. </p> 
+            <p class="PortalOnly">שכבת הנקודות שמייצגת את מיקומי המוצא שמהם תחושב עלות נסיעה.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">שכבת הנקודות שמייצגת את מיקומי היעד שאליהם תחושב עלות נסיעה. שכבות עם עד  5,000 ישויות נתמכות. </p> 
+            <p class="PortalOnly">שכבת הנקודות שמייצגת את מיקומי היעד שאליהם תחושב עלות נסיעה.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>השדה ב <b>שכבת מוצא</b> שמגדיר את צמד המוצא-יעד שהוקצא מראש. אם יש מספר מיקומי מוצא ויעד, מזהה זה חייב להתאים לערך ב <b>שדה מזהה מסלול שכבת יעד</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>השדה  <b>בשכבת היעד</b> שמגדיר את צמד המוצא-יעד שהוקצא מראש. אם יש מספר מיקומי מוצא ויעד, מזהה זה חייב להתאים <b>לערך בשדה מזהה מסלול שכבת מוצא</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>ישות נקודות אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. התנועה ברחוב מותרת, אבל לא בקטע החסום.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>ישות קו אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הקו אוסרים נסיעה לכל מקום שבו המחסומים חותכים את הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>ישות פליגון אחת או יותר אשר משמשות כמגבלות זמניות (מחסומים) בעת נסיעה ברחובות שמתחת. מחסומי הפוליגון אוסרים על הנסיעה בכל מקום שבו הפוליגונים מצטלבים עם הרחובות.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>השיטה שתשמש למדידת המרחק או הזמן. השיטה יכולה להיות מרחק קו או מצב נסיעה.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>התאריך והשעה של היציאה ממיקומי המוצא  <b>בשכבת המוצא</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>קובע האם נקודות המוצא והיעד מחוברות באמצעות קווי עכביש או קווי שאיפה (<b>קו ישר</b>) או הרחובות ברשת הרחובות הבסיסית (<b>מעקב אחר רחובות</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>מציין אם כל מסלול תוצאה יישמר כשכבת מסלול.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאות יישמרו.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

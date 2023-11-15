@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Găsire puncte fierbinți identifică fasciculele semnificative statistic &icirc;n obiectele spațiale de intrare.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Stratul tematic punctual sau poligonal de intrare pe care va fi efectuată analiza punctelor fierbinți.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Specifică dacă analiza punctelor fierbinți și reci va reflecta locațiile obiectelor spațiale (<b>Numere de puncte</b>) sau valorile c&acirc;mpurilor de obiecte spațiale (<b>C&acirc;mp</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>C&acirc;mpul care va fi analizat pentru fasciculele de valori ridicate și scăzute.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Tipul de obiecte spațiale de legătură &icirc;n care obiectele spațiale punctuale de intrare vor fi agregate. Acesta poate fi un strat tematic de poligoane (<b>Strat tematic de poligoane</b>) sau o grilă de teselare de pătrate (<b>Celule plasă</b>) sau hexagoane (<b>Celule hexagoane</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Stratul tematic care conține obiecte spațiale poligonale &icirc;n care obiectele spațiale de puncte de intrare vor fi agregate.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Stratul tematic de poligoane care va defini limitele analizei. Obiectele spațiale punctuale vor fi incluse &icirc;n analiza punctelor fierbinți.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Specifică modul &icirc;n care se &icirc;mpart valorile  <b>Analiză c&acirc;mp</b> sau numerele de puncte agregate. Opțiunea <b>C&acirc;mp</b> va &icirc;mpărți valorile <b>Analiză c&acirc;mp</b> la valorile unui c&acirc;mp specificat &icirc;n parametrul <b>Strat tematic de intrare</b>. Opțiunea <b>&Icirc;mbogățire date</b> va &icirc;mbogăți obiectele spațiale sau formele agregate cu datele despre populație și va &icirc;mpărți valorile <b>Analiză c&acirc;mp</b> sau numerele de puncte agregate la populație. Această opțiune poate consuma credite suplimentare.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Lungimea unei laturi a pătratului sau a celulelor hexagonale va fi utilizată pentru a agrega obiectele spațiale de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Specifică unitățile care vor fi utilizate pentru dimensiunea celulei.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Banda distanței care va fi utilizată pentru a defini o vecinătate. Obiectele spațiale de vecinătate dintr-o bandă de distanță a obiectului spațial țintă vor fi incluse &icirc;n vecinătatea obiectului spațial țintă &icirc;n timpul analizei punctelor fierbinți.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Specifică unitățile care vor fi utilizate pentru banda distanței.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Temukan Terdekat menemukan dan mengurutkan fitur terdekat ke lokasi yang ditentukan.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Layer awal dari fitur terdekat ditemukan. Layer dengan hingga  5.000 fitur didukung. </p> 
+            <p class="PortalOnly">Layer awal dari fitur terdekat ditemukan.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Fitur-fitur yang ditemukan berdasarkan kedekatan dengan layer input. Layer dengan hingga  5.000 fitur didukung. </p> 
+            <p class="PortalOnly">Fitur-fitur yang ditemukan berdasarkan kedekatan dengan layer input.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Satu atau lebih fitur titik yang bertindak sebagai pembatas sementara (penghalang) saat melakukan perjalanan di jalan mendasar. Perjalanan diperbolehkan di jalan tetapi tidak melewati penghalang.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Satu atau lebih fitur garis yang bertindak sebagai pembatas sementara (penghalang) saat melakukan perjalanan di jalan mendasar. Penghalang garis melarang perjalanan ke mana pun penghalang bersinggungan dengan jalan.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Satu atau lebih fitur poligon yang bertindak sebagai pembatas sementara (penghalang) saat melakukan perjalanan di jalan mendasar. Penghalang poligon melarang perjalanan ke mana pun poligon bersinggungan dengan jalan.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metode yang akan digunakan untuk mengukur jarak atau waktu. Metode dapat berupa jarak garis atau mode perjalanan.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Menentukan tanggal dan waktu keberangkatan penjelajah dari lokasi di  <b>Layer input</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Menentukan jumlah maksimum yang diatur dari fitur terdekat digunakan (diaktifkan) atau alat default maksimum 100 yang digunakan (dinonaktifkan).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Jumlah maksimum fitur terdekat dapat ditemukan untuk setiap fitur input.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Menentukan apakah rentang pencarian maksimum digunakan (diaktifkan) atau rentang pencarian tidak terbatas (dinonaktifkan).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Rentang pencarian maksimum untuk menemukan fitur terdekat.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Unit yang digunakan untuk menentukan rentang pencarian.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Menentukan apakah setiap rute hasil akan disimpan sebagai layer rute.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

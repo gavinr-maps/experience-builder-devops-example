@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Parametri povr&scaron;ine izračuna parametre rastrske povr&scaron;ine, kot je vidik, naklon in ukrivljenost s pomočjo geodetskih metod.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster vi&scaron;ine, ki bo uporabljen za izračune.
+            </p>
+            <p>Če je navpičnem koordinatnem sistemu vhodnega sistema na voljo enota Z, bo uporabljena samodejno.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Tip parametra povr&scaron;ine, ki bo merjen.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Merske enote izhodnega rastra naklona.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Določa, ali bo geodetski azimut projiciran.
+            </p>
+            <p>Če je možnost obkljukana, bo azimut projiciran tako, da popravi popačenje kota, ki ga je povzročila izhodna prostorska referenca. Če možnost ni obkljukana, geodetski azimut ne bo projiciran.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Določi, ali bo vidik merjen iz točke na ekvatorju ali severnem tečaju.
+            </p>
+            <p>Če je možnost obkljukana, bo vidik merjen iz točke na ekvatorju. Če možnost ni obkljukana, bo vidik merjen iz severnega tečaja.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Vrsta povr&scaron;inske funkcije, ki bo name&scaron;čena okoli ciljne celice.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Razdalja od sredi&scaron;ča ciljne celice iz katerega bo izračunan rezultat. Določa velikost soseske, uporabljene za izračun.
+            </p>
+            <p>Privzeta vrednost velikost celice rastra, navedenega v parametru  <b>vhodnega povr&scaron;inskega rastra</b>. Če je vrednost navedena, mora biti večja od privzete.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Določa, ali se bo razdalja soseske spreminjala s spremembami pokrajine.
+            </p>
+            <p>Če je možnost obkljukana, se razdalja soseske spreminja s spremembami pokrajine. Če možnost ni obkljukana, bo na vseh lokacijah uporabljena fiksna razdalja soseseke.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Linearna enota navpičnih z-vrednosti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime rastrskega sloja povr&scaron;ine, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Vrsta rezultata, ki bo ustvarjen. Rezultat je lahko plo&scaron;čični slikovni sloj ali dinamični slikovni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

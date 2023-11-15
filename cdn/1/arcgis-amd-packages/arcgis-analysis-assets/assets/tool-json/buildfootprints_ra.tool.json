@@ -1,0 +1,61 @@
+{
+  "name": "BuildFootprints",
+  "displayName": "BuildFootprints",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/BuildFootprints.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "imageCollection",
+      "dataType": "GPString",
+      "displayName": "imageCollection",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "computationMethod",
+      "dataType": "GPString",
+      "displayName": "computationMethod",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "RADIOMETRY",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": "",
+      "choiceList": ["RADIOMETRY", "GEOMETRY"]
+    },
+    {
+      "name": "valueRange",
+      "dataType": "GPString",
+      "displayName": "valueRange",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outCollection",
+      "dataType": "GPString",
+      "displayName": "outCollection",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

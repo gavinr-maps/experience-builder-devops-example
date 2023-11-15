@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Zl&uacute;čiť vrstvy kop&iacute;ruje prvky z dvoch vrstiev do novej vrstvy. M&ocirc;žete kontrolovať ako s&uacute; polia z vstupn&yacute;ch vrstiev spojen&eacute; a kop&iacute;rovan&eacute;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&eacute;, l&iacute;niov&eacute; alebo polyg&oacute;nov&eacute; prvky, ktor&eacute; bud&uacute; zl&uacute;čen&eacute; s vrstvou zl&uacute;čenia.
+            </p>
+        </div>
+    </div>
+    <div id="mergeLayer">
+        <div>
+            <p>Vrstva, ktor&aacute; bude zl&uacute;čen&aacute; so vstupnou vrstvou.
+            </p>
+        </div>
+    </div>
+    <div id="mergingAttributes">
+        <div>
+            <p>Určuje, ako sa bud&uacute; polia zlučovať.
+            </p>
+            <p>Ak obe vrstvy obsahuj&uacute; pole so zhodn&yacute;m n&aacute;zvom a d&aacute;tov&yacute;m typom, obsah oboch pol&iacute; sa zl&uacute;či do jedn&eacute;ho poľa s rovnak&yacute;m n&aacute;zvom. Toto sa nevzťahuje na polia, keď sa  <b>Zhoda</b> použ&iacute;va ako hodnota parametra <b>oper&aacute;cie zl&uacute;čenie</b>. 
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

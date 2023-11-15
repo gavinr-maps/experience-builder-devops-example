@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Geokoduj lokalizacje z tabeli przekształca adresy lub miejsca z tabeli wejściowej we wsp&oacute;łrzędne.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Tabela danych wejściowych z adresami lub miejscami przeznaczonymi do geokodowania. Dane wejściowe muszą mieć format tabeli, pliku  <code>.csv</code> lub pliku programu Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Usługa lokalizatora używana do geokodowania. Jeśli usługi lokalizatora, kt&oacute;rej chcesz użyć, nie ma w menu rozwijanym, poproś administratora o skonfigurowanie usługi lokalizatora na potrzeby geokodowania wsadowego.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Określa, czy dane wejściowe są zawarte w pojedynczym polu, czy w wielu polach.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Pola, kt&oacute;re będą używane przez lokalizator do określania lokalizacji danych. Zakłada się, że niekt&oacute;re pola znajdują się w danych, takie jak adres, miasto, stan i kod pocztowy.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Kraj, w kt&oacute;rym znajdują się dane. Jeśli wszystkie adresy pochodzą z jednego kraju, podaj ten kraj, aby uzyskać najdokładniejsze wyniki. W przeciwnym razie pozostaw ten parametr pusty.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Określa pola, kt&oacute;re zostaną uwzględnione w wynikowym zestawie danych. Dostępne opcje to:
+            </p>
+            <ul>
+                <li> <b>Wszystkie</b> &ndash; wszystkie dostępne pola wynikowe lokalizatora zostaną uwzględnione w wynikach geokodowania.
+                </li>
+                <li> <b>Minimalny</b> &ndash; w wynikach zostanie uwzględniony podzbi&oacute;r p&oacute;l z lokalizatora oraz p&oacute;l z tabeli wejściowej.
+                </li>
+                <li> <b>Tylko lokalizacja</b> &ndash; w wynikach zostanie uwzględnione pole <i>Shape</i> z lokalizatora oraz pola z tabeli wejściowej.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Dane wynikowe mogą być usługą obiektową, plikiem  <code>.csv</code> lub plikiem <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Nazwa elementu wynikowego, w kt&oacute;rym przechowywane będą zlokalizowane dane.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

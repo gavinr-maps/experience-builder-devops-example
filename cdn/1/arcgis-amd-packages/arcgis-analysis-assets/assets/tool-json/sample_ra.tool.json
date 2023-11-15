@@ -1,0 +1,143 @@
+{
+  "name": "Sample",
+  "displayName": "Sample",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/Sample.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inRasters",
+      "dataType": "GPString",
+      "displayName": "inRasters",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inLocationData",
+      "dataType": "GPString",
+      "displayName": "inLocationData",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "resamplingType",
+      "dataType": "GPString",
+      "displayName": "resamplingType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "NEAREST",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["NEAREST", "BILINEAR", "CUBIC"]
+    },
+    {
+      "name": "uniqueIdField",
+      "dataType": "GPString",
+      "displayName": "uniqueIdField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "acquisitionDefinition",
+      "dataType": "GPString",
+      "displayName": "acquisitionDefinition",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "statisticsType",
+      "dataType": "GPString",
+      "displayName": "statisticsType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "MEAN",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["MINIMUM", "MAXIMUM", "MEDIAN", "MEAN", "SUM", "MAJORITY", "MINORITY", "STD", "PERCENTILE"]
+    },
+    {
+      "name": "percentileValue",
+      "dataType": "GPString",
+      "displayName": "percentileValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "bufferDistance",
+      "dataType": "GPString",
+      "displayName": "bufferDistance",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "layout",
+      "dataType": "GPString",
+      "displayName": "layout",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "ROW_WISE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["ROW_WISE", "COLUMN_WISE"]
+    },
+    {
+      "name": "generateFeatureClass",
+      "dataType": "GPBoolean",
+      "displayName": "generateFeatureClass",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outSample",
+      "dataType": "GPString",
+      "displayName": "outSample",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

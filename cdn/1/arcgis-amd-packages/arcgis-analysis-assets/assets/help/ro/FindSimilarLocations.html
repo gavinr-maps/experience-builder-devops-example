@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Găsire locații similare evaluează similaritatea dintre locațiile candidate și o locație de referință pe baza unui set de criterii și clasează locațiile candidate de la cele mai similare la cele mai puțin similare.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Stratul tematic punct, linie sau poligon care conține locațiile de referință spațială care vor fi asociate. Dacă stratul tematic include mai multe locații, toate locațiile vor fi calculate ca medie pentru a crea o singură locație de referință.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Stratul tematic punct, linie sau poligon care conține locațiile candidate de căutare. Fiecare locație candidată de căutare va fi comparată cu locația de referință după valoarea  <b>Selecție criterii</b> specificată și clasate de la cele mai similare la cele mai puțin similare.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>C&acirc;mpurile numerice care vor fi utilizate pentru a evalua similaritatea dintre locația de referință și fiecare locație candidată de căutare. Fiecare valoare  <b>Selecție criterii</b> va avea o valoare <b>C&acirc;mp din stratul tematic de referință</b> și o valoare <b>C&acirc;mp din stratul tematic candidat</b>. Valorile <b>C&acirc;mp din strat tematic de referință</b> și <b>C&acirc;mp din strat tematic candidat</b> corespund c&acirc;mpurilor din valorile <b>Strat tematic locații de referință</b> și <b>Căutare strat tematic candidate</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>C&acirc;mpul  <b>Strat tematic locații de referință</b> care corespunde c&acirc;mpului <b>Căutare strat tematic candidate</b> specificat de valoarea <b>C&acirc;mp din stratul tematic candidat</b>. Valorile din aceste c&acirc;mpuri corelate vor fi comparate pentru a evalua similaritatea dintre locația de referință și fiecare locație candidată de căutare.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>C&acirc;mpul  <b>Căutare strat tematic candidat</b> care corespunde c&acirc;mpului <b>Referință strat tematic locații</b> specificat de valoarea <b>C&acirc;mp din stratul tematic de referință</b>. Valorile din aceste c&acirc;mpuri corelate vor fi comparate pentru a evalua similaritatea dintre locația de referință și fiecare locație candidată de căutare.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Specifică dacă toate locațiile din valoarea  <b>Căutare strat tematic candidat</b> vor fi incluse &icirc;n stratul tematic de ieșire.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Numărul locațiilor celor mai similare din valoarea  <b>Căutare strat tematic candidat</b> care vor fi incluse &icirc;n stratul tematic de ieșire.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

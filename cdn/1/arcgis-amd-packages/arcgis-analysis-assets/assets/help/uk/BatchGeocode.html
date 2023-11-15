@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Геокодування місць розташування з таблиці&raquo; перетворює адреси або місця зі вхідної таблиці в координати.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Вхідна таблиця з адресами або місцями для геокодування. Вхідними даними мають бути таблиця, файл  <code>.csv</code> або файл Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Сервіс локатора, використовуваний для геокодування. Якщо потрібний сервіс геокодування відсутній у розкривному меню, зверніться до вашого адміністратора, щоб він налаштував сервіс локатора для пакетного геокодування.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Указує, чи вхідні дані містяться в одному або в декількох полях.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Поля, які використовуватимуться локатором для визначення місць розташування даних. Очікується, що в даних є наявними певні поля, як-от адреса, місто, штат та поштовий індекс.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Країна, у якій розташовуються дані. Якщо всі адреси знаходяться в одній країні, укажіть цю країну для отримання максимально точних результатів. Або залиште цей параметр порожнім.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Указує поля, які будуть включені у набір вихідних даних. Доступні такі опції:
+            </p>
+            <ul>
+                <li> <b>Усе</b>&mdash;У результати геокодування будуть включені всі наявні вихідні поля локатора.
+                </li>
+                <li> <b>Мінімум</b>&mdash;У результати будуть включені піднабір полів із локатора і поля зі вхідної таблиці.
+                </li>
+                <li> <b>Тільки місце розташування</b>&mdash;У результати будуть включені поле <i>Shape</i> із локатора і поля зі вхідної таблиці.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Тип вихідних даних, які буде створено. Вихідними даними може бути сервіс об'єктів, файл  <code>.csv</code> або файл <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Ім'я вихідного елемента, де будуть збережені розміщені дані.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

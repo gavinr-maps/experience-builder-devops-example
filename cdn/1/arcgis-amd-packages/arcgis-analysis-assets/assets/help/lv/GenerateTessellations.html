@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Mozaīkas veidojumu ģenerē&scaron;anas rīks izveido laukumu režģi, pamatojoties uz norādīto pārklājumu, formu un lielumu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>Forma mozaīkas veidojumiem, kas tiks izveidoti.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Norāda, vai mozaīkas veidojuma lielums tiks noteikts pēc tā platības (<b>Platība</b>) vai pēc attāluma vērtības (<b>Attālums</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Ģenerēto mozaīkas veidojumu lielums (laukums vai attālums). Kvadrātiem, se&scaron;stūriem, trīsstūriem un dimanta formām attālums nosaka mozaīkas veidojumu augstumu. &Scaron;ķērseniskajiem se&scaron;stūriem attālums nosaka mozaīkas veidojumu platumu.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Mozaīkas veidojumu H3 iz&scaron;ķirtspēja. Iz&scaron;ķirtspēja ir no 0 līdz 15. Ar katru pieaugo&scaron;o iz&scaron;ķirtspējas lielumu daudzstūru laukums samazināsies līdz vienai septītajai daļai mazākas iz&scaron;ķirtspējas lieluma.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Norāda vienības, kas tiks izmantotas mozaīkas veidojuma izmēram.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Mozaīkas veidojuma aptvertais pārklājums.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>Elementu slāņiem norāda, vai mozaīku veidojumi aptvers visu pārklājumu vai tikai tās teritorijas, kurās mozaīkas veidojumi krustojas ar elementiem.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

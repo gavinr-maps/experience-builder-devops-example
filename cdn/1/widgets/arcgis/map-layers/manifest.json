@@ -2,8 +2,8 @@
   "name": "map-layers",
   "label": "Map Layers",
   "type": "widget",
-  "version": "1.12.0",
-  "exbVersion": "1.12.0",
+  "version": "1.13.0",
+  "exbVersion": "1.13.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -21,7 +21,9 @@
   "excludeDataActions": [
     "setFilter",
     "arcgis-map.*",
-    "exportSelected"
+    "exportSelected",
+    "near-me.locate",
+    "elevation-profile.*"
   ],
   "translatedLocales": [
     "en",

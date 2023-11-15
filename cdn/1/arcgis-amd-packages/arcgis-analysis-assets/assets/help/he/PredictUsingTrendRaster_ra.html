@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'חיזוי באמצעות רסטר מגמה' מחשב שכבת תצלומים רב-ממדית חזויה תוך שימוש בשכבת תצלומי מגמה של הפלט שנוצרה מהכלי 'צור קו מגמה'.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>שכבת תצלומי המגמה הרב-ממדית של הלקט אשר תשמש לעבור החיזוי.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>המשתנה של שכבת התצלומים הרב-ממדית אשר ישמש עבור החיזוי.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>השיטה אשר תשמש לציון ערכי ממד חיזוי.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>הגדר את תאריך ההתחלה והסיום, הגובה או העומק של מרווח הממד אשר ישמש בחיזוי.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>תאריך ההתחלה, הגובה או העומק של מרווח הממד אשר ישמש בחיזוי.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>תאריך הסיום, הגובה או העומק של מרווח הממד אשר ישמש בחיזוי.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>מספר השלבים בין שני ערכי ממד ייכלל בחיזוי.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>היחידה שבה יש להשתמש עבור ערך המרווח.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>סוג הקלט שייווצר. הפלט יכול להיות Tiled imagery או Dynamic imagery.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

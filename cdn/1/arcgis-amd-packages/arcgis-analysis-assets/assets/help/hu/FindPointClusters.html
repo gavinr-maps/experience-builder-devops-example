@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Find Point Clusters eszk&ouml;z pontszerű vektoros elemek klasztereit azonos&iacute;tja a t&eacute;rbeli eloszl&aacute;suk alapj&aacute;n.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>A bemeneti pontr&eacute;teg, amelyet a rendszer a pontjellemzők t&eacute;rbeli eloszl&aacute;sa alapj&aacute;n csoportos&iacute;t majd klaszterekbe.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>A klaszterek azonos&iacute;t&aacute;s&aacute;ra haszn&aacute;lt m&oacute;dszer.
+            </p>
+        </div>
+    </div>
+    <div id="minFeaturesCluster">
+        <div>
+            <p>A klaszternek tekintendő pontszerű vektoros elemek minim&aacute;lis sz&aacute;ma.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Megadja az egyes pontszerű vektoros elemek k&ouml;r&uuml;li maxim&aacute;lis t&aacute;vols&aacute;got a klaszterbe felvehető pontok keres&eacute;s&eacute;hez. Ha &uuml;resen marad, a  <b>Keres&eacute;si t&aacute;vols&aacute;g</b> &eacute;rt&eacute;ke a r&eacute;tegben tal&aacute;lhat&oacute; legnagyobb alapt&aacute;vols&aacute;g lesz, az alapt&aacute;vols&aacute;g legfelső 1 sz&aacute;zal&eacute;k&aacute;nak kiv&eacute;tel&eacute;vel.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistanceUnit">
+        <div>
+            <p>A keres&eacute;si t&aacute;vols&aacute;ghoz haszn&aacute;land&oacute; m&eacute;rt&eacute;kegys&eacute;get adja meg.
+            </p>
+        </div>
+    </div>
+    <div id="sensitivity">
+        <div>
+            <p>Egy 0 &eacute;s 100 k&ouml;z&ouml;tti eg&eacute;sz sz&aacute;m, amely a klaszterek kompakts&aacute;g&aacute;t hat&aacute;rozza meg. Ha &uuml;resen marad, a  <b>Klaszter &eacute;rz&eacute;kenys&eacute;g</b> &eacute;rt&eacute;k&eacute;t a Kullback-Leibler divergencia seg&iacute;ts&eacute;g&eacute;vel sz&aacute;m&iacute;tja ki.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,2007 @@
+{
+  "newItem": "Mục mới",
+  "addLayer": "Thêm Lớp",
+  "createFeatureLayer": "Tạo một lớp đối tượng",
+  "createTileLayer": "Tạo một lớp tile",
+  "createSceneLayer": "Tạo một lớp scene",
+  "createRasterFunctionTemplate": "Tạo biểu mẫu hàm raster mới",
+  "addDataStore": "Thêm kết nối vào kho dữ liệu",
+  "next": "Tiếp",
+  "publish": "Xuất bản",
+  "save": "Lưu",
+  "cancel": "Hủy",
+  "back": "Quay lại",
+  "error": "Lỗi",
+  "update": "Cập nhật",
+  "moreInfo": "Thông tin khác",
+  "loadingData": "Đang tải...",
+  "creatingLayer": "Đang tạo lớp...",
+  "common": {
+    "add": "Thêm",
+    "url": "URL",
+    "addToMap": "Thêm vào bản đồ",
+    "createAndAddToMap": "Tạo và thêm vào bản đồ",
+    "register": "Đăng ký",
+    "supportServices": "Dịch vụ được hỗ trợ là ${typeList}",
+    "supportLayerTypes": "Các loại lớp được hỗ trợ là ${typeList}",
+    "supportFileTypes": "Các loại tệp được hỗ trợ là ${typeList}",
+    "learnMore": "Tìm hiểu thêm",
+    "updateAndComplete": "Cập nhật và hoàn tất",
+    "proceed": "Tiếp tục",
+    "createConnection": "Tạo kết nối",
+    "addAndComplete": "Thêm và hoàn tất",
+    "signInAndOverwrite": "Đăng nhập và ghi đè",
+    "overwriteAndComplete": "Ghi đè và hoàn tất"
+  },
+  "application": {
+    "web": "Thành lập bản đồ Web",
+    "desktop": "Desktop",
+    "mobile": "Di động",
+    "otherApplication": "Ứng dụng khác",
+    "applicationType": "Loại ứng dụng",
+    "application": "Ứng dụng",
+    "manifestUrl": "URL Bản kê",
+    "appExtension": "Phần mở rộng Ứng dụng (AppBuilder)",
+    "experienceBuilderWidget": "Tiện ích Experience Builder",
+    "appExtensionError": "URL không tham chiếu đến Phần mở rộng AppBuilder.",
+    "enterManifestUrl": "Nhập url cho bản kê của phần mở rộng",
+    "File": "Tệp",
+    "selectZip": "Chọn một tệp .zip",
+    "fileRequired": "Tệp được yêu cầu cho các ứng dụng desktop",
+    "enterUrl": "Nhập url cho ứng dụng của bạn",
+    "enterValidUrl": "Nhập url hợp lệ cho ứng dụng của bạn",
+    "URL": "URL"
+  },
+  "auth": {
+    "username": "Tên người dùng",
+    "enterUsername": "Nhập tên đăng nhập",
+    "password": "Mật khẩu",
+    "enterPassword": "Nhập mật khẩu",
+    "invalid": "Tên đăng nhập hoặc mật khẩu không hợp lệ.",
+    "requiresCredentials": "Phải cung cấp cả tên người dùng và mật khẩu."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Chọn lớp để thêm",
+    "noLayersFound": "Không tìm thấy lớp nào phù hợp với tiêu chí của bạn. Hãy thử thay đổi cụm từ tìm kiếm để hiển thị thêm các lớp.",
+    "of": "của",
+    "layers": "các lớp",
+    "usePro": "Bộ dữ liệu này có hơn 1000 lớp. Nhập từ khóa tìm kiếm để tìm một lớp cụ thể.",
+    "errorTitle": "Không có lớp nào được chọn",
+    "noLayersSelected": "Chọn một hoặc nhiều lớp để tiếp tục",
+    "selectAll": "Chọn tất cả",
+    "deselectAll": "Bỏ chọn tất cả"
+  },
+  "csvFields": {
+    "searchFields": "Tìm kiếm trường",
+    "fieldType": "Loại trường",
+    "fieldTitle": "Trường",
+    "fieldDescription": "Chọn các trường để cho vào lớp đối tượng được lưu trữ. Tùy chọn cập nhật tên hiển thị và loại trường.",
+    "fieldNoHostedDescription": "Theo tùy chọn, cập nhật tên hiển thị và loại trường sẽ được sử dụng trong lớp.",
+    "fieldName": "Tên trường",
+    "displayName": "Tên hiển thị",
+    "displayNameLabel": "Tên hiển thị ${name}",
+    "type": "Loại",
+    "typeLabel": "Loại ${name}",
+    "allTypes": "Tất cả các loại",
+    "noFields": "Không tìm thấy trường phù hợp với tiêu chí tìm kiếm của bạn. Hãy thử thay đổi cụm từ tìm kiếm hoặc mở rộng tùy chọn bộ lọc.",
+    "selected": "đã chọn",
+    "clearSelection": "Xóa lựa chọn",
+    "fieldTypes": {
+      "esriFieldTypeString": "Chuỗi",
+      "esriFieldTypeInteger": "Số nguyên",
+      "esriFieldTypeSmallInteger": "Số nguyên nhỏ",
+      "esriFieldTypeSingle": "Một",
+      "esriFieldTypeDouble": "Đôi",
+      "esriFieldTypeDate": "Ngày",
+      "esriFieldTypeDateOnly": "Chỉ Ngày",
+      "esriFieldTypeTimeOnly": "Chỉ Giờ",
+      "esriFieldTypeBigInteger": "Số nguyên lớn",
+      "esriFieldTypeTimestampOffset": "Độ lệch Nhãn thời gian"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "Đang phân tích...",
+    "locationSettings": "Thiết lập vị trí",
+    "locationSettingsDescription": "Chỉ định loại thông tin vị trí mà tệp chứa.",
+    "advancedSettings": "Thiết lập vị trí nâng cao",
+    "locator": "Bộ định vị",
+    "region": "Khu vực",
+    "enrich": "Bổ sung lớp bằng thông tin địa chỉ",
+    "enrichLayer": "Bổ sung lớp trường đầu ra có định vị",
+    "enrichLayerDescription": "Thêm các trường cung cấp thông tin về quy trình mã hóa địa lý, ví dụ như thông tin vị trí trong tệp của bạn khớp với bộ định vị đến mức nào.",
+    "enrichLayerLink": "Tìm hiểu thêm về các trường được thêm này.",
+    "consumesCredits": "Sử dụng credit",
+    "locationFields": "Trường vị trí",
+    "locationFieldSingle": "Thông tin vị trí nằm trong một trường.",
+    "locationFieldMultiple": "Thông tin vị trí nằm trong nhiều trường.",
+    "locationFieldsDescription": "Chỉ định trường chứa thông tin vị trí.",
+    "locationTypes": {
+      "address": {
+        "title": "Địa chỉ hoặc tên địa điểm",
+        "description": "Dữ liệu vị trí là địa chỉ, tên địa điểm, mã bưu điện và quốc gia. Có thể tốn credit.",
+        "descriptionDeveloper": "Dữ liệu vị trí là địa chỉ, tên địa điểm, mã bưu điện và quốc gia."
+      },
+      "coordinates": {
+        "title": "Vĩ độ và kinh độ",
+        "description": "Dữ liệu vị trí là vĩ độ và kinh độ."
+      },
+      "mgrs": {
+        "title": "Tọa độ MGRS",
+        "description": "Dữ liệu vị trí nằm trong Hệ thống Tham chiếu Không gian Quân sự."
+      },
+      "usng": {
+        "title": "Tọa độ USNG",
+        "description": "Dữ liệu vị trí nằm trong Lưới Quốc gia Hoa Kỳ."
+      },
+      "none": {
+        "title": "Không có",
+        "description": "${type} này không chứa dữ liệu vị trí và sẽ được thêm vào dưới dạng bảng"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Không có trường nào",
+        "description": "Định vị địa chỉ nhưng không gồm bất kỳ trường bổ sung nào."
+      },
+      "Minimal": {
+        "title": "Một số trường",
+        "description": "Thêm bốn trường cho thấy độ khớp của các địa chỉ."
+      },
+      "AllFields": {
+        "title": "Tất cả trường",
+        "description": "Thêm 50 trường để có đầy đủ thông tin vị trí."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Không có trường địa chỉ nào được chọn",
+        "description": "Chọn trường chứa dữ liệu vị trí."
+      },
+      "coordinate": {
+        "title": "Chọn trường tọa độ",
+        "description": "Chọn trường để sử dụng cho cả vĩ độ và kinh độ."
+      },
+      "insufficientCredits": {
+        "title": "Không đủ credit",
+        "description": "Bạn không có đủ credit để thực hiện thao tác này. Hãy liên hệ với quản trị viên của bạn để yêu cầu thêm credit."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Bảng phải chứa thông tin vị trí",
+        "description": "Bạn không thể thêm các đối tượng vào một lớp không chứa thông tin vị trí."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Credit của tổ chức không đủ - hành động có thể không được hoàn thành",
+      "description": "Tổ chức của bạn có thể không có đủ credit để hoàn thành hành động này. Nếu quy trình không hoàn thành, vui lòng liên hệ quản trị viên của bạn để lấy thêm credit."
+    },
+    "recordCount": "Các bản ghi ước tính sẽ mã hóa địa lý: ${num}",
+    "locationType": "Loại vị trí",
+    "field": "Trường",
+    "unknown": "Loại vị trí không được sử dụng",
+    "longitude": "Kinh độ",
+    "latitude": "Vĩ độ",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Thế giới",
+      "EU": "Châu Âu",
+      "AD": "Anđora",
+      "AE": "Các Tiểu vương quốc Ả rập Thống nhất",
+      "AF": "Afghanistan",
+      "AG": "Antigua và Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albania",
+      "AM": "Armenia",
+      "AO": "Angola",
+      "AQ": "Châu Nam Cực",
+      "AR": "Argentina",
+      "AS": "Samoa thuộc Mỹ",
+      "AT": "Áo",
+      "AU": "Úc",
+      "AW": "Aruba",
+      "AZ": "Azerbaijan",
+      "BA": "Bosnia và Herzegovina",
+      "BB": "Barbados",
+      "BD": "Bangladesh",
+      "BE": "Bỉ",
+      "BF": "Burkina Faso",
+      "BG": "Cộng hòa Bulgaria",
+      "BH": "Vương quốc Bahrain",
+      "BI": "Burundi",
+      "BJ": "Benin",
+      "BL": "Saint Barthélemy",
+      "BM": "Bermuda",
+      "BN": "Vương quốc Hồi giáo Brunei",
+      "BO": "Nhà nước Đa dân tộc Bolivia",
+      "BQ": "Bonaire, Sint Eustatius và Saba",
+      "BR": "Brazil",
+      "BS": "Bahamas",
+      "BT": "Bhutan",
+      "BV": "Đảo Bouvet",
+      "BW": "Botswana",
+      "BY": "Belarus",
+      "BZ": "Belize",
+      "CA": "Canada",
+      "CD": "Cộng hòa Dân chủ Congo",
+      "CF": "Cộng hòa Trung Phi",
+      "CG": "Congo",
+      "CH": "Thụy Sĩ",
+      "CI": "Bờ Biển Ngà",
+      "CK": "Quần đảo Cook",
+      "CL": "Chi-lê",
+      "CM": "Cameroon",
+      "CN": "Trung Quốc",
+      "CO": "Colombia",
+      "CR": "Costa Rica",
+      "CU": "Cuba",
+      "CV": "Cape Verde",
+      "CW": "Curaçao",
+      "CY": "Síp",
+      "CZ": "Cộng hòa Séc",
+      "DE": "Đức",
+      "DJ": "Djibouti",
+      "DK": "Đan Mạch",
+      "DM": "Dominica",
+      "DO": "Cộng hòa Dominica",
+      "DZ": "Algeria",
+      "EC": "Ecuador",
+      "EE": "Extônia",
+      "EG": "Ai Cập",
+      "EH": "Tây Sahara",
+      "ER": "Eritrea",
+      "ES": "Tây Ban Nha",
+      "ET": "Ethiopia",
+      "FI": "Phần Lan",
+      "FJ": "Fiji",
+      "FK": "Quần đảo Falkland (Malvinas)",
+      "FM": "Liên Bang Micronesia",
+      "FO": "Quần đảo Faroe",
+      "FR": "Pháp",
+      "GA": "Gabon",
+      "GB": "Vương quốc Anh",
+      "GD": "Grenada",
+      "GE": "Georgia",
+      "GF": "Guinée thuộc Pháp",
+      "GG": "Guernsey",
+      "GH": "Ghana",
+      "GI": "Gibranta",
+      "GL": "Greenland",
+      "GM": "Gambia",
+      "GN": "Guinea",
+      "GP": "Goađơlup",
+      "GQ": "Guinea Xích đạo",
+      "GR": "Hy Lạp",
+      "GS": "Nam Georgia và Quần đảo Nam Sandwich",
+      "GT": "Guatemala",
+      "GW": "Guinea-Bissau",
+      "GY": "Guyana",
+      "HK": "Hồng Kông",
+      "HM": "Đảo Heard và Quần đảo McDonald",
+      "HN": "Honduras",
+      "HR": "Croatia",
+      "HT": "Haiti",
+      "HU": "Hungary",
+      "ID": "Inđônêxia",
+      "IE": "Ireland",
+      "IL": "Israel",
+      "IM": "Đảo Man",
+      "IN": "Ấn Độ",
+      "IO": "Lãnh thổ Ấn Độ Dương thuộc Anh",
+      "IQ": "Irăc",
+      "IR": "Cộng hòa Hồi giáo Iran",
+      "IS": "Iceland",
+      "IT": "Ý",
+      "JE": "Jersey",
+      "JM": "Jamaica",
+      "JO": "Jordan",
+      "JP": "Nhật Bản",
+      "KE": "Kenya",
+      "KG": "Kyrgyzstan",
+      "KH": "Campuchia",
+      "KI": "Kiribati",
+      "KM": "Comoros",
+      "KN": "Saint Kitts và Nevis",
+      "KP": "Cộng hòa Dân chủ Nhân dân Triều Tiên",
+      "KR": "Cộng hòa Triều Tiên",
+      "KW": "Kuwait",
+      "KY": "Quần đảo Cayman",
+      "KZ": "Kazăcxtan",
+      "LA": "Cộng hòa Dân chủ Nhân dân Lào",
+      "LB": "Leban",
+      "LC": "Saint Lucia",
+      "LI": "Liechtenstein",
+      "LK": "Sri Lanka",
+      "LR": "Liberia",
+      "LS": "Lesotho",
+      "LT": "Litva",
+      "LU": "Luxembourg",
+      "LV": "Latvia",
+      "LY": "Libya",
+      "MA": "Maroc",
+      "MC": "Mônacô",
+      "MD": "Cộng hòa Mônđôva",
+      "ME": "Montenegro",
+      "MF": "Saint Martin (Thuộc Pháp)",
+      "MG": "Madagascar",
+      "MH": "Quần đảo Marshall",
+      "MK": "Ma-xê-đô-ni-a, Cộng hòa Nam tư cũ",
+      "ML": "Mali",
+      "MM": "Myanmar",
+      "MN": "Mông Cổ",
+      "MO": "Ma Cao",
+      "MP": "Quần đảo Bắc Mariana",
+      "MQ": "Martinique",
+      "MR": "Mauritania",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Mauritius",
+      "MV": "Maldives",
+      "MW": "Malawi",
+      "MX": "Mêhicô",
+      "MY": "Malaysia",
+      "MZ": "Mozambique",
+      "NA": "Namibia",
+      "NC": "New Caledonia",
+      "NE": "Niger",
+      "NG": "Nigeria",
+      "NI": "Nicaragua",
+      "NL": "Hà Lan",
+      "NO": "Na Uy",
+      "NP": "Nepal",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "New Zealand",
+      "OM": "Oman",
+      "PA": "Panama",
+      "PE": "Peru",
+      "PF": "Polynesia thuộc Pháp",
+      "PG": "Papua New Guinea",
+      "PH": "Philipin",
+      "PK": "Pakistan",
+      "PL": "Ba Lan",
+      "PM": "Saint Pierre và Miquelon",
+      "PN": "Pitcairn",
+      "PS": "Palestine, Tiểu bang của",
+      "PT": "Bồ Đào Nha",
+      "PW": "Palau",
+      "PY": "Paraguay",
+      "QA": "Qatar",
+      "RE": "Réunion",
+      "RO": "Rumani",
+      "RS": "Serbia",
+      "RU": "Liên bang Nga",
+      "RW": "Rwanda",
+      "SA": "Ả rập Xê-út",
+      "SB": "Quần đảo Solomon",
+      "SC": "Seychelles",
+      "SD": "Sudan",
+      "SE": "Thụy điển",
+      "SG": "Singapore",
+      "SH": "Saint Helena, Ascension và Tristan da Cunha",
+      "SI": "Slovenia",
+      "SJ": "Svalbard và Jan Mayen",
+      "SK": "Slovakia",
+      "SL": "Sierra Leone",
+      "SM": "San Marino",
+      "SN": "Senegal",
+      "SO": "Somalia",
+      "SR": "Suriname",
+      "SS": "Nam Sudan",
+      "ST": "Sao Tome và Principe",
+      "SV": "El Salvador",
+      "SX": "Sint Maarten (Thuộc Hà Lan)",
+      "SY": "Cộng hòa Ả rập Syria",
+      "SZ": "Swaziland",
+      "TC": "Quần đảo Turks và Caicos",
+      "TD": "Chad",
+      "TF": "Lãnh thổ miền Nam nước Pháp",
+      "TG": "Togo",
+      "TH": "Thái Lan",
+      "TJ": "Tajikistan",
+      "TK": "Tokelau",
+      "TL": "Đông Timor",
+      "TM": "Turkmenistan",
+      "TN": "Tunisia",
+      "TO": "Tonga",
+      "TR": "Thổ Nhĩ Kỳ",
+      "TT": "Trinidad và Tobago",
+      "TV": "Tuvalu",
+      "TW": "Đài Loan, Tỉnh của Trung quốc",
+      "TZ": "Cộng hòa Thống nhất Tanzania",
+      "UA": "Ukraina",
+      "UG": "Uganda",
+      "UM": "Các tiểu đảo xa của Hoa Kỳ",
+      "US": "Mỹ",
+      "UY": "Uruguay",
+      "UZ": "Uzbekistan",
+      "VA": "Holy See (nhà nước (thành phố) Vatican)",
+      "VC": "Saint Vincent và Grenadines",
+      "VE": "Cộng hòa Bolivar Venezuela",
+      "VG": "Quần đảo Virgin, Anh",
+      "VN": "Việt Nam",
+      "VU": "Vanuatu",
+      "WF": "Wallis và Futuna",
+      "WS": "Samoa",
+      "XK": "Cộng hòa Kosovo",
+      "YE": "Yemen",
+      "YT": "Mayotte",
+      "ZA": "Nam Phi",
+      "ZM": "Zambia",
+      "ZW": "Zimbabwe"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Boolean",
+    "string": "Chuỗi",
+    "double": "Double",
+    "number": "Số",
+    "date": "Ngày"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Lớp điểm",
+      "line": "Lớp đường",
+      "polygon": "Lớp vùng",
+      "table": "Bảng",
+      "multipoint": "Lớp Multipoint",
+      "multipatch": "Lớp đa đường"
+    },
+    "placeholders": {
+      "point": "Tên lớp điểm",
+      "line": "Tên lớp đường",
+      "polygon": "Tên lớp vùng",
+      "table": "Tên bảng",
+      "multipoint": "Tên lớp Multipoint"
+    },
+    "creationType": {
+      "template": "Biểu mẫu",
+      "existing": "Dịch vụ đối tượng hiện có",
+      "link": "URL",
+      "build": "Xây dựng từ đầu",
+      "generic": "Bao gồm các lớp hoặc bảng thiết yếu mà bạn muốn đưa vào lớp đối tượng của mình."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Không có lớp nào được chọn",
+      "description": "Chọn một lớp đối tượng để tiếp tục."
+    },
+    "invalidUrl": {
+      "title": "Lớp không hợp lệ",
+      "description": "Lớp này tham chiếu một loại dịch vụ không được hỗ trợ."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Chỉ định tên và loại",
+    "layerPreferences": "Tùy chọn",
+    "captureGPS": "Thêm trường siêu dữ liệu GPS",
+    "captureGPSDescription": "Thêm các trường vào các lớp hỗ trợ ghi lại thông tin bộ nhận tín hiệu GPS.",
+    "enableZDefaults": "Kích hoạt giá trị Z",
+    "enableZDefaultsDescription": "Cho phép mô hình hóa các đối tượng dạng điểm, đường và vùng trong chế độ 3D.",
+    "enableZDefaultsDefaultValue": "Giá trị Z mặc định:",
+    "enableMDefaults": "Kích hoạt giá trị M",
+    "enableMDefaultsDescription": "Cho phép lưu trữ kết quả đo hoặc giá trị ở mỗi vertex cho hình học.",
+    "layer": "Lớp",
+    "table": "Bảng",
+    "add": "Thêm",
+    "error": {
+      "emptyName": {
+        "title": "Tên lớp bị thiếu",
+        "description": "Không thể để trống tên lớp"
+      },
+      "duplicateTitle": {
+        "title": "Tên lớp phải là duy nhất",
+        "description": "Không thể có các lớp có cùng tên"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Không có biểu mẫu nào được chọn",
+    "errorDescription": "Chọn một biểu mẫu để tiếp tục."
+  },
+  "featureLayerFromUrl": {
+    "description": "Xác định URL đến dịch vụ đối tượng",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "URL trống",
+        "description": "Nhập một URL hợp lệ."
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "URL không được hỗ trợ",
+        "description": "Xác định URL đến lớp đối tượng. Lớp phải chứa FeatureServer trong URL."
+      },
+      "serviceNotExist": {
+        "title": "Dịch vụ không tồn tại",
+        "description": "Dịch vụ không tồn tại hoặc không truy cập được."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Chi tiết lớp",
+    "deselectAnyLayers": "Bỏ chọn bất kỳ lớp nào bạn muốn xóa.",
+    "deselectAll": "Bỏ chọn tất cả",
+    "selectAll": "Chọn tất cả",
+    "error": {
+      "noLayer": {
+        "title": "Không có lớp nào được chọn",
+        "description": "Chọn ít nhất 1 lớp"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Chọn một tùy chọn để tạo lớp đối tượng trống.",
+    "subheading": "CẦN LÀM: cung cấp thông tin mô tả ở đây.",
+    "options": {
+      "build": {
+        "title": "Xác định lớp của riêng bạn",
+        "description": "Chỉ định các lớp và bảng."
+      },
+      "template": {
+        "title": "Sử dụng biểu mẫu",
+        "description": "Sử dụng các lớp và trường từ biểu mẫu."
+      },
+      "existing": {
+        "title": "Chọn lớp đối tượng hiện có",
+        "description": "Sử dụng các lớp và trường từ một lớp đối tượng hiện có trong tổ chức của bạn."
+      },
+      "link": {
+        "title": "Cung cấp URL của lớp ArcGIS Server",
+        "description": "Sử dụng các lớp và trường từ lớp đối tượng ArcGIS Server."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Loại Thông tin đăng nhập",
+    "redirectUrlsTitle": "URL chuyển hướng",
+    "redirectUrlsDescription": "Thêm URL được cho phép vào trang web hoặc điểm cuối máy chủ để chuyển hướng người dùng đến đó sau khi hoàn thành xác thực.",
+    "refererrUrlsTitle": "Người giới thiệu",
+    "refererrUrlsDescription": "Cho phép truy cập từ miền HTTP/HTTPS cụ thể. Giá trị của tiêu đề giới thiệu HTTP để đối chiếu. Bạn có thể dùng * làm ký tự đại diện. Ví dụ: http://*.your-app.com. Xem Bảo mật và xác thực để biết thêm chi tiết.",
+    "oauth2Hint": "Có thể sử dụng OAuth 2.0 để xác thực người dùng ArcGIS để truy cập nội dung và dịch vụ dựa trên vị trí thay mặt cho người dùng đã xác thực. Tìm hiểu thêm thông tin trong ${apiLinkStart}hướng dẫn bảo mật và xác thực.${endLink}",
+    "oauth2HintNoLink": "Có thể sử dụng OAuth 2.0 để xác thực người dùng ArcGIS để truy cập nội dung và dịch vụ dựa trên vị trí thay mặt cho người dùng đã xác thực.",
+    "applicationEnvTitle": "Môi trường ứng dụng",
+    "applicationEnvDescription": "Môi trường ứng dụng sẽ ảnh hưởng thời điểm mục xuất hiện trong kết quả tìm kiếm được lọc.",
+    "registering": "Đang đăng ký ứng dụng...",
+    "applicationEnvOptions": {
+      "multiple": "Nhiều",
+      "browser": "Trình duyệt",
+      "native": "Gốc",
+      "server": "Máy chủ"
+    },
+    "options": {
+      "apiKey": {
+        "title": "Khóa API",
+        "description": "Sử dụng khoá API để truy cập dịch vụ vị trí ArcGIS và nội dung cao cấp trong ứng dụng của bạn."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "Thông tin xác định ứng dụng OAuth 2.0 được sử dụng để xác thực người dùng ArcGIS, xử lý nội dung của người dùng và truy cập dịch vụ vị trí thay người dùng được xác thực."
+      }
+    },
+    "onboard": {
+      "title": "Loại thông tin đăng nhập",
+      "apiKey": {
+        "title": "Khóa API",
+        "description": "Sử dụng khoá API để truy cập dịch vụ vị trí và nội dung cao cấp trong ứng dụng của bạn. Xem hướng dẫn về Mapping API và dịch vụ vị trí để tìm hiểu thêm về cách sử dụng khoá API để truy cập dịch vụ."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "Có thể sử dụng OAuth 2.0 để xác thực người dùng ArcGIS để truy cập nội dung và dịch vụ dựa trên vị trí thay mặt cho người dùng đã xác thực. Tìm hiểu thêm thông tin trong hướng dẫn bảo mật và xác thực."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "URL chuyển hướng không được để trống",
+        "description": "Thêm ít nhất một URL chuyển hướng."
+      },
+      "referrerEmpty": {
+        "title": "URL giới thiệu không được để trống",
+        "description": "Thêm ít nhất một URL giới thiệu."
+      },
+      "registerError": {
+        "title": "Ứng dụng đăng ký lỗi",
+        "description": "Không thể tạo ứng dụng đã đăng ký cho mục."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "(Các) ký tự không hợp lệ trong URL chuyển hướng",
+        "description": "Không thể sử dụng các ký tự sau: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "(Các) ký tự không hợp lệ trong URL chuyển hướng",
+        "description": "Không được phép sử dụng các ký tự đặc biệt."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Dịch vụ vị trí",
+    "description": "Thiết lập phạm vi để cấp quyền truy cập vào dịch vụ vị trí ArcGIS cụ thể. Tìm hiểu thêm thông tin trong Bảo mật và xác thực.",
+    "requiredService": "Dịch vụ bắt buộc",
+    "availableServices": "Dịch vụ khả dụng",
+    "services": {
+      "basemap": {
+        "heading": "Bản đồ nền"
+      },
+      "geocodingStored": {
+        "heading": "Mã hóa địa lý (đã lưu trữ)",
+        "description": "Truy cập dịch vụ mã hoá địa lý để thực hiện mã hoá địa lý thuận và ngược bao gồm hỗ trợ đề xuất và tìm kiếm địa điểm. Bạn có thể lưu trữ kết quả."
+      },
+      "geocodingNotStored": {
+        "heading": "Mã hóa địa lý (không được lưu trữ)",
+        "description": "Truy cập dịch vụ mã hoá địa lý để thực hiện mã hoá địa lý thuận và ngược bao gồm hỗ trợ đề xuất và tìm kiếm địa điểm. Bạn có thể không lưu trữ kết quả."
+      },
+      "optimizedRouting": {
+        "heading": "Tuyến đường tối ưu",
+        "description": "Truy cập dịch vụ Định tuyến để tìm trình tự hợp lý nhất để ghé qua các vị trí."
+      },
+      "closestFacility": {
+        "heading": "Cơ sở gần nhất",
+        "description": "Truy cập vào dịch vụ Cơ sở Gần nhất để tìm một hoặc nhiều cơ sở gần sự cố nhất dựa trên thời gian di chuyển hoặc khoảng cách di chuyển."
+      },
+      "locationAllocation": {
+        "heading": "Phân bổ vị trí",
+        "description": "Truy cập dịch vụ Phân bổ Vị trí để chọn những cơ sở sẽ vận hành dựa trên tương tác tiềm năng của chúng với điểm nhu cầu từ một tập hợp các cơ sở."
+      },
+      "multiVehicleRouting": {
+        "heading": "Tuyến đường nhiều xe",
+        "description": "Truy cập vào dịch vụ Vấn đề Định tuyến Phương tiện để xác định điểm dừng nào sẽ được phục vụ theo từng tuyến và trình tự ghé qua các điểm dừng."
+      },
+      "costMatrix": {
+        "heading": "Ma trận chi phí điểm gốc/điểm đích",
+        "description": "Truy cập dịch vụ Ma trận OD để tạo ma trận chi phí điểm gốc/điểm đích (OD) từ nhiều điểm gốc đến nhiều điểm đích."
+      },
+      "geoEnrichment": {
+        "heading": "GeoEnrichment",
+        "description": "Truy cập dịch vụ GeoEnrichment để nhận thuộc tính, báo cáo và Thông tin đồ hoạ dựa trên dữ liệu mô tả dữ liệu nhân khẩu học, kinh doanh, và các đặc tính dựa trên vị trí khác cho khu vực và vị trí nghiên cứu."
+      },
+      "routing": {
+        "heading": "Định tuyến",
+        "description": "Truy cập dịch vụ Định tuyến để tìm con đường phù hợp nhất để di chuyển từ vị trí này đến vị trí khác hoặc để ghé qua nhiều vị trí."
+      },
+      "serviceArea": {
+        "heading": "Khu vực dịch vụ",
+        "description": "Truy cập vào dịch vụ Khu vực Dịch vụ để tạo một khu vực biểu thị khoảng cách có thể đi được khi di chuyển trong mạng lưới đường phố."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Chọn một tùy chọn để tạo bộ định vị",
+    "options": {
+      "locator": {
+        "title": "Tạo bộ định vị từ dịch vụ mã hóa địa lý",
+        "description": "Chỉ định URL cho dịch vụ mã hóa địa lý ArcGIS Server hiện có."
+      },
+      "locator-view": {
+        "title": "Tạo chế độ xem bộ định vị từ ArcGIS World Geocoding Service",
+        "description": "Cấu hình chế độ xem của bạn để phù hợp với các loại vị trí cụ thể trong các quốc gia hoặc khu vực cụ thể."
+      }
+    },
+    "url": {
+      "heading": "URL",
+      "description": "Chỉ định URL cho dịch vụ mã hóa địa lý"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Bạn muốn tạo loại lớp tile nào?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Lớp vector tile",
+        "description": "Trực quan hóa bản đồ nhanh bằng cách sử dụng một bộ sưu tập các vector tile được vẽ sẵn phù hợp với độ phân giải của thiết bị hiển thị và có thể được thiết kế lại cho nhiều mục đích sử dụng."
+      },
+      "raster": {
+        "title": "Lớp raster tile",
+        "description": "Trực quan hóa bản đồ nhanh bằng cách sử dụng một bộ sưu tập các tile hoặc hình ảnh bản đồ được vẽ sẵn."
+      },
+      "3dTiles": {
+        "title": "Lớp tile 3D",
+        "description": "Trực quan hóa 3D nhanh bằng cách sử dụng bộ dữ liệu tile 3D dạng lưới."
+      }
+    },
+    "sourceHeading": "Chọn một phương thức tạo lớp tile",
+    "sourceOptions": {
+      "existing": {
+        "title": "Duyệt tìm lớp đối tượng hiện có",
+        "description": "Chọn một lớp đối tượng được lưu trữ trong nội dung của bạn làm nguồn cho lớp tile vẽ nhanh."
+      },
+      "upload": {
+        "title": "Tải lên gói tile",
+        "titleRaster": "Tải lên gói tile hoặc định nghĩa dịch vụ",
+        "description": "Tải lên gói từ thiết bị cục bộ của bạn.",
+        "rasterDescription": "Tải lên gói hoặc tệp định nghĩa dịch vụ từ thiết bị cục bộ của bạn."
+      },
+      "store": {
+        "title": "Chọn một bộ dữ liệu trong kho dữ liệu",
+        "description": "Duyệt tìm nội dung tile nằm trong kho dữ liệu đã đăng ký."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Tiêu đề",
+    "titlePlaceholder": "Tiêu đề lớp tile",
+    "attribution": "Thuộc tính",
+    "subdomain": "Miền phụ",
+    "subDomainPlaceholder": "Ví dụ: a, b, c hoặc tile1, tile2, tile3",
+    "setTileExtent": "Thiết lập phạm vi tile bằng phạm vi hiện tại của bản đồ",
+    "setTileExtentTooltip": "URL cũng có thể chứa phần giữ chỗ cho các miền con nơi lưu trữ các tile của bản đồ.",
+    "error": {
+      "title": "Chỉ định một tiêu đề",
+      "attribution": "Chỉ định một thuộc tính"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Không thể tạo lớp tile",
+        "description": "Lớp tile đã tồn tại cho lớp đối tượng đã chọn. Chọn một lựa chọn khác."
+      },
+      "badRenderer": {
+        "title": "Không thể tạo lớp tile",
+        "description": "Lớp đối tượng đã chọn có kiểu vẽ không thể được vẽ dưới dạng tile. Chọn một lựa chọn khác."
+      },
+      "noLayerSelected": {
+        "title": "Không có lớp nào được chọn",
+        "description": "Chọn một lớp đối tượng để tiếp tục."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Chọn một tùy chọn để tạo một lớp scene",
+    "options": {
+      "store": {
+        "title": "Chọn một bộ dữ liệu trong kho dữ liệu",
+        "description": "Duyệt tìm nội dung scene trong tệp hoặc kho dữ liệu trên đám mây đã đăng ký với ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Tải lên gói scene",
+        "description": "Tải lên gói từ thiết bị cục bộ."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Chọn gói từ thiết bị cục bộ"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Bạn muốn tạo loại lớp tile nào?",
+    "options": {
+      "vectorTiles": {
+        "title": "Lớp vector tile",
+        "description": "Trực quan hóa bản đồ nhanh bằng cách sử dụng một bộ sưu tập các vector tile được vẽ sẵn phù hợp với độ phân giải của thiết bị hiển thị và có thể được thiết kế lại cho nhiều mục đích sử dụng."
+      },
+      "tiles": {
+        "title": "Lớp raster tile",
+        "description": "Trực quan hóa bản đồ nhanh bằng cách sử dụng một bộ sưu tập các tile hoặc hình ảnh bản đồ được vẽ sẵn."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Xem lại và áp dụng các tùy chọn cho lớp tile.",
+    "visibilityRange": "Vùng hiển thị",
+    "visibilityRangeDescription": "Vùng này sẽ ảnh hưởng đến cách bạn hiển thị các tile của mình trên bản đồ. Bạn có thể cập nhật vùng này.",
+    "basemapOption": "Lược đồ tile",
+    "autoCreateOption": {
+      "title": "Tạo tile tự động",
+      "description": "Tile sẽ được tạo theo nhu cầu khi cần thiết và được lưu trữ để sử dụng sau."
+    },
+    "onlineBasemapOption": {
+      "title": "Bản đồ nền ArcGIS Online",
+      "description": "Sử dụng lược đồ tile của bản đồ nền ArcGIS Online. Cho phép lớp của bạn hiển thị với bản đồ nền ArcGIS Online."
+    },
+    "customBasemap": {
+      "title": "Tùy chỉnh",
+      "description": "Sử dụng cùng một lược đồ tile dưới dạng lớp tile hoặc lớp hình ảnh bản đồ hiện có. Cho phép lớp của bạn hiển thị với lớp được chọn."
+    },
+    "customBasemapUrl": "Liên kết đến lớp tile hiện có",
+    "ranges": {
+      "world": "Thế giới (1:100.000.000)",
+      "continent": "Lục địa (1:50.000.000)",
+      "countries": "Quốc gia - Lớn (1:25.000.000)",
+      "countriesSmall": "Quốc gia - Nhỏ (1:12.000.000)",
+      "states": "Các tiểu bang / Các tỉnh (1:6.000.000)",
+      "state": "Tiểu bang/Tỉnh (1:3.000.000)",
+      "counties": "Các quận (1:1.500.000)",
+      "county": "Quận (1:750.000)",
+      "metropolitan": "Khu vực Đô thị (1:320.000)",
+      "cities": "Các thành phố (1:160.000)",
+      "city": "Thành phố (1:80.000)",
+      "town": "Thị trấn (1:40.000)",
+      "neighborhood": "Vùng lân cận (1:20.000)",
+      "streets": "Các đường phố (1:10.000)",
+      "street": "Đường phố (1:5.000)",
+      "buildings": "Các tòa nhà (1:2.500)",
+      "building": "Tòa nhà (1:1.250)",
+      "small": "Tòa nhà Nhỏ (1:800)",
+      "rooms": "Các phòng (1:400)",
+      "room": "Phòng (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Lỗi lớp tile",
+      "mapServiceError": "Không thể hoàn thành yêu cầu truy xuất lược đồ tile. Đảm bảo lớp tile ArcGIS đang hoạt động và phản hồi lại các yêu cầu.",
+      "noTilingSchemeFound": "Lớp tile ArcGIS không có lược đồ tile được xác định.",
+      "noMatchSpatialRef": "Tham chiếu không gian của lược đồ tile phải trùng khớp với tham chiếu không gian của lớp đối tượng.",
+      "noFileSelected": "Bạn phải cung cấp tệp lược đồ tile."
+    }
+  },
+  "dataStore": {
+    "header": "Chọn một bộ dữ liệu",
+    "fileName": "Tên tệp",
+    "fileType": "Loại tệp",
+    "paginationRange": "${start} - ${end} / ${total}",
+    "processing": "Đang liệt kê nội dung...",
+    "emptyFolder": "Thư mục này trống.",
+    "error": {
+      "noDatasetErrorHeading": "Không có bộ dữ liệu nào được chọn",
+      "noDatasetErrorDescription": "Chọn một bộ dữ liệu để tiếp tục",
+      "listing": {
+        "heading": "Không thể liệt kê nội dung của kho dữ liệu",
+        "description": "Đã xảy ra lỗi khi liệt kê nội dung của kho dữ liệu."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Chọn loại kho dữ liệu để thêm.",
+    "description": "Tận dụng các khung làm việc linh hoạt để mang đến một bản tóm lược hiệu quả",
+    "subOptionsHeading": "Thêm kết nối vào kho dữ liệu",
+    "subOptionsCloudDescription": "Chọn loại vị trí lưu trữ đám mây để thêm vào",
+    "subOptionsDatabaseDescription": "Chọn loại cơ sở dữ liệu để thêm vào",
+    "databaseDescriptionForOnline": "Kết nối với một nhà kho dữ liệu đám mây",
+    "options": {
+      "folder": {
+        "title": "Thư mục",
+        "description": "Kết nối với thư mục hệ thống hoặc chia sẻ tệp"
+      },
+      "database": {
+        "title": "Cơ sở dữ liệu",
+        "description": "Kết nối với cơ sở dữ liệu liên quan hoặc kho dữ liệu đám mây",
+        "descriptionNoSql": "Kết nối với cơ sở dữ liệu liên quan, cơ sở dữ liệu NoSQL hoặc kho dữ liệu đám mây"
+      },
+      "cloud": {
+        "title": "Lưu trữ Đám mây",
+        "description": "Kết nối với một vị trí lưu trữ đám mây"
+      },
+      "bdfs": {
+        "title": "Chia sẻ Tệp Dữ liệu Lớn",
+        "description": "Kết nối một vị trí khả dụng với trang GeoAnalytics Server của bạn"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Kết nối với cơ sở dữ liệu NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Chỉ định thông tin kết nối hoặc vị trí để cho phép các trang ArcGIS Server truy cập vào dữ liệu.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MyFileServer\\GlobalData",
+      "heading": "Đường dẫn đến thư mục người xuất bản",
+      "hostname": "Tên máy chủ lưu trữ thư mục người xuất bản",
+      "hostnameInfo": "Đây là thông tin bắt buộc khi đường dẫn đến thư mục người xuất bản là một vị trí ổ đĩa có ký tự"
+    },
+    "serverFolderPath": {
+      "heading": "Đường dẫn đến thư mục máy chủ",
+      "sameAsPublisher": "Giống với đường dẫn đến thư mục người xuất bản",
+      "newPath": "Đường dẫn mới",
+      "nfsHostAndPath": {
+        "description": "Đường dẫn và Máy chủ lưu trữ NFS",
+        "hostname": "Tên máy chủ lưu trữ NFS:",
+        "sharePath": "Đường dẫn Chia sẻ NFS:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData hoặc /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Thiếu đường dẫn đến thư mục người xuất bản",
+        "description": "Bạn phải cung cấp đường dẫn đến thư mục người xuất bản cho kho dữ liệu của bạn"
+      },
+      "invalidPublisherHostName": {
+        "heading": "Thiếu tên máy chủ lưu trữ của người xuất bản",
+        "description": "Bạn phải cung cấp tên máy chủ lưu trữ của người xuất bản cho kho dữ liệu của bạn"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Thiếu đường dẫn đến thư mục máy chủ người xuất bản",
+        "description": "Bạn phải cung cấp đường dẫn đến thư mục máy chủ cho kho dữ liệu của bạn"
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "Thiếu tên máy chủ lưu trữ NFS và đường dẫn chia sẻ NFS",
+        "description": "Bạn phải cung cấp tên máy chủ lưu trữ NFS và đường dẫn chia sẻ NFS cho kho dữ liệu của bạn"
+      },
+      "invalidNfsHostName": {
+        "heading": "Thiếu tên máy chủ lưu trữ NFS",
+        "description": "Bạn phải cung cấp tên máy chủ lưu trữ NFS cho kho dữ liệu của bạn"
+      },
+      "invalidNfsPath": {
+        "heading": "Thiếu đường dẫn chia sẻ NFS",
+        "description": "Bạn phải cung cấp đường dẫn chia sẻ NFS cho kho dữ liệu của bạn"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Chọn loại cơ sở dữ liệu.",
+    "options": {
+      "relational": {
+        "title": "Cơ sở dữ liệu liên quan",
+        "description": "Kết nối với cơ sở dữ liệu liên quan"
+      },
+      "cloudDataWarehouse": {
+        "title": "Nhà kho dữ liệu đám mây",
+        "description": "Kết nối với một nhà kho dữ liệu đám mây"
+      },
+      "nosql": {
+        "title": "Cơ sở dữ liệu NoSQL",
+        "description": "Kết nối với cơ sở dữ liệu NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Chỉ định thông tin kết nối hoặc vị trí để cho phép các trang ArcGIS Server truy cập vào dữ liệu.",
+    "publisherDatabaseConnection": "Kết nối cơ sở dữ liệu của người xuất bản",
+    "serverDatabaseConnection": "Kết nối cơ sở dữ liệu máy chủ",
+    "sameAsPublisher": "Giống với kết nối cơ sở dữ liệu của người xuất bản",
+    "newConnection": "Kết nối mới",
+    "sdeFile": "(tệp .sde)",
+    "dragAndDropOrSelectFile": "Kéo và thả hoặc chọn tệp .sde của bạn",
+    "selectFile": "Chọn Tệp",
+    "chooseDifferentFile": "Chọn tệp khác",
+    "importingConnectionFile": "Đang nhập tệp kết nối...",
+    "fileChosen": "Đã chọn tệp",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Kết nối với Google BigQuery"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Kết nối với Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Kết nối với Amazon S3."
+      },
+      "azure": {
+        "title": "Lưu trữ Microsoft Azure",
+        "description": "Kết nối với Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "Cổng thông tin của bạn không được cấu hình với một máy chủ lưu trữ, là yếu tố bắt buộc để hoàn thành việc tạo kho dữ liệu của bạn. Kiểm tra cấu hình máy chủ lưu trữ và thử lại.",
+      "invalidPublisherConnectionFile": {
+        "heading": "Thiếu tệp kết nối với người xuất bản",
+        "description": "Bạn phải cung cấp tệp kết nối với người xuất bản cho kho dữ liệu của bạn."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "Thiếu tệp kết nối máy chủ",
+        "description": "Bạn phải cung cấp tệp kết nối máy chủ cho kho dữ liệu của bạn."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Máy chủ",
+    "authenticationType": "Loại xác thực",
+    "userAuthentication": "Xác thực người dùng",
+    "serviceAuthentication": "Xác thực dịch vụ",
+    "refreshToken": "Mã token làm mới",
+    "keyFile": "Tệp khoá",
+    "projectId": "Id dự án",
+    "defaultDataset": "Bộ dữ liệu mặc định",
+    "username": "Tên người dùng",
+    "password": "Mật khẩu",
+    "role": "Vai trò",
+    "database": "Cơ sở dữ liệu",
+    "schema": "Schema",
+    "warehouse": "Nhà kho",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Sử dụng tệp .json",
+    "notJson": "Loại tệp duy nhất được chấp nhận là tệp .json",
+    "dataStoreConnection": "Kết nối cơ sở dữ liệu",
+    "validating": "Đang xác minh kết nối...",
+    "selectKeyFile": "Chọn tệp khoá",
+    "errors": {
+      "validationFailedTitle": "Xác minh thất bại",
+      "validationFailedDescription": "Xác minh thông tin thất bại. Kiểm tra xem bạn đã cung cấp thông tin chính xác chưa và thử lại.",
+      "incorrectLogin": "Thông tin bạn cung cấp không chính xác hoặc không hợp lệ.",
+      "noKeyFile": "Tệp khóa là trường bắt buộc.",
+      "noProjectId": "Id dự án là trường bắt buộc.",
+      "noServer": "Máy chủ là trường bắt buộc.",
+      "noDatabase": "Cơ sở dữ liệu là trường bắt buộc.",
+      "noSchema": "Schema là trường bắt buộc.",
+      "noWarehouse": "Nhà kho là trường bắt buộc.",
+      "noRole": "Vai trò là trường bắt buộc."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Chỉ định loại chia sẻ tệp dữ liệu lớn sẽ được thêm vào GeoAnalytics Server.",
+    "locationInfo": "Chỉ định thông tin vị trí để cho phép GeoAnalytics Server truy cập vào dữ liệu.",
+    "username": "Tên người dùng",
+    "useKerberos": "Sử dụng Kerberos",
+    "keytabLocations": "Vị trí Keytab",
+    "principalUser": "Người dùng chính",
+    "principalRealm": "Lĩnh vực chính",
+    "cloudSelectType": "Chọn loại kho dữ liệu để thêm.",
+    "cloudSelectProvider": "Chọn một nhà cung cấp lưu trữ đám mây.",
+    "cloudTypes": {
+      "new": "Mới",
+      "existing": "Hiện tại"
+    },
+    "cloudSearch": "Chọn kho dữ liệu trên đám mây hiện có:",
+    "cloudSearchPlaceholder": "Nhập để tìm kiếm kho dữ liệu",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Lưu trữ Microsoft Azure",
+      "azuredatalakegen2store": "Lưu trữ Microsoft Azure Data Lake Thế hệ 2"
+    },
+    "database": {
+      "heading": "Cơ sở dữ liệu",
+      "nonDefault": {
+        "description": "Sử dụng cơ sở dữ liệu khác với mặc định (tên của cơ sở dữ liệu mặc định)",
+        "placeholder": "mặc định"
+      }
+    },
+    "metastoreUri": {
+      "heading": "URI Metastore",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Đường dẫn",
+      "filesharePlaceholder": "\\\\MyFileServer\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Chia sẻ Tệp",
+        "description": "Thư mục bộ dữ liệu trên đĩa cục bộ hoặc chia sẻ mạng"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Thư mục Hadoop Distributed File System (HDFS) của bộ dữ liệu"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Nhà kho dữ liệu Apache Hive"
+      },
+      "cloud": {
+        "title": "Lưu trữ Đám mây",
+        "description": "Kết nối với một vị trí lưu trữ đám mây"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Không có loại chia sẻ tệp dữ liệu lớn nào được chọn",
+        "description": "Chọn một loại chia sẻ tệp dữ liệu lớn để tiếp tục."
+      },
+      "noPathSelected": {
+        "heading": "Thiếu đường dẫn",
+        "description": "Bạn phải cung cấp đường dẫn cho kho dữ liệu của bạn."
+      },
+      "noMetastoreUri": {
+        "heading": "Thiếu URI Metastore",
+        "description": "Bạn phải cung cấp ít nhất một URI meta store."
+      },
+      "noDataStoreSelected": {
+        "heading": "Không có kho dữ liệu nào được chọn",
+        "description": "Chọn một kho dữ liệu để tiếp tục."
+      },
+      "noCloudSelected": {
+        "heading": "Không có nhà cung cấp dịch vụ đám mây nào được chọn",
+        "description": "Chọn một nhà cung cấp dịch vụ đám mây để tiếp tục."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Chọn một nhà cung cấp lưu trữ đám mây.",
+    "connectionInfoEnterprise": "Chỉ định thông tin kết nối hoặc vị trí để cho phép các trang ArcGIS Server truy cập vào dữ liệu.",
+    "connectionInfoOnline": "Chỉ định thông tin kết nối",
+    "provider": "Nhà cung cấp lưu trữ đám mây",
+    "authenticationType": "Loại xác thực",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Khoá Được chia sẻ",
+      "sasToken": "Chữ ký Truy cập Được chia sẻ",
+      "anonymous": "Ẩn danh"
+    },
+    "identityType": "Kiểu nhận dạng",
+    "identityTypes": {
+      "servicePrincipal": "Điểm chính của dịch vụ",
+      "userAssignedIdentity": "Nhận dạng Được quản lý do Người dùng chỉ định"
+    },
+    "token": "Mã token",
+    "tenantId": "Id Tenant",
+    "clientId": "Id Máy khách",
+    "optionalClientId": "Id Máy khách (tùy chọn)",
+    "clientSecret": "Thông tin bí mật máy khách",
+    "accountName": "Tên tài khoản",
+    "accountKey": "Khóa tài khoản",
+    "environment": "Môi trường",
+    "storageDomain": "Miền lưu trữ",
+    "other": "Khác",
+    "endpoint": "Điểm cuối",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net hoặc DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Tên bộ chứa",
+    "credentialType": "Loại thông tin xác thực",
+    "accessKey": "Khóa truy cập",
+    "secretKey": "Khóa bí mật",
+    "sharedKey": "Khoá được chia sẻ",
+    "region": "Khu vực",
+    "bucketName": "Tên kho lưu trữ",
+    "cloudFolder": "Thư mục (Tùy chọn)",
+    "validating": "Đang xác minh kết nối...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Lưu trữ Google Cloud",
+      "azure": "Lưu trữ Microsoft Azure",
+      "azuredatalakegen2store": "Lưu trữ Microsoft Azure Data Lake Thế hệ 2",
+      "alibaba": "Lưu trữ Alibaba Cloud"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Không có nhà cung cấp dịch vụ đám mây nào được chọn",
+        "description": "Chọn một nhà cung cấp dịch vụ đám mây để tiếp tục."
+      },
+      "onlineValidationFailed": {
+        "heading": "Lỗi kết nối",
+        "description": "Không thể xác thực kết nối, hãy kiểm tra xem thông tin có chính xác không."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Khóa truy cập",
+      "privateKey": "Khóa Riêng tư",
+      "IAMRole": "Vai trò IAM"
+    },
+    "custom": "Tùy chỉnh",
+    "storageURL": "URL riêng tư",
+    "cloudFolderPlaceHolder": "cloud/arcgis",
+    "errorInfo": "${missingField} là thông tin bắt buộc",
+    "invalidEndpoint": "Điểm cuối phải sử dụng https",
+    "and": "và"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Chọn một nhà cung cấp lưu trữ NoSQL.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Nhà cung cấp",
+    "errorMessage": "Các trường sau đây đã xảy ra lỗi: ${missingFields}",
+    "connectionUri": "URI kết nối",
+    "username": "Tên người dùng",
+    "password": "Mật khẩu",
+    "database": "Cơ sở dữ liệu",
+    "credentialDescription": "Chỉ định thông tin kết nối NoSQL để cho phép các trang ArcGIS Server truy cập vào dữ liệu.",
+    "connectionUriExample": "Ví dụ: protocol://hostname:port",
+    "fallBackServers": "Máy chủ Dự phòng (Tùy chọn)",
+    "fallBackServersExample": "Ví dụ: hostname1:port1,hostname2:port2",
+    "and": "và",
+    "error": "Lỗi",
+    "hosts": "(Các) Máy chủ",
+    "useSsl": "Sử dụng SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Cấu hình máy chủ",
+      "subHeading": "Chọn trang web ArcGIS Server mà bạn muốn xuất bản lớp lên đó."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Chọn các trang web ArcGIS Server mà bạn muốn thêm kho dữ liệu của mình vào.",
+      "bdfsHeading": "Chia sẻ tệp dữ liệu lớn của bạn sẽ được thêm vào trang ArcGIS GeoAnalytics Server.",
+      "subHeading": "Trang web phải có quyền truy cập vào kết nối hoặc vị trí bạn đã chỉ định ở bước trước.",
+      "noServerSelected": {
+        "heading": "Không có máy chủ nào được chọn",
+        "description": "Chọn ít nhất một máy chủ để tiếp tục."
+      }
+    },
+    "list": {
+      "title": "Máy chủ",
+      "status": "Trạng thái"
+    },
+    "status": {
+      "success": "Thông thường",
+      "failure": "Không Khả dụng",
+      "error": "Lỗi",
+      "validating": "Đang xác minh"
+    },
+    "loader": {
+      "validating": "Đang xác minh máy chủ..."
+    },
+    "error": {
+      "noServerSelectedHeading": "Không có máy chủ nào được chọn",
+      "noServerSelectedDescription": "Chọn một máy chủ để tiếp tục"
+    },
+    "types": {
+      "hostedSetting": "Máy chủ Lưu trữ",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Phân tích Raster",
+      "imageHostingSetting": "Lưu trữ Hình ảnh",
+      "missionServerSetting": "Máy chủ Mission"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Tìm kiếm một kho dữ liệu",
+    "heading": "Chọn một kho dữ liệu",
+    "subHeading": "Duyệt tìm tệp hoặc kho dữ liệu trên đám mây đã đăng ký với ArcGIS Enterprise.",
+    "cloud": "Đám mây",
+    "folder": "Thư mục",
+    "processing": "Đang tìm nạp kho dữ liệu...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Không có kho dữ liệu nào được chọn",
+        "description": "Bạn phải chọn ít nhất một kho dữ liệu"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Không có máy chủ nào đã đăng ký cho kho dữ liệu",
+        "description": "Kho dữ liệu đã chọn chưa được đăng ký với trang web ArcGIS Server. Đăng ký kho dữ liệu với một trang web để tiếp tục."
+      },
+      "noContentInDataStore": {
+        "heading": "Không có bộ dữ liệu hợp lệ trong kho dữ liệu",
+        "description": "Kho dữ liệu đã chọn không chứa các bộ dữ liệu hợp lệ để xuất bản."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Lỗi",
+    "errorDescription": "Đã xảy ra lỗi khi thêm mục này.",
+    "alreadyExists": {
+      "title": "Tệp hiện có",
+      "description": "Tệp có tên \"${fileName}\" đã tồn tại trong thư mục này. Thay đổi thư mục hoặc đổi tên tệp và thử lại.",
+      "linkText": "Xem mục hiện có"
+    },
+    "arcgisServerUpload": {
+      "title": "Không thể xuất bản mục",
+      "description": "Tệp định nghĩa dịch vụ này được tạo cho site ArcGIS Server và phải được tải lên ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Shapefile không hợp lệ",
+      "description": "Tệp được tải lên không chứa shapefile."
+    },
+    "invalidGeodatabase": {
+      "title": "Geodatabase không hợp lệ",
+      "description": "Tệp được tải lên không chứa file geodatabase."
+    },
+    "serviceNameExists": {
+      "title": "Tên dịch vụ không hợp lệ",
+      "description": "Một dịch vụ được xuất bản với tên này đã tồn tại trong tổ chức. Tên dịch vụ phải là duy nhất trong tổ chức. Sử dụng tên khác."
+    },
+    "invalidGeoJSON": {
+      "title": "GeoJSON không hợp lệ",
+      "description": "Tệp JSON bạn đang tải lên không phải là GeoJSON hợp lệ (thiếu 'loại')."
+    },
+    "invalidJSON": {
+      "title": "JSON không hợp lệ",
+      "description": "Tệp JSON bạn đang tải lên không phải là JSON hợp lệ."
+    },
+    "failDatastorePublish": {
+      "title": "Không thể xuất bản từ kho dữ liệu",
+      "description": "Không thể xuất bản ${type}, hãy xem nhật ký máy chủ để biết thêm thông tin chi tiết.",
+      "tileLayer": "lớp tile",
+      "sceneLayer": "lớp scene"
+    },
+    "invalidSpatialRef": {
+      "title": "Tham chiếu không gian không hợp lệ",
+      "description": "Dịch vụ này có tham chiếu không gian không tương thích"
+    },
+    "uploading": "Đang tải lên ${type}...",
+    "adding": "Đang thêm ${type}...",
+    "addDataStore": "Đang thêm Kho Dữ liệu ${type}...",
+    "creating": "Đang tạo ${type}...",
+    "publishing": "Đang xuất bản ${type}...",
+    "checkingStatus": "Đang kiểm tra trạng thái...",
+    "publishingService": "Đang xuất bản dịch vụ...",
+    "appendingPhotos": "Đang tải lên hình ảnh...",
+    "errorPublishing": "Đã xảy ra lỗi khi xuất bản dịch vụ này.",
+    "howWillAdd": "${fileName} sẽ được thêm bằng cách nào?",
+    "howWillAddService": "Dịch vụ sẽ được thêm bằng cách nào?",
+    "howWillAddDescription": "Tệp này sẽ được sử dụng để tạo một mục ${type}.",
+    "howWillAddSecuredServiceDescription": "Dịch vụ này sẽ được sử dụng để tạo proxy mục ArcGIS nhằm chuyển tiếp các yêu cầu của người dùng với token được thêm vào.",
+    "howWillAddHostedDescription": "Tệp này sẽ được sử dụng để tạo một lớp hoặc bảng đối tượng được lưu trữ.",
+    "item": "Mục",
+    "folder": "Thư mục",
+    "database": "Cơ sở dữ liệu",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Lưu trữ Microsoft Azure Data Lake Thế hệ 2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Xem mẹo thêm nội dung",
+    "title": "Mẹo thêm nội dung",
+    "addDocumentTitle": "Thêm tài liệu, hình ảnh và các tệp khác",
+    "addDocumentContent": "Kéo thả tệp PDF, hình ảnh, tài liệu Office và nhiều loại khác.",
+    "publishLayerTitle": "Xuất bản các lớp từ shapefile, CSV và bảng tính",
+    "publishLayerContent": "Ngoặc các tệp trên thiết bị hoặc ổ đĩa đám mây của bạn vào các lớp có thể thêm vào bản đồ.",
+    "publishLayerEnterprise": "Chuyển tệp thành các lớp mà bạn có thể thêm vào bản đồ",
+    "linkLayerTitle": "Liên kết với các lớp trên web",
+    "linkLayerContent": "Tạo các lớp từ URL tham chiếu ArcGIS Server, dịch vụ OGC và KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "gói tile",
+      "Vector Tile Package": "gói vector tile",
+      "Service Definition": "định nghĩa dịch vụ",
+      "Scene Package": "gói lớp scene",
+      "Desktop Application Template": "mẫu ứng dụng desktop",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefile",
+      "File Geodatabase": "tệp geodatabase",
+      "Map Template": "mẫu bản đồ",
+      "Geoprocessing Sample": "mẫu địa xử lý",
+      "Code Sample": "mã lập trình mẫu",
+      "ArcPad Package": "gói ArcPad",
+      "CAD Drawing": "bản vẽ CAD",
+      "CSV Collection": "bộ sưu tập CSV",
+      "KML Collection": "bộ sưu tập KML",
+      "AppBuilder Widget Package": "gói tiện ích AppBuilder",
+      "Photos with Locations": "hình ảnh có vị trí",
+      "Image Collection": "bộ sưu tập hình ảnh",
+      "iWork Pages": "iWork Pages",
+      "iWork Numbers": "iWork Numbers",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "gói deep learning",
+      "GML": "GML",
+      "Application": "ứng dụng",
+      "Google Sheets": "Google Sheets",
+      "GeoPackage": "GeoPackage",
+      "Tile Layer": "lớp tile",
+      "OGCFeatureServer": "Lớp đối tượng OGC",
+      "FeatureServer": "dịch vụ đối tượng",
+      "3DTiles Package": "Gói tile 3D"
+    },
+    "mvText": {
+      "WMTS": "Dịch vụ web OGC WMTS",
+      "WMS": "Dịch vụ web OGC WMS",
+      "WFS": "Dịch vụ web OGC WFS",
+      "AGS": "Dịch vụ web của ArcGIS Server",
+      "OGCFeatureServer": "OGC API - Đối tượng"
+    },
+    "howToAdd": "Bạn muốn thêm tệp này bằng cách nào?",
+    "nonHostedTitle": "Chỉ thêm ${fileName}",
+    "nonHostedDescription": "Thêm ${type} mà không cần xuất bản. Tệp có thể được người khác chia sẻ và tải xuống hoặc xuất bản sau này."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Lỗi khi phân tích tệp",
+      "description": "Đã xảy ra lỗi khi cố gắng phân tích tệp của bạn. Kiểm tra để đảm bảo tệp của bạn được định dạng chính xác.",
+      "alreadyExists": {
+        "title": "Tệp hiện có",
+        "desciption": "Tệp có tên \"${fileName}\" đã tồn tại trong thư mục này. Đổi tên tệp và thử lại.",
+        "linkText": "Xem mục hiện có"
+      },
+      "duplicateFields": {
+        "title": "Tên trường trùng lặp",
+        "description": "Tên trường không được trùng lặp."
+      },
+      "emptyFile": "Tệp được tải lên không có dữ liệu.",
+      "missingGeocoder": {
+        "title": "Bộ định vị không khả dụng",
+        "descriptionn": "Bộ định vị mặc định không khả dụng. Vui lòng liên hệ với quản trị viên để xem lại thiết lập Mã hóa địa lý của tổ chức bạn."
+      }
+    },
+    "publishThisSheet": "Xuất bản trang này:",
+    "largeGeoJsonTitle": "GeoJSON lớn",
+    "largeGeoJsonDescription": "GeoJSON này chứa một lượng lớn dữ liệu, cân nhắc xuất bản dưới dạng một lớp đối tượng được lưu trữ để thu được kết quả tốt nhất.",
+    "largeGeoJsonConditionDescription": "Nếu GeoJSON này chứa một lượng lớn dữ liệu, hãy tạo một lớp đối tượng được lưu trữ thay thế để có kết quả tốt nhất.",
+    "bigGeoJsonHint": "Để có hiệu suất tốt nhất, chỉ có thể thêm dữ liệu này vào bản đồ dưới dạng lớp đối tượng được lưu trữ.",
+    "bigGeoJsonHintNoPrivilege": "Dữ liệu này quá lớn để thêm vào bản đồ. Thay vào đó, dữ liệu này cần được xuất bản dưới dạng lớp đối tượng được lưu trữ.",
+    "bigGeoJsonHintPublicAccount": "Dữ liệu này quá lớn để thêm vào bản đồ. Thay vào đó, dữ liệu này cần được xuất bản dưới dạng lớp đối tượng được lưu trữ. Nâng cấp lên gói đăng ký ArcGIS Online để xuất bản dữ liệu lớn hơn dưới dạng lớp được lưu trữ.",
+    "uploading": "Đang tải lên ${item}...",
+    "analyze": "Đang phân tích ${fileName}...",
+    "checkingStatus": "Đang kiểm tra trạng thái...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Thêm dữ liệu và tạo một lớp đối tượng được lưu trữ",
+        "description": "Xuất bản tệp GeoJSON này dưới dạng một lớp đối tượng được lưu trữ"
+      },
+      "nonHosted": {
+        "title": "Chỉ thêm dữ liệu",
+        "description": "Nhập tệp GeoJSON mà không cần xuất bản. Tệp có thể được người khác chia sẻ và tải xuống hoặc xuất bản sau này."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Loại lớp"
+    },
+    "hostedTitle": {
+      "CSV": "Thêm ${fileName} và tạo một lớp hoặc bảng đối tượng được lưu trữ",
+      "CSVNoTable": "Thêm ${fileName} và tạo một lớp đối tượng được lưu trữ",
+      "GeoPackage": "Thêm ${fileName} và tạo một lớp đối tượng được lưu trữ",
+      "GeoJson": "Thêm ${fileName} và tạo một lớp đối tượng được lưu trữ",
+      "JSON": "Thêm ${fileName} và tạo một lớp đối tượng được lưu trữ",
+      "Tile Package": "Thêm ${fileName} và tạo một lớp được lưu trữ",
+      "Vector Tile Package": "Thêm ${fileName} và tạo một lớp title được lưu trữ",
+      "Service Definition": "Thêm ${fileName} và tạo một lớp được lưu trữ",
+      "Scene Package": "Thêm ${fileName} và tạo một lớp scene được lưu trữ",
+      "Image Collection": "Thêm ${fileName} và tạo một lớp hình ảnh được lưu trữ",
+      "Desktop Application Template": "Thêm ${fileName} và tạo một lớp đối tượng được lưu trữ",
+      "Microsoft Excel": "Thêm ${fileName} và tạo một lớp hoặc bảng đối tượng được lưu trữ",
+      "Google Sheets": "Thêm ${fileName} và tạo một lớp hoặc bảng đối tượng được lưu trữ",
+      "3DTiles Package": "Thêm ${fileName} và tạo một lớp tile 3D được lưu trữ"
+    },
+    "hostedDescription": {
+      "CSV": "Tệp CSV có thông tin vị trí là nguồn dữ liệu cho lớp đối tượng được lưu trữ sẽ hiển thị các điểm trên bản đồ. Tệp CSV không có thông tin vị trí sẽ hiển thị một bảng có thể dùng để xem, tạo biểu đồ và kết hợp với các lớp khác.",
+      "GeoPackage": "GeoPackage có thông tin vị trí là nguồn cho các lớp được lưu trữ sẽ hiển thị dưới dạng các điểm trên bản đồ. GeoPackage không có thông tin vị trí sẽ hiển thị dưới dạng bảng có thể xem, tạo biểu đồ và kết hợp với các lớp khác.",
+      "GeoJson": "Xuất bản tệp GeoJSON của bạn dưới dạng một lớp đối tượng được lưu trữ. Các đối tượng được xuất bản trong hệ tọa độ Mercator Web 1984 WGS.",
+      "JSON": "Xuất bản tệp JSON của bạn dưới dạng một lớp đối tượng được lưu trữ. Các đối tượng được xuất bản trong hệ tọa độ Mercator Web 1984 WGS.",
+      "tile package": "Xuất bản gói raster tile của bạn dưới dạng lớp được lưu trữ.",
+      "vector tile package": "Xuất bản vector tile package của bạn dưới dạng hosted tile layer.",
+      "Service Definition": "Xuất bản tệp định nghĩa dịch vụ của bạn dưới dạng một lớp được lưu trữ. Loại lớp được xuất bản phụ thuộc vào nội dung tệp SD của bạn.",
+      "Scene Package": "Xuất bản gói lớp scene của bạn dưới dạng một lớp scene được lưu trữ.",
+      "Image Collection": "Xuất bản tệp ZIP bộ sưu tập hình ảnh của bạn dưới dạng một lớp hình ảnh được lưu trữ.",
+      "Desktop Application Template": "Xuất bản biểu mẫu ứng dụng desktop của bạn (ZIP) dưới dạng một lớp đối tượng được lưu trữ. Biểu mẫu ứng dụng desktop chứa thông tin vị trí là nguồn dữ liệu cho lớp đối tượng được lưu trữ sẽ hiển thị các điểm trên bản đồ. Biểu mẫu ứng dụng desktop không có thông tin vị trí sẽ hiển thị một bảng có thể xem, lập biểu đồ và kết hợp với các lớp khác.",
+      "Microsoft Excel": "Xuất bản một lớp đối tượng được lưu trữ dựa trên bảng tính của bạn. Bảng tính không có thông tin vị trí sẽ hiển thị dưới dạng bảng có thể xem, tạo biểu đồ và kết hợp với các lớp khác.",
+      "Google Sheets": "Xuất bản một lớp đối tượng được lưu trữ dựa trên bảng tính của bạn. Bảng tính không có thông tin vị trí sẽ hiển thị dưới dạng bảng có thể xem, tạo biểu đồ và kết hợp với các lớp khác.",
+      "3DTiles Package": "Xuất bản gói tile 3D của bạn dưới dạng lớp tile 3D được lưu trữ."
+    },
+    "addDirectlyTitle": "Tải tệp lên dưới dạng một mục và thêm tệp đó vào bản đồ",
+    "addDirectlyUrlTitle": "Tham chiếu tệp từ URL và thêm tệp đó vào bản đồ",
+    "addDirectlyDescription": "Thêm dữ liệu mà không cần tạo lớp đối tượng được lưu trữ. Phù hợp với các bộ dữ liệu nhỏ hơn, được quản lý bên ngoài và không yêu cầu các đối tượng như chỉnh sửa.",
+    "addDirectlyUrlDescription": "Thêm dữ liệu mà không cần tạo lớp đối tượng được lưu trữ. Phù hợp với các bộ dữ liệu nhỏ hơn và không yêu cầu các đối tượng như chỉnh sửa. Dữ liệu được tải mỗi khi mở bản đồ.",
+    "hostedMVTitle": "Tạo một lớp đối tượng được lưu trữ và thêm vào bản đồ",
+    "hostedMVDescription": "Sử dụng tất cả các chức năng mà lớp đối tượng cung cấp, bao gồm cả chỉnh sửa. Quản lý dữ liệu hoàn toàn nằm trong ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "Tệp",
+    "itemType": "Loại tệp",
+    "language": "Ngôn ngữ",
+    "other": "Khác",
+    "hosted": {
+      "heading": "Thêm ${fileName} và tạo một lớp đối tượng được lưu trữ",
+      "description": "Thêm ${type} và xuất bản dưới dạng lớp đối tượng được lưu trữ có thể thêm vào bản đồ."
+    },
+    "type": "Loại",
+    "ArcPad": {
+      "project": "Dự án ArcPad",
+      "template": "Mẫu ArcPad"
+    },
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Định dạng lưu trữ dữ liệu vector để lưu vị trí, hình dạng và thuộc tính của các đối tượng địa lý. Shapefile được lưu trong một bộ tệp liên quan và chứa một lớp đối tượng."
+    },
+    "File Geodatabase": {
+      "title": "Tệp geodatabase",
+      "description": "Một bộ sưu tập các tệp trong thư mục được sử dụng để lưu trữ, truy vấn và quản lý cả dữ liệu không gian lẫn phi không gian."
+    },
+    "Desktop Application Template": {
+      "title": "Mẫu ứng dụng desktop",
+      "description": "Các tệp, dữ liệu và mã ứng dụng triển khai trên desktop để dùng với ArcGIS."
+    },
+    "Map Template": {
+      "title": "Mẫu bản đồ",
+      "description": "Biểu mẫu bản đồ là một tài liệu bản đồ (.mxd) có thể tạo ra tài liệu mới trong ArcMap."
+    },
+    "Geoprocessing Sample": {
+      "title": "Mẫu địa xử lý",
+      "description": "Một tập hợp các hộp công cụ, script, mô hình, dữ liệu và các tệp bổ sung được sử dụng để chạy các công cụ địa xử lý trong ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Mã lập trình mẫu",
+      "description": "Mã lập trình mẫu có thể chia sẻ bằng nhiều ngôn ngữ, ví dụ như Java hoặc C++."
+    },
+    "ArcPad Package": {
+      "title": "Gói ArcPad",
+      "description": "Các tệp gói ArcPad được tạo ra thông qua ArcPad Data Manager."
+    },
+    "CAD Drawing": {
+      "title": "bản vẽ CAD",
+      "description": "Các tệp được thiết kế với sự hỗ trợ của máy tính (CAD) được tạo ra bằng nền tảng AutoCAD hoặc MicroStation."
+    },
+    "CSV Collection": {
+      "title": "Bộ sưu tập CSV",
+      "description": "Bộ sưu tập CSV là một tệp .zip chứa một tệp CSV mỗi lớp."
+    },
+    "KML Collection": {
+      "title": "Bộ sưu tập KML",
+      "description": "Bộ sưu tập KML là một tệp .zip chứa một tệp KML mỗi lớp."
+    },
+    "AppBuilder Widget Package": {
+      "title": "Gói tiện ích AppBuilder",
+      "description": "Tiện ích tùy chỉnh hoặc chủ đề mở rộng dung lượng của ArcGIS Web AppBuilder"
+    },
+    "Photos with Locations": {
+      "title": "Hình ảnh có vị trí",
+      "description": "Tệp ZIP chứa các hình ảnh có thông tin vị trí (các hình ảnh được gắn thẻ địa lý có thông tin vị trí EXIF)"
+    },
+    "Image Collection": {
+      "title": "Bộ sưu tập hình ảnh",
+      "description": "Bộ sưu tập gồm các bộ dữ liệu raster có thể được tải xuống."
+    },
+    "iWork Pages": {
+      "title": "iWork Pages",
+      "description": "Định dạng tài liệu của Apple"
+    },
+    "iWork Numbers": {
+      "title": "iWork Numbers",
+      "description": "Định dạng bảng tính của Apple"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Định dạng trình bày của Apple"
+    },
+    "Deep Learning Package": {
+      "title": "Gói deep learning",
+      "description": "Các công cụ suy luận học sâu (deep learning) yêu cầu phải có tệp và dữ liệu để sử dụng như là thông tin đầu vào cho các công cụ phân tích raster deep learning."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geography Markup Language) là tiêu chuẩn XML của OGC để biểu diễn các thông tin phần tử không gian"
+    },
+    "Application": {
+      "title": "Ứng dụng",
+      "description": "Một ứng dụng cho desktop được phát triển trên nền tảng desktop như Java hoặc .NET (Microsoft Windows Desktop)."
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Chọn một lớp để thêm",
+    "selectTile": "Tile ma trận",
+    "featureType": "Loại đối tượng hiển thị",
+    "matrixNotSelected": "Chọn một ma trận tile cho dịch vụ.",
+    "selectGeometry": "Chọn loại",
+    "selectGeometryError": "Chọn một loại đối tượng để hiển thị.",
+    "points": "Điểm",
+    "lines": "Đường",
+    "polygons": "Vùng",
+    "default": "mặc định",
+    "maxFeature": "Giới hạn đối tượng tối đa",
+    "layers": "các lớp",
+    "usePro": "Bộ dữ liệu này có hơn 1000 lớp. Nhập từ khóa tìm kiếm để tìm một lớp cụ thể.",
+    "noLayersFound": "Không tìm thấy lớp nào phù hợp với tiêu chí của bạn. Hãy thử thay đổi cụm từ tìm kiếm để hiển thị thêm các lớp."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Ứng dụng",
+      "description": "Thêm tham chiếu URL vào ứng dụng hiện có để chia sẻ công việc của bạn với các thành viên trong tổ chức và công chúng."
+    },
+    "AGS": {
+      "title": "Dịch vụ web của ArcGIS Server",
+      "description": "Dịch vụ web của ArcGIS Server đại diện cho một nguồn dữ liệu GIS—như là bản đồ hoặc hình ảnh—được đặt trên trang ArcGIS Server và khả dụng với các ứng dụng máy khách như Map Viewer."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "Tệp văn bản giá trị được phân tách bằng dấu phẩy."
+    },
+    "Document Link": {
+      "title": "Tài liệu",
+      "description": "Tạo một liên kết đến tài liệu trực tuyến được tham chiếu bằng URL."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Định dạng trao đổi dữ liệu không gian địa lý tiêu chuẩn mở biểu diễn các đối tượng địa lý đơn giản."
+    },
+    "Tile Layer": {
+      "title": "Lớp tile",
+      "description": "Một tập hợp các tile hình ảnh bản đồ, trong đó URL được định dạng cung cấp trình giữ chỗ cấp độ, cột và hàng cũng như tên miền phụ tùy chọn: https://domain.com/<path>/{z}{x}{y}.png và https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML là một định dạng tệp dựa trên XML được sử dụng để biểu diễn các đối tượng địa lý trong các ứng dụng như ArcGIS Earth và Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "Lớp đối tượng OGC",
+      "description": "Lớp đối tượng OGC là một dịch vụ đối tượng tuân theo OGC API – Các thông số kỹ thuật của đối tượng."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "Dịch vụ Đối tượng Web (WFS) OGC là một dịch vụ đối tượng động tuân theo các thông số kỹ thuật của OGC."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "Dịch vụ Bản đồ Web (WMS) OGC là một dịch vụ bản đồ động tuân theo các thông số kỹ thuật của OGC."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "Dịch vụ Tile Bản đồ Web (WMTS) OGC là một bộ tile hình ảnh được lưu trong bộ nhớ cache tuân theo các thông số kỹ thuật của OGC. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Nguồn cấp web trực tiếp bao gồm các đối tượng và vị trí địa lý."
+    },
+    "useAsBaseMap": "Sử dụng như Bản đồ nền",
+    "undetected": "Chọn loại lớp",
+    "label": "Loại",
+    "storeAuth": "Lưu trữ thông tin với mục dịch vụ. Không nhắc xác thực.",
+    "storeAuthMV": "Lưu trữ thông tin xác thực với lớp dữ liệu. Đừng nhắc việc xác thực.",
+    "learnMore": "Tìm hiểu thêm về xác thực.",
+    "isSecure": "Đã phát hiện dịch vụ bảo mật",
+    "serviceNotExist": "Dịch vụ không tồn tại hoặc không truy cập được.",
+    "getServiceInfo": "Đang truy xuất thông tin dịch vụ...",
+    "unknownAGSType": "Loại dịch vụ này không được hỗ trợ.",
+    "errorMessage": "Lỗi kết nối với dịch vụ.",
+    "serviceNotGIS": "URL đã nhập không hướng về dịch vụ GIS.",
+    "unsupportedWFSVersion": "Phiên bản WFS này không được hỗ trợ.",
+    "unsupportedWFSGeoJSONOutputFormat": "Dịch vụ WFS không hỗ trợ định dạng đầu ra GeoJSON.",
+    "invalidWMTS": "WMTS này không được hỗ trợ",
+    "flowAborted": "Lỗi kết nối với dịch vụ. Dịch vụ này được bảo mật và yêu cầu xác thực.",
+    "invalidSpatialRef": "Dịch vụ này có tham chiếu không gian không tương thích",
+    "emptyFeatureLayer": "Dịch vụ trống"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Giờ Phương Tây theo Đường Ngày Quốc tế",
+      "110": "(UTC-11:00) Giờ Phối hợp Quốc tế -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Hawaii",
+      "300": "(UTC-09:00) Alaska",
+      "400": "(UTC-08:00) Giờ Thái Bình Dương (Hoa Kỳ và Canada)",
+      "410": "(UTC-08:00) Baja California",
+      "500": "(UTC-07:00) Múi giờ miền Núi (Hoa Kỳ và Canada)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) Trung Mỹ",
+      "620": "(UTC-06:00) Múi giờ miền Trung (Hoa Kỳ và Canada)",
+      "630": "(UTC-06:00) Guadalajara, Thành phố Mexico, Monterrey",
+      "700": "(UTC-05:00) Múi giờ miền Đông (Hoa Kỳ và Canada)",
+      "710": "(UTC-05:00) Bogota, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (Đông)",
+      "730": "(UTC-04:30) Caracas",
+      "800": "(UTC-04:00) Múi giờ Đại Tây Dương (Canada)",
+      "810": "(UTC-04:00) Cuiaba",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Asuncion",
+      "900": "(UTC-03:30) Newfoundland",
+      "910": "(UTC-03:00) Brasilia",
+      "920": "(UTC-03:00) Greenland",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Cayenne, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Trung-Đại Tây Dương",
+      "1010": "(UTC-02:00) Giờ Phối hợp Quốc tế -02",
+      "1100": "(UTC-01:00) Azores",
+      "1110": "(UTC-01:00) Đảo Cabo Verde",
+      "1200": "(UTC) Dublin, Edinburgh, Lisbon, London",
+      "1210": "(UTC) Monrovia, Reykjavik",
+      "1220": "(UTC) Casablanca",
+      "1230": "(UTC) Giờ Phối hợp Quốc tế",
+      "1300": "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+      "1310": "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+      "1320": "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
+      "1330": "(UTC+01:00) Tây Trung Phi",
+      "1340": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) Cairo",
+      "1420": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
+      "1430": "(UTC+02:00) Athens, Bucharest",
+      "1440": "(UTC+02:00) Jerusalem",
+      "1450": "(UTC+02:00) Amman",
+      "1460": "(UTC+02:00) Beirut",
+      "1470": "(UTC+02:00) Harare, Pretoria",
+      "1480": "(UTC+02:00) Damascus",
+      "1490": "(UTC+02:00) Istanbul",
+      "1500": "(UTC+03:00) Kuwait, Riyadh",
+      "1510": "(UTC+03:00) Baghdad",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaliningrad",
+      "1535": "(UTC+03:30) Tehran",
+      "1540": "(UTC+04:00) Moscow, St. Petersburg, Volgograd",
+      "1600": "(UTC+04:00) Abu Dhabi, Muscat",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Yerevan",
+      "1640": "(UTC+04:00) Tbilisi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Kabul",
+      "1710": "(UTC+05:00) Tashkent",
+      "1715": "(UTC+05:00) Islamabad, Karachi",
+      "1720": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+      "1730": "(UTC+05:30) Sri Jayawardenepura",
+      "1740": "(UTC+05:45) Kathmandu",
+      "1755": "(UTC+06:00) Ekaterinburg",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Dhaka",
+      "1820": "(UTC+06:30) Yangon (Rangoon)",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Bangkok, Hà Nội, Jakarta",
+      "1910": "(UTC+08:00) Krasnoyarsk",
+      "2000": "(UTC+08:00) Bắc Kinh, Trùng Khánh, Hong Kong, Urumqi",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapore",
+      "2030": "(UTC+08:00) Đài Bắc",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulaanbaatar",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Seoul",
+      "2110": "(UTC+09:00) Osaka, Sapporo, Tokyo",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaide",
+      "2150": "(UTC+10:00) Yakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC+11:00) Solomon Is., New Caledonia",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fiji",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Giờ Phối hợp Quốc tế +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Xác định múi giờ",
+    "title": "Múi giờ",
+    "subTitle": "Chọn múi giờ của dữ liệu của bạn."
+  },
+  "hybridImageSelect": {
+    "heading": "Bạn muốn thêm loại lớp nào?",
+    "ImageServer": {
+      "title": "Lớp hình ảnh động",
+      "description": "Thêm thành lớp hình ảnh động, hỗ trợ xử lý và kết xuất đồ họa phía máy chủ theo yêu cầu."
+    },
+    "TiledImageServer": {
+      "title": "Lớp hình ảnh dạng tile",
+      "description": "Thêm thành lớp hình ảnh dạng tile, hỗ trợ phép chiếu và kết xuất đồ họa phía máy khách từ tile tĩnh."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Tạo các lớp và hơn thế nữa",
+    "developerCredentialsHeading": "Chứng chỉ nhà phát triển",
+    "developerCredentialsDescription": "Tạo khoá API hoặc thông tin đăng nhập OAuth 2.0 để tạo ứng dụng tuỳ chỉnh.",
+    "developerCredentialsNoAPIDescription": "Tạo thông tin đăng nhập OAuth 2.0 để tạo ứng dụng tuỳ chỉnh.",
+    "featureLayerHeading": "Lớp đối tượng",
+    "featureLayerDescription": "Tạo một lớp có thể chỉnh sửa chứa các trường được sao chép từ một biểu mẫu hoặc lớp đối tượng.",
+    "tileLayerHeading": "Lớp tile",
+    "tileLayerDescription": "Tạo một lớp vector tile hoặc lớp raster tile vẽ nhanh.",
+    "sceneLayerHeading": "Lớp scene",
+    "sceneLayerDescription": "Tạo một lớp scene vẽ nhanh sử dụng nội dung 3d.",
+    "imageLayerHeading": "Lớp hình ảnh",
+    "imageLayerDescription": "Tạo một lớp hình ảnh sử dụng các hình ảnh từ máy tính của bạn.",
+    "locatorHeading": "Bộ định vị",
+    "locatorViewHeading": "Bộ định vị (chế độ xem)",
+    "locatorDescription": "Tìm địa điểm và địa chỉ bằng ArcGIS World Geocoding Service hoặc dịch vụ mã hóa địa lý của riêng bạn.",
+    "locatorOnlyDescription": "Tìm địa điểm và địa chỉ bằng dịch vụ mã hóa địa lý của riêng bạn.",
+    "urbanModelHeading": "Mô hình Đô thị",
+    "urbanModelDescription": "Tạo một mô hình phát triển đô thị bằng các công cụ thiết kế và quy hoạch trực quan.",
+    "urbanModelPermissionError": "Bạn phải có quyền xuất bản một lớp đối tượng được lưu trữ để tạo một mô hình đô thị. Liên hệ với Quản trị viên ArcGIS Online để được trợ giúp.",
+    "applicationHeading": "Ứng dụng",
+    "applicationDescription": "Liên kết đến một ứng dụng trên web hoặc tạo một ứng dụng đã đăng ký mới.",
+    "urlHeading": "URL",
+    "urlDescription": "Liên kết với dịch vụ Web của ArcGIS Server, CSV, dịch vụ web OGC, KML, GeoJSON hoặc tài liệu.",
+    "urlDescriptionEnterprise": "Liên kết với dịch vụ Web của ArcGIS Server, CSV, dịch vụ web OGC, KML, GeoJSON hoặc tài liệu.",
+    "dataStoreHeading": "Kho dữ liệu",
+    "dataStoreConnectionDescription": "Thêm kết nối vào kho dữ liệu mà bạn sở hữu.",
+    "dataStoreDescription": "Thêm kết nối vào kho dữ liệu mà bạn quản lý.",
+    "rasterFunctionTemplateHeading": "Biểu mẫu hàm raster",
+    "rasterFunctionTemplateDescription": "Tạo biểu mẫu hàm raster có thể được sử dụng với lớp hình ảnh và trong phân tích raster.",
+    "getSubscriptionInfo": "Đang truy xuất thông tin đăng ký..."
+  },
+  "url": {
+    "linkExisting": "Liên kết với các lớp hoặc dữ liệu hiện có trên web",
+    "url": "URL",
+    "addUrl": "Thêm URL",
+    "httpWarning": "Không hỗ trợ sử dụng URL HTTP. Sử dụng HTTPS",
+    "serviceNotExist": "Dịch vụ không tồn tại hoặc không truy cập được.",
+    "invalidUrl": "Nhập một URL hợp lệ.",
+    "invalidUrlWithType": "Nhập một URL hợp lệ. Dịch vụ được hỗ trợ là ${typeList}",
+    "unknownAGSType": "Loại dịch vụ này không được hỗ trợ.",
+    "errorMessage": "Lỗi kết nối với dịch vụ."
+  },
+  "cloud": {
+    "google": "Đang kết nối với Google Drive...",
+    "dropbox": "Đang kết nối với Dropbox...",
+    "onedrive": "Đang kết nối với OneDrive...",
+    "file": "Tệp",
+    "zip": "Tệp Zip",
+    "filterFileType": "Lọc theo loại tệp",
+    "selectAFile": "Chọn một tệp",
+    "noResults": "Không tìm thấy tệp. Thay đổi từ khóa tìm kiếm hoặc chọn một loại mục khác.",
+    "viewMore": "Xem thêm",
+    "errorTitle": "Không có tệp được chọn",
+    "errorMessage": "Chọn một tệp để tiếp tục.",
+    "loadingFiles": "Đang tải các tệp...",
+    "searchFiles": "Tìm kiếm tệp",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "Tệp Zip",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Sheets"
+    },
+    "error": {
+      "generic": {
+        "title": "Lỗi",
+        "message": "Đã xảy ra lỗi."
+      },
+      "popup": {
+        "title": "Cửa sổ popup đã bị chặn",
+        "message": "Không thể kết nối với tài khoản Cloud Drive của bạn. Hãy đảm bảo bạn đã tắt kích hoạt trình chặn pop-up cho trang web này."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Tham số tùy chỉnh",
+    "parameter": "Tham số",
+    "value": "Giá trị",
+    "addParameter": "Thêm tham số",
+    "addValue": "Thêm giá trị",
+    "newCustomParameter": "Thêm thông số tùy chỉnh",
+    "description": "Thêm thông số cần được thêm vào yêu cầu để truy cập dịch vụ này.",
+    "append": "Chỉ thêm vào các yêu cầu vẽ hoặc truy vấn lớp",
+    "remove": "Loại bỏ thông số tùy chỉnh",
+    "helpText": "Nếu dịch vụ web bạn đang nhắc đến cần thêm thông số bổ sung vào yêu cầu gửi đến dịch vụ, bạn có thể thêm vào dưới dạng thông số tuỳ chỉnh. Tên và giá trị thông số được xác định trên dịch vụ và dành riêng cho dịch vụ đó."
+  },
+  "inputReadonly": {
+    "file": "Tệp",
+    "url": "URL",
+    "dataStore": "Kết nối cơ sở dữ liệu"
+  },
+  "layerSearch": {
+    "search": "Tìm kiếm"
+  },
+  "appendSelect": {
+    "updateLayer": "Cập nhật lớp",
+    "updateData": "Cập nhật dữ liệu",
+    "chooseUpdate": "Chọn kiểu cập nhật bạn muốn thực hiện",
+    "insertOnlyEnabled": "Dịch vụ đối tượng này chỉ hỗ trợ việc thêm đối tượng mới",
+    "options": {
+      "add": {
+        "title": "Thêm đối tượng",
+        "description": "Thêm đối tượng mới vào một lớp hiện có."
+      },
+      "update": {
+        "title": "Cập nhật đối tượng",
+        "description": "Cập nhật các đối tượng hiện tại trong một lớp"
+      },
+      "upsert": {
+        "title": "Thêm và cập nhật đối tượng",
+        "description": "Đồng thời thêm đối tượng mới vào lớp và cập nhật đối tượng hiện có."
+      },
+      "overwrite": {
+        "title": "Ghi đè toàn bộ lớp đối tượng",
+        "description": "Ghi đè toàn bộ lớp bằng dữ liệu nguồn được cập nhật."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "Đang tải lên ${fileName}",
+      "updating": "Đang cập nhật...",
+      "overwriting": "Đang ghi đè...",
+      "fetchingInfo": "Đang tìm nạp thông tin...",
+      "publishing": "Đang xuất bản...",
+      "appendCloseNotice": "Luôn mở cửa sổ trình duyệt của bạn để theo dõi trạng thái của công việc thêm. Trong trường hợp có cấu hình sai, bạn có thể thử lại mà không cần phải tải lên file nguồn một lần nữa."
+    },
+    "appendErrorMessages": {
+      "appendError": "Đã xảy ra lỗi khi thêm mục."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Chọn dữ liệu",
+    "editStyle": "Thay thế tệp kiểu lớp bằng một phiên bản cập nhật từ máy tính.",
+    "file": "Tệp",
+    "updateItem": "Cập nhật Mục",
+    "overwriteFile": "Ghi đè tệp",
+    "analyzing": "Đang phân tích...",
+    "sameFileNameDescription": "Tệp đang được tải lên phải có cùng tên và tên trường với tệp gốc ${fileName}",
+    "itemType": "Loại tệp",
+    "learnMore": "Tìm hiểu thêm về loại tệp được hỗ trợ",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Định dạng lưu trữ dữ liệu vector để lưu vị trí, hình dạng và thuộc tính của các đối tượng địa lý. Shapefile được lưu trong một bộ tệp liên quan và chứa một lớp đối tượng."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Một bộ sưu tập các tệp trong thư mục được sử dụng để lưu trữ, truy vấn và quản lý cả dữ liệu không gian lẫn dữ liệu phi không gian."
+    },
+    "errors": {
+      "providePath": "Bạn phải cung cấp đường dẫn cho mục của mình.",
+      "sameFileName": "Để cập nhật mục này, bạn phải cập nhật tệp có tên ${x}.",
+      "invalidStyleFileExtension": "Phần mở rộng tệp không hợp lệ. Kiểu đã tải lên phải có phần mở rộng tệp .json.",
+      "invalidStyleFile": "Tệp kiểu không hợp lệ. Tệp kiểu đã tải lên phải được định dạng đúng.",
+      "errorWhileUpload": "Đã xảy ra lỗi khi tải lên mục.",
+      "errorExceedFileSize": "Không thể tải lên tệp. Tệp vượt quá kích cỡ 1 GB cho phép.",
+      "errorUpdate": "Đã xảy ra lỗi khi ghi đè mục.",
+      "multiPatchErrorDescription": "Lớp bạn đang cố gắng thêm vào có chứa hình học dạng multipatch. Vui lòng thử lại với tệp có cùng một loại hình học."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Chọn cách bạn muốn cập nhật đối tượng hiện có",
+    "itemPropertiesHeader": "Chọn thuộc tính mục bạn muốn sử dụng",
+    "appendOptions": {
+      "attribute": {
+        "title": "Chỉ thuộc tính",
+        "description": "Cập nhật các thuộc tính hiện có."
+      },
+      "attributeAndGeometry": {
+        "title": "Hình học và thuộc tính",
+        "description": "Cập nhật cả thuộc tính và hình học hiện có."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Thuộc tính mục đã cập nhật",
+        "description": "Sử dụng thuộc tính mục từ tệp đã tải lên. Thay đổi thuộc tính mục sẽ không thay đổi dữ liệu."
+      },
+      "existing": {
+        "title": "Thuộc tính mục hiện có",
+        "description": "Giữ lại thuộc tính mục hiện có cho gói lớp. Sử dụng các thuộc tính hiện có sẽ không làm thay đổi dữ liệu."
+      }
+    },
+    "noGeometryMatchTitle": "Không thể cập nhật hình học",
+    "noGeometryMatchMessage": "Khả năng cập nhật hình học không khả dụng cho nhiều loại hình học khác nhau.",
+    "noGeometryTableMessage": "Khả năng cập nhật thuộc tính và hình học không khả dụng cho bảng."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Chọn dữ liệu được cập nhật cho ${featureLayerName} từ trang tính ${uploadedFile}",
+    "chooseLayer": "Chọn dữ liệu được cập nhật cho ${featureLayerName} từ trang tính ${uploadedFile}:",
+    "chooseServiceLayer": "Chọn lớp để cập nhật",
+    "paginationHeader": "${start} - ${end} / ${total}",
+    "noResults": "Không tìm thấy mục phù hợp với tiêu chí của bạn. Hãy thử thay đổi cụm từ tìm kiếm hoặc xóa một số bộ lọc để hiển thị thêm các nội dung.",
+    "sameGeometryWarningTitle": "Các lớp phải có cùng một loại hình học",
+    "sameGeometryWarningDescription": "Tệp của bạn chứa nhiều loại hình học lớp khác nhau. Vui lòng thử lại với các lớp có cùng một loại hình học.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Không tìm thấy lớp nào.",
+      "noMatchingLayerTypeError": "Không tìm thấy lớp tương thích nào trong tệp đã tải lên. Kiểm tra tệp của bạn và thử lại.",
+      "noSourceLayerSelected": "Để thêm dữ liệu, hãy chọn lớp đối tượng bạn muốn cập nhật.",
+      "noDataLayerSelected": "Để thêm dữ liệu, hãy chọn lớp chứa dữ liệu đã cập nhật."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Ghi đè tệp",
+    "header": "Chọn dữ liệu để ghi đè",
+    "description": "Tệp đang được tải lên phải có cùng tên với tệp gốc ${insert file name}",
+    "proceed": "Tiếp tục",
+    "errors": {
+      "errorWhileUpdate": "Đã xảy ra lỗi khi cập nhật mục.",
+      "exceedFileSizeLimit": "Không thể tải lên tệp. Tệp đã vượt quá kích cỡ 1 GB cho phép.",
+      "errorPublishing": "Đã xảy ra lỗi khi xuất bản dịch vụ này."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Loại tệp",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Định dạng lưu trữ dữ liệu vector để lưu vị trí, hình dạng và thuộc tính của các đối tượng địa lý. Shapefile được lưu trong một tập hợp các file liên quan và chứa một lớp đối tượng."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Một bộ sưu tập các tệp trong thư mục được sử dụng để lưu trữ, truy vấn và quản lý cả dữ liệu không gian lẫn phi không gian."
+    },
+    "errors": {
+      "errorWhileUpload": "Đã xảy ra lỗi khi tải lên mục.",
+      "errorShpFile": "Shapefile không hợp lệ.",
+      "errorFgdbFile": "File Geodatabase không hợp lệ.",
+      "errorExceedFileSize": "Không thể tải lên tệp. Tệp đã vượt quá kích cỡ 1 GB cho phép."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Chọn các trường trùng khớp",
+    "description": "Chọn trường từ ${uploadedFileName} sao cho trùng khớp với trường trong ${featureLayerName}. Các trường không trùng khớp sẽ không được cập nhật trong lớp đối tượng được lưu trữ.",
+    "nonNullable": "Không được có giá trị rỗng",
+    "originalField": {
+      "header": "Trường gốc",
+      "moreInfo": "Các trường này có trong lớp đối tượng ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Trường đã tải lên",
+      "moreInfo": "Các trường này có trong tệp đã tải lên ${uploadedFileName} và được lọc theo các loại trường tương thích."
+    },
+    "errors": {
+      "noFields": "Không tìm thấy trường nào.",
+      "noKeyPairs": "Không tìm thấy cặp khoá nào.",
+      "noMatchedFields": "Để thêm dữ liệu, hãy cung cấp một hoặc nhiều trường trùng khớp.",
+      "nonNullableErrorTitle": "Không được có giá trị trống",
+      "nonNullableErrorTitleSingular": "Một trường không được để rỗng đang trống",
+      "nonNullableErrorDescription": "Không được để trống các trường không cho phép có giá trị rỗng. Khớp nối các trường trước khi tiếp tục."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Chọn mã nhận dạng duy nhất",
+    "selectUniqueIdentifierDescription": "Chọn trường duy nhất từ lớp ban đầu sao cho trùng khớp với trường từ file được tải lên.",
+    "originalField": {
+      "header": "Trường gốc",
+      "moreInfo": "Các trường duy nhất này có trong lớp đối tượng ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Trường đã tải lên",
+      "moreInfo": "Các trường này có trong tệp đã tải lên ${uploadedFileName} và được lọc theo các loại trường tương thích."
+    },
+    "title": "Xác định cặp khoá",
+    "description": "Chọn các trường được sử dụng để khớp nối mã nhận dạng duy nhất của lớp với dữ liệu được tải lên.",
+    "noKeyPair": "Để cập nhật đối tượng hiện có, hãy đối chiếu các trường với mã nhận dạng duy nhất của bạn.",
+    "timezoneHeader": "Lựa chọn múi giờ",
+    "timezoneDescription": "Lớp đối tượng được lưu trữ, ${featureLayerName}, chứa dữ liệu múi giờ được lưu trữ trong ${featureLayerTimezone}. Nếu bạn tải tệp ${uploadedFileName} lên với dữ liệu múi giờ nằm ở một múi giờ khác ngoài UTC, hãy thực hiện điều chỉnh tương ứng."
+  }
+}

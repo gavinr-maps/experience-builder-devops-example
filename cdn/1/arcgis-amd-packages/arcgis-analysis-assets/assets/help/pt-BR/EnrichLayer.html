@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Enriquecer Camada aprimora as fei&ccedil;&otilde;es de entrada com dados demogr&aacute;ficos e de paisagem.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto, linha ou pol&iacute;gono que ser&atilde;o enriquecidas com dados adicionais.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>As vari&aacute;veis ​​que ser&atilde;o adicionadas como atributas &agrave;s fei&ccedil;&otilde;es de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Especifica como a &aacute;rea ao redor do ponto de entrada ou fei&ccedil;&otilde;es de linha ser&aacute; definida. Toda a &aacute;rea ao redor de cada fei&ccedil;&atilde;o ser&aacute; enriquecida.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Um valor num&eacute;rico que especifica a dist&acirc;ncia ou o tempo em torno de cada fei&ccedil;&atilde;o de entrada que a &aacute;rea estender&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>As unidades que ser&atilde;o usadas para especificar a dist&acirc;ncia ou o tempo que a &aacute;rea enriquecida se estender&aacute; ao redor de cada fei&ccedil;&atilde;o de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Especifica se a camada de sa&iacute;da conter&aacute; fei&ccedil;&otilde;es de pol&iacute;gonos definidos pelas configura&ccedil;&otilde;es (marcado)  <b>Enriquecer &aacute;reas</b> ou as fei&ccedil;&otilde;es de entrada (desmarcado).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

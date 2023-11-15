@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تتنبأ أداة نقاط الاستيفاء بالقيم في مواقع جديدة بناءً على قياسات النقاط. تنشئ الأداة مخرجات معالم.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>اختر طبقة النقاط للمواقع التي ستخضع للاستيفاء.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>اختر الحقل الذي يحتوي على القيم المقيسة التي ستخضع للاستيفاء.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>اختر ما إذا كان سيتم إعطاء الأولوية لسرعة الحساب أم دقته. يستغرق حساب التنبؤات الأكثر دقة وقتًا أطول.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>اختر ما إذا كان سيتم تضمين طبقة من الأخطاء القياسية لتنبؤات الاستيفاء في الإخراج.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>اختر كيفية حساب قيم فاصل التصنيف.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>حدد عدد التصنيفات (نطاقات القيم المتنبأ بها) التي سيتم تضمينها في طبقة النتيجة. يحدد كل تصنيف حدود المضلع ويمثل خطوط الكونتور للقيم المتنبأ بها. تُحدد قيم فواصل التصنيفات حسب نوع التصنيف.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>قدم قيم فواصل التصنيفات التي ستُستخدم.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>اختر طبقة المضلع التي ستُستخدم لتحديد منطقة دراسة. سيتم قص النتائج لعرضها داخل منطقة الدراسة فقط.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>اختر طبقة نقاط تمثل المواقع التي ستُستخدم للتنبؤ بالقيم. إذا تم توفيرها، فسيتم إنشاء طبقة نقاط تحتوي على القيم المتنبأ بها في المواقع المحددة.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

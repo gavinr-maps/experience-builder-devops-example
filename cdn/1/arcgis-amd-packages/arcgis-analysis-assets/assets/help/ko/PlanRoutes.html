@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>경로 계획 도구는 차량의 여러 경유지로 이동 경로를 생성합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>차량의 경로가 시작되는 위치를 지정하는 포인트 피처입니다.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>차량이 해당 경로를 따라 방문해야 하는 포인트 피처입니다. 이러한 포인트가 결과에서 할당되거나 할당되지 않은 경유지가 됩니다,
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>차량이 시작 위치로 돌아가야 하는지(활성화) 또는 지정된 위치에서 종료되어야 하는지(비활성화) 여부를 결정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>차량의 경로가 종료되는 위치를 지정하는 포인트 피처입니다. 레이어에 포인트가 하나만 포함되어 있는 경우 모든 차량이 공통 끝점으로 경로가 지정됩니다. 레이어에 포인트가 여러 개 포함되어 있는 경우 각 차량이 고유한 종료 위치로 경로가 지정됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>개별 경로, 차량 또는 운전자를 고유하게 식별하는 시작 레이어의 필드입니다. 차량의 경로가 여러 위치에서 시작되고 종료되는 경우 시작 레이어와 종료 레이어에 대해 선택한 경로 ID가 일치해야 합니다.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>개별 경로, 차량 또는 운전자를 고유하게 식별하는 종료 레이어의 필드입니다. 차량의 경로가 여러 위치에서 시작되고 종료되는 경우 시작 레이어와 종료 레이어에 대해 선택한 경로 ID가 일치해야 합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 포인트 피처입니다. 경계를 통과하지 않는 경우 도로 이동이 허용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 라인 피처입니다. 라인 경계는 경계가 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 폴리곤 피처입니다. 폴리곤 경계는 폴리곤이 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>경로가 생성될 이동 방법입니다. 이동 모드는 거리 또는 시간을 기준으로 할 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>차량 출발 날짜 및 시간입니다.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>경유지를 방문할 수 있는 최대 차량 수입니다.  <b>시작 레이어</b> 및 <b>종료 레이어</b>에 각각 하나의 피처가 포함된 경우 최대 100대의 차량까지 지정할 수 있습니다. 레이어에 피처가 두 개 이상 포함되어 있는 경우 기본값을 편집할 수 없습니다. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>각 차량이 경로에서 정차할 수 있는 최대 경유지 수입니다. 1에서  200 사이의 값을 지정할 수 있습니다. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>각 경유지에서 소요될 것으로 예상되는 평균 서비스 시간을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>최대 경로 시간이 차량에 적용되는지 여부를 결정합니다. 경로 시간에는 경로 내의 예상 이동 시간 및 경유지에서 소요되는 서비스 시간이 포함됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>경로 이동을 완료해야 하는 최장 시간을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>각 결과 경로를 경로 레이어로 저장할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

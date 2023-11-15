@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Conex&otilde;es de Regi&atilde;o Favor&aacute;veis calcula a rede de conectividade favor&aacute;vel entre duas ou mais regi&otilde;es de entrada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>O raster ou camada de fei&ccedil;&atilde;o que identifica as regi&otilde;es que ser&atilde;o conectadas pela rede ideal.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>O raster ou camada de fei&ccedil;&atilde;o que identifica os obst&aacute;culos que devem ser contornados.
+            </p>
+            <p>Para uma camada raster, as c&eacute;lulas que t&ecirc;m um valor (incluindo zero) ser&atilde;o tratadas como uma barreira.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>A camada raster definindo a imped&acirc;ncia, ou custo, para se mover atrav&eacute;s de cada c&eacute;lula.
+            </p>
+            <p>O valor de cada localiza&ccedil;&atilde;o da c&eacute;lula representa a dist&acirc;ncia de unidade por custo para mover pela c&eacute;lula. N&atilde;o pode ser negativo ou zero.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Especifica se a dist&acirc;ncia ser&aacute; calculada usando um m&eacute;todo plano (terra plana) ou geod&eacute;sico (elips&oacute;ide).
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>Especifica se os caminhos continuar&atilde;o e se conectar&atilde;o nas regi&otilde;es de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>O nome da camada de rede ideal de caminhos conectando cada uma das regi&otilde;es de entrada que ser&atilde;o criadas e adicionadas ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>O nome da camada de linha de conex&otilde;es vizinha que ser&aacute; criada e adicionada ao mapa. A camada identifica todos os caminhos de cada regi&atilde;o para cada um de seus vizinhos mais pr&oacute;ximos ou de custo.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

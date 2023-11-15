@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Detect Objects Using Deep Learning</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Tool uses deep learning model on an input imagery layer to produce a feature layer containing the objects. 
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Specifies the input imagery to be used for the classification.
+
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Specifies how all raster items in an imagery layer will be processed. The items will be processed after being mosaicked together or individually.
+
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>The deep learning package that contains the model to be used to detect the objects.
+
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Lists the model arguments present in the deep learning model and their default values.
+
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Specifies whether non-maximum suppression is peformed to remove duplicates.
+
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>The name of the field to be added to the output feature layer to indicate the confidence value reported.  
+
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>The name of the field to be added to the output feature layer to indicate the classified label for the object. 
+
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Specifies the maximum ratio allowed for each found feature that overlaps another. If none is set, the default value is 0. 
+
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>
+            </p>
+            <p>
+            </p>
+        </div>
+    </div>
+</div>
+</html>

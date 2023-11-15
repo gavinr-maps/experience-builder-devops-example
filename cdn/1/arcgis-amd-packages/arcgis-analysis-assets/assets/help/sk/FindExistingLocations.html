@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Vyhľadať podľa atrib&uacute;tov a polohy vytvor&iacute; nov&uacute; prvkov&uacute; vrstvu alebo čast&iacute; prvkov, ktor&eacute; spĺňaj&uacute; zadan&eacute; priestorov&eacute; alebo atrib&uacute;tov&eacute; krit&eacute;ri&aacute;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Bodov&aacute;, l&iacute;niov&aacute; alebo polyg&oacute;nov&aacute; vrstva, pre ktor&uacute; sa n&aacute;jdu prvky na z&aacute;klade kombin&aacute;cie atrib&uacute;tov&yacute;ch a priestorov&yacute;ch dopytov.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Priestorov&eacute; alebo atrib&uacute;tov&eacute; krit&eacute;ri&aacute;, ktor&eacute; sa použij&uacute; na vyhľad&aacute;vanie prvkov. Kliknut&iacute;m na tlačidlo&nbsp; <b>Zostaviť nov&yacute; dopyt</b> definujte jedno alebo viac priestorov&yacute;ch alebo atrib&uacute;tov&yacute;ch krit&eacute;ri&iacute;. Do v&yacute;slednej vrstvy sa zap&iacute;&scaron;u tie prvky alebo časti prvkov, ktor&eacute; spĺňaj&uacute; v&scaron;etky krit&eacute;ri&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Priestorov&eacute; alebo atrib&uacute;tov&eacute; krit&eacute;ri&aacute;, ktor&eacute; sa použij&uacute; na vyhľad&aacute;vanie prvkov. Kliknut&iacute;m na tlačidlo <b>Zostaviť nov&yacute; dopyt</b> definujte jedno alebo viac priestorov&yacute;ch alebo atrib&uacute;tov&yacute;ch krit&eacute;ri&iacute;. Do v&yacute;slednej vrstvy sa zap&iacute;&scaron;u tie prvky alebo časti prvkov, ktor&eacute; spĺňaj&uacute; v&scaron;etky krit&eacute;ri&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Ak krit&eacute;ri&aacute;m vyhovuje len časť objektu, určuje, či bude v&yacute;sledok zahŕňať cel&yacute; objekt alebo len časť objektu, ktor&aacute; spĺňa v&scaron;etky krit&eacute;ri&aacute;. Ak je t&aacute;to možnosť za&scaron;krtnut&aacute;, vr&aacute;tia sa len tie časti prvku, ktor&eacute; spĺňaj&uacute; v&scaron;etky krit&eacute;ri&aacute;. Ak nie je t&aacute;to možnosť za&scaron;krtnut&aacute;, vr&aacute;ti sa cel&yacute; prvok, ak aspoň časť prvku spĺňa v&scaron;etky krit&eacute;ri&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

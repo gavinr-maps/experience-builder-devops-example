@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alueiden haku&nbsp;-ty&ouml;kalu tunnistaa l&auml;ht&ouml;aineiston rasterin parhaat alueet, jotka t&auml;ytt&auml;v&auml;t m&auml;&auml;ritetyt kokovaatimukset ja koordinaatiston rajoitteet.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>L&auml;ht&ouml;aineiston k&auml;ytt&ouml;rasteri, josta alueet johdetaan.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>Kaikkien alueiden pinta-alam&auml;&auml;r&auml; yhteens&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; alueyksik&ouml;t, joita k&auml;ytet&auml;&auml;n  <b>Kokonaispinta-ala</b>-, <b>Alueen v&auml;himm&auml;ispinta-ala</b>- ja <b>Alueen enimm&auml;ispinta-ala</b>&nbsp;-parametreissa.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, kuinka monen alueen laajuudelle  <b>Kokonaispinta-ala</b> jakautuu.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; kompromissin alueen muodon yll&auml;pit&auml;misess&auml; k&auml;ytett&auml;v&auml;n solun osuuden v&auml;lill&auml; suhteessa solun ominaisuustietoarvon k&auml;ytt&ouml;osuuteen.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Arviointikriteeri, jolla m&auml;&auml;ritet&auml;&auml;n ensisijaiset ehdokasalueet.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tulosaineiston alueiden muoto-ominaisuudet.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; m&auml;&auml;ritetyn muodon suunnan.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; jokaisen alueen sallitun v&auml;himm&auml;ispinta-alan. K&auml;ytt&ouml;&ouml;n otetaan  <b>Pinta-alayksik&ouml;t</b>-parametrin m&auml;&auml;ritt&auml;m&auml;t yksik&ouml;t.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; jokaisen alueen sallitun enimm&auml;ispinta-alan. K&auml;ytt&ouml;&ouml;n otetaan  <b>Pinta-alayksik&ouml;t</b>-parametrin m&auml;&auml;ritt&auml;m&auml;t yksik&ouml;t.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; alueiden v&auml;lisen sallitun v&auml;himm&auml;iset&auml;isyyden.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; alueiden v&auml;lisen sallitun enimm&auml;iset&auml;isyyden.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; et&auml;isyysyksik&ouml;t, joita k&auml;ytet&auml;&auml;n  <b>Alueiden v&auml;linen v&auml;himm&auml;iset&auml;isyys</b>- ja <b>Alueiden v&auml;linen enimm&auml;iset&auml;isyys</b>-parametreissa.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>L&auml;ht&ouml;aineiston karttataso, joka tunnistaa jo olemassa olevien alueiden sijainnin.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, mit&auml; naapurisoluja k&auml;ytet&auml;&auml;n alueiden kasvussa.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, sallitaanko mahdollisten alueiden sis&auml;puolella saaria.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; niiden siementen m&auml;&auml;r&auml;n, joista kasvaa mahdollisia alueita.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; resoluution, jolla alueen kasvu tapahtuu.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tavan, jolla alueet valitaan.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n Alueiden haku&nbsp;-rasterikarttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineistot voivat olla tiilitettyj&auml; kuva-aineistokarttatasoja tai dynaamisia kuvakarttatasoja.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

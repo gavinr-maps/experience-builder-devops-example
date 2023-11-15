@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Punkte aggregieren&quot; berechnet die Anzahl der Punkte und andere Statistiken innerhalb angegebener Abschnitte oder Polygone.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>Der Punkt-Layer, der in die Zusammenfassungsgebiete aggregiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Der Polygon-Layer, in den die Punkte aggregiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Der Typ der Begrenzungs-Features, innerhalb derer die Eingabepunkte aggregiert werden sollen. Hierbei kann es sich um einen Polygon-Layer oder ein Mosaik-Raster von quadratischen oder hexagonalen Abschnitten handeln, die bei der Ausf&uuml;hrung des Werkzeugs erstellt werden.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Die Gr&ouml;&szlig;e der generierten Abschnitte. F&uuml;r quadratische Abschnitte bestimmen die angegebene Zahl und die Einheiten die H&ouml;he und L&auml;nge des Quadrats. F&uuml;r hexagonale Abschnitte bestimmen die angegebene Zahl und die Einheiten die Entfernung zwischen den parallelen Seiten.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Die Einheiten, die zur Angabe der Abschnittsgr&ouml;&szlig;e verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>Legt fest, ob Features, die keine Punkte aufweisen, im Ergebnis-Layer angezeigt werden. Wenn die Option deaktiviert ist, werden Features ohne Punkte nicht im Ergebnis angezeigt. Ist die Option aktiviert, werden Features ohne Punkte im Ergebnis angezeigt.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Die Zahlen- oder Datumsfelder aus dem Eingabe-Layer, die zusammengefasst werden, und die Statistiken, die f&uuml;r jedes Feld berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Das Feld aus dem Eingabe-Layer, das zum Trennen der Daten in verschiedene Gruppen verwendet wird, um statistische Berechnungen durchzuf&uuml;hren.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Zur Berechnung der Minderheit (geringste Dominanz) und Mehrheit (h&ouml;chste Dominanz) f&uuml;r die Gruppen in jedem Zusammenfassungsgebiet.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Zur Berechnung des Prozentsatzes der Punkte, die jeder Gruppe innerhalb jedes Zusammenfassungsgebiets angeh&ouml;ren.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

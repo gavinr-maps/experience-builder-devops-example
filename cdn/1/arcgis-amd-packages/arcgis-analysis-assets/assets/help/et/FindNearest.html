@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Leia l&auml;him&quot; otsib ja j&auml;rjestab objektid, mis on m&auml;&auml;ratud asukohtadele k&otilde;ige l&auml;hemad.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Alguskiht, kust l&auml;himaid objekte otsitakse. Toetatud on kuni  5000 objektiga kihid. </p> 
+            <p class="PortalOnly">Alguskiht, kust l&auml;himaid objekte otsitakse.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Sisendkihi l&auml;heduse alusel leitud objektid. Toetatud on kuni  5000 objektiga kihid. </p> 
+            <p class="PortalOnly">Sisendkihi l&auml;heduse alusel leitud objektid.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu punktobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). T&auml;naval on liiklemine lubatud, kuid mitte l&auml;bi piirajast t&otilde;kke.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu joonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Joont&otilde;kked keelavad liiklemise igal pool, kus t&otilde;kked l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>&Uuml;ks v&otilde;i mitu pol&uuml;goonobjekti, mis toimivad allpool paiknevatel t&auml;navatel s&otilde;itmise korral ajutiste piirangute (t&otilde;ketena). Pol&uuml;goont&otilde;kked keelaavad liiklemise igal pool, kus pol&uuml;goonid l&otilde;ikuvad t&auml;navatega.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Sirgjoonelise vahemaa v&otilde;i aja m&otilde;&otilde;tmiseks kasutatav meetod. Meetod v&otilde;ib olla sirgjooneline vahemaa v&otilde;i liikumisviis.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>M&auml;&auml;rab kuup&auml;eva ja kellaaja, mil r&auml;ndur v&auml;ljub asukohtadest  <b>Sisendkihil</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>M&auml;&auml;rab, kas l&auml;himate objektide jaoks kasutatakse kohandatud suurimat arvu (lubatud) v&otilde;i kas kasutatakse t&ouml;&ouml;riista vaikimisi m&auml;&auml;ratud suurimat v&auml;&auml;rtust 100 (keelatud).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Iga sisendobjekti jaoks leitav suurim l&auml;himate objektide arv.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>M&auml;&auml;rab, kas kasutatakse maksimaalset otsinguvahemikku (lubatud) v&otilde;i piiramatut otsinguvahemikku (keelatud).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Maksimaalne otsinguvahemik l&auml;himate objektide leidmiseks.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Otsinguvahemiku m&auml;&auml;ramiseks kasutatavad &uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>M&auml;&auml;rab, kas iga tulemmarsuut salvestatakse marsruudikihina.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

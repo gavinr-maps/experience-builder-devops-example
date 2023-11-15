@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تقوم أداة &quot;البحث عن مواقع مماثلة&quot; بتقييم التشابه بين المواقع المرشحة والموقع المرجعي بناءً على مجموعة من المعايير وتقوم ترتيب المواقع المرشحة من الأكثر إلى الأقل تشابهًا.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>طبقة النقطة أو الخط أو المضلع التي تحتوي على المواقع المرجعية التي سيتم مطابقتها. إذا تضمنت الطبقة مواقع متعددة، فسيتم حساب متوسط جميع المواقع لإنشاء موقع مرجعي واحد.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>طبقة النقطة أو الخط أو المضلع التي تحتوي على مواقع البحث المرشحة. ستتم مقارنة كل موقع بحث مرشح بالموقع المرجعي من خلال قيمة  <b>تحديد المعايير</b> المحددة وترتيبها من الأكثر تشابهًا إلى الأقل تشابهًا.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>الحقول الرقمية التي سيتم استخدامها لتقييم التشابه بين الموقع المرجعي وكل موقع بحث مرشح. سيكون لكل قيمة من قيم  <b>تحديد المعايير</b> قيمة <b>حقل من الطبقة المرجعية</b> وقيمة <b>حقل من الطبقة المرشحة</b>. تتطابق قيم <b>حقل من الطبقة المرجعية</b> و <b>حقل من الطبقة المرشحة</b> مع الحقول الموجودة في قيم <b>طبقة المواقع المرجعية</b> و <b>طبقة بحث المرشحين</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>حقل  <b>طبقة المواقع المرجعية</b> الذي يتوافق مع حقل <b>طبقة بحث المرشحين</b> المحدد بواسطة قيمة <b>حقل من الطبقة المرشحة</b>. ستتم مقارنة القيم الموجودة في هذه الحقول المتطابقة لتقييم التشابه بين الموقع المرجعي وكل موقع بحث مرشح.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>حقل  <b>طبقة بحث المرشحين</b> الذي يتوافق مع حقل <b>طبقة المواقع المرجعية</b> المحدد بواسطة قيمة <b>حقل من الطبقة المرجعية</b>. ستتم مقارنة القيم الموجودة في هذه الحقول المتطابقة لتقييم التشابه بين الموقع المرجعي وكل موقع بحث مرشح.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>يحدد ما إذا كانت جميع المواقع في قيمة  <b>طبقة البحث المرشحة</b> سيتم تضمينها في الطبقة الناتجة أم لا.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>عدد المواقع المتشابهة في قيمة  <b>طبقة البحث المرشحة</b> التي سيتم تضمينها في الطبقة الناتجة.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

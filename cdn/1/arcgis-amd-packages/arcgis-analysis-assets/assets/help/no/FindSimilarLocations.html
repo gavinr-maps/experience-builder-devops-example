@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Finn lignende lokasjoner vurderer likheten mellom kandidatlokasjoner og en referanselokasjon p&aring; bakgrunn av et sett kriterier og rangerer kandidatlokasjonene fra mest til minst lik.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkt-, linje- eller polygonlaget som inneholder referanselokasjonene som skal matches. Hvis laget inneholder flere lokasjoner, blir det brukt et gjennomsnitt av alle lokasjonene for &aring; opprette &eacute;n enkelt referanselokasjon.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Punkt-, linje- eller polygonlaget som inneholder s&oslash;kekandidatlokasjonene. Hver s&oslash;kekandidatlokasjon blir sammenlignet med referanselokasjonen med den spesifiserte  <b>Kriterievalg</b>-verdien og rangert fra mest til minst lik.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>De numeriske feltene brukes til &aring; vurdere likheten mellom referanselokasjonen og hver s&oslash;kekandidatlokasjon. Hver  <b>Kriterievalg</b>-verdi har en <b>Felt fra referanselag</b>-verdi og en <b>Felt fra kandidatlag</b>-verdi. Verdiene <b>Felt fra referanselag</b> og <b>Felt fra kandidatlag</b> matcher felter i verdiene <b>Referanselokasjonslag</b> og <b>Lag med s&oslash;kekandidater</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p> <b>Referanselokasjonslag</b>-feltet som korresponderer med <b>Lag med s&oslash;kekandidater</b>-feltet som er spesifisert av <b>Felt fra kandidatlag</b>-verdien. Verdiene i disse matchede feltene blir sammenligent for &aring; vurdere likheten mellom referanselokasjonen og hver s&oslash;kekandidatlokasjon.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Feltet  <b>Lag med s&oslash;kekandidater</b> som korresponderer med feltet <b>Referanselokasjonslag</b> som er spesifisert av verdien <b>Felt fra referanselag</b>. Verdiene i disse matchede feltene blir sammenligent for &aring; vurdere likheten mellom referanselokasjonen og hver s&oslash;kekandidatlokasjon.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Spesifiserer om alle lokasjonene i verdien  <b>Lag med s&oslash;kekandidater</b> skal inkluderes i utdatalaget.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Antallet mest lignende lokasjoner i verdien  <b>Lag med s&oslash;kekandidater</b> som skal inkluderes i utdatalaget.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

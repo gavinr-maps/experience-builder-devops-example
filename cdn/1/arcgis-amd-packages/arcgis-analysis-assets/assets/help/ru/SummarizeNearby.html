@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Суммировать ближайшие вычисляет статистику для объектов, находящихся на заданном расстоянии от других объектов. Расстояние можно вычислить, используя расстояние по прямой или с учетом дорожной сети.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Слой, в котором нужно вычислить суммирование в пределах расстояния от слоя ближайших объектов.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Точечный, линейный или полигональный слой, который используется в качестве стартовых местоположений, вокруг которых будут созданы ограничивающие области для суммирования ближайших объектов.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Метод, на основании которого будут построены ограничивающие области. Могут быть выбраны следующие методы: расстояние по прямой или режим передвижения.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Расстояние или время, использующиеся для создания граничных областей. Если будет добавлено несколько значений, то каждое из них будет использоваться, чтобы вычислить ограничивающие области для всех входных объектов.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Единицы измерения, которые будут использоваться для задания расстояний или времени.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Укажите, должен ли результирующий слой быть ограничивающими областями (отмечено) или такой же геометрией, что и входной слой ближайших объектов (не отмечено).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Вычислить итоговый размер объектов, суммированных в каждой ограничивающей области. Для линий вычисляется итоговая длина. Для полигонов вычисляется итоговая площадь.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Единицы измерения, которые будут использоваться для вычисления итогового размера суммируемых объектов.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Числовые поля или поля дат из входного слоя для суммирования, а также статистика, которая должна быть вычислена для каждого поля.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Поле из входного слоя, которое будет использоваться для разделения данных на отдельные группы для вычисления статистики.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Рассчитать группы меньшинства (наименее доминирующего) и большинства (наиболее доминирующего) в каждой области суммирования.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Вычислить процент просуммированных объектов, которые принадлежат каждой группе в пределах каждой границы.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

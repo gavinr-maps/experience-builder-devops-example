@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Ph&aacute;t hiện Đối tượng bằng Deep Learning sử dụng m&ocirc; h&igrave;nh deep learning tr&ecirc;n một lớp h&igrave;nh ảnh đầu v&agrave;o để tạo một lớp đối tượng chứa c&aacute;c đối tượng được ph&aacute;t hiện.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Lớp đối tượng hoặc h&igrave;nh ảnh sẽ d&ugrave;ng để ph&aacute;t hiện đối tượng.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Chỉ định c&aacute;ch xử l&yacute; c&aacute;c mục raster trong một lớp h&igrave;nh ảnh sau khi được gh&eacute;p: c&ugrave;ng nhau hoặc ri&ecirc;ng lẻ.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>G&oacute;i deep learning chứa m&ocirc; h&igrave;nh sẽ được sử dụng để ph&aacute;t hiện đối tượng.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>C&aacute;c đối số m&ocirc; h&igrave;nh c&oacute; trong m&ocirc; h&igrave;nh deep learning c&ugrave;ng với gi&aacute; trị mặc định của c&aacute;c đối số đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Chỉ định c&oacute; thực hiện qu&aacute; tr&igrave;nh triệt ti&ecirc;u kh&ocirc;ng tối đa để loại bỏ c&aacute;c đối tượng tr&ugrave;ng lặp hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>T&ecirc;n của trường sẽ được th&ecirc;m v&agrave;o lớp đối tượng đầu ra để biểu thị gi&aacute; trị độ tin cậy được b&aacute;o c&aacute;o.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>T&ecirc;n của trường sẽ được th&ecirc;m v&agrave;o lớp đối tượng đầu ra để biểu thị nh&atilde;n được ph&acirc;n loại cho đối tượng.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Tỷ lệ tối đa cho ph&eacute;p đối với mỗi đối tượng được ph&aacute;t hiện chồng lớp l&ecirc;n đối tượng kh&aacute;c. Gi&aacute; trị mặc định l&agrave; 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Spoji geoobjekte dodaja atribute iz enega sloja ali tabele na drugega, na podlagi prostorskih in atributnih relacij. Izbirno, je statistiko mogoče izračunati, kadar obstaja več ujemajočih se zapisov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Sloj ali tabela, ki bo imel atribute s spojitvenega sloja, dodane v njegovo tabelo atributov.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Sloj ali tabela z atributi, ki bodo dodani k ciljnemu sloju.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Določite, ali naj se sloji spojijo na podlagi prostorske relacije. To zahteva, da imata oba sloja geometrijo.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Določite prostorsko relacije, ki določa, kateri geoobjekti so spojeni. Pridruženi bodo geoobjekti v spojitvenem sloji, ki imajo določene relacije do ciljnega sloja. Razpoložljive relacije so odvisne od vrste geometrije vhodov.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Razdalja od geoobjektov v ciljnem sloju, ki bo uporabljena za določanje, ali naj so geoobjekti spojeni.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Enote, ki bodo uporabljene za določanje razdalje.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Določite, ali naj se sloji spojijo na podlagi vrednosti ujemajočega se polja. To je edina možnost, če je en ali več vhodov tabela.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Določite atributno relacijo, ki določa kateri geoobjekti so spojeni. Geoobjekti se ujemajo, ko so vrednosti polj v spojitvenem sloju enake vrednostim polj ciljnega sloja.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Določite, kako bo potekalo spajanje, če več zapisov iz spojitvenega sloja ustreza kriterijem. Izberite izmed naslednjih možnosti:
+                <ul>
+                    <li> <b>Spoji enega z enim</b> &mdash; Spoji en zapis v spojitvenem sloju z vsakim geoobjektom v ciljnem sloju.
+                    </li>
+                    <li> <b>Spoji enega z večimi</b> &mdash; Spoji vse ujemajoče se geoobjekte v spojitvenem sloju v ciljni sloj. Sloj z rezultati bo vseboval več zapisov ciljnega geobjekta.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Kadar se več geoobjektov v spojitvenem sloju ujema s ciljnim geoobjektom, določite, ali želite spojiti en sam zapis iz spojitvenega sloja, ali želite izračunati povzetek statistike vseh ujemajočih se zapisov iz spojitvenega sloja.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Kadar obstaja več spojitvenih geoobjektov, ki se ujemajo s ciljnim geoobjektom, bo izračunan poveztek statistike za vse ujemajoče se zapise. Določite &scaron;tevilo ali datumska polja iz spojitvenega sloja in statistiko, ki bo izračunana za vsako polje.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Kadar obstaja več spojitvenih geoobjektov, ki se ujemajo s ciljnim geoobjektom, bo prvi zapis iz atributne tabele spojitvenega sloja vključen v rezultat. Izbirno lahko izberete &scaron;tevilo ali datumsko polje ter vrstni red razvr&scaron;čanja, ki bo določal razvr&scaron;čanje atributne tabele.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Določa, ali bodo neujemajoči se ciljni geoobjekti vključeni v rezultat.  <b>Notranje združevanje</b> vrne samo ujemajoče se ciljne zapise, medtem ko <b>Levo združevanje</b> vrne vse ciljne zapise, četudi ciljni geoobjekt nima ujemanja v spojitvenem sloju.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja ali tabele, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

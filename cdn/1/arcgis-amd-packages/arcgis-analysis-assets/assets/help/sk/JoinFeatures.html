@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Pripojiť prvky prid&aacute;va atrib&uacute;ty z jednej vrstvy alebo tabuľky do druhej na z&aacute;klade zadan&yacute;ch priestorov&yacute;ch a atrib&uacute;tov&yacute;ch vzťahov. Voliteľne je možn&eacute; vypoč&iacute;tať &scaron;tatistiky, ak existuje viacero sp&aacute;rovan&yacute;ch z&aacute;znamov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Vrstva alebo tabuľka, ktorej bud&uacute; do atrib&uacute;tovej tabuľky pridan&eacute; atrib&uacute;ty z pripojovacej vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Vrstva alebo tabuľka s atrib&uacute;tami, ktor&eacute; bud&uacute; pripojen&eacute; k cieľovej vrstve.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>&Scaron;pecifikujte, či sa maj&uacute; vrstvy pripojiť na z&aacute;klade priestorov&eacute;ho vzťahu. T&aacute;to voľba vyžaduje, aby obe vrstvy mali geometriu.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Zadajte priestorov&yacute; vzťah, ktor&yacute; určuje, ktor&eacute; prvky bud&uacute; pripojen&eacute;. Prvky v pripojovacej vrstve, ktor&eacute; maj&uacute; zadan&yacute; vzťah k cieľovej vrstve, sa pripoja. Dostupn&eacute; vzťahy z&aacute;visia od typu geometrie vstupov.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Vzdialenosť od prvkov v cieľovej vrstve, ktor&aacute; sa použije na určenie, či sa maj&uacute; prvky pripojiť.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Jednotky, ktor&eacute; sa použij&uacute; na určenie vzdialenosti.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Zadajte, či sa maj&uacute; vrstvy pripojiť na z&aacute;klade sp&aacute;rovan&yacute;ch hodn&ocirc;t pol&iacute;. Toto je jedin&aacute; možnosť, ak jeden alebo viacero vstupov je tabuľka.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Zadajte atrib&uacute;tov&yacute; vzťah, ktor&yacute; určuje, ktor&eacute; prvky s&uacute; pripojen&eacute;. Prvky s&uacute; sp&aacute;rovan&eacute;, keď hodnoty pol&iacute; v pripojovacej vrstve s&uacute; rovnak&eacute; ako hodnoty pol&iacute; v cieľovej vrstve.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>&Scaron;pecifikujte, ako sa bude postupovať pri prip&aacute;jan&iacute;, ak krit&eacute;ri&aacute; prip&aacute;jania spĺňa viacero z&aacute;znamov z pripojovacej vrstvy. Vyberte si z nasleduj&uacute;cich možnost&iacute;:
+                <ul>
+                    <li> <b>Pripojenie jeden k jedn&eacute;mu</b>&mdash; Ku každ&eacute;mu prvku v cieľovej vrstve pripoj&iacute; len jeden z&aacute;znam z pripojovacej vrstvy.
+                    </li>
+                    <li> <b>Pripojenie jeden k viacer&yacute;m</b>&mdash;Pripoj&iacute; v&scaron;etky sp&aacute;rovan&eacute; prvky v pripojovacej vrstve k cieľovej vrstve. V&yacute;sledn&aacute; vrstva bude obsahovať n&aacute;sobn&eacute; z&aacute;znamy cieľov&yacute;ch prvkov.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Ak je viac prvkov v pripojovacej vrstve sp&aacute;rovan&yacute;ch s cieľov&yacute;m prvkom, &scaron;pecifikujte, či sa m&aacute; pripojiť jeden z&aacute;znam z pripojovacej vrstvy alebo sa m&aacute; vypoč&iacute;tať s&uacute;hrnn&aacute; &scaron;tatistika v&scaron;etk&yacute;ch sp&aacute;rovan&yacute;ch z&aacute;znamov z pripojovacej vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Ak existuje viac pripojovac&iacute;ch prvkov, ktor&eacute; s&uacute; sp&aacute;rovan&eacute; s cieľov&yacute;m prvkom, vypoč&iacute;taj&uacute; sa s&uacute;hrnn&eacute; &scaron;tatistiky pre v&scaron;etky sp&aacute;rovan&eacute; z&aacute;znamy. Zadajte č&iacute;seln&eacute; alebo d&aacute;tumov&eacute; polia z pripojovacej vrstvy a &scaron;tatistiky, ktor&eacute; sa vypoč&iacute;taj&uacute; pre každ&eacute; pole.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Ak existuje viac pripojovac&iacute;ch prvkov, ktor&eacute; s&uacute; sp&aacute;rovan&eacute; s cieľov&yacute;m prvkom, do v&yacute;stupu sa zahrnie prv&yacute; z&aacute;znam z atrib&uacute;tovej tabuľky pripojovacej vrstvy. Voliteľne vyberte č&iacute;seln&eacute; alebo d&aacute;tumov&eacute; pole a sp&ocirc;sob zoradenia pre usporiadanie atrib&uacute;tovej tabuľky.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Určuje, či sa do v&yacute;stupu zahrn&uacute; nesp&aacute;rovan&eacute; cieľov&eacute; prvky.  <b>Vn&uacute;torn&eacute; pripojenie </b> vr&aacute;ti len sp&aacute;rovan&eacute; cieľov&eacute; z&aacute;znamy, zatiaľ čo <b>Ľav&eacute; pripojenie</b> vr&aacute;ti v&scaron;etky cieľov&eacute; z&aacute;znamy, aj keď cieľov&yacute; prvok nemal sp&aacute;rovanie v pripojovacej vrstve.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy alebo tabuľky, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

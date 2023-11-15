@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือค้นหาฮอตสปอตจะระบุการจับกลุ่มอย่างมีนัยสำคัญทางสถิติในฟีเจอร์อินพุท
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>จุดอินพุทหรือชั้นข้อมูลโพลีกอนซึ่งจะดำเนินการวิเคราะห์ฮอตสปอต
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>ระบุว่าฮอตและโคลด์สปอตจะแสดงผลตามตำแหน่งฟีเจอร์ (<b>จำนวนจุด</b>) หรือค่าฟิลด์ฟีเจอร์ (<b>ฟิลด์</b>)
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>ฟิลด์ที่จะถูกวิเคราะห์การจับกลุ่มค่าสูงและต่ำ
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>ประเภทขอบฟีเจอร์ขอบเขตซึ่งจะรวบรวมฟีเจอร์จุดอินพุทไว้ภายใน ส่วนนี้สามารถเป็นชั้นข้อมูลโพลีกอน (<b>ชั้นข้อมูลโพลีกอน</b>) หรือเทสเซลเลชันกริดของสี่เหลี่ยมจัตุรัส (<b>เซลล์ตาข่าย</b>) หรือหกเหลี่ยม (<b>เซลล์หกเหลี่ยม</b>)
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>ชั้นข้อมูลที่มีฟีเจอร์โพลีกอนซึ่งจะรวมฟีเจอร์จุดอินพุท
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>ชั้นข้อมูลโพลีกอนที่จะกำหนดขอบเขตของการวิเคราะห์ ฟีเจอร์จุดภายในโพลีกอนจะถูกรวมไว้ในการวิเคราะห์ฮอตสปอต
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>ระบุวิธีการหารค่า  <b>ฟิลด์การวิเคราะห์</b> หรือจำนวนจุดที่รวม ตัวเลือก <b>ฟิลด์</b> จะหารค่า <b>ฟิลด์การวิเคราะห์</b> ด้วยค่าของฟิลด์ที่ระบุในพารามิเตอร์ <b>ชั้นข้อมูลอินพุท</b> ตัวเลือก <b>ข้อมูลการเสริมรายละเอียด</b> จะเสริมรายละเอียดฟีเจอร์หรือรูปทรงการรวมด้วยข้อมูลประชากร แล้วหารค่า <b>ฟิลด์การวิเคราะห์</b> หรือจำนวนจุดที่รวมด้วยประชากร ตัวเลือกนี้จะต้องใช้เครดิตเพิ่มเติม
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>ความยาวของด้านหนึ่งของเซลล์สี่เหลี่ยมจัตุรัสหรือหกเหลี่ยม ที่จะใช้ในการรวมฟีเจอร์อินพุท
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>ระบุหน่วยที่จะใช้สำหรับขนาดเซลล์
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>แบนด์ระยะทางที่จะใช้เพื่อกำหนดพื้นที่ใกล้เคียง ฟีเจอร์พื้นที่ใกล้เคียงภายในแบนด์ระยะทางของฟีเจอร์เป้าหมาย จะถูกรวมไว้ในพื้นที่ใกล้เคียงของฟีเจอร์เป้าหมายในระหว่างการวิเคราะห์ฮอตสปอต
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>ระบุหน่วยที่จะใช้สำหรับแบนด์ระยะทาง
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

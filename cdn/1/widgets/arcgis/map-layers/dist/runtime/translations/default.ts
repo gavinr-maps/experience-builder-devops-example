@@ -7,5 +7,6 @@ export default {
   increaseTransparency: 'Increase transparency',
   decreaseTransparency: 'Decrease transparency',
   showLabels: 'Show labels',
-  hideLabels: 'Hide labels'
+  hideLabels: 'Hide labels',
+  emptyListTip: 'There are currently no items to display'
 }

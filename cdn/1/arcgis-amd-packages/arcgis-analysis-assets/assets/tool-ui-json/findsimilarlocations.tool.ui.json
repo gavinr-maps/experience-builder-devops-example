@@ -1,0 +1,131 @@
+{
+  "toolName": "FindSimilarLocations",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputLayer.selectedLayers",
+      "destination": "criteriaFields.UIparameterInfos[0]",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].searchLayer.selectedLayers",
+      "destination": "criteriaFields.UIparameterInfos[1]",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].returnAll = false",
+      "destination": "numberOfResults",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Component].inputLayer.user.portal.isPortal = false)",
+      "destination": ["criteriaFields.UIparameterInfos[0]", "criteriaFields.UIparameterInfos[1]"],
+      "effectParams": {
+        "allowGeometryFields": true
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputFeatures",
+      "componentName": "analysis-block",
+      "summaryText": "$inputFeaturesSectionText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputLayerLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": "feature",
+          "required": true
+        },
+        {
+          "name": "searchLayer",
+          "label": "$searchLayerLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": "feature",
+          "required": true
+        }
+      ]
+    },
+    {
+      "label": "$FSLGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$FSLGroupSectionText",
+      "UIparameters": [
+        {
+          "label": "$valueTableAccordion",
+          "componentName": "analysis-section",
+          "open": true,
+          "UIparameters": [
+            {
+              "label": "$matchingFieldsLabels",
+              "name": "criteriaFields",
+              "componentName": "analysis-value-table",
+              "visible": true,
+              "required": true,
+              "UIparameterInfos": [
+                {
+                  "name": "referenceField",
+                  "label": "$referenceFieldLabel",
+                  "componentName": "analysis-field-input",
+                  "fieldTypes": ["double", "integer", "small-integer", "single", "long"],
+                  "required": true
+                },
+                {
+                  "name": "candidateField",
+                  "label": "$candidateFieldLabel",
+                  "componentName": "analysis-field-input",
+                  "fieldTypes": ["double", "integer", "small-integer", "single", "long"],
+                  "required": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "returnAll",
+          "label": "$returnAllLabel",
+          "componentName": "analysis-boolean-input",
+          "required": true,
+          "displayStyle": "switch",
+          "defaultValue": true
+        },
+        {
+          "name": "numberOfResults",
+          "label": "$numberOfResultsLabel",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "visible": false,
+          "defaultValue": 1,
+          "min": 1
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

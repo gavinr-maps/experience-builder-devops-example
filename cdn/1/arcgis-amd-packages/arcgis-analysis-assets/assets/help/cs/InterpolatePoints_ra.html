@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Interpolovat body (Interpolate Points) předpov&iacute;d&aacute; hodnoty na nov&yacute;ch m&iacute;stech na z&aacute;kladě bodov&yacute;ch měřen&iacute;. V&yacute;stupem tohoto n&aacute;stroje je rastr.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Bodov&aacute; vrstva obsahuj&iacute;c&iacute; body, u kter&yacute;ch byly změřeny hodnoty.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Č&iacute;seln&eacute; pole obsahuj&iacute;c&iacute; hodnoty, kter&eacute; budou interpolov&aacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Určuje, zda bude n&aacute;stroj optimalizov&aacute;n pro rychlost nebo přesnost. Přesněj&scaron;&iacute; předpovědi se poč&iacute;taj&iacute; d&eacute;le.
+            </p>
+            <p>Tento parametr měn&iacute; v&yacute;choz&iacute; hodnoty několika dal&scaron;&iacute;ch parametrů.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>Velikost buňky a jednotka pro v&yacute;stupn&iacute; rastry.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Určuje, zda budou data transformov&aacute;na, nebo ne. Interpolace je nejpřesněj&scaron;&iacute; pro data s&nbsp;norm&aacute;ln&iacute;m rozdělen&iacute;m (ve tvaru zvonu).
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>Velikost lok&aacute;ln&iacute;ch interpolačn&iacute;ch modelů, kter&eacute; budou zkombinov&aacute;ny pro vytvořen&iacute; fin&aacute;ln&iacute; mapy předpovědi.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Počet sousedů, kter&yacute; bude použit. Vět&scaron;&iacute; počet sousedů obecně poskytuje přesněj&scaron;&iacute; v&yacute;sledky, ale jejich v&yacute;počet trv&aacute; d&eacute;le.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev interpolovan&eacute; rastrov&eacute; vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Zvolte, zda chcete vytvořit tak&eacute; voliteln&yacute; rastr směrodatn&yacute;ch odchylek pro předpov&iacute;dan&eacute; hodnoty.
+            </p>
+            <p>Pokud je za&scaron;krtnuto, bude m&iacute;t v&yacute;stupn&iacute; rastr směrodatn&yacute;ch odchylek stejn&yacute; n&aacute;zev jako  <b>n&aacute;zev v&yacute;stupn&iacute;ho rastru</b>, ale bude k němu připojeno slovo Errors. Vytvoř&iacute; se vrstva a přid&aacute; se do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, kter&yacute; bude vytvořen. V&yacute;stupem mohou b&yacute;t vrstvy dlaždicov&yacute;ch sn&iacute;mků nebo dynamick&eacute; vrstvy sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; budou v&yacute;sledky uloženy.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Detekcia objektov využit&iacute;m hĺbkov&eacute;ho strojov&eacute;ho učenia použ&iacute;va model hĺbkov&eacute;ho strojov&eacute;ho učenia na vstupnej sn&iacute;mkovej vrstve na vytvorenie prvkovej vrstvy obsahuj&uacute;cej detekovan&eacute; objekty.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Sn&iacute;mkov&aacute; alebo prvkov&aacute; vrstva, ktor&aacute; sa použije na detekciu objektov.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Určuje, ako bud&uacute; rastrov&eacute; položky v sn&iacute;mkovej vrstve po mozaikovan&iacute; spracovan&eacute;: spoločne alebo jednotlivo.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Bal&iacute;k hĺbkov&eacute;ho strojov&eacute;ho učenia obsahuj&uacute;ci model, ktor&yacute; sa použije na detekciu objektov.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Modelov&eacute; argumenty, ktor&eacute; sa nach&aacute;dzaj&uacute; v modeli hĺbkov&eacute;ho strojov&eacute;ho učenia, spolu s ich predvolen&yacute;mi hodnotami.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Určuje, či sa na odstr&aacute;nenie duplicitn&yacute;ch objektov vykon&aacute; nemaxim&aacute;lne potlačenie.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>N&aacute;zov poľa, ktor&eacute; sa prid&aacute; do v&yacute;stupnej prvkovej vrstvy na indik&aacute;ciu vykazovanej hodnoty spoľahlivosti.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>N&aacute;zov poľa, ktor&eacute; sa prid&aacute; do v&yacute;stupnej prvkovej vrstvy na indik&aacute;ciu klasifikovan&eacute;ho označenia objektu.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Maxim&aacute;lny povolen&yacute; pomer pre každ&yacute; n&aacute;jden&yacute; prvok, ktor&yacute; sa prekr&yacute;va s in&yacute;m prvkom. Predvolen&aacute; hodnota je 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「使用深度學習偵測變更」工具可使用深度學習模型來偵測兩個點陣圖層之間的變更。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="fromRaster">
+        <div>
+            <p>將作為比較基礎之變更前的輸入影像圖層。
+            </p>
+        </div>
+    </div>
+    <div id="toRaster">
+        <div>
+            <p>將與原件進行比較之變更後的輸入影像圖層。
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRasterName">
+        <div>
+            <p>顯示變更的輸出分類影像圖層。
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>深度學習模型中存在的模型參數及其預設值。
+            </p>
+        </div>
+    </div>
+    <div id="modelDefinition">
+        <div>
+            <p>包含將用於偵測影像圖層之間變更之模型的深度學習套件。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>將建立之輸出的類型。 輸出可以是圖磚影像圖層或動態影像圖層。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Trova posizioni simili valuta la somiglianza tra le posizioni candidate e una posizione di riferimento in base a una serie di criteri e classifica le posizioni candidate dalla pi&ugrave; alla meno simile.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Il layer punto, linea o poligono contenente le posizioni di riferimento che verranno abbinate. Se il layer include pi&ugrave; posizioni, tutte le posizioni saranno mediate per creare una singola posizione di riferimento.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Il layer punto, linea o poligono contenente la ricerca delle posizioni candidate. Ogni ricerca della posizione candidata sar&agrave; confrontata con la posizione di riferimento in base al valore di  <b>Selezione criteri</b> specificato e classificata dalla pi&ugrave; simile alla meno simile.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>I campi numerici che saranno utilizzati per valutare la somiglianza tra la posizione di riferimento e ciascuna ricerca della posizione candidata. Ogni valore  <b>Selezione criteri</b> avr&agrave; un valore <b>Campo dal layer di riferimento</b> e un valore <b>Campo dal layer candidato</b>. I valori <b>Campo dal layer di riferimento</b> e <b>Campo dal layer candidato</b> sono campi corrispondenti nel <b>Layer posizioni di riferimento</b> e nei valori <b>Cerca layer candidato</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Il campo  <b>Layer posizioni di riferimento</b> che corrisponde al campo <b>Cerca layer candidato</b> specificato dal valore <b>Campo dal layer candidato</b>. I valori di questi campi abbinati saranno confrontati per valutare la somiglianza tra la posizione di riferimento e ciascuna ricerca della posizione candidata.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Il campo  <b>Cerca layer candidato</b> che corrisponde al campo <b>Layer posizioni di riferimento</b> specificato dal valore <b>Campo dal layer di riferimento</b>. I valori di questi campi abbinati saranno confrontati per valutare la somiglianza tra la posizione di riferimento e ciascuna ricerca della posizione candidata.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Specifica se tutte le posizioni del valore  <b>Cerca layer candidato</b> saranno incluse nel layer di output.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Il numero di posizioni pi&ugrave; simili nel valore  <b>Cerca layer candidato</b> che sar&agrave; incluso nel layer di output.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

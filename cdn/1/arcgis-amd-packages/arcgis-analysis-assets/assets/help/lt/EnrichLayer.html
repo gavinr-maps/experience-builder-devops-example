@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Praturtinti sluoksnį įvesties elementus papildo demografiniais ir kra&scaron;tovaizdžio duomenimis.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Ta&scaron;kiniai, linijiniai arba plotiniai elementai, kurie bus praturtinti papildomais duomenimis.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Kintamieji, kurie bus pridėti kaip įvesties elementų atributai.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Nurodoma, kaip bus apibrėžta sritis aplink įvesties ta&scaron;ko arba linijos elementus. Visa teritorija aplink kiekvieną elementą bus praturtinta.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Skaitmeninė reik&scaron;mė, nurodanti atstumą arba laiką aplink kiekvieną įvesties elementą, apie kurį plotas i&scaron;siplės.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Vienetai, kurie bus naudojami nurodant atstumą arba laiką, kurį praturtinta sritis apims kiekvieną įvesties elementą.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Nurodoma, ar i&scaron;vesties sluoksnyje bus poligono elementai, apibrėžti  <b>praturtinimo sričių</b> nustatymuose (pažymėta), ar įvesties elementai (nepažymėta).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

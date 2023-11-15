@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Виявити об'єкти, використовуючи глибоке навчання&raquo; використовує модель глибокого навчання на вхідному шарі зображень для створення векторного шару, що містить виявлені об&rsquo;єкти.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Зображення або векторний шар, який буде використовуватися для виявлення об&rsquo;єктів.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Визначає спосіб обробки растрових елементів у шарі зображень після мозаїки: разом чи окремо.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Пакет глибокого навчання, який містить модель, яка буде використовуватися для виявлення об&rsquo;єктів.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Аргументи моделі, які присутні в моделі глибокого навчання разом зі значеннями за замовчуванням.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Вказує, чи виконуватиметься ігнорування немаксимумів для видалення дублікатів об&rsquo;єктів.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>Ім&rsquo;я поля, яке буде додано до вихідного векторного шару, щоб вказати повідомлене значення достовірності.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>Ім&rsquo;я поля, яке буде додано до вихідного векторного шару, щоб вказати класифікований напис для об&rsquo;єкта.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Максимально допустимий коефіцієнт для кожного знайденого об'єкта, який перекриває інший об'єкт. Значення за замовчуванням 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

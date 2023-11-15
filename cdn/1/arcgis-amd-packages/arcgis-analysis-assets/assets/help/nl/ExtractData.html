@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Gegevens extraheren selecteert objecten binnen een extent en maakt een item in uw content.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>De lagen die zullen worden ge&euml;xtraheerd. Ondersteunde invoerlagen omvatten lagen die uw eigendom zijn en lagen waarvoor exporteren is ingeschakeld.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>De extent van objecten die zullen worden ge&euml;xtraheerd.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>Specificeert of objecten die de extent kruisen, zullen worden afgekapt. Indien dit niet is ingeschakeld, zullen objecten die de extent kruisen in hun geheel worden ge&euml;xtraheerd. Indien dit is ingeschakeld, worden objecten die de extent kruisen, afgekapt, en worden alleen de delen van die objecten binnen de extent ge&euml;xtraheerd.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>De bestandsindeling van de gegevens die zullen worden ge&euml;xtraheerd.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van het uitvoeritem waarin het ge&euml;xtraheerde bestand zal worden opgeslagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

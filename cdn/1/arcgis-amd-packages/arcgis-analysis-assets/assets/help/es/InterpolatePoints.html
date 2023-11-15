@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Interpolar puntos predice los valores de las nuevas ubicaciones en funci&oacute;n de las mediciones de puntos. La herramienta crea salidas de entidades.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Elija la capa de puntos de las ubicaciones que se interpolar&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Elija el campo que contiene los valores medidos que se interpolar&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Elija si se asignar&aacute; prioridad a la velocidad o la precisi&oacute;n del c&aacute;lculo. Las predicciones m&aacute;s precisas tardan m&aacute;s tiempo en calcularse.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Elija si una capa de errores est&aacute;ndar para las predicciones de interpolaci&oacute;n se incluir&aacute; en la salida.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Elija c&oacute;mo se calcular&aacute;n los valores de ruptura de clase.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Especifique el n&uacute;mero de clases (rangos de valores predichos) que se incluir&aacute;n en la capa de resultados. Cada clase define el l&iacute;mite de un pol&iacute;gono y representa curvas de nivel de los valores predichos. Los valores de ruptura de clase vienen determinados por el tipo de clasificaci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Proporcione los valores de ruptura de clase que se utilizar&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Elija una capa de pol&iacute;gono que se utilizar&aacute; para definir un &aacute;rea de estudio. Los resultados se recortar&aacute;n para que solo se muestren dentro del &aacute;rea de estudio.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Elija una capa de puntos que represente las ubicaciones que se usar&aacute;n para predecir valores. Si se proporciona, se crear&aacute; una capa de puntos que contiene valores predichos en las ubicaciones especificadas.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute;n los resultados.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

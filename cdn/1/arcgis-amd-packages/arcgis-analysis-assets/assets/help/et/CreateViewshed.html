@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Loo vaatev&auml;li&quot; kasutab Esri k&otilde;rgusanal&uuml;&uuml;si teenust m&auml;&auml;ratud vaatleja asukohtadest n&auml;htavate alade tuvastamiseks.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punktobjektid, mida kasutatakse vaatleja asukohtadena.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>M&auml;&auml;rab vaatleja k&otilde;rguse maapinnast.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p>Parameetris  <b>Vaatleja k&otilde;rgus</b> kasutatavad m&otilde;&otilde;t&uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>M&auml;&auml;rab sihtm&auml;rgi k&otilde;rguse maapinnast.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p>Parameetris  <b>Sihtm&auml;rgi k&otilde;rgus</b> kasutatavad m&otilde;&otilde;t&uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>M&auml;&auml;rab vaatev&auml;lja arvutamiseks kasutatava suurima vaatamiskauguse.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Parameetris  <b>Suurim vaatamiskaugus</b> kasutatavad m&otilde;&otilde;t&uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle vaatev&auml;lja pol&uuml;goonikihi nimi, mis luuakse ja lisatakse kaardile. See kiht sisaldab n&auml;htavaid alasid, mis on vaatlejale n&auml;htavad ja vaatlejate arv salvestatakse sageduse v&auml;ljale.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

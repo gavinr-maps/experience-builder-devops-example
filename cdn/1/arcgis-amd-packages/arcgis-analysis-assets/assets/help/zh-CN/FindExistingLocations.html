@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;按属性和位置进行查找&rdquo;工具用于为满足指定空间或属性条件的要素或者部分要素创建新图层。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>将根据属性和空间查询的组合查找其要素的点、线或面图层。
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>将用于查找要素的空间或属性条件。 单击 <b>构建新查询</b>按钮以定义一个或多个空间或属性条件。 会将满足所有条件的要素或部分要素写入结果图层。
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> 将用于查找要素的空间或属性条件。 单击 <b>构建新查询</b>按钮以定义一个或多个空间或属性条件。 会将满足所有条件的要素或部分要素写入结果图层。
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>仅当部分要素满足条件时，指定结果是包含全部要素，还是仅包含满足所有条件的部分要素。 如果选中，则将仅返回满足所有条件的部分要素。 取消选中时，如果至少部分要素满足所有条件，则将返回全部要素。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

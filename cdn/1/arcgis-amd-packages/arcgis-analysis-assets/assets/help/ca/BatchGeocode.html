@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Geocodifica les ubicacions a partir d'una taula converteix adreces o llocs d'una taula d'entrada en coordenades.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Taula d'entrada amb les adreces o llocs que es geocodificaran. L'entrada ha de ser una taula, un fitxer  <code>.csv</code> o un fitxer Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Servei de localitzaci&oacute; que s'utilitzar&agrave; per a la geocodificaci&oacute;. Si el servei de localitzador que voleu utilitzar no es troba al men&uacute; desplegable, poseu-vos en contacte amb el vostre administrador perqu&egrave; configuri el servei de localitzador per a la geocodificaci&oacute; per lots.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Especifica si les dades d'entrada s&oacute;n en un sol camp o en diversos camps.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Camps que el localitzador utilitzar&agrave; per determinar la ubicaci&oacute; de les dades. Es dona per fet que determinats camps s&oacute;n a les dades, com ara adre&ccedil;a, ciutat, prov&iacute;ncia o regi&oacute; i codi postal.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Pa&iacute;s en el qual es troben les dades. Si totes les adreces s&oacute;n d'un pa&iacute;s, especifiqueu-lo per garantir la m&agrave;xima exactitud possible dels resultats. En cas contrari, deixeu aquest par&agrave;metre buit.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Especifica els camps que s'inclouran al dataset de sortida. Les opcions s&oacute;n les seg&uuml;ents:
+            </p>
+            <ul>
+                <li> <b>Tots</b>: tots els camps de sortida disponibles del localitzador s'inclouran als resultats de la geocodificaci&oacute;.
+                </li>
+                <li> <b>M&iacute;nim</b>: s'inclouran als resultats un subconjunt de camps del localitzador i tamb&eacute; els camps de la taula d'entrada.
+                </li>
+                <li> <b>Nom&eacute;s ubicaci&oacute;</b>: s'inclouran als resultats el camp <i>Shape</i> del localitzador i tamb&eacute; els camps de la taula d'entrada.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Tipus de sortida que es crear&agrave;. La sortida pot ser un servei d'entitats, un fitxer  <code>.csv</code> o un fitxer <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Nom de l'element de sortida en el qual s'emmagatzemaran les dades localitzades.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

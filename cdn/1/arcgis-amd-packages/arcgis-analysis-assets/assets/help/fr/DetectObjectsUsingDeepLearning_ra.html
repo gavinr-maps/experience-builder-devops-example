@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Detect Objects Using Deep Learning (D&eacute;tecter des objets &agrave; l&rsquo;aide du Deep Learning) utilise un mod&egrave;le de Deep Learning sur une couche d'imagerie en entr&eacute;e pour g&eacute;n&eacute;rer une couche d&rsquo;entit&eacute;s contenant les objets d&eacute;tect&eacute;s.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Couche d'imagerie ou d'entit&eacute;s &agrave; utiliser pour d&eacute;tecter les objets.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Sp&eacute;cifie le mode de traitement des &eacute;l&eacute;ments raster dans une couche d&rsquo;imagerie une fois qu'ils ont &eacute;t&eacute; mosa&iuml;qu&eacute;s&nbsp;: ensemble ou individuellement.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Paquetage de Deep Learning qui contient le mod&egrave;le &agrave; utiliser pour d&eacute;tecter les objets.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Arguments du mod&egrave;le pr&eacute;sents dans le mod&egrave;le Deep Learning avec leur valeur par d&eacute;faut.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Indique si la suppression non maximale est r&eacute;alis&eacute;e pour supprimer les objets en double.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>Nom du champ &agrave; ajouter &agrave; la couche d&rsquo;entit&eacute;s en sortie pour indiquer la valeur de confiance communiqu&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>Nom du champ &agrave; ajouter &agrave; la couche d&rsquo;entit&eacute;s en sortie pour indiquer l'&eacute;tiquette class&eacute;e de l'objet.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Ratio maximal autoris&eacute; pour chaque entit&eacute; d&eacute;tect&eacute;e qui chevauche une autre entit&eacute;. La valeur par d&eacute;faut est 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

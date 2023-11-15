@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Riepiloga entro calcola le statistiche per le feature entro i raccoglitori o i poligoni specificati.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Il layer che verr&agrave; riepilogato.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Il tipo di feature di delimitazione all'interno delle quali verranno riepilogate le feature di input. Pu&ograve; trattarsi di un layer poligono o di una griglia di tassellazione composta da raccoglitori quadrati o esagonali, che vengono generati durante l'esecuzione dello strumento.
+            </p>
+        </div>
+    </div>
+    <div id="sumWithinLayer">
+        <div>
+            <p>Il layer poligono all'interno del quale verranno riassunte le feature di input.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>La dimensione dei raccoglitori generati. Per i raccoglitori quadrati, il numero e le unit&agrave; specificate determinano l'altezza e la lunghezza del quadrato. Per i raccoglitori esagonali, il numero e le unit&agrave; specificate determinano la distanza tra i lati paralleli.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Le unit&agrave; che verranno utilizzate per specificare la dimensione del raccoglitore.
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Calcolare la dimensione totale delle feature riepilogate in ogni poligono di delimitazione. Per le linee, viene calcolata la lunghezza totale. Per i poligoni, viene calcolata l'area totale.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Le unit&agrave; che verranno utilizzate per calcolare la dimensione totale delle feature riepilogate.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>I campi numero o data del layer di input da riepilogare e le statistiche che verranno calcolate per ogni campo.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Il campo del layer di input che verr&agrave; utilizzato per separare i dati in gruppi distinti per i calcoli statistici.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Calcolare i gruppi minoritari (meno dominanti) e maggioritari (pi&ugrave; dominanti) all'interno di ogni area di riepilogo.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Calcolare la percentuale delle feature riepilogate che appartengono a ciascun gruppo all'interno di ogni area di riepilogo.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

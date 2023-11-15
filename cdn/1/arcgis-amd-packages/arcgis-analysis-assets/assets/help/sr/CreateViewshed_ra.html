@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Geodetski pregled identifikuje lokacije na rasterskoj povr&scaron;ini koje su vidljive lokacijama ulaznog posmatrača.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Raster nadmorske visine na kojem će se izračunati prikaz.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Lokacije posmatrača za koje će se izračunati prikaz.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimizuje izračunavanje vidljivosti na osnovu brzine ili tačnosti.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Određuje maksimalnu udaljenost gledanja za izračunavanje &scaron;irine prikaza.
+            </p>
+            <p>Udaljenost se može definisati pomoću vrednosti i njenih jedinica, ili iz polja u  <b>tački ili linijskim geoobjektima Ulaznog posmatrača</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Određuje minimalnu udaljenost gledanja za izračunavanje &scaron;irine prikaza.
+            </p>
+            <p>SUdaljenost se može definisati pomoću vrednosti i njenih jedinica, ili iz polja u  <b>tački ili linijskim geoobjektima Ulaznog posmatrača</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Određuje tip maksimalne i minimalne udaljenosti gledanja.
+            </p>
+            <p>Ako nije označeno, udaljenosti gledanja će se tretirati kao dvodimenzionalne euklidske udaljenosti. Ako je označeno, udaljenosti gledanja će se tretirati kao trodimenzionalne udaljenosti.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Određuje nadmorsku visinu lokacije posmatrača.
+            </p>
+            <p>Elevacija se može definisati pomoću vrednosti i njenih jedinica, ili iz polja u  <b>tački ili linijskim geoobjektima Ulaznog posmatrača</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Određuje visinu posmatrača iznad zemlje.
+            </p>
+            <p>Visina se može definisati pomoću vrednosti i njenih jedinica, ili iz polja u  <b>tački ili linijskim geoobjektima Ulaznog posmatrača</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Određuje visinu meta na tlu.
+            </p>
+            <p>Visina se može definisati pomoću vrednosti i njenih jedinica, ili iz polja u  <b>tački ili linijskim geoobjektima Ulaznog posmatrača</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv rastera dogleda koji će biti kreiran i dodat mapi. Ovaj sloj sadrži vidljive oblasti gde posmatrači mogu da vide, a vrednosti ćelije predstavljaju broj posmatrača koji mogu da vide ćelije.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Naziv rasterskog sloja iznad nivoa zemlje (AGL) koji će biti kreiran i dodat na mapu.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tip izlaza koji će biti kreiran. Izlaz može biti sloj sa slikama sa pločicama ili sloj sa dinamičkim slikama.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultat biti sačuvan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Агрегувати багатовимірний растр&raquo; генерує багатовимірний шар зображень шляхом комбінування існуючих змінних багатовимірного шару зображень за виміром.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Багатовимірний шар зображень який буде агреговано.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Вимір багатовимірного шару зображень, за яким буде агреговано змінну.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Показує, чи шар має значення вимірювань.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Змінна багатовимірного шару зображень, що буде агрегована за визначеним виміром.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Математичний метод, який буде використовуватися для агрегування фрагментів багатовимірного шару зображень.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Значення процентиля, яке буде використовуватися для обчислень після визначення методу агрегування.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Метод інтерполяції процентилю, який буде використовуватися, коли є парна кількість значень із вхідного шару зображень.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Користувацька растрова функція, яка буде використовуватися для обчислення значень пікселів агрегованих шарів зображень.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Інтервал виміру, який буде використовуватися для агрегування багатовимірних даних.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Кожне ключове слово вказує одиницю часу, за яку буде агреговано кожну статистику. Список ключових слів включає щогодини, щодня, щотижня, щомісяця, щокварталу та щороку.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Розмір інтервалу, який буде використовуватися під час агрегування за виміром.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Одиниці вимірювання значення інтервалу.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Таблиця значень, яка буде використовуватися під час агрегування за вказаним виміром. Мінімальне та максимальне значення визначають діапазон, який потрібно включити.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Мінімальне значення для діапазону інтервалів.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Максимальне значення для діапазону інтервалів.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Указує, чи значення NoData будуть ігноруватися в агрегуванні.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Тип вихідних даних, які буде створено. Вихідними даними можуть бути шари зображень з тайлами або динамічні шари зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

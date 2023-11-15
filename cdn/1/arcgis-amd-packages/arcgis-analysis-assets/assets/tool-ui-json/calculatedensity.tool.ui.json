@@ -1,0 +1,158 @@
+{
+  "toolName": "CalculateDensity",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputLayer.selectedLayers",
+      "destination": "field",
+      "property": "mapLayer"
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputPointOrLineFeaturesLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_line", "feature_point", "feature_multiPoint"],
+          "required": true,
+          "hideSketch": false
+        },
+        {
+          "name": "field",
+          "label": "$countFieldLabel",
+          "componentName": "analysis-field-input",
+          "required": false,
+          "selectionMode": "single",
+          "fieldTypes": ["double", "integer", "small-integer", "single"],
+          "showFieldInfo": true
+        },
+        {
+          "label": "$optionalLayersSectionLabel",
+          "componentName": "analysis-section",
+          "UIparameters": [
+            {
+              "name": "boundingPolygonLayer",
+              "label": "$clipOutputTo",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": ["feature_polygon"],
+              "required": false,
+              "hideSketch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$inputDensitySettingsGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputDensitySettingsGroupText",
+      "UIparameters": [
+        {
+          "layout": "horizontal",
+          "name": "searchDistanceUnitGroup",
+          "UIparameters": [
+            {
+              "name": "radius",
+              "label": "$searchDistanceLabel",
+              "componentName": "analysis-number-input",
+              "required": false,
+              "min": 0,
+              "excludeMinValue": true
+            },
+            {
+              "name": "radiusUnits",
+              "label": "$searchDistanceUnitLabel",
+              "componentName": "analysis-string-input",
+              "choiceList": ["Feet", "Miles", "Kilometers", "Meters"],
+              "choiceListLabels": {
+                "Feet": "$feet",
+                "Miles": "$miles",
+                "Kilometers": "$kilometers",
+                "Meters": "$meters"
+              },
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "classificationType",
+          "label": "$classifyBy",
+          "componentName": "analysis-string-input",
+          "selectionMode": "single",
+          "required": false,
+          "defaultValue": "EqualInterval",
+          "choiceList": ["EqualInterval", "EqualArea", "GeometricInterval", "NaturalBreaks", "StandardDeviation"],
+          "choiceListLabels": {
+            "EqualInterval": "$equalInterval",
+            "EqualArea": "$equalArea",
+            "GeometricInterval": "$geometricInterval",
+            "NaturalBreaks": "$naturalBreaks",
+            "StandardDeviation": "$standardDeviation"
+          }
+        },
+        {
+          "name": "numClasses",
+          "label": "$numOfClasses",
+          "componentName": "analysis-number-input",
+          "selectionMode": "single",
+          "min": 3,
+          "max": 32,
+          "defaultValue": 10,
+          "excludeMinValue": false,
+          "required": false
+        },
+        {
+          "name": "areaUnits",
+          "label": "$outputAreaUnitsLabel",
+          "componentName": "analysis-string-input",
+          "choiceListLabels": {
+            "SquareKilometers": "$squareKilometers",
+            "SquareMiles": "$squareMiles"
+          },
+          "choiceList": ["SquareKilometers", "SquareMiles"],
+          "required": false
+        },
+        {
+          "name": "cellSize",
+          "label": "$cellSizeLabel",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "visible": false
+        },
+        {
+          "name": "cellSizeUnits",
+          "label": "$cellSizeUnitsLabel",
+          "componentName": "analysis-string-input",
+          "required": false,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputPolygonNameLabel",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

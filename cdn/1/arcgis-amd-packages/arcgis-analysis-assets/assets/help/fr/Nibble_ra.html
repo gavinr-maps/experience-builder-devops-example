@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Grignotage remplace les cellules d&rsquo;un raster correspondant &agrave; un masque par les valeurs des voisins les plus proches.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Raster en entr&eacute;e avec les localisations masqu&eacute;es qui seront remplac&eacute;es (grignot&eacute;es) par la valeur du voisin le plus proche.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Raster de masque identifiant les localisations qui seront remplac&eacute;es dans le raster en entr&eacute;e. Les cellules avec la valeur NoData sont consid&eacute;r&eacute;es comme &eacute;tant &agrave; l&rsquo;int&eacute;rieur de la zone masqu&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Raster de zones en entr&eacute;e. Pour chaque zone, les cellules en entr&eacute;e qui se trouvent dans le masque seront remplac&eacute;es uniquement par les valeurs de cellules les plus proches au sein de cette m&ecirc;me zone.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Sp&eacute;cifie si les cellules NoData dans le raster en entr&eacute;e peuvent remplacer (grignoter) les cellules dans les zones masqu&eacute;es si elles constituent le voisin le plus proche.
+            </p>
+            <p>Si ce param&egrave;tre est activ&eacute;, les cellules NoData dans le raster en entr&eacute;e peuvent grignoter les cellules dans la zone masqu&eacute;e. Si ce param&egrave;tre est d&eacute;sactiv&eacute;, seules les cellules valides dans le raster en entr&eacute;e peuvent grignoter les cellules dans la zone masqu&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Sp&eacute;cifie si les cellules NoData dans la zone masqu&eacute;e seront conserv&eacute;es ou remplac&eacute;es.
+            </p>
+            <p>Si ce param&egrave;tre est d&eacute;sactiv&eacute;, les cellules NoData qui se trouvent dans la zone masqu&eacute;e seront conserv&eacute;es dans la sortie. Si ce param&egrave;tre est activ&eacute;, les cellules NoData dans la zone masqu&eacute;e seront remplac&eacute;es (grignot&eacute;es) par la valeur du voisin le plus proche qui se trouve &agrave; l&rsquo;ext&eacute;rieur de la zone masqu&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche raster grignot&eacute;e &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Type de sortie &agrave; cr&eacute;er. Les sorties peuvent correspondre &agrave; des couches d&rsquo;imagerie tuil&eacute;e ou des couches d&rsquo;imagerie dynamique.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel seront enregistr&eacute;s les r&eacute;sultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

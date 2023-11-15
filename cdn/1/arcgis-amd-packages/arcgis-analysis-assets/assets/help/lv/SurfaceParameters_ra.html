@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Virsmas parmetru rīks aprēķina rastra virsmas parametrus, piemēram, novietojumu, slīpumu un izliekumu, izmantojot ģeodēziskas metodes.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Augstuma rastrs, kas tiks izmantots aprēķinos.
+            </p>
+            <p>Ja ievades rastra vertikālo koordinātu sistēmā ir pieejama z vienība, tā tiek piemērota automātiski.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Mērāmā virsmas parametra veids.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Izvades slīpuma rastra mērvienības.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Norāda, vai tiks projicēti ģeodēziskie azimuti.
+            </p>
+            <p>Ja atzīmēts, ģeodēziskie azimuti tiek projicēti tā, lai koriģētu leņķa kropļojumu, ko rada izvades telpiskā atskaite. Ja nav atzīmēts, ģeodēziskie azimuti netiks projicēti.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Norāda, vai novietojums tiks mērīts no punkta uz ekvatora vai no ziemeļpola.
+            </p>
+            <p>Ja atzīmēts, novietojums tiks mērīts no punkta uz ekvatora. Ja nav atzīmēts, novietojums tiks mērīts no ziemeļpola.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Virsmas funkcijas veids, kas tiks uzstādīts ap mērķa &scaron;ūnu.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Attālums no mērķa &scaron;ūnas centra, no kura tiks aprēķināta izvade. Tas nosaka apkaimes lielumu, kas tiek izmantots aprēķiniem.
+            </p>
+            <p>Noklusējuma vērtība ir rastra &scaron;ūnas lielums, kas norādīts  <b>ievades virsmas rastra</b> parametros. Ja vērtība ir norādīta, tai jābūt lielākai par noklusējumu.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Norāda, vai apkaimes attālums at&scaron;ķirsies atkarībā no ainavas izmaiņām.
+            </p>
+            <p>Ja atzīmēts, apkaimes attālums at&scaron;ķirsies atkarībā no ainavas izmaiņām. Ja nav atzīmēts, visās vietās tiks izmantots fiksēts apkaimes attālums.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Vertikālo z vērtību lineārā mērvienība.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Virsmas rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Izveidotās izvades veids. Izvade var būt mozaīkas attēlu slānis vai dinamisks attēlu slānis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

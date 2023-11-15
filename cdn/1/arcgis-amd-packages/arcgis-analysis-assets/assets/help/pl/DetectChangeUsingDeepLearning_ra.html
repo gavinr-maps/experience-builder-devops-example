@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Wykrywaj zmiany metodą Deep Learning używa modelu Deep Learning do wykrywania zmian między dwiema warstwami rastrowymi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="fromRaster">
+        <div>
+            <p>Wejściowa warstwa zobrazowań przed zmianą, kt&oacute;ra będzie podstawą por&oacute;wnania.
+            </p>
+        </div>
+    </div>
+    <div id="toRaster">
+        <div>
+            <p>Wejściowa warstwa zobrazowań po zmianie, kt&oacute;ra będzie por&oacute;wnywana z oryginałem.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRasterName">
+        <div>
+            <p>Wynikowa sklasyfikowana warstwa zobrazowań odzwierciedlająca zmianę.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Argumenty modelu występujące w modelu Deep Learning wraz z ich wartościami domyślnymi.
+            </p>
+        </div>
+    </div>
+    <div id="modelDefinition">
+        <div>
+            <p>Pakiet Deep Learning zawierający model, kt&oacute;ry będzie używany do wykrywania zmian między warstwami zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Dane wynikowe mogą być warstwą zobrazowań kafelkowych lub dynamiczną warstwą zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Resumeix prop de calcula les estad&iacute;stiques de les entitats dins d'una dist&agrave;ncia especificada d'altres entitats. La dist&agrave;ncia es pot calcular mitjan&ccedil;ant una dist&agrave;ncia de l&iacute;nia recta o un mode de viatge.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Capa que cal resumir dins d'una dist&agrave;ncia de la capa de m&eacute;s a prop.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Capa de punts, l&iacute;nies o pol&iacute;gons que s'utilitza com a ubicacions d'inici al voltant de les quals es crearan &agrave;rees de l&iacute;mit per resumir les entitats properes.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>M&egrave;tode amb el qual es crearan les &agrave;rees de l&iacute;mit. El m&egrave;tode pot ser una dist&agrave;ncia de l&iacute;nia recta o un mode de viatge.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Dist&agrave;ncia o temps que s'utilitzar&agrave; per crear &agrave;rees de l&iacute;mit. Si s'afegeixen diversos valors, cada valor s'utilitzar&agrave; per calcular les &agrave;rees de l&iacute;mit per a totes les entitats d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Unitats que s'utilitzaran per especificar la dist&agrave;ncia o el temps.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Especifiqueu si la capa de resultats ha de ser les &agrave;rees de limitaci&oacute; (activat) o la mateixa geometria que la capa propera d'entrada (desactivat).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Calcula el total de les entitats resumides a cada &agrave;rea de limitaci&oacute;. Per a les l&iacute;nies, es calcula la longitud total. Per als pol&iacute;gons, es calcula l'&agrave;rea total.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Unitats que s'utilitzaran per calcular la mida total de les entitats resumides.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Camps de nombre o de data de la capa d'entrada que es resumir&agrave;, i estad&iacute;stiques que es calcularan per a cada camp.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Camp de la capa d'entrada que s'utilitzar&agrave; per separar les dades en diferents grups per a c&agrave;lculs estad&iacute;stics.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Calculeu els grups minoritaris (menys dominants) i majoritaris (m&eacute;s dominants) de cada &agrave;rea de resum.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Calcula el percentatge de les unitats resumides que pertanyen a cada grup dins de cada l&iacute;mit.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

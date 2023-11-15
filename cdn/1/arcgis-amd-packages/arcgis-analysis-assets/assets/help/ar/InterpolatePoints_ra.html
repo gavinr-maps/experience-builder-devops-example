@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تتنبأ أداة نقاط الاستيفاء بالقيم في مواقع جديدة بناءً على قياسات النقاط. تنشئ الأداة إخراج بيانات نقطية.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>طبقة النقاط التي تحتوي على النقاط حيث يتم قياس القيم.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>يحتوي الحقل الرقمي على القيم المراد استيفائها.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>تحدد ما إذا كان سيتم تحسين السرعة أو الدقة. المزيد من التوقعات الدقيقة تحتاج وقت أطول لحسابها.
+            </p>
+            <p>تغير هذه المعلمة القيم الافتراضية للعديد من المعلمات الأخرى.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>حجم الخلية ووحدة البيانات النقطية للإخراج.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>تحدد ما إذا كان سيتم تحويل البيانات أم لا. الاستيفاء هو أكثر دقة للبيانات التي تتبع عملية التوزيع العادية (شكل الجرس).
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>حجم نماذج الاستيفاء المحلية التي سيتم دمجها لإنشاء خريطة التنبؤ النهائية.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>عدد المجاورات المراد استخدامها. يؤدي استخدام عدد أكبر من المجاورات إلى نتائج أكثر دقة، ولكن يستغرق حساب النتائج وقتًا أطول.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم طبقة البيانات النقطية المستوفاة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>اختر ما إذا كنت ترغب أيضًا في إنشاء بيانات نقطية اختيارية لأخطاء قياسية للقيم المتوقعة.
+            </p>
+            <p>عند التحديد، سيكون للبيانات النقطية للإخراج الخاصة بالأخطاء القياسية الاسم نفسه المماثل  <b>لاسم البيانات النقطية للإخراج</b>، لكن مع إلحاق كلمة الأخطاء بها. سيتم إنشاء الطبقة وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقات صور متجانبة أو طبقات صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

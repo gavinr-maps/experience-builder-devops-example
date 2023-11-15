@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Estrai dati seleziona le feature all'interno di un'estensione e crea un elemento nel proprio contenuto.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>I layer che verranno estratti. I layer di input supportati includono i layer di propriet&agrave; dell'utente e i layer con l'esportazione abilitata.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>L'estensione delle feature che verranno estratte.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>Specifica se le feature che intersecano l'estensione saranno verranno ritagliate. Quando deselezionato, verranno estratte tutte le feature che intersecano l'estensione. Quando selezionato, le feature che intersecano l'estensione verranno ritagliate e verranno estratte solo le porzioni di quelle feature all'interno dell'estensione.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Il formato di file dei dati che verranno estratti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome dell'elemento di output in cui verr&agrave; memorizzato il file estratto.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

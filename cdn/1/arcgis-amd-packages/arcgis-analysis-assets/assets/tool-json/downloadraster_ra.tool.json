@@ -1,0 +1,57 @@
+{
+  "name": "DownloadRaster",
+  "displayName": "DownloadRaster",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/DownloadRaster.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputImageLayer",
+      "dataType": "GPString",
+      "displayName": "inputImageLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "clipSetting",
+      "dataType": "GPString",
+      "displayName": "clipSetting",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPMultiValue:GPRasterDataLayer",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "Raster Dataset",
+          "dataType": "GPRasterDataLayer",
+          "displayName": "Raster Dataset"
+        }
+      ]
+    }
+  ]
+}

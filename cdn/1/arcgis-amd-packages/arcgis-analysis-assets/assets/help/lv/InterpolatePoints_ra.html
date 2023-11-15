@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Punktu interpolē&scaron;anas rīks nosaka vērtības jaunās vietās, pamatojoties uz punktu mērījumiem. Rīks izveido rastra izvadi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Punktu slānis, kas satur punktus, kuros ir noteiktas vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Skaitliskais lauks, kas satur vērtības, kuras tiks interpolētas.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Norāda, vai ātrums vai precizitāte tiks optimizēta. Precīzākas prognozes tiek aprēķinātas ilgāk.
+            </p>
+            <p>&Scaron;is parametrs maina vairāku citu parametru noklusējuma vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>&Scaron;ūnas lielums un izvades mērvienība.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Norāda, vai dati tiks vai netiks transformēti. Interpolācija ir visprecīzākā datiem, kas atbilst parastai (zvana formas) sadalei.
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>Vietējo interpolācijas modeļu lielums, kas tiks apvienoti, lai izveidotu galīgo prognozē&scaron;anas karti.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>To blakus eso&scaron;o elementu skaits, kuri tiks izmantoti. Lielāks blakus eso&scaron;o elementu skaits parasti sniedz precīzākus rezultātus, bet rezultātu aprēķinā&scaron;ana aizņem vairāk laika.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Interpolētā rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Izvēlieties, vai prognozētajām vērtībām vēlaties izveidot papildu standartkļūdu rastru.
+            </p>
+            <p>Ja atzīmēts, izvades standartkļūdu rastram ir tāds pats nosaukums kā  <b>izvades rastram</b>, bet tam ir pievienots vārds Kļūdas. Slānis tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Izveidotās izvades veids. Izvades var būt mozaīkas attēlu slāņi vai dinamiski attēlu slāņi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

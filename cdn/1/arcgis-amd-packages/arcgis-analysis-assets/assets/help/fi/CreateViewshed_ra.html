@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Geodeettinen n&auml;kym&auml;alue -ty&ouml;kalu tunnistaa rasteripinnalla olevat sijainnit, jotka ovat n&auml;kyviss&auml; l&auml;ht&ouml;aineiston tarkkailusijainteihin.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Korkeusrasteri, josta n&auml;kym&auml;alue lasketaan.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Tarkkailusijainnit, joille n&auml;kym&auml;alue lasketaan.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimoi n&auml;kym&auml;alueen laskennan joko nopeuden tai tarkkuuden perusteella.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; n&auml;kym&auml;alueen laskennan enimm&auml;iskatseluet&auml;isyyden.
+            </p>
+            <p>Et&auml;isyys voidaan m&auml;&auml;ritt&auml;&auml; arvolla ja sen yksik&ouml;ill&auml; tai  <b>L&auml;ht&ouml;aineiston tarkkailusijainnin piste- tai viivakohteet</b> -kent&auml;st&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; n&auml;kym&auml;alueen laskennan v&auml;himm&auml;iskatseluet&auml;isyyden.
+            </p>
+            <p>Et&auml;isyys voidaan m&auml;&auml;ritt&auml;&auml; arvolla ja sen yksik&ouml;ill&auml; tai  <b>L&auml;ht&ouml;aineiston tarkkailusijainnin piste- tai viivakohteet</b> -kent&auml;st&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; enimm&auml;is- ja v&auml;himm&auml;iskatseluet&auml;isyyksien tyypit.
+            </p>
+            <p>Jos t&auml;t&auml; ei ole valittu, katseluet&auml;isyyksi&auml; k&auml;sitell&auml;&auml;n kaksiulotteisina Euklidisina et&auml;isyyksin&auml;. Jos t&auml;m&auml; on valittu, katseluet&auml;isyyksi&auml; k&auml;sitell&auml;&auml;n kolmiulotteisina et&auml;isyyksin&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tarkkailusijaintien pinnan korkeustason.
+            </p>
+            <p>Korkeustaso voidaan m&auml;&auml;ritt&auml;&auml; arvolla ja sen yksik&ouml;ill&auml; tai  <b>L&auml;ht&ouml;aineiston tarkkailusijainnin piste- tai viivakohteet</b> -kent&auml;st&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tarkkailusijainnin korkeuden maanpinnan tasosta.
+            </p>
+            <p>Korkeus voidaan m&auml;&auml;ritt&auml;&auml; arvolla ja sen yksik&ouml;ill&auml; tai  <b>L&auml;ht&ouml;aineiston tarkkailusijainnin piste- tai viivakohteet</b> -kent&auml;st&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; kohteiden korkeuden maanpinnan tasosta.
+            </p>
+            <p>Korkeus voidaan m&auml;&auml;ritt&auml;&auml; arvolla ja sen yksik&ouml;ill&auml; tai  <b>L&auml;ht&ouml;aineiston tarkkailusijainnin piste- tai viivakohteet</b> -kent&auml;st&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n n&auml;kym&auml;alueen rasterikarttatason nimi. T&auml;m&auml; karttataso sis&auml;lt&auml;&auml; tarkkailusijainnin n&auml;kem&auml;t alueet, ja solujen arvot edustavat niiden tarkkailusijaintien m&auml;&auml;r&auml;&auml;, jotka voivat n&auml;hd&auml; solut.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n maanpinnan yl&auml;puolisen rasterikarttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineisto voi olla tiilitetty kuva-aineistokarttataso tai dynaaminen kuvakarttataso.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

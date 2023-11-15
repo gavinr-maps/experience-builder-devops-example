@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือการสะสมระยะทาง คำนวณระยะทางสะสมจากแต่ละเซลล์ไปยังต้นทางอินพุท เพื่อให้สามารถลากเส้นเป็นเส้นตรงระบุระยะทาง ระยะทางต้นทุน ระยะทางพื้นผิวจริง รวมถึงตัวแปรต้นทุนแนวตั้งและแนวนอน
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>แรสเตอร์อินพุทหรือชั้นข้อมูลฟีเจอร์ที่ระบุต้นทาง ซึ่งจะทำการคำนวณระยะทาง
+            </p>
+            <p>หากอินพุทเป็นแรสเตอร์ จะต้องประกอบไปด้วยเซลล์ที่มีค่าจำนวนจริงที่ใช้งานได้ (ศูนย์เป็นค่าที่ใช้งานได้) จากซอร์ส และเซลล์ที่เหลือจะต้องได้รับการกำหนด NoData
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>อุปสรรคที่กำหนดสิ่งกีดขวางซึ่งจะต้องกำหนดเส้นทางอ้อมผ่านไป
+            </p>
+            <p>สำหรับชั้นข้อมูลแรสเตอร์ เซลล์ที่มีค่า (รวมถึงศูนย์) จะถือว่าเป็นอุปสรรค
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>แรสเตอร์ที่กำหนดค่าระดับความสูง ณ แต่ละตำแหน่งเซลล์
+            </p>
+            <p>ค่าจะถูกใช้ในการคำนวณระยะทางพื้นผิวจริงที่เคลื่อนที่ผ่านระหว่างเซลล์
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>แรสเตอร์ที่กำหนดอิมพีแดนซ์ หรือต้นทุนในการเคลื่อนที่ผ่านแต่ละเซลล์
+            </p>
+            <p>ค่า ณ ตำแหน่งแต่ละเซลล์แทนระยะทางต้นทุนต่อหน่วยในการเคลื่อนผ่านเซลล์ ค่าต้องไม่ติดลบหรือเป็นศูนย์
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>ระบุว่าจะคำนวณระยะทางโดยใช้วิธีการแบบระนาบ (โลกแบน) หรือวิธีการแบบจีโอเดสิค (ทรงรี)
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>แรสเตอร์ที่กำหนดค่า z สำหรับแต่ละตำแหน่งเซลล์
+            </p>
+            <p>ค่าที่ใช้ในการคำนวณความชันที่ใช้เพื่อระบุปัจจัยแนวตั้งที่เกิดขึ้นขณะเคลื่อนที่จากเซลล์หนึ่งไปยังอีกเซลล์
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>แฟกเตอร์ที่กำหนดความสัมพันธ์ระหว่างแฟกเตอร์ต้นทุนแนวตั้ง และมุมเคลื่อนที่สัมพัทธ์แนวตั้ง
+            </p>
+            <p>มีหลายตัวเลือกสำหรับแฟกเตอร์ที่มีตัวปรับเปลี่ยนซึ่งจะระบุกราฟแฟกเตอร์แนวตั้งที่กำหนดไว้ กราฟจะใช้ในการระบุปัจจัยแนวตั้งที่ใช้ในการคำนวณต้นทุนรวมของการเคลื่อนที่ไปยังเซลล์ที่อยู่ใกล้เคียง
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>แรสเตอร์ที่กำหนดทิศทางแนวนอน ณ แต่ละเซลล์
+            </p>
+            <p>ค่าแต่ละตำแหน่งจะถูกใช้งานร่วมกับพารามิเตอร์  <b>แฟกเตอร์แนวนอน</b> เพื่อหาต้นทุนแนวนอนที่เกิดขึ้นขณะเคลื่อนที่จากเซลล์หนึ่งไปยังพื้นที่ใกล้เคียง
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>แฟกเตอร์ที่จะกำหนดความสัมพันธ์ระหว่างแฟกเตอร์ต้นทุนแนวนอน และมุมเคลื่อนที่สัมพัทธ์แนวนอน
+            </p>
+            <p>มีหลายตัวเลือกสำหรับแฟกเตอร์ที่มีตัวปรับเปลี่ยนซึ่งจะระบุกราฟแฟกเตอร์แนวนอนที่กำหนดไว้ กราฟจะใช้ในการระบุปัจจัยแนวนอนที่ใช้ในการคำนวณต้นทุนรวมของการเคลื่อนที่ไปยังเซลล์ที่อยู่ใกล้เคียง
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>ต้นทุนสะสมเบื้องต้น ในการเริ่มต้นการคำนวณต้นทุน
+            </p>
+            <p>ค่าเริ่มต้นคือ 0
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>การสะสมสูงสุดของผู้เดินทางสำหรับซอร์ส
+            </p>
+            <p>การสะสมเริ่มต้นจะอยู่ที่ขอบของเอาท์พุทแรสเตอร์
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>ตัวคูณที่จะใช้กับค่าต้นทุน
+            </p>
+            <p>ค่าเริ่มต้นคือ 1
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>ทิศทางของผู้เดินทาง ขณะใช้แฟกเตอร์แนวนอนและแนวตั้ง
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลแรสเตอร์ระยะทางสะสมที่จะสร้างและเพิ่มลงในแผนที่ ชั้นข้อมูลที่มีระยะทางสะสมของแต่ละเซลล์จาก หรือไปยังต้นทางที่มีต้นทุนน้อยที่สุด
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลแรสเตอร์ทิศทางย้อนกลับที่จะสร้างและเพิ่มลงในแผนที่ ชั้นข้อมูลที่มีทิศทางในหน่วยองศา
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลแรสเตอร์ทิศทางต้นทางที่จะสร้างและเพิ่มลงในแผนที่ ชั้นข้อมูลที่มีทิศทางอะซิมุทของเซลล์ต้นทางที่มีต้นทุนสะสมน้อยที่สุดในหน่วยองศา
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลแรสเตอร์หลายแบนด์ของตำแหน่งต้นทางที่จะสร้างและเพิ่มลงในแผนที่ ชั้นข้อมูลที่มีตำแหน่งต้นทาง ซึ่งแบนด์แรกมีดัชนีแถว และแบนด์ที่สองมีดัชนีคอลัมน์
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>ประเภทของเอาท์พุทที่จะสร้างขึ้น เอาท์พุทสามารถเป็นชั้นข้อมูลภาพแบบไทล์หรือชั้นข้อมูลภาพแบบไดนามิก
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

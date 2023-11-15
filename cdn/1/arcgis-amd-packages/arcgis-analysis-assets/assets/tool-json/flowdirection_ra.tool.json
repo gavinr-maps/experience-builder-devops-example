@@ -1,0 +1,91 @@
+{
+  "name": "FlowDirection",
+  "displayName": "FlowDirection",
+  "description": "Calculates the direction of flow from each cell to its downslope neighbor or neighbors using the D8, D-Infinity (DINF), or Multiple Flow Direction (MFD) method.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/FlowDirection.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputSurfaceRaster",
+      "dataType": "GPString",
+      "displayName": "inputSurfaceRaster",
+      "description": "The input raster representing a continuous surface.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputFlowDirectionName",
+      "dataType": "GPString",
+      "displayName": "outputFlowDirectionName",
+      "description": "The name of the output flow direction raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "forceFlow",
+      "dataType": "GPBoolean",
+      "displayName": "forceFlow",
+      "description": "Specifies if edge cells will always flow outward or follow normal flow rules. Unchecked—If the maximum drop on the inside of an edge cell is greater than zero, the flow direction will be determined as usual; otherwise, the flow direction will be toward the edge. Cells that should flow from the edge of the surface raster inward will do so. This is the default. Checked—All cells at the edge of the surface raster will flow outward from the surface raster.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "flowDirectionType",
+      "dataType": "GPString",
+      "displayName": "flowDirectionType",
+      "description": "Specifies the type of flow method to use while computing flow directions. D8—Assign a flow direction based on the D8 flow method. This method assigns flow direction to the steepest downslope neighbor. This is the default. MFD—Assign a flow direction based on the MFD flow method. This method assigns multiple flow directions towards all downslope neighbors. DINF—Assign a flow direction based on the D-Infinity flow method using the steepest slope of a triangular facet.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "D8",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["D8", "MFD", "DINF"]
+    },
+    {
+      "name": "outputDropName",
+      "dataType": "GPString",
+      "displayName": "outputDropName",
+      "description": "The name of the output drop raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputFlowDirectionRaster",
+      "dataType": "GPString",
+      "displayName": "outputFlowDirectionRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "outputDropRaster",
+      "dataType": "GPString",
+      "displayName": "outputDropRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

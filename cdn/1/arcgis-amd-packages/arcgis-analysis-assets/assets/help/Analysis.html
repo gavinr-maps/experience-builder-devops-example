@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="aoToolbox">
+        <p>The Feature Analysis toolbox contains a number
+of tools that you can access and use.  These tasks are arranged below into
+categories; the categories are simply logical groupings
+and do not affect how you access or use the tasks in any
+way.
+        </p>
+    </div>
+    <div id="SummarizeDataCategory" class="regularsize">
+        <h2>Summarize Data</h2>
+        <hr/>
+        <p>These tools calculate total counts, lengths, areas, and basic descriptive statistics of features and their attributes within areas or near other features.
+            <ul>
+                <li> <b>Aggregate Points</b> calculates statistics about  points that fall within specified areas.
+                </li>
+                <li> <b>Join Features</b> transfers attributes from one
+layer or table to another based on spatial and attribute
+relationships.
+                </li>
+                <li> <b>Summarize Nearby</b> calculates statistics for features and their  attributes that are within a specified  distance.
+                </li>
+                <li> <b>Summarize Within</b> calculates statistics for area features and attributes that overlap each other.
+                </li>
+                <li> <b>Summarize Center and Dispersion</b> calculates central features and directional distributions.
+                </li>
+            </ul>
+            
+        </p>
+        <p> 
+        </p>
+    </div>
+    <div id="ManageDataCategory" class="regularsize">
+        <h2>Manage Data</h2>
+        <hr/>
+        <p>These tools are used for both the day-to-day management of geographic data and for combining data prior to analysis.  
+            <ul>
+                <li> <b>Dissolve Boundaries</b> merges together areas that share a common boundary and a common attribute value.
+                </li>
+                <li> <b>Extract Data</b> creates new datasets by extracting features from your existing data.
+                </li>
+                <li> <b>Generate Tessellations</b> creates tessellations based on the extent of your data.
+                </li>
+                <li> <b>Merge Layers</b> copies all the features from two existing layers
+into a new layer.
+                </li>
+                <li> <b>Overlay Layers</b> combines two or more layers into one single layer.  You can think of overlay as peering through a stack of maps and creating a single map containing all the information found in the stack.
+                </li>
+            </ul>
+            
+        </p>
+    </div>
+</div>
+</html>

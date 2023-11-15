@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Mitmem&otilde;&otilde;tmeliste p&otilde;hikomponentide t&ouml;&ouml;riist teisendab mitmem&otilde;&otilde;tmelised pildikihid v&auml;hendatud arvuga komponentideks, mis v&otilde;tavad arvesse andmete varieeruvust, nii et ruumilisi ja ajalisi mustreid saab h&otilde;lpsasti tuvastada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Mitmem&otilde;&otilde;tmeline pildikiht, mida anal&uuml;&uuml;sitakse.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Meetod, mida kasutatakse p&otilde;hikomponentide anal&uuml;&uuml;si l&auml;biviimiseks. Valikute hulka kuuluvad  <b>M&otilde;&otilde;tmete v&auml;hendamine</b> ja <b>Ruumiline v&auml;hendamine</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Mitmem&otilde;&otilde;tmelise pildikihi m&otilde;&otilde;de, mida m&ouml;&ouml;da muutujat anal&uuml;&uuml;sitakse.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>V&auml;ljundi pildikihi v&otilde;i tabelikihi nimi, mis n&auml;itab leitud p&otilde;hikomponente s&otilde;ltuvalt j&auml;rgmistest režiimivalikutest:
+                <ul>
+                    <li>M&otilde;&otilde;tmete v&auml;hendamise v&auml;ljundiks on mitmeribaline pildikiht.
+                    </li>
+                    <li>Ruumilise v&auml;hendamise v&auml;ljundiks on tabelikiht.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>P&otilde;hikomponentide valikut toetavaid andmeid n&auml;itava v&auml;ljundi pildi- v&otilde;i tabelikihi nimi s&otilde;ltuvalt j&auml;rgmistest režiimivalikutest:
+                <ul>
+                    <li>M&otilde;&otilde;tmete v&auml;hendamise v&auml;ljundiks on tabelikiht.
+                    </li>
+                    <li>Ruumilise v&auml;hendamise v&auml;ljundiks on tabelikiht.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Omav&auml;&auml;rtuste tabeli nimi, mis n&auml;itab iga komponendi dispersiooniprotsenti.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Arvutuses kasutatava mitmem&otilde;&otilde;tmelise sisendkihi muutuja nimi.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Arvutatavate p&otilde;hikomponentide arv, mis on tavaliselt v&auml;iksem kui sisendrastrite arv.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

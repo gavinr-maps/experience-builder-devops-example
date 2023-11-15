@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Geod&auml;tisches Sichtfeld&quot; identifiziert die Positionen auf einer Raster-Oberfl&auml;che, die an den Eingabe-Beobachterpositionen sichtbar sind.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Das H&ouml;henraster, auf dem das Sichtfeld berechnet wird.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Die Beobachterpositionen, f&uuml;r die das Sichtfeld berechnet wird.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimiert die Sichtfeldberechnung auf Basis der Geschwindigkeit oder der Genauigkeit.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Gibt die maximale Betrachtungsentfernung f&uuml;r die Sichtfeldberechnung an.
+            </p>
+            <p>Die Entfernung kann durch einen Wert und dessen Einheiten oder &uuml;ber ein Feld in den  <b>Eingabe-Beobachterpunkt- oder -Linien-Features</b> definiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Gibt die minimale Betrachtungsentfernung f&uuml;r die Sichtfeldberechnung an.
+            </p>
+            <p>Die Entfernung kann durch einen Wert und dessen Einheiten oder &uuml;ber ein Feld in den  <b>Eingabe-Beobachterpunkt- oder -Linien-Features</b> definiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Gibt den maximalen und minimalen Betrachtungsentfernungstyp an.
+            </p>
+            <p>Wenn die Option deaktiviert ist, werden die Betrachtungsentfernungen als euklidische 2D-Entfernungen behandelt. Ist die Option aktiviert, werden die Betrachtungsentfernungen als 3D-Entfernungen behandelt.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Gibt die Oberfl&auml;chenh&ouml;he der Beobachterpositionen an.
+            </p>
+            <p>Die H&ouml;he kann durch einen Wert und dessen Einheiten oder &uuml;ber ein Feld in den  <b>Eingabe-Beobachterpunkt- oder -Linien-Features</b> definiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Gibt die H&ouml;he der Beobachter &uuml;ber dem Boden an.
+            </p>
+            <p>Die H&ouml;he kann durch einen Wert und dessen Einheiten oder &uuml;ber ein Feld in den  <b>Eingabe-Beobachterpunkt- oder -Linien-Features</b> definiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Gibt die H&ouml;he der Ziele am Boden an.
+            </p>
+            <p>Die H&ouml;he kann durch einen Wert und dessen Einheiten oder &uuml;ber ein Feld in den  <b>Eingabe-Beobachterpunkt- oder -Linien-Features</b> definiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Sichtfeld-Raster-Layers, der erstellt und der Karte hinzugef&uuml;gt wird. Dieser Layer enth&auml;lt die sichtbaren Bereiche, in denen die Beobachter die beobachteten Objekte sehen k&ouml;nnen. Die Zellenwerte geben die Anzahl der Beobachter an, die die Zellen sehen k&ouml;nnen.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Der Name des Raster-Layers der H&ouml;he &uuml;ber Grund (Above Ground Level, AGL), der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgabe kann ein gekachelter Bilddaten-Layer oder ein dynamischer Bilddaten-Layer sein.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

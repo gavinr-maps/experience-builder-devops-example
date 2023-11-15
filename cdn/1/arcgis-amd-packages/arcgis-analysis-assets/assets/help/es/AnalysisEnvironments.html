@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Configuraci&oacute;n de los entornos para el an&aacute;lisis en  Visor de mapas. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Especifica el sistema de coordenadas para el an&aacute;lisis y la capa de resultados.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Especifica el &aacute;rea que se va a utilizar para el an&aacute;lisis.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Ajusta la extensi&oacute;n de la salida para que coincida con la alineaci&oacute;n de celda de la capa r&aacute;ster de alineaci&oacute;n especificada.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Especifica el tama&ntilde;o de celda o la resoluci&oacute;n que se utilizar&aacute; para el an&aacute;lisis y para crear la capa r&aacute;ster de salida.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Especifica una capa de m&aacute;scara, en la que solo se utilizar&aacute;n para el an&aacute;lisis las celdas que se encuentren dentro del &aacute;rea de la m&aacute;scara.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Especifica c&oacute;mo se interpolar&aacute;n los valores de p&iacute;xel cuando los r&aacute;steres de entrada y salida no se alineen.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Especifica el tipo de procesador que se va a utilizar: Las opciones son  <b>CPU</b>, <b>GPU</b> y <b>Autom&aacute;tico</b>. Cuando se especifica <b>Autom&aacute;tico</b>, la herramienta definir&aacute; el tipo de procesador.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Especifique el n&uacute;mero de instancias de servicio de procesamiento de r&aacute;ster que se van a utilizar durante la ejecuci&oacute;n de la herramienta. Los valores admitidos incluyen cadenas de caracteres vac&iacute;as (la herramienta determinar&aacute; el n&uacute;mero de instancias del servicio de procesamiento de r&aacute;ster que se va a utilizar), n&uacute;meros enteros (0 o enteros positivos) y porcentajes. Los porcentajes deben incluir un signo de porcentaje (%) despu&eacute;s del valor de porcentaje.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>Determina si aparecer&aacute; un mensaje de advertencia cuando el n&uacute;mero estimado de cr&eacute;ditos supere el umbral especificado (habilitado) o si se har&aacute; el an&aacute;lisis sin mostrar un mensaje con independencia del consumo de cr&eacute;ditos estimado (no habilitado). El an&aacute;lisis seguir&aacute; respetando la configuraci&oacute;n de la presupuestaci&oacute;n de cr&eacute;ditos de la organizaci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Especifica el umbral en el que aparecer&aacute; un mensaje de advertencia basado en el consumo de cr&eacute;ditos estimado a partir de la ejecuci&oacute;n del an&aacute;lisis. El an&aacute;lisis puede realizarse aunque la estimaci&oacute;n supere el umbral.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

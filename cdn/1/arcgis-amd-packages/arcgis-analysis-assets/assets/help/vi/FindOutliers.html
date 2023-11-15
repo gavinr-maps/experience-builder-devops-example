@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ T&igrave;m Ngoại lệ sẽ x&aacute;c định xem c&oacute; bất kỳ vị tr&iacute; n&agrave;o c&oacute; gi&aacute; trị kh&aacute;c biệt đ&aacute;ng kể so với c&aacute;c vị tr&iacute; l&acirc;n cận dựa tr&ecirc;n m&ocirc; h&igrave;nh kh&ocirc;ng gian dữ liệu hay kh&ocirc;ng.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Lớp điểm hoặc v&ugrave;ng được d&ugrave;ng để t&igrave;m kiếm ngoại lệ từ đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Chỉ định xem c&aacute;c ngoại lệ sẽ được x&aacute;c định dựa tr&ecirc;n vị tr&iacute; đối tượng (<b>Số lượng điểm</b>) hoặc gi&aacute; trị trường đối tượng (<b>Trường</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Trường sẽ được ph&acirc;n t&iacute;ch để x&aacute;c định ngoại lệ.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Loại đối tượng giới hạn trong đ&oacute; c&aacute;c đối tượng đầu v&agrave;o sẽ được tổng hợp. Đ&acirc;y c&oacute; thể l&agrave; một lớp v&ugrave;ng (<b>lớp V&ugrave;ng</b>) hoặc một lưới tổ ong gồm c&aacute;c h&igrave;nh vu&ocirc;ng (<b>cell lưới</b>) hoặc h&igrave;nh lục gi&aacute;c (<b>cell h&igrave;nh lục gi&aacute;c</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Lớp chứa c&aacute;c đối tượng dạng v&ugrave;ng m&agrave; c&aacute;c đối tượng điểm đầu v&agrave;o sẽ được tổng hợp.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Lớp v&ugrave;ng sẽ được sử dụng để x&aacute;c định ranh giới ph&acirc;n t&iacute;ch. C&aacute;c đối tượng trong lớp v&ugrave;ng sẽ được đưa v&agrave;o ph&acirc;n t&iacute;ch ngoại lệ.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>X&aacute;c định c&aacute;ch chia c&aacute;c gi&aacute; trị  <b>Trường ph&acirc;n t&iacute;ch</b> hoặc số điểm được tổng hợp. Tuỳ chọn <b>Trường</b> sẽ chia c&aacute;c gi&aacute; trị <b>Trường ph&acirc;n t&iacute;ch</b> bằng c&aacute;c gi&aacute; trị trường cụ thể trong th&ocirc;ng số <b>Lớp đầu v&agrave;o</b>. Tuỳ chọn <b>Dữ liệu bổ sung </b> sẽ bổ sung c&aacute;c đối tượng hoặc h&igrave;nh dạng tổng hợp với dữ liệu d&acirc;n số v&agrave; chia c&aacute;c gi&aacute; trị <b>Trường ph&acirc;n t&iacute;ch</b> hoặc số điểm được tổng hợp theo d&acirc;n số. Tuỳ chọn n&agrave;y c&oacute; thể ti&ecirc;u tốn th&ecirc;m credit.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>X&aacute;c định xem c&oacute; tối ưu h&oacute;a c&ocirc;ng cụ để thu được thời gian xử l&yacute; nhanh hơn hoặc tăng độ ch&iacute;nh x&aacute;c của kết quả hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Một gi&aacute; trị số nguy&ecirc;n sẽ khởi tạo tr&igrave;nh tạo số ngẫu nhi&ecirc;n.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Độ d&agrave;i một cạnh của cell h&igrave;nh vu&ocirc;ng (lưới) hoặc h&igrave;nh lục gi&aacute;c sẽ được sử dụng để tổng hợp c&aacute;c đối tượng đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>X&aacute;c định c&aacute;c đơn vị sẽ được sử dụng cho k&iacute;ch thước cell.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Dải khoảng c&aacute;ch sẽ được sử dụng để x&aacute;c định v&ugrave;ng l&acirc;n cận. C&aacute;c đối tượng l&acirc;n cận trong dải khoảng c&aacute;ch của đối tượng mục ti&ecirc;u sẽ được đưa v&agrave;o v&ugrave;ng l&acirc;n cận của đối tượng mục ti&ecirc;u trong qu&aacute; tr&igrave;nh ph&acirc;n t&iacute;ch.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>X&aacute;c định c&aacute;c đơn vị sẽ được sử dụng cho dải khoảng c&aacute;ch.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

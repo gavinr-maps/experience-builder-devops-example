@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Summ&eacute;r i n&aelig;rheden-v&aelig;rkt&oslash;jet beregner statistik for objekter inden for en angivet afstand af andre objekter. Afstanden kan beregnes som en afstand i fugleflugtslinje eller en rejsetilstand.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Laget til at opsummere inden for en afstand af laget i n&aelig;rheden.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Det punkt-, linje eller omr&aring;delag, der skal bruges som startsteder, omkring hvilke gr&aelig;nseomr&aring;der oprettes til at opsummere objekter i n&aelig;rheden.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Den metode, med hvilken gr&aelig;nseomr&aring;derne oprettes. Metoden kan v&aelig;re afstand i fugleflugtslinje eller en rejsetilstand.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Den afstand eller tid, der bruges til at oprette gr&aelig;nseomr&aring;der. Hvis der tilf&oslash;jes flere v&aelig;rdier, bruges hver enkelt v&aelig;rdi til at beregne gr&aelig;nseomr&aring;derne for alle inputobjekter.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>De enheder, der bruges til at angive afstande og tid.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Angiv, om resultatlaget skal v&aelig;re gr&aelig;nseomr&aring;der (markeret) eller den samme geometri som det angivne lag i n&aelig;rheden (ikke markeret).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Beregn den samlede st&oslash;rrelse af objekter, der er summeret i hvert gr&aelig;nseomr&aring;de. For linjer beregnes den samlede l&aelig;ngde. For polygoner beregnes det samlede omr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>De enheder, der bruges til at beregne den samlede st&oslash;rrelse af alle summerede objekter.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>De tal- eller datofelter fra inputlaget, der opsummeres, og den statistik, der beregnes for hvert felt.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Feltet fra det inputlag, der bruges til at opdele data i forskellige grupper til statistiske beregninger.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Beregn grupper, der er minoritet (mindst dominerende) og majoritet (mest dominerende), inden for hvert summeringsomr&aring;de.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Beregn procentdelen af de summerede objekter, der h&oslash;rer til hver gruppe inden for hver gr&aelig;nse.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

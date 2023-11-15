@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Геокодирани местоположения от таблица преобразува адреси или места от входна таблица в координати.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Входната таблица с адресите или местата за геокодиране. Входните данни трябва да бъдат таблица  <code>.csv</code> файл, или Excel файл. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Услугата за локатор, която да се използва за геокодиране. Ако услугата за локализиране, която искате да използвате, не е в падащото меню, свържете се с администратора си, за да конфигурира услугата за локализиране за пакетно геокодиране.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Указва дали входните данни се съдържат в едно поле или в множество полета.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Полетата, които ще бъдат използвани от локатора за определяне на местоположенията на данните. Предполага се, че определените полета са в данните, като адрес, град, държава и пощенски код.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Държавата, в която се намират данните. Ако всички адреси са от една държава, посочете тази държава, за да осигурите най-точни резултати. В противен случай, оставете полето на този параметър празно.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Определя полетата, които ще бъдат включени в изходния набор от данни. Опциите са както следва:
+            </p>
+            <ul>
+                <li> <b>Всички</b>&mdash;Всички налични изходни полета на локатора ще бъдат включени в резултатите от геокодирането.
+                </li>
+                <li> <b>Минимални</b>&mdash;Подмножество от полета от локатора, както и полетата от входната таблица ще бъдат включени в резултатите.
+                </li>
+                <li> <b>Само местоположение</b>&mdash;Полето <i>Shape</i> от локатора, както и полетата от входната таблицата ще бъдат включени в резултатите.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Типът резултат, който ще бъде създаден. Резултатът може да бъде услуга с обекти,  <code>.csv</code> файл, или <code>.xls</code> файл.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Името на изходния елемент, където ще се съхраняват локализираните данни.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Името на папка в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

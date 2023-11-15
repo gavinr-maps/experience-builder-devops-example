@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Gerar &Aacute;reas de Viagem cria &aacute;reas que podem ser alcan&ccedil;adas dentro de um tempo de viagem ou dist&acirc;ncia.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto ao redor das &aacute;reas que ser&atilde;o calculadas.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>O modo de viagem que ser&aacute; usado para criar as &aacute;reas de viagem. O modo de viagem pode ser baseado na dist&acirc;ncia ou no tempo.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>A dist&acirc;ncia de viagem ou limite de tempo para cada ponto de entrada. Se v&aacute;rios valores forem adicionados, cada valor ser&aacute; usado para calcular as &aacute;reas de viagem para todos os pontos de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>As unidades usadas para especificar a dist&acirc;ncia ou o tempo de viagem. O valor de  <b>Limites</b> &eacute; interpretado nessas unidades.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Determina se as &aacute;reas de viagem s&atilde;o criadas para viajar longe dos pontos de entrada ou em dire&ccedil;&atilde;o aos pontos de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Especifica a data e hora que o viajante parte ou chega aos locais de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Determina como as &aacute;reas compartilhadas de diferentes entradas s&atilde;o tratadas quando chegam umas &agrave;s outras.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Especifica se cada &aacute;rea de sa&iacute;da ser&aacute; um pol&iacute;gono cont&iacute;nuo (desmarcado) ou incluir&aacute; buracos em ruas inacess&iacute;veis, mas totalmente cercadas por ruas alcan&ccedil;&aacute;veis (marcado).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Especifica se as ruas usadas para criar as &aacute;reas de viagem ser&atilde;o inclu&iacute;das como uma camada de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

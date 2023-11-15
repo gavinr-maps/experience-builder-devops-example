@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist Voosuund loob voosuuna rastri igast pikslist tema allasuunakaldega naabrisse v&otilde;i naabritesse, kasutades meetodit D8, Multiple Flow Direction (MFD) v&otilde;i D-Infinity (DINF).
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Arvutamiseks kasutatav k&otilde;rgusraster.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>M&auml;&auml;rab voolu t&uuml;&uuml;bi, mida kasutatakse voolusuuna arvutamiseks.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>M&auml;&auml;rab, kas vool j&auml;rgib servapikslite juures normaalseid voolureegleid v&otilde;i voolab alati v&auml;ljapoole.
+            </p>
+            <p>Kui see pole m&auml;rgitud, on voolusuund k&otilde;ige j&auml;rsema z-v&auml;&auml;rtuse langusega sisemise piksli suunas. Pange t&auml;hele, et kui langus on null v&otilde;i sellest v&auml;iksem, voolab piksel pinnarastrist v&auml;ljapoole. Kui see on m&auml;rgitud, on voolusuund alati pinnarastrist v&auml;ljapoole.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionName">
+        <div>
+            <p>Voolusuuna rasterkihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="outputDropName">
+        <div>
+            <p>Selle languse rasterkihi nimi, mis luuakse ja lisatakse kaardile. See kiht sisaldab maksimaalse k&otilde;rguse muutuse ja piki voosuunda kulgeva tee pikkuse suhte protsenti.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

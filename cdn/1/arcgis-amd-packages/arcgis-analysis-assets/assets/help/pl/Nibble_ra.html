@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Zastąp najbliższym sąsiadem zastępuje kom&oacute;rki rastra odpowiadające masce wartościami najbliższych sąsiadujących kom&oacute;rek.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Raster wejściowy z zamaskowanymi lokalizacjami, kt&oacute;re zostaną zastąpione wartością ich najbliższego sąsiada.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Raster maski identyfikujący lokalizacje w rastrze wejściowym, kt&oacute;re zostaną zastąpione. Kom&oacute;rki o wartości Brak danych są uważane za znajdujące się w zamaskowanym obszarze.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Wejściowy raster strefy. W przypadku każdej strefy kom&oacute;rki wejściowe znajdujące się w obrębie maski zostaną zastąpione tylko wartościami najbliższych kom&oacute;rek znajdujących się w tej samej strefie.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Określa, czy kom&oacute;rki o wartości Brak danych w rastrze wejściowym mogą zastępować kom&oacute;rki w zamaskowanych obszarach, jeśli są najbliższymi sąsiadami.
+            </p>
+            <p>W przypadku wybrania tej opcji kom&oacute;rki o wartości Brak danych w rastrze wejściowym mogą zastępować kom&oacute;rki w zamaskowanym obszarze. Jeśli ta opcja nie jest wybrana, tylko prawidłowe kom&oacute;rki w rastrze wejściowym mogą zastępować kom&oacute;rki w zamaskowanym obszarze.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Określa, czy kom&oacute;rki o wartości Brak danych w zamaskowanym obszarze zostaną zachowane, czy zastąpione.
+            </p>
+            <p>Jeśli ta opcja nie jest wybrana, wszystkie kom&oacute;rki o wartości Brak danych w zamaskowanym obszarze zostaną zachowane w wynikach. W przypadku wybrania tej opcji kom&oacute;rki o wartości Brak danych w zamaskowanym obszarze zostaną zastąpione wartością najbliższego sąsiada, kt&oacute;ry znajduje się poza zamaskowanym obszarem.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy rastrowej z zastąpieniami, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Danymi wynikowymi mogą być warstwy zobrazowań kafelkowych lub dynamiczne warstwy zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

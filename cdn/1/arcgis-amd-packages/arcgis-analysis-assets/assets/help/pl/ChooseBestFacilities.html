@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Wybierz najlepsze plac&oacute;wki wyszukuje zestaw plac&oacute;wek, kt&oacute;re najlepiej obsługują zapotrzebowanie.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Cel, kt&oacute;ry ma zostać zrealizowany po przydzieleniu lokalizacji zapotrzebowania do plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Przypisz zapotrzebowanie do placówek na podstawie możliwości placówki i wartości zapotrzebowania z otaczającego obszaru. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Wybierz placówki, tak aby maksymalny czas przejazdu lub odległość z lokalizacji zapotrzebowania do przypisanej placówki zostały zminimalizowane. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Wybierz placówki, tak aby zrealizować jak największą część zapotrzebowania, z całym zapotrzebowaniem z każdej lokalizacji zapotrzebowania przypisanym do pojedynczej placówki znajdującej się najbliżej. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Wybierz placówki, tak aby przypisać jak największe zapotrzebowanie, nie przekraczając możliwości placówki. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Wybierz minimalną liczbę placówek potrzebnych do pokrycia określonego procentu zapotrzebowania. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Metoda podr&oacute;żowania, kt&oacute;ra będzie używana przy pomiarze czasu lub odległości między plac&oacute;wkami a lokalizacjami zapotrzebowania.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Data i godzina opuszczenia przez podr&oacute;żującego plac&oacute;wek lub lokalizacji zapotrzebowania.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Określa, czy podr&oacute;ż rozpoczyna się w plac&oacute;wkach i przebiega w kierunku do lokalizacji zapotrzebowania, czy rozpoczyna się w lokalizacjach zapotrzebowania i przebiega w kierunku do plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Określa, czy podr&oacute;ż rozpoczyna się w plac&oacute;wkach i przebiega w kierunku do lokalizacji zapotrzebowania, czy rozpoczyna się w lokalizacjach zapotrzebowania i przebiega w kierunku do plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Określa, czy podr&oacute;ż rozpoczyna się w plac&oacute;wkach i przebiega w kierunku do lokalizacji zapotrzebowania, czy rozpoczyna się w lokalizacjach zapotrzebowania i przebiega w kierunku do plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Określa, czy podr&oacute;ż rozpoczyna się w plac&oacute;wkach i przebiega w kierunku do lokalizacji zapotrzebowania, czy rozpoczyna się w lokalizacjach zapotrzebowania i przebiega w kierunku do plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Określa, czy podr&oacute;ż rozpoczyna się w plac&oacute;wkach i przebiega w kierunku do lokalizacji zapotrzebowania, czy rozpoczyna się w lokalizacjach zapotrzebowania i przebiega w kierunku do plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w punktowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Na tej ulicy ruch drogowy jest dozwolony, ale jest blokowany przez barierę.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w liniowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery liniowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie bariery przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Jeden lub większa liczba obiekt&oacute;w poligonowych, kt&oacute;re pełnią funkcję ograniczeń tymczasowych (barier) utrudniających podr&oacute;żowanie po ulicach, na kt&oacute;rych się znajdują. Bariery poligonowe uniemożliwiają podr&oacute;żowanie wszędzie tam, gdzie poligony przecinają się z ulicami.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje z zapotrzebowaniem na usługę oferowaną przez plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje z zapotrzebowaniem na usługę oferowaną przez plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje z zapotrzebowaniem na usługę oferowaną przez plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje z zapotrzebowaniem na usługę oferowaną przez plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje z zapotrzebowaniem na usługę oferowaną przez plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Wskazuje, czy zapotrzebowanie jest stosowane do każdej lokalizacji. Jeśli wielkość zapotrzebowania jest taka sama dla wszystkich lokalizacji, należy wybrać opcję  <b>Wartość</b>. Jeśli wielkość zapotrzebowania jest r&oacute;żna dla poszczeg&oacute;lnych lokalizacji, należy wybrać opcję <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Wskazuje, czy zapotrzebowanie jest stosowane do każdej lokalizacji. Jeśli wielkość zapotrzebowania jest taka sama dla wszystkich lokalizacji, należy wybrać opcję  <b>Wartość</b>. Jeśli wielkość zapotrzebowania jest r&oacute;żna dla poszczeg&oacute;lnych lokalizacji, należy wybrać opcję <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Wskazuje, czy zapotrzebowanie jest stosowane do każdej lokalizacji. Jeśli wielkość zapotrzebowania jest taka sama dla wszystkich lokalizacji, należy wybrać opcję  <b>Wartość</b>. Jeśli wielkość zapotrzebowania jest r&oacute;żna dla poszczeg&oacute;lnych lokalizacji, należy wybrać opcję <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Wskazuje, czy zapotrzebowanie jest stosowane do każdej lokalizacji. Jeśli wielkość zapotrzebowania jest taka sama dla wszystkich lokalizacji, należy wybrać opcję  <b>Wartość</b>. Jeśli wielkość zapotrzebowania jest r&oacute;żna dla poszczeg&oacute;lnych lokalizacji, należy wybrać opcję <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Wskazuje, czy zapotrzebowanie jest stosowane do każdej lokalizacji. Jeśli wielkość zapotrzebowania jest taka sama dla wszystkich lokalizacji, należy wybrać opcję  <b>Wartość</b>. Jeśli wielkość zapotrzebowania jest r&oacute;żna dla poszczeg&oacute;lnych lokalizacji, należy wybrać opcję <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Wielkość zapotrzebowania w każdej lokalizacji zapotrzebowania: Ta sama wielkość zapotrzebowania będzie stosowana do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Wielkość zapotrzebowania w każdej lokalizacji zapotrzebowania: Ta sama wielkość zapotrzebowania będzie stosowana do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Wielkość zapotrzebowania w każdej lokalizacji zapotrzebowania: Ta sama wielkość zapotrzebowania będzie stosowana do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Wielkość zapotrzebowania w każdej lokalizacji zapotrzebowania: Ta sama wielkość zapotrzebowania będzie stosowana do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Wielkość zapotrzebowania w każdej lokalizacji zapotrzebowania: Ta sama wielkość zapotrzebowania będzie stosowana do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Pole z warstwy zapotrzebowania, kt&oacute;ry określa wielkość zapotrzebowania dla każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Pole z warstwy zapotrzebowania, kt&oacute;ry określa wielkość zapotrzebowania dla każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Pole z warstwy zapotrzebowania, kt&oacute;ry określa wielkość zapotrzebowania dla każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Pole z warstwy zapotrzebowania, kt&oacute;ry określa wielkość zapotrzebowania dla każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Pole z warstwy zapotrzebowania, kt&oacute;ry określa wielkość zapotrzebowania dla każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Określa, czy maksymalna odległość lub dozwolony czas podr&oacute;ży między lokalizacją zapotrzebowania a przypisaną plac&oacute;wką jest określany przez stałą (<b>Wartość</b>) bądź wartość pola (<b>Pole</b>), czy też nie jest stosowane żadne maksimum (<b>Bez limitu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Określa, czy maksymalna odległość lub dozwolony czas podr&oacute;ży między lokalizacją zapotrzebowania a przypisaną plac&oacute;wką jest określany przez stałą (<b>Wartość</b>) bądź wartość pola (<b>Pole</b>), czy też nie jest stosowane żadne maksimum (<b>Bez limitu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Określa, czy maksymalna odległość lub dozwolony czas podr&oacute;ży między lokalizacją zapotrzebowania a przypisaną plac&oacute;wką jest określany przez stałą (<b>Wartość</b>) bądź wartość pola (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Określa, czy maksymalna odległość lub dozwolony czas podr&oacute;ży między lokalizacją zapotrzebowania a przypisaną plac&oacute;wką jest określany przez stałą (<b>Wartość</b>) bądź wartość pola (<b>Pole</b>), czy też nie jest stosowane żadne maksimum (<b>Bez limitu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Określa, czy maksymalna odległość lub dozwolony czas podr&oacute;ży między lokalizacją zapotrzebowania a przypisaną plac&oacute;wką jest określany przez stałą (<b>Wartość</b>) bądź wartość pola (<b>Pole</b>), czy też nie jest stosowane żadne maksimum (<b>Bez limitu</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane. Ten sam maksymalny zakres podr&oacute;ży będzie stosowany do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane. Ten sam maksymalny zakres podr&oacute;ży będzie stosowany do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane. Ten sam maksymalny zakres podr&oacute;ży będzie stosowany do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane. Ten sam maksymalny zakres podr&oacute;ży będzie stosowany do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane. Ten sam maksymalny zakres podr&oacute;ży będzie stosowany do każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Pole zawierające odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Pole zawierające odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Pole zawierające odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Pole zawierające odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Pole zawierające odległość lub czas podr&oacute;ży, poza kt&oacute;rymi zapotrzebowanie nie będzie przydzielane.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Jednostki używane do określenia maksymalnej odległości lub czasu podr&oacute;ży.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Jednostki używane do określenia maksymalnej odległości lub czasu podr&oacute;ży.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Jednostki używane do określenia maksymalnej odległości lub czasu podr&oacute;ży.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Jednostki używane do określenia maksymalnej odległości lub czasu podr&oacute;ży.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Jednostki używane do określenia maksymalnej odległości lub czasu podr&oacute;ży.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Minimalny procent zapotrzebowania, kt&oacute;ry ma pokrywać plac&oacute;wka.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako potencjalne plac&oacute;wki. Potencjalne plac&oacute;wki reprezentują zwykle lokalizacje, w kt&oacute;rych nowe plac&oacute;wki zostaną zbudowane lub umieszczone.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako potencjalne plac&oacute;wki. Potencjalne plac&oacute;wki reprezentują zwykle lokalizacje, w kt&oacute;rych nowe plac&oacute;wki zostaną zbudowane lub umieszczone.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako potencjalne plac&oacute;wki. Potencjalne plac&oacute;wki reprezentują zwykle lokalizacje, w kt&oacute;rych nowe plac&oacute;wki zostaną zbudowane lub umieszczone.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako potencjalne plac&oacute;wki. Potencjalne plac&oacute;wki reprezentują zwykle lokalizacje, w kt&oacute;rych nowe plac&oacute;wki zostaną zbudowane lub umieszczone.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Określa, czy pojemność każdej potencjalnej plac&oacute;wki jest określana przez stałą (<b>Wartość</b>), czy przez wartość pola (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Pojemność każdej potencjalnej plac&oacute;wki. Ta sama pojemność będzie stosowana do każdej potencjalnej plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Pole zawierające pojemność każdej potencjalnej plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Liczba plac&oacute;wek potencjalnych, kt&oacute;re mogą być wybierane ze zbioru plac&oacute;wek potencjalnych. Jeśli zostaną podane zar&oacute;wno plac&oacute;wki wymagane, jak i potencjalne, używane będą najpierw plac&oacute;wki z warstwy wymaganych plac&oacute;wek, a następnie plac&oacute;wki z warstwy potencjalnych plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Liczba plac&oacute;wek potencjalnych, kt&oacute;re mogą być wybierane ze zbioru plac&oacute;wek potencjalnych. Jeśli zostaną podane zar&oacute;wno plac&oacute;wki wymagane, jak i potencjalne, używane będą najpierw plac&oacute;wki z warstwy wymaganych plac&oacute;wek, a następnie plac&oacute;wki z warstwy potencjalnych plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Liczba plac&oacute;wek potencjalnych, kt&oacute;re mogą być wybierane ze zbioru plac&oacute;wek potencjalnych. Jeśli zostaną podane zar&oacute;wno plac&oacute;wki wymagane, jak i potencjalne, używane będą najpierw plac&oacute;wki z warstwy wymaganych plac&oacute;wek, a następnie plac&oacute;wki z warstwy potencjalnych plac&oacute;wek.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Określa, czy jako dane wejściowe używane są tylko potencjalne plac&oacute;wki (opcja niewłączona), czy niekt&oacute;re plac&oacute;wki są wymagane (opcja włączona).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Określa, czy jako dane wejściowe używane są tylko potencjalne plac&oacute;wki (opcja niewłączona), czy niekt&oacute;re plac&oacute;wki są wymagane (opcja włączona).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Określa, czy jako dane wejściowe używane są tylko potencjalne plac&oacute;wki (opcja niewłączona), czy niekt&oacute;re plac&oacute;wki są wymagane (opcja włączona).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Określa, czy jako dane wejściowe używane są tylko potencjalne plac&oacute;wki (opcja niewłączona), czy niekt&oacute;re plac&oacute;wki są wymagane (opcja włączona).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako plac&oacute;wki. Plac&oacute;wki te reprezentują zwykle lokalizacje istniejące.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako plac&oacute;wki. Plac&oacute;wki te reprezentują zwykle lokalizacje istniejące.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako plac&oacute;wki. Plac&oacute;wki te reprezentują zwykle lokalizacje istniejące.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako plac&oacute;wki. Plac&oacute;wki te reprezentują zwykle lokalizacje istniejące.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Obiekty punktowe reprezentujące lokalizacje, kt&oacute;re działają jako plac&oacute;wki. Plac&oacute;wki te reprezentują zwykle lokalizacje istniejące.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Określa, czy pojemność każdej plac&oacute;wki jest określana przez stałą (<b>Wartość</b>), czy przez wartość pola (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Określa, czy pojemność każdej plac&oacute;wki jest określana przez stałą (<b>Wartość</b>), czy przez wartość pola (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Pojemność każdej wymaganej plac&oacute;wki. Ta sama pojemność będzie stosowana do każdej wymaganej plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Pojemność każdej wymaganej plac&oacute;wki. Ta sama pojemność będzie stosowana do każdej wymaganej plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Pole zawierające pojemność każdej plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Pole zawierające pojemność każdej plac&oacute;wki.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

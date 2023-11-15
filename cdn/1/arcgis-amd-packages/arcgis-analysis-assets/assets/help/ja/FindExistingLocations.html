@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>属性と位置による検索ツールは、指定された空間条件または属性条件を満たすフィーチャまたはフィーチャの一部の新しいレイヤーを作成します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>属性検索と空間検索の組み合わせに基づいてフィーチャを検索するポイント、ライン、ポリゴン レイヤー。
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>フィーチャの検索に使用する空間条件と属性条件。  <b>[新しいクエリの構築]</b> ボタンをクリックし、1 つ以上の空間条件または属性条件を定義します。 すべての条件を満たすフィーチャ、またはフィーチャの一部が結果レイヤーに出力されます。
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> フィーチャの検索に使用する空間条件と属性条件。 <b>[新しいクエリの構築]</b> ボタンをクリックし、1 つ以上の空間条件または属性条件を定義します。 すべての条件を満たすフィーチャ、またはフィーチャの一部が結果レイヤーに出力されます。
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>フィーチャの一部のみが条件を満たす場合は、結果にフィーチャ全体を含めるか、すべての条件を満たすフィーチャの一部のみを含めるかを指定します。 オンの場合、すべての条件を満たすフィーチャの一部のみが返されます。 オフの場合、フィーチャにすべての条件を満たす部分が一部でもあれば、フィーチャ全体が返されます。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成されマップに追加されるレイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&Ouml;rnek aracı, tanımlanan konumlarda bir raster veya raster k&uuml;mesinden alınan piksel değerlerini g&ouml;steren bir tablo veya nokta detayı sınıfı oluşturur.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Girdi konum verilerine g&ouml;re değerleri &ouml;rneklenecek olan değerleri i&ccedil;eren g&ouml;r&uuml;nt&uuml; katmanları.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Her &ouml;rnek i&ccedil;in konumları i&ccedil;eren katman.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>&Ouml;rnekleme işlemi sırasında kullanılacak yeniden &ouml;rnekleme algoritması.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Her konum veya girdi detayı i&ccedil;in farklı bir değer i&ccedil;eren katmandaki bir alan.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Girdi g&ouml;r&uuml;nt&uuml; katmanlarının &ccedil;ok boyutlu veri i&ccedil;erip i&ccedil;ermediğini g&ouml;sterir.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Saat, derinlik veya konum detaylarıyla ilişkili başka alım verilerini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>&Ccedil;ok boyutlu girdi katmanının boyutu.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>&Ccedil;ok boyutlu girdi katmanı i&ccedil;in saat aralığını başlatmak i&ccedil;in kullanılacak alan.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>&Ccedil;ok boyutlu girdi katmanı i&ccedil;in saat aralığını sonlandırmak i&ccedil;in kullanılacak alan.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p> <b>Boyut</b> parametresine eklenecek negatif olmayan bir sayı veya bir boyut değer aralığının başlangıcını tanımlayacak bir değer.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p> <b>Boyut</b> parametresine eklenecek negatif olmayan bir sayı veya bir boyut değer aralığının sonlanmasını tanımlayacak bir değer.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>&Ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanları işlenirken oluşturulacak istatistikler.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Y&uuml;zde istatistik t&uuml;r&uuml; i&ccedil;in kullanılacak y&uuml;zde değeri.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Girdi konumları i&ccedil;in uygulanacak ara bellek mesafesi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>&Ccedil;ıktı t&uuml;r&uuml;n&uuml;n bir detay mı, yoksa tablo mu olacağını belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>&Ccedil;ıktının bir satır şekilli mi yoksa s&uuml;tun şekilli mi olacağını belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

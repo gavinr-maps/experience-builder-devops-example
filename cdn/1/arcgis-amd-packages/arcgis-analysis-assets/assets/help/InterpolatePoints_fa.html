@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Interpolate Points</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>Predicts values at new locations based on measurements from a collection of points. The tool takes point data with values at each point and returns polygons classified by predicted values.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>TEST.
+The point layer to use as the basis of interpolation.  
+
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>TEST. 
+Choose the field containing the values you wish to interpolate.  
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>TEST. Choose your preference for speed versus accuracy. More accurate predictions take longer to calculate.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p> TEST. If checked, a layer of standard errors for the interpolation predictions will be created.  The name of the output layer 
+will be the result layer name with 'Errors' appended.
+            </p>
+            <p>Standard errors are useful because they provide information about the reliability of the predicted values.  A simple rule of thumb is that the true value will fall within two standard errors of the predicted value 95 percent of the time.  For example, suppose a new location gets a predicted value of 50 with a standard error of 5.  This means that this tool's best guess is that the true value at that location is 50, but it reasonably could be as low as 40 or as high as 60.  To calculate this range of reasonable values, multiply the standard error by 2, add this value to the predicted value to get the upper end of the range, and subtract it from the predicted value to get the lower end of the range.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>TEST.
+Choose how predicted values will be classified into areas.
+                <ul>
+                    <li>Geometric interval&mdash;Areas are based on class intervals that have a geometric series. This method ensures that each class range has approximately the same number of values within each class and that the change between intervals is consistent.
+                    </li>
+                    <li>Equal interval&mdash;Areas are created such that the range of predicted values  is equal for each area.
+                    </li>
+                    <li>Equal area&mdash;Areas are created such that the number of data values in each area is equal.  For example, if the data has more large values than small values, more areas will be created for large values.
+                    </li>
+                    <li>Manual&mdash;This option allows you to define your own range of values for areas.  These values will be entered in the  <b>Class break values</b> parameter below.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>TEST.
+Specifies the number of classes (range of predicted values) in the result layer.  Each class defines the boundary of areas.  The values of these classes will be determined by the 
+ <b>Classify by</b> parameter above.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>TEST. Enter the desired class break values separated by spaces.  For example, if you want class breaks at values of 1.5, 3, and 7, enter  <code>1.5 3 7</code>.  These values will define the upper limit of each class, so the number of classes will equal the number of entered values.  Areas will not be created for any locations with predicted values above the largest entered break value.  You must enter at least two values and no more than 32.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>TEST. Provide a  layer specifying the area where you want the result to be drawn. 
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>TEST. Provide a  layer specifying point locations to calculate prediction values. This allows you to make predictions at specific locations of interest.
+For example, if the input layer represents measurements of pollution levels, you can use this parameter to predict the pollution levels of locations with large at-risk populations, such as schools or hospitals.  You can then use this information to give recommendations to health officials in those locations.
+            </p>
+            <p>If supplied, this tool will output a point layer of predictions at the specified locations.  The name of the output layer 
+will be the result layer name with 'Points' appended.  
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>TEST. This is the name of the layer that will be created.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

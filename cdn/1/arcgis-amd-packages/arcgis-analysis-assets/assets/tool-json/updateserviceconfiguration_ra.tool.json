@@ -1,0 +1,50 @@
+{
+  "name": "UpdateServiceConfiguration",
+  "displayName": "UpdateServiceConfiguration",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/UpdateServiceConfiguration.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "imageLayer",
+      "dataType": "GPString",
+      "displayName": "imageLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "newServiceConfig",
+      "dataType": "GPString",
+      "displayName": "newServiceConfig",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "rasterFunctionTemplates",
+      "dataType": "GPString",
+      "displayName": "rasterFunctionTemplates",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outImageLayer",
+      "dataType": "GPString",
+      "displayName": "outImageLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

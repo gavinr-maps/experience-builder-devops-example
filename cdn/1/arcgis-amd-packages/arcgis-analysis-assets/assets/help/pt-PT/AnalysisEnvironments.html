@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Defini&ccedil;&otilde;es de ambiente para an&aacute;lise no  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Especifica o sistema de coordenadas para an&aacute;lise e a camada de resultados.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Especifica a &aacute;rea a ser utilizada para an&aacute;lise.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Ajusta a extens&atilde;o da sa&iacute;da para que corresponda ao alinhamento da c&eacute;lula da camada raster de ajuste especificada.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Especifica o tamanho da c&eacute;lula ou resolu&ccedil;&atilde;o que ser&aacute; utilizado para an&aacute;lise e criar a camada de raster de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Especifica uma camada de m&aacute;scara na qual apenas as c&eacute;lulas que se enquadrarem na &aacute;rea de m&aacute;scara ser&atilde;o utilizadas para an&aacute;lise.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Especifica como os valores de p&iacute;xeis ser&atilde;o interpolados quando os rasters de entrada e sa&iacute;da n&atilde;o estiverem alinhados.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Especifica o tipo de processador a ser utilizado. As op&ccedil;&otilde;es s&atilde;o  <b>CPU</b>, <b>GPU</b> e <b>Autom&aacute;tico</b>. Se <b>Autom&aacute;tico</b> for especificado, a ferramenta ir&aacute; definir o tipo de processador.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Especifica o n&uacute;mero de inst&acirc;ncias do servi&ccedil;o de processamento raster utilizadas durante a execu&ccedil;&atilde;o da ferramenta. Os valores suportados incluem cadeias de caracteres vazias (a ferramenta ir&aacute; determinar o n&uacute;mero de inst&acirc;ncias do servi&ccedil;o de processamento raster a utilizar), n&uacute;meros inteiros (0 ou n&uacute;meros inteiros positivos) e percentagens. As percentagens t&ecirc;m de incluir um sinal de percentagem (%) a seguir ao valor percentual.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>Determina se ser&aacute; apresentada uma mensagem de aviso se o n&uacute;mero estimado de cr&eacute;ditos ultrapassar o limite especificado (ativado) ou se a an&aacute;lise ser&aacute; executada sem apresentar uma mensagem, independentemente do consumo estimado de cr&eacute;ditos (n&atilde;o ativado). A an&aacute;lise ir&aacute; continuar a respeitar as defini&ccedil;&otilde;es de or&ccedil;amenta&ccedil;&atilde;o de cr&eacute;dito para a organiza&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Especifica o limiar a partir do qual ser&aacute; apresentada uma mensagem de aviso com base no consumo de cr&eacute;ditos estimado a partir da execu&ccedil;&atilde;o da an&aacute;lise. A an&aacute;lise pode ainda ser efetuada se a estimativa ultrapassar o limiar.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p> Map Viewer 中的分析环境设置。 </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>指定分析和结果图层的坐标系。
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>指定要用于分析的区域。
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>调整输出的范围，使其与指定的捕捉栅格图层的像元对齐方式相匹配。
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>指定将用于分析和创建输出栅格图层的像元大小或分辨率。
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>指定掩膜图层，其中仅落入掩膜区域内的像元将用于分析。
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>指定当输入和输出栅格不对齐时如何对像素值进行插值。
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>指定要使用的处理器类型。 选项包括  <b>CPU</b>、 <b>GPU</b> 和 <b>自动</b>。 如果指定了 <b>自动</b>，该工具将定义处理器类型。
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>指定在工具运行期间使用的栅格处理服务实例数。 支持的值包括空白字符串（该工具将确定要使用的栅格处理服务实例数）、整数（0 或正整数）和百分比。 百分比必须在百分比值后面加上百分号。
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>确定如果估计的配额数超过指定阈值（启用）是否显示警告消息，或者无论估计的配额消耗如何都将运行分析而不显示消息（未启用）。 该分析仍将遵循组织的配额预算设置。
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>指定根据运行分析估计的配额消耗显示警告消息的阈值。 如果估计值超过阈值，分析仍然可以运行。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

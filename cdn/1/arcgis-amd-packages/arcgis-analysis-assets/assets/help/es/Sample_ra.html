@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Muestra crea una tabla o una clase de entidad de punto para mostrar los valores de p&iacute;xel de un r&aacute;ster o conjunto de r&aacute;steres en ubicaciones definidas.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Las capas de im&aacute;genes con valores que se muestrear&aacute;n partiendo de los datos de ubicaciones de entrada.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>La capa que contiene las ubicaciones para cada muestra.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>El algoritmo de remuestreo que se utilizar&aacute; durante el proceso de muestreo.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Un campo de la capa que contiene un valor diferente para cada ubicaci&oacute;n o entidad de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Indica si las capas de im&aacute;genes de entrada incluyen datos multidimensionales.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Especifica la hora, profundidad y otros datos de adquisici&oacute;n asociados con las entidades de ubicaci&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>La dimensi&oacute;n de la capa de entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>El campo que se utilizar&aacute; para iniciar el rango de tiempo de la capa de entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>El campo que se utilizar&aacute; para finalizar el rango de tiempo de la capa de entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Un n&uacute;mero no negativo que se agregar&aacute; al par&aacute;metro  <b>Dimensi&oacute;n</b> o un valor que definir&aacute; el inicio de un rango de valores de dimensi&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Un n&uacute;mero no negativo que se agregar&aacute; al par&aacute;metro  <b>Dimensi&oacute;n</b> o un valor que definir&aacute; el fin de un rango de valores de dimensi&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Las estad&iacute;sticas que se generar&aacute;n al procesar capas de im&aacute;genes multidimensionales.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>El valor porcentual que se utilizar&aacute; para el tipo de estad&iacute;stica de percentil.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>La distancia de zona de influencia que se aplicar&aacute; a las ubicaciones de entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Especifica si el tipo de salida ser&aacute; una tabla o una entidad.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Especifica si la salida ser&aacute; por filas o por columnas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

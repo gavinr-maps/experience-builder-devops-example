@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul &Icirc;mbogățire strat tematic &icirc;mbunătățește obiectele spațiale de intrare cu date demografice și de peisaj.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Obiectele spațiale punctuale, liniare sau poligonale care vor fi &icirc;mbogățite cu date suplimentare.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Variabilele care vor fi adăugate ca atribute la obiectele spațiale de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Specifică modul &icirc;n care va fi definită zona din jurul obiectelor spațiale de intrare punctuale sau liniare. &Icirc;ntreaga zonă din jurul fiecărui obiect spațial va fi &icirc;mbogățită.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>O valoare numerică ce specifică distanța sau ora din jurul fiecărui obiect spațial de intrare a cărei zonă se va extinde.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Unitățile care vor fi utilizate pentru a specifica distanța sau timpul pe care zona &icirc;mbogățită le va extinde &icirc;n jurul fiecărui obiect spațial de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Specifică dacă stratul tematic de ieșire va conține obiecte spațiale poligonale definite de setările  <b>Zone de &icirc;mbogățire</b> (selectată) sau obiectele spațiale de intrare (neselectată).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

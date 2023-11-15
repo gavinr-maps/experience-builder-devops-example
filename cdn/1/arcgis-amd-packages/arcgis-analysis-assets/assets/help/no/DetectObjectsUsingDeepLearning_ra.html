@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet P&aring;vis objekter ved hjelp av dyp l&aelig;ring bruker en dypl&aelig;ringsmodell p&aring; et inndatabildelag for &aring; produsere et geoobjektlag som inneholder p&aring;viste objekter.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Bilde- eller geoobjektlaget som brukes til &aring; p&aring;vise objekter.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Angir hvordan rasterelementer i et bildelag behandles etter mosaikkering &ndash; samlet eller hver for seg.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Dypl&aelig;ringspakken som inneholder modellen som brukes til &aring; p&aring;vise objektene.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Modellargumentene som finnes i dypl&aelig;ringsmodellen og standardverdiene for disse.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Angir om ikke-maksimal undertrykking utf&oslash;res for &aring; fjerne dupliserte objekter.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>Navnet p&aring; feltet som legges til i utdatageoobjektlaget for &aring; angi konfidensverdien som rapporteres.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>Navnet p&aring; feltet som legges til i utdatageoobjektlaget for &aring; angi klassifiseringsmerket for objektet.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>St&oslash;rste tillatte overlapp for hvert funnet geoobjekt som overlapper et annet geoobjekt. Standardverdien er 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

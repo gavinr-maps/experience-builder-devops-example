@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;选择最佳设施点&rdquo;工具用于查找最能满足请求的设施点集。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>向设施点分配请求位置时必须满足的目标。
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> 将根据设施点的容量和周边区域的请求数量将请求分配给设施点。 </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> 选择设施点，以最小化从所有请求位置到其已分配设施点的总体行驶时间或距离。 </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> 选择设施点，以便分配最大数量的请求，并将来自每个请求位置的所有请求分配给距离其最近的单个设施点。 </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> 选择设施点，以便在不超过任何设施点容量的情况下分配最大请求数量。 </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> 选择达到指定请求百分比所需的最少设施点数量。 </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>将用于测量设施点和请求位置之间的时间或距离的出行方法。
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>出行者离开设施点或请求位置的日期和时间。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>指定行驶是从设施点开始并向外移动到请求位置，还是从请求位置开始并向内移动到设施点。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>指定行驶是从设施点开始并向外移动到请求位置，还是从请求位置开始并向内移动到设施点。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>指定行驶是从设施点开始并向外移动到请求位置，还是从请求位置开始并向内移动到设施点。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>指定行驶是从设施点开始并向外移动到请求位置，还是从请求位置开始并向内移动到设施点。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>指定行驶是从设施点开始并向外移动到请求位置，还是从请求位置开始并向内移动到设施点。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>一个或多个点要素，作为在基础街道上行驶时的临时限制（障碍）。 允许在街道上行驶，但不可以通过障碍。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>一个或多个点要素，作为在基础街道上行驶时的临时限制（障碍）。 允许在街道上行驶，但不可以通过障碍。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>一个或多个点要素，作为在基础街道上行驶时的临时限制（障碍）。 允许在街道上行驶，但不可以通过障碍。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>一个或多个点要素，作为在基础街道上行驶时的临时限制（障碍）。 允许在街道上行驶，但不可以通过障碍。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>一个或多个点要素，作为在基础街道上行驶时的临时限制（障碍）。 允许在街道上行驶，但不可以通过障碍。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>一个或多个线要素，作为在基础街道上行驶时的临时限制（障碍）。 线障碍禁止在障碍与街道相交的任何位置行驶。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>一个或多个线要素，作为在基础街道上行驶时的临时限制（障碍）。 线障碍禁止在障碍与街道相交的任何位置行驶。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>一个或多个线要素，作为在基础街道上行驶时的临时限制（障碍）。 线障碍禁止在障碍与街道相交的任何位置行驶。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>一个或多个线要素，作为在基础街道上行驶时的临时限制（障碍）。 线障碍禁止在障碍与街道相交的任何位置行驶。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>一个或多个线要素，作为在基础街道上行驶时的临时限制（障碍）。 线障碍禁止在障碍与街道相交的任何位置行驶。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>一个或多个面要素，作为在基础街道上行驶时的临时限制（障碍）。 面障碍禁止在面与街道相交的位置通行。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>一个或多个面要素，作为在基础街道上行驶时的临时限制（障碍）。 面障碍禁止在面与街道相交的位置通行。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>一个或多个面要素，作为在基础街道上行驶时的临时限制（障碍）。 面障碍禁止在面与街道相交的位置通行。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>一个或多个面要素，作为在基础街道上行驶时的临时限制（障碍）。 面障碍禁止在面与街道相交的位置通行。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>一个或多个面要素，作为在基础街道上行驶时的临时限制（障碍）。 面障碍禁止在面与街道相交的位置通行。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>表示相应位置的点要素，这些位置对设施点可提供的服务具有请求。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>表示相应位置的点要素，这些位置对设施点可提供的服务具有请求。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>表示相应位置的点要素，这些位置对设施点可提供的服务具有请求。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>表示相应位置的点要素，这些位置对设施点可提供的服务具有请求。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>表示相应位置的点要素，这些位置对设施点可提供的服务具有请求。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>指定将请求应用到每个位置的方式。 如果所有位置的请求数量均相同，请选择 <b>值</b>。 如果请求数量因位置而异，请选择 <b>字段</b>。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>指定将请求应用到每个位置的方式。 如果所有位置的请求数量均相同，请选择 <b>值</b>。 如果请求数量因位置而异，请选择 <b>字段</b>。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>指定将请求应用到每个位置的方式。 如果所有位置的请求数量均相同，请选择 <b>值</b>。 如果请求数量因位置而异，请选择 <b>字段</b>。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>指定将请求应用到每个位置的方式。 如果所有位置的请求数量均相同，请选择 <b>值</b>。 如果请求数量因位置而异，请选择 <b>字段</b>。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>指定将请求应用到每个位置的方式。 如果所有位置的请求数量均相同，请选择 <b>值</b>。 如果请求数量因位置而异，请选择 <b>字段</b>。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>每个请求位置的请求数量。 会将相同数量的请求应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>每个请求位置的请求数量。 会将相同数量的请求应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>每个请求位置的请求数量。 会将相同数量的请求应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>每个请求位置的请求数量。 会将相同数量的请求应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>每个请求位置的请求数量。 会将相同数量的请求应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>请求图层中的字段，用于指定每个位置的请求数量。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>请求图层中的字段，用于指定每个位置的请求数量。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>请求图层中的字段，用于指定每个位置的请求数量。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>请求图层中的字段，用于指定每个位置的请求数量。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>请求图层中的字段，用于指定每个位置的请求数量。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>指定请求位置与指定设施点之间允许的最大行驶距离或时间由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定，或者不应用任何最大值（ <b>无限制</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>指定请求位置与指定设施点之间允许的最大行驶距离或时间由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定，或者不应用任何最大值（ <b>无限制</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>指定请求位置和指定设施点之间允许的最大行驶距离或时间由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>指定请求位置与指定设施点之间允许的最大行驶距离或时间由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定，或者不应用任何最大值（ <b>无限制</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>指定请求位置与指定设施点之间允许的最大行驶距离或时间由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定，或者不应用任何最大值（ <b>无限制</b>）。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>行驶距离或时间，超过该距离或时间，将不会分配请求。 会将相同的最大行驶范围应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>行驶距离或时间，超过该距离或时间，将不会分配请求。 会将相同的最大行驶范围应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>行驶距离或时间，超过该距离或时间，将不会分配请求。 会将相同的最大行驶范围应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>行驶距离或时间，超过该距离或时间，将不会分配请求。 会将相同的最大行驶范围应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>行驶距离或时间，超过该距离或时间，将不会分配请求。 会将相同的最大行驶范围应用于每个位置。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>包含相应行程距离或时间的字段，超过该距离或时间，将不会分配请求。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>包含相应行程距离或时间的字段，超过该距离或时间，将不会分配请求。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>包含相应行程距离或时间的字段，超过该距离或时间，将不会分配请求。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>包含相应行程距离或时间的字段，超过该距离或时间，将不会分配请求。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>包含相应行程距离或时间的字段，超过该距离或时间，将不会分配请求。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>用于指定最大行驶距离或时间的单位。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>用于指定最大行驶距离或时间的单位。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>用于指定最大行驶距离或时间的单位。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>用于指定最大行驶距离或时间的单位。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>用于指定最大行驶距离或时间的单位。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>设施点必须捕获的最小请求百分比。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作候选设施点的位置。 候选设施点通常表示将构建或放置新设施点的位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作候选设施点的位置。 候选设施点通常表示将构建或放置新设施点的位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作候选设施点的位置。 候选设施点通常表示将构建或放置新设施点的位置。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作候选设施点的位置。 候选设施点通常表示将构建或放置新设施点的位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>指定每个候选设施点的容量由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>每个候选设施点的容量。 将向每个候选设施点应用相同的容量。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>包含每个候选设施点的容量的字段。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>从候选集中选择的候选设施点的数量。 如果同时指定必需设施点和候选设施点，则在使用候选设施点图层中的任何设施点之前，将先使用必需设施点图层中的设施点。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>从候选集中选择的候选设施点的数量。 如果同时指定必需设施点和候选设施点，则在使用候选设施点图层中的任何设施点之前，将先使用必需设施点图层中的设施点。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>从候选集中选择的候选设施点的数量。 如果同时指定必需设施点和候选设施点，则在使用候选设施点图层中的任何设施点之前，将先使用必需设施点图层中的设施点。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>指定是仅将候选设施点用作输入（未启用），还是某些设施点为必需（已启用）。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>指定是仅将候选设施点用作输入（未启用），还是某些设施点为必需（已启用）。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>指定是仅将候选设施点用作输入（未启用），还是某些设施点为必需（已启用）。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>指定是仅将候选设施点用作输入（未启用），还是某些设施点为必需（已启用）。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作设施点的位置。 这些设施点通常表示现有位置。
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作设施点的位置。 这些设施点通常表示现有位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作设施点的位置。 这些设施点通常表示现有位置。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作设施点的位置。 这些设施点通常表示现有位置。
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>点要素，表示用作设施点的位置。 这些设施点通常表示现有位置。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>指定每个设施点的容量由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>指定每个设施点的容量由常数（ <b>值</b>）确定，还是由字段值（ <b>字段</b>）确定。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>每个必需设施点的容量。 会将相同的容量应用于每个必需设施点。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>每个必需设施点的容量。 会将相同的容量应用于每个必需设施点。
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>包含每个设施点容量的字段。
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>包含每个设施点容量的字段。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

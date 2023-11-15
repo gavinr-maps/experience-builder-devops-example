@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Vy&ouml;hykkeiset tilastotiedot&nbsp;-ty&ouml;kalu laskee toisen aineistoryhm&auml;n vy&ouml;hykkeiden sis&auml;ll&auml; olevan rasterin arvojen yhteenvedon.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>L&auml;ht&ouml;aineisto, joka m&auml;&auml;ritt&auml;&auml; yhteenvedett&auml;vien vy&ouml;hykkeiden tai alueiden rajat.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; kunkin vy&ouml;hykkeen m&auml;&auml;ritt&auml;v&auml;t arvot.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>Rasterikarttataso, joka sis&auml;lt&auml;&auml; tilastojen laskemiseen k&auml;ytett&auml;v&auml;t soluarvot.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; laskettavan tilastotyypin.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; laskettavan prosenttiarvon.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; k&auml;ytett&auml;v&auml;n menetelm&auml;n, kun l&auml;ht&ouml;rasterista laskettavien arvojen m&auml;&auml;r&auml; on parillinen.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, miten  <b>l&auml;ht&ouml;arvon rasterin</b> soluarvot k&auml;sitell&auml;&auml;n ympyr&auml;nmuotoista dataa varten.
+            </p>
+            <p>Jos kohtaa ei valita, lasketaan tavalliset aritmeettiset (lineaariset) tilastot. Jos kohta valitaan, lasketaan ympyr&auml;nmuotoiset tilastot.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; arvon, jota k&auml;ytet&auml;&auml;n, kun lineaarinen arvo py&ouml;ristet&auml;&auml;n tietyn ympyr&auml;nmuotoisen tilaston alueelle.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, j&auml;tet&auml;&auml;nk&ouml;  <b>l&auml;ht&ouml;arvon rasterin</b> NoData-solut huomioimatta niiden alueiden tuloksissa, joihin ne osuvat.
+            </p>
+            <p>Jos kohta valitaan, arvorasterin NoData-solut ohitetaan tilastollisessa laskennassa. Jos kohtaa ei valita, NoData-soluja ei ohiteta, ja koko alue saa tulosaineistorasterille NoData-arvon.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, miten l&auml;ht&ouml;aineiston rasterit k&auml;sitell&auml;&auml;n, jos ne ovat moniulotteisia.
+            </p>
+            <p>Jos kohtaa ei valita, tilastotiedot lasketaan l&auml;ht&ouml;aineiston moniulotteisen aineistoryhm&auml;n kaikille ulottuvuuksille. Jos kohta valitaan, tilastotiedot lasketaan l&auml;ht&ouml;aineiston moniulotteisen aineistoryhm&auml;n nykyisest&auml; viipaleesta.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n vy&ouml;hyketilastotietojen rasterikarttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineisto voi olla tiilitetty kuva-aineistokarttataso tai dynaaminen kuvakarttataso.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

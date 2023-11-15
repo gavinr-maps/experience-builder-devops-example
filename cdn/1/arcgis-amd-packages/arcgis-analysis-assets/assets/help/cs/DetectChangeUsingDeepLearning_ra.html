@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Detekovat změnu pomoc&iacute; deep learningu (Detect Change Using Deep Learning) použ&iacute;v&aacute; model deep learningu k&nbsp;detekci změn mezi dvěma rastrov&yacute;mi vrstvami.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="fromRaster">
+        <div>
+            <p>Vstupn&iacute; vrstva obrazov&yacute;ch dat před změnou, kter&aacute; bude použita jako z&aacute;klad pro porovn&aacute;n&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="toRaster">
+        <div>
+            <p>Vstupn&iacute; vrstva obrazov&yacute;ch dat po změně, kter&aacute; bude použita k porovn&aacute;n&iacute; s původn&iacute;m stavem.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRasterName">
+        <div>
+            <p>V&yacute;stupn&iacute; klasifikovan&aacute; vrstva obrazov&yacute;ch dat, kter&aacute; ukazuje změnu.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Argumenty modelu, kter&eacute; jsou př&iacute;tomny v modelu hlubok&eacute;ho učen&iacute;, spolu s jejich v&yacute;choz&iacute;mi hodnotami.
+            </p>
+        </div>
+    </div>
+    <div id="modelDefinition">
+        <div>
+            <p>Bal&iacute;ček deep learningu, kter&yacute; obsahuje model, jenž bude použit k&nbsp;detekci změn mezi vrstvami sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, kter&yacute; bude vytvořen. V&yacute;stupem může b&yacute;t vrstva dlaždicov&yacute;ch sn&iacute;mků nebo vrstva dynamick&yacute;ch sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

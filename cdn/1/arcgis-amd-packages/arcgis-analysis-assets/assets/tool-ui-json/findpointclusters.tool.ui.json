@@ -1,0 +1,156 @@
+{
+  "toolName": "FindPointClusters",
+  "version": "0.1.0",
+  "validationRules": [
+    {
+      "expression": "(($[Data].analysisLayer NOT null) AND ($[Component].analysisLayer.selectedLayerFeatureCount < $[Data].minFeaturesCluster))",
+      "errorKey": "findPointClusters_1"
+    }
+  ],
+  "rules": [
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].searchDistance",
+      "valueB": null,
+      "destination": "searchDistanceUnit",
+      "effectParams": {
+        "required": false,
+        "value": null
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].searchDistance NOT null",
+      "destination": "searchDistanceUnit",
+      "effectParams": {
+        "required": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'english'",
+      "destination": ["searchDistanceUnit"],
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Kilometers", "Meters"]
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'metric'",
+      "destination": ["searchDistanceUnit"],
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "Feet"]
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].method = 'OPTICS'",
+      "destination": "sensitivity",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].method = 'HDBSCAN'",
+      "destination": ["searchDistance", "searchDistanceUnit"],
+      "effectParams": {
+        "visible": false,
+        "required": false
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputFeatures",
+      "componentName": "analysis-block",
+      "summaryText": "$inputFeaturesSectionText",
+      "UIparameters": [
+        {
+          "name": "analysisLayer",
+          "label": "$inputLayerGroupLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_point"],
+          "required": true
+        }
+      ]
+    },
+    {
+      "label": "$FPCAnalysisSettingGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$FPCAnalysisSettingText",
+      "UIparameters": [
+        {
+          "name": "method",
+          "label": "$clusteringMethodLabel",
+          "componentName": "analysis-string-input",
+          "choiceList": ["DBSCAN", "HDBSCAN", "OPTICS"],
+          "choiceListLabels": {
+            "DBSCAN": "$dbscanLabel",
+            "HDBSCAN": "$hdbscanLabel",
+            "OPTICS": "$opticsLabel"
+          },
+          "defaultValue": "DBSCAN",
+          "required": true
+        },
+        {
+          "name": "minFeaturesCluster",
+          "label": "$minFeaturesClusterLabel",
+          "componentName": "analysis-number-input",
+          "min": 2,
+          "numberType": "integer",
+          "required": true
+        },
+        {
+          "name": "searchDistance",
+          "label": "$searchDistanceLabel",
+          "componentName": "analysis-number-input",
+          "min": 0,
+          "excludeMinValue": true,
+          "numberType": "float"
+        },
+        {
+          "name": "searchDistanceUnit",
+          "label": "$searchDistanceUnitLabel",
+          "componentName": "analysis-string-input",
+          "choiceListLabels": {
+            "Miles": "$miles",
+            "Feet": "$feet",
+            "Kilometers": "$kilometers",
+            "Meters": "$meters"
+          },
+          "required": true
+        },
+        {
+          "name": "sensitivity",
+          "label": "$sensitivityLabel",
+          "componentName": "analysis-number-input",
+          "min": 0,
+          "max": 100,
+          "numberType": "integer",
+          "required": false,
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'הקצאת מרחק' מחשב הקצאה מכל תא למוצא הקלט, אל בסיס מרחק בקו ישר, מרחק עלות ומרחק פני שטח אמיתי וכן גורמי עלות אנכיים ואופקיים.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>רסטר מוצא הקלט או שכבת ישויות הקלט שמזהה את נקודות המוצא שאליהן הקצאה תחושב.
+            </p>
+            <p>אם הקלט הוא רסטר, עליו להיות מורכב מתאים שיש להם ערכי מספר שלם חוקיים (אפס הוא ערך חוקי) עבור המקורות, ולתאים האחרים יש להקצות NoData.
+            </p>
+        </div>
+    </div>
+    <div id="sourceField">
+        <div>
+            <p>השדה אשר ישמש להקצאת ערכים למיקומי המוצא. חייב להיות מסוג מספר שלם.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>המחסומים שמגדירים מחסומים שיש לנתב סביבם.
+            </p>
+            <p>עבור שכבת רסטר, תאים שיש להם ערך (כולל אפס) ייחשבו כמחסום.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>הרסטר שמגדיר את ערכי קו הגובה בכל מיקום תא.
+            </p>
+            <p>הערכים משמשים לחישוב כיסוי מרחק פני השטח בפועל בעת מעבר בין תאים.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>הרסטר שמגדיר את העכבה או העלות לזוז בכל תא.
+            </p>
+            <p>הערך בכל מיקום תא מייצג את מרחק העלות-ליחידה עבור תזוזה בתוך התא. הערך לא יכול להיות שלילי או אפס.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>מציין האם המרחק יחושב באמצעות שיטה מישורית (כדור ארץ שטוח) או גאודזית (אליפסואיד).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>הרסטר שמגדיר את ערכי Z עבור כל מיקום תא.
+            </p>
+            <p>הערכים משמשים לחישוב השיפוע אשר משמש לזיהוי הפקטור האנכי שנוצר בעת מעבר מתא אחד לתא הבא.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>&rlm;הפקטור שמגדיר את יחסי הגומלין בין פקטור העלות האנכי וזווית המעבר היחסית האנכית.
+            </p>
+            <p>קיימות מספר אפשרויות לפקטורים עם משני ערכים אשר מזהים גרף פקטור אנכי מוגדר. הגרפים משמשים לזיהוי הפקטור האנכי אשר משמש לחישוב העלות הכוללת עבור מעבר לתא שכן.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>הרסטר שמגדיר את הכיוון האופקי בכל תא.
+            </p>
+            <p>הערכים בכל מיקום ישמשו בשילוב עם הפרמטר  <b>פקטור אופקי</b> לקביעת העלות האופקית שמצטברת בעת מעבר מתא אחד לסמוכים אליו.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>הפקטור שמגדיר את יחסי הגומלין בין פקטור העלות האופקי וזווית המעבר היחסית האופקית.
+            </p>
+            <p>קיימות מספר אפשרויות לפקטורים עם משני ערכים אשר מזהים גרף פקטור אופקי מוגדר. הגרפים משמשים לזיהוי הפקטור האופקי אשר משמש לחישוב העלות הכוללת של מעבר לתא שכן.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>העלות המצטברת ההתחלתית איתה יש להתחיל את חישוב העלות.
+            </p>
+            <p>ערך ברירת המחדל הוא 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>ההצטברות המקסימלית עבור הנוסע עבור מקור.
+            </p>
+            <p>הצטברות ברירת המחדל היא עד לקצה רסטר הפלט.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>מכפיל שיוחל על ערכי העלות.
+            </p>
+            <p>ערך ברירת המחדל הוא 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>כיוון הנוסע בעת החלת פקטור אופקי ופקטור אנכי.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAllocationRasterName">
+        <div>
+            <p>השם של שכבת רסטר ערך הקצאת מרחק שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>השם של שכבת רסטר מרחק מצטבר שתיווצר ותתווסף למפה. השכבה מכילה את המרחק המצטבר מכל תא מ-, או אל, מקור העלות הנמוכה ביותר.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>שם שכבת הרסטר של כיוון לאחור שתיווצר ותתווסף למפה. השכבה מכלה את הכיוון המחושב במעלות.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>שם שכבת הרסטר של כיוון המוצא שתיווצר ותתווסף למפה. השכבה מכילה את כיוון האזימוט של תא מקור העלות המצטברת הנמוכה ביותר במעלות.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>שם שכבת הרסטר של מיקום multiban המוצא שתיווצר ותתווסף למפה. השכבה מכילה את מיקומי המוצא שבהם הערוץ הראשון מכיל אינדקס שורות והערוץ השני מכיל אינדקס עמודות.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>סוג הקלט שייווצר. פריטי הפלט יכולים להיות Tiled imagery או Dynamic imagery.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאות יישמרו.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

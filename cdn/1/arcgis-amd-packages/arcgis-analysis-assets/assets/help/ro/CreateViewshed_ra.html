@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Rază vizuală geodezică identifică locații pe o suprafață de rastere care sunt vizibile din locațiile observatorilor de intrare.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Rasterul de elevație pe care va fi calculată raza vizuală.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Locațiile observatorului pentru care va fi calculată raza vizuală.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimizează calcularea razei vizuale pe baza vitezei sau preciziei.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Specifică distanța de vizualizare maximă pentru calcularea razei de vedere.
+            </p>
+            <p>Distanța poate fi definită de o valoare și unitățile sale sau dintr-un c&acirc;mp &icirc;n  <b>Obiectele spațiale punctuale sau liniare ale observatorului de intrare</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Specifică distanța de vizualizare minimă pentru calcularea razei de vizualizare.
+            </p>
+            <p>Distanța poate fi definită de o valoare și unitățile sale sau dintr-un c&acirc;mp &icirc;n  <b>Obiectele spațiale punctuale sau liniare ale observatorului de intrare</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Specifică tipul distanțelor de vizualizare maximă și minimă.
+            </p>
+            <p>Dacă nu este selectată, distanțele de vizualizare vor fi tratate ca distanțe euclidiene bidimensionale. Dacă este selectată, distanțele de vizualizare vor fi tratate ca distanțe tridimensionale.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Specifică elevația suprafeței locației observatorului.
+            </p>
+            <p>Elevația poate fi definită de o valoare și unitățile sale sau dintr-un c&acirc;mp &icirc;n  <b>Obiectele spațiale punctuale sau liniare ale observatorului de intrare</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Specifică &icirc;nălțimea observatorilor deasupra solului.
+            </p>
+            <p>&Icirc;nălțimea poate fi definită de o valoare și unitățile sale sau dintr-un c&acirc;mp &icirc;n  <b>Obiectele spațiale punctuale sau liniare ale observatorului de intrare</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Specifică &icirc;nălțimea țintelor pe sol.
+            </p>
+            <p>&Icirc;nălțimea poate fi definită de o valoare și unitățile sale sau dintr-un c&acirc;mp &icirc;n  <b>Obiectele spațiale punctuale sau liniare ale observatorului de intrare</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic de raster razei de vizualizare care va fi creat și adăugat pe hartă. Acest strat tematic conține zone vizibile &icirc;n care observatorii pot vedea și valorile celulelor reprezintă numărul de observatori care pot vizualiza celulele.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Numele stratului tematic de raster deasupra solului (AGL) care va fi creat și adăugat la hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipul de ieșire care va fi creată. Ieșirea poate fi un strat tematic de imagini satelitare cu structură tile sau un strat tematic de imagini satelitare dinamic.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

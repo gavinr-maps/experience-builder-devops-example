@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Attāluma pie&scaron;ķir&scaron;anas rīks aprēķina attālumu no katras &scaron;ūnas līdz ievades avotam, balstoties uz taisnas līnijas attālumu, izmaksu attālumu un reālo virsmas attālumu, kā arī vertikālajiem un horizontālajiem koeficientiem.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Ievades avota rastra vai elementu slānis, kas norāda avotus, kuriem tiks aprēķināts attālums.
+            </p>
+            <p>Ja ievade ir rastrs, tajā jābūt &scaron;ūnām ar derīgām veselu skaitļu vērtībām&nbsp;(nulle ir derīga vērtība), un atliku&scaron;ajām &scaron;ūnām jābūt pie&scaron;ķirtai vērtībai NoData.
+            </p>
+        </div>
+    </div>
+    <div id="sourceField">
+        <div>
+            <p>Lauks, kas tiks izmantots vērtību pie&scaron;ķir&scaron;anai avota novietojumiem. Tam ir jābūt veselam skaitlim.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Barjeras, kas nosaka &scaron;ķēr&scaron;ļus, kuriem mar&scaron;rutē&scaron;ana jāveic apkārt.
+            </p>
+            <p>Rastra slānim &scaron;ūnas, kurām ir vērtība (iekļaujot nulli), tiks uzskatītas par barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Rastrs, kas nosaka augstuma vērtības katrā &scaron;ūnas novietojumā.
+            </p>
+            <p>Vērtības tiek lietotas, lai aprēķinātu faktisko virsmas attālumu, kas tiek pārvarēts, pārvietojoties starp &scaron;ūnām.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Rastrs, kas nosaka pretestību jeb izmaksas, lai pārvietotos cauri katrai &scaron;ūnai.
+            </p>
+            <p>Vērtība katras &scaron;ūnas atra&scaron;anās vietā raksturo attālumu izmaksām uz vienu vienību, pārvietojoties cauri &scaron;ūnai. Vērtība nevar būt negatīva vai nulle.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Norāda, vai attālums tiks aprēķināts, izmantojot plaknes (plakana zeme) metodi vai ģeodēzisko (elipsoīds) metodi.
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Rastrs, kas definē katras &scaron;ūnas novietojuma z vērtības.
+            </p>
+            <p>&Scaron;īs vērtības tiek lietotas, lai aprēķinātu slīpumu, kas tiek izmantots, lai noteiktu vertikālo koeficientu, kas tiek piemērots, pārvietojoties no vienas &scaron;ūnas uz citu.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Koeficients, kas norāda saistību starp vertikālo izmaksu koeficientu un vertikālo relatīvo pārvieto&scaron;anās leņķi.
+            </p>
+            <p>Ir vairākas iespējas koeficientiem ar modifikatoriem, kas identificē definēto vertikālo koeficienta grafiku. Grafiki tiek lietoti, lai identificētu vertikālo koeficientu, kas tiek izmantots, lai aprēķinātu kopējās izmaksas par pārvieto&scaron;anos uz blakus eso&scaron;o &scaron;ūnu.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Rastrs, kas nosaka horizontālo virzienu katrā &scaron;ūnā.
+            </p>
+            <p>Katras atra&scaron;anās vietas vērtības tiek izmantotas kopā ar parametru  <b>Horizontālais koeficients</b>, lai noteiktu horizontālās izmaksas, kas rodas, pārvietojoties no &scaron;ūnas uz tai līdzās eso&scaron;ajām &scaron;ūnām.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Koeficients, kas norāda saistību starp horizontālo izmaksu koeficientu un horizontālo relatīvo pārvieto&scaron;anās leņķi.
+            </p>
+            <p>Ir vairākas iespējas koeficientiem ar modifikatoriem, kas identificē definēto horizontālo koeficienta grafiku. Grafiki tiek lietoti, lai identificētu horizontālo koeficientu, ko izmanto, lai aprēķinātu kopējās izmaksas par pārvieto&scaron;anos uz līdzās eso&scaron;o &scaron;ūnu.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Sākotnējās akumulatīvās izmaksas, ar kurām sākt izmaksu aprēķinā&scaron;anu.
+            </p>
+            <p>Noklusējuma vērtība ir 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Maksimālā akumulācija ceļotājam saistībā ar avotu.
+            </p>
+            <p>Noklusējuma akumulācija ir līdz izvades rastra malai.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Reizinātājs, kas tiks piemērots izmaksu vērtībām.
+            </p>
+            <p>Noklusējuma vērtība ir 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Ceļotāja virziens, piemērojot horizontālos un vertikālos koeficientus.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAllocationRasterName">
+        <div>
+            <p>Attāluma pie&scaron;ķir&scaron;anas vērtības rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Akumulatīvā attāluma rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei. Slānis satur akumulēto attālumu katrai &scaron;ūnai no viszemāko izmaksu avota vai līdz tam.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Atpakaļvirziena rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei. Slānī ir norādīts virziens grādos.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Avota virziena rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei. Slānis satur vismazāk uzkrāto izmaksu avota &scaron;ūnas azimuta virzienu grādos.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Avota novietojuma daudzjoslu rastra slāņa nosaukums, kas tiks izveidots un pievienots kartei. Slānis satur avota novietojumus, kur pirmajā joslā ir rindas indekss un otrajā joslā ir kolonnas indekss.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Izveidotās izvades veids. Izvades var būt mozaīkas attēlu slāņi vai dinamiski attēlu slāņi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāti rezultāti.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

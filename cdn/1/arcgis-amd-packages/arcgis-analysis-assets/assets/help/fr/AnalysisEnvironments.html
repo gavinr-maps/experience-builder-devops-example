@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Param&egrave;tres d'environnement de l'analyse dans  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Sp&eacute;cifie le syst&egrave;me de coordonn&eacute;es de l'analyse et la couche de r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Sp&eacute;cifie la surface &agrave; utiliser pour l&rsquo;analyse.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Ajuste l&rsquo;&eacute;tendue de la sortie afin qu&rsquo;elle corresponde &agrave; l&rsquo;alignement des cellules de la couche raster de capture sp&eacute;cifi&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Sp&eacute;cifie la taille de cellule ou la r&eacute;solution &agrave; utiliser pour l'analyse et pour cr&eacute;er la couche raster en sortie.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Sp&eacute;cifie une couche de masque dans laquelle seules les cellules qui se trouvent dans la zone du masque sont utilis&eacute;es pour l&rsquo;analyse.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Indique comment les valeurs de pixel sont interpol&eacute;es si les rasters en entr&eacute;e et en sortie ne correspondent pas.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Indique le type de processeur &agrave; utiliser. Les options sont  <b>CPU (UC)</b>, <b>GPU</b> et <b>Automatic (Automatique)</b>. Si l&rsquo;option <b>Automatic (Automatique)</b> est sp&eacute;cifi&eacute;e, l&rsquo;outil d&eacute;finit le type de processeur.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Indique le nombre d&rsquo;instances du service de traitement raster utilis&eacute;es pendant l&rsquo;ex&eacute;cution de l&rsquo;outil. Les valeurs prises en charge incluent les cha&icirc;nes vides (l&rsquo;outil d&eacute;termine le nombre d&rsquo;instances du service de traitement raster &agrave; utiliser), les nombres entiers (0 ou entiers positifs) et les pourcentages. Les pourcentages doivent inclure un signe de pourcentage (%) apr&egrave;s la valeur de pourcentage.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>D&eacute;termine si un message d&rsquo;avertissement appara&icirc;t lorsque le nombre estim&eacute; de cr&eacute;dits d&eacute;passe le seuil sp&eacute;cifi&eacute; (activ&eacute;) ou si l&rsquo;analyse s&rsquo;ex&eacute;cute sans afficher de message, quelle que soit la consommation de cr&eacute;dits estim&eacute;e (non activ&eacute;). L&rsquo;analyse respecte toujours les param&egrave;tres de budg&eacute;tisation des cr&eacute;dits de l&rsquo;organisation.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Sp&eacute;cifie le seuil auquel un message d&rsquo;avertissement appara&icirc;t en fonction de la consommation de cr&eacute;dits estim&eacute;e lors de l&rsquo;ex&eacute;cution de l&rsquo;analyse. L&rsquo;analyse peut toujours s&rsquo;ex&eacute;cuter si l&rsquo;estimation d&eacute;passe le seuil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

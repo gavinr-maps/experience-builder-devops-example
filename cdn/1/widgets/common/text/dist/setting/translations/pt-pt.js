@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Moldar",verticalAlignment:"Alinhamento vertical"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Alinhamento vertical"})}}}));

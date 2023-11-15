@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Napoved s pomočjo rastra trenda izračuna napovedani večdimenzionalni slikovni sloj s pomočjo izhodnega slikovnega sloja trenda, ki ha je ustvarilo orodje Ustvari raster trenda.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vhodni večdimenzionalni slikovni sloj trenda, ki bo uporabljen za napoved.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Spremenljivka večdimenzionalnega slikovnega sloja trenda, ki bo uporabljena za napoved.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Metoda, ki bo uporabljena za zagotavljanje vrednosti dimenzije napovedi
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Določi začetni in končni datum, vi&scaron;ino ali globino intervala dimenzije, ki bo uporabljen v napovedi.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>Pri napovedi bo uporabljen začetni datum, vi&scaron;ina ali globina intervala dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Pri napovedi bo uporabljen končni datum, vi&scaron;ina ali globina intervala dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>&Scaron;tevilo korakov med dvema vrednostma dimenzije, ki bosta vključeni v napoved.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Enota, ki bo uporabljena za vrednost intervala.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Vrsta rezultata, ki bo ustvarjen. Rezultat je lahko plo&scaron;čični slikovni sloj ali dinamični slikovni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

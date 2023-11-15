@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือค้นหาใกล้ที่สุด จะค้นหาและจัดอันดับฟีเจอร์ที่อยู่ใกล้กับตำแหน่งที่ระบุมากที่สุด
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">ชั้นข้อมูลเริ่มจากซึ่งพบฟีเจอร์ที่ใกล้ที่สุด รองรับชั้นข้อมูลสูงสุด  5,000 ฟีเจอร์ </p> 
+            <p class="PortalOnly">ชั้นข้อมูลเริ่มจากซึ่งพบฟีเจอร์ที่ใกล้ที่สุด
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">ฟีเจอร์ที่พบโดยอิงตามความใกล้กับชั้นข้อมูลอินพุท รองรับชั้นข้อมูลสูงสุด  5,000 ฟีเจอร์ </p> 
+            <p class="PortalOnly">ฟีเจอร์ที่พบโดยอิงตามความใกล้กับชั้นข้อมูลอินพุท
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>มีอย่างน้อยหนึ่งฟีเจอร์จุดที่ทำหน้าที่เป็นข้อจำกัดชั่วคราว (อุปสรรค) ขณะเดินทางบนถนนพื้นฐาน จะสามารถเดินทางบนถนนนั้นได้ตามปกติ แต่จะไม่สามารถผ่านอุปสรรคไปได้
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>มีอย่างน้อยฟีเจอร์เส้นที่ทำหน้าที่เป็นข้อจำกัดชั่วคราว (อุปสรรค) ขณะเดินทางบนถนนพื้นฐาน อุปสรรคเส้น จะห้ามการเดินทางไปยังที่ใดก็ตามที่อุปสรรคตัดกับถนน
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>มีอย่างน้อยหนึ่งฟีเจอร์โพลีกอนทำหน้าที่เป็นข้อจำกัดชั่วคราว (อุปสรรค) ขณะเดินทางบนถนนพื้นฐาน อุปสรรคโพลีกอน จะห้ามการเดินทางไปยังที่ใดก็ตามที่โพลีกอนตัดกับถนน
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>วิธีการที่จะใช้ในการวัดระยะทางหรือเวลา วิธีการสามารถเป็นระยะทางเส้นหรือโหมดการเดินทางก็ได้
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>ระบุวันที่และเวลาที่ผู้เดินทางออกจากตำแหน่งที่ตั้งใน  <b>ชั้นข้อมูลอินพุท</b>
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>ระบุว่าจะใช้จำนวนสูงสุดของฟีเจอร์ใกล้ที่สุดแบบกำหนดเอง (เปิดใช้งาน) หรือใช้จำนวนสูงสุดที่เป็นค่าเริ่มต้นของเครื่องมือที่ 100 (ปิดใช้งาน)
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>จำนวนสูงสุดของฟีเจอร์ใกล้ที่สุดที่สามารถพบได้สำหรับแต่ละฟีเจอร์อินพุท
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>ระบุว่าจะใช้ช่วงการค้นหาสูงสุด (เปิดใช้งาน) หรือช่วงการค้นหาแบบไม่จำกัด (ปิดใช้งาน)
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>ช่วงการค้นหาสูงสุดสำหรับการค้นหาฟีเจอร์ใกล้ที่สุด
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>หน่วยที่ใช้ในการระบุช่วงการค้นหา
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>ระบุว่าแต่ละเส้นทางผลลัพธ์ จะถูกบันทึกเป็นชั้นข้อมูลเส้นทางหรือไม่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

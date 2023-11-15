@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Izvleci podatke izbere geoobjekte znotraj obsega in ustvari element v va&scaron;i vsebini.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Sloji, ki bodo ekstrahirani. Podprti vhodni sloji vključujejo sloje, ki so v va&scaron;i lasti in sloje z omogočenim izvozom.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Obseg geoobjektov, ki bodo ekstrahirani.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>Določi, ali bodo geoobjekti, ki sekajo obseg, izsekani. Kadar je možnost odkljukana, bo ekstrahiran celotni geoobjekt, ki seka obseg. Kadar je možnost obkljukana, bodo izsekani geoobjekti, ki sekajo obseg, ekstrahirani pa bodo samo deli teh geoobjektov znotraj obsega.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Format datoteke podatkov, ki bodo ekstrahirani.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime izhodnega elementa, kjer bo shranjena ekstrahirana datoteka.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

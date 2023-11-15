@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Odvodit spojit&yacute; tok (Derive Continuous Flow) generuje rastr kumulovan&eacute;ho průtoku do každ&eacute; buňky ze vstupn&iacute;ho rastru povrchu bez nutnosti předchoz&iacute;ho vyplněn&iacute; bezodtok&eacute; oblasti nebo ter&eacute;nn&iacute; deprese.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Rastr nadmořsk&eacute; v&yacute;&scaron;ky, kter&yacute; se použije pro v&yacute;počet.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>Vrstva, kter&aacute; vymezuje skutečn&eacute; prohlubně nebo propadliny, do nichž může voda proudit, ale nemůže z nich odt&eacute;kat.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>Rastrov&aacute; vrstva, kter&aacute; definuje pod&iacute;l průtoku, kter&yacute; se pod&iacute;l&iacute; na akumulaci průtoku v každ&eacute; buňce.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Určuje typ metody toku, kter&aacute; se použije při v&yacute;počtu směru toku.
+            </p>
+            <p>Metoda D8 přiřazuje směr toku nejstrměj&scaron;&iacute;mu sousedn&iacute;mu svahu. Metoda MFD rozděluje směr prouděn&iacute; mezi sousedy ve svahu podle adaptivn&iacute;ho exponentu rozdělen&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Určuje, zda se tok v okrajov&yacute;ch buňk&aacute;ch bude ř&iacute;dit běžn&yacute;mi pravidly toku, nebo zda bude vždy proudit směrem ven.
+            </p>
+            <p>Pokud nen&iacute; za&scaron;krtnut, bude tok směřovat k vnitřn&iacute; buňce s nejstrměj&scaron;&iacute;m poklesem hodnoty Z. Pokud je v&scaron;ak pokles men&scaron;&iacute; nebo roven nule, bude buňka proudit směrem ven z rastru povrchu. Pokud je za&scaron;krtnut, tok sbude vždy směřovat ven z rastru povrchu.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>N&aacute;zev rastrov&eacute; vrstvy akumulace toků, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>N&aacute;zev rastrov&eacute; vrstvy směru prouděn&iacute;, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, kter&yacute; bude vytvořen. V&yacute;stupem mohou b&yacute;t vrstvy dlaždicov&yacute;ch sn&iacute;mků nebo dynamick&eacute; vrstvy sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; budou v&yacute;sledky uloženy.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

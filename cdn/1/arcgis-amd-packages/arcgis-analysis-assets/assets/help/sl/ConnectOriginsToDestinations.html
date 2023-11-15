@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Izračunaj potne stro&scaron;ke meri čas potovanja ali razdaljo med pari točk.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Točkovni sloj, ki predstavlja izhodi&scaron;čne lokacije, od katerih se računajo potni stro&scaron;ki. Podprti so sloji z do  5.000 geoobjekti. </p> 
+            <p class="PortalOnly">Točkovni sloj, ki predstavlja izhodi&scaron;čne lokacije, od katerih se računajo potni stro&scaron;ki.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Točkovni sloj, ki predstavlja ciljne lokacije, proti katerim bodo izračunani potni stro&scaron;ki. Podprti so sloji z do  5.000 geoobjekti. </p> 
+            <p class="PortalOnly">Točkovni sloj, ki predstavlja ciljne lokacije, proti katerim bodo izračunani potni stro&scaron;ki.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Polje  <b>Iz sloja</b>, ki določa predhodno določen par izhodi&scaron;če-cilj. Če obstaja več izhodi&scaron;čnih in ciljnih lokacij, se mora ID ujemati z vrednostjo <b>Polje za ID poti ciljnega sloja</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Polje  <b>V sloj</b>, ki določa predhodno določen par izhodi&scaron;če-cilj. Če obstaja več izhodi&scaron;čnih in ciljnih lokacij, se mora ID ujemati z vrednostjo <b>Polje za ID poti izhodi&scaron;čnega sloja</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metoda, ki bo uporabljena za merjenje razdalje ali časa. Metoda je lahko linijska razdalja ali način potovanja.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Datum in čas odhoda iz izhodi&scaron;čnih lokacij v  <b>Iz sloja</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Določa, ali so izhodi&scaron;ča in cilji povezani z linijami pajkove mreže ali želenimi linijami (<b>Ravna linija</b>) ali pa z ulicami v mreži osnovnih ulic (<b>Sledi ulicam</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Določa, ali bo vsaka pot rezultata shranjena kot usmerjevalni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Generuj mozaikowania tworzy siatkę poligon&oacute;w na podstawie określonego zasięgu, kształtu i rozmiaru.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>Kształt mozaikowań, kt&oacute;re zostaną utworzone.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Określa, czy rozmiar mozaikowania będzie określony przez jego pole powierzchni (<b>Pole powierzchni</b>) czy przez wartość odległości (<b>Odległość</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Rozmiar (pole powierzchni lub odległość) wygenerowanych mozaikowań. W przypadku kwadrat&oacute;w, sześciokąt&oacute;w, tr&oacute;jkąt&oacute;w i romb&oacute;w odległość określa wysokość mozaikowania. W przypadku sześciokąt&oacute;w poprzecznych odległość określa szerokość mozaikowań.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Rozdzielczość H3 mozaikowań. Rozdzielczość należy do zakresu od 0 do 15. Przy każdym zwiększeniu wielkości rozdzielczości obszar poligon&oacute;w zostanie zmniejszony do jednej si&oacute;dmej wielkości w niższej rozdzielczości.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Określa jednostki, kt&oacute;re będą używane w odniesieniu do wielkości mozaikowania.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Zasięg, kt&oacute;ry zostanie objęty mozaikowaniem.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>W przypadku warstw obiektowych określa, czy mozaikowania obejmą cały zasięg, czy tylko obszary, w kt&oacute;rych mozaikowania przecinają się z obiektami.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

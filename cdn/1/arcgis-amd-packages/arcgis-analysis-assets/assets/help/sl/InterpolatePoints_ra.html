@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Interpoliraj točke predvidi vrednost na novih lokacijah glede na merjene vrednosti. Orodje ustvari izhodni raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Točkovni sloj, ki vsebuje točke, v katerih so bile izmerjene vrednosti.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Numerično polje, ki vsebuje vrednosti, ki bodo interpolirane.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Določi, ali bo optimizirana hitrost ali natančnost. Za izračun natančnej&scaron;ih napovedi je potrebno več časa.
+            </p>
+            <p>Ta parameter spremeni privzete vrednosti več drugih parametrov.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>Velikost celice in enote za rezultate rastra.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Določi, ali bodo podatki preoblikovani ali ne. Interpolacija je najnatančnej&scaron;a pri podatkih, ki sledijo normalni (zvonasti) porazdelitvi.
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>Velikost lokalnih interpolacijskih modelov, ki bodo združeni za ustvarjanje končne karte z napovedmi.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>&Scaron;tevilo sosedov, ki bodo uporabljeni. Večje &scaron;tevilo sosedov običajno zagotovi natančnej&scaron;e podatke, vendar pa izračun rezultatov traja dlje.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime interpoliranega rastrskega sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Izberite, ali želite tudi ustvariti izbirni raster standardnih napak za napovedane vrednosti.
+            </p>
+            <p>Če je možnost obkljukana, se bo izhodni raster standardne napake imenoval enako kot  <b>Ime izhodnega rastra</b>, vendar mu bo dodana beseda Napake. Sloj bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Vrsta rezultata, ki bo ustvarjen. Rezultati so lahko plo&scaron;čični slikovni sloji ali dinamični slikovni sloji.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

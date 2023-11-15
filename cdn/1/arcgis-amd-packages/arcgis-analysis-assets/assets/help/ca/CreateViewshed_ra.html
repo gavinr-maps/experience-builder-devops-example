@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Conca visual geod&egrave;sica identifica les ubicacions d'una superf&iacute;cie r&agrave;ster que s&oacute;n visibles per a les ubicacions d'observador d'entrada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>R&agrave;ster d'elevaci&oacute; en el qual es calcular&agrave; la conca visual.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Ubicacions de l'observador per a les quals es calcular&agrave; la conca visual.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimitza el c&agrave;lcul de la conca visual en funci&oacute; de la velocitat o la precisi&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Especifica la dist&agrave;ncia de visualitzaci&oacute; m&agrave;xima per al c&agrave;lcul de la conca visual.
+            </p>
+            <p>La dist&agrave;ncia es pot definir amb un valor i les seves unitats, o a partir d'un camp a les  <b>Entitats de punts o de l&iacute;nies de l'observador d'entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Especifica la dist&agrave;ncia de visualitzaci&oacute; m&iacute;nima per al c&agrave;lcul de la conca visual.
+            </p>
+            <p>La dist&agrave;ncia es pot definir amb un valor i les seves unitats, o a partir d'un camp a les  <b>Entitats de punts o de l&iacute;nies de l'observador d'entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Especifica el tipus de dist&agrave;ncia de visualitzaci&oacute; m&agrave;xima i m&iacute;nima.
+            </p>
+            <p>Si aquesta opci&oacute; no est&agrave; activada, les dist&agrave;ncies de visualitzaci&oacute; es tractaran com a dist&agrave;ncies euclidianes bidimensionals. Si est&agrave; activada, les dist&agrave;ncies de visualitzaci&oacute; es tractaran com a dist&agrave;ncies tridimensionals.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Especifica l'elevaci&oacute; de la superf&iacute;cie de les ubicacions de l'observador.
+            </p>
+            <p>L'elevaci&oacute; es pot definir amb un valor i les seves unitats, o a partir d'un camp a les  <b>Entitats de punts o de l&iacute;nies de l'observador d'entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Especifica l'al&ccedil;ada dels observadors sobre el terra.
+            </p>
+            <p>L'al&ccedil;ada es pot definir amb un valor i les seves unitats, o a partir d'un camp a les  <b>Entitats de punts o de l&iacute;nies de l'observador d'entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Especifica l'al&ccedil;ada dels objectius per sobre del terra.
+            </p>
+            <p>L'al&ccedil;ada es pot definir amb un valor i les seves unitats, o a partir d'un camp a les  <b>Entitats de punts o de l&iacute;nies de l'observador d'entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa r&agrave;ster de conca visual que es crear&agrave; i s'afegir&agrave; al mapa. Aquesta capa cont&eacute; les &agrave;rees visibles on els observadors poden veure els objectes, i les cel&middot;les representen el nombre d'observadors que poden veure les cel&middot;les.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Nom de la capa r&agrave;ster sobre el nivell del s&ograve;l (AGL) que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipus de sortida que es crear&agrave;. La sortida pot ser una capa d'imatges en mosaic o una capa d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

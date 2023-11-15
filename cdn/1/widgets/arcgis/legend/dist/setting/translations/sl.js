@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({sourceLabel:"Vir",sourceDescript:"Spletna karta ali spletni prizor ali katera koli kombinacija obeh.",options:"Možnosti",showBaseMap:"Prikaži legende temeljnih kart",cardStyle:"Uporabi slog kartice",selectMapWidget:"Izberi pripomoček karte"})}}}));
+System.register([],(function(e){return{execute:function(){e({sourceLabel:"Vir",sourceDescript:"Spletna karta ali spletni prizor ali katera koli kombinacija obeh.",options:"Možnosti",showBaseMap:"Prikaži legende temeljnih kart",cardStyle:"Uporabi slog kartice"})}}}));

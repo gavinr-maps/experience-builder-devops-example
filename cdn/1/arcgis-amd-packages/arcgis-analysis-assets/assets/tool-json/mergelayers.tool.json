@@ -1,0 +1,85 @@
+{
+  "name": "MergeLayers",
+  "displayName": "MergeLayers",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/MergeLayers.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "inputLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "mergeLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "mergeLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "mergingAttributes",
+      "dataType": "GPMultiValue:GPString",
+      "displayName": "mergingAttributes",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "String",
+          "dataType": "GPString",
+          "displayName": "String"
+        }
+      ]
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "mergedLayer",
+      "dataType": "GPString",
+      "displayName": "mergedLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

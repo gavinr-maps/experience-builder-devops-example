@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Tạo Khu vực Di chuyển tạo c&aacute;c khu vực c&oacute; thể đi đến được trong một khoảng thời gian hoặc khoảng c&aacute;ch di chuyển.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>C&aacute;c đối tượng điểm xung quanh khu vực đ&oacute; sẽ được t&iacute;nh to&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Phương thức di chuyển sẽ được sử dụng để tạo khu vực di chuyển. Phương thức di chuyển c&oacute; thể dựa tr&ecirc;n khoảng c&aacute;ch hoặc thời gian.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Khoảng c&aacute;ch di chuyển hoặc giới hạn thời gian cho mỗi điểm đầu v&agrave;o. Nếu nhiều gi&aacute; trị được th&ecirc;m v&agrave;o, mỗi gi&aacute; trị sẽ được sử dụng để t&iacute;nh to&aacute;n khu vực di chuyển cho tất cả c&aacute;c đối tượng đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>C&aacute;c đơn vị được sử dụng để chỉ định khoảng c&aacute;ch hoặc thời gian di chuyển. Gi&aacute; trị  <b>Ngưỡng</b> được diễn giải bằng c&aacute;c đơn vị n&agrave;y.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>X&aacute;c định xem c&aacute;c khu vực di chuyển được tạo để di chuyển ra khỏi c&aacute;c điểm đầu v&agrave;o hay hướng tới c&aacute;c điểm đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Chỉ định ng&agrave;y v&agrave; thời gian m&agrave; người đi lại khởi h&agrave;nh hoặc đến c&aacute;c địa điểm đ&atilde; nhập.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>X&aacute;c định c&aacute;ch xử l&yacute; c&aacute;c khu vực chung từ c&aacute;c đầu v&agrave;o kh&aacute;c nhau khi đi từ chỗ n&agrave;y đến chỗ kia.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Chỉ định xem mỗi khu vực đầu ra sẽ l&agrave; một khu vực li&ecirc;n tục (kh&ocirc;ng được chọn) hay c&oacute; c&aacute;c lỗ thủng kh&ocirc;ng thể tiếp cận tr&ecirc;n đường phố nhưng được bao quanh ho&agrave;n to&agrave;n bởi c&aacute;c đường phố c&oacute; thể tiếp cận (chọn).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>X&aacute;c định xem c&aacute;c con đường được sử dụng để tạo ra c&aacute;c khu vực di chuyển sẽ được bao gồm dưới dạng lớp đầu ra hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Nibble substitueix les cel&middot;les d'un r&agrave;ster corresponent a una m&agrave;scara amb els valors dels ve&iuml;ns m&eacute;s propers.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>El r&agrave;ster d'entrada amb les ubicacions emmascarades que se substituiran (nibbled) pel valor del ve&iacute; m&eacute;s proper.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>R&agrave;ster de m&agrave;scara que identifica les ubicacions al r&agrave;ster d'entrada que se substituiran. Es considera que les cel&middot;les amb el valor NoData s&oacute;n a l'&agrave;rea emmascarada.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>R&agrave;ster de zona d'entrada. Per a cada zona, les cel&middot;les d'entrada que s&oacute;n dins de la m&agrave;scara se substituiran nom&eacute;s pels valors de cel&middot;la m&eacute;s propers dins de la mateixa zona.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Especifica si les cel&middot;les NoData del r&agrave;ster d'entrada poden substituir (nibble) les cel&middot;les de les &agrave;rees emmascarades si s&oacute;n el ve&iacute; m&eacute;s proper.
+            </p>
+            <p>Si aquesta opci&oacute; est&agrave; seleccionada, les cel&middot;les NoData del r&agrave;ster d'entrada poden substituir (nibble) dins de l'&agrave;rea emmascarada. Si aquesta opci&oacute; no est&agrave; seleccionada, nom&eacute;s poden substituir dins de l'&agrave;rea emmascarada les cel&middot;les v&agrave;lides del r&agrave;ster d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Especifica si les cel&middot;les NoData de l'&agrave;rea emmascarada es mantindran o se substituiran.
+            </p>
+            <p>Si aquesta opci&oacute; no est&agrave; seleccionada, les cel&middot;les NoData de l'&agrave;rea emmascarada es mantindran a la sortida. Si aquesta opci&oacute; est&agrave; seleccionada, les cel&middot;les NoData de l'&agrave;rea emmascarada se substituiran (nibbled) pel valor del ve&iacute; m&eacute;s proper es trobi fora de l'&agrave;rea emmascarada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa r&agrave;ster substitu&iuml;da (nibbled) que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipus de sortida que es crear&agrave;. Les sortides poden ser capes d'imatges en mosaic o capes d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

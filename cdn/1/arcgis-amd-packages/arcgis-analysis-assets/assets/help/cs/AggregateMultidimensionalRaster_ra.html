@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Agregovat v&iacute;cerozměrn&yacute; rastr (Aggregate Multidimensional Raster) vytv&aacute;ř&iacute; vrstvu v&iacute;cerozměrn&yacute;ch sn&iacute;mků sloučen&iacute;m existuj&iacute;c&iacute;ch proměnn&yacute;ch vrstvy v&iacute;cerozměrn&yacute;ch sn&iacute;mků v rozměru.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vrstva v&iacute;cerozměrn&yacute;ch sn&iacute;mků, kter&aacute; bude agregov&aacute;na.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Rozměr v&iacute;cerozměrn&eacute; obrazov&eacute; vrstvy, v němž bude proměnn&aacute; agregov&aacute;na.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Indikuje, zda m&aacute; vrstva hodnoty rozměru.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Proměnn&aacute; v&iacute;cerozměrn&eacute; obrazov&eacute; vrstvy, kter&aacute; bude agregov&aacute;na v zadan&eacute;m rozměru.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Matematick&aacute; metoda, kter&aacute; se použije k agregaci řezů v&iacute;cerozměrn&eacute; obrazov&eacute; vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Hodnota percentilu, kter&aacute; se použije pro v&yacute;počty po zad&aacute;n&iacute; metody seskupen&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Metoda interpolace percentilu, kter&aacute; se použije v př&iacute;padě sud&eacute;ho počtu hodnot ze vstupn&iacute; obrazov&eacute; vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Vlastn&iacute; rastrov&aacute; funkce, kter&aacute; se použije k v&yacute;počtu hodnot pixelů agregovan&yacute;ch vrstev sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Interval rozměru, kter&yacute; se použije k agregaci v&iacute;cerozměrn&yacute;ch dat.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Každ&eacute; kl&iacute;čov&eacute; slovo určuje časovou jednotku, pro kterou budou jednotliv&eacute; statistiky agregov&aacute;ny. Seznam kl&iacute;čov&yacute;ch slov zahrnuje: každou hodinu, denně, t&yacute;dně, měs&iacute;čně, čtvrtletně a ročně.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Velikost intervalu, kter&aacute; se použije při agregaci v rozměru.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Měrn&eacute; jednotky pro hodnotu intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Tabulka hodnot, kter&aacute; se použije při agregaci v zadan&eacute;m rozměru. Minim&aacute;ln&iacute; a maxim&aacute;ln&iacute; hodnoty určuj&iacute; rozsah, kter&yacute; m&aacute; b&yacute;t zahrnut.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Minim&aacute;ln&iacute; hodnota pro rozsah intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Maxim&aacute;ln&iacute; hodnota pro rozsah intervalu.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Určuje, zda budou hodnoty NoData při agregaci ignorov&aacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ v&yacute;stupu, kter&yacute; bude vytvořen. V&yacute;stupem mohou b&yacute;t vrstvy dlaždicov&yacute;ch sn&iacute;mků nebo dynamick&eacute; vrstvy sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Interpoliuoti ta&scaron;kus numato vertes naujose vietose pagal ta&scaron;kinius matavimus. Įrankis sukuria elementų i&scaron;vestis.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Pasirinkite interpoliuojamų vietų ta&scaron;kų sluoksnį.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Pasirinkite lauką, kuriame bus interpoliuojamos i&scaron;matuotos vertės.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Pasirinkite, ar pirmenybė bus teikiama skaičiavimo greičiui, ar tikslumui ir precizi&scaron;kumui. Apskaičiuoti tikslesnę ir glaudeznę prognozę užtrunka ilgiau.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Pasirinkite, ar į i&scaron;vestį bus įtrauktas interpoliavimo prognozių standartinių paklaidų sluoksnis.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Pasirinkite, kaip bus apskaičiuojamos klasės pertraukos vertės.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Nurodykite klasių (prognozuojamų verčių intervalų), kurios bus įtrauktos į rezultatų sluoksnį, skaičių. Kiekviena klasė apibrėžia daugiakampio ribą ir vaizduoja prognozuojamų verčių kontūrus. Klasės pertraukos vertės nustatomos pagal klasifikavimo tipą.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Nurodykite klasės pertraukos vertes, kurios bus naudojamos.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Pasirinkite poligono sluoksnį, kuris bus naudojamas tyrimo teritorijai apibrėžti. Rezultatai bus apkarpyti, kad būtų rodomi tik tiriamoje teritorijoje.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Pasirinkite ta&scaron;kinį sluoksnį, vaizduojantį vietas, kurios bus naudojamos reik&scaron;mėms prognozuoti. Jei nurodyta, bus sukurtas ta&scaron;kinis sluoksnis su nurodytose vietose numatytomis vertėmis.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

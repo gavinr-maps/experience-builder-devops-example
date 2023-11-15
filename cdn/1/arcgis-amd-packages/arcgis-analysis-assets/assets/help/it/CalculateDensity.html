@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Calcola densit&agrave; calcola una stima della densit&agrave; dalle feature punto e linea. Lo strumento crea un output feature.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Il layer di punti o di linea in base al quale verr&agrave; calcolata la densit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Il campo che specifica il numero di incidenti in ciascuna posizione.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Il feature layer poligono che definisce il punto in cui verranno calcolate le densit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Specifica la distanza da ricercare per i punti o le linee quando si calcola la densit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Le unit&agrave; che verranno utilizzate per il valore del parametro  <b>Distanza di ricerca</b>.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Specifica come i valori di densit&agrave; saranno classificati in aree.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Il numero di classi (intervallo di valori previsti) nel layer risultato.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Le unit&agrave; che verranno utilizzate per l'area di output.
+            </p>
+            <p>La densit&agrave; &egrave; data dalla divisione del conteggio per l'area e questo parametro specifica l'unit&agrave; dell'area nel calcolo della densit&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

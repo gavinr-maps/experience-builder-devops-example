@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Znajdź podobne lokalizacje ocenia podobieństwo między lokalizacjami potencjalnymi, a lokalizacjami referencyjnymi na podstawie zestawu kryteri&oacute;w i porządkuje lokalizacje potencjalne w kolejności od najbardziej do najmniej podobnej.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Warstwa punktowa, liniowa lub poligonowa, kt&oacute;ra zawiera lokalizacje referencyjne do por&oacute;wnania. Jeśli warstwa zawiera wiele lokalizacji, wszystkie lokalizacje zostaną uśrednione w celu utworzenia pojedynczej lokalizacji referencyjnej.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Warstwa punktowa, liniowa lub poligonowa, kt&oacute;ra zawiera poszukiwane lokalizacje potencjalne. Każda poszukiwana lokalizacja potencjalna zostanie por&oacute;wnana z lokalizacją referencyjną pod względem podanej wartości  <b>Wyb&oacute;r kryterium</b> i zostanie do niej przypisana ranga w zakresie od najbardziej do najmniej podobnej.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Pole liczbowe, kt&oacute;re będzie używane do oceny podobieństwa między lokalizacją referencyjną, a każdą poszukiwaną lokalizacją potencjalną. Każda wartość  <b>Wyb&oacute;r kryterium</b> będzie miała wartość <b>Pole z warstwy referencyjnej</b> oraz wartość <b>Pole z warstwy propozycji</b>. Wartości <b>Pole z warstwy referencyjnej</b> oraz <b>Pole z warstwy propozycji</b> są dopasowywane do p&oacute;l w wartościach <b>Warstwa lokalizacji referencyjnych</b> oraz <b>Warstwa poszukiwanych kandydat&oacute;w</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Pole warstwy  <b>Warstwa lokalizacji referencyjnych</b>, kt&oacute;re odpowiada polu w warstwie <b>Warstwa poszukiwanych kandydat&oacute;w</b> określonym przez wartość <b>Pole z warstwy propozycji</b>. Wartości z tych dopasowanych p&oacute;l zostaną por&oacute;wnane w celu oceny podobieństwa między lokalizacją referencyjną, a każdą poszukiwaną lokalizacją potencjalną.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Pole warstwy  <b>Warstwa poszukiwanych kandydat&oacute;w</b>, kt&oacute;re odpowiada polu w warstwie <b>Warstwa lokalizacji referencyjnych</b> określonym przez wartość <b>Pole z warstwy referencyjnej</b>. Wartości z tych dopasowanych p&oacute;l zostaną por&oacute;wnane w celu oceny podobieństwa między lokalizacją referencyjną, a każdą poszukiwaną lokalizacją potencjalną.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Określa, czy wszystkie lokalizacje w warstwie  <b>Warstwa poszukiwanych kandydat&oacute;w</b> zostaną uwzględnione w warstwie wynikowej.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Liczba najbardziej podobnych lokalizacji w warstwie  <b>Warstwa poszukiwanych kandydat&oacute;w</b>, kt&oacute;re zostaną uwzględnione w warstwie wynikowej.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

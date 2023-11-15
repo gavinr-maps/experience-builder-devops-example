@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือสรุปภายใน จะคำนวณสถิติสำหรับฟีเจอร์ภายในถังหรือโพลีกอนที่กำหนด
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>ชั้นข้อมูลที่จะสรุป
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>ประเภทของฟีเจอร์ขอบเขตภายใน ซึ่งจะทำการสรุปฟีเจอร์อินพุท ส่วนนี้สามารถเป็นชั้นข้อมูลโพลีกอนหรือเทสเซลเลชันกริดของถังสี่เหลี่ยมจัตุรัสหรือหกเหลี่ยม ที่ถูกสร้างขึ้นขณะเรียกใช้เครื่องมือ
+            </p>
+        </div>
+    </div>
+    <div id="sumWithinLayer">
+        <div>
+            <p>ชั้นข้อมูลโพลีกอนภายใน ซึ่งจะทำการสรุปฟีเจอร์อินพุท
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>ขนาดของถังที่สร้างขึ้น สำหรับถังสี่เหลี่ยมจัตุรัส จำนวนและหน่วยที่ระบุจะเป็นตัวกำหนดความสูงและความยาวของสี่เหลี่ยมจัตุรัส สำหรับถังหกเหลี่ยม จำนวนและหน่วยระบุกำหนดระยะห่างระหว่างสองฝ่ายขนาน
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>หน่วยที่จะใช้ในการระบุขนาดถัง
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>คำนวณขนาดรวมของฟีเจอร์ที่สรุปภายในแต่ละโพลีกอนขอบเขต สำหรับเส้น จะคำนวณความยาวรวม สำหรับโพลีกอน จะคำนวณพื้นที่รวม
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>หน่วยที่จะใช้เพื่อคำนวณขนาดรวมของฟีเจอร์ที่สรุป
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>ฟิลด์ตัวเลขหรือวันที่จากชั้นข้อมูลอินพุทที่จะทำการสรุป และสถิติที่จะทำการคำนวณสำหรับแต่ละฟิลด์
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>ฟิลด์จากชั้นข้อมูลอินพุทที่จะถูกใช้ในการแยกข้อมูลเป็นกลุ่มเฉพาะสำหรับการคำนวณสถิติ
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>คำนวณกลุ่มส่วนน้อย (มีจำนวนค่าน้อยที่สุด) และส่วนมาก (มีจำนวนค่ามากที่สุด) ภายในแต่ละพื้นที่การสรุป
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>คำนวณเปอร์เซ็นต์ของฟีเจอร์ที่สรุป ซึ่งเป็นส่วนหนึ่งของแต่ละกลุ่มภายในแต่ละพื้นที่การสรุป
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

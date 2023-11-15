@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Pura aineisto&nbsp;-ty&ouml;kalu valitsee laajuuden sis&auml;ll&auml; olevat kohteet ja luo kohteen sis&auml;ll&ouml;ss&auml;si.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Karttatasot, jotka poimitaan. Tuettuihin l&auml;ht&ouml;karttatasoihin sis&auml;ltyv&auml;t omistamasi karttatasot ja karttatasot, joissa on k&auml;yt&ouml;ss&auml; vienti.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Niiden kohteiden laajuus, jotka poimitaan.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, leikataanko laajuuden kanssa riste&auml;v&auml;t kohteet. Jos ei ole valittu, laajuuden kanssa riste&auml;v&auml;t kohteet poimitaan. Jos on valittu, laajuuden kanssa riste&auml;v&auml;t kohteet leikataan ja vain osia kyseisist&auml; laajuuden sis&auml;ll&auml; olevista kohteista poimitaan.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Aineiston tiedostomuoto, joka poimitaan.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sen tulosaineiston kohteen nimi, jonne poimittu tiedosto tallennetaan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

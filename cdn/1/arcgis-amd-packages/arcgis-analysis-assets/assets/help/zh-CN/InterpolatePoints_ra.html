@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;插值点&rdquo;工具可根据点测量值预测新位置的值。 该工具创建栅格输出。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>包含具有已测量值的点的点图层。
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>包含将进行插值的值的数值字段。
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>指定是否优化速度或精度。 预测结果越精确，所花费的计算时间就越长。
+            </p>
+            <p>此参数将更改其他几个参数的默认值。
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>输出栅格的像元大小和单位。
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>指定是否转换数据。 插值法对于符合正态（钟形）分布的数据来说最为准确。
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>将组合以创建最终预测地图的局部插值模型的大小。
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>将使用的相邻要素的数量。 通常，相邻点数量越大，所生成的结果就越准确；但计算结果花费的时间也越长。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>将创建并添加到地图的插值栅格图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>选择是否还希望创建用于预测值的可选标准误差栅格。
+            </p>
+            <p>如果选中，输出标准错误栅格的名称将与 <b>输出栅格名称</b>相同，但会追加单词 Errors。 随即创建图层并添加至地图。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>要创建的输出的类型。 输出可以为切片影像图层或动态影像图层。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

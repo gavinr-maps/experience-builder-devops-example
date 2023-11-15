@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>領域の特定ツールは、入力ラスター内の領域の中から、指定したサイズ要件と空間的制限を満たしている最適な領域を特定します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>領域を取得する入力有用性ラスター。
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>すべての領域の合計面積。
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p> <b>[合計面積]</b>、 <b>[領域の最小面積]</b>、 <b>[領域の最大面積]</b> の各パラメーターで使用する面積の単位を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p> <b>[合計面積]</b> に分散する領域の数を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>領域の形状を維持するためのセルの寄与度と、セルの属性値の有用性寄与度とのトレードオフを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>候補領域の中で最も優先される領域を決定する評価条件。
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>出力領域の形状の特徴を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>定義された形状の方向を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>各領域に許可する最小面積を指定します。  <b>[面積単位]</b> パラメーターで指定した単位が使用されます。
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>各領域に許可する最大面積を指定します。  <b>[面積単位]</b> パラメーターで指定した単位が使用されます。
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>領域間に許可する最小距離を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>領域間に許可する最大距離を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p> <b>[領域間の最小距離]</b> と <b>[領域間の最大距離]</b> の各パラメーターで使用する距離単位を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>領域がすでに存在する場所を識別する入力レイヤー。
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>領域の拡張時に使用する隣接セルを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>潜在的な領域内で島を許可するかどうかを指定します。
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>領域の拡張元になるシードの数を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>領域の拡張が発生する解像度を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>領域の選択方法を指定します。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成され、マップに追加される領域の特定ラスター レイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

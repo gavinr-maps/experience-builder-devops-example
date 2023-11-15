@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Akumulasi Jarak menghitung akumulasi jarak dari tiap sel ke sumber input, memungkinkan jarak garis lurus, jarak biaya, dan jarak permukaan sebenarnya, serta faktor biaya vertikal dan horizontal.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Raster input atau feature layer yang mengidentifikasi sumber yang jaraknnya akan dihitung.
+            </p>
+            <p>Jika input berupa raster, input harus terdiri dari sel yang memiliki nilai integer valid (nol adalah nilai valid) untuk sumber, dan sel yang tersisa harus diberi NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Penghalang yang menentukan hambatan yang harus dialihkan.
+            </p>
+            <p>Untuk layer raster, sel yang memiliki nilai (termasuk nol) akan dianggap sebagai penghalang.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster yang mendefinisikan nilai elevasi di setiap lokasi sel.
+            </p>
+            <p>Nilai-nilai ini digunakan untuk menghitung jarak permukaan aktual yang tercakup saat berpindah antar sel.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Raster yang mendefinisikan impedansi, atau biaya, untuk bergerak melalui setiap sel.
+            </p>
+            <p>Nilai di setiap lokasi sel mewakili jarak biaya-per-unit untuk bergerak melalui sel. Nilai tidak boleh negatif atau nol.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Menentukan apakah jarak akan dihitung menggunakan metode planar (bumi datar) atau metode geodesik (elipsoid).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Raster yang menentukan nilai z untuk setiap lokasi sel.
+            </p>
+            <p>Nilai digunakan untuk menghitung kemiringan yang digunakan untuk mengidentifikasi faktor vertikal yang terjadi ketika berpindah dari satu sel ke sel lainnya.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Faktor yang menentukan hubungan antara faktor biaya vertikal dan sudut pergerakan relatif vertikal.
+            </p>
+            <p>Ada beberapa opsi untuk faktor dengan pengubah yang mengidentifikasi grafik faktor vertikal yang ditentukan. Grafik digunakan untuk mengidentifikasi faktor vertikal yang digunakan dalam menghitung total biaya untuk pindah ke sel terdekat lain.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Raster yang mendefinisikan arah horizontal di setiap sel.
+            </p>
+            <p>Nilai-nilai di setiap lokasi akan digunakan bersama parameter  <b>Faktor horizontal</b> untuk menentukan biaya horizontal yang dikeluarkan saat berpindah antar sel.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Faktor yang menentukan hubungan antara faktor biaya horizontal dan sudut pergerakan relatif horizontal.
+            </p>
+            <p>Ada beberapa opsi untuk faktor dengan pengubah yang mengidentifikasi grafik faktor horizontal yang ditentukan. Grafik digunakan untuk mengidentifikasi faktor horizontal yang digunakan dalam menghitung total biaya perpindahan ke sel terdekat.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Biaya akumulatif awal yang akan digunakan untuk memulai perhitungan biaya.
+            </p>
+            <p>Default adalah 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Akumulasi maksimum untuk wisatawan untuk suatu sumber.
+            </p>
+            <p>Akumulasi default adalah ke tepi raster output.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Pengganda yang akan diterapkan pada nilai biaya.
+            </p>
+            <p>Default adalah 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Arah wisatawan saat menerapkan faktor horizontal dan vertikal.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Nama layer raster jarak akumulatif yang akan dibuat dan ditambahkan ke peta. Layer berisi jarak akumulatif untuk setiap sel dari, atau ke, sumber biaya terendah.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Nama layer raster arah balik yang akan dibuat dan ditambahkan ke peta. Layer berisi arah dalam derajat.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Nama layer raster arah sumber yang akan dibuat dan ditambahkan ke peta. Layer berisi arah azimut dari sel sumber dengan biaya akumulasi terendah dalam derajat.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Nama layer raster multiband lokasi sumber yang akan dibuat dan ditambahkan ke peta. Layer berisi lokasi sumber di mana band pertama berisi indeks baris, dan band kedua berisi indeks kolom.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Jenis output yang akan dibuat. Output dapat berupa layer citra Ubin atau layer citra Dinamis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

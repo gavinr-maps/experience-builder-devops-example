@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Aplauzt",verticalAlignment:"Vertikālā salāgošana"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Vertikālā salāgošana"})}}}));

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat za izračunavanje tro&scaron;kova putovanja meri vreme putovanja ili rastojanje između parova tačaka.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Tačkasti sloj koji predstavlja početne lokacije iz kojih se izračunavaju tro&scaron;kovi putovanja. Slojevi sa do  5.000 geoobjekata su podržani. </p> 
+            <p class="PortalOnly">Tačkasti sloj koji predstavlja početne lokacije iz kojih se izračunavaju tro&scaron;kovi putovanja.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Tačkasti sloj koji predstavlja odredi&scaron;ne lokacije prema kojima se izračunavaju tro&scaron;kovi putovanja. Slojevi sa do  5.000 geoobjekata su podržani. </p> 
+            <p class="PortalOnly">Tačkasti sloj koji predstavlja odredi&scaron;ne lokacije prema kojima se izračunavaju tro&scaron;kovi putovanja.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Polje u stavci  <b>Odlazni sloj</b> koje defini&scaron;e unapred dodeljeni par poreklo-odredi&scaron;te. Ako postoji vi&scaron;e lokacija porekla i odredi&scaron;ta, ovaj ID mora da odgovara vrednosti u <b>Dolazna ruta za ID polja</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Polje u stavci  <b>Dolazni sloj</b> koje defini&scaron;e unapred dodeljeni par poreklo-odredi&scaron;te. Ako postoji vi&scaron;e lokacija porekla i odredi&scaron;ta, ovaj ID mora da odgovara vrednosti u <b>Odlazna ruta za ID polja</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e tačaka geoobjekata koji će da predstavljaju privremena ograničenja (barijere) prilikom putovanja po pozadinskim ulicama. Kretanje je dozvoljeno na ulici, ali ne kroz barijeru.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e linija geoobjekata koji će da predstavljaju privremena ograničenja (barijere) prilikom putovanja po pozadinskim ulicama. Linijske barijere zabranjuju putovanje svuda gde se barijere ukr&scaron;taju sa ulicama.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jedan ili vi&scaron;e poligona geoobjekata koji će da predstavljaju privremena ograničenja (barijere) prilikom putovanja po pozadinskim ulicama. Poligonalna barijera zabranjuje kretanje svuda gde poligon preseca ulice.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metoda koja će se koristiti za merenje udaljenosti ili vremena. Metoda može biti linija udaljenosti ili način putovanja.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Datum i vreme polaska sa polaznih lokacija u  <b>Odlazni sloj</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Određuje da li su ishodi&scaron;ta i odredi&scaron;ta povezani pomoću paukovih linija ili linija želja (<b>Prava linija</b>) ili ulica na osnovnoj uličnoj mreži (<b>Pratite ulice</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Određuje da li će svaka ruta rezultata biti sačuvana kao sloj rute.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultati biti sačuvani.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

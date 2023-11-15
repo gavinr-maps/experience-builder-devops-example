@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Noktaları K&uuml;mele aracı, belirtilen kutular veya &ccedil;okgenler i&ccedil;inde nokta sayısını ve diğer istatistikleri hesaplar.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>&Ouml;zet alanları olarak k&uuml;melenecek nokta katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Noktaların i&ccedil;inde k&uuml;meleneceği &ccedil;okgen katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Girdi noktalarının i&ccedil;inde k&uuml;meleneceği sınırlayıcı detayların t&uuml;r&uuml;. Bu bir &ccedil;okgen katmanı veya ara&ccedil; &ccedil;alıştırıldığında oluşturulan ya kare ya da altıgen kutulardan oluşan bir mozaik ızgara olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Oluşturulan kutuların boyutu. Kare kutular i&ccedil;in, belirtilen sayı ve birimler karenin y&uuml;ksekliğini ve uzunluğunu belirler. Altıgen kutular i&ccedil;in, belirtilen sayı ve birimler paralel kenarlar arasındaki mesafeyi belirler.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Kutu boyutunu belirtmek i&ccedil;in kullanılacak birimler.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>Noktaları olmayan detayların sonu&ccedil; katmanında g&ouml;sterilip g&ouml;sterilmeyeceğini belirler. İşaretlenmezse, noktaları olmayan detaylar sonu&ccedil; i&ccedil;inde g&ouml;r&uuml;nmez. İşaretlenirse, noktaları olmayan detaylar sonu&ccedil; i&ccedil;inde g&ouml;r&uuml;n&uuml;r.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>&Ouml;zetlenecek girdi katmanından gelen sayı veya tarih alanları ve her alan i&ccedil;in hesaplanacak istatistikler.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>İstatistiksel hesaplamalar i&ccedil;in verileri ayrı gruplara ayırmak amacıyla kullanılacak girdi katmanından gelen alan.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Her &ouml;zet alanı i&ccedil;inde azınlık (en az baskın) ve &ccedil;oğunluk (en baskın) grupları hesaplayın.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Her bir &ouml;zet alanı i&ccedil;inde her gruba ait noktalar y&uuml;zdesini hesaplayın.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

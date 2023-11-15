@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Găsire fascicule de puncte identifică obiecte spațiale fascicule de puncte &icirc;n zgomotul &icirc;nconjurător pe baza distribuției lor spațiale.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Stratul tematic de puncte de intrare care va fi grupat &icirc;n fascicule pe baza distribuției spațiale a obiectelor spațiale de puncte.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>Metoda care va fi utilizată pentru a identifica clustere.
+            </p>
+        </div>
+    </div>
+    <div id="minFeaturesCluster">
+        <div>
+            <p>Numărul minim de obiecte spațiale de punte care vor fi considerate un fascicul.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Specifică distanța maximă din jurului fiecărui obiect spațial de punct pentru a căuta puncte care pot fi incluse &icirc;n fascicul. Dacă este lăsată necompletată, valoarea  <b>Distanța căutare</b> va fi cea mai mare distanță de bază găsită &icirc;n stratul tematic, exclusiv acele distanțe de bază din partea superioară de 1%.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistanceUnit">
+        <div>
+            <p>Specifică unitățile care vor fi utilizate pentru distanța de căutare.
+            </p>
+        </div>
+    </div>
+    <div id="sensitivity">
+        <div>
+            <p>Un număr &icirc;ntreg &icirc;ntre 0 și 100 care stabilește compactitatea clusterelor. Dacă este lăsată goală, valoarea  <b>Sensibilitate cluster</b> va fi calculată folosind Divergența Kullback-Leibler.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

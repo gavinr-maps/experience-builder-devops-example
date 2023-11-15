@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Estad&iacute;stiques zonals com a taula resumeix els valors d'un r&agrave;ster dins de les zones d'un altre dataset o informa dels resultats en una taula.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>Entrada que defineix els l&iacute;mits de les zones o &agrave;rees que es resumiran.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Camp que cont&eacute; els valors que defineixen cada zona.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>Capa r&agrave;ster que cont&eacute; els valors de cel&middot;la que es faran servir per calcular estad&iacute;stiques.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Especifica el tipus d'estad&iacute;stica que es calcular&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>Especifica els valors de percentil que es calcularan.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Especifica el m&egrave;tode que es far&agrave; servir quan el nombre de valors del r&agrave;ster d'entrada que s'hagin de calcular sigui un nombre parell.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Especifica com es processaran els valors de cel&middot;la de  <b>R&agrave;ster de valor d'entrada</b> per a dades circulars.
+            </p>
+            <p>Si aquesta opci&oacute; no est&agrave; seleccionada, es calcularan estad&iacute;stiques aritm&egrave;tiques ordin&agrave;ries (lineals). Si est&agrave; seleccionada, es calcularan les estad&iacute;stiques circulars.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Especifica el valor que es far&agrave; servir per arrodonir un valor lineal a l'interval d'una estad&iacute;stica circular determinada.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Especifica si les cel&middot;les NoData del  <b>R&agrave;ster de valor d'entrada</b> s'ignoraran als resultats de les zones a les quals pertanyen.
+            </p>
+            <p>Si est&agrave; seleccionada, les cel&middot;les NoData del r&agrave;ster de valor s'ignoraran al c&agrave;lcul estad&iacute;stic. Si no est&agrave; seleccionada, les cel&middot;les NoData no s'ignoraran, i tota la zona rebr&agrave; el valor NoData al r&agrave;ster de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Especifica com es processaran els r&agrave;sters d'entrada si s&oacute;n multidimensionals.
+            </p>
+            <p>Si no est&agrave; seleccionada, les estad&iacute;stiques es calcularan per a totes les dimensions del dataset multidimensional d'entrada. Si est&agrave; seleccionada, les estad&iacute;stiques es calcularan a partir del sector actual del dataset multidimensional d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>Nom de la capa de taules d'estad&iacute;stiques zonals que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

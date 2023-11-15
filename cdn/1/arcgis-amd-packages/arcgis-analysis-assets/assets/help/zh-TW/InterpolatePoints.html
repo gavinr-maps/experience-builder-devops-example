@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「插值點」工具可根據點測量預測新位置的值。 此工具將建立圖徵輸出。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>選擇將插值之位置的點圖層。
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>選擇包含將插值之測量值的欄位。
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>選擇是優先考量計算速度還是準確度和精確度。 預測結果越準確和精確，所需的計算時間就越長。
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>選擇輸出中是否包含用於插值預測之標準誤差的圖層。
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>選擇如何計算分類間隔值。
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>指定將包含在結果圖層中的類別數量 (預測值的範圍)。 每個類別定義一個多邊形的邊界，並表示預測值的輪廓。 類別斷點值由分類類型決定。
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>提供將使用的類別斷點值。
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>選擇將用於定義研究區域的多邊形圖層。 會將結果裁剪為僅顯示在研究區域內。
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>選擇點圖層，該圖層代表將用於預測值的位置。 如果提供，將建立包含指定位置預測值的點圖層。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

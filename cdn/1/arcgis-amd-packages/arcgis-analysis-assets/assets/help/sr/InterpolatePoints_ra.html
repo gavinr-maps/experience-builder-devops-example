@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Interpolate Points predviđa vrednosti na novim lokacijama na osnovu merenja tačaka. Alat kreira izlaz rastera.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Tačkasti sloj sadrži tačke u kojima su izmerene vrednosti.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Numeričko polje koje sadrži vrednosti koje će biti interpolirane.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Određuje da li će brzina ili tačnost biti optimizovana. Izračunavanje preciznijih predikcija traje duže.
+            </p>
+            <p>Ovaj parametar menja podrazumevane vrednosti nekoliko drugih parametara.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>Veličina ćelije i jedinica za izlazne rastere.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Određuje da li će podaci biti transformisani ili ne. Interpolacija je najtačnija za podatke koji prate normalnu (zvonastu) distribuciju.
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>Veličina lokalnih interpolacionih modela koji će biti kombinovani da bi se kreirala konačna mapa predviđanja.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Broj suseda koji će se koristiti. Veći broja suseda će generalno proizvesti tačnije rezultate, ali će izračunavanje rezultata potrajati duže.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv interpoliranog rasterskog sloja koji će biti kreiran i dodat na mapu.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Odaberite da li želite da kreirate opcionalni raster standardnih gre&scaron;aka za predviđene vrednosti.
+            </p>
+            <p>Ako je označeno, izlazni raster standardne gre&scaron;ke će imati isto ime kao  <b>naziv izlaznog rastera</b>, ali sa rečju Gre&scaron;ke. Sloj će biti kreiran i dodat na mapu.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tip izlaza koji će biti kreiran. Izlazi mogu biti slojevi sa popločanim slikama ili slojevi dinamičkih slika.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultati biti sačuvani.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Optimaalinen reitti viivana -ty&ouml;kalu laskee reitin m&auml;&auml;r&auml;np&auml;ist&auml; optimaaliseen l&auml;hteeseen viivana.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Karttataso, joka m&auml;&auml;ritt&auml;&auml; m&auml;&auml;r&auml;np&auml;&auml;t, joista et&auml;isyys lasketaan edullisimpaan l&auml;hteeseen.
+            </p>
+            <p>Jos l&auml;ht&ouml;aineisto on rasteri, sen on koostuttava soluista, joilla on kelvolliset kokonaislukuarvot (nolla on kelvollinen arvo) m&auml;&auml;r&auml;np&auml;iss&auml;, ja muiden solujen arvoksi on m&auml;&auml;ritett&auml;v&auml; NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Kentt&auml;, jota k&auml;ytet&auml;&auml;n noutamaan arvot m&auml;&auml;r&auml;np&auml;&auml;sijainteihin.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>Rasteri, joka m&auml;&auml;ritt&auml;&auml; optimaalisen reitin m&auml;&auml;r&auml;np&auml;ist&auml; l&auml;hteisiin.
+            </p>
+            <p>Et&auml;isyyskertym&auml;rasteri luodaan yleens&auml; Et&auml;isyyskertym&auml;- tai Et&auml;isyyden kohdennus -ty&ouml;kalulla.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>Rasteri, joka sis&auml;lt&auml;&auml; lasketut suunnat asteina.
+            </p>
+            <p>Paluusuunnan rasteri luodaan yleens&auml; Et&auml;isyyskertym&auml;- tai Et&auml;isyyden kohdennus -ty&ouml;kalulla.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, miten l&auml;ht&ouml;aineiston m&auml;&auml;r&auml;np&auml;&auml;aineiston arvoja ja vy&ouml;hykkeit&auml; tulkitaan optimaalisissa kustannusreittilaskelmissa.
+            </p>
+        </div>
+    </div>
+    <div id="createNetworkPaths">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, lasketaanko valmiit ja mahdollisesti p&auml;&auml;llekk&auml;iset reitit m&auml;&auml;r&auml;np&auml;ist&auml; l&auml;hteisiin tai luodaanko verkkoreittej&auml;, jotka eiv&auml;t ole p&auml;&auml;llekk&auml;in.
+            </p>
+        </div>
+    </div>
+    <div id="outputPolylineName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n optimaalisen reitin nimi viivakarttatasona.
+            </p>
+            <p>Karttataso luodaan ja lis&auml;t&auml;&auml;n karttaan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

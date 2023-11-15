@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Tạo Bất thường Đa chiều t&iacute;nh to&aacute;n bất thường cho mỗi l&aacute;t cắt trong một lớp h&igrave;nh ảnh đa chiều hiện c&oacute; để tạo ra một lớp h&igrave;nh ảnh đa chiều mới.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Lớp h&igrave;nh ảnh đa chiều sẽ được ph&acirc;n t&iacute;ch.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Biến số của lớp h&igrave;nh ảnh đa chiều sẽ được sử dụng để định vị c&aacute;c bất thường.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>Phương ph&aacute;p sẽ được sử dụng để t&iacute;nh to&aacute;n c&aacute;c bất thường trong lớp h&igrave;nh ảnh.
+            </p>
+        </div>
+    </div>
+    <div id="calculationInterval">
+        <div>
+            <p>Khoảng thời gian sẽ được sử dụng để t&iacute;nh gi&aacute; trị trung b&igrave;nh.
+            </p>
+        </div>
+    </div>
+    <div id="referenceMeanRaster">
+        <div>
+            <p>Lớp h&igrave;nh ảnh tham chiếu chứa gi&aacute; trị trung b&igrave;nh được t&iacute;nh cho mỗi pixel.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Chỉ định c&oacute; bỏ qua NoData hoặc c&aacute;c gi&aacute; trị bị thiếu trong ph&acirc;n t&iacute;ch hay kh&ocirc;ng
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

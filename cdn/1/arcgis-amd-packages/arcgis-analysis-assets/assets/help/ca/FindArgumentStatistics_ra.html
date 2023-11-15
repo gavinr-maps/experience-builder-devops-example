@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Cerca estad&iacute;stiques d'argument extreu el valor de la dimensi&oacute; o l'&iacute;ndex de banda en qu&egrave; s'obt&eacute; una estad&iacute;stica determinada de cada p&iacute;xel en una capa d'imatges multidimensional
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Capa d'imatges multidimensional que s'avaluar&agrave;.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensi&oacute; de la capa d'imatges multidimensional a partir de la qual s'avaluar&agrave; la variable.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variable de la capa d'imatges multidimensional que s'avaluar&agrave; al llarg de l'interval definit.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Tipus d'estad&iacute;stica que s'extraur&agrave; de la variable o les variables amb la dimensi&oacute; proporcionada.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Valor m&iacute;nim que s'utilitzar&agrave; per a la durada de l'argument.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Valor m&agrave;xim que s'utilitzar&agrave; per a la durada de l'argument.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Valor que indica que una estad&iacute;stica d'argument determinada s'ha assolit m&eacute;s d'una vegada. El valor per defecte &eacute;s la primera vegada que s'assoleix l'estad&iacute;stica de l'argument.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Especifica si el valor de la dimensi&oacute; es retornar&agrave; la primera o l'&uacute;ltima vegada que s'arribi a l'argument. El valor per defecte &eacute;s la primera ocurr&egrave;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>S'extraur&agrave; el valor de dimensi&oacute; en qu&egrave; s'arriba al valor especificat de la variable.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Especifica el tipus de comparaci&oacute; que s'utilitzar&agrave; per extreure el valor de dimensi&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Especifica com l'estad&iacute;stica s'extraur&agrave; de la dimensi&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Unitat de temps per a la qual s'extraur&agrave; cada estad&iacute;stica.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indica si els valors NoData s'ignoraran a l'extracci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Tipus de sortida que es crear&agrave;. La sortida pot ser una capa d'imatges en mosaic o una capa d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

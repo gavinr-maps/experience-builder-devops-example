@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&Ccedil;ok Boyutlu Temel Bileşenler aracı, mekansal ve zamansal modellerin kolayca tanımlanabilmesi i&ccedil;in &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanlarını, verilerin varyansını a&ccedil;ıklayan daha az sayıda bileşene d&ouml;n&uuml;şt&uuml;r&uuml;r.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Analiz edilecek &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanı.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Temel bileşen analizini ger&ccedil;ekleştirmek i&ccedil;in kullanılacak y&ouml;ntem. Se&ccedil;enekler arasında  <b>Boyut azaltma</b> ve <b>Mekansal azaltma</b> bulunur.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Değişkenin analiz edilmesinde kullanılacak &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanının boyutu.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Aşağıdaki mod se&ccedil;eneklerine bağlı olarak bulunan temel bileşenleri g&ouml;steren &ccedil;ıktı g&ouml;r&uuml;nt&uuml; katmanının veya tablo katmanının adı:
+                <ul>
+                    <li>Boyut azaltma &ccedil;ıktısı &ccedil;ok bantlı bir g&ouml;r&uuml;nt&uuml; katmanı olacaktır.
+                    </li>
+                    <li>Mekansal azaltma &ccedil;ıktısı bir tablo katmanı olacaktır.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Aşağıdaki mod se&ccedil;eneklerine bağlı olarak temel bileşenler se&ccedil;imindeki destekleyici verileri g&ouml;steren &ccedil;ıktı g&ouml;r&uuml;nt&uuml; katmanının veya tablo katmanının adı:
+                <ul>
+                    <li>Boyut azaltma &ccedil;ıktısı bir tablo katmanı olacaktır.
+                    </li>
+                    <li>Mekansal azaltma &ccedil;ıktısı bir g&ouml;r&uuml;nt&uuml; katmanı olacaktır.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Her bir bileşenin varyans y&uuml;zdesini g&ouml;steren &Ouml;z değerler tablosunun adı.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Hesaplamada kullanılan girdi &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanı değişkeninin adı.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Hesaplanacak temel bileşenlerin sayısı, genellikle girdi rasterlarının sayısından daha azdır.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Oluşturulacak &ccedil;ıktının t&uuml;r&uuml;. &Ccedil;ıktılar D&ouml;şemeli g&ouml;r&uuml;nt&uuml; katmanları veya Dinamik g&ouml;r&uuml;nt&uuml; katmanları olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonu&ccedil;ların kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Generer tesselleringer oppretter et rutenett med polygoner basert p&aring; angitt utstrekning, form og st&oslash;rrelse.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>Formen p&aring; tesseleringene som opprettes.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Angir om st&oslash;rrelsen p&aring; tesseleringen defineres av arealet (<b>Areal</b>) eller av avstandsverdien (<b>Avstand</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>St&oslash;rrelsen (areal eller avstand) p&aring; de genererte tesseleringene. For firkanter, heksagoner, trekanter og romber bestemmer avstanden h&oslash;yden p&aring; tesseleringene. For tverrstilte heksagoner bestemmer avstanden bredden p&aring; tesseleringene.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Tesseleringenes H3-oppl&oslash;sning. Oppl&oslash;sningen g&aring;r fra 0 til 15. Med hver &oslash;kning i oppl&oslash;sningsst&oslash;rrelse minsker polygonarealet til en sjuendedel av st&oslash;rrelsen ed laveste oppl&oslash;sning.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Spesifiserer enhetene som skal brukes til tesseleringsst&oslash;rrelsen.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Utstrekningen som tesseleringene dekker.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>For geoobjektlag angir dette om tesseleringene vil dekke hele utstrekningen eller bare dekke omr&aring;dene der tesseleringene krysser geoobjekter.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; laget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

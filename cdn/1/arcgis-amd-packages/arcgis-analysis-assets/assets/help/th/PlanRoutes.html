@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือวางแผนเส้นทางจะสร้างเส้นทางการเดินทางที่มีจุดหยุดพักหลายจุดสำหรับกลุ่มยานพาหนะ
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>ฟีเจอร์จุดที่จะระบุตำแหน่งเริ่มต้นเส้นทางของยานพาหนะ
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>ฟีเจอร์จุดที่ยานพาหนะต้องแวะผ่านระหว่างเส้นทาง จุดเหล่านี้กลายเป็นจุดที่ได้ หรือไม่ได้รับกำหนดในการส่งออก
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>ระบุว่ายานพาหนะจะต้องกลับไปที่ตำแหน่งเริ่มต้น (เปิดใช้งาน) หรือสิ้นสุด ณ ตำแหน่งที่กำหนด (ปิดใช้งาน)
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>ฟีเจอร์จุดที่จะระบุตำแหน่งสิ้นสุดเส้นทางของยานพาหนะ หากชั้นข้อมูลมีเพียงจุดเดียว ยานพาหนะทั้งหมดจะถูกกำหนดเส้นทางไปยังจุดสิ้นสุดที่ใช้ร่วมกัน หากชั้นข้อมูลมีหลายจุด ยานพาหนะแต่ละคันจะถูกกำหนดเส้นทางไปยังตำแหน่งสิ้นสุดที่ไม่ซ้ำกัน
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>ฟิลด์ในชั้นข้อมูลเริ่มต้นที่จะระบุแต่ละเส้นทาง ยานพาหนะ หรือคนขับแบบไม่ซ้ำกัน หากยานพาหนะเริ่มต้นที่หลายตำแหน่ง และสิ้นสุดที่หลายตำแหน่ง ID เส้นทางที่เลือกสำหรับจุดเริ่มต้นและจุดสิ้นสุดจะต้องตรงกัน
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>ฟิลด์ในชั้นข้อมูลสิ้นสุดที่จะระบุแต่ละเส้นทาง ยานพาหนะ หรือคนขับแบบไม่ซ้ำกัน หากยานพาหนะเริ่มต้นที่หลายตำแหน่ง และสิ้นสุดที่หลายตำแหน่ง ID เส้นทางที่เลือกสำหรับจุดเริ่มต้นและจุดสิ้นสุดจะต้องตรงกัน
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>มีอย่างน้อยหนึ่งฟีเจอร์จุดที่ทำหน้าที่เป็นข้อจำกัดชั่วคราว (อุปสรรค) ขณะเดินทางบนถนนพื้นฐาน จะสามารถเดินทางบนถนนนั้นได้ตามปกติ แต่จะไม่สามารถผ่านอุปสรรคไปได้
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>มีอย่างน้อยฟีเจอร์เส้นที่ทำหน้าที่เป็นข้อจำกัดชั่วคราว (อุปสรรค) ขณะเดินทางบนถนนพื้นฐาน อุปสรรคเส้น จะห้ามการเดินทางไปยังที่ใดก็ตามที่อุปสรรคตัดกับถนน
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>มีอย่างน้อยหนึ่งฟีเจอร์โพลีกอนทำหน้าที่เป็นข้อจำกัดชั่วคราว (อุปสรรค) ขณะเดินทางบนถนนพื้นฐาน อุปสรรคโพลีกอน จะห้ามการเดินทางไปยังที่ใดก็ตามที่โพลีกอนตัดกับถนน
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>วิธีการเดินทางที่จะสร้างเส้นทาง โหมดการเดินทางสามารถอิงตามระยะทางหรือเวลา
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>วันที่และเวลาออกเดินทางสำหรับยานพาหนะ
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>จำนวนยานพาหนะสูงสุดที่สามารถแวะไปที่จุดหยุดพักได้ หาก  <b>ชั้นข้อมูลเริ่มต้น</b> และ <b>ชั้นข้อมูลสิ้นสุด</b> แต่ละรายการมีหนึ่งฟีเจอร์ คุณจะสามารถระบุยานพาหนะได้สูงสุด 100 คัน หากชั้นข้อมูลใดก็ตามมีมากกว่าหนึ่งฟีเจอร์ จะไม่สามารถแก้ไขค่าเริ่มต้นได้ </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>จำนวนสูงสุดของจุดหยุดพักที่ยานพาหนะแต่ละคันสามารถแวะได้บนเส้นทางหนึ่ง คุณสามารถระบุค่าได้ตั้งแต่ 1 ถึง  200 </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>ระบุเวลาซ่อมบำรุงเฉลี่ยที่คาดไว้ ณ แต่ละจุดหยุดพัก
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>ระบุว่าจะใช้เวลาสูงสุดในการเดินทางบนเส้นทางกับยานพาหนะหรือไม่ เวลาเดินทางบนเส้นทาง จะรวมเวลาเดินทางที่คาดไว้ และเวลาซ่อมบำรุงที่ใช้ไป ณ จุดหยุดพักตลอดเส้นทาง
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>กำนนดระยะเวลาที่มากที่สุดที่เส้นทางจะใช้ตั้งแต่เริ่มต้นจนสิ้นสุด
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>ระบุว่าแต่ละเส้นทางผลลัพธ์ จะถูกบันทึกเป็นชั้นข้อมูลเส้นทางหรือไม่
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

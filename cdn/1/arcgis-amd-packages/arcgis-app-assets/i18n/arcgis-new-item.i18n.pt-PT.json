@@ -1,0 +1,2007 @@
+{
+  "newItem": "Novo item",
+  "addLayer": "Adicionar Camada",
+  "createFeatureLayer": "Criar uma camada de elementos",
+  "createTileLayer": "Criar uma camada de mosaicos",
+  "createSceneLayer": "Criar uma camada de cena",
+  "createRasterFunctionTemplate": "Criar um novo modelo de função raster",
+  "addDataStore": "Adicionar uma ligação a um armazenamento de dados",
+  "next": "Seguinte",
+  "publish": "Publicar",
+  "save": "Guardar",
+  "cancel": "Cancelar",
+  "back": "Retroceder",
+  "error": "Erro",
+  "update": "Atualizar",
+  "moreInfo": "Mais informações",
+  "loadingData": "A carregar...",
+  "creatingLayer": "A criar camada...",
+  "common": {
+    "add": "Adicionar",
+    "url": "URL",
+    "addToMap": "Adicionar ao mapa",
+    "createAndAddToMap": "Criar e adicionar ao mapa",
+    "register": "Registar",
+    "supportServices": "Os serviços suportados são ${typeList}",
+    "supportLayerTypes": "Os tipos de camadas suportadas são ${typeList}",
+    "supportFileTypes": "Os tipos de ficheiros suportados são ${typeList}",
+    "learnMore": "Saiba mais",
+    "updateAndComplete": "Atualizar e concluir",
+    "proceed": "Continuar",
+    "createConnection": "Criar ligação",
+    "addAndComplete": "Adicionar e concluir",
+    "signInAndOverwrite": "Iniciar sessão e substituir",
+    "overwriteAndComplete": "Substituir e concluir"
+  },
+  "application": {
+    "web": "Mapeamento web",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "otherApplication": "Outra aplicação",
+    "applicationType": "Tipo de aplicação",
+    "application": "Aplicação",
+    "manifestUrl": "URL de Manifesto",
+    "appExtension": "Extensão de Aplicação (AppBuilder)",
+    "experienceBuilderWidget": "Widget do Experience Builder",
+    "appExtensionError": "O URL não referencia uma Extensão do App Builder.",
+    "enterManifestUrl": "Introduza o URL do manifesto da sua extensão",
+    "File": "Ficheiro",
+    "selectZip": "Selecione um ficheiro .zip",
+    "fileRequired": "Ficheiro necessário para aplicações de desktop",
+    "enterUrl": "Introduza o URL da sua aplicação",
+    "enterValidUrl": "Introduza um URL válido para a sua aplicação",
+    "URL": "URL"
+  },
+  "auth": {
+    "username": "Nome de Utilizador",
+    "enterUsername": "Introduzir nome de utilizador",
+    "password": "Palavra-passe",
+    "enterPassword": "Introduzir a palavra-passe",
+    "invalid": "O nome de utilizador ou a palavra-passe não são válidos.",
+    "requiresCredentials": "Deve ser facultado nome de utilizador e palavra-passe."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Selecionar camadas a adicionar",
+    "noLayersFound": "Não foram encontradas camadas que correspondam aos seus critérios. Tente alterar o seu termo de pesquisa para serem exibidas mais camadas.",
+    "of": "de",
+    "layers": "camadas",
+    "usePro": "Este conjunto de dados possui mais de 1000 camadas. Introduza um termo de pesquisa para encontrar uma camada específica.",
+    "errorTitle": "Sem camada(s) selecionada(s)",
+    "noLayersSelected": "Selecione uma ou mais camadas para continuar",
+    "selectAll": "Selecionar tudo",
+    "deselectAll": "Retirar toda a seleção"
+  },
+  "csvFields": {
+    "searchFields": "Procurar campo",
+    "fieldType": "Tipo de campo",
+    "fieldTitle": "Campos",
+    "fieldDescription": "Selecione os campos que serão incluídos na camada de elementos alojada. Opcionalmente, atualize o nome de exibição e o tipo de campo.",
+    "fieldNoHostedDescription": "Opcionalmente, atualize os nomes de exibição e os tipos de campos a serem utilizados na camada.",
+    "fieldName": "Nome do campo",
+    "displayName": "Nome a exibir",
+    "displayNameLabel": "Nome a apresentar: ${name}",
+    "type": "Tipo",
+    "typeLabel": "Tipo: ${name}",
+    "allTypes": "Todos os tipos",
+    "noFields": "Não foram encontrados campos que correspondam aos seus critérios. Experimente alterar o seu termo de pesquisa ou expandir as suas opções de filtro.",
+    "selected": "selecionadas",
+    "clearSelection": "Limpar seleção",
+    "fieldTypes": {
+      "esriFieldTypeString": "Texto",
+      "esriFieldTypeInteger": "Inteiro",
+      "esriFieldTypeSmallInteger": "Inteiro Curto",
+      "esriFieldTypeSingle": "Único",
+      "esriFieldTypeDouble": "Duplo",
+      "esriFieldTypeDate": "Data",
+      "esriFieldTypeDateOnly": "Apenas Data",
+      "esriFieldTypeTimeOnly": "Apenas Hora",
+      "esriFieldTypeBigInteger": "Inteiro Grande",
+      "esriFieldTypeTimestampOffset": "Offset de Data/Hora"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "A analisar...",
+    "locationSettings": "Definições de localização",
+    "locationSettingsDescription": "Especifique o tipo de informação de localização que o ficheiro contém.",
+    "advancedSettings": "Definições de localização avançadas",
+    "locator": "Localizador",
+    "region": "Região",
+    "enrich": "Enriquecer camada com informações de endereço",
+    "enrichLayer": "Enriquecer campos de saída do localizador de camada",
+    "enrichLayerDescription": "Acrescente campos que forneçam informações sobre o processo de geocodificação, como o grau de correspondência entre as informações de localização no seu ficheiro e o localizador.",
+    "enrichLayerLink": "Saiba mais sobre estes campos anexados.",
+    "consumesCredits": "Consome créditos",
+    "locationFields": "Campos de localização",
+    "locationFieldSingle": "As informações de localização estão num campo.",
+    "locationFieldMultiple": "As informações de localização estão em vários campos.",
+    "locationFieldsDescription": "Especifique os campos que contêm informações de localização.",
+    "locationTypes": {
+      "address": {
+        "title": "Endereços ou nomes de locais",
+        "description": "Os dados de localização são endereços, nomes de locais, códigos postais e países. Pode consumir créditos.",
+        "descriptionDeveloper": "Os dados de localização são endereços, nomes de locais, códigos postais e países."
+      },
+      "coordinates": {
+        "title": "Latitude e longitude",
+        "description": "Os dados de localização são latitude e longitude."
+      },
+      "mgrs": {
+        "title": "Coordenadas MGRS",
+        "description": "Os dados de localização estão no Sistema de Referência da Rede Militar."
+      },
+      "usng": {
+        "title": "Coordenadas USNG",
+        "description": "Os dados de localização estão no United States National Grid."
+      },
+      "none": {
+        "title": "Nenhum",
+        "description": "Este ${type} não contém dados de localização e será adicionado como uma tabela"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Sem campos",
+        "description": "Localize endereços, mas não inclua campos adicionais."
+      },
+      "Minimal": {
+        "title": "Alguns campos",
+        "description": "Acrescente quatro campos que mostrem quão bem os endereços são correspondidos."
+      },
+      "AllFields": {
+        "title": "Todos os campos",
+        "description": "Acrescente 50 campos para obter informações completas sobre a localização."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Nenhum campo de localização selecionado",
+        "description": "Selecione o campo que contém os dados de localização."
+      },
+      "coordinate": {
+        "title": "Selecionar campos de coordenadas",
+        "description": "Selecione o campo a utilizar para a latitude e longitude."
+      },
+      "insufficientCredits": {
+        "title": "Créditos insuficientes",
+        "description": "Não tem créditos suficientes para executar esta ação. Contacte o seu administrador para obter créditos adicionais."
+      },
+      "noLocationTypeForAppend": {
+        "title": "As tabelas têm de conter informações de localização",
+        "description": "Não é possível adicionar elementos a uma camada que não contenha informações de localização."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Créditos da organização insuficientes: a ação pode não ser concluída",
+      "description": "A sua organização pode não ter créditos suficientes para concluir esta ação. Se o fluxo de trabalho não for concluído, contacte o seu administrador para obter créditos adicionais."
+    },
+    "recordCount": "Registos estimados a geocodificar: ${num}",
+    "locationType": "Tipo de localização",
+    "field": "Campo",
+    "unknown": "Tipo de localização não utilizado",
+    "longitude": "Longitude",
+    "latitude": "Latitude",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Mundo",
+      "EU": "Europa",
+      "AD": "Andorra",
+      "AE": "Emirados Árabes Unidos",
+      "AF": "Afeganistão",
+      "AG": "Antígua e Barbuda",
+      "AI": "Anguila",
+      "AL": "Albânia",
+      "AM": "Arménia",
+      "AO": "Angola",
+      "AQ": "Antártica",
+      "AR": "Argentina",
+      "AS": "Samoa Americana",
+      "AT": "Áustria",
+      "AU": "Austrália",
+      "AW": "Aruba",
+      "AZ": "Azerbeijão",
+      "BA": "Bósnia e Herzegovina",
+      "BB": "Barbados",
+      "BD": "Bangladesh",
+      "BE": "Bélgica",
+      "BF": "Burquina Faso",
+      "BG": "Bulgária",
+      "BH": "Bahrein",
+      "BI": "Burundi",
+      "BJ": "Benim",
+      "BL": "São Bartolomeu",
+      "BM": "Bermudas",
+      "BN": "Brunei",
+      "BO": "Bolívia, Estado Plurinacional da",
+      "BQ": "Bonaire, Santo Eustáquio e Saba",
+      "BR": "Brasil",
+      "BS": "Bahamas",
+      "BT": "Butão",
+      "BV": "Ilha Bouvet",
+      "BW": "Botswana",
+      "BY": "Bielorrússia",
+      "BZ": "Belize",
+      "CA": "Canadá",
+      "CD": "Congo, Republica Democrática do",
+      "CF": "República Centro-Africana",
+      "CG": "Congo",
+      "CH": "Suíça",
+      "CI": "Costa do Marfim",
+      "CK": "Ilhas Cook",
+      "CL": "Chile",
+      "CM": "Camarões",
+      "CN": "China",
+      "CO": "Colômbia",
+      "CR": "Costa Rica",
+      "CU": "Cuba",
+      "CV": "Cabo Verde",
+      "CW": "Coração",
+      "CY": "Chipre",
+      "CZ": "República Checa",
+      "DE": "Alemanha",
+      "DJ": "DJibouti",
+      "DK": "Dinamarca",
+      "DM": "Dominica",
+      "DO": "República Dominicana",
+      "DZ": "Argélia",
+      "EC": "Equador",
+      "EE": "Estónia",
+      "EG": "Egito",
+      "EH": "Saara Ocidental",
+      "ER": "Eritreia",
+      "ES": "Espanha",
+      "ET": "Etiópia",
+      "FI": "Finlândia",
+      "FJ": "Fiji",
+      "FK": "Ilhas Falkland (Maldivas)",
+      "FM": "Micronésia, Estados Federados",
+      "FO": "Ilhas Faroé",
+      "FR": "França",
+      "GA": "Gabão",
+      "GB": "Reino Unido",
+      "GD": "Granada",
+      "GE": "Geórgia",
+      "GF": "Guiana Francesa",
+      "GG": "Guernesey",
+      "GH": "Gana",
+      "GI": "Gibraltar",
+      "GL": "Gronelândia",
+      "GM": "Gâmbia",
+      "GN": "Guiné",
+      "GP": "Guadalupe",
+      "GQ": "Guiné Equatorial",
+      "GR": "Grécia",
+      "GS": "Geórgia do Sul e Ilhas Sandwich do Sul",
+      "GT": "Guatemala",
+      "GW": "Guiné-Bissau",
+      "GY": "Guiana",
+      "HK": "Hong Kong",
+      "HM": "Ilha Heard e Ilhas McDonald",
+      "HN": "Honduras",
+      "HR": "Croácia",
+      "HT": "Haiti",
+      "HU": "Hungria",
+      "ID": "Indonésia",
+      "IE": "Irlanda",
+      "IL": "Israel",
+      "IM": "Ilha de Man",
+      "IN": "Índia",
+      "IO": "Território Britânico do Oceano Índico",
+      "IQ": "Iraque",
+      "IR": "Irão, Republica Islâmica do",
+      "IS": "Islândia",
+      "IT": "Itália",
+      "JE": "Jersey",
+      "JM": "Jamaica",
+      "JO": "Jordânia",
+      "JP": "Japão",
+      "KE": "Quénia",
+      "KG": "Quirguistãp",
+      "KH": "Cambodja",
+      "KI": "Kiribati",
+      "KM": "Comoros",
+      "KN": "São Cristóvão e Neves",
+      "KP": "Coreia, Republica Popular Democrática do",
+      "KR": "Coreia, República da",
+      "KW": "Kuwait",
+      "KY": "Ilhas Caimão",
+      "KZ": "Cazaquistão",
+      "LA": "República Democrática do Laos",
+      "LB": "Líbano",
+      "LC": "Santa Lúcia",
+      "LI": "Liechtenstein",
+      "LK": "Sri Lanka",
+      "LR": "Libéria",
+      "LS": "Lesotho",
+      "LT": "Lituânia",
+      "LU": "Luxemburgo",
+      "LV": "Letónia",
+      "LY": "Líbia",
+      "MA": "Marrocos",
+      "MC": "Mónaco",
+      "MD": "Moldávia, República da",
+      "ME": "Montenegro",
+      "MF": "São Martinho (parte francesa)",
+      "MG": "Madagáscar",
+      "MH": "Ilhas Marshall",
+      "MK": "Macedónia, Antiga República Jugoslava da",
+      "ML": "Mali",
+      "MM": "Myanmar",
+      "MN": "Mongólia",
+      "MO": "Macau",
+      "MP": "Ilhas Marianas do Norte",
+      "MQ": "Martinica",
+      "MR": "Mauritânia",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Ilhas Maurícias",
+      "MV": "Maldivas",
+      "MW": "Malawi",
+      "MX": "México",
+      "MY": "Malásia",
+      "MZ": "Moçambique",
+      "NA": "Namíbia",
+      "NC": "Nova Caledónia",
+      "NE": "Níger",
+      "NG": "Nigéria",
+      "NI": "Nicarágua",
+      "NL": "Países Baixos",
+      "NO": "Noruega",
+      "NP": "Nepal",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "Nova Zelândia",
+      "OM": "Omã",
+      "PA": "Panamá",
+      "PE": "Peru",
+      "PF": "Polinésia Francesa",
+      "PG": "Papua Nova Guiné",
+      "PH": "Filipinas",
+      "PK": "Paquistão",
+      "PL": "Polónia",
+      "PM": "São Pedro e Miquelon",
+      "PN": "Pitcairn",
+      "PS": "Palestina, Estado da",
+      "PT": "Portugal",
+      "PW": "Palau",
+      "PY": "Paraguai",
+      "QA": "Qatar",
+      "RE": "Reunião",
+      "RO": "Roménia",
+      "RS": "Sérvia",
+      "RU": "Federação Russa",
+      "RW": "Ruanda",
+      "SA": "Arábia Saudita",
+      "SB": "Ilhas Salomão",
+      "SC": "Ilhas Seychelles",
+      "SD": "Sudão",
+      "SE": "Suécia",
+      "SG": "Singapura",
+      "SH": "Santa Helena, Ascensão e Tristão da Cunha",
+      "SI": "Eslovénia",
+      "SJ": "Svalbard e Jan Mayen",
+      "SK": "Eslováquia",
+      "SL": "Serra Leoa",
+      "SM": "São Marino",
+      "SN": "Senegal",
+      "SO": "Somália",
+      "SR": "Suriname",
+      "SS": "Sudão do Sul",
+      "ST": "São Tomé e Príncipe",
+      "SV": "El Salvador",
+      "SX": "São Martinho (parte holandesa)",
+      "SY": "República Árabe da Síria",
+      "SZ": "Suazilândia",
+      "TC": "Ilhas Turcas e Caicos",
+      "TD": "Chade",
+      "TF": "Territórios Franceses do Sul",
+      "TG": "Togo",
+      "TH": "Tailândia",
+      "TJ": "Tajiquistão",
+      "TK": "Tokelau",
+      "TL": "Timor-Leste",
+      "TM": "Turquemenistão",
+      "TN": "Tunísia",
+      "TO": "Tonga",
+      "TR": "Turquia",
+      "TT": "Trinidad e Tobago",
+      "TV": "Tuvalu",
+      "TW": "Taiwan, Província da China",
+      "TZ": "Tanzânia, República Unida da",
+      "UA": "Ucrânia",
+      "UG": "Uganda",
+      "UM": "Ilhas Menores Distantes dos Estados Unidos",
+      "US": "Estados Unidos",
+      "UY": "Uruguai",
+      "UZ": "Uzbequistão",
+      "VA": "Santa Sé (Estado da Cidade do Vaticano)",
+      "VC": "São Vicente e Granadinas",
+      "VE": "Venezuela, República Bolivariana da",
+      "VG": "Ilhas Virgens Inglesas",
+      "VN": "Vietname",
+      "VU": "Vanuatu",
+      "WF": "Wallis e Futuna",
+      "WS": "Samoa",
+      "XK": "República do Kosovo",
+      "YE": "Iémen",
+      "YT": "Mayotte",
+      "ZA": "África do Sul",
+      "ZM": "Zâmbia",
+      "ZW": "Zimbabwe"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Booleano",
+    "string": "Texto",
+    "double": "Duplo",
+    "number": "Número",
+    "date": "Data"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Camadas de pontos",
+      "line": "Camada de linhas",
+      "polygon": "Camada de polígonos",
+      "table": "Tabela",
+      "multipoint": "Camada de multipontos",
+      "multipatch": "Camada de multipatch"
+    },
+    "placeholders": {
+      "point": "Nome da camadas de pontos",
+      "line": "Nome da camada de linhas",
+      "polygon": "Nome da camada de polígonos",
+      "table": "Nome da tabela",
+      "multipoint": "Nome da camada de multipontos"
+    },
+    "creationType": {
+      "template": "Modelo",
+      "existing": "Serviço de elementos existente",
+      "link": "URL",
+      "build": "Criar do zero",
+      "generic": "Inclua as camadas ou tabelas necessárias que gostaria de incluir na sua camada de elementos."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Nenhuma camada selecionada",
+      "description": "Selecione uma camada de elementos para continuar."
+    },
+    "invalidUrl": {
+      "title": "Camada inválida",
+      "description": "Esta camada faz referência a um tipo de serviço que não é suportado."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Especifique o nome e o tipo",
+    "layerPreferences": "Opções",
+    "captureGPS": "Adicionar campos de metadados de GPS",
+    "captureGPSDescription": "Adicione campos a camadas que suportem a captura de informações do recetor de GPS.",
+    "enableZDefaults": "Ativar valores Z",
+    "enableZDefaultsDescription": "Permite modelar elementos de ponto, polilinha e polígono em 3D.",
+    "enableZDefaultsDefaultValue": "Valor Z predefinido:",
+    "enableMDefaults": "Ativar valores M",
+    "enableMDefaultsDescription": "Permite armazenar uma medida ou um valor em cada vértice de uma geometria.",
+    "layer": "Camada",
+    "table": "Tabela",
+    "add": "Adicionar",
+    "error": {
+      "emptyName": {
+        "title": "Nome de camada em falta",
+        "description": "Não pode ter nomes de camada em branco"
+      },
+      "duplicateTitle": {
+        "title": "Os nomes das camadas têm de ser únicos.",
+        "description": "Não podem existir camadas com o mesmo nome"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Nenhum modelo selecionado",
+    "errorDescription": "Selecione um template para continuar."
+  },
+  "featureLayerFromUrl": {
+    "description": "Especifique um URL para um serviço de elementos",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "URL vazio",
+        "description": "Introduza um URL válido"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "URL não suportado",
+        "description": "Por favor, especifique um URL para uma camada de elementos. A camada deve incluir FeatureServer no URL."
+      },
+      "serviceNotExist": {
+        "title": "O serviço não existe",
+        "description": "O serviço não existe ou está inacessível."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Detalhes da camada",
+    "deselectAnyLayers": "Desselecione todas as camadas que pretende remover.",
+    "deselectAll": "Desselecionar tudo",
+    "selectAll": "Selecionar tudo",
+    "error": {
+      "noLayer": {
+        "title": "Nenhuma camada escolhida",
+        "description": "Selecione pelo menos 1 camada"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Selecione uma opção para criar uma camada de elementos vazia",
+    "subheading": "TODO: introduzir a descrição aqui.",
+    "options": {
+      "build": {
+        "title": "Defina a sua própria camada",
+        "description": "Especifique as camadas e tabelas."
+      },
+      "template": {
+        "title": "Usar um modelo",
+        "description": "Utilize as camadas e os campos de um modelo."
+      },
+      "existing": {
+        "title": "Selecionar uma camada de elemento existente",
+        "description": "Utilize as camadas e os campos de uma camada de elementos existente na sua organização."
+      },
+      "link": {
+        "title": "Fornecer um URL de camada do ArcGIS Server",
+        "description": "Utilize a camada e os campos de uma camada de elementos do ArcGIS Server."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Tipos de Credenciais",
+    "redirectUrlsTitle": "URLs de Redirecionamento",
+    "redirectUrlsDescription": "Adicione URLs permitidos a uma página web ou um ponto final de servidor para que os utilizadores sejam redirecionados após a autenticação ser concluída.",
+    "refererrUrlsTitle": "Referenciadores",
+    "refererrUrlsDescription": "Permita o acesso a partir de domínios HTTP/HTTPS específicos. O valor do cabeçalho referenciador HTTP a fazer corresponder. Pode utilizar * como um caráter universal. Por ex.: http://*.your-app.com. Consulte Segurança e autenticação para obter mais detalhes.",
+    "oauth2Hint": "O OAuth 2.0 pode ser utilizado para autenticar utilizadores ArcGIS para aceder a conteúdos e serviços baseados em localização em nome do utilizador autenticado. Saiba mais no ${apiLinkStart}guia de segurança e autenticação.${endLink}",
+    "oauth2HintNoLink": "O OAuth 2.0 pode ser utilizado para autenticar utilizadores ArcGIS para aceder a conteúdos e serviços baseados em localização em nome do utilizador autenticado.",
+    "applicationEnvTitle": "Ambiente da aplicação",
+    "applicationEnvDescription": "O ambiente de aplicação irá afetar quando o item aparecer nos resultados de pesquisa filtrados.",
+    "registering": "A registar a aplicação...",
+    "applicationEnvOptions": {
+      "multiple": "Múltiplas",
+      "browser": "Navegador",
+      "native": "Nativa",
+      "server": "Servidor"
+    },
+    "options": {
+      "apiKey": {
+        "title": "Chave de API",
+        "description": "Utilize chaves de API para aceder a serviços de localização e conteúdos premium ArcGIS nas suas aplicações."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "As definições da aplicação OAuth 2.0 são utilizadas para autenticar utilizadores ArcGIS, trabalhar com conteúdo de utilizador e aceder a serviços de localização em nome de utilizadores autenticados."
+      }
+    },
+    "onboard": {
+      "title": "Tipos de Credenciais",
+      "apiKey": {
+        "title": "Chaves de API",
+        "description": "Utilize chaves de API para aceder a serviços de localização e conteúdos premium nas suas aplicações. Veja o guia de APIs de mapeamento e serviços de localização para saber mais sobre a utilização de chaves de API para aceder a serviços."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "O OAuth 2.0 pode ser utilizado para autenticar utilizadores ArcGIS para aceder a conteúdos e serviços baseados em localização em nome do utilizador autenticado. Saiba mais no guia de segurança e autenticação."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "Os URLs de Redirecionamento não podem estar vazios",
+        "description": "Adicione pelo menos um URL de redirecionamento."
+      },
+      "referrerEmpty": {
+        "title": "Os URLs de Referenciador não podem estar vazios",
+        "description": "Adicione pelo menos um URL de referenciador."
+      },
+      "registerError": {
+        "title": "Erro ao registar a aplicação",
+        "description": "Não foi possível criar a aplicação registada para o item."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Um ou mais caracteres inválidos no URL de redirecionamento",
+        "description": "Os seguintes caracteres não podem ser utilizados: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Um ou mais caracteres inválidos no URL de redirecionamento",
+        "description": "Os carateres especiais não são permitidos."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Serviços de localização",
+    "description": "Defina âmbitos para conceder acesso a serviços específicos de localização ArcGIS. Saiba mais em Segurança e autenticação.",
+    "requiredService": "Serviço obrigatório",
+    "availableServices": "Serviços disponíveis",
+    "services": {
+      "basemap": {
+        "heading": "Mapas Base"
+      },
+      "geocodingStored": {
+        "heading": "Geocodificação (armazenada)",
+        "description": "Aceda ao serviço de geocodificação para realizar geocodificações de reencaminhamento e inversas, incluindo suporte para sugestões e pesquisa de locais. Pode armazenar os resultados."
+      },
+      "geocodingNotStored": {
+        "heading": "Geocodificação (não armazenada)",
+        "description": "Aceda ao serviço de geocodificação para realizar geocodificações de reencaminhamento e inversas, incluindo suporte para sugestões e pesquisa de locais. Não pode armazenar os resultados."
+      },
+      "optimizedRouting": {
+        "heading": "Rotas otimizadas",
+        "description": "Aceda ao serviço de Rotas para encontrar a melhor sequência para visitar as localizações."
+      },
+      "closestFacility": {
+        "heading": "Instalação mais próxima",
+        "description": "Aceda ao serviço Instalação Mais Próxima para encontrar uma ou mais instalações que estejam mais próximas de um incidente, com base no tempo ou distância de viagem."
+      },
+      "locationAllocation": {
+        "heading": "Atribuição de localização",
+        "description": "Aceda ao serviço de Atribuição de Localização para escolher que instalações de um conjunto de instalações para operar com base na respetiva potencial interação com os pontos de procura."
+      },
+      "multiVehicleRouting": {
+        "heading": "Rotas de vários veículos",
+        "description": "Aceda ao serviço de Problemas de Rotas de Veículos para determinar que paragens devem ser servidas por cada rota e em que sequência as paragens devem ser visitadas."
+      },
+      "costMatrix": {
+        "heading": "Matriz de custos de origem/destino",
+        "description": "Aceda ao serviço Matrix OD para criar uma matriz de custos de origem/destino (OD) a partir de múltiplas origens para múltiplos destinos."
+      },
+      "geoEnrichment": {
+        "heading": "Geoenriquecimento",
+        "description": "Aceda ao serviço de GeoEnriquecimento para obter atributos, relatórios e infografias baseadas em dados que descrevem características demográficas, empresariais e outras características baseadas em localização para áreas de estudo e localizações."
+      },
+      "routing": {
+        "heading": "Cálculo de Rotas",
+        "description": "Aceda ao serviço de Cálculo de Rotas para encontrar a melhor forma de ir de uma localização para outra ou de visitar várias localizações."
+      },
+      "serviceArea": {
+        "heading": "Área de serviço",
+        "description": "Aceda ao serviço de Área de Serviço para gerar uma área que representa a distância que pode ser alcançada quando se viaja numa rede de ruas."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Selecione uma opção para criar um localizador",
+    "options": {
+      "locator": {
+        "title": "Criar um localizador a partir de um serviço de geocodificação",
+        "description": "Especifique o URL para um serviço de geocodificação existente do ArcGIS Server."
+      },
+      "locator-view": {
+        "title": "Criar uma vista de localizador a partir do ArcGIS World Geocoding Service",
+        "description": "Configure a sua vista para corresponder a tipos específicos de localizações em países ou áreas específicas."
+      }
+    },
+    "url": {
+      "heading": "URL",
+      "description": "Especifique um URL para um serviço de geocodificação"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Que tipo de camada de mosaicos pretende criar?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Camada de mosaicos vetoriais",
+        "description": "Visualização rápida de mapas com uma coleção de mosaicos vetoriais pré-desenhados que se adaptam à resolução do dispositivo de visualização e podem ser redesenhados para múltiplas utilizações."
+      },
+      "raster": {
+        "title": "Camada de mosaicos raster",
+        "description": "Visualização rápida de mapas com um conjunto de imagens de mapas ou mosaicos pré-desenhados."
+      },
+      "3dTiles": {
+        "title": "Camada de mosaicos 3D",
+        "description": "Visualização 3D rápida através de um conjunto de dados de mosaicos 3D em malha."
+      }
+    },
+    "sourceHeading": "Selecione um método para criar uma camada de mosaicos",
+    "sourceOptions": {
+      "existing": {
+        "title": "Procurar uma camada de elementos existente",
+        "description": "Selecione uma camada de elementos alojada no seu conteúdo como fonte de dados para a camada de mosaicos de desenho rápido ."
+      },
+      "upload": {
+        "title": "Carregar um pacote de mosaicos",
+        "titleRaster": "Carregar um pacote de mosaicos ou definição de serviço",
+        "description": "Carregue um pacote a partir do seu dispositivo local.",
+        "rasterDescription": "Carregue um pacote ou definição de serviço a partir do seu dispositivo local."
+      },
+      "store": {
+        "title": "Selecione um conjunto de dados em arquivo de dados",
+        "description": "Procure o conteúdo de mosaico localizado num arquivo de dados registado."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Título",
+    "titlePlaceholder": "Título da camada de mosaicos",
+    "attribution": "Atribuição",
+    "subdomain": "Subdomínio",
+    "subDomainPlaceholder": "Por exemplo: a, b, c ou mosaico1, mosaico2, mosaico3",
+    "setTileExtent": "Definir a extensão de mosaico para a extensão atual do mapa",
+    "setTileExtentTooltip": "O URL também pode conter um espaço reservado para os subdomínios onde os blocos do mapa estão armazenados.",
+    "error": {
+      "title": "Especifique um título",
+      "attribution": "Especifique uma atribuição"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Não foi possível criar a camada de mosaicos",
+        "description": "Já existe uma camada de mosaicos para a camada de elemento selecionada. Selecione uma diferente."
+      },
+      "badRenderer": {
+        "title": "Não foi possível criar a camada de mosaicos",
+        "description": "A camada de elemento selecionada tem um estilo de desenho que não pode ser desenhado como mosaico. Selecione uma diferente."
+      },
+      "noLayerSelected": {
+        "title": "Nenhuma camada selecionada",
+        "description": "Selecione uma camada de elementos para continuar."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Selecione uma opção para criar uma camada de cena",
+    "options": {
+      "store": {
+        "title": "Selecione um conjunto de dados em arquivo de dados",
+        "description": "Procurar conteúdo de cenas num ficheiro ou num arquivo de dados na cloud registado no ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Carregar um pacote de cenas",
+        "description": "Carregue um pacote a partir do dispositivo local."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Selecione um pacote a partir do dispositivo local"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Que tipo de camada de mosaicos pretende criar?",
+    "options": {
+      "vectorTiles": {
+        "title": "Camada de mosaicos vetoriais",
+        "description": "Visualização rápida de mapas com uma coleção de mosaicos vetoriais pré-desenhados que se adaptam à resolução do respetivo dispositivo de visualização e podem ser redesenhados para múltiplas utilizações."
+      },
+      "tiles": {
+        "title": "Camada de mosaicos raster",
+        "description": "Visualização rápida de mapas com um conjunto de imagens de mapas ou mosaicos pré-desenhados."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Reveja e aplique opções à camada de mosaicos.",
+    "visibilityRange": "Intervalo de visibilidade",
+    "visibilityRangeDescription": "Este intervalo terá impacto na forma como visualiza os seus mosaicos num mapa. Isto pode ser atualizado.",
+    "basemapOption": "Esquema de mosaico",
+    "autoCreateOption": {
+      "title": "Criar mosaicos automaticamente",
+      "description": "Os mosaicos serão criados mediante pedido conforme necessário e armazenados para utilização posterior."
+    },
+    "onlineBasemapOption": {
+      "title": "Mapas base do ArcGIS Online",
+      "description": "Utilize o esquema de mosaico de mapas base do ArcGIS Online. Permite que a sua camada seja exibida com os mapas base do ArcGIS Online."
+    },
+    "customBasemap": {
+      "title": "Personalizar",
+      "description": "Utilize o mesmo esquema de mosaico que uma camada de mosaico existente ou camada de imagem de mapa. Permite que a sua camada seja exibida com a camada selecionada."
+    },
+    "customBasemapUrl": "Ligar à camada de mosaico existente",
+    "ranges": {
+      "world": "Mundo (1:100 000 000)",
+      "continent": "Continente (1:50 000 000)",
+      "countries": "Países – Grandes (1:25 000 000)",
+      "countriesSmall": "Países – Pequenos (1:12 000 000)",
+      "states": "Estados/Províncias (1:6 000 000)",
+      "state": "Estado/Província: (1:3 000 000)",
+      "counties": "Municípios (1:1 500 000)",
+      "county": "Município (1:750 000)",
+      "metropolitan": "Área Metropolitana (1:320 000)",
+      "cities": "Cidades (1:160 000)",
+      "city": "Cidades (1:80 000)",
+      "town": "Vila (1:40 000)",
+      "neighborhood": "Bairro (1:20 000)",
+      "streets": "Ruas (1:10 000)",
+      "street": "Rua (1:5000)",
+      "buildings": "Edifícios (1:2500)",
+      "building": "Edifício (1:1250)",
+      "small": "Edifício Pequeno (1:800)",
+      "rooms": "Divisões (1:400)",
+      "room": "Divisão (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Erro na camada de mosaicos",
+      "mapServiceError": "Não foi possível concluir o pedido de recuperação do esquema de mosaicos. Certifique-se de que a camada de mosaicos ArcGIS está ativa e responde aos pedidos.",
+      "noTilingSchemeFound": "A camada de mosaicos ArcGIS não tem um esquema de mosaicos definido.",
+      "noMatchSpatialRef": "A referência espacial do esquema de mosaicos tem de corresponder à referência espacial da camada de elementos.",
+      "noFileSelected": "Tem de fornecer um ficheiro de esquema de mosaicos."
+    }
+  },
+  "dataStore": {
+    "header": "Selecione um conjunto de dados",
+    "fileName": "Nome de ficheiro",
+    "fileType": "Tipo de ficheiro",
+    "paginationRange": "${start} - ${end} de ${total}",
+    "processing": "A listar conteúdos...",
+    "emptyFolder": "Esta pasta encontra-se vazia.",
+    "error": {
+      "noDatasetErrorHeading": "Nenhum conjunto de dados selecionado",
+      "noDatasetErrorDescription": "Selecione um conjunto de dados para continuar",
+      "listing": {
+        "heading": "Não foi possível listar o conteúdo do arquivo de dados",
+        "description": "Ocorreu um erro ao listar o conteúdo do arquivo de dados."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Selecione o tipo de armazenamento de dados a ser adicionado.",
+    "description": "Utilize frameworks ágeis para fornecer uma sinopse sólida",
+    "subOptionsHeading": "Adicionar uma ligação a um armazenamento de dados",
+    "subOptionsCloudDescription": "Selecione o tipo de localização de armazenamento na cloud a adicionar",
+    "subOptionsDatabaseDescription": "Selecione o tipo de base de dados a adicionar",
+    "databaseDescriptionForOnline": "Ligar a um armazém de dados na cloud",
+    "options": {
+      "folder": {
+        "title": "Pasta",
+        "description": "Ligar a uma partilha de ficheiros ou pasta do sistema de ficheiros"
+      },
+      "database": {
+        "title": "Base de dados",
+        "description": "Ligar a uma base de dados relacional ou armazém de dados na cloud",
+        "descriptionNoSql": "Ligar a uma base de dados relacional, a uma base de dados NoSQL ou a um armazém de dados na cloud"
+      },
+      "cloud": {
+        "title": "Armazenamento na Cloud",
+        "description": "Ligar a uma localização de armazenamento na cloud"
+      },
+      "bdfs": {
+        "title": "Partilha de Ficheiros Big Data",
+        "description": "Ligar a uma localização disponível no seu site GeoAnalytics Server"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Uma ligação para uma base de dados NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Especifique as informações de ligação ou localização para permitir o acesso aos dados pelos sites do ArcGIS Server.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MyFileServer\\GlobalData",
+      "heading": "Caminho da pasta de publicador",
+      "hostname": "Nome de anfitrião da pasta de publicador",
+      "hostnameInfo": "Esta ação é necessária quando o caminho da pasta de publicador é uma localização de letra de unidade"
+    },
+    "serverFolderPath": {
+      "heading": "Caminho da pasta do servidor",
+      "sameAsPublisher": "Igual ao caminho da pasta de publicador",
+      "newPath": "Novo caminho",
+      "nfsHostAndPath": {
+        "description": "Caminho e Anfitrião NFS",
+        "hostname": "Nome de Anfitrião NFS:",
+        "sharePath": "Caminho de Partilha NFS:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData ou /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "O caminho da pasta de publicador está em falta",
+        "description": "Tem de fornecer um caminho da pasta de publicador para o seu armazenamento de dados."
+      },
+      "invalidPublisherHostName": {
+        "heading": "O nome de anfitrião de publicador está em falta",
+        "description": "Tem de fornecer um nome de anfitrião de publicador para o seu armazenamento de dados."
+      },
+      "invalidServerFolderPath": {
+        "heading": "O caminho da pasta de servidor de publicador está em falta",
+        "description": "Tem de fornecer um caminho da pasta de servidor para o seu armazenamento de dados."
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "O nome de anfitrião NFS e o caminho de partilha NFS estão em falta",
+        "description": "Tem de fornecer um nome de anfitrião NFS e um caminho de partilha NFS para o seu armazenamento de dados."
+      },
+      "invalidNfsHostName": {
+        "heading": "O nome de anfitrião NFS está em falta",
+        "description": "Tem de fornecer um nome de anfitrião NFS para o seu armazenamento de dados."
+      },
+      "invalidNfsPath": {
+        "heading": "O caminho de partilha NFS está em falta",
+        "description": "Tem de fornecer um caminho de partilha NFS para o seu armazenamento de dados."
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Selecione o tipo de base de dados.",
+    "options": {
+      "relational": {
+        "title": "Base de dados relacional",
+        "description": "Ligar a uma base de dados relacional"
+      },
+      "cloudDataWarehouse": {
+        "title": "Armazém de dados de cloud",
+        "description": "Ligar a um armazém de dados na cloud"
+      },
+      "nosql": {
+        "title": "Base de dados NoSQL",
+        "description": "Ligar a uma base de dados NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Especifique as informações de ligação ou localização para permitir o acesso aos dados pelos sites do ArcGIS Server.",
+    "publisherDatabaseConnection": "Ligação da base de dados do publicador",
+    "serverDatabaseConnection": "Ligação da base de dados do servidor",
+    "sameAsPublisher": "Igual à ligação da base de dados do publicador",
+    "newConnection": "Nova ligação",
+    "sdeFile": "(ficheiro .sde)",
+    "dragAndDropOrSelectFile": "Arraste e solte ou selecione o seu ficheiro .sde",
+    "selectFile": "Selecionar Ficheiro",
+    "chooseDifferentFile": "Escolha um ficheiro diferente",
+    "importingConnectionFile": "A importar ficheiro de ligação...",
+    "fileChosen": "Ficheiro selecionado",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Ligar ao Google BigQuery"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Ligar ao Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Ligar ao Amazon S3"
+      },
+      "azure": {
+        "title": "Armazenamento do Microsoft Azure",
+        "description": "Ligar ao Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "O seu portal não está configurado com um servidor de alojamento, que é exigido para terminar de criar o seu armazenamento de dados. Verifique a configuração do seu servidor de alojamento e tente novamente.",
+      "invalidPublisherConnectionFile": {
+        "heading": "O ficheiro de ligação de publicador está em falta",
+        "description": "Tem de fornecer um ficheiro de ligação de publicador para o seu armazenamento de dados."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "O ficheiro de ligação de servidor está em falta",
+        "description": "Tem de fornecer um ficheiro de ligação de servidor para o seu armazenamento de dados."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Servidor",
+    "authenticationType": "Tipo de autenticação",
+    "userAuthentication": "Autenticação de utilizador",
+    "serviceAuthentication": "Autenticação de serviço",
+    "refreshToken": "Atualizar token",
+    "keyFile": "Ficheiro de chave",
+    "projectId": "ID de projeto",
+    "defaultDataset": "Conjunto de dados predefinido",
+    "username": "Nome de Utilizador",
+    "password": "Palavra-passe",
+    "role": "Função",
+    "database": "Base de dados",
+    "schema": "Esquema",
+    "warehouse": "Armazém",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Utilize um ficheiro .json",
+    "notJson": "O único tipo de ficheiro aceite é um ficheiro .json",
+    "dataStoreConnection": "Ligação de armazenamento de dados",
+    "validating": "A validar a ligação...",
+    "selectKeyFile": "Selecionar ficheiro de chave",
+    "errors": {
+      "validationFailedTitle": "A validação falhou",
+      "validationFailedDescription": "A validação de credenciais falhou. Verifique se forneceu as informações corretas e tente novamente.",
+      "incorrectLogin": "As credenciais fornecidas são incorretas ou inválidas.",
+      "noKeyFile": "O ficheiro de chave é um campo obrigatório.",
+      "noProjectId": "O ID de projeto é um campo obrigatório.",
+      "noServer": "O servidor é um campo obrigatório.",
+      "noDatabase": "A base de dados é um campo obrigatório.",
+      "noSchema": "O esquema é um campo obrigatório.",
+      "noWarehouse": "O armazém é um campo obrigatório.",
+      "noRole": "O perfil é um campo obrigatório."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Especifique o tipo de partilha de ficheiros big data que será adicionado ao GeoAnalytics Server.",
+    "locationInfo": "Especifique as informações de localização para permitir que o GeoAnalytics Server aceda aos dados.",
+    "username": "Nome de Utilizador",
+    "useKerberos": "Usar Kerberos",
+    "keytabLocations": "Localizações Keytab",
+    "principalUser": "Utilizador principal",
+    "principalRealm": "Âmbito principal",
+    "cloudSelectType": "Selecione o tipo de armazenamento de dados a ser adicionado.",
+    "cloudSelectProvider": "Selecione um fornecedor de armazenamento em nuvem",
+    "cloudTypes": {
+      "new": "Novo",
+      "existing": "Existente"
+    },
+    "cloudSearch": "Selecionar armazenamento de dados em nuvem existente:",
+    "cloudSearchPlaceholder": "Escreva para pesquisar armazenamentos de dados",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Armazenamento do Microsoft Azure",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2"
+    },
+    "database": {
+      "heading": "Base de dados",
+      "nonDefault": {
+        "description": "Use uma base de dados diferente da predefinida (nome da base de dados predefinida).",
+        "placeholder": "padrão"
+      }
+    },
+    "metastoreUri": {
+      "heading": "URI de Metastore",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Caminho",
+      "filesharePlaceholder": "\\\\MyFileServer\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Partilha de Ficheiros",
+        "description": "Um diretório de conjuntos de dados num disco local ou numa partilha de rede"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Um diretório Hadoop Distributed File System (HDFS) de conjuntos de dados"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Armazém de dados Apache Hive"
+      },
+      "cloud": {
+        "title": "Armazenamento na Cloud",
+        "description": "Ligar a uma localização de armazenamento na cloud"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Nenhum tipo de partilha de ficheiros de big data selecionado",
+        "description": "Selecione um tipo de partilha de ficheiros de big data para continuar."
+      },
+      "noPathSelected": {
+        "heading": "O caminho está em falta",
+        "description": "Tem de fornecer um caminho para o seu armazenamento de dados."
+      },
+      "noMetastoreUri": {
+        "heading": "O URI de Metastore está em falta",
+        "description": "Tem de fornecer pelo menos um URI de meta store."
+      },
+      "noDataStoreSelected": {
+        "heading": "Nenhum armazenamento de dados selecionado",
+        "description": "Selecione um armazenamento de dados para continuar."
+      },
+      "noCloudSelected": {
+        "heading": "Nenhum fornecedor de serviços de cloud selecionado",
+        "description": "Selecione um fornecedor de serviços de cloud para continuar."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Selecione um fornecedor de armazenamento em nuvem",
+    "connectionInfoEnterprise": "Especifique as informações de ligação ou localização para permitir o acesso aos dados pelos sites do ArcGIS Server.",
+    "connectionInfoOnline": "Especificar Informações de ligação",
+    "provider": "Fornecedor de armazenamento na cloud",
+    "authenticationType": "Tipo de autenticação",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Chave Partilhada",
+      "sasToken": "Assinatura de Acesso Partilhado",
+      "anonymous": "Anónimo"
+    },
+    "identityType": "Tipo de identidade",
+    "identityTypes": {
+      "servicePrincipal": "Principal de serviço",
+      "userAssignedIdentity": "Identidade gerida atribuída pelo utilizador"
+    },
+    "token": "Token",
+    "tenantId": "ID de Inquilino",
+    "clientId": "Id de Cliente",
+    "optionalClientId": "ID de Cliente (opcional)",
+    "clientSecret": "Segredo do cliente",
+    "accountName": "Nome da conta",
+    "accountKey": "Chave da conta",
+    "environment": "Ambiente",
+    "storageDomain": "Domínio de armazenamento",
+    "other": "Outro",
+    "endpoint": "Ponto final",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net ou DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Nome do contentor",
+    "credentialType": "Tipo de credencial",
+    "accessKey": "Chave de acesso",
+    "secretKey": "Chave secreta",
+    "sharedKey": "Chave partilhada",
+    "region": "Região",
+    "bucketName": "Nome do bucket",
+    "cloudFolder": "Pasta (Opcional)",
+    "validating": "A validar a ligação...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Armazenamento do Google Cloud",
+      "azure": "Armazenamento do Microsoft Azure",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+      "alibaba": "Armazenamento do Alibaba Cloud"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Nenhum fornecedor de serviços de cloud selecionado",
+        "description": "Selecione um fornecedor de serviços de cloud para continuar."
+      },
+      "onlineValidationFailed": {
+        "heading": "Erro de ligação",
+        "description": "Não foi possível validar a ligação. Verifique se a informação está correta."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Chave de acesso",
+      "privateKey": "Chave Privada",
+      "IAMRole": "Perfil de IAM"
+    },
+    "custom": "Personalizar",
+    "storageURL": "URL privado",
+    "cloudFolderPlaceHolder": "cloud/arcgis",
+    "errorInfo": "${missingField} é obrigatório",
+    "invalidEndpoint": "O ponto final tem de utilizar https",
+    "and": "e"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Selecione um fornecedor de armazenamento NoSQL.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Fornecedor",
+    "errorMessage": "Os seguintes campos têm erros: ${missingFields}",
+    "connectionUri": "URI de ligação",
+    "username": "Nome de Utilizador",
+    "password": "Palavra-passe",
+    "database": "Base de dados",
+    "credentialDescription": "Especifique as informações de ligação de NoSQL para permitir o acesso aos dados pelos sites do ArcGIS Server.",
+    "connectionUriExample": "Exemplo: protocol://hostname:port",
+    "fallBackServers": "Servidores de Contingência (Opcional)",
+    "fallBackServersExample": "Exemplo: hostname1:port1,hostname2:port2",
+    "and": "e",
+    "error": "Erro",
+    "hosts": "Anfitrião(ões)",
+    "useSsl": "Utilizar SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Configurar servidores",
+      "subHeading": "Selecione o site ArcGIS Server para o qual pretende que a camada seja publicada."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Selecione os sites do ArcGIS Server aos quais pretende adicionar o seu armazenamento de dados.",
+      "bdfsHeading": "A sua partilha do ficheiro big data será adicionada ao site do ArcGIS GeoAnalytics Server.",
+      "subHeading": "O site deve ter acesso à ligação ou localização que especificou no passo anterior.",
+      "noServerSelected": {
+        "heading": "Nenhum servidor selecionado",
+        "description": "Selecione, pelo menos, um servidor para continuar."
+      }
+    },
+    "list": {
+      "title": "Servidor",
+      "status": "Estado"
+    },
+    "status": {
+      "success": "Normal",
+      "failure": "Não disponível",
+      "error": "Erro",
+      "validating": "A validar"
+    },
+    "loader": {
+      "validating": "A validar servidores…"
+    },
+    "error": {
+      "noServerSelectedHeading": "Nenhum servidor selecionado",
+      "noServerSelectedDescription": "Selecione um servidor para continuar."
+    },
+    "types": {
+      "hostedSetting": "Servidor de Alojamento",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Análise Raster",
+      "imageHostingSetting": "Alojamento de Imagens",
+      "missionServerSetting": "Mission Server"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Procurar um arquivo de dados",
+    "heading": "Selecione um arquivo de dados",
+    "subHeading": "Procure um ficheiro ou um arquivo de dados na cloud registado no ArcGIS Enterprise.",
+    "cloud": "Cloud",
+    "folder": "Pasta",
+    "processing": "A obter arquivo de dados...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Nenhum arquivo de dados selecionado",
+        "description": "Tem de selecionar pelo menos um arquivo de dados"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Não existem servidores registados para arquivo de dados",
+        "description": "O arquivo de dados selecionado não está registado num site ArcGIS Server. Registe-o num site para continuar."
+      },
+      "noContentInDataStore": {
+        "heading": "Não existem conjuntos de dados válidos no arquivo de dados",
+        "description": "O arquivo de dados selecionado não contém conjuntos de dados válidos para publicação."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Erro",
+    "errorDescription": "Ocorreu um erro ao adicionar este item.",
+    "alreadyExists": {
+      "title": "Ficheiro existente",
+      "description": "Já existe um ficheiro com o nome \"${fileName}\" nesta pasta. Altere a pasta ou mude o nome do ficheiro e tente novamente.",
+      "linkText": "Visualizar item existente"
+    },
+    "arcgisServerUpload": {
+      "title": "Não é possível publicar o item",
+      "description": "Este ficheiro de definição de serviço foi criado para um site do ArcGIS Server e tem de ser carregado no ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Shapefile inválido",
+      "description": "O ficheiro atualizado não contém um shapefile."
+    },
+    "invalidGeodatabase": {
+      "title": "Geodatabase inválida",
+      "description": "O ficheiro atualizado não contém um ficheiro geodatabase."
+    },
+    "serviceNameExists": {
+      "title": "O nome do serviço não está disponível",
+      "description": "Já existe um serviço publicado com este nome na organização. Os nomes de serviços têm de ser únicos em toda a organização. Utilize um nome diferente."
+    },
+    "invalidGeoJSON": {
+      "title": "GeoJSON inválido",
+      "description": "O ficheiro JSON que está a carregar não é um GeoJSON válido ('tipo' em falta)."
+    },
+    "invalidJSON": {
+      "title": "JSON inválido",
+      "description": "O ficheiro JSON que está a carregar não é um JSON válido."
+    },
+    "failDatastorePublish": {
+      "title": "Não é possível publicar a partir de um arquivo de dados",
+      "description": "Falha ao publicar ${type}. Consulte os registos do servidor para obter mais detalhes.",
+      "tileLayer": "camada de mosaicos",
+      "sceneLayer": "camada de cena"
+    },
+    "invalidSpatialRef": {
+      "title": "Referência espacial inválida",
+      "description": "Este serviço contém uma referência espacial incompatível"
+    },
+    "uploading": "A carregar ${type}...",
+    "adding": "A adicionar ${type}...",
+    "addDataStore": "A Adicionar Armazenamento de Dados ${type}...",
+    "creating": "A criar ${type}...",
+    "publishing": "A publicar ${type}...",
+    "checkingStatus": "A verificar estado...",
+    "publishingService": "A publicar serviço...",
+    "appendingPhotos": "A carregar fotos...",
+    "errorPublishing": "Ocorreu um erro ao publicar este serviço.",
+    "howWillAdd": "Como será adicionado ${fileName}?",
+    "howWillAddService": "Como será adicionado o serviço?",
+    "howWillAddDescription": "Este ficheiro será utilizado para criar um item ${type}.",
+    "howWillAddSecuredServiceDescription": "Este serviço será utilizado para criar um proxy de item ArcGIS, que encaminha os pedidos dos utilizadores com um token em anexo.",
+    "howWillAddHostedDescription": "Este ficheiro será utilizado para criar uma camada ou tabela de elementos alojada.",
+    "item": "Item",
+    "folder": "Pasta",
+    "database": "Base de dados",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Ver dicas para adicionar conteúdo",
+    "title": "Dicas para adicionar conteúdo",
+    "addDocumentTitle": "Adicionar documentos, imagens e outros ficheiros",
+    "addDocumentContent": "Arraste e solte um ficheiro PDF, uma imagem, um documento do Office e muito mais.",
+    "publishLayerTitle": "Publicar camadas de shapefiles, CSVs e folhas de cálculo",
+    "publishLayerContent": "Transforme ficheiros no seu dispositivo ou unidades de cloud em camadas que pode adicionar a mapas.",
+    "publishLayerEnterprise": "Transforme ficheiros em camadas que possa adicionar aos seus mapas",
+    "linkLayerTitle": "Ligar a camadas na web",
+    "linkLayerContent": "Crie camadas a partir de URLs que fazem referência ao ArcGIS Server, serviços OGC e KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "pacote de mosaicos",
+      "Vector Tile Package": "pacote de vetor de mosaico",
+      "Service Definition": "definição de serviço",
+      "Scene Package": "pacote de camadas de cenas",
+      "Desktop Application Template": "modelo de aplicação desktop",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefile",
+      "File Geodatabase": "ficheiro geodatabase",
+      "Map Template": "modelo de mapa",
+      "Geoprocessing Sample": "amostra de geoprocessamento",
+      "Code Sample": "exemplo de código",
+      "ArcPad Package": "pacote ArcPad",
+      "CAD Drawing": "desenho CAD",
+      "CSV Collection": "coleção CSV",
+      "KML Collection": "coleção KML",
+      "AppBuilder Widget Package": "pacote de widgets do AppBuilder",
+      "Photos with Locations": "fotos com localizações",
+      "Image Collection": "coleção de imagens",
+      "iWork Pages": "Páginas iWork",
+      "iWork Numbers": "Números iWork",
+      "iWork Keynote": "Palestra iWork",
+      "Deep Learning Package": "pacote de aprendizagem profunda",
+      "GML": "GML",
+      "Application": "aplicação",
+      "Google Sheets": "Google Sheets",
+      "GeoPackage": "GeoPackage",
+      "Tile Layer": "camada de mosaicos",
+      "OGCFeatureServer": "Camada de elementos OGC",
+      "FeatureServer": "serviço de elementos",
+      "3DTiles Package": "Pacote de mosaicos 3D"
+    },
+    "mvText": {
+      "WMTS": "Serviço web OGC WMTS",
+      "WMS": "Serviço web OGC WMS",
+      "WFS": "Serviço web OGC WFS",
+      "AGS": "ArcGIS Server Web service",
+      "OGCFeatureServer": "API OGC - Elementos"
+    },
+    "howToAdd": "Como pretende adicionar este ficheiro?",
+    "nonHostedTitle": "Adicionar apenas ${fileName}",
+    "nonHostedDescription": "Adicionar ${type} sem publicar. O ficheiro pode ser partilhado e transferido por outras pessoas ou publicado posteriormente."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Erro ao analisar o ficheiro",
+      "description": "Ocorreu um erro ao tentar analisar o seu ficheiro. Verifique se o seu ficheiro está formatado corretamente.",
+      "alreadyExists": {
+        "title": "Ficheiro existente",
+        "desciption": "Já existe um ficheiro com o nome \"${fileName}\" nesta pasta. Mude o nome do ficheiro e tente novamente.",
+        "linkText": "Visualizar item existente"
+      },
+      "duplicateFields": {
+        "title": "Nomes de campos duplicados",
+        "description": "Não são permitidos nomes de campos duplicados."
+      },
+      "emptyFile": "O ficheiro carregado não contém dados.",
+      "missingGeocoder": {
+        "title": "Localizador indisponível",
+        "descriptionn": "O localizador padrão não está disponível. Contacte o seu administrador para rever a definição de Geocodificação da sua organização."
+      }
+    },
+    "publishThisSheet": "Publicar esta folha:",
+    "largeGeoJsonTitle": "GeoJSON grande",
+    "largeGeoJsonDescription": "Este GeoJSON contém uma grande quantidade de dados, considere publicá-lo como uma camada de elementos alojada para obter melhores resultados.",
+    "largeGeoJsonConditionDescription": "Se este GeoJSON tiver uma grande quantidade de dados, para obter melhores resultados crie uma camada de elementos alojada em alternativa.",
+    "bigGeoJsonHint": "Para um melhor desempenho, estes dados só podem ser adicionados ao mapa como uma camada de elementos alojada.",
+    "bigGeoJsonHintNoPrivilege": "Estes dados são demasiado grandes para serem adicionados ao mapa. Em alternativa, devem ser publicados como uma camada de elementos alojada.",
+    "bigGeoJsonHintPublicAccount": "Estes dados são demasiado grandes para serem adicionados ao mapa. Em alternativa, devem ser publicados como uma camada de elementos alojada. Atualize para uma subscrição do ArcGIS Online para publicar dados maiores como camadas alojadas.",
+    "uploading": "A carregar ${item}...",
+    "analyze": "A analisar ${fileName}...",
+    "checkingStatus": "A verificar estado...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Adicionar dados e criar uma camada de elementos alojada",
+        "description": "Publique o ficheiro GeoJSON como uma camada de elementos alojada"
+      },
+      "nonHosted": {
+        "title": "Adicionar apenas dados",
+        "description": "Importe o ficheiro GeoJSON sem publicar. O ficheiro pode ser partilhado ou transferido por outras pessoas ou publicado posteriormente."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Tipo de camada"
+    },
+    "hostedTitle": {
+      "CSV": "Adicionar ${fileName} e criar uma tabela ou camada de elementos alojada",
+      "CSVNoTable": "Adicionar ${fileName} e criar uma camada de elementos alojada",
+      "GeoPackage": "Adicionar ${fileName} e criar uma camada de elementos alojada",
+      "GeoJson": "Adicionar ${fileName} e criar uma camada de elementos alojada",
+      "JSON": "Adicionar ${fileName} e criar uma camada de elementos alojada",
+      "Tile Package": "Adicionar ${fileName} e criar uma camada alojada",
+      "Vector Tile Package": "Adicionar ${fileName} e criar uma camada de mosaicos alojada",
+      "Service Definition": "Adicionar ${fileName} e criar uma camada alojada",
+      "Scene Package": "Adicionar ${fileName} e criar uma camada de cenas alojada",
+      "Image Collection": "Adicionar ${fileName} e criar uma camada de imagens alojada",
+      "Desktop Application Template": "Adicionar ${fileName} e criar uma camada de elementos alojada",
+      "Microsoft Excel": "Adicionar ${fileName} e criar uma tabela ou camada de elementos alojada",
+      "Google Sheets": "Adicionar ${fileName} e criar uma tabela ou camada de elementos alojada",
+      "3DTiles Package": "Adicionar ${fileName} e criar uma camada de mosaicos 3D alojada"
+    },
+    "hostedDescription": {
+      "CSV": "Um ficheiro CSV com informações de localização é a fonte de dados para uma camada de elementos alojada que exibe pontos num mapa. Um ficheiro CSV sem informações de localização exibe uma tabela que pode ser visualizada, mapeada e ligada a outras camadas.",
+      "GeoPackage": "Um GeoPackage com informações de localização é a fonte de dados para uma camada de elementos alojada que exibe pontos num mapa. Um GeoPackage sem informações de localização exibe uma tabela que pode ser visualizada, mapeada e ligada a outras camadas.",
+      "GeoJson": "Publique o seu ficheiro GeoJSON como uma camada de elementos alojada. Elementos são publicados no sistema de coordenadas WGS 1984 Web Mercator.",
+      "JSON": "Publique o seu ficheiro JSON como uma camada de elementos alojada. Elementos são publicados no sistema de coordenadas WGS 1984 Web Mercator.",
+      "tile package": "Publique o seu pacote de mosaicos raster como uma camada alojada.",
+      "vector tile package": "Publique o seu pacote de mosaicos vetoriais como uma camada de mosaicos alojada.",
+      "Service Definition": "Publique o seu ficheiro de definição de serviço como uma camada alojada. O tipo de camada publicada depende do conteúdo do seu ficheiro SD.",
+      "Scene Package": "Publique o seu pacote de camada de cena como uma camada de cena alojada.",
+      "Image Collection": "Publique o seu ficheiro ZIP de coleção de imagens como uma camada de imagens alojada.",
+      "Desktop Application Template": "Publique o seu modelo de aplicação desktop (ZIP) como uma camada de elementos alojada. Um modelo de aplicação desktop que contém informações de localização é a fonte de dados para uma camada de elementos alojada que exibe pontos num mapa. Um modelo de aplicação desktop sem informações de localização exibe uma tabela que pode ser visualizada, mapeada e ligada a outras camadas.",
+      "Microsoft Excel": "Publique uma camada de elementos alojada com base na sua folha de cálculo. As folhas de cálculo sem informações de localização exibe uma tabela que pode ser visualizada, mapeada e ligada a outras camadas.",
+      "Google Sheets": "Publique uma camada de elementos alojada com base na sua folha de cálculo. As folhas de cálculo sem informações de localização exibe uma tabela que pode ser visualizada, mapeada e ligada a outras camadas.",
+      "3DTiles Package": "Publique o seu pacote de mosaicos 3D como uma camada de mosaicos 3D alojada."
+    },
+    "addDirectlyTitle": "Carregue o ficheiro como um item e adicione-o ao mapa",
+    "addDirectlyUrlTitle": "Referencie o ficheiro a partir do URL e adicione-o ao mapa",
+    "addDirectlyDescription": "Adicione dados sem criar uma camada de elementos alojada. Ideal para conjuntos de dados mais pequenos, geridos externamente, que não requerem elementos como a edição.",
+    "addDirectlyUrlDescription": "Adicione dados sem criar uma camada de elementos alojada. Ideal para conjuntos de dados mais pequenos que não requerem elementos como a edição. Os dados são carregados sempre que o mapa for aberto.",
+    "hostedMVTitle": "Crie uma camada de elementos alojada e adicione-a ao mapa",
+    "hostedMVDescription": "Utilize todas as capacidades que uma camada de elementos proporciona, incluindo a edição. Faça a gestão completa dos dados no ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "Ficheiro",
+    "itemType": "Tipo de ficheiro",
+    "language": "Idioma",
+    "other": "Outro",
+    "hosted": {
+      "heading": "Adicionar ${fileName} e criar uma camada de elementos alojada",
+      "description": "Adicione o(a) ${type} e publique como uma camada de elementos alojada que pode ser adicionada a um mapa."
+    },
+    "type": "Tipo",
+    "ArcPad": {
+      "project": "Projeto ArcPad",
+      "template": "Modelo ArcPad"
+    },
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Um formato de armazenamento de dados vetoriais para armazenar a localização, a forma e os atributos de elementos geográficos. Um shapefile é armazenado num conjunto de ficheiros relacionados e contém uma classe de elementos."
+    },
+    "File Geodatabase": {
+      "title": "Ficheiro geodatabase",
+      "description": "Uma coleção de ficheiros numa pasta usada para armazenar, consultar e gerir dados espaciais e não espaciais."
+    },
+    "Desktop Application Template": {
+      "title": "Modelo de aplicação desktop",
+      "description": "Ficheiros, dados e código da aplicação a implementar na área de trabalho para utilizar com ArcGIS."
+    },
+    "Map Template": {
+      "title": "Modelo de mapa",
+      "description": "Um modelo de mapa é um documento de mapa (.mxd) a partir do qual novos documentos podem ser criados no ArcMap."
+    },
+    "Geoprocessing Sample": {
+      "title": "Amostra de geoprocessamento",
+      "description": "Uma coleção de caixas de ferramentas, scripts, modelos, dados e ficheiros suplementares usados para executar ferramentas de geoprocessamento no ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Exemplo de código",
+      "description": "Amostra de código partilhável numa variedade de linguagens, por exemplo Java ou C++."
+    },
+    "ArcPad Package": {
+      "title": "Pacote ArcPad",
+      "description": "Ficheiros de pacote ArcPad gerados através do ArcPad Data Manager."
+    },
+    "CAD Drawing": {
+      "title": "desenho CAD",
+      "description": "Ficheiros de design criados por computador gerados pelas plataformas AutoCAD ou MicroStation."
+    },
+    "CSV Collection": {
+      "title": "Coleção CSV",
+      "description": "A coleção CSV é um ficheiro .zip com um ficheiro CSV por camada."
+    },
+    "KML Collection": {
+      "title": "Coleção KML",
+      "description": "A coleção KML é um ficheiro .zip com um ficheiro KML por camada."
+    },
+    "AppBuilder Widget Package": {
+      "title": "Pacote de widgets do AppBuilder",
+      "description": "Widget ou tema personalizado que estende as capacidades do ArcGIS Web AppBuilder"
+    },
+    "Photos with Locations": {
+      "title": "Fotos com localizações",
+      "description": "Ficheiro ZIP que contém fotos com informações de localização (fotos com etiquetas geográficas com informações de localização EXIF)"
+    },
+    "Image Collection": {
+      "title": "Coleção de imagens",
+      "description": "Uma coleção de conjuntos de dados raster que podem ser transferidos."
+    },
+    "iWork Pages": {
+      "title": "Páginas iWork",
+      "description": "Formato de documento da Apple"
+    },
+    "iWork Numbers": {
+      "title": "Números iWork",
+      "description": "Formato de folha de cálculo da Apple"
+    },
+    "iWork Keynote": {
+      "title": "Palestra iWork",
+      "description": "Formato de apresentação da Apple"
+    },
+    "Deep Learning Package": {
+      "title": "Pacote de aprendizagem profunda",
+      "description": "Ficheiros e dados necessários para executar ferramentas de inferência de aprendizagem profunda, usados como a entrada para ferramentas de análise raster de aprendizagem profunda."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geography Markup Language) é o padrão XML do OGC para representar informações de elementos espaciais"
+    },
+    "Application": {
+      "title": "Aplicação",
+      "description": "Uma aplicação para computadores desktop concebida numa plataforma para desktop, como Java ou .NET (Microsoft Windows Desktop)."
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Selecione uma camada a adicionar",
+    "selectTile": "Mosaico de matriz",
+    "featureType": "Tipo de elemento a exibir",
+    "matrixNotSelected": "Selecione uma matriz de mosaico para o serviço.",
+    "selectGeometry": "Escolher um tipo",
+    "selectGeometryError": "Selecione um tipo de elemento a exibir.",
+    "points": "Pontos",
+    "lines": "Linhas",
+    "polygons": "Polígonos",
+    "default": "padrão",
+    "maxFeature": "Limite máximo de elementos",
+    "layers": "camadas",
+    "usePro": "Este conjunto de dados possui mais de 1000 camadas. Introduza um termo de pesquisa para encontrar uma camada específica.",
+    "noLayersFound": "Não foram encontradas camadas que correspondam aos seus critérios. Tente alterar o seu termo de pesquisa para serem exibidas mais camadas."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Aplicação",
+      "description": "Adicione uma referência de URL a uma aplicação existente para partilhar o seu trabalho com membros da sua organização e com o público em geral."
+    },
+    "AGS": {
+      "title": "ArcGIS Server Web service",
+      "description": "Um serviço web do ArcGIS Server representa um recurso SIG, como um mapa ou uma imagem, que está localizado num site ArcGIS Server e é disponibilizado a aplicações de cliente como o Map Viewer."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "Um ficheiro de texto de valores separados por vírgulas."
+    },
+    "Document Link": {
+      "title": "Documento",
+      "description": "Crie uma ligação para um documento online referenciado com um URL."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Um formato padrão aberto de intercâmbio de dados geoespaciais que representa elementos geográficos simples."
+    },
+    "Tile Layer": {
+      "title": "Camada de mosaicos",
+      "description": "Um conjunto de mosaicos de imagens de mapa, em que o URL formatado fornece o nível, a coluna e a linha de espaços reservados e o subdomínio opcional: https://domain.com/<path>/{z}{x}{y}.png e https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "O KML é um formato de ficheiro baseado em XML, que utiliza elementos geográficos em aplicações como o ArcGIS Earth e o Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "Camada de elementos OGC",
+      "description": "Uma camada de elementos OGC é um serviço de elementos que se adequa à especificação da API OGC - Elementos."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "O Web Feature Service (WFS) do OGC é um serviço de elementos dinâmico que segue as especificações do OGC."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "O Web Map Service (WMS) do OGC é um serviço de mapa dinâmico que segue as especificações do OGC."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "O Serviço de Mosaicos de Mapa Web OGC (WMTS) é um conjunto de mosaicos de imagem em cache que seguem as especificações OGC. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Um feed web em direto que inclui elementos geográficos e localizações."
+    },
+    "useAsBaseMap": "Utilizar como Mapa Base",
+    "undetected": "Selecione o tipo de camada",
+    "label": "Tipo",
+    "storeAuth": "Guardar credenciais com item de serviço. Não solicitar autenticação.",
+    "storeAuthMV": "Guardar credenciais com a camada. Não solicitar autenticação.",
+    "learnMore": "Saiba mais sobre autenticação.",
+    "isSecure": "Serviço seguro detetado",
+    "serviceNotExist": "O serviço não existe ou está inacessível.",
+    "getServiceInfo": "A obter informações do serviço...",
+    "unknownAGSType": "Este tipo de serviço não é suportado.",
+    "errorMessage": "Erro ao ligar ao serviço.",
+    "serviceNotGIS": "O URL introduzido não aponta para um serviço SIG.",
+    "unsupportedWFSVersion": "Esta versão de WFS não é suportada.",
+    "unsupportedWFSGeoJSONOutputFormat": "O serviço WFS não suporta o formato de saída GeoJSON.",
+    "invalidWMTS": "Este WMTS não é suportado",
+    "flowAborted": "Erro ao ligar ao serviço. Este serviço está protegido e requer autenticação.",
+    "invalidSpatialRef": "Este serviço contém uma referência espacial incompatível",
+    "emptyFeatureLayer": "O serviço está vazio"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Linha Internacional de Mudança de Data Oeste - International Date Line West",
+      "110": "(UTC-11:00) Tempo Universal Coordenado - Coordinated Universal Time -11",
+      "120": "(UTC-11:00)Samoa",
+      "200": "(UTC-10:00) Havai",
+      "300": "(UTC-09:00) Alasca",
+      "400": "(UTC-08:00) Hora do Pacífico - Pacific Time (EUA e Canadá)",
+      "410": "(UTC-08:00)Baja Califórnia",
+      "500": "(UTC-07:00) Hora das Montanhas - Mountain Time (EUA e Canadá)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) América Central",
+      "620": "(UTC-06:00) Hora Central - Central Time (EUA e Canadá)",
+      "630": "(UTC-06:00) Guadalajara, Cidade do México, Monterrey",
+      "700": "(UTC-05:00) Hora Leste - Eastern Time (EUA e Canadá)",
+      "710": "(UTC-05:00) Bogotá, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (Leste)",
+      "730": "(UTC-04:30) Caracas",
+      "800": "(UTC-04:00) Hora do Atlântico - Atlantic Time (Canadá)",
+      "810": "(UTC-04:00) Cuiaba",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Assunção",
+      "900": "(UTC-03:30) Newfoundland",
+      "910": "(UTC-03:00) Brasília",
+      "920": "(UTC-03:00) Gronelândia",
+      "930": "(UTC-03:00) Montevideu",
+      "940": "(UTC-03:00) Cayenne, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Médio-Atlântico - Mid-Atlantic",
+      "1010": "(UTC-02:00) Tempo Universal Coordenado -02",
+      "1100": "(UTC-01:00) Açores",
+      "1110": "(UTC-01:00) Ilhas de Cabo Verde",
+      "1200": "(UTC) Dublin, Edinburgo, Lisboa, Londres",
+      "1210": "(UTC) Monróvia, Reiquejavique",
+      "1220": "(UTC) Casablanca",
+      "1230": "(UTC) Tempo Universal Coordenado - Coordinated Universal Time",
+      "1300": "(UTC+01:00) Belgrado, Bratislava, Budapeste, Liubliana, Praga",
+      "1310": "(UTC+01:00) Sarajevo, Escópia, Varsóvia, Zagrebe",
+      "1320": "(UTC+01:00) Bruxelas, Copenhaga, Madrid, Paris",
+      "1330": "(UTC+01:00) África Centro-Ocidental - West Central Africa",
+      "1340": "(UTC+01:00) Amesterdão, Berlim, Berna, Roma, Estocolmo, Viena",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) Cairo",
+      "1420": "(UTC+02:00) Helsínquia, Kiev, Riga, Sofia, Tallinn, Vilnius",
+      "1430": "(UTC+02:00) Atenas, Bucareste",
+      "1440": "(UTC+02:00) Jerusalém",
+      "1450": "(UTC+02:00) Amã",
+      "1460": "(UTC+02:00) Beirute",
+      "1470": "(UTC+02:00) Harare, Pretória",
+      "1480": "(UTC+02:00) Damasco",
+      "1490": "(UTC+02:00) Istambul",
+      "1500": "(UTC+03:00) Kuwait, Riade",
+      "1510": "(UTC+03:00) Bagdade",
+      "1520": "(UTC+03:00) Nairóbi",
+      "1530": "(UTC+03:00) Kaliningrado",
+      "1535": "(UTC+03:30) Teerão",
+      "1540": "(UTC+04:00) Moscovo, S. Petersburgo, Volgogrado",
+      "1600": "(UTC+04:00) Abu Dhabi, Mascate",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Erevan",
+      "1640": "(UTC+04:00) Tbilissi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Cabul",
+      "1710": "(UTC+05:00) Tashkent",
+      "1715": "(UTC+05:00) Islamabad, Karachi",
+      "1720": "(UTC+05:30) Chennai, Calcutá, Mumbai, Nova Délhi",
+      "1730": "(UTC+05:30) Sri Jayawardenepura",
+      "1740": "(UTC+05:45) Catmandu",
+      "1755": "(UTC+06:00) Ekaterinburgo",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Daca",
+      "1820": "(UTC+06:30) Yangon (Rangum)",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Banguecoque, Hanói, Jacarta",
+      "1910": "(UTC+08:00) Krasnoyarsk",
+      "2000": "(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapura",
+      "2030": "(UTC+08:00) Taipei",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulaanbaatar",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Seul",
+      "2110": "(UTC+09:00) Osaka, Sapporo, Tóquio",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaide",
+      "2150": "(UTC+10:00) Yakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC+11:00) Ilhas Salomão, Nova Caledónia",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fiji",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Tempo Universal Coordenado - Coordinated Universal Time +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Definir fuso horário",
+    "title": "Fuso horário",
+    "subTitle": "Selecione o fuso horário em que os seus dados estão."
+  },
+  "hybridImageSelect": {
+    "heading": "Que tipo de camada pretende adicionar?",
+    "ImageServer": {
+      "title": "Camada de imagens dinâmica",
+      "description": "Adicione como camada de imagem dinâmica, que suporta processamento e rendering on-demand do lado do servidor."
+    },
+    "TiledImageServer": {
+      "title": "Camada de imagens em mosaico",
+      "description": "Adicione como camada de imagens em mosaico, que suporta projeção e rendering do lado do cliente a partir de mosaicos estáticos."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Criar camadas e muito mais",
+    "developerCredentialsHeading": "Credenciais de programador",
+    "developerCredentialsDescription": "Crie uma chave de API ou credenciais OAuth 2.0 para criar aplicações personalizadas.",
+    "developerCredentialsNoAPIDescription": "Crie credenciais OAuth 2.0 para criar aplicações personalizadas.",
+    "featureLayerHeading": "Camadas de elementos",
+    "featureLayerDescription": "Crie uma camada editável com campos copiados de um modelo ou camada de elemento.",
+    "tileLayerHeading": "Camada de mosaicos",
+    "tileLayerDescription": "Crie uma camada vetorial de desenho rápido ou camada de mosaicos raster.",
+    "sceneLayerHeading": "Camada de cena",
+    "sceneLayerDescription": "Crie uma camada de cena de desenho rápido com conteúdo 3D.",
+    "imageLayerHeading": "Camada de imagens",
+    "imageLayerDescription": "Criar uma camada de imagens que utilize imagens do seu computador",
+    "locatorHeading": "Localizador",
+    "locatorViewHeading": "Localizador (vista)",
+    "locatorDescription": "Encontre locais e endereços com o ArcGIS World Geocoding Service ou o seu próprio serviço de geocodificação.",
+    "locatorOnlyDescription": "Encontre locais e endereços com o seu próprio serviço de geocodificação.",
+    "urbanModelHeading": "Modelo Urbano",
+    "urbanModelDescription": "Crie um modelo para desenvolvimento urbano com ferramentas de planeamento e design interativas.",
+    "urbanModelPermissionError": "Para criar um modelo urbano, tem de possuir privilégios para publicar uma camada de elemento alojada. Contacte o seu Administrador ArcGIS Online para obter assistência.",
+    "applicationHeading": "Aplicação",
+    "applicationDescription": "Associe a uma aplicação na web ou crie uma nova aplicação registada.",
+    "urlHeading": "URL",
+    "urlDescription": "Associe a um serviço web ArcGIS Server, CSV, serviço web OGC, KML, GeoJSON ou um documento.",
+    "urlDescriptionEnterprise": "Associe a um serviço web ArcGIS Server, CSV, serviço web OGC, KML, GeoJSON ou um documento.",
+    "dataStoreHeading": "Armazenamento de dados",
+    "dataStoreConnectionDescription": "Adicione uma ligação a um armazenamento de dados do qual é proprietário.",
+    "dataStoreDescription": "Adicione uma ligação a um armazenamento de dados ao qual faça a gestão",
+    "rasterFunctionTemplateHeading": "Template de função raster",
+    "rasterFunctionTemplateDescription": "Crie um template de função raster que possa ser utilizado com camadas de imagens e em análises raster.",
+    "getSubscriptionInfo": "A obter informações de subscrição..."
+  },
+  "url": {
+    "linkExisting": "Ligar a camadas existentes ou dados na web",
+    "url": "URL",
+    "addUrl": "Adicionar um URL",
+    "httpWarning": "A utilização de URLs HTTP não é suportada. Utilizar HTTPS",
+    "serviceNotExist": "O serviço não existe ou está inacessível.",
+    "invalidUrl": "Introduza um URL válido.",
+    "invalidUrlWithType": "Introduza um URL válido. Os serviços suportados são ${typeList}",
+    "unknownAGSType": "Este tipo de serviço não é suportado.",
+    "errorMessage": "Erro ao ligar ao serviço."
+  },
+  "cloud": {
+    "google": "A ligar ao Google Drive...",
+    "dropbox": "A ligar ao Dropbox...",
+    "onedrive": "A ligar ao OneDrive...",
+    "file": "Ficheiro",
+    "zip": "Ficheiro Zip",
+    "filterFileType": "Filtrar por tipo de ficheiro",
+    "selectAFile": "Selecionar um ficheiro",
+    "noResults": "Sem ficheiros encontrados. Altere a sua pesquisa ou selecione um tipo de item diferente.",
+    "viewMore": "Ver mais",
+    "errorTitle": "Não se encontra selecionado qualquer ficheiro",
+    "errorMessage": "Selecione um ficheiro para continuar.",
+    "loadingFiles": "A carregar ficheiros...",
+    "searchFiles": "Procurar ficheiros",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "Ficheiro Zip",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Sheets"
+    },
+    "error": {
+      "generic": {
+        "title": "Erro",
+        "message": "Ocorreu um erro."
+      },
+      "popup": {
+        "title": "Janela pop-up bloqueada",
+        "message": "Não é possível conectar à sua conta de Cloud Drive. Certifique-se de que o bloqueador de janelas pop-up está desativado para este website."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Parâmetros personalizados",
+    "parameter": "Parâmetro",
+    "value": "Valor",
+    "addParameter": "Adicionar parâmetro",
+    "addValue": "Adicionar valor",
+    "newCustomParameter": "Adicionar parâmetro personalizado",
+    "description": "Adicione parâmetros que precisem de ser acrescentados aos pedidos de acesso a este serviço.",
+    "append": "Acrescentar apenas a pedidos que desenham ou consultam camadas",
+    "remove": "Remover parâmetro personalizado",
+    "helpText": "Se o serviço web que está a referenciar exigir que sejam anexados parâmetros adicionais aos pedidos enviados para o serviço, pode incluí-los como parâmetros personalizados. Os valores e nomes de parâmetros são definidos no serviço e são específicos para esse serviço."
+  },
+  "inputReadonly": {
+    "file": "Ficheiro",
+    "url": "URL",
+    "dataStore": "Ligação de armazenamento de dados"
+  },
+  "layerSearch": {
+    "search": "Pesquisar"
+  },
+  "appendSelect": {
+    "updateLayer": "Atualizar camada",
+    "updateData": "Atualizar dados",
+    "chooseUpdate": "Selecione o tipo de atualização que pretende efetuar",
+    "insertOnlyEnabled": "Este serviço de elementos só suporta a adição de novos elementos",
+    "options": {
+      "add": {
+        "title": "Adicionar elementos",
+        "description": "Adicione novos elementos a uma camada existente."
+      },
+      "update": {
+        "title": "Atualizar elementos",
+        "description": "Atualize os elementos existentes numa camada."
+      },
+      "upsert": {
+        "title": "Adicionar e atualizar elementos",
+        "description": "Adicione novos elementos a uma camada e atualize os elementos existentes ao mesmo tempo."
+      },
+      "overwrite": {
+        "title": "Substituir toda a camada de elementos",
+        "description": "Substitua toda a camada com os dados de origem atualizados."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "A carregar ${fileName}",
+      "updating": "A atualizar...",
+      "overwriting": "A substituir...",
+      "fetchingInfo": "A obter informações...",
+      "publishing": "A publicar...",
+      "appendCloseNotice": "Mantenha a janela do seu navegador aberta para monitorizar o estado da tarefa de anexação. No caso de uma configuração incorreta, pode tentar novamente sem ter de voltar a carregar o ficheiro de origem."
+    },
+    "appendErrorMessages": {
+      "appendError": "Ocorreu um erro ao anexar o item."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Selecionar dados",
+    "editStyle": "Substitua o ficheiro de estilo da camada por uma versão atualizada a partir do seu computador.",
+    "file": "Ficheiro",
+    "updateItem": "Atualizar Item",
+    "overwriteFile": "Substituir ficheiro",
+    "analyzing": "A analisar...",
+    "sameFileNameDescription": "O ficheiro que está a ser carregado tem de ter o mesmo nome e nomes de campos que o ficheiro original ${fileName}",
+    "itemType": "Tipo de ficheiro",
+    "learnMore": "Saiba mais sobre tipos de ficheiro suportados",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Um formato de armazenamento de dados vetoriais para armazenar a localização, a forma e os atributos de elementos geográficos. Um shapefile é armazenado num conjunto de ficheiros relacionados e contém uma classe de elementos."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Uma coleção de ficheiros numa pasta usada para armazenar, consultar e gerir dados espaciais e não espaciais."
+    },
+    "errors": {
+      "providePath": "Tem de fornecer um caminho para o seu item.",
+      "sameFileName": "Para atualizar este item, é necessário carregar um ficheiro com o nome ${x}.",
+      "invalidStyleFileExtension": "Extensão de ficheiro inválida. O estilo carregado tem de ter a extensão de ficheiro .json.",
+      "invalidStyleFile": "Ficheiro de estilo inválido. Os ficheiros de estilo carregados têm de estar corretamente formatados.",
+      "errorWhileUpload": "Ocorreu um erro ao carregar o item.",
+      "errorExceedFileSize": "Falha ao carregar o ficheiro. Excede o tamanho permitido de 1 GB.",
+      "errorUpdate": "Ocorreu um erro ao substituir o item.",
+      "multiPatchErrorDescription": "A camada à qual está a tentar anexar contém geometria multipatch. Experimente novamente com um ficheiro que tenha o mesmo tipo de geometria."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Escolha como pretende atualizar as funcionalidades existentes",
+    "itemPropertiesHeader": "Selecione as propriedades de item que pretende utilizar",
+    "appendOptions": {
+      "attribute": {
+        "title": "Apenas atributos",
+        "description": "Atualize os atributos existentes."
+      },
+      "attributeAndGeometry": {
+        "title": "Geometrias e atributos",
+        "description": "Atualize os atributos e as geometrias existentes."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Propriedades de item carregadas",
+        "description": "Utilize as propriedades de item do ficheiro carregado. A alteração das propriedades do item não irá alterar os dados."
+      },
+      "existing": {
+        "title": "Propriedades de item existentes",
+        "description": "Mantenha as propriedades de item existentes para o pacote de camadas. A utilização das propriedades existentes não irá alterar os dados."
+      }
+    },
+    "noGeometryMatchTitle": "Não foi possível atualizar a geometria",
+    "noGeometryMatchMessage": "A capacidade de atualizar a geometria não está disponível para diferentes tipos de geometria.",
+    "noGeometryTableMessage": "A capacidade de atualizar atributos e geometrias não está disponível para uma tabela."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Selecione os dados atualizados para ${featureLayerName} a partir da folha ${uploadedFile}",
+    "chooseLayer": "Selecione os dados atualizados para ${featureLayerName} a partir da camada ${uploadedFile}",
+    "chooseServiceLayer": "Selecione a camada a atualizar",
+    "paginationHeader": "${start} - ${end} de ${total}",
+    "noResults": "Não foram encontrados itens que correspondam aos seus critérios. Tente alterar o seu termo de pesquisa ou eliminar alguns filtros para serem exibidos mais itens.",
+    "sameGeometryWarningTitle": "As camadas têm de ter o mesmo tipo de geometria",
+    "sameGeometryWarningDescription": "O seu ficheiro contém diferentes tipos de geometrias de camada. Experimente novamente com camadas que tenham o mesmo tipo de geometria.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Não foram encontradas camadas",
+      "noMatchingLayerTypeError": "Não foi encontrada qualquer camada compatível no ficheiro carregado. Verifique o seu ficheiro e tente novamente.",
+      "noSourceLayerSelected": "Para anexar dados, selecione a camada de elementos que pretende atualizar.",
+      "noDataLayerSelected": "Para anexar dados, selecione a camada que contém os dados atualizados."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Substituir ficheiro",
+    "header": "Selecionar dados a substituir",
+    "description": "O ficheiro a ser carregado deve ter o mesmo nome que o ficheiro original ${insert file name}",
+    "proceed": "Continuar",
+    "errors": {
+      "errorWhileUpdate": "Ocorreu um erro ao atualizar o item.",
+      "exceedFileSizeLimit": "Falha ao carregar o ficheiro. Excede o tamanho permitido de 1 GB.",
+      "errorPublishing": "Ocorreu um erro ao publicar este serviço."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Tipo de ficheiro",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Um formato de armazenamento de dados vetoriais para armazenar a localização, a forma e os atributos de elementos geográficos. Um shapefile é armazenado num conjunto de ficheiros relacionados e contém uma classe de elementos."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Uma coleção de ficheiros numa pasta usada para armazenar, consultar e gerir dados espaciais e não espaciais."
+    },
+    "errors": {
+      "errorWhileUpload": "Ocorreu um erro ao carregar o item.",
+      "errorShpFile": "Shapefile inválido.",
+      "errorFgdbFile": "File Geodatabase inválida.",
+      "errorExceedFileSize": "Falha ao carregar o ficheiro. Excede o tamanho permitido de 1 GB."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Selecionar campos de correspondência",
+    "description": "Selecione os campos de ${uploadedFileName} que correspondem aos campos de ${featureLayerName}. Os campos não correspondentes não serão atualizados na camada de elementos alojada.",
+    "nonNullable": "Não são permitidos valores nulos",
+    "originalField": {
+      "header": "Campo original",
+      "moreInfo": "Estes campos encontram-se na camada de elementos ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Campo carregado",
+      "moreInfo": "Estes campos encontram-se no ficheiro carregado ${uploadedFileName} e são filtrados por tipos de campos compatíveis."
+    },
+    "errors": {
+      "noFields": "Não foram encontrados campos.",
+      "noKeyPairs": "Não foram encontrados pares de chaves.",
+      "noMatchedFields": "Para anexar dados, forneça um ou mais campos correspondentes.",
+      "nonNullableErrorTitle": "Não são permitidos valores vazios",
+      "nonNullableErrorTitleSingular": "Um campo não anulável está vazio",
+      "nonNullableErrorDescription": "Os campos que não permitem valores nulos não podem estar vazios. Faça corresponder os campos antes de continuar."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Selecionar identificador único",
+    "selectUniqueIdentifierDescription": "Selecione o campo único da camada original que corresponde ao campo do ficheiro carregado.",
+    "originalField": {
+      "header": "Campo original",
+      "moreInfo": "Estes campos únicos encontram-se na camada de elementos ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Campo carregado",
+      "moreInfo": "Estes campos encontram-se no ficheiro carregado ${uploadedFileName} e são filtrados por tipos de campos compatíveis."
+    },
+    "title": "Identificar par de chaves",
+    "description": "Selecione os campos utilizados para fazer corresponder o identificador único da camada aos dados carregados.",
+    "noKeyPair": "Para atualizar elementos existentes, faça corresponder os campos ao seu identificador único.",
+    "timezoneHeader": "Seleção de fuso horário",
+    "timezoneDescription": "A camada de elementos alojada (${featureLayerName}) contém dados de fuso horário armazenados em ${featureLayerTimezone}. Se o ficheiro carregado (${uploadedFileName}) tiver dados de fuso horário diferentes de UTC, ajuste-o em conformidade."
+  }
+}

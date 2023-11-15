@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Deteksi Objek Menggunakan Deep Learning di layer citra input untuk memproduksi layer fitur berisi objek yang terdeteksi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Layer fitur atau citra yang akan digunakan untuk mendeteksi objek.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Menentukan cara pemrosesan item raster di layer citra setelah diubah menjadi mosaik: bersamaan atau terpisah.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Paket deep learning yang berisi model yang akan digunakan untuk mendeteksi objek.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Argumen model yang mewakili model deep learning bersamaan dengan nilai default-nya.
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Menentukan apakah supresi tidak maksimal akan dilakukan untuk menghapus objek duplikat.
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>Nama kolom yang akan ditambahkan ke layer fitur output untuk menunjukkan nilai kepercayaan yang dilaporkan.
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>Nama kolom yang akan ditambahkan ke layer fitur output untuk menunjukkan label yang telah diklasifikasikan untuk objek tersebut.
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>Rasio maksimum yang diperbolehkan untuk setiap fitur yang ditemukan tumpang tindih dengan fitur lainnya. Nilai default adalah 0.
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

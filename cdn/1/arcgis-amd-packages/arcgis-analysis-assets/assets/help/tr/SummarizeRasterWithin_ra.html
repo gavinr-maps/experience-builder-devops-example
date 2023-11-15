@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>B&ouml;lgesel İstatistik aracı, başka bir veri k&uuml;mesinin b&ouml;lgeleri i&ccedil;indeki bir rasterın değerlerini &ouml;zetler.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>&Ouml;zetlenecek b&ouml;lgelerin ya da alanların sınırlarını tanımlayan girdi.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Her bir b&ouml;lgeyi tanımlayan değerleri i&ccedil;eren alan.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>İstatistikleri hesaplamakta kullanılacak h&uuml;cre değerlerini i&ccedil;eren raster katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Hesaplanacak istatistik t&uuml;r&uuml;n&uuml; belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Hesaplanacak y&uuml;zde değerini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Hesaplanacak girdi rasterından gelen değer sayısı bir &ccedil;ift sayı olduğunda kullanılacak y&ouml;ntemi belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p> <b>Girdi değeri rasterı</b> h&uuml;cre değerlerinin d&ouml;ng&uuml;sel veriler i&ccedil;in nasıl işleneceğini belirtir.
+            </p>
+            <p>İşaretlenmezse, normal aritmetik (lineer) istatistikler hesaplanacaktır. İşaretlenirse, d&ouml;ng&uuml;sel istatistikler hesaplanacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Bir lineer değeri, verili bir d&ouml;ng&uuml;sel istatistik aralığına yuvarlamak i&ccedil;in kullanılacak değeri belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>İ&ccedil;ine girdikleri b&ouml;lgelerin sonu&ccedil;larında  <b>Girdi değeri rasterı</b> alanındaki NoData h&uuml;crelerinin yoksayılıp sayılmayacağını belirtir.
+            </p>
+            <p>İşaretlenirse, değer rasterı i&ccedil;indeki NoData h&uuml;creleri, istatistik hesaplamasında g&ouml;z ardı edilecektir. İşaretlenmezse, NoData h&uuml;creleri yoksayılmayacak ve t&uuml;m b&ouml;lge &ccedil;ıktı rasterında NoData değerini alacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>&Ccedil;ok boyutlu olduklarında girdi rasterlarının nasıl işleneceğini belirtir.
+            </p>
+            <p>İşaretlenmezse, istatistik girdi &ccedil;ok boyutlu veri k&uuml;mesinin t&uuml;m boyutları i&ccedil;in hesaplanacaktır. İşaretlenirse, istatistikler girdi &ccedil;ok boyutlu veri k&uuml;mesinin ge&ccedil;erli diliminden hesaplanacaktır.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek b&ouml;lgesel istatistik raster katmanının adı.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Oluşturulacak &ccedil;ıktının t&uuml;r&uuml;. &Ccedil;ıktı, bir D&ouml;şemeli g&ouml;r&uuml;nt&uuml; katmanı veya bir Dinamik g&ouml;r&uuml;nt&uuml; katmanı olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

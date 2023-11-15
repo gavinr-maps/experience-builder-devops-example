@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Sumarizovať v r&aacute;mci vypoč&iacute;ta &scaron;tatistiky pre prvky v rozsahu zadan&yacute;ch buniek alebo polyg&oacute;nov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Vrstva, ktor&aacute; bude sumarizovan&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Typ ohraničuj&uacute;cich prvkov, v r&aacute;mci ktor&yacute;ch bud&uacute; vstupn&eacute; prvky sumarizovan&eacute;. M&ocirc;že to byť polyg&oacute;nov&aacute; vrstva alebo teselačn&aacute; mriežka &scaron;tvorcov&yacute;ch alebo hexag&oacute;nov&yacute;ch buniek, ktor&eacute; sa vygeneruj&uacute; pri spusten&iacute; n&aacute;stroja.
+            </p>
+        </div>
+    </div>
+    <div id="sumWithinLayer">
+        <div>
+            <p>Polyg&oacute;nov&aacute; vrstva, v r&aacute;mci ktorej sa bud&uacute; sumarizovať vstupn&eacute; prvky.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Veľkosť vygenerovan&yacute;ch buniek. V pr&iacute;pade &scaron;tvorcov&yacute;ch buniek určuje zadan&yacute; počet a jednotky v&yacute;&scaron;ku a dĺžku &scaron;tvorca. Pre &scaron;esťuholn&iacute;kov&eacute; bunky určuje zadan&yacute; počet a jednotky vzdialenosť medzi rovnobežn&yacute;mi stranami.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Jednotky, ktor&eacute; sa použij&uacute; na určenie veľkosti bunky.
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Vypoč&iacute;tať celkov&uacute; veľkosť sumarizovan&yacute;ch prvkov v každom ohraničuj&uacute;com polyg&oacute;ne. Pre l&iacute;nie sa vypoč&iacute;ta celkov&aacute; dĺžka. Pre polyg&oacute;ny sa vypoč&iacute;ta celkov&aacute; plocha.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Jednotky, ktor&eacute; sa použij&uacute; na v&yacute;počet celkovej veľkosti sumarizovan&yacute;ch prvkov.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Č&iacute;seln&eacute; alebo d&aacute;tumov&eacute; polia zo vstupnej vrstvy, ktor&eacute; bud&uacute; sumarizovan&eacute;, a &scaron;tatistiky, ktor&eacute; bud&uacute; vypoč&iacute;tan&eacute; pre každ&eacute; pole.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Pole zo vstupnej vrstvy, ktor&eacute; bude použit&eacute; na rozdelenie d&aacute;t do samostatn&yacute;ch skup&iacute;n pre &scaron;tatistick&eacute; v&yacute;počty.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Vypoč&iacute;tať minoritn&eacute; (najmenej dominantn&eacute;) a majoritn&eacute; (najviac dominantn&eacute;) skupiny v r&aacute;mci každej sumarizačnej oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Vypoč&iacute;tať percentu&aacute;lny podiel sumarizovan&yacute;ch prvkov, ktor&eacute; patria do každej skupiny v r&aacute;mci každej sumarizovanej oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

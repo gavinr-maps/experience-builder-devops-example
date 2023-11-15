@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Genera raster di tendenza stima la tendenza per ogni pixel lungo una dimensione per una o pi&ugrave; variabili in un layer di immagini multidimensionale.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Il layer di immagini multidimensionali che verr&agrave; utilizzato per generare la tendenza.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>La dimensione lungo la quale si estrarr&agrave; una tendenza per la variabile o le variabili selezionate nell'analisi.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>La variabile o le variabili per le quali verranno calcolate le tendenze.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>L'unit&agrave; di tempo che verr&agrave; utilizzata per la durata di un periodo stagionale quando si utilizza il tipo di linea Seasonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Il tipo di analisi di tendenza che verr&agrave; eseguita sui valori dei pixel lungo una dimensione.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>La frequenza o il numero d'ordine polinomiale che verr&agrave; utilizzato per l'adattamento della tendenza.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Specifica se i valori NoData o mancanti verranno ignorati nell'analisi.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>La lunghezza della variazione periodica che verr&agrave; modellata per il ciclo armonico.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>L'unit&agrave; di tempo che verr&agrave; utilizzata per la lunghezza del ciclo armonico.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Specifica se verr&agrave; calcolato l'errore quadratico media radice (RMSE) della linea di adattamento della tendenza.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Specifica se verr&agrave; calcolata la statistica di grado di idoneit&agrave; quadrato a R per la linea di adattamento della tendenza.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Specifica se verr&agrave; calcolata la statistica del valore p per il coefficiente slope della linea di adattamento della tendenza.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Il tipo di output che sar&agrave; creato. L'output pu&ograve; essere un layer immagini di tile o un layer immagini dinamico.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

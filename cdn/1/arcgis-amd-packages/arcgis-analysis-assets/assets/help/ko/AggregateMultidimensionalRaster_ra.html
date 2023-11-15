@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>다차원 래스터 집계 도구는 차원을 따라 기존 다차원 영상 레이어 변수를 결합하여 다차원 영상 레이어를 생성합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>집계될 다차원 영상 레이어입니다.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>변수를 집계할 다차원 영상 레이어의 차원입니다.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>레이어가 차원 값을 포함하는지 나타냅니다.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>정의된 차원을 따라 집계될 다차원 영상 레이어의 변수입니다.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>다차원 영상 레이어의 슬라이스를 집계하는 데 사용될 계산 방법입니다.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>집계 방법이 지정된 후 계산에 사용될 백분위수 값입니다.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>입력 영상 레이어 값이 짝수일 경우 사용될 백분위수 보간 방법입니다.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>집계된 영상 레이어의 픽셀 값을 계산하는 데 사용될 사용자 설정 래스터 함수입니다.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>다차원 데이터를 집계하는 데 사용될 차원 간격입니다.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>각 키워드는 각 통계가 집계되는 시간 단위를 지정합니다. 키워드 목록에는 매시간, 매일, 매주, 매월, 매분기, 매년이 포함됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>차원을 따라 집계할 때 사용될 간격의 크기입니다.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>간격 값의 측정 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>지정된 차원을 따라 집계할 때 사용될 값 테이블입니다. 최소값 및 최대값은 포함될 범위를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>간격 범위의 최소값입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>간격 범위의 최대값입니다.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>NoData 값을 집계에서 무시할지 여부를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>생성될 결과 유형입니다. 결과는 타일 영상 레이어 또는 동적 영상 레이어일 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

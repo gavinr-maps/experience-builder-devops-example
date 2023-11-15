@@ -1,0 +1,443 @@
+{
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "destination": "dimension",
+      "value": "$[Component].inputRaster.processedLayerProperties.dimensions",
+      "property": "choiceList"
+    },
+    {
+      "ruleType": "set",
+      "destination": "variables",
+      "value": "$[Component].inputRaster.processedLayerProperties.variablesDataset",
+      "property": "analysisDataset"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdZ",
+      "destination": "variables",
+      "effectParams": {
+        "analysisDataset": "$[Component].inputRaster.processedLayerProperties.dimensionVariableDatasets.StdZ"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_MEDIAN",
+      "destination": "multipleOccurrenceValue",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_MEDIAN",
+      "destination": "multipleOccurrenceValue",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_MIN",
+      "destination": "multipleOccurrenceValue",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_MAX",
+      "destination": "multipleOccurrenceValue",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_VALUE",
+      "destination": "multipleOccurrenceValue",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_MEDIAN",
+      "destination": "occurrence",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "DURATION",
+      "destination": "occurrence",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_VALUE",
+      "destination": "argumentValue",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].statisticsType",
+      "valueB": "ARGUMENT_VALUE",
+      "destination": "comparison",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "minValue",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      },
+      "valueA": "$[Data].statisticsType",
+      "valueB": "DURATION"
+    },
+    {
+      "ruleType": "equals",
+      "destination": "maxValue",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      },
+      "valueA": "$[Data].statisticsType",
+      "valueB": "DURATION"
+    },
+    {
+      "ruleType": "equals",
+      "destination": "multipleOccurrenceValue",
+      "effectParams": {
+        "visible": false
+      },
+      "valueA": "$[Data].statisticsType",
+      "valueB": "DURATION"
+    },
+    {
+      "ruleType": "equals",
+      "destination": "intervalKeyword",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      },
+      "valueA": "$[Data].dimensionDefinition",
+      "valueB": "INTERVAL_KEYWORD"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].multipleOccurrenceValue NOT null",
+      "destination": "occurrence",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticsType = 'ARGUMENT_MIN') AND ($[Data].multipleOccurrenceValue = null))",
+      "destination": "occurrence",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticsType = 'ARGUMENT_MAX') AND ($[Data].multipleOccurrenceValue = null))",
+      "destination": "occurrence",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].statisticsType = 'ARGUMENT_VALUE') AND ($[Data].multipleOccurrenceValue = null))",
+      "destination": "occurrence",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "intervalKeyword",
+      "effectParams": {
+        "choiceList": ["HOURLY", "DAILY", "WEEKLY", "MONTHLY", "QUARTERLY", "YEARLY"]
+      },
+      "valueA": "$[Data].statisticsType",
+      "valueB": "DURATION"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputRaster.processedLayerProperties.isMultidimensional = false",
+      "destination": ["dimension", "variables", "dimensionDefinition", "intervalKeyword"],
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "destination": "dimension",
+      "expression": "$[Data].dimension = null",
+      "effectParams": {
+        "value": "$[Component].inputRaster.processedLayerProperties.dimensions[0]"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].dimension = 'StdZ'",
+      "destination": "intervalKeyword",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].dimension = 'StdZ'",
+      "destination": "dimensionDefinition",
+      "effectParams": {
+        "choiceList": ["ALL"],
+        "choiceListLabels": {
+          "ALL": "$all"
+        },
+        "defaultValue": "ALL"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputRaster.user.portal NOT undefined) AND ($[Component].inputRaster.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["cellSize", "snapRaster", "resamplingMethod", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayerGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "inputRaster",
+          "label": "$inputMultidimensionalOrMultibandRaster",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["imagery_multidimension", "imagery_multiBand"],
+          "required": true,
+          "hideSketch": true
+        },
+        {
+          "label": "$dimension",
+          "componentName": "analysis-string-input",
+          "name": "dimension",
+          "placeholderText": "$dimensionLabel"
+        },
+        {
+          "name": "variables",
+          "label": "$variables",
+          "placeholderText": "$variableLabel",
+          "componentName": "analysis-field-input",
+          "selectionMode": "multi",
+          "useDefaultValue": true,
+          "showSort": false,
+          "heading": "$selectVariables",
+          "filterPlaceholderText": "$selectVariables"
+        }
+      ]
+    },
+    {
+      "label": "$settingsGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "label": "$statisticsType",
+          "name": "statisticsType",
+          "choiceListLabels": {
+            "ARGUMENT_MIN": "$argumentMin",
+            "ARGUMENT_MAX": "$argumentMax",
+            "ARGUMENT_MEDIAN": "$argumentMedian",
+            "DURATION": "$duration",
+            "ARGUMENT_VALUE": "$argumentValue"
+          }
+        },
+        {
+          "label": "$dimensionDefinition",
+          "name": "dimensionDefinition",
+          "choiceListLabels": {
+            "ALL": "$all",
+            "INTERVAL_KEYWORD": "$intervalKeyword"
+          },
+          "visible": true,
+          "defaultValue": "ALL",
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "intervalKeyword",
+          "label": "$intervalKeyword",
+          "visible": false,
+          "choiceListLabels": {
+            "HOURLY": "$hourly",
+            "DAILY": "$daily",
+            "WEEKLY": "$weekly",
+            "MONTHLY": "$monthly",
+            "QUARTERLY": "$quarterly",
+            "YEARLY": "$yearly",
+            "RECURRING_DAILY": "$recurringDaily",
+            "RECURRING_WEEKLY": "$recurringWeekly",
+            "RECURRING_MONTHLY": "$recurringMonthly",
+            "RECURRING_QUARTERLY": "$recurringQuarterly"
+          },
+          "defaultValue": "HOURLY"
+        },
+        {
+          "name": "minValue",
+          "label": "$minValue",
+          "placeholderText": "$minValuePlaceholder",
+          "componentName": "analysis-number-input",
+          "visible": false
+        },
+        {
+          "name": "maxValue",
+          "visible": false,
+          "label": "$maxValue",
+          "componentName": "analysis-number-input",
+          "placeholderText": "$maxValuePlaceholder"
+        },
+        {
+          "name": "multipleOccurrenceValue",
+          "label": "$multipleOccurrenceValue",
+          "visible": false,
+          "required": false,
+          "placeholderText": "$multipleOccurrenceValueText",
+          "componentName": "analysis-number-input"
+        },
+        {
+          "name": "argumentValue",
+          "label": "$argumentValueLabel",
+          "componentName": "analysis-number-input",
+          "placeholderText": "$argumentValueText",
+          "visible": false
+        },
+        {
+          "name": "comparison",
+          "label": "$comparison",
+          "componentName": "analysis-string-input",
+          "visible": false,
+          "choicleList": ["EQUAL_TO", "GREATER_THAN", "SMALLER_THAN"],
+          "choiceListLabels": {
+            "EQUAL_TO": "$equalTo",
+            "GREATER_THAN": "$greaterThan",
+            "SMALLER_THAN": "$smallerThan"
+          },
+          "defaultValue": "EQUAL_TO"
+        },
+        {
+          "name": "occurrence",
+          "label": "$occurrence",
+          "visble": false,
+          "useDefaultOnReset": true,
+          "componentName": "analysis-string-input",
+          "choiceList": ["FIRST_OCCURRENCE", "LAST_OCCURRENCE"],
+          "choiceListLabels": {
+            "FIRST_OCCURRENCE": "$firstOccurrence",
+            "LAST_OCCURRENCE": "$lastOccurrence"
+          },
+          "defaultValue": "FIRST_OCCURRENCE"
+        },
+        {
+          "name": "ignoreNodata",
+          "label": "$ignoreNodata"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true,
+          "componentName": "analysis-string-input"
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "expression": "(($[Data].minValue NOT null AND $[Data].maxValue NOT null) AND ($[Data].maxValue <= $[Data].minValue))",
+      "errorKey": "findArgumentStatistics_1"
+    }
+  ]
+}

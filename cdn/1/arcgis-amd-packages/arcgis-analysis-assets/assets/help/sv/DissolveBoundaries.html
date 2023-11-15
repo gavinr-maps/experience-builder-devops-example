@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget L&ouml;s upp gr&auml;nser hittar polygoner som &ouml;verlappar eller delar en gemensam gr&auml;ns och sammanfogar dem s&aring; att en enda polygon skapas.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Lagret som inneh&aring;ller polygongeoobjekt som ska l&ouml;sas upp.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>Avg&ouml;r om verktyget bara ska l&ouml;sa upp polygonerna som &ouml;verlappar eller delar en gemensam gr&auml;ns och har samma f&auml;ltv&auml;rde (aktiverat) eller alla polygoner som &ouml;verlappar eller delar en gemensam gr&auml;ns (inaktiverat).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>Anger f&auml;ltet som anv&auml;nds f&ouml;r att l&ouml;sa upp polygoner baserat p&aring; matchande v&auml;rden.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>Anger om utdata kan inneh&aring;lla flerdelade geoobjekt, vilket inneb&auml;r flera polygoner som definieras som ett enda geoobjekt (aktiverat) eller bara kan inneh&aring;lla enskilda geoobjekt (inaktiverat).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>Avg&ouml;r om sammanfattningsstatistik ber&auml;knas f&ouml;r de uppl&ouml;sta polygonerna.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Nummer- eller datumf&auml;lt fr&aring;n indatalagret som ska summeras, och statistiken som ska ber&auml;knas f&ouml;r varje f&auml;lt.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,108 @@
+{
+  "name": "ManageMultidimensionalRaster",
+  "displayName": "ManageMultidimensionalRaster",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/ManageMultidimensionalRaster.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "targetMultidimensionalRaster",
+      "dataType": "GPString",
+      "displayName": "targetMultidimensionalRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "manageMode",
+      "dataType": "GPString",
+      "displayName": "manageMode",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "APPEND_SLICES",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "ADD_DIMENSION",
+        "APPEND_SLICES",
+        "APPEND_VARIABLES",
+        "REPLACE_SLICES",
+        "DELETE_VARIABLES",
+        "REMOVE_DIMENSION"
+      ]
+    },
+    {
+      "name": "variables",
+      "dataType": "GPString",
+      "displayName": "variables",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "inputMultidimensionalRasters",
+      "dataType": "GPString",
+      "displayName": "inputMultidimensionalRasters",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dimensionName",
+      "dataType": "GPString",
+      "displayName": "dimensionName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dimensionValue",
+      "dataType": "GPString",
+      "displayName": "dimensionValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dimensionDescription",
+      "dataType": "GPString",
+      "displayName": "dimensionDescription",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dimensionUnit",
+      "dataType": "GPString",
+      "displayName": "dimensionUnit",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "updatedTargetMultidimensionalRaster",
+      "dataType": "GPString",
+      "displayName": "updatedTargetMultidimensionalRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

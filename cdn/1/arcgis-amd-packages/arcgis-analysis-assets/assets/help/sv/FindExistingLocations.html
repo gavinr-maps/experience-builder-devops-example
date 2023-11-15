@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget S&ouml;k via attribut och plats skapar ett nytt lager av geoobjekt eller delar av geoobjekt som uppfyller angivna spatiala kriterier eller attributkriterier.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Det punkt-, linje- eller polygonlager f&ouml;r vilket geoobjekt, baserat p&aring; en kombination av attributfr&aring;gor och spatiala fr&aring;gor, kommer att hittas.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>De spatiala kriterier eller attributkriterier som ska anv&auml;ndas f&ouml;r att hitta geoobjekt. Klicka p&aring; knappen  <b>Skapa ny fr&aring;ga</b> f&ouml;r att definiera en eller flera spatiala kriterier eller attributkriterier. De geoobjekt eller delar av geoobjekt som uppfyller alla kriterier skrivs till resultatlagret.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> De spatiala kriterier eller attributkriterier som ska anv&auml;ndas f&ouml;r att hitta geoobjekt. Klicka p&aring; knappen <b>Skapa ny fr&aring;ga</b> f&ouml;r att definiera en eller flera spatiala kriterier eller attributkriterier. De geoobjekt eller delar av geoobjekt som uppfyller alla kriterier skrivs till resultatlagret.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Anger om resultatet inneh&aring;ller hela geoobjektet eller bara den del av geoobjektet som uppfyller alla kriterier n&auml;r bara en del av ett geoobjekt uppfyller kriterierna. Om markerat returneras bara de delar av geoobjektet som uppfyller alla kriterier. Om avmarkerat returneras hela geoobjektet f&ouml;rutsatt att minst en del av geoobjektet uppfyller alla kriterer.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

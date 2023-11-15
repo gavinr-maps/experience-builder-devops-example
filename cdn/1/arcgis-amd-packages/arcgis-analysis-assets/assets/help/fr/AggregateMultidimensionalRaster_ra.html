@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Aggregate Multidimensional Raster (Agr&eacute;ger un raster multidimensionnel) g&eacute;n&egrave;re une couche d'imagerie multidimensionnelle en combinant des variables de couche d'imagerie multidimensionnelle existantes le long d'une dimension.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Couche d&rsquo;imagerie multidimensionnelle &agrave; agr&eacute;ger.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimension de la couche d&rsquo;imagerie multidimensionnelle le long de laquelle la variable doit &ecirc;tre agr&eacute;g&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Indique si la couche contient des valeurs de dimension.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variable de la couche d&rsquo;imagerie multidimensionnelle &agrave; agr&eacute;ger le long de la dimension d&eacute;finie.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>M&eacute;thode math&eacute;matique &agrave; utiliser pour agr&eacute;ger les tranches de la couche d&rsquo;imagerie multidimensionnelle.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Valeur de centile &agrave; utiliser pour les calculs une fois que la m&eacute;thode d'agr&eacute;gation a &eacute;t&eacute; sp&eacute;cifi&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>M&eacute;thode d&rsquo;interpolation en centile &agrave; utiliser s'il existe un nombre pair de valeurs de la couche d'imagerie en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Fonction raster personnalis&eacute;e &agrave; utiliser pour calculer les valeurs de pixels des couches d'imagerie agr&eacute;g&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Intervalle de dimension &agrave; utiliser pour agr&eacute;ger les donn&eacute;es multidimensionnelles.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Chaque mot-cl&eacute; sp&eacute;cifie l'unit&eacute; de temps pour laquelle chaque statistique doit &ecirc;tre agr&eacute;g&eacute;e. La liste de mots-cl&eacute;s inclut Hourly (Toutes les heures), Daily (Tous les jours), Weekly (Toutes les semaines), Monthly (Tous les mois), Quarterly (Tous les trois mois) et Yearly (Tous les ans).
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Taille de l'intervalle &agrave; utiliser lors de l&rsquo;agr&eacute;gation le long de la dimension.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Unit&eacute;s de mesure de la valeur d'intervalle.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Table de valeurs &agrave; utiliser lors de l&rsquo;agr&eacute;gation le long de la dimension sp&eacute;cifi&eacute;e. Les valeurs minimale et maximale d&eacute;terminent la plage &agrave; inclure.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Valeur minimale de la plage d'intervalle.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Valeur maximale de la plage d'intervalle.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indique si les valeurs NoData sont ignor&eacute;es dans l'agr&eacute;gation.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Type de sortie &agrave; cr&eacute;er. Les sorties peuvent correspondre &agrave; des couches d&rsquo;imagerie tuil&eacute;e ou des couches d&rsquo;imagerie dynamique.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

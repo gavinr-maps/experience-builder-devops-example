@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Luo valuma-alueet&nbsp;-ty&ouml;kalu m&auml;&auml;ritt&auml;&auml; m&auml;&auml;ritettyjen pisteiden yl&auml;virran kokooma-alueen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Sijainnit, joissa yl&auml;virran valuma (valuma-alue) luodaan.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>L&auml;ht&ouml;pisteen sijainnin suurin sallittu siirtoet&auml;isyys l&auml;himp&auml;&auml;n vesist&ouml;n viivaan tai suurimpaan virtauskertym&auml;&auml;n.
+            </p>
+        </div>
+    </div>
+    <div id="searchUnits">
+        <div>
+            <p>Yksik&ouml;t, joita k&auml;ytet&auml;&auml;n  <b>Hakuet&auml;isyys</b>-parametrina.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sen kohdekarttatason nimi, joka sis&auml;lt&auml;&auml; karttaan luotavia ja lis&auml;tt&auml;vi&auml; valuma-alueita ja s&auml;&auml;dettyj&auml; laskupisteit&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

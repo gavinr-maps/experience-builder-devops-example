@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Tạo Raster Xu hướng ước t&iacute;nh xu hướng cho từng pixel theo một chiều cho một hoặc nhiều biến trong lớp h&igrave;nh ảnh đa chiều.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Lớp h&igrave;nh ảnh đa chiều sẽ được sử dụng để tạo xu hướng.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Chiều theo xu hướng sẽ được tr&iacute;ch xuất cho một hoặc nhiều biến số được lựa chọn trong ph&acirc;n t&iacute;ch.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Biến hoặc c&aacute;c biến c&oacute; xu hướng sẽ được t&iacute;nh to&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Đơn vị thời gian sẽ được sử dụng cho độ d&agrave;i của thời gian theo m&ugrave;a khi sử dụng loại đường Seasonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Loại ph&acirc;n t&iacute;ch xu hướng sẽ được thực hiện tr&ecirc;n c&aacute;c gi&aacute; trị pixel theo chiều.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Tần suất hoặc số thứ tự đa thức sẽ được sử dụng để điều chỉnh xu hướng.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Chỉ định c&oacute; bỏ qua NoData hoặc c&aacute;c gi&aacute; trị bị thiếu trong ph&acirc;n t&iacute;ch hay kh&ocirc;ng
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Độ d&agrave;i biến đổi định kỳ sẽ được m&ocirc; h&igrave;nh h&oacute;a cho chu kỳ điều h&ograve;a.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Đơn vị thời gian sẽ được sử dụng cho độ d&agrave;i của chu kỳ điều h&ograve;a.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Chỉ định xem lỗi b&igrave;nh phương trung b&igrave;nh (RMSE) của đường tr&ugrave;ng khớp của xu hướng c&oacute; được t&iacute;nh to&aacute;n hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Chỉ định xem c&oacute; t&iacute;nh to&aacute;n số liệu thống k&ecirc; mức độ ph&ugrave; hợp của R b&igrave;nh phương cho đường tr&ugrave;ng khớp của xu hướng hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Chỉ định xem c&oacute; t&iacute;nh to&aacute;n số liệu thống k&ecirc; gi&aacute; trị p cho hệ số độ dốc của đường tr&ugrave;ng khớp của xu hướng hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

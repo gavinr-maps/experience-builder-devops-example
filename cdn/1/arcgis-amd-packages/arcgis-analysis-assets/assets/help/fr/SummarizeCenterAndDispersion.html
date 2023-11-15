@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Synth&eacute;tiser le centre et la dispersion recherche l&rsquo;entit&eacute; centrale, la tendance centrale et l&rsquo;ellipse d&rsquo;&eacute;cart type d&rsquo;un ensemble d&rsquo;entit&eacute;s.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles, lin&eacute;aires ou de polygones pour lesquelles l&rsquo;entit&eacute; centrale, la tendance centrale et l&rsquo;ellipse d&rsquo;&eacute;cart type sont calcul&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Indique les m&eacute;thodes allant synth&eacute;tiser le centre et la dispersion des entit&eacute;s.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Indique la taille, en &eacute;carts type, du polygone elliptique. Si la distance entre le centre moyen et les emplacements d&rsquo;entit&eacute;s suit une distribution de Rayleigh, l&rsquo;option  <b>1 standard deviation (1&nbsp;&eacute;cart type)</b>, <b>2 standard deviations (2&nbsp;&eacute;carts type)</b> et <b>3 standard deviations (3&nbsp;&eacute;carts type)</b> g&eacute;n&egrave;re un polygone elliptique allant couvrir 63&nbsp;%, 89&nbsp;% et 99,9&nbsp;% des entit&eacute;s, respectivement.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Champ &agrave; utiliser pour d&eacute;terminer la pond&eacute;ration de l&rsquo;entit&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Champ &agrave; utiliser pour regrouper les entit&eacute;s. Les types  <b>Summary types (Types de synth&egrave;se)</b> s&eacute;lectionn&eacute;s sont calcul&eacute;s pour chaque groupe.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

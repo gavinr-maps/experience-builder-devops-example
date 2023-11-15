@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Интерполировать точки вычисляет наиболее вероятные значения в новых местоположениях на базе измерений точек. Инструмент создает выходные данные объектов.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Выберите точечный слой с местоположениями, которые нужно проинтерполировать.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Выберите поле, содержащее измеренные значения для интерполяции.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Выберите, что будет в приоритете: скорость расчета или его точность. Для более точных и аккуратных прогнозов требуется больше времени.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Выберите, будет ли включен в результат выходной полигональный слой стандартных ошибок для прогнозов, основанных на интерполяции.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Выберите, как должны вычисляться значения границ классов.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Укажите число классов (диапазон прогнозируемых значений), которые будут включены в итоговый слой. Каждый класс определяет границу полигона и представляет контуры прогнозируемых значений. Значения границ интервалов классов определяются типом классификации.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Укажите значения границ классов.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Выберите полигональный слой, который будет использоваться для определения области изучения. Результаты будут вырезаны так, чтобы они показывались только в пределах изучаемой области.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Выберите точечный слой, представляющий местоположения, которые будут использоваться для прогнозирования значений. Если указано, будет создан точечный слой, содержащий спрогнозированные значения в заданных местоположениях.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Izbri&scaron;i tačke izračunava broj tačaka i drugu statistiku unutar određenih blokova ili poligona.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>Tačkasti sloj koji će biti grupisan u oblastima za rezimiranje.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Sloj poligona u koji će tačke biti grupisane.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Tip graničnih obeležja u okviru kojih će ulazne tačke biti agregirane. Ovo može biti sloj poligona ili teselaciona mreža od kvadratnih ili &scaron;estougaonih korpi koje se generi&scaron;u kada se alatka pokrene.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Veličina generisanih korpi. Za kvadratne korpe, navedeni broj i jedinice određuju visinu i dužinu kvadrata. Za &scaron;estougaone korpe, navedeni broj i jedinice određuju rastojanje između paralelnih stranica.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Jedinice koje će se koristiti za određivanje veličine korpe.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>Određuje da li se karakteristike koje nemaju tačke pojavljuju u sloju rezultata. Kada opcija nije izabrana, geoobjekti bez tačaka neće se prikazati u rezultatu. Kada je opcija izabrana, geoobjekti bez tačaka će se prikazati u rezultatu.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Polja sa brojem ili datumom iz ulaznog sloja biće sumiranje i statistika koja će se izračunati za svako polje.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Polje iz ulaznog sloja koje će se koristiti za razdvajanje podataka u različite grupe za statistička izračunavanja.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Izračunajte manjinske (najmanje dominantne) i većinske (najdominantnije) grupe unutar svake zbirne oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Izračunajte procenat bodova koji pripadaju svakoj grupi unutar svake zbirne oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultat biti sačuvan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

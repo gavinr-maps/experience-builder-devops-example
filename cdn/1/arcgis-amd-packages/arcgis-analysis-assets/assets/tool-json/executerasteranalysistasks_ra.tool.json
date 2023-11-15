@@ -1,0 +1,30 @@
+{
+  "name": "ExecuteRasterAnalysisTasks",
+  "displayName": "Execute Raster Analysis Tasks",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/ExecuteRasterAnalysisTasks.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "in_tasks",
+      "dataType": "GPString",
+      "displayName": "Input Raster Analysis Tasks",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "out_results",
+      "dataType": "GPString",
+      "displayName": "Output Raster Analysis Results",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

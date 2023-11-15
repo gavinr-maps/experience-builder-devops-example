@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Interpolasikan Titik memprediksi nilai di lokasi baru berdasarkan pengukuran titik. Alat ini membuat output fitur.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Pilih layer titik dari lokasi yang akan disisipkan.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Pilih kolom berisi nilai terukur yang akan disisipkan
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Pilih apakah kecepatan penghitungan atau akurasi dan presisi penghitungan yang akan diprioritaskan. Prediksi yang lebih akurat dan tepat memerlukan waktu penghitungan yang lebih lama.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Pilih apakah layer kesalahan standar untuk prediksi interpolasi akan disertakan dalam output atau tidak.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Pilih cara penghitungan nilai rentang kelas.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Tentukan jumlah kelas (rentang nilai prediksi) yang akan disertakan dalam layer hasil. Tiap kelas menentukan batasan poligon dan menggambarkan kontur dari nilai prediksi. Nilai rentang kelas ditentukan oleh jenis klasifikasi.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Berikan nilai rentang kelas yang akan digunakan.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Pilih layer poligon yang akan digunakan untuk menentukan area studi. Hasilnya akan diklipkan sebagai hanya ditampilkan dalam area studi.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Pilih layer titik yang menggambarkan lokasi yang akan digunakan untuk memprediksi nilai. Jika disediakan, layer titik yang berisi nilai prediksi pada lokasi yang ditentukan akan dibuat.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Optimaaliset alueen yhteydet -ty&ouml;kalu laskee optimaalisen liittyvyysverkon kahden tai useamman l&auml;ht&ouml;alueen v&auml;lill&auml;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>Rasteri- tai kohdekarttataso, joka m&auml;&auml;ritt&auml;&auml; alueet, jotka optimaalinen verkosto yhdist&auml;&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Rasteri- tai kohdekarttataso, joka m&auml;&auml;ritt&auml;&auml; kierrett&auml;v&auml;t esteet.
+            </p>
+            <p>Soluja, joilla on arvo (mukaan lukien nolla), k&auml;sitell&auml;&auml;n estein&auml; rasterikarttatasoissa.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Rasterikarttataso, joka m&auml;&auml;ritt&auml;&auml; vastuksen tai kustannuksen kunkin solun kautta siirtymiseksi.
+            </p>
+            <p>Kunkin solusijainnin arvo edustaa yksikk&ouml;kohtaisen kustannuksen v&auml;limatkaa solun kautta siirtymiseksi. Se ei voi olla negatiivinen tai nolla.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>M&auml;&auml;rit&auml;, lasketaanko et&auml;isyys planaarisella (litte&auml; maa) vai geodeettisella (ellipsoidi) menetelm&auml;ll&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, jatkuvatko polut ja yhdistet&auml;&auml;nk&ouml; ne l&auml;ht&ouml;aineiston alueilla.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>Sen karttaan luotavan ja lis&auml;tt&auml;v&auml;n optimaalisen reittiverkoston karttatason nimi, joka yhdist&auml;&auml; kaikki l&auml;ht&ouml;aineiston alueet.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n viereisten yhteyksien viivakarttatason nimi. Karttataso tunnistaa kunkin alueen kaikki reitit l&auml;himp&auml;&auml;n tai kustannuksen naapuriin.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

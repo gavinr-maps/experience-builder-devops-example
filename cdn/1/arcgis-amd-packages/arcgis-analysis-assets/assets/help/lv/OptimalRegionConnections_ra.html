@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Optimālu reģionu savienojuma rīks aprēķina optimālo savienojamības tīklu starp diviem vai vairākiem ievades reģioniem.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>Rastra vai elementu slānis, kas nosaka reģionus, kuri tiks savienoti ar optimālo tīklu.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Rastra vai elementu slānis, kas nosaka &scaron;ķēr&scaron;ļus, kuriem mar&scaron;ruts jāvirza apkārt.
+            </p>
+            <p>Rastra slānim &scaron;ūnas, kurām ir vērtība (iekļaujot nulli), tiks uzskatītas par barjeru.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Rastra slānis, kas nosaka pretestību vai izmaksas, lai pārvietotos caur katru &scaron;ūnu.
+            </p>
+            <p>Vērtība katras &scaron;ūnas atra&scaron;anās vietā raksturo attālumu izmaksām uz vienu vienību, pārvietojoties cauri &scaron;ūnai. Tā nevar būt negatīva vai nulle.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Norāda, vai attālums tiks aprēķināts, izmantojot plaknes (plakana zeme) vai ģeodēzisko (elipsoīds) metodi.
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>Norāda, vai ceļi tiks turpināti un savienoti ievades reģionos.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>Optimālā ceļu tīkla slāņa nosaukums, kas savieno katru ievades reģionu, kur&scaron; tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>Blakus savienojumu līnijas slāņa nosaukums, kas tiks izveidots un pievienots kartei. Slānis identificē visus ceļus no katra reģiona uz katru no saviem tuvākajiem vai izmaksu kaimiņiem.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

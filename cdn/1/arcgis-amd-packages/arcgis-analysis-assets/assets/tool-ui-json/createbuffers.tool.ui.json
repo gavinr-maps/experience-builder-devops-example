@@ -1,0 +1,264 @@
+{
+  "toolName": "CreateBuffers",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputLayer.selectedLayers",
+      "destination": "field",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polygon'",
+      "destination": "distances",
+      "effectParams": {
+        "min": "-Infinity"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].distances.length > 1) AND (($[Data].distanceType = 'Value') AND ($[Data].dissolveType = 'Dissolve')))",
+      "destination": "ringType",
+      "effectParams": {
+        "visible": true,
+        "defaultValue": "Disks"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].distances.length < 2)",
+      "destination": "ringType",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'english'",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Miles", "NauticalMiles", "Yards", "Feet", "Kilometers", "Meters"],
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'metric'",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "NauticalMiles", "Yards", "Feet"],
+        "defaultValue": "Kilometers"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polygon'",
+      "destination": "sideType",
+      "effectParams": {
+        "visible": true,
+        "choiceList": ["", "Outside"],
+        "choiceListLabels": {
+          "": "$include",
+          "Outside": "$exclude"
+        },
+        "label": "$sideTypePolygons",
+        "defaultValue": "",
+        "useDefaultOnReset": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polyline'",
+      "destination": "sideType",
+      "effectParams": {
+        "visible": true,
+        "choiceList": ["Full", "Left", "Right"],
+        "choiceListLabels": {
+          "Full": "$full",
+          "Left": "$left",
+          "Right": "$right"
+        },
+        "defaultValue": "Full",
+        "useDefaultOnReset": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'point'",
+      "destination": ["sideType", "endType"],
+      "effectParams": {
+        "visible": false,
+        "value": null
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polyline'",
+      "destination": ["sideType", "endType"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].distances.length > 1) AND ($[Data].distanceType = 'Value'))",
+      "destination": ["sideType", "endType"],
+      "effectParams": {
+        "visible": false,
+        "value": null
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].distanceType",
+      "valueB": "Field",
+      "destination": "field",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].distanceType",
+      "valueB": "Field",
+      "destination": "distances",
+      "effectParams": {
+        "visible": false
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputFeatures",
+      "componentName": "analysis-block",
+      "summaryText": "$inputFeaturesSectionText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputLayerGroupLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature"],
+          "hideSketch": true
+        }
+      ]
+    },
+    {
+      "label": "$bufferSettingsSectionLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$bufferSettingsSectionText",
+      "UIparameters": [
+        {
+          "name": "distanceType",
+          "label": "$distanceTypeLabel",
+          "componentName": "analysis-string-input",
+          "choiceList": ["Value", "Field"],
+          "choiceListLabels": { "Value": "$value", "Field": "$field" },
+          "showAsRadioGroup": true,
+          "selectionMode": "single",
+          "defaultValue": "Value",
+          "useDefaultOnReset": true
+        },
+        {
+          "label": "$distances",
+          "name": "distances",
+          "componentName": "analysis-number-input",
+          "selectionMode": "multi",
+          "min": 0,
+          "excludeMinValue": true,
+          "required": true
+        },
+        {
+          "name": "field",
+          "label": "$distanceField",
+          "componentName": "analysis-field-input",
+          "visible": false,
+          "fieldTypes": ["double", "integer", "small-integer", "single"]
+        },
+        {
+          "name": "units",
+          "label": "$units",
+          "choiceListLabels": {
+            "Meters": "$meters",
+            "Kilometers": "$kilometers",
+            "Feet": "$feet",
+            "Yards": "$yards",
+            "Miles": "$miles",
+            "NauticalMiles": "$nauticalMiles"
+          },
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "dissolveType",
+          "label": "$dissolveType",
+          "choiceList": ["None", "Dissolve"],
+          "choiceListLabels": {
+            "None": "$overlap",
+            "Dissolve": "$dissolve"
+          },
+          "choiceListIcons": {
+            "None": "overlap-features",
+            "Dissolve": "dissolve-features"
+          },
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "ringType",
+          "label": "$ringType",
+          "visible": false,
+          "choiceList": ["Disks", "Rings"],
+          "choiceListLabels": {
+            "Disks": "$disks",
+            "Rings": "$rings"
+          },
+          "componentName": "analysis-string-input",
+          "showAsRadioGroup": true,
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "sideType",
+          "label": "$sideTypeLines",
+          "visible": false,
+          "choiceList": ["Full", "Left", "Right"],
+          "choiceListLabels": {
+            "Full": "$full",
+            "Left": "$left",
+            "Right": "$right"
+          },
+          "componentName": "analysis-string-input",
+          "showAsRadioGroup": true,
+          "defaultValue": "Full",
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "endType",
+          "label": "$endType",
+          "visible": false,
+          "componentName": "analysis-string-input",
+          "showAsRadioGroup": true,
+          "choiceListLabels": { "Round": "$round", "Flat": "$flat" }
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

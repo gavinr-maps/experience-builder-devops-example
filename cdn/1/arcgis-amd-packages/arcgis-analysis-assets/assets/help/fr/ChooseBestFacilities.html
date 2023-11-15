@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Choisir les meilleures ressources recherche l&rsquo;ensemble des ressources qui r&eacute;pond le mieux &agrave; la demande.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Objectif qui doit &ecirc;tre satisfait lors de l&rsquo;allocation des emplacements de demandes aux ressources.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Attribuez une demande aux ressources en fonction de la capacité de la ressource et du volume de demande dans la zone environnante. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Choisissez les ressources de sorte que le temps de trajet total ou la distance à parcourir entre les emplacements de demandes et les ressources attribuées soit limité(e). </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Choisissez les ressources de sorte que le volume de demande maximal soit alloué, toutes les demandes de chaque emplacement de demande étant allouées à la ressource la plus proche. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Choisissez les ressources de sorte que le volume maximal de demande soit alloué sans dépasser la capacité des ressources. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Choisissez le nombre minimal de ressources nécessaires pour atteindre le pourcentage de demande spécifié. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>M&eacute;thode de d&eacute;placement &agrave; utiliser pour mesurer la dur&eacute;e ou la distance entre les ressources et les emplacements de demandes.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Date et heure auxquelles le voyageur quitte les ressources ou les emplacements de demandes.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Sp&eacute;cifie si le trajet commence aux ressources et se d&eacute;place vers l&rsquo;ext&eacute;rieur vers les emplacements de demandes ou commence aux emplacements de demandes et se d&eacute;place vers l&rsquo;int&eacute;rieur vers les ressources.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Sp&eacute;cifie si le trajet commence aux ressources et se d&eacute;place vers l&rsquo;ext&eacute;rieur vers les emplacements de demandes ou commence aux emplacements de demandes et se d&eacute;place vers l&rsquo;int&eacute;rieur vers les ressources.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Sp&eacute;cifie si le trajet commence aux ressources et se d&eacute;place vers l&rsquo;ext&eacute;rieur vers les emplacements de demandes ou commence aux emplacements de demandes et se d&eacute;place vers l&rsquo;int&eacute;rieur vers les ressources.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Sp&eacute;cifie si le trajet commence aux ressources et se d&eacute;place vers l&rsquo;ext&eacute;rieur vers les emplacements de demandes ou commence aux emplacements de demandes et se d&eacute;place vers l&rsquo;int&eacute;rieur vers les ressources.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Sp&eacute;cifie si le trajet commence aux ressources et se d&eacute;place vers l&rsquo;ext&eacute;rieur vers les emplacements de demandes ou commence aux emplacements de demandes et se d&eacute;place vers l&rsquo;int&eacute;rieur vers les ressources.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s ponctuelles qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Le d&eacute;placement est autoris&eacute; sur la rue, hormis franchir l&rsquo;interruption.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s ponctuelles qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Le d&eacute;placement est autoris&eacute; sur la rue, hormis franchir l&rsquo;interruption.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s ponctuelles qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Le d&eacute;placement est autoris&eacute; sur la rue, hormis franchir l&rsquo;interruption.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s ponctuelles qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Le d&eacute;placement est autoris&eacute; sur la rue, hormis franchir l&rsquo;interruption.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s ponctuelles qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Le d&eacute;placement est autoris&eacute; sur la rue, hormis franchir l&rsquo;interruption.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s lin&eacute;aires qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions lin&eacute;aires interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s lin&eacute;aires qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions lin&eacute;aires interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s lin&eacute;aires qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions lin&eacute;aires interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s lin&eacute;aires qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions lin&eacute;aires interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s lin&eacute;aires qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions lin&eacute;aires interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s surfaciques qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions surfaciques interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s surfaciques qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions surfaciques interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s surfaciques qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions surfaciques interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s surfaciques qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions surfaciques interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s surfaciques qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions surfaciques interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Les entit&eacute;s ponctuelles repr&eacute;sentant les emplacements ayant une demande pour un service que les ressources peuvent fournir.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Les entit&eacute;s ponctuelles repr&eacute;sentant les emplacements ayant une demande pour un service que les ressources peuvent fournir.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Les entit&eacute;s ponctuelles repr&eacute;sentant les emplacements ayant une demande pour un service que les ressources peuvent fournir.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Les entit&eacute;s ponctuelles repr&eacute;sentant les emplacements ayant une demande pour un service que les ressources peuvent fournir.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Les entit&eacute;s ponctuelles repr&eacute;sentant les emplacements ayant une demande pour un service que les ressources peuvent fournir.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Sp&eacute;cifie comment la demande est appliqu&eacute;e &agrave; chaque emplacement. Si le volume de demande est identique pour tous les emplacements, choisissez  <b>Value (Valeur)</b>. Si le volume de demande varie par emplacement, choisissez <b>Field (Champ)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Sp&eacute;cifie comment la demande est appliqu&eacute;e &agrave; chaque emplacement. Si le volume de demande est identique pour tous les emplacements, choisissez  <b>Value (Valeur)</b>. Si le volume de demande varie par emplacement, choisissez <b>Field (Champ)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Sp&eacute;cifie comment la demande est appliqu&eacute;e &agrave; chaque emplacement. Si le volume de demande est identique pour tous les emplacements, choisissez  <b>Value (Valeur)</b>. Si le volume de demande varie par emplacement, choisissez <b>Field (Champ)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Sp&eacute;cifie comment la demande est appliqu&eacute;e &agrave; chaque emplacement. Si le volume de demande est identique pour tous les emplacements, choisissez  <b>Value (Valeur)</b>. Si le volume de demande varie par emplacement, choisissez <b>Field (Champ)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Sp&eacute;cifie comment la demande est appliqu&eacute;e &agrave; chaque emplacement. Si le volume de demande est identique pour tous les emplacements, choisissez  <b>Value (Valeur)</b>. Si le volume de demande varie par emplacement, choisissez <b>Field (Champ)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Volume de demande &agrave; chaque emplacement de demande. Le m&ecirc;me volume de demande est appliqu&eacute; &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Volume de demande &agrave; chaque emplacement de demande. Le m&ecirc;me volume de demande est appliqu&eacute; &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Volume de demande &agrave; chaque emplacement de demande. Le m&ecirc;me volume de demande est appliqu&eacute; &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Volume de demande &agrave; chaque emplacement de demande. Le m&ecirc;me volume de demande est appliqu&eacute; &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Volume de demande &agrave; chaque emplacement de demande. Le m&ecirc;me volume de demande est appliqu&eacute; &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Le champ de la couche de demande qui sp&eacute;cifie le volume de demande pour chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Le champ de la couche de demande qui sp&eacute;cifie le volume de demande pour chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Le champ de la couche de demande qui sp&eacute;cifie le volume de demande pour chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Le champ de la couche de demande qui sp&eacute;cifie le volume de demande pour chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Le champ de la couche de demande qui sp&eacute;cifie le volume de demande pour chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Sp&eacute;cifie si la distance ou la dur&eacute;e de trajet maximale autoris&eacute;e entre un emplacement de demande et la ressource affect&eacute;e est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>) ou si aucun minimum n&rsquo;est appliqu&eacute; (<b>Unlimited (Illimit&eacute;)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Sp&eacute;cifie si la distance ou la dur&eacute;e de trajet maximale autoris&eacute;e entre un emplacement de demande et la ressource affect&eacute;e est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>) ou si aucun minimum n&rsquo;est appliqu&eacute; (<b>Unlimited (Illimit&eacute;)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Sp&eacute;cifie si la distance ou la dur&eacute;e de trajet maximale autoris&eacute;e entre un emplacement de demande et la ressource affect&eacute;e est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Sp&eacute;cifie si la distance ou la dur&eacute;e de trajet maximale autoris&eacute;e entre un emplacement de demande et la ressource affect&eacute;e est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>) ou si aucun minimum n&rsquo;est appliqu&eacute; (<b>Unlimited (Illimit&eacute;)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Sp&eacute;cifie si la distance ou la dur&eacute;e de trajet maximale autoris&eacute;e entre un emplacement de demande et la ressource affect&eacute;e est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>) ou si aucun minimum n&rsquo;est appliqu&eacute; (<b>Unlimited (Illimit&eacute;)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Distance ou dur&eacute;e de trajet au-del&agrave; de laquelle la demande n&rsquo;est pas affect&eacute;e. La m&ecirc;me plage de d&eacute;placement maximale est appliqu&eacute;e &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Distance ou dur&eacute;e de trajet au-del&agrave; de laquelle la demande n&rsquo;est pas affect&eacute;e. La m&ecirc;me plage de d&eacute;placement maximale est appliqu&eacute;e &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Distance ou dur&eacute;e de trajet au-del&agrave; de laquelle la demande n&rsquo;est pas affect&eacute;e. La m&ecirc;me plage de d&eacute;placement maximale est appliqu&eacute;e &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Distance ou dur&eacute;e de trajet au-del&agrave; de laquelle la demande n&rsquo;est pas affect&eacute;e. La m&ecirc;me plage de d&eacute;placement maximale est appliqu&eacute;e &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Distance ou dur&eacute;e de trajet au-del&agrave; de laquelle la demande n&rsquo;est pas affect&eacute;e. La m&ecirc;me plage de d&eacute;placement maximale est appliqu&eacute;e &agrave; chaque emplacement.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Le champ contenant la distance ou le temps de trajet au-del&agrave; duquel la demande n&rsquo;est pas affect&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Le champ contenant la distance ou le temps de trajet au-del&agrave; duquel la demande n&rsquo;est pas affect&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Le champ contenant la distance ou le temps de trajet au-del&agrave; duquel la demande n&rsquo;est pas affect&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Le champ contenant la distance ou le temps de trajet au-del&agrave; duquel la demande n&rsquo;est pas affect&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Le champ contenant la distance ou le temps de trajet au-del&agrave; duquel la demande n&rsquo;est pas affect&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Unit&eacute;s utilis&eacute;es pour sp&eacute;cifier la distance ou dur&eacute;e de trajet maximale.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Unit&eacute;s utilis&eacute;es pour sp&eacute;cifier la distance ou dur&eacute;e de trajet maximale.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Unit&eacute;s utilis&eacute;es pour sp&eacute;cifier la distance ou dur&eacute;e de trajet maximale.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Unit&eacute;s utilis&eacute;es pour sp&eacute;cifier la distance ou dur&eacute;e de trajet maximale.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Unit&eacute;s utilis&eacute;es pour sp&eacute;cifier la distance ou dur&eacute;e de trajet maximale.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Pourcentage minimum de demande que les ressources doivent atteindre.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources candidates. Les ressources candidates repr&eacute;sentent g&eacute;n&eacute;ralement les emplacements auxquels de nouvelles ressources seront construites ou positionn&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources candidates. Les ressources candidates repr&eacute;sentent g&eacute;n&eacute;ralement les emplacements auxquels de nouvelles ressources seront construites ou positionn&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources candidates. Les ressources candidates repr&eacute;sentent g&eacute;n&eacute;ralement les emplacements auxquels de nouvelles ressources seront construites ou positionn&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources candidates. Les ressources candidates repr&eacute;sentent g&eacute;n&eacute;ralement les emplacements auxquels de nouvelles ressources seront construites ou positionn&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Indique si la capacit&eacute; de chaque ressource candidate est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Capacit&eacute; de chaque ressource candidate. La m&ecirc;me capacit&eacute; est appliqu&eacute;e &agrave; chaque ressource candidate.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Champ contenant la capacit&eacute; de chaque ressource candidate.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Nombre de ressources candidates &agrave; choisir parmi l&rsquo;ensemble des candidates. Si vous sp&eacute;cifiez &agrave; la fois les ressources requises et candidates, les ressources de la couche de ressources requises sont utilis&eacute;es avant les ressources de la couche de ressources candidates.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Nombre de ressources candidates &agrave; choisir parmi l&rsquo;ensemble des candidates. Si vous sp&eacute;cifiez &agrave; la fois les ressources requises et candidates, les ressources de la couche de ressources requises sont utilis&eacute;es avant les ressources de la couche de ressources candidates.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Nombre de ressources candidates &agrave; choisir parmi l&rsquo;ensemble des candidates. Si vous sp&eacute;cifiez &agrave; la fois les ressources requises et candidates, les ressources de la couche de ressources requises sont utilis&eacute;es avant les ressources de la couche de ressources candidates.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Indique si seules les ressources candidates sont utilis&eacute;es comme entr&eacute;es (non activ&eacute;es) ou si certaines ressources sont requises (activ&eacute;es).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Indique si seules les ressources candidates sont utilis&eacute;es comme entr&eacute;es (non activ&eacute;es) ou si certaines ressources sont requises (activ&eacute;es).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Indique si seules les ressources candidates sont utilis&eacute;es comme entr&eacute;es (non activ&eacute;es) ou si certaines ressources sont requises (activ&eacute;es).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Indique si seules les ressources candidates sont utilis&eacute;es comme entr&eacute;es (non activ&eacute;es) ou si certaines ressources sont requises (activ&eacute;es).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources. Ces ressources repr&eacute;sentent g&eacute;n&eacute;ralement des emplacements existants.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources. Ces ressources repr&eacute;sentent g&eacute;n&eacute;ralement des emplacements existants.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources. Ces ressources repr&eacute;sentent g&eacute;n&eacute;ralement des emplacements existants.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources. Ces ressources repr&eacute;sentent g&eacute;n&eacute;ralement des emplacements existants.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles repr&eacute;sentant des emplacements qui jouent le r&ocirc;le de ressources. Ces ressources repr&eacute;sentent g&eacute;n&eacute;ralement des emplacements existants.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Indique si la capacit&eacute; de chaque ressource est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Indique si la capacit&eacute; de chaque ressource est d&eacute;termin&eacute;e par une constante (<b>Value (Valeur)</b>) ou une valeur de champ (<b>Field (Champ)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Capacit&eacute; de chaque ressource requise. La m&ecirc;me capacit&eacute; est appliqu&eacute;e &agrave; chaque ressource requise.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Capacit&eacute; de chaque ressource requise. La m&ecirc;me capacit&eacute; est appliqu&eacute;e &agrave; chaque ressource requise.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Champ contenant la capacit&eacute; de chaque ressource.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Champ contenant la capacit&eacute; de chaque ressource.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel seront enregistr&eacute;s les r&eacute;sultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

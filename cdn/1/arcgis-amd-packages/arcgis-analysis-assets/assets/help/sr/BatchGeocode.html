@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Geokodiranje lokacija iz tabele pretvara adrese ili mesta iz ulaznih tabela u koordinate.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Ulazna tabela sa adresama za geokodiranje. Ulazna tabela mora biti tabela,  <code>.csv</code> datoteka Excel ili datoteka. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Usluga lokatora se koristi za geokodiranje. Ako je servis lokatora koji želite da koristite u padajućem meniju, obratite se administratoru kako bi servis lokatora bio konfigurisan za grupno geokodiranje.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Određuje da li su ulazni podaci sadržani u jednom ili vi&scaron;e polja.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Polja koja će se koristiti od strane lokatora za određivanje lokacije podataka. Pojedina polja se podrazumevaju da su u podacima, poput adrese, grada, države i po&scaron;tanskog broja.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Država u kojoj su podaci locirani. Ako su sve adrese iz jedne države, navedite tu državu kako biste bili sigurni u tačnost rezultata. U suprotnom, ovaj parametar ostavite prazan.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Određuje polja koja će biti uključena u izlazne podatke. Opcije su sledeće:
+            </p>
+            <ul>
+                <li> <b>Sve</b>&mdash;Sva dostupna izlazna polja lokatora će biti uključena u rezultate geokoda.
+                </li>
+                <li> <b>Minimalno</b>&mdash;Podskup polja iz lokatora kao i polja iz tabele za unos biće uključeni u rezultate.
+                </li>
+                <li> <b>Samo lokacija</b>&mdash;Polje <i>Shape</i> polje iz lokatora kao i polja iz tabele za unos biće uključeni u rezultate.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Tip izlaza koji će biti kreiran. Izlaz može biti usluga,  <code>.csv</code> datoteka, ili <code>.xls</code> datoteka.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Ime izlazne stavke u kojoj će se locirani podaci čuvati.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultat biti sačuvan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

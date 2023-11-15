@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>경계 디졸브 도구는 공통 경계와 중첩되거나 공유되는 폴리곤을 찾아 병합하여 단일 폴리곤을 형성합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>디졸브할 폴리곤 피처를 포함하는 레이어입니다.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>도구가 공통 경계가 겹치거나 공유되고 필드 값이 동일한(활성화) 폴리곤만 디졸브할지 또는 공통 경계가 겹치거나 공유되는 모든 폴리곤(비활성화)을 디졸브할지 여부를 결정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>일치하는 값을 기반으로 폴리곤을 디졸브하는 데 사용되는 필드를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>결과에 멀티파트 폴리곤 피처(즉, 단일 피처로 정의된 다중 폴리곤을 의미)가 포함될 수 있는지(활성화) 또는 개별 피처만 포함될 수 있는지(비활성화) 여부를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>디졸브된 폴리곤에 대해 요약 통계를 계산할지 여부를 결정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>요약할 입력 레이어의 숫자 또는 날짜 필드 및 각 필드에 대해 계산될 통계입니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -258,7 +258,7 @@ System.register(["jimu-core","jimu-theme","jimu-ui"],(function(e,t){var n={},i={
                 opacity: .5;
               }
               .jimu-tree-item__main-line {
-                padding: ${m.polished.rem(i)} 0.125rem;
+                padding: ${m.polished.rem(i)} 0.5rem ${m.polished.rem(i)} 0.125rem;
               }
             }
           }
@@ -298,9 +298,12 @@ System.register(["jimu-core","jimu-theme","jimu-ui"],(function(e,t){var n={},i={
                 &.jimu-tree-item_squire_true {
                   border: 1px solid ${r.colors.palette.primary[600]};
                 }
+                &:hover {
+                  background-color: ${r.colors.palette.light[window.jimuConfig.isBuilder?400:100]};
+                }
               }
               .jimu-tree-item__main-line {
-                padding: ${m.polished.rem(n)} 0.125rem;
+                padding: ${m.polished.rem(n)} 0.5rem ${m.polished.rem(n)} 0.125rem;
               }
             }
             &.jimu-tree-item_disabled-false {

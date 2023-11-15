@@ -1,0 +1,2007 @@
+{
+  "newItem": "Nytt element",
+  "addLayer": "Legg til lag",
+  "createFeatureLayer": "Opprett et geoobjektslag",
+  "createTileLayer": "Opprett et fliselag",
+  "createSceneLayer": "Opprett et scenelag",
+  "createRasterFunctionTemplate": "Opprett en rasterfunksjonsmal",
+  "addDataStore": "Legg til en tilkobling til et datalager",
+  "next": "Neste",
+  "publish": "Publiser",
+  "save": "Lagre",
+  "cancel": "Avbryt",
+  "back": "Tilbake",
+  "error": "Feil",
+  "update": "Oppdater",
+  "moreInfo": "Mer informasjon",
+  "loadingData": "Laster inn...",
+  "creatingLayer": "Oppretter laget...",
+  "common": {
+    "add": "Legg til",
+    "url": "URL",
+    "addToMap": "Legg til kart",
+    "createAndAddToMap": "Opprett og legg til i kart",
+    "register": "Registrer",
+    "supportServices": "Tjenester som støttes er ${typeList}",
+    "supportLayerTypes": "Lagtyper som støttes er ${typeList}",
+    "supportFileTypes": "Filtyper som støttes er ${typeList}",
+    "learnMore": "Mer informasjon",
+    "updateAndComplete": "Oppdater og fullfør",
+    "proceed": "Fortsett",
+    "createConnection": "Opprett tilkobling",
+    "addAndComplete": "Legg til og fullfør",
+    "signInAndOverwrite": "Logg på og skriv over",
+    "overwriteAndComplete": "Skriv over og fullfør"
+  },
+  "application": {
+    "web": "Webkart",
+    "desktop": "Skrivebord",
+    "mobile": "Mobil",
+    "otherApplication": "Annen applikasjon",
+    "applicationType": "Applikasjonstype",
+    "application": "Applikasjon",
+    "manifestUrl": "Manifest-URL",
+    "appExtension": "Applikasjonsutvidelse (AppBuilder)",
+    "experienceBuilderWidget": "Experience Builder-miniprogram",
+    "appExtensionError": "URL-en henviser ikke til AppBuilder-utvidelse.",
+    "enterManifestUrl": "Skriv inn URL-en til utvidelsens manifest",
+    "File": "Fil",
+    "selectZip": "Velg en ZIP-fil",
+    "fileRequired": "Fil nødvendig til skrivebordsapplikasjoner",
+    "enterUrl": "Skriv inn URL-en til applikasjonen din",
+    "enterValidUrl": "Oppgi en gyldig URL for applikasjonen din",
+    "URL": "URL"
+  },
+  "auth": {
+    "username": "Brukernavn",
+    "enterUsername": "Skriv inn brukernavn",
+    "password": "Passord",
+    "enterPassword": "Skriv inn passord",
+    "invalid": "Ugyldig brukernavn eller passord.",
+    "requiresCredentials": "Både brukernavn og passord må oppgis."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Velg lag som skal legges til",
+    "noLayersFound": "Finner ingen lag som oppfyller kriteriene. Prøv å endre søkeordet for å vise flere lag.",
+    "of": "for",
+    "layers": "kartlag",
+    "usePro": "Dette datasettet har over 1000 lag. Skriv inn et søkeord for å finne et bestemt lag.",
+    "errorTitle": "Ingen lag er valgt",
+    "noLayersSelected": "Velg ett eller flere lag for å fortsette",
+    "selectAll": "Merk alt",
+    "deselectAll": "Fjern merkingen på alle"
+  },
+  "csvFields": {
+    "searchFields": "Søk etter felt",
+    "fieldType": "Felttype",
+    "fieldTitle": "Felter",
+    "fieldDescription": "Velg feltene som skal inkluderes i det hostede geoobjektlaget. Alternativt kan du oppdatere visningsnavnet og felttypen.",
+    "fieldNoHostedDescription": "Du kan også oppdatere visningsnavnene og felttypene som skal brukes i laget.",
+    "fieldName": "Feltnavn",
+    "displayName": "Visningsnavn",
+    "displayNameLabel": "${name} visningsnavn",
+    "type": "Type",
+    "typeLabel": "${name} type",
+    "allTypes": "Alle typer",
+    "noFields": "Finner ingen felt som oppfyller søkekriteriene. Prøv å endre søkeordet, eller utvid filteralternativene.",
+    "selected": "valgte",
+    "clearSelection": "Tøm utvalg",
+    "fieldTypes": {
+      "esriFieldTypeString": "Streng",
+      "esriFieldTypeInteger": "Heltall",
+      "esriFieldTypeSmallInteger": "Lite heltall",
+      "esriFieldTypeSingle": "Enkel",
+      "esriFieldTypeDouble": "Dobbel",
+      "esriFieldTypeDate": "Dato",
+      "esriFieldTypeDateOnly": "Kun dato",
+      "esriFieldTypeTimeOnly": "Kun klokkeslett",
+      "esriFieldTypeBigInteger": "Stort heltall",
+      "esriFieldTypeTimestampOffset": "Tidsstempelforskyvning"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "Analyserer...",
+    "locationSettings": "Lokasjonsinnstillinger",
+    "locationSettingsDescription": "Angi typen lokasjonsinformasjon som filen inneholder.",
+    "advancedSettings": "Avanserte lokasjonsinnstillinger",
+    "locator": "Posisjonsindikator",
+    "region": "Region",
+    "enrich": "Berik lag med adresseinformasjon",
+    "enrichLayer": "Berik utdatafelt for posisjonsindikator for lag",
+    "enrichLayerDescription": "Legg til felt som gir informasjon om geokodingsprosessen, som hvor godt lokasjonsinformasjonen i filen samsvarer med posisjonsindikatoren.",
+    "enrichLayerLink": "Mer informasjon om feltene som er lagt til.",
+    "consumesCredits": "Forbruker credits",
+    "locationFields": "Lokasjonsfelt",
+    "locationFieldSingle": "Lokasjonsinformasjon i ett felt.",
+    "locationFieldMultiple": "Lokasjonsinformasjon i flere felt.",
+    "locationFieldsDescription": "Angi feltene som inneholder lokasjonsinformasjon.",
+    "locationTypes": {
+      "address": {
+        "title": "Adresser eller stedsnavn",
+        "description": "Lokasjonsdata er adresser, stedsnavn, postnummer og land. Kan forbruke credits.",
+        "descriptionDeveloper": "Lokasjonsdata er adresser, stedsnavn, postnummer og land."
+      },
+      "coordinates": {
+        "title": "Bredde- og lengdegrad",
+        "description": "Lokasjonsdata er bredde- og lengdegrad."
+      },
+      "mgrs": {
+        "title": "MGRS-koordinater",
+        "description": "Lokasjonsdataene er i Military Grid Reference System."
+      },
+      "usng": {
+        "title": "USNG -koordinater",
+        "description": "Lokasjonsdataene er i United States National Grid."
+      },
+      "none": {
+        "title": "Ingen",
+        "description": "Denne ${type} inneholder ingen lokasjonsdata og legges til som tabell"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Ingen felt",
+        "description": "Fin adresser, men ikke inkluder tilleggsfelt."
+      },
+      "Minimal": {
+        "title": "Noen felt",
+        "description": "Legg til fire felt som viser hvor godt adressene samsvarte."
+      },
+      "AllFields": {
+        "title": "Alle felt",
+        "description": "Føy til 50 felt for fullstendig lokasjonsinformasjon."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Ingen lokasjonsfelt er valgt",
+        "description": "Velg feltet som inneholder lokasjonsdata."
+      },
+      "coordinate": {
+        "title": "Velg koordinatfelt",
+        "description": "Angi hvilket felt som skal brukes for både bredde- og lengdegrad."
+      },
+      "insufficientCredits": {
+        "title": "For få credits",
+        "description": "Du har for få credits til å utføre denne handlingen. Kontakt administratoren for å få flere credits."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Tabellene må inneholde lokasjonsinformasjon",
+        "description": "Du kan ikke legge til geoobjekter i et lag som ikke innholder lokasjonsinformasjon."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Ikke nok organisasjonscredits – handlingen fullføres kanskje ikke",
+      "description": "Organisasjonen har kanskje ikke nok credits til å fullføre denne handlingen. Hvis arbeidsflyten ikke fullføres, kontakter du administratoren for å få flere credits."
+    },
+    "recordCount": "Anslåtte poster som skal geokodes: ${num}",
+    "locationType": "Lokasjonstype",
+    "field": "Felt",
+    "unknown": "Lokasjonstype ikke brukt",
+    "longitude": "Lengdegrad",
+    "latitude": "Breddegrad",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Verden",
+      "EU": "Europa",
+      "AD": "Andorra",
+      "AE": "De forente arabiske emirater",
+      "AF": "Afghanistan",
+      "AG": "Antigua og Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albania",
+      "AM": "Armenia",
+      "AO": "Angola",
+      "AQ": "Antarktis",
+      "AR": "Argentina",
+      "AS": "Amerikansk Samoa",
+      "AT": "Østerrike",
+      "AU": "Australia",
+      "AW": "Aruba",
+      "AZ": "Aserbajdsjan",
+      "BA": "Bosnia-Hercegovina",
+      "BB": "Barbados",
+      "BD": "Bangladesh",
+      "BE": "Belgia",
+      "BF": "Burkina Faso",
+      "BG": "Bulgaria",
+      "BH": "Bahrain",
+      "BI": "Burundi",
+      "BJ": "Benin",
+      "BL": "Saint Barthélemy",
+      "BM": "Bermuda",
+      "BN": "Brunei",
+      "BO": "Bolivia",
+      "BQ": "Bonaire, Saint Eustatius og Saba",
+      "BR": "Brasil",
+      "BS": "Bahamas",
+      "BT": "Bhutan",
+      "BV": "Bouvetøya",
+      "BW": "Botswana",
+      "BY": "Hviterussland",
+      "BZ": "Belize",
+      "CA": "Kanada",
+      "CD": "Den demokratiske republikken Kongo",
+      "CF": "Den sentralafrikanske republikk",
+      "CG": "Konto",
+      "CH": "Sveits",
+      "CI": "Elfenbenskysten",
+      "CK": "Cook-øyene",
+      "CL": "Chile",
+      "CM": "Kamerun",
+      "CN": "Kina",
+      "CO": "Colombia",
+      "CR": "Costa Rica",
+      "CU": "Cuba",
+      "CV": "Kapp Verde",
+      "CW": "Curaçao",
+      "CY": "Kypros",
+      "CZ": "Tsjekkia",
+      "DE": "Tyskland",
+      "DJ": "Djibouti",
+      "DK": "Danmark",
+      "DM": "Dominica",
+      "DO": "Den dominikanske republikk",
+      "DZ": "Algerie",
+      "EC": "Ecuador",
+      "EE": "Estland",
+      "EG": "Egypt",
+      "EH": "Vest-Sahara",
+      "ER": "Eritrea",
+      "ES": "Spania",
+      "ET": "Etiopia",
+      "FI": "Finland",
+      "FJ": "Fiji",
+      "FK": "Falklandsøyene",
+      "FM": "Mikronesiaføderasjonen",
+      "FO": "Færøyene",
+      "FR": "Frankrike",
+      "GA": "Gabon",
+      "GB": "Storbritannia",
+      "GD": "Grenada",
+      "GE": "Georgia",
+      "GF": "Fransk Guyana",
+      "GG": "Guernsey",
+      "GH": "Ghana",
+      "GI": "Gibraltar",
+      "GL": "Grønland",
+      "GM": "Gambia",
+      "GN": "Guinea",
+      "GP": "Guadeloupe",
+      "GQ": "Ekvatorial-Guinea",
+      "GR": "Hellas",
+      "GS": "Saint-Martin og Sør-Sandwichøyene",
+      "GT": "Guatemala",
+      "GW": "Guinea-Bissau",
+      "GY": "Guyana",
+      "HK": "Hong Kong",
+      "HM": "Heardøya og McDonaldøyene",
+      "HN": "Honduras",
+      "HR": "Kroatia",
+      "HT": "Haiti",
+      "HU": "Ungarn",
+      "ID": "Indonesia",
+      "IE": "Irland",
+      "IL": "Israel",
+      "IM": "Isle of Man",
+      "IN": "India",
+      "IO": "Det britiske territoriet i Indiahavet",
+      "IQ": "Irak",
+      "IR": "Iran",
+      "IS": "Island",
+      "IT": "Italia",
+      "JE": "Jersey",
+      "JM": "Jamaica",
+      "JO": "Jordan",
+      "JP": "Japan",
+      "KE": "Kenya",
+      "KG": "Kirgisistan",
+      "KH": "Kambodsja",
+      "KI": "Kiribati",
+      "KM": "Komorene",
+      "KN": "St. Kitts og Nevis",
+      "KP": "Nord-Korea",
+      "KR": "Republikken Korea",
+      "KW": "Kuwait",
+      "KY": "Caymanøyene",
+      "KZ": "Kasakhstan",
+      "LA": "Laos",
+      "LB": "Libanon",
+      "LC": "St. Lucia",
+      "LI": "Liechtenstein",
+      "LK": "Sri Lanka",
+      "LR": "Liberia",
+      "LS": "Lesotho",
+      "LT": "Litauen",
+      "LU": "Luxembourg",
+      "LV": "Latvia",
+      "LY": "Libya",
+      "MA": "Marokko",
+      "MC": "Monaco",
+      "MD": "Moldova",
+      "ME": "Montenegro",
+      "MF": "Saint-Martin (fransk)",
+      "MG": "Madagaskar",
+      "MH": "Marshalløyene",
+      "MK": "Makedonia",
+      "ML": "Mali",
+      "MM": "Myanmar",
+      "MN": "Mongolia",
+      "MO": "Macao",
+      "MP": "Nord-Marianene",
+      "MQ": "Martinique",
+      "MR": "Mauritania",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Mauritius",
+      "MV": "Maldivene",
+      "MW": "Malawi",
+      "MX": "Mexico",
+      "MY": "Malaysia",
+      "MZ": "Mosambik",
+      "NA": "Namibia",
+      "NC": "Ny-Caledonia",
+      "NE": "Niger",
+      "NG": "Nigeria",
+      "NI": "Nicaragua",
+      "NL": "Nederland",
+      "NO": "Norge",
+      "NP": "Nepal",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "New Zealand",
+      "OM": "Oman",
+      "PA": "Panama",
+      "PE": "Peru",
+      "PF": "Fransk Polynesia",
+      "PG": "Papua Ny-Guinea",
+      "PH": "FilipNålene",
+      "PK": "Pakistan",
+      "PL": "Polen",
+      "PM": "St. Pierre og Miquelon",
+      "PN": "Pitcairn",
+      "PS": "Palestina",
+      "PT": "Portugal",
+      "PW": "Palau",
+      "PY": "Paraguay",
+      "QA": "Qatar",
+      "RE": "Réunion",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "RU": "Russland",
+      "RW": "Rwanda",
+      "SA": "Saudi-Arabia",
+      "SB": "Solomonøyene",
+      "SC": "Seychellene",
+      "SD": "Sudan",
+      "SE": "Sverige",
+      "SG": "Singapore",
+      "SH": "St. Helena, Ascension og Tristan da Cunha",
+      "SI": "Slovenia",
+      "SJ": "Svalbard og Jan Mayen",
+      "SK": "Slovakia",
+      "SL": "Sierra Leone",
+      "SM": "San Marino",
+      "SN": "Senegal",
+      "SO": "Somalia",
+      "SR": "Surinam",
+      "SS": "Sør-Sudan",
+      "ST": "São Tomé og Príncipe",
+      "SV": "El Salvador",
+      "SX": "Saint-Martin (nederlandsk)",
+      "SY": "Syria",
+      "SZ": "Swaziland",
+      "TC": "Turks og Caicos-øyene",
+      "TD": "Tsjad",
+      "TF": "Franske territorier i sør",
+      "TG": "Togo",
+      "TH": "Thailand",
+      "TJ": "Tadsjikistan",
+      "TK": "Tokelau",
+      "TL": "Øst-Timor",
+      "TM": "Turkmenistan",
+      "TN": "Tunisia",
+      "TO": "Tonga",
+      "TR": "Tyrkia",
+      "TT": "Trinidad og Tobago",
+      "TV": "Tuvalu",
+      "TW": "Taiwan",
+      "TZ": "Tanzania",
+      "UA": "Ukraina",
+      "UG": "Uganda",
+      "UM": "USAs ytre småøyer",
+      "US": "USA",
+      "UY": "Uruguay",
+      "UZ": "Usbekistan",
+      "VA": "Vatikanstaten",
+      "VC": "St. Vincent og Grenadinene",
+      "VE": "Venezuela",
+      "VG": "Jomfruøyene (Storbritannia)",
+      "VN": "Vietnam",
+      "VU": "Vanuatu",
+      "WF": "Wallis og Futuna",
+      "WS": "Samoa",
+      "XK": "Kosovo",
+      "YE": "Jemen",
+      "YT": "Mayotte",
+      "ZA": "Sør-Afrika",
+      "ZM": "Zambia",
+      "ZW": "Zimbabwe"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Boolsk operator",
+    "string": "Streng",
+    "double": "Dobbel",
+    "number": "Tall",
+    "date": "Dato"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Punktlag",
+      "line": "Linjelag",
+      "polygon": "Polygonlag",
+      "table": "Tabell",
+      "multipoint": "Multipunktlag",
+      "multipatch": "Multipatchlag"
+    },
+    "placeholders": {
+      "point": "Navn på punktlag",
+      "line": "Navn på linjelag",
+      "polygon": "Navn på polygonlag",
+      "table": "Tabellnavn",
+      "multipoint": "Navn på multipunktlag"
+    },
+    "creationType": {
+      "template": "Mal",
+      "existing": "Eksisterende geoobjekttjeneste",
+      "link": "URL",
+      "build": "Bygg fra bunnen av",
+      "generic": "Inkluder de nødvendige lagene eller tabellene som du vil ha med i geoobjektlaget ditt."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Ingen lag er valgt",
+      "description": "Velg et geoobjektlag for å fortsette."
+    },
+    "invalidUrl": {
+      "title": "Ugyldig lag",
+      "description": "Laget refererer til en tjenestetype som ikke støttes."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Angi navn og type",
+    "layerPreferences": "Alternativer",
+    "captureGPS": "Legg til GPS-metadatafelt",
+    "captureGPSDescription": "Legg til felt i lag som støtter registrering av GPS-mottakerinformasjon.",
+    "enableZDefaults": "Aktiver Z-verdier",
+    "enableZDefaultsDescription": "Tillater modelleringspunkt-, polylinje- og polygongeoobjekter i 3D.",
+    "enableZDefaultsDefaultValue": "Z-verdi standard:",
+    "enableMDefaults": "Aktiver M-verdier",
+    "enableMDefaultsDescription": "Tillater lagring av en måling eller en verdi ved hvert knekkpunkt for en geometri.",
+    "layer": "Lag",
+    "table": "Tabell",
+    "add": "Legg til",
+    "error": {
+      "emptyName": {
+        "title": "Mangler lagnavn",
+        "description": "Lagnavn må fylles ut"
+      },
+      "duplicateTitle": {
+        "title": "Lagnavn må være unike.",
+        "description": "Kan ikke ha lag med samme navn"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Ingen mal er valgt",
+    "errorDescription": "Velg en mal for å fortsette."
+  },
+  "featureLayerFromUrl": {
+    "description": "Angi en URL til en geoobjekttjeneste",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "Tom URL",
+        "description": "Skriv inn en gyldig URL"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "URL-en støttes ikke",
+        "description": "Angi en URL til et geoobjektlag. Laget må ha FeatureServer i URL-en."
+      },
+      "serviceNotExist": {
+        "title": "Tjenesten finnes ikke",
+        "description": "Tjenesten finnes ikke eller er utilgjengelig."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Detaljer for kartlag",
+    "deselectAnyLayers": "Fjern avmerkingen av lag du vil fjerne.",
+    "deselectAll": "Fjern merkingen på alle",
+    "selectAll": "Merk alt",
+    "error": {
+      "noLayer": {
+        "title": "Ingen lag er valgt",
+        "description": "Velg minst ett lag"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Velg et alternativ for å opprette et tomt geoobjektlag.",
+    "subheading": "TODO: legg til beskrivelse her.",
+    "options": {
+      "build": {
+        "title": "Definer ditt eget lag",
+        "description": "Angi lagene og tabellene."
+      },
+      "template": {
+        "title": "Bruk en mal",
+        "description": "Bruk lagene og feltene fra en mal."
+      },
+      "existing": {
+        "title": "Velg et eksisterende geoobjektslag",
+        "description": "Bruk lagene og feltene fra et eksisterende geoobjektlag i organisasjonen din."
+      },
+      "link": {
+        "title": "Oppgi URL-adresse til et ArcGIS-serverlag",
+        "description": "Bruk laget og feltene fra et ArcGIS-geoobjektlag."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Legitimasjonstyper",
+    "redirectUrlsTitle": "URL-er for omdirigering",
+    "redirectUrlsDescription": "Legg tillatte URL-er til på en nettside eller et serverendepunkt som brukerne skal omdirigeres til når autoriseringen er fullført.",
+    "refererrUrlsTitle": "Henvisende",
+    "refererrUrlsDescription": "Tillat tilgang fra spesifikke HTTP/HTTPS-domener. Verdien i HTTP-hode for henvisningen det skal sjekkes mot. Du kan bruke * som jokertegn. For eksempel http://*.din-app.com. Se Sikkerhet og autentisering for mer informasjon.",
+    "oauth2Hint": "OAuth 2.0 kan brukes til å godkjenne ArcGIS-brukere for tilgang til innhold og lokasjonsbaserte tjenester på vegne av den godkjente brukeren. Du finner mer informasjon i ${apiLinkStart}veiledningen for sikkerhet og autentisering.${endLink}",
+    "oauth2HintNoLink": "OAuth 2.0 kan brukes til å godkjenne ArcGIS-brukere for tilgang til innhold og lokasjonsbaserte tjenester på vegne av den godkjente brukeren.",
+    "applicationEnvTitle": "Applikasjonsmiljø",
+    "applicationEnvDescription": "Applikasjonsmiljøet vil påvirke når elementet vises i filtrerte søkeresultater.",
+    "registering": "Registrerer app...",
+    "applicationEnvOptions": {
+      "multiple": "Flere",
+      "browser": "Nettleser",
+      "native": "Plattformavhengig",
+      "server": "Server"
+    },
+    "options": {
+      "apiKey": {
+        "title": "API-nøkkel",
+        "description": "Bruk API-nøkler til å få tilgang til ArcGIS-lokasjonstjenester og premiuminnhold i applikasjonene dine."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0-applikasjonsdefinisjoner brukes til å godkjenne ArcGIS-brukere, arbeide med brukerinnhold og få tilgang til lokasjonstjenester på vegne av godkjente brukere."
+      }
+    },
+    "onboard": {
+      "title": "Legitimasjonstyper",
+      "apiKey": {
+        "title": "API-nøkler",
+        "description": "Bruk API-nøkler til å få tilgang til lokasjonstjenester og premiuminnhold i applikasjonene dine. Se veiledningen for kart-API-er og lokasjonstjenester for å få mer informasjon om hvordan du bruker API-nøkler til å få tilgang til tjenester."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 kan brukes til å godkjenne ArcGIS-brukere for tilgang til innhold og lokasjonsbaserte tjenester på vegne av den godkjente brukeren. Du finner mer informasjon i veiledningen for sikkerhet og autentisering."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "Feltet for URL-er for omdirigering kan ikke være tomt",
+        "description": "Legg til minst én URL for omdirigering."
+      },
+      "referrerEmpty": {
+        "title": "Feltet for henvisende URL-er kan ikke være tomt",
+        "description": "Legg til minst én henvisende URL."
+      },
+      "registerError": {
+        "title": "Feil under appregistrering",
+        "description": "Kan ikke opprette registrert app for elementet."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Ugyldig(e) tegn i URL for omdirigering",
+        "description": "Følgende tegn kan ikke brukes: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Ugyldig(e) tegn i URL for omdirigering",
+        "description": "Spesialtegn er ikke tillatt."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Lokasjonstjenester",
+    "description": "Angi omfang for å angi tilgang til spesifikke ArcGIS-lokasjonstjenester. Mer om sikkerhet og autentisering.",
+    "requiredService": "Nødvendig tjeneste",
+    "availableServices": "Tilgjengelige tjenester",
+    "services": {
+      "basemap": {
+        "heading": "Bakgrunnskart"
+      },
+      "geocodingStored": {
+        "heading": "Geokoding (lagret)",
+        "description": "Åpne geokodingstjenesten for å utføre vanlig og omvendt geokoding, inkludert støtte for forslag og stedssøk. Du kan lagre resultatene."
+      },
+      "geocodingNotStored": {
+        "heading": "Geokoding (ikke lagret)",
+        "description": "Åpne geokodingstjenesten for å utføre vanlig og omvendt geokoding, inkludert støtte for forslag og stedssøk. Du kan ikke lagre resultatene."
+      },
+      "optimizedRouting": {
+        "heading": "Optimalisert ruteplanlegging",
+        "description": "Åpne ruteplanleggingstjenesten for å finne den beste rekkefølgen på lokasjonene som skal besøkes."
+      },
+      "closestFacility": {
+        "heading": "Nærmeste fasilitet",
+        "description": "Åpne tjenesten Nærmeste fasilitet for å finne én eller flere fasiliteter som er nærmest en hendelse baserte på reisetid eller reiselengde."
+      },
+      "locationAllocation": {
+        "heading": "Posisjonsallokering",
+        "description": "Åpne tjenesten for lokasjonsallokering for å velge hvilke fasiliteter fra et sett av fasiliteter som skal drives baserte på fasilitetens potensielle interaksjon med etterspørselspunkter."
+      },
+      "multiVehicleRouting": {
+        "heading": "Ruteplanlegging for flere kjøretøyer",
+        "description": "Åpne VRP-tjenesten (problem med ruteplanlegging for kjøretøy) for å bestemme hvilke stopp som skal betjenes på hver rute og i hvilken rekkefølge."
+      },
+      "costMatrix": {
+        "heading": "Kostnadsmatrise for startpunkt-mål",
+        "description": "Åpne tjenesten OD-matrise for å lage en kostnadsmatrise for startpunkt-mål fra flere startpunkt til flere mål."
+      },
+      "geoEnrichment": {
+        "heading": "GeoEnrichment",
+        "description": "Åpne GeoEnrichment-tjenesten for å få attributter, rapporter og datadreven infografikk som beskriver demografiske, næringslivsrelaterte og andre datadrevne karakteristikker for studieområder og lokasjoner."
+      },
+      "routing": {
+        "heading": "Ruting",
+        "description": "Åpne ruteplanleggingstjenesten for å finne beste rute fra en lokasjon til en annen eller for å besøke flere lokasjoner."
+      },
+      "serviceArea": {
+        "heading": "Dekningsområde",
+        "description": "Åpne tjenesten Dekningsområde for å generere et område som representerer avstanden som kan nås når man reiser i et gatenettverk."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Velg et alternativ for å opprette en lokator",
+    "options": {
+      "locator": {
+        "title": "Opprett en lokator fra en geokodetjeneste",
+        "description": "Angi URL-en til en eksisterende ArcGIS Server-geokodetjeneste."
+      },
+      "locator-view": {
+        "title": "Opprett en lokatorvisning fra ArcGIS World Geocoding Service.",
+        "description": "Konfigurer visningen til spesifikke lokasjonstyper innenfor spesifikke land eller områder."
+      }
+    },
+    "url": {
+      "heading": "URL",
+      "description": "Angi en URL til en geokodetjeneste"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Hvilken type kartflislag vil du opprette?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Vektorflislag",
+        "description": "Rask kartvisualisering med en samling forhåndstegnede vektorkartlag som tilpasser seg skjermoppløsningen og som du kan endre stil på til forskjellige bruksområder."
+      },
+      "raster": {
+        "title": "Rasterflislag",
+        "description": "Rask kartvisualisering med en samling forhåndstegnede kartbilder eller kartfliser."
+      },
+      "3dTiles": {
+        "title": "3D-flislag",
+        "description": "Rask 3D-visualisering ved hjelp av et maske 3D-flisdatasett."
+      }
+    },
+    "sourceHeading": "Velg en metode for å opprette et kartflislag",
+    "sourceOptions": {
+      "existing": {
+        "title": "Bla etter et eksisterende geoobjektslag",
+        "description": "Velg et hostet geoobjektlag i innholdet ditt som kilde for det raskt tegnede kartflislaget."
+      },
+      "upload": {
+        "title": "Last opp en kartflispakke",
+        "titleRaster": "Last opp en kartflispakke eller en tjenestedefinisjon",
+        "description": "Last opp en pakke fra din lokale enhet.",
+        "rasterDescription": "Last opp en pakke eller tjenestedefinisjonsfil fra din lokale enhet."
+      },
+      "store": {
+        "title": "Velg et datasett i datalageret",
+        "description": "Bla etter kartflisinnhold i et registrert datalager."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Tittel",
+    "titlePlaceholder": "Flislagtittel",
+    "attribution": "Kildeinformasjon",
+    "subdomain": "Underdomene",
+    "subDomainPlaceholder": "Eksempel: a, b, c, eller tile1, tile2, tile3",
+    "setTileExtent": "Sett flisutstrekning til gjeldende kartutstrekning",
+    "setTileExtentTooltip": "URL-en kan også inneholde en plassholder for underdomenene der kartflisene er plassert.",
+    "error": {
+      "title": "Oppgi en tittel",
+      "attribution": "Oppgi kildeinformasjon"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Kan ikke opprette kartflislaget",
+        "description": "Et kartflislag finnes allerede for det valgte geoobjektlaget. Velg et annet."
+      },
+      "badRenderer": {
+        "title": "Kan ikke opprette kartflislaget",
+        "description": "Det valgte geoobjektlaget har en tegnestil som ikke kan tegnes som kartfliser. Velg en annen."
+      },
+      "noLayerSelected": {
+        "title": "Ingen lag er valgt",
+        "description": "Velg et geoobjektlag for å fortsette."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Velg et alternativ for å opprette et scenelag",
+    "options": {
+      "store": {
+        "title": "Velg et datasett i datalageret",
+        "description": "Bla etter sceneinnhold i en fil eller i et lager i nettskyen som er registert til ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Last opp en scenepakke",
+        "description": "Last opp en pakke fra en lokal enhet."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Velg en pakke fra en lokal enhet"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Hvilken type kartflislag vil du opprette?",
+    "options": {
+      "vectorTiles": {
+        "title": "Vektorflislag",
+        "description": "Rask kartvisualisering med en samling forhåndstegnede vektorkartlag som tilpasser seg skjermoppløsningen og som du kan endre stil på til forskjellige bruksområder."
+      },
+      "tiles": {
+        "title": "Rasterflislag",
+        "description": "Rask kartvisualisering med en samling forhåndstegnede kartbilder eller kartfliser."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Gjennomgå og bruk alternativer på kartflislaget.",
+    "visibilityRange": "Synlighetsområde",
+    "visibilityRangeDescription": "Dette området påvirker hvordan du visualiserer kartflisene på et kart. Dette kan oppdateres.",
+    "basemapOption": "Flisoppsett",
+    "autoCreateOption": {
+      "title": "Opprett fliser automatisk",
+      "description": "Flisene blir opprettet ved behov og lagret til senere bruk."
+    },
+    "onlineBasemapOption": {
+      "title": "ArcGIS Online-bakgrunnskart",
+      "description": "Bruk ArcGIS Online-flisoppsett for bakgrunnskart. Tillater at laget ditt vises med ArcGIS Online-bakgrunnskart."
+    },
+    "customBasemap": {
+      "title": "Tilpasset",
+      "description": "Bruk samme flisoppsett som et eksisterende flislag eller kartbildelag. Tillater at laget ditt vises med det valgte laget."
+    },
+    "customBasemapUrl": "Koble til eksisterende flislag",
+    "ranges": {
+      "world": "Verden (1:100 000 000)",
+      "continent": "Kontinent (1:50 000 000)",
+      "countries": "Land - store (1:25 000 000)",
+      "countriesSmall": "Land - små (1:12 000 000)",
+      "states": "State/provinser (1:6 000 000)",
+      "state": "Stat/provins (1:3 000 000)",
+      "counties": "Fylker (1:1 500 000)",
+      "county": "Fylke (1:750 000)",
+      "metropolitan": "Storbyområde (1:320 000)",
+      "cities": "Byer (1:160 000)",
+      "city": "By (1:80 000)",
+      "town": "By (1:40 000)",
+      "neighborhood": "Nabolag (1:20 000)",
+      "streets": "Gater (1:10 000)",
+      "street": "Gate (1:5 000)",
+      "buildings": "Bygninger (1:2500)",
+      "building": "Bygning (1:1250)",
+      "small": "Liten bygning (1:800)",
+      "rooms": "Rom (1:400)",
+      "room": "Rom (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Feil med kartflislaget",
+      "mapServiceError": "Forespørselen om å hente kartflisskjemaet kunne ikke fullføres. Sørg for at ArcGIS-kartlflislaget er aktivt og responderer på forespørsler.",
+      "noTilingSchemeFound": "Det er ikke definert et kartflisoppsett for ArcGIS-kartflislaget.",
+      "noMatchSpatialRef": "Den geografiske referansen for kartflisoppsettet må samsvare med den geografiske referansen for geoobjektslaget.",
+      "noFileSelected": "Du må angi en fil for kartflisoppsett."
+    }
+  },
+  "dataStore": {
+    "header": "Velg et datasett",
+    "fileName": "Filnavn",
+    "fileType": "Filtype",
+    "paginationRange": "${start} - ${end} av ${total}",
+    "processing": "Fører opp innhold ...",
+    "emptyFolder": "Denne mappen er tom.",
+    "error": {
+      "noDatasetErrorHeading": "Ikke noe datasett er valgt",
+      "noDatasetErrorDescription": "Velg et datasett for å fortsette",
+      "listing": {
+        "heading": "Kan ikke vise innholdet i Data Store",
+        "description": "Det oppsto en feil under visningen av innholdet i Data Store."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Velg hvilken type datalager som skal legges til.",
+    "description": "Bruk smidige rammeverk til å opprette et sammendrag",
+    "subOptionsHeading": "Legg til en tilkobling til et datalager",
+    "subOptionsCloudDescription": "Velg typen skylagringssted som skal legges til",
+    "subOptionsDatabaseDescription": "Velg type database som skal legges til",
+    "databaseDescriptionForOnline": "Koble til et skydatalager",
+    "options": {
+      "folder": {
+        "title": "Mappe",
+        "description": "Koble til en filsystemmappe eller delt filressurs"
+      },
+      "database": {
+        "title": "Database",
+        "description": "Koble til en relasjonsdatabase eller et skydatalager",
+        "descriptionNoSql": "Koble til en relasjonsdatabase, en NoSQL-database eller et skydatalager"
+      },
+      "cloud": {
+        "title": "Skylagring",
+        "description": "Koble til et skylagringssted"
+      },
+      "bdfs": {
+        "title": "Delt stordatafil",
+        "description": "Koble til en lokasjon som er tilgjengelig for GeoAnalytics Server-området"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "En tilkobling til en NoSQL-database"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Spesifiser tilkobling- eller lokasjonsinformasjon for å gi ArcGIS Server-områder tilgang til dataene.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MinFilserver\\GlobalData",
+      "heading": "Bane til utgivermappe",
+      "hostname": "Hostnavn for utgivermappe",
+      "hostnameInfo": "Dette er påkrevd når banen til utgivermappens plassering er en stasjonsbokstav"
+    },
+    "serverFolderPath": {
+      "heading": "Servermappebane",
+      "sameAsPublisher": "Samme som bane til utgivermappe",
+      "newPath": "Ny bane",
+      "nfsHostAndPath": {
+        "description": "NFS-host og -bane",
+        "hostname": "NFS-hostnavn:",
+        "sharePath": "NFS-delingsbane:"
+      },
+      "placeholder": "\\\\EksternFIlserver\\GlobalData eller /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Bane til utgivermappe mangler",
+        "description": "Du må angi en bane til utgivermappe for datalageret"
+      },
+      "invalidPublisherHostName": {
+        "heading": "Utgiververtsnavn mangler",
+        "description": "Du må angi et utgiververtsnavn for datalageret"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Bane til utgiverservermappe mangler",
+        "description": "Du må angi en bane til servermappe for datalageret"
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "NFS-vertsnavn og bane til delt NFS-ressurs mangler",
+        "description": "Du må angi et NFS-vertsnavn og bane til delt NFS-ressurs for datalageret"
+      },
+      "invalidNfsHostName": {
+        "heading": "NFS-vertsnavn mangler",
+        "description": "Du må angi et NFS-vertsnavn for datalageret"
+      },
+      "invalidNfsPath": {
+        "heading": "Bane til delt NFS-ressurs mangler",
+        "description": "Du må angi en bane til delt NFS-ressurs for datalageret"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Velg typen databasetype.",
+    "options": {
+      "relational": {
+        "title": "Relasjonsdatabase",
+        "description": "Koble til en relasjonsdatabase"
+      },
+      "cloudDataWarehouse": {
+        "title": "Skydatalager",
+        "description": "Koble til et skydatalager"
+      },
+      "nosql": {
+        "title": "NoSQL-database",
+        "description": "Koble til en NoSQL-database"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Spesifiser tilkobling- eller lokasjonsinformasjon for å gi ArcGIS Server-områder tilgang til dataene.",
+    "publisherDatabaseConnection": "Utgiverens databasetilkobling",
+    "serverDatabaseConnection": "Serverdatabasetilkobling",
+    "sameAsPublisher": "Samme som utgivers databasetilkobling",
+    "newConnection": "Ny tilkobling",
+    "sdeFile": "(SDE-fil)",
+    "dragAndDropOrSelectFile": "Dra og slipp, eller velg SDR-fil",
+    "selectFile": "Velg fil",
+    "chooseDifferentFile": "Velg en annen fil",
+    "importingConnectionFile": "Importerer tilkoblingsfil...",
+    "fileChosen": "Fil valgt",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Koble til Google BigQuery"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Koble til Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Koble til Amazon S3"
+      },
+      "azure": {
+        "title": "Microsoft Azure-lager",
+        "description": "Koble til Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "Portalen er ikke konfigurert med en hostserver, noe som er nødvendig for at du skal kunne fullføre opprettingen av datalageret. Sjekk konfigurasjonen for hostserver, og prøv på nytt.",
+      "invalidPublisherConnectionFile": {
+        "heading": "Tilkoblingsfil for utgiver mangler",
+        "description": "Du må angi en utgivertilkoblingsfil for datalageret."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "Servertilkoblingsfil mangler",
+        "description": "Du må oppgi en servertilkoblingsfil for datalageret."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Server",
+    "authenticationType": "Godkjenningstype",
+    "userAuthentication": "Brukergodkjenning",
+    "serviceAuthentication": "Tjenestegodkjenning",
+    "refreshToken": "Oppdateringstoken",
+    "keyFile": "Nøkkelfil",
+    "projectId": "Prosjekt-ID",
+    "defaultDataset": "Standard datasett",
+    "username": "Brukernavn",
+    "password": "Passord",
+    "role": "Rolle",
+    "database": "Database",
+    "schema": "Skjema",
+    "warehouse": "Lager",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Bruk en JSON-fil",
+    "notJson": "Den eneste filtypen som godtas, er en JSON-fil",
+    "dataStoreConnection": "Data Store-tilkobling",
+    "validating": "Validerer tilkobling...",
+    "selectKeyFile": "Velg nøkkelfil",
+    "errors": {
+      "validationFailedTitle": "Valideringen mislyktes",
+      "validationFailedDescription": "Legitimasjonsvalidering mislyktes. Sjekk at du har oppgitt riktig informasjon, og prøv på nytt.",
+      "incorrectLogin": "Legitimasjonen du har oppgitt, er feil eller ugyldig.",
+      "noKeyFile": "Nøkkelfil er et obligatorisk felt.",
+      "noProjectId": "Prosjekt-ID er et obligatorisk felt",
+      "noServer": "Server er et obligatorisk felt.",
+      "noDatabase": "Database er et obligatorisk felt.",
+      "noSchema": "Skjema er et obligatorisk felt.",
+      "noWarehouse": "Lager er et obligatorisk felt.",
+      "noRole": "Rolle er et obligatorisk felt."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Angi hvilken type stordatafildeling som skal legges til GeoAnalytics-serveren.",
+    "locationInfo": "Angi lokasjonsinformasjon for å gi GeoAnalytics-serveren tilgang til dataene.",
+    "username": "Brukernavn",
+    "useKerberos": "Bruk Kerberos",
+    "keytabLocations": "Plassering av nøkkelkategorier",
+    "principalUser": "Hovedbruker",
+    "principalRealm": "Hovedområde",
+    "cloudSelectType": "Velg hvilken type datalager som skal legges til.",
+    "cloudSelectProvider": "Velg en skylagringsleverandør.",
+    "cloudTypes": {
+      "new": "Ny",
+      "existing": "Eksisterende"
+    },
+    "cloudSearch": "Velg eksisterende skydatalager:",
+    "cloudSearchPlaceholder": "Angi for å søke i datalagre",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Microsoft Azure-lager",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2"
+    },
+    "database": {
+      "heading": "Database",
+      "nonDefault": {
+        "description": "Bruk en annen database enn standard (navn på standarddatabase).",
+        "placeholder": "standard"
+      }
+    },
+    "metastoreUri": {
+      "heading": "Metastore URI-er",
+      "placeholder": "thrift://domenenavn:port,thrift://domenenavn2:port"
+    },
+    "path": {
+      "heading": "Bane",
+      "filesharePlaceholder": "\\\\MinFilserver\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domenenavn:port/mappe"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Fildeling",
+        "description": "En katalog med datasett på en lokal disk eller nettverksdeling"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "EN HDFS-katalog (Hadoop Distributed File System) med datasett"
+      },
+      "hive": {
+        "title": "Struktur",
+        "description": "Datalager med Apache-struktur"
+      },
+      "cloud": {
+        "title": "Skylagring",
+        "description": "Koble til et skylagringssted"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Ingen delingstype for stordatafil valgt",
+        "description": "Du må velge en delt stordatafil for å fortsette."
+      },
+      "noPathSelected": {
+        "heading": "Bane mangler",
+        "description": "Du må angi en bane for datalageret."
+      },
+      "noMetastoreUri": {
+        "heading": "Metalager-URI mangler",
+        "description": "Du må oppgi minst én URI for metalageret."
+      },
+      "noDataStoreSelected": {
+        "heading": "Ingen datalager er valgt",
+        "description": "Velg et datalager for å fortsette."
+      },
+      "noCloudSelected": {
+        "heading": "Ingen nettskyleverandør er valgt",
+        "description": "Velg en skyleverandør for å fortsette."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Velg en skylagringsleverandør.",
+    "connectionInfoEnterprise": "Spesifiser tilkobling- eller lokasjonsinformasjon for å gi ArcGIS Server-områder tilgang til dataene.",
+    "connectionInfoOnline": "Angi tilkoblingsinformasjon",
+    "provider": "Skylagringsleverandør",
+    "authenticationType": "Godkjenningstype",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Delt nøkkel",
+      "sasToken": "Delt tilgangssignatur",
+      "anonymous": "Anonym"
+    },
+    "identityType": "identitetstype",
+    "identityTypes": {
+      "servicePrincipal": "Tjenestekontohaver",
+      "userAssignedIdentity": "Brukertilordnet administrert identitet"
+    },
+    "token": "Token",
+    "tenantId": "Leier-ID",
+    "clientId": "Klient-ID",
+    "optionalClientId": "Klient-ID (valgfritt)",
+    "clientSecret": "Klienthemmelighet",
+    "accountName": "Kontonavn",
+    "accountKey": "Kontonøkkel",
+    "environment": "Miljødata",
+    "storageDomain": "Lagringsdomene",
+    "other": "Annet",
+    "endpoint": "Endepunkt",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net eller DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Beholdernavn",
+    "credentialType": "Legitimasjonstype",
+    "accessKey": "Tilgangsnøkkel",
+    "secretKey": "Hemmelig nøkkel",
+    "sharedKey": "Delt nøkkel",
+    "region": "Region",
+    "bucketName": "Bucket-navn",
+    "cloudFolder": "Mappe (valgfri)",
+    "validating": "Validerer tilkobling...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Google Cloud-lager",
+      "azure": "Microsoft Azure-lager",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+      "alibaba": "Alibaba Cloud-lager"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Ingen nettskyleverandør er valgt",
+        "description": "Velg en skyleverandør for å fortsette."
+      },
+      "onlineValidationFailed": {
+        "heading": "Feil ved tilkobling",
+        "description": "Kan ikke validere tilkoblingen. Kontroller at informasjonen er riktig."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Tilgangsnøkkel",
+      "privateKey": "Privat nøkkel",
+      "IAMRole": "IAM -rolle"
+    },
+    "custom": "Tilpasset",
+    "storageURL": "Privat URL",
+    "cloudFolderPlaceHolder": "sky/arcgis",
+    "errorInfo": "${missingField} er påkrevd",
+    "invalidEndpoint": "Endepunkt må bruke HTTPS",
+    "and": "og"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Velg en NoSQL-lagringsleverandør.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Leverandør",
+    "errorMessage": "Følgende felt inneholder feil: ${missingFields}",
+    "connectionUri": "Tilkoblings-URI",
+    "username": "Brukernavn",
+    "password": "Passord",
+    "database": "Database",
+    "credentialDescription": "Angi tilkoblingsinformasjon for NoSQL for å gi ArcGIS Server-områder tilgang til dataene.",
+    "connectionUriExample": "Eksempel: protokoll://vertsnavn:port",
+    "fallBackServers": "Reserveservere (valgfritt)",
+    "fallBackServersExample": "Eksempel: vertsnavn1:port1,vertsnavn2:port2",
+    "and": "og",
+    "error": "Feil",
+    "hosts": "Host(er)",
+    "useSsl": "Bruk SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Konfigurer servere",
+      "subHeading": "Velg ArcGIS Server-området som du ønsker at laget skal publiseres til."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Velg ArcGIS Server-områdene som du vil legge datalageret til.",
+      "bdfsHeading": "Fildelingsområde for stordata legges til på ArcGIS GeoAnalytics Server-området.",
+      "subHeading": "Området må ha tilgang til tilkoblingen eller lokasjonen du oppga i forrige trinn.",
+      "noServerSelected": {
+        "heading": "Ingen server er valgt",
+        "description": "Velg minst én server for å fortsette."
+      }
+    },
+    "list": {
+      "title": "Server",
+      "status": "Status"
+    },
+    "status": {
+      "success": "Normal",
+      "failure": "Ikke tilgjengelig",
+      "error": "Feil",
+      "validating": "Validerer"
+    },
+    "loader": {
+      "validating": "Validerer servere ..."
+    },
+    "error": {
+      "noServerSelectedHeading": "Ingen server er valgt",
+      "noServerSelectedDescription": "Velg en server for å fortsette."
+    },
+    "types": {
+      "hostedSetting": "Vertsserver",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Rasteranalyse",
+      "imageHostingSetting": "Bildehost",
+      "missionServerSetting": "Mission Server"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Søk etter et datalager",
+    "heading": "Velg et datalager",
+    "subHeading": "Bla etter en fil eller i et datalager i nettskyen som er registert til ArcGIS Enterprise.",
+    "cloud": "Skyen",
+    "folder": "Mappe",
+    "processing": "Henter datalager ...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Ingen datalager er valgt",
+        "description": "Du må velge minst ett datalager"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Ingen registrerte servere for datalageret",
+        "description": "Det valgte datalageret er ikke registrert til et ArcGis Server-område. Registrert det til et område for å fortsette."
+      },
+      "noContentInDataStore": {
+        "heading": "Ingen gyldige datasett i datalageret",
+        "description": "Det valgte datalageret inneholder ingen gyldige datasett for publisering."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Feil",
+    "errorDescription": "Det oppstod en feil da dette elementet skulle legges til.",
+    "alreadyExists": {
+      "title": "Eksisterende fil",
+      "description": "Det finnes allerede en fil med navnet ${fileName} i denne mappen. Bytt mappe eller gi filen nytt navn, og prøv på nytt.",
+      "linkText": "Vis eksisterende element"
+    },
+    "arcgisServerUpload": {
+      "title": "Kan ikke publisere element",
+      "description": "Denne tjenestedefinisjonsfilen ble opprettet for et ArcGIS Server-område og må lastes opp på ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Ugyldig shapefil",
+      "description": "Filen som er lastet opp, inneholder ikke en shapefil."
+    },
+    "invalidGeodatabase": {
+      "title": "Ugyldig geodatabase",
+      "description": "Filen som er lastet opp, inneholder ikke en filgeodatabase."
+    },
+    "serviceNameExists": {
+      "title": "Tjenestenavn ikke tilgjengelig",
+      "description": "En publisert tjeneste med denne tittelen finnes allerede i organisasjonen. Titler på tjenester må være unike innenfor organisasjonen. Bruke et annet navn."
+    },
+    "invalidGeoJSON": {
+      "title": "Ugyldig GeoJSON",
+      "description": "JSON-filen du laster opp, er ikke gyldig GeoJSON (mangler \"type\")."
+    },
+    "invalidJSON": {
+      "title": "Ugyldig JSON",
+      "description": "JSON-filen du laster opp, er ikke gyldig GeoJSON."
+    },
+    "failDatastorePublish": {
+      "title": "Kan ikke publisere fra Data Store",
+      "description": "Kunne ikke publisere ${type}. Se serverloggene for mer informasjon.",
+      "tileLayer": "kartflislag",
+      "sceneLayer": "scenelag"
+    },
+    "invalidSpatialRef": {
+      "title": "Ugyldig romlig referanse",
+      "description": "Denne tjenesten har en inkompatibel romlig referanse"
+    },
+    "uploading": "Laster opp ${type}...",
+    "adding": "Legger til ${type} ...",
+    "addDataStore": "Legger til ${type}-datalager ...",
+    "creating": "Oppretter ${type} ...",
+    "publishing": "Publiserer ${type} ...",
+    "checkingStatus": "Kontrollerer status...",
+    "publishingService": "Publiserer tjeneste ...",
+    "appendingPhotos": "Laster opp bilder...",
+    "errorPublishing": "Det oppstod en feil under publisering av denne tjenesten.",
+    "howWillAdd": "Hvordan skal ${fileName} legges til?",
+    "howWillAddService": "Hvordan skal tjenesten legges til?",
+    "howWillAddDescription": "Denne filen brukes til å opprette et ${type}-element.",
+    "howWillAddSecuredServiceDescription": "Denne tjenesten blir brukt til å opprette en ArcGIS-elementproxy, som videresende brukerforespørsler med et token som legges til.",
+    "howWillAddHostedDescription": "Denne filen brukes til å opprette vertsbasert funksjonslag eller tabell.",
+    "item": "Element",
+    "folder": "Mappe",
+    "database": "Database",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Microsoft Azure Data Lake Storage Gen2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Vis tips om hvordan du legger til innhold",
+    "title": "Tips til hvordan du legger til innhold",
+    "addDocumentTitle": "Legg til dokumenter, bilder og andre filer",
+    "addDocumentContent": "Dra og slipp PDF-filer, bilder, Office-dokumenter med mer.",
+    "publishLayerTitle": "Publiser lag fra shapefiler, CSV-filer og regneark",
+    "publishLayerContent": "Gjør filer på enheten eller i skyen om til lag du kan legge til i kart.",
+    "publishLayerEnterprise": "Gjør om filer til lag som du kan legge til i kartene dine",
+    "linkLayerTitle": "Opprett kobling til lag på nettet",
+    "linkLayerContent": "Opprett lag fra URL-er som henviser til ArcGIS Server, OGC-tjenester og KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "kartflispakke",
+      "Vector Tile Package": "vektorflispakke",
+      "Service Definition": "tjenestedefinisjon",
+      "Scene Package": "scenelagpakke",
+      "Desktop Application Template": "desktop-applikasjonmal",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefil",
+      "File Geodatabase": "filgeodatabase",
+      "Map Template": "kartmal",
+      "Geoprocessing Sample": "geoprosesseringseksempel",
+      "Code Sample": "kodeprøve",
+      "ArcPad Package": "ArcPad-pakke",
+      "CAD Drawing": "DAK-tegning",
+      "CSV Collection": "CSV-samling",
+      "KML Collection": "KML-samling",
+      "AppBuilder Widget Package": "AppBuilder-widgetpakke",
+      "Photos with Locations": "bilder med lokasjoner",
+      "Image Collection": "bildesamling",
+      "iWork Pages": "iWork Pages",
+      "iWork Numbers": "iWork Numbers",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "deep learning-pakke",
+      "GML": "GML",
+      "Application": "applikasjon",
+      "Google Sheets": "Google Regneark",
+      "GeoPackage": "Geopakke",
+      "Tile Layer": "kartflislag",
+      "OGCFeatureServer": "OGC-geoobjektlag",
+      "FeatureServer": "geoobjekttjeneste",
+      "3DTiles Package": "3D-kartflispakke"
+    },
+    "mvText": {
+      "WMTS": "OGC WMTS-webtjeneste",
+      "WMS": "OGC WMS-webtjeneste",
+      "WFS": "OGC WFS-webtjeneste",
+      "AGS": "ArcGIS Server-webtjeneste",
+      "OGCFeatureServer": "OGC API-geoobjekter"
+    },
+    "howToAdd": "Hvordan vil du legge til denne filen?",
+    "nonHostedTitle": "Legg til bare ${fileName}",
+    "nonHostedDescription": "Legg til ${type} uten publisering. Filen kan deles og lastes ned av andre eller publiseres på et senere tidspunkt."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Feil under analysering av filen",
+      "description": "Det oppstod en feil under forsøk på å analysere filen. Kontroller at filen er formatert riktig.",
+      "alreadyExists": {
+        "title": "Eksisterende fil",
+        "desciption": "Det finnes allerede en fil med navnet ${fileName} i denne mappen. Endre navn på filen, og prøv på nytt.",
+        "linkText": "Vis eksisterende element"
+      },
+      "duplicateFields": {
+        "title": "Dupliserte feltnavn",
+        "description": "Dupliserte feltnavn er ikke tillatt."
+      },
+      "emptyFile": "Opplastet fil inneholder ingen data.",
+      "missingGeocoder": {
+        "title": "Posisjonsindikator ikke tilgjengelig",
+        "descriptionn": "Standardposisjonsindikatoren er ikke tilgjengelig. Kontakt administratoren for å gjennomgå organisasjonens innstillinger for geokoding."
+      }
+    },
+    "publishThisSheet": "Publiser dette arket:",
+    "largeGeoJsonTitle": "Stor GeoJSON",
+    "largeGeoJsonDescription": "Denne GeoJSON inneholder en stor mengde data, bør du vurdere å publisere den som et vertsfunksjonslag for best resultat.",
+    "largeGeoJsonConditionDescription": "Hvis GeoJSON inneholder en stor mengde data, oppretter du et vertsbasert funksjonslag i stedet for best resultat.",
+    "bigGeoJsonHint": "Få å gi mest mulig ytelse kan disse dataene bare legges til i kartet som et vertsbasert funksjonslag.",
+    "bigGeoJsonHintNoPrivilege": "Det er for mange data til at de kan legges til i kartet. De bør i stedet publiseres som et vertsbasert funksjonslag.",
+    "bigGeoJsonHintPublicAccount": "Det er for mange data til at de kan legges til i kartet. De bør i stedet publiseres som et vertsbasert funksjonslag. Oppgrader til et ArcGIS Online-abonnement for å publisere store mengder data som vertsbaserte lag.",
+    "uploading": "Laster opp ${item}...",
+    "analyze": "Analyserer ${fileName}...",
+    "checkingStatus": "Kontrollerer status...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Legg til data og opprett et hostet geoobjektlag",
+        "description": "Publiser GeoJSON-filen som et hostet geoobjektlag"
+      },
+      "nonHosted": {
+        "title": "Legg til kun data",
+        "description": "Importer GeoJSON-filen uten å publisere. Filen kan deles eller lastes ned av andre eller publiseres på et senere tidspunkt."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Lagtype"
+    },
+    "hostedTitle": {
+      "CSV": "Legg til ${fileName} og opprett et hostet geoobjektlag eller en tabell",
+      "CSVNoTable": "Legg til ${fileName} og opprett et hostet geoobjektlag",
+      "GeoPackage": "Legg til ${fileName} og opprett et hostet geoobjektlag",
+      "GeoJson": "Legg til ${fileName} og opprett et hostet geoobjektlag",
+      "JSON": "Legg til ${fileName} og opprett et hostet geoobjektlag",
+      "Tile Package": "Legg til ${fileName} og opprett et hostet lag",
+      "Vector Tile Package": "Legg til ${fileName} og opprett et hostet flislag",
+      "Service Definition": "Legg til ${fileName} og opprett et hostet lag",
+      "Scene Package": "Legg til ${fileName} og opprett et hostet scenelag",
+      "Image Collection": "Legg til ${fileName} og opprett et hostet bildelag",
+      "Desktop Application Template": "Legg til ${fileName} og opprett et hostet geoobjektlag",
+      "Microsoft Excel": "Legg til ${fileName} og opprett et hostet geoobjektlag eller en tabell",
+      "Google Sheets": "Legg til ${fileName} og opprett et hostet geoobjektlag eller en tabell",
+      "3DTiles Package": "Legg til ${fileName} og opprett et hostet 3D-flislag"
+    },
+    "hostedDescription": {
+      "CSV": "En CSV-fil med lokasjonsinformasjon er datakilden for et hostet geoobjektlag som viser punkter på et kart. En CSV-fil uten lokasjonsinformasjon viser en tabell som kan vises, brukes til diagrammer og knyttes til andre lag.",
+      "GeoPackage": "En geopakke med lokasjonsinformasjon er kilden for et hostet lag som vises som punkter på et kart. En geopakke uten lokasjonsinformasjon vises som en tabell som kan vises, brukes til diagrammer og knyttes til andre lag.",
+      "GeoJson": "Publiser GeoJSON-filen som et hostet geoobjektlag. Geoobjekter publiseres i koordinatsystemet WGS 1984 Web Mercator.",
+      "JSON": "Publiser JSON-filen som et hostet geoobjektlag. Geoobjekter publiseres i koordinatsystemet WGS 1984 Web Mercator.",
+      "tile package": "Publiser rasterflispakken som et hostet lag.",
+      "vector tile package": "Publiser vektorflispakken som et hostet flislag.",
+      "Service Definition": "Publiser tjenestedefinisjonen som et hostet lag. Den publiserte lagtypen avhenger av innholdet i tjenestedefinisjonsfilen.",
+      "Scene Package": "Publiser scenelagpakken som et hostet scenelag.",
+      "Image Collection": "Publiser ZIP-filen med bildesamlingen som et hostet geoobjektlag.",
+      "Desktop Application Template": "Publiser skrivebordsapplikasjonsmalen (ZIP) som et hostet geoobjektlag. En skrivebordsapplikasjonsmal som inneholder lokasjonsinformasjon, er datakilden for et hostet geoobjektlag som viser punkter på et kart. En skrivebordsapplikasjonsmal uten lokasjonsinformasjon viser en tabell som kan vises, brukes til diagrammer og knyttes til andre lag.",
+      "Microsoft Excel": "Publiser et hostet geoobjektlag basert på regnearket. Regneark uten lokasjonsinformasjon vises som en tabell som kan vises, brukes til diagrammer og knyttes til andre lag.",
+      "Google Sheets": "Publiser et hostet geoobjektlag basert på regnearket. Regneark uten lokasjonsinformasjon vises som en tabell som kan vises, brukes til diagrammer og knyttes til andre lag.",
+      "3DTiles Package": "Publiser 3D-flispakken som et hostet 3D-flislag."
+    },
+    "addDirectlyTitle": "Last opp filen som et element, og legg det til i kartet",
+    "addDirectlyUrlTitle": "Referer til filen fra URL-en, og legg den til i kartet",
+    "addDirectlyDescription": "Legg til data uten å opprette et vertsbasert funksjonslag. Ideelt for mindre datasett som administreres eksternt, som ikke krever funksjoner som redigering.",
+    "addDirectlyUrlDescription": "Legg til data uten å opprette et vertsbasert funksjonslag. Ideelt for mindre datasett som ikke krever funksjoner som redigering. Dataene lastes inn hver gang kartet åpnes.",
+    "hostedMVTitle": "Opprett et vertsbasert lag, og legg det til i kartet",
+    "hostedMVDescription": "Bruk alle funksjonene et funksjonslag gir, inkludert redigering. Administrer datakompleksitet i ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "Fil",
+    "itemType": "Filtype",
+    "language": "Språk",
+    "other": "Annet",
+    "hosted": {
+      "heading": "Legg til ${fileName} og opprett et hostet geoobjektlag",
+      "description": "Legg til ${type} og publiser som et hosted geoobjektlag som kan legges til et kart."
+    },
+    "type": "Type",
+    "ArcPad": {
+      "project": "ArcPad-prosjekt",
+      "template": "ArcPad-mal"
+    },
+    "Shapefile": {
+      "title": "Shapefil",
+      "description": "Et lagringsformat for vektordata til lagring av lokasjon, form og attributter for geografiske objekter. En shapefil lagres i et sett av relaterte filer og inneholder én geoobjektklasse."
+    },
+    "File Geodatabase": {
+      "title": "Filgeodatabase",
+      "description": "En samling filer i en mappe som brukes til lagring, spørring og behandling av romlige og ikke-romlige data."
+    },
+    "Desktop Application Template": {
+      "title": "Desktop-applikasjonmal",
+      "description": "Filer, data og applikasjonskode som skal distribuere på skrivebordet for bruk med ArcGIS."
+    },
+    "Map Template": {
+      "title": "Kartmal",
+      "description": "En kartmal er et kartdokument (.mxd) som det kan opprettes nye dokumenter fra i ArcMap."
+    },
+    "Geoprocessing Sample": {
+      "title": "Geoprosesseringseksempel",
+      "description": "En samling av verktøykasser, skript, modeller, data og tilleggsfiler som brukes til kjøring av geoprosesseringsverktøy i ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Kodeprøve",
+      "description": "Delbart kodeeksempel i ulike språk, for eksempel Java og C++."
+    },
+    "ArcPad Package": {
+      "title": "ArcPad-pakke",
+      "description": "ArcPad-pakkefiler generert via ArcPad Data Manager."
+    },
+    "CAD Drawing": {
+      "title": "DAK-tegning",
+      "description": "DAK-filer generert av AutoCAD- eller MicroStation-plattformer."
+    },
+    "CSV Collection": {
+      "title": "CSV-samling",
+      "description": "CSV-samling er en ZIP-fil som inneholder én CSV-fil per lag."
+    },
+    "KML Collection": {
+      "title": "KML-samling",
+      "description": "KML-samling er en ZIP-fil som inneholder én KLM-fil per lag."
+    },
+    "AppBuilder Widget Package": {
+      "title": "AppBuilder-widgetpakke",
+      "description": "Egendefinert miniprogram eller tema som utvider funksjonaliteten i ArcGIS Web AppBuilder"
+    },
+    "Photos with Locations": {
+      "title": "Bilder med lokasjoner",
+      "description": "ZIP-fil som inneholder bilder med lokasjonsinformasjon (geomerkede bilder med EXIF-lokasjonsinformasjon)"
+    },
+    "Image Collection": {
+      "title": "Bildesamling",
+      "description": "En samling med rasterdatasett som kan lastes ned."
+    },
+    "iWork Pages": {
+      "title": "iWork Pages",
+      "description": "Apple-dokumentformat"
+    },
+    "iWork Numbers": {
+      "title": "iWork Numbers",
+      "description": "Apple-regnearkformat"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Apple-presentasjonsformat"
+    },
+    "Deep Learning Package": {
+      "title": "Deep Learning-pakke",
+      "description": "Filer og data som er kreves for å kjøre verktøy for logiske slutninger i dyplæring. Brukes som inndata i verktøy for rasteranalyse i forbindelse med dyplæring."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geography Markup Language) er XML-standarden for OGC til å representere opplysninger om romlige elementer"
+    },
+    "Application": {
+      "title": "Applikasjon",
+      "description": "En app"
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Velg et lag som skal legges til",
+    "selectTile": "Matrise-flis",
+    "featureType": "Geoobjekttype som skal vises",
+    "matrixNotSelected": "Velg en flismatrise for tjenesten.",
+    "selectGeometry": "Velg en type",
+    "selectGeometryError": "Velg en geoobjekttype som skal vises.",
+    "points": "Punkter",
+    "lines": "Linjer",
+    "polygons": "Polygoner",
+    "default": "standard",
+    "maxFeature": "Maks. antall geoobjekter",
+    "layers": "kartlag",
+    "usePro": "Dette datasettet har over 1000 lag. Skriv inn et søkeord for å finne et bestemt lag.",
+    "noLayersFound": "Finner ingen lag som oppfyller kriteriene. Prøv å endre søkeordet for å vise flere lag."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Applikasjon",
+      "description": "Legg til en URL til en eksisterende applikasjon for å dele arbeidet ditt med medlemmer i organisasjonen og allmennheten."
+    },
+    "AGS": {
+      "title": "ArcGIS Server-webtjeneste",
+      "description": "En ArcGIS Server-webtjeneste representerer en GIS-ressurs, for eksempel et kart eller bilde, som er plassert på et ArcGIS Server-område og gjøres tilgjengelig for klient-apper som Map Viewer."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "Tekstfil med kommadelte verdier."
+    },
+    "Document Link": {
+      "title": "Dokument",
+      "description": "Opprett en kobling til et dokument på nettet, som det henvises til med en URL."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Et åpent standardutvekslingsformat for geografiske data som representerer enkle geografiske funksjoner."
+    },
+    "Tile Layer": {
+      "title": "Flislag",
+      "description": "Et sett med kartbildefliser der den formaterte URL-en angir nivå, kolonne- og radplassholdere og valgfritt underdomene: https://domain.com/<path>/{z}{x}{y}.png og https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML er et XML-basert filformat som brukes til å representere geografiske objekter i applikasjoner som ArcGIS Earth og Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "OGC-geoobjektlag",
+      "description": "Et OGC-geoobjektlag er en geoobjekttjeneste som følger spesifikasjonene for OGC API - geoobjekter."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "OGC Web Feature Service (WFS) er en dynamisk geoobjekttjeneste som følger spesifikasjonene for OGC."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "OGC Web Map Service (WMS) er en dynamisk karttjeneste som følger spesifikasjonene for OGC."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "OGC Web Map Tile Service (WMTS) er et sett med bufrede bildefliser som følger spesifikasjonene for OGC. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "En webfeed som omfatter geografiske geoobjekter og lokasjoner."
+    },
+    "useAsBaseMap": "Bruk som bakgrunnskart",
+    "undetected": "Velg lagtype",
+    "label": "Type",
+    "storeAuth": "Lagre påloggingsopplysningene med tjenesteelementet. Ikke be om autentisering.",
+    "storeAuthMV": "Lagre påloggingsopplysningene sammen med laget. Ikke be om autentisering.",
+    "learnMore": "Mer om autentisering.",
+    "isSecure": "Sikker tjeneste oppdaget",
+    "serviceNotExist": "Tjenesten finnes ikke eller er utilgjengelig.",
+    "getServiceInfo": "Henter tjenesteinfo...",
+    "unknownAGSType": "Denne tjenestetypen støttes ikke.",
+    "errorMessage": "Feil ved tilkobling til tjenesten.",
+    "serviceNotGIS": "Angitt URL peker ikke til en GIS-tjeneste.",
+    "unsupportedWFSVersion": "Denne versjonen av WFS støttes ikke.",
+    "unsupportedWFSGeoJSONOutputFormat": "WFS-tjenesten støtter ikke utdataformatet GeoJSON.",
+    "invalidWMTS": "Denne WMTS støttes ikke.",
+    "flowAborted": "Feil ved tilkobling til tjenesten. Denne tjenesten er sikret og krever autentisering.",
+    "invalidSpatialRef": "Denne tjenesten har en inkompatibel romlig referanse",
+    "emptyFeatureLayer": "Tjenesten er tom"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Internasjonal datolinje vest",
+      "110": "(UTC-11:00) Koordinert universell tid -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Hawaii",
+      "300": "(UTC-09:00) Alaska",
+      "400": "(UTC-08:00) Stillehavskysten (USA og Canada)",
+      "410": "(UTC-08:00) Baja California",
+      "500": "(UTC-07:00) Mountain Time (USA og Canada)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) Mellom-Amerika",
+      "620": "(UTC-06:00) Midtvesten (USA og Canada)",
+      "630": "(UTC-06:00) Guadalajara, Mexico by, Monterrey",
+      "700": "(UTC-05:00) Eastern Time (US and Canada)",
+      "710": "(UTC-05:00) Bogotá, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (øst)",
+      "730": "(UTC-04:30) Caracas",
+      "800": "(UTC-04:00) Atlanterhavskysten (Canada)",
+      "810": "(UTC-04:00) Cuiaba",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Asuncion",
+      "900": "(UTC-03:30) Newfoundland",
+      "910": "(UTC-03:00) Brasilia",
+      "920": "(UTC-03:00) Grønland",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Cayenne, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Det sentrale Atlanterhav",
+      "1010": "(UTC-02:00) Koordinert universell tid -02",
+      "1100": "(UTC-01:00) Azorene",
+      "1110": "(UTC-01:00) Kapp Verdeøyene",
+      "1200": "(UTC) Dublin, Edinburgh, Lisboa, London",
+      "1210": "(UTC) Monrovia, Reykjavik",
+      "1220": "(UTC) Casablanca",
+      "1230": "(UTC) Koordinert universell tid",
+      "1300": "(UTC+01:00) Beograd, Bratislava, Budapest, Ljubljana, Praha",
+      "1310": "(UTC+01:00) Sarajevo, Skopje, Warszawa, Zagreb",
+      "1320": "(UTC+01:00) Brussel, København, Madrid, Paris",
+      "1330": "(UTC+01:00) Vestlige Sentral-Afrika",
+      "1340": "(UTC+01:00) Amsterdam, Berlin, Bern, Oslo, Roma, Stockholm, Wien",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) Kairo",
+      "1420": "(UTC+02:00) Helsinki, Kiev, Riga, Sofia,Tallin, Vilnius",
+      "1430": "(UTC+02:00) Aten, Bucuresti",
+      "1440": "(UTC+02:00) Jerusalem",
+      "1450": "(UTC+02:00) Amman",
+      "1460": "(UTC+02:00) Beirut",
+      "1470": "(UTC+02:00) Harare, Pretoria",
+      "1480": "(UTC+02:00) Damaskus",
+      "1490": "(UTC+02:00) Istanbul",
+      "1500": "(UTC+03:00) Kuwait, Riyadh",
+      "1510": "(UTC+03:00) Bagdad",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaliningrad",
+      "1535": "(UTC+03:30) Tehran",
+      "1540": "(UTC+04:00) Moskva, St. Petersburg, Volgograd",
+      "1600": "(UTC+04:00) Abu Dhabi, Muscat",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Jerevan",
+      "1640": "(UTC+04:00) Tbilisi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Kabul",
+      "1710": "(UTC+05:00) Tasjkent",
+      "1715": "(UTC+05:00) Islamabad, Karachi",
+      "1720": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+      "1730": "(UTC+05:30) Sri Jayawardenepura",
+      "1740": "(UTC+05:45) Katmandu",
+      "1755": "(UTC+06:00) Jekaterinburg",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Dhaka",
+      "1820": "(UTC+06:30) Yangon (Rangoon)",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Bangkok, Hanoi, Djakarta",
+      "1910": "(UTC+08:00) Krasnojarsk",
+      "2000": "(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapore",
+      "2030": "(UTC+08:00) Taipei",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulan Bator",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Seoul",
+      "2110": "(UTC+09:00) Osaka, Sapporo, Tokyo",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaide",
+      "2150": "(UTC+10:00) Jakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC+11:00) Solomonøyene, Ny-Caledonia",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fiji",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Koordinert universell tid +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Definer tidssone",
+    "title": "Tidssone",
+    "subTitle": "Velg tidssonen for dataene."
+  },
+  "hybridImageSelect": {
+    "heading": "Hvilken lagtype vil du legge til?",
+    "ImageServer": {
+      "title": "Dynamisk bildelag",
+      "description": "Legg til som et dynamisk bildelag, som støtter behandling og tegning på serveren ved behov."
+    },
+    "TiledImageServer": {
+      "title": "Flisinndelt bildelag",
+      "description": "Legg til som et rutebasert bildelag som støtter projeksjon og opptegning fra statiske ruter på klienten."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Opprett lag og mer",
+    "developerCredentialsHeading": "Utviklerlegitimasjon",
+    "developerCredentialsDescription": "Opprett en API-nøkkel eller OAuth 2.0-legitimasjon for å bygge tilpassede applikasjoner.",
+    "developerCredentialsNoAPIDescription": "Opprett OAuth 2.0-legitimasjon for å bygge tilpassede applikasjoner.",
+    "featureLayerHeading": "Geoobjektlag",
+    "featureLayerDescription": "Opprett et redigerbart lag med felt kopier fra en mal eller et geoobjektlag.",
+    "tileLayerHeading": "Kartflislag",
+    "tileLayerDescription": "Opprett et hurtigtegnet vektorflislag eller et rasterflislag.",
+    "sceneLayerHeading": "Scenelag",
+    "sceneLayerDescription": "Opprett et hurtigtegnet scenelag med 3D-innhold.",
+    "imageLayerHeading": "Bildelag",
+    "imageLayerDescription": "Opprett et bildelag ved hjelp av bilder fra datamaskinen din.",
+    "locatorHeading": "Posisjonsindikator",
+    "locatorViewHeading": "Lokator (visning)",
+    "locatorDescription": "Finn steder og adresser ved hjelp av ArcGIS World Geocoding Service eller din egen geokodetjeneste.",
+    "locatorOnlyDescription": "Finn steder og adresser ved hjelp av din egen geokodetjeneste.",
+    "urbanModelHeading": "Urban-modell",
+    "urbanModelDescription": "Lag en modell for byutvikling med interaktive planleggings- og designverktøy.",
+    "urbanModelPermissionError": "Du må ha rettigheten til å publisere et hostet geoobjektlag for å opprette en urban modell. Kontakt ArcGIS Online-administratoren din for å få hjelp.",
+    "applicationHeading": "Applikasjon",
+    "applicationDescription": "Angi kobling til en applikasjon på nettet, eller opprett en nyregistrert applikasjon.",
+    "urlHeading": "URL",
+    "urlDescription": "Koble til en ArcGIS Server-webtjeneste, CSV, OGC webtjeneste, KML, GeoJSON eller et dokument.",
+    "urlDescriptionEnterprise": "Koble til en ArcGIS Server-webtjeneste, CSV, OGC webtjeneste, KML, GeoJSON eller et dokument.",
+    "dataStoreHeading": "Datalager",
+    "dataStoreConnectionDescription": "Legg til en tilkobling til et datalager du eier.",
+    "dataStoreDescription": "Legg til en tilkobling til et datalager du administrerer",
+    "rasterFunctionTemplateHeading": "Rasterfunksjonsmal",
+    "rasterFunctionTemplateDescription": "Opprett en rasterfunksjonsmal som kan brukes med bildelag og i rasteranalyser.",
+    "getSubscriptionInfo": "Henter abonnementsinformasjon..."
+  },
+  "url": {
+    "linkExisting": "Opprett kobling til eksisterende lag eller data på nettet",
+    "url": "URL",
+    "addUrl": "Legg til en URL",
+    "httpWarning": "Det er ikke støtte for HTTP URL. Bruk HTTPS",
+    "serviceNotExist": "Tjenesten finnes ikke eller er utilgjengelig.",
+    "invalidUrl": "Skriv inn en gyldig URL.",
+    "invalidUrlWithType": "Skriv inn en gyldig URL. Tjenester som støttes er ${typeList}",
+    "unknownAGSType": "Denne tjenestetypen støttes ikke.",
+    "errorMessage": "Feil ved tilkobling til tjenesten."
+  },
+  "cloud": {
+    "google": "Kobler til Google Drive...",
+    "dropbox": "Kobler til Dropbox...",
+    "onedrive": "Kobler til OneDrive...",
+    "file": "Fil",
+    "zip": "ZIP-fil",
+    "filterFileType": "Filtrer etter filtype",
+    "selectAFile": "Velg en fil",
+    "noResults": "Finner ingen filer. Endre søket, eller velg en annen elementtype.",
+    "viewMore": "Vis mer",
+    "errorTitle": "Ingen fil er valgt",
+    "errorMessage": "Velg en fil for å fortsette.",
+    "loadingFiles": "Laster filer...",
+    "searchFiles": "Søk i filer",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "ZIP-fil",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Regneark"
+    },
+    "error": {
+      "generic": {
+        "title": "Feil",
+        "message": "Det oppstod en feil."
+      },
+      "popup": {
+        "title": "Popup blokkert",
+        "message": "Kan ikke koble deg til Cloud Drive-kontoen din. Er du sikker på at du har deaktivert popup-blokkering for dette nettstedet?"
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Egendefinerte parametere",
+    "parameter": "Parameter",
+    "value": "Verdi",
+    "addParameter": "Legg til parameter",
+    "addValue": "Legg til verdi",
+    "newCustomParameter": "Legg til egendefinert parameter",
+    "description": "Legg til parametere som må føyes til forespørsler om tilgang til denne tjenesten.",
+    "append": "Tilføy bare til forespørsler som tegner eller utfører spørring i lag.",
+    "remove": "Fjern egendefinert parameter",
+    "helpText": "Hvis webtjenesten du refererer til krever flere parametre for å kunne legges til forespørsler som sendes til tjenesten, kan du inkludere dem som egendefinerte parametre. Parameternavn og -verdier er definert for tjenesten og er spesifikke for den aktuelle tjenesten."
+  },
+  "inputReadonly": {
+    "file": "Fil",
+    "url": "URL",
+    "dataStore": "Data Store-tilkobling"
+  },
+  "layerSearch": {
+    "search": "Søk"
+  },
+  "appendSelect": {
+    "updateLayer": "Oppdater lag",
+    "updateData": "Oppdater data",
+    "chooseUpdate": "Velg hvilken type oppdatering du vil utføre",
+    "insertOnlyEnabled": "Denne geoobjekttjenesten støtter kun tillegging av nye geoobjekter",
+    "options": {
+      "add": {
+        "title": "Legg til geoobjekter",
+        "description": "Legg til nye geoobjekter i et eksisterende lag."
+      },
+      "update": {
+        "title": "Oppdatert geoobjekter",
+        "description": "Oppdater eksisterende geoobjekter i et lag."
+      },
+      "upsert": {
+        "title": "Legg til og oppdater geoobjekter",
+        "description": "Legg til nye geoobjekter i et lag og oppdatert eksisterende geoobjekter samtidig."
+      },
+      "overwrite": {
+        "title": "Skriv over hele geoobjektlaget",
+        "description": "Skriv over hele lage med de oppdaterte kildedataene."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "Laster opp ${fileName}",
+      "updating": "Oppdaterer...",
+      "overwriting": "Overskriver...",
+      "fetchingInfo": "Henter info...",
+      "publishing": "Publiserer...",
+      "appendCloseNotice": "Behold nettleservinduet åpent for å følge med på statusen på tilføyingsjobben. Dersom konfigurasjonen er feil, kan du prøve på nytt uten å måtte laste opp kildefilen på nytt."
+    },
+    "appendErrorMessages": {
+      "appendError": "Det oppsto en feil når elementet skulle føyes til."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Velg data",
+    "editStyle": "Erstatt stilfilen for laget med en oppdatert versjon fra datamaskinen.",
+    "file": "Fil",
+    "updateItem": "Oppdater element",
+    "overwriteFile": "Skriv over fil",
+    "analyzing": "Analyserer...",
+    "sameFileNameDescription": "Filen som lastes opp, må ha samme navn og feltnavn som den opprinnelige filen ${fileName}",
+    "itemType": "Filtype",
+    "learnMore": "Mer informasjon om filtyper som støttes",
+    "Shapefile": {
+      "title": "Shapefil",
+      "description": "Et lagringsformat for vektordata til lagring av lokasjon, form og attributter for geografiske objekter. En shapefil lagres i et sett av relaterte filer og inneholder én geoobjektklasse."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "En samling filer i en mappe som brukes til lagring, spørring og behandling av romlige og ikke-romlige data."
+    },
+    "errors": {
+      "providePath": "Du må oppgi en bane til elementet.",
+      "sameFileName": "Hvis du vil oppdatere dette elementet, må du laste opp en fil med navnet ${x}.",
+      "invalidStyleFileExtension": "Ugyldig filtype. Den opplastede stilen må ha filtypen JSON.",
+      "invalidStyleFile": "Ugyldig stilfil. Den opplastede stilfilen må være riktig formatert.",
+      "errorWhileUpload": "Det oppsto en feil når elementet skulle føyes til.",
+      "errorExceedFileSize": "Filen ble ikke lastet opp. Den overstiger tillatt størrelse på 1 GB.",
+      "errorUpdate": "Det oppstod en feil under overskriving av elementet.",
+      "multiPatchErrorDescription": "Laget du prøver å føye til, inneholder multipatch-geometri. Prøv på nytt med en fil som har samme geometritype."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Velg hvordan du vil oppdatere de eksisterende geoobjektene",
+    "itemPropertiesHeader": "Velg hvilke elementegenskaper du vil bruke",
+    "appendOptions": {
+      "attribute": {
+        "title": "Bare attributter",
+        "description": "Oppdater eksisterende attributter."
+      },
+      "attributeAndGeometry": {
+        "title": "Geometrier og attributter",
+        "description": "Oppdater både eksisterende attributter og geometrier."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Opplastede elementegenskaper",
+        "description": "Bruk elementegenskaper fra den opplastede filen. Endring av elementegenskaper vil ikke endre dataene."
+      },
+      "existing": {
+        "title": "Eksisterende elementegenskaper",
+        "description": "Behold eksisterende elementegenskaper for lagpakken. Bruk av eksisterende egenskaper vil ikke endre dataene."
+      }
+    },
+    "noGeometryMatchTitle": "Kan ikke oppdatere geometri",
+    "noGeometryMatchMessage": "Det er ikke mulig å oppdatere geometri for ulike geometrityper.",
+    "noGeometryTableMessage": "Det er ikke mulig å oppdatere attributter og geometrier for en tabell."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Velg de oppdaterte dataene for ${featureLayerName} fra arket ${uploadedFile}",
+    "chooseLayer": "Velg de oppdaterte dataene for ${featureLayerName} fra laget ${uploadedFile}",
+    "chooseServiceLayer": "Velg laget som skal oppdateres",
+    "paginationHeader": "${start} - ${end} av ${total}",
+    "noResults": "Finner ingen elementer som oppfyller kriteriene. Prøv å endre søkeordet eller fjerne noen filtre for å vise flere elementer.",
+    "sameGeometryWarningTitle": "Lagene må ha samme geometritype",
+    "sameGeometryWarningDescription": "Filen inneholder ulike typer laggeometrier. Prøv på nytt med et lag som har samme geometritype.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Fant ingen lag",
+      "noMatchingLayerTypeError": "Fant ingen kompatible lag i filen som er lastet opp. Sjekk filen, og prøv på nytt.",
+      "noSourceLayerSelected": "Velg geoobjektlaget du vil oppdatere for å føye til data.",
+      "noDataLayerSelected": "Velg laget som inneholder de oppdaterte dataene, for å føye til data."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Skriv over fil",
+    "header": "Velg data som skal overskrives",
+    "description": "Filen som lastes opp, må ha samme navn som den opprinnelige filen ${insert file name}",
+    "proceed": "Fortsett",
+    "errors": {
+      "errorWhileUpdate": "Det oppstod en feil under oppdatering av elementet.",
+      "exceedFileSizeLimit": "Filen ble ikke lastet opp. Den overstiger tillatt størrelse på 1 GB.",
+      "errorPublishing": "Det oppstod en feil under publisering av denne tjenesten."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Filtype",
+    "Shapefile": {
+      "title": "Shapefil",
+      "description": "Et lagringsformat for vektordata til lagring av lokasjon, form og attributter for geografiske objekter. En shapefil lagres i et sett av relaterte filer og inneholder én geoobjektklasse."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "En samling filer i en mappe som brukes til lagring, spørring og behandling av romlige og ikke-romlige data."
+    },
+    "errors": {
+      "errorWhileUpload": "Det oppstod en feil ved opplasting av elementet.",
+      "errorShpFile": "Ugyldig shapefil",
+      "errorFgdbFile": "Ugyldig file geodatabase.",
+      "errorExceedFileSize": "Filen ble ikke lastet opp. Den overstiger tillatt størrelse på 1 GB."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Velg samsvarende felt",
+    "description": "Velg feltene i ${uploadedFileName} som samsvarer med feltene i ${featureLayerName}. Feltene som ikke samsvarer, blir ikke lastet opp i det hostede geoobjektlaget.",
+    "nonNullable": "Nullverdier er ikke tillatt",
+    "originalField": {
+      "header": "Opprinnelig felt",
+      "moreInfo": "Disse feltene finnes i geoobjektlaget ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Opplastet felt",
+      "moreInfo": "Disse feltene finnes i den opplastede filen ${uploadedFileName} og er filtrert etter kompatible felttyper."
+    },
+    "errors": {
+      "noFields": "Fant ingen felt.",
+      "noKeyPairs": "Fant ingen nøkkelpar.",
+      "noMatchedFields": "Oppgi du ett eller flere samsvarende felt for å føye til data.",
+      "nonNullableErrorTitle": "Tomme verdier er ikke tillatt",
+      "nonNullableErrorTitleSingular": "Ett felt som ikke kan ha nullverdi, er tomt",
+      "nonNullableErrorDescription": "Felt som ikke tillater nullverdi, kan ikke være tomme. Tilordne feltene før du fortsetter."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Velg den unike identifikatoren",
+    "selectUniqueIdentifierDescription": "Velg det unike feltet fra det opprinnelige laget som samsvarer med feltet i den opplastede filen.",
+    "originalField": {
+      "header": "Opprinnelig felt",
+      "moreInfo": "Disse unike feltene finnes i geoobjektlaget ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Opplastet felt",
+      "moreInfo": "Disse feltene finnes i den opplastede filen ${uploadedFileName} og er filtrert etter kompatible felttyper."
+    },
+    "title": "Identifiser nøkkelpar",
+    "description": "Velg feltene som brukes til å koble lagets unike identifikator til de opplastede dataene.",
+    "noKeyPair": "Hvis du vil oppdatere objekter, må du matche feltene med din unike identifikator.",
+    "timezoneHeader": "Tidssonevalg",
+    "timezoneDescription": "Det hostede geoobjektlaget ${featureLayerName} inneholder tidssonedata som er lagret i ${featureLayerTimezone}. Hvis den opplastede filen din, ${uploadedFileName}, inneholder tidssonedata i en annen tidssone enn UTC, justerer du dette."
+  }
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Finn regioner-verkt&oslash;yet p&aring;viser de beste regionene i inndatarasteren som oppfyller spesifiserte st&oslash;rrelseskrav og romlige begrensninger.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Inndatautilityrasteret som regionene skal utledes fra.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>Det samlede arealet for alle regioner.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Spesifiserer arealenhetene som brukes til parameterne  <b>Samlet areal</b>, <b>Minimum regionst&oslash;rrelse</b> og <b>Maksimalt regionareal</b>.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>Spesifiserer hvor mange regioner  <b>Samlet areal</b> skal fordeles over.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>Spesifiserer avveiningen mellom en celles bidrag til &aring; opprettholde regionens form, i forhold til utilitybidraget til cellens attributtverdi.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Vurderingskriteriene som fastsl&aring;r hvilke av kandidatregionene som er mest foretrukket.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>Spesifiserer formkarakteristikken for utg&aring;ende regioner.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>Spesifiserer retningen p&aring; den definerte formen.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>Spesifiserer minimumsarealet som tillates for hver region. Enhetene som er angitt av parameteren  <b>Arealenheter</b>, blir brukt.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>Spesifiserer maksimumsarealet som tillates for hver region. Enhetene som er angitt av parameteren  <b>Arealenheter</b>, blir brukt.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>Spesifiserer den minste avstanden som tillates mellom regioner.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Spesifiserer den st&oslash;rste avstanden som tillates mellom regioner.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>Spesifiserer avstandsenhetene som skal brukes til parameterne  <b>Minimum avstand mellom regioner</b> og <b>Maksimum avstand mellom regioner</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>Inndatalaget som identifiserer hvor regionene allerede eksisterer.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Spesifiserer hvilke naboceller som skal brukes ved regionenes vekst.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>Spesifiserer om &oslash;yer skal tillates innenfor de potensielle regionene eller ikke.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>Spesifiserer antallet seeds som de potensielle regionene skal vokse ut fra.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>Spesifiserer oppl&oslash;sningen som regionveksten foreg&aring;r ved.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>Spesifiserer hvordan regionene skal velges.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; Finn regioner-rasterlaget som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typen utdata som blir opprettet. Utdataene kan v&aelig;re flisinndelte bildelag eller dynamiske bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

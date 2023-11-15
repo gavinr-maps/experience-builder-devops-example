@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Rasti artimiausią suranda ir suranguoja elementus, kurie yra arčiausiai nurodytų vietų.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Pradinis sluoksnis, i&scaron; kurio randami artimiausi elementai. Sluoksniai su iki  5 000 elementų. </p> 
+            <p class="PortalOnly">Pradinis sluoksnis, i&scaron; kurio randami artimiausi elementai.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Elementai randami pagal įvesties sluoksnio artumą. Sluoksniai su iki  5 000 elementų. </p> 
+            <p class="PortalOnly">Elementai randami pagal įvesties sluoksnio artumą.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau ta&scaron;kinių elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Galima judėti gatve, tačiau ne per &scaron;ią kliūtį.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau linijos elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Linijiniai užtvarai draudžia važiuoti bet kurioje vietoje, kur užtvarai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau poligono elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Poligonų užtvaros draudžia važiuoti visur, kur poligonai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Būdas, kuris bus naudojamas atstumui arba laikui matuoti. Metodas gali būti linijinis atstumas arba kelionės režimas.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Nurodoma data ir laikas, kada keliautojas i&scaron;vyksta i&scaron; vietų, esančių  <b>įvesties sluoksnyje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Nustato, ar naudojamas pasirinktinis didžiausias artimiausių elementų skaičius (įjungta), ar naudojamas pagal numatytuosius nustatymus nustatytas didžiausias 100 elementų skaičius (i&scaron;jungta).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Didžiausias artimiausių elementų, kuriuos galima rasti kiekvienam įvesties elementui, skaičius.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Nustato, ar naudojamas maksimalus paie&scaron;kos diapazonas (įjungta), ar paie&scaron;kos diapazonas yra neribotas (i&scaron;jungta).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Didžiausias paie&scaron;kos diapazonas, kuriuo galima rasti artimiausius elementus.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Paie&scaron;kos diapazonui nurodyti naudojami vienetai.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Nurodo, ar kiekvieno rezultato mar&scaron;rutas bus įra&scaron;omas kaip mar&scaron;ruto sluoksnis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

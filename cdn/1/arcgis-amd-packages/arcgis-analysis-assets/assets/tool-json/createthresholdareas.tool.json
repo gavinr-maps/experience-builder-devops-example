@@ -1,0 +1,203 @@
+{
+  "name": "CreateThresholdAreas",
+  "displayName": "CreateThresholdAreas",
+  "description": "Creates rings or drive-time areas around point features. The size of the polygons are based on a threshold variable, such as population, income, or any demographic variable.",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/CreateThresholdAreas.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "Input Layer",
+      "description": "Input points layer used for the ring or drive-time area. Input can be a be a URL to a feature service or a feature collection.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "idField",
+      "dataType": "GPString",
+      "displayName": "ID Field",
+      "description": "A field that uniquely identifies each input point and is included in the output as an attribute.",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "inputLayer",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "thresholdVariable",
+      "dataType": "GPString",
+      "displayName": "Threshold Variable",
+      "description": "Business Analyst variable to which the threshold value will be applied.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "thresholdValues",
+      "dataType": "GPMultiValue:GPDouble",
+      "displayName": "Threshold Values",
+      "description": "The threshold values that determines the size of the output areas. The areas will expand until they contain the threshold value of the selected variable.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "Double",
+          "dataType": "GPDouble",
+          "displayName": "Double"
+        }
+      ]
+    },
+    {
+      "name": "thresholdExpression",
+      "dataType": "GPString",
+      "displayName": "Threshold Expression",
+      "description": "A fields-based expression used for defining the threshold values. The areas will expand until they contain the threshold value.",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "inputLayer",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "distanceType",
+      "dataType": "GPString",
+      "displayName": "Distance Type",
+      "description": "Description: Defines how distance is calculated. Valid values are a string, StraightLine, which indicates Euclidean distance to be used as distance measure, or a JSON object representing settings for a travel mode.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "StraightLine",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "distanceUnits",
+      "dataType": "GPString",
+      "displayName": "Distance Units",
+      "description": "The distance units that will be used for distance calculations. Eg. Meters, Kilometers, Feet, Miles, Seconds, Minutes, Hours. Time units are only used for the network distance calculations type.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Miles",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "maxIterations",
+      "dataType": "GPLong",
+      "displayName": "Max Iterations",
+      "description": "The maximum number of times Network Analysis will iterate to find the threshold values.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "travelDirection",
+      "dataType": "GPString",
+      "displayName": "Travel Direction",
+      "description": "Specifies the direction of travel to calculate drive time.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "FromFacility",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Network Parameters",
+      "choiceList": ["ToFacility", "FromFacility"]
+    },
+    {
+      "name": "timeOfDay",
+      "dataType": "GPDate",
+      "displayName": "Time Of Day",
+      "description": "The time and date that will be used when calculating distance. Set the time and date as Unix time in milliseconds.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Network Parameters"
+    },
+    {
+      "name": "timeZoneForTimeOfDay",
+      "dataType": "GPString",
+      "displayName": "Time Zone For Time Of Day",
+      "description": "Specifies the time zone that will be used for the Time of Day parameter.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "GeoLocal",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Network Parameters",
+      "choiceList": ["GeoLocal", "UTC"]
+    },
+    {
+      "name": "polygonDetail",
+      "dataType": "GPString",
+      "displayName": "Polygon Detail",
+      "description": "Specifies the level of detail that will be used for the output drive time polygons.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Standard",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Network Parameters",
+      "choiceList": ["Standard", "Generalized", "High"]
+    },
+    {
+      "name": "minimumStep",
+      "dataType": "GPDouble",
+      "displayName": "Minimum Step",
+      "description": "The minimum increment distance or time - for example, 1 mile or 1 minute - used between iterations to expand until the threshold is reached.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Advanced Parameters"
+    },
+    {
+      "name": "targetPercentDifference",
+      "dataType": "GPDouble",
+      "displayName": "Target Percent Difference",
+      "description": "The maximum difference between the target value and threshold value when determining the threshold drive time, for example, 5 percent.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 5,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Advanced Parameters"
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "Output Name",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "Context",
+      "description": "Additional settings such as processing extent and output spatial reference.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "useData",
+      "dataType": "GPString",
+      "displayName": "Use Data",
+      "description": "Defines which data would be used to process the calculation. Sample: \"{\"sourceCountry\":\"US\", \"hierarchy\":\"Census\"}\"",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "resultLayer",
+      "dataType": "GPString",
+      "displayName": "Result Layer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

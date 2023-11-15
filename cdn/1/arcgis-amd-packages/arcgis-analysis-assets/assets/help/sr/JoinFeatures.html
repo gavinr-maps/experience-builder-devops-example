@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Pridruživanje geoobjekata dodaje atribute iz jednog sloja ili tabele u drugu na osnovu prostornih veza i veza među atributima. Opciono, statistika se može izračunati kada postoji vi&scaron;e podudarnih zapisa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Sloj koji će imati atribute iz sloja za pridruživanje dodatog njegovoj tabeli atributa.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Sloj ili tabela sa atributima koji će biti dodati ciljnom sloju.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Odredite da li želite da spojite slojeve na osnovu prostornog odnosa. To zahteva da oba sloja imaju geometriju.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Navedite prostorni odnos koji određuje koje karakteristike se spajaju. Funkcije u sloju za spajanje koje imaju navedenu vezu sa ciljnim slojem biće spojene. Dostupni odnosi zavise od tipa geometrije ulaza.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Udaljenost od geoobjekta u ciljnom sloju koja će se koristiti za određivanje da li treba spojiti geoobjekte.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Jedinice koje će se koristiti za određivanje udaljenosti.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Odredite da li želite da spojite slojeve na osnovu odgovarajućih vrednosti polja. Ovo je jedina opcija ako je jedan ili vi&scaron;e ulaza tabela.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Navedite atribut odnosa koji određuje koje karakteristike se spajaju. Geoobjekti se podudaraju kada su vrednosti polja u sloju za pridruživanje jednaki vrednostima polja u ciljnom sloju.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Odredite kako će se rukovati spajanjima ako vi&scaron;e zapisa iz sloja za spajanje ispunjava kriterijume pridruživanja. Izaberite neku od sledećih opcija:
+                <ul>
+                    <li> <b>Pridruži jedan jednom</b>&mdash; Spojite jedan zapis u sloju za spajanje svakoj osobini u ciljnom sloju.
+                    </li>
+                    <li> <b>Pridruži jedan mnogim</b>a &ndash; Pridružuje sve geoobjekte koji se podudaraju u sloju za pridruživanje ciljnom sloju. Sloj sa rezultatima će sadržati vi&scaron;estruke zapise ciljnog geoobjekta.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Kada se vi&scaron;e geoobjekata u sloju za spajanje podudara sa ciljnim obeležjem, navedite da li želite da spojite jedan zapis iz sloja za spajanje ili da izračunate zbirnu statistiku svih podudarnih zapisa iz sloja za spajanje.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Kada postoji vi&scaron;e funkcija spajanja koje se podudaraju sa ciljnim geoobjektom, izračunaće se zbirna statistika za sve podudarne zapise. Navedite polja sa brojem ili datumom iz sloja za spajanje i statistiku koja će biti izračunata za svako polje.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Kada postoji vi&scaron;e funkcija spajanja koje odgovaraju ciljnoj osobini, prvi zapis iz tabele atributa sloja spajanja će biti uključen u izlaz. Opciono, izaberite polje za broj ili datum i redosled sortiranja koji će odrediti redosled tabele atributa.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Određuje da li će neusklađene ciljne karakteristike biti uključene u izlaz.  <b>Unutra&scaron;nje spajanje</b> vraća samo podudarne ciljne zapise, dok <b>levo spajanje</b> vraća sve ciljne zapise, čak i ako ciljna karakteristika nema podudaranje u sloju za spajanje.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja ili tabele koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultat biti sačuvan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

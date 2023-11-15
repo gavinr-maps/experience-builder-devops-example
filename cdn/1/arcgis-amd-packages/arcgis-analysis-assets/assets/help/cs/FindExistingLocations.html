@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Naj&iacute;t podle atributů a um&iacute;stěn&iacute; vytvoř&iacute; novou vrstvu prvků nebo jejich č&aacute;st&iacute;, kter&eacute; splňuj&iacute; zadan&aacute; prostorov&aacute; nebo atributov&aacute; krit&eacute;ria.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Bodov&aacute;, liniov&aacute; nebo polygonov&aacute; vrstva, pro kterou chcete vyhledat prvky na z&aacute;kladě kombinace atributov&eacute;ho a prostorov&eacute;ho dotazu.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Prostorov&aacute; nebo atributov&aacute; krit&eacute;ria, kter&aacute; se použij&iacute; k&nbsp;vyhled&aacute;n&iacute; prvků. Klikněte na tlač&iacute;tko  <b>Sestavit nov&yacute; dotaz</b> a&nbsp;definujte jedno nebo v&iacute;ce prostorov&yacute;ch nebo atributov&yacute;ch krit&eacute;ri&iacute;. Do v&yacute;sledn&eacute; vrstvy se zap&iacute;&scaron;&iacute; ty prvky nebo jejich č&aacute;sti, kter&eacute; splňuj&iacute; v&scaron;echna krit&eacute;ria.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Prostorov&aacute; nebo atributov&aacute; krit&eacute;ria, kter&aacute; se použij&iacute; k&nbsp;vyhled&aacute;n&iacute; prvků. Klikněte na tlač&iacute;tko <b>Sestavit nov&yacute; dotaz</b> a&nbsp;definujte jedno nebo v&iacute;ce prostorov&yacute;ch nebo atributov&yacute;ch krit&eacute;ri&iacute;. Do v&yacute;sledn&eacute; vrstvy se zap&iacute;&scaron;&iacute; ty prvky nebo jejich č&aacute;sti, kter&eacute; splňuj&iacute; v&scaron;echna krit&eacute;ria.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Pokud krit&eacute;ri&iacute;m vyhovuje pouze č&aacute;st prvku, určuje, zda v&yacute;sledek zahrne cel&yacute; prvek, nebo pouze tu č&aacute;st prvku, kter&aacute; splňuje v&scaron;echna krit&eacute;ria. Pokud je tato možnost za&scaron;krtnuta, budou vr&aacute;ceny pouze ty č&aacute;sti prvku, kter&eacute; splňuj&iacute; v&scaron;echna krit&eacute;ria. Pokud tato možnost nen&iacute; za&scaron;krtnuta, bude vr&aacute;cen cel&yacute; prvek, pokud alespoň č&aacute;st prvku splňuje v&scaron;echna krit&eacute;ria.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「匯聚多維點陣」分析工具可沿著某個維度結合現有的多維影像圖層，從而產生多維影像圖層。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>將匯聚的多維影像圖層。
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>沿其匯聚變數之多維影像圖層的維度。
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>指出圖層是否具有維度值。
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>將沿定義的維度匯聚的多維影像圖層的變數。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>將用於匯聚多維影像圖層切片的數學方法。
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>指定匯聚方法後將用於計算的百分位值。
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>當輸入影像圖層中的值數量為偶數時，將使用的百分位數插值方法。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>自訂點陣函數，將用來計算匯聚影像圖層的像素值。
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>將用於匯聚多維資料的維度間隔。
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>每個關鍵字指定將匯聚每個統計資料的時間單位。 關鍵字清單包括每小時、每天、每週、每月、每季和每年。
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>沿維度匯聚時將使用之間隔的大小。
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>間隔值的測量單位。
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>沿指定維度匯聚時將使用的值表。 最小值和最大值指定要包含的範圍。
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>間隔範圍的最小值。
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>間隔範圍的最大值。
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>指出是否將在匯聚中忽略 NoData 值。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>將建立之輸出的類型。 輸出可以是圖磚影像圖層或動態影像圖層。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

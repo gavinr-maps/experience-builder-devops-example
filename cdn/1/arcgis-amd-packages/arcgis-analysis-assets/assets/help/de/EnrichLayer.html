@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Layer anreichern&quot; erg&auml;nzt die Eingabe-Features durch demografische Daten und Landschaftsdaten.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Die Punkt-, Linien- oder Polygon-Features, die mit zus&auml;tzlichen Daten angereichert werden.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Die Variablen, die den Eingabe-Features als Attribute hinzugef&uuml;gt werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Gibt an, wie die Fl&auml;che um die Eingabe-Punkt- oder Eingabe-Linien-Features definiert werden soll. Die gesamte Fl&auml;che um jedes Feature wird angereichert.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Ein numerischer Wert, der die Entfernung oder Zeit um jedes Eingabe-Feature angibt, &uuml;ber die sich die Fl&auml;che erstreckt.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Die Einheiten, die zur Angabe der Entfernung oder Zeit verwendet werden, &uuml;ber die sich die angereicherte Fl&auml;che um jedes Eingabe-Feature erstreckt.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Gibt an, ob der Ausgabe-Layer Polygon-Features enth&auml;lt, die durch die Einstellungen f&uuml;r  <b>Anreicherungsfl&auml;chen</b> (aktiviert) oder die Eingabe-Features (deaktiviert) definiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

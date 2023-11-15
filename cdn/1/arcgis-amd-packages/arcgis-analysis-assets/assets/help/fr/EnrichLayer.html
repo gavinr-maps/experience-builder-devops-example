@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Enrich Layer (Enrichir la couche) am&eacute;liore les entit&eacute;s en entr&eacute;e avec des donn&eacute;es d&eacute;mographiques et de paysage.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Entit&eacute;s ponctuelles, lin&eacute;aires ou surfaciques &agrave; enrichir avec des donn&eacute;es suppl&eacute;mentaires.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Variables &agrave; ajouter comme attributs aux entit&eacute;s en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Sp&eacute;cifie le mode de d&eacute;finition de la zone autour des entit&eacute;s ponctuelles ou lin&eacute;aires en entr&eacute;e. Toute la zone autour de chaque entit&eacute; est enrichie.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Valeur num&eacute;rique qui sp&eacute;cifie la distance ou la dur&eacute;e autour de chaque entit&eacute; en entr&eacute;e &eacute;tendue par la zone.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Unit&eacute;s &agrave; utiliser pour sp&eacute;cifier la distance ou la dur&eacute;e &eacute;tendue par la zone enrichie autour de chaque entit&eacute; en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Indique si la couche en sortie doit contenir les entit&eacute;s surfaciques d&eacute;finies par les param&egrave;tres  <b>Enrichment areas (Zones d&rsquo;enrichissement)</b> (option s&eacute;lectionn&eacute;e) ou les entit&eacute;s en entr&eacute;e (option non s&eacute;lectionn&eacute;e).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

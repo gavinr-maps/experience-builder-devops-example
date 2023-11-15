@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Suy ra D&ograve;ng chảy Li&ecirc;n tục tạo một raster của d&ograve;ng chảy t&iacute;ch lũy v&agrave;o mỗi cell từ một raster bề mặt đầu v&agrave;o m&agrave; kh&ocirc;ng cần lấp đầy chỗ l&otilde;m hoặc điểm trũng trước đ&oacute;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster độ cao sẽ được sử dụng để t&iacute;nh to&aacute;n.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>Lớp x&aacute;c định chỗ l&otilde;m hoặc điểm trũng thực, nơi nước c&oacute; thể chảy v&agrave;o nhưng kh&ocirc;ng thể chảy ra.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>Lớp raster x&aacute;c định phần d&ograve;ng chảy g&oacute;p phần t&iacute;ch lũy lưu lượng tại mỗi cell.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Chỉ định loại phương ph&aacute;p d&ograve;ng chảy sẽ được sử dụng khi t&iacute;nh to&aacute;n hướng d&ograve;ng chảy.
+            </p>
+            <p>Phương ph&aacute;p D8 chỉ định hướng d&ograve;ng chảy đến v&ugrave;ng l&acirc;n cận dốc xuống dốc nhất của n&oacute;. Phương ph&aacute;p MFD ph&acirc;n chia hướng d&ograve;ng chảy qua c&aacute;c v&ugrave;ng l&acirc;n cận dốc xuống theo số mũ ph&acirc;n v&ugrave;ng th&iacute;ch ứng.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Chỉ định xem d&ograve;ng chảy tại c&aacute;c cell cạnh sẽ tu&acirc;n theo quy luật d&ograve;ng chảy th&ocirc;ng thường hay lu&ocirc;n chảy ra ngo&agrave;i.
+            </p>
+            <p>Nếu kh&ocirc;ng được chọn, d&ograve;ng chảy sẽ hướng về ph&iacute;a cell b&ecirc;n trong với gi&aacute; trị z giảm mạnh nhất. Tuy nhi&ecirc;n, nếu độ sụt giảm nhỏ hơn hoặc bằng 0, cell sẽ chảy ra b&ecirc;n ngo&agrave;i từ raster bề mặt. Nếu được chọn, hướng d&ograve;ng chảy sẽ lu&ocirc;n l&agrave; ra ngo&agrave;i từ raster bề mặt.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>T&ecirc;n của lớp raster t&iacute;ch lũy lưu lượng sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>T&ecirc;n của lớp raster hướng d&ograve;ng chảy sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

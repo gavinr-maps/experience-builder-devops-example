@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>摘要中心和離差工具可找到一組圖徵的中心圖徵、集中趨勢和標準差橢圓。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>將為其計算中心圖徵、集中趨勢和標準差橢圓的點、線或多邊形圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>指定將摘要圖徵的中心和離差的方法。
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>指定橢圓多邊形的大小 (以標準差表示)。 如果平均中心和圖徵位置之間的距離遵循瑞利分佈，則  <b>1 個標準差</b>、 <b>2 個標準差</b>和 <b>3 個標準差</b>選項將輸出一個橢圓多邊形，分別覆蓋 63%、89% 和 99.9% 的圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>將用於決定圖徵權重的欄位。
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>將用於將圖徵分組在一起的欄位。 將為每個群組計算選定的 <b>摘要類型</b>。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

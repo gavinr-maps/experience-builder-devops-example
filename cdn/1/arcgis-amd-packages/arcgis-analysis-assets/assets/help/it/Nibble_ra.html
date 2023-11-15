@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Nibble sostituisce le celle di un raster corrispondenti a una maschera con i valori dei vicini pi&ugrave; prossimi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Il raster di input con le posizioni mascherate che verranno sostituite (ridotte) dal valore del corrispondente vicino pi&ugrave; prossimo.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Il raster maschera che identifica le posizioni nel raster di input che verranno sostituite. Le celle con un valore di NoData sono considerate all'interno dell'area mascherata.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Il raster di zona di input. Per ogni zona, le celle di input che si trovano all'interno della maschera saranno sostituite solo dai valori delle celle pi&ugrave; vicine all'interno della stessa zona.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Specifica se le celle NoData nel raster di input possono sostituire (nibble) le celle nelle aree mascherate se sono le pi&ugrave; vicine.
+            </p>
+            <p>Se selezionato, le celle NoData nel raster di input possono sostituirsi alle altre nell'area mascherata. Se non selezionato, solo le celle valide nel raster di input possono sostituirsi alle altre nell'area mascherata.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Specifica se le celle NoData nell'area mascherata saranno conservate o sostituite.
+            </p>
+            <p>Se non selezionato, tutte le celle NoData nell'area mascherata verranno conservate nell'output. Se selezionato, le celle NoData nell'area mascherata verranno sostituite con il valore del vicino pi&ugrave; prossimo che si trova all'esterno dell'area mascherata.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer raster sottoposto alla sostituzione che verr&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Il tipo di output che sar&agrave; creato. Gli output possono essere layer immagini di tile o layer immagini dinamici.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

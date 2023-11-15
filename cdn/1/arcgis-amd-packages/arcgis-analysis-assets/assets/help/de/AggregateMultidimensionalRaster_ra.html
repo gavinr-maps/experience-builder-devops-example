@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Multidimensionales Raster aggregieren&quot; generiert einen multidimensionalen Bilddaten-Layer durch Kombinieren vorhandener multidimensionaler Bilddaten-Layer-Variablen entlang einer Dimension.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Der multidimensionale Bilddaten-Layer, der aggregiert wird.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Die Dimension des multidimensionale Bilddaten-Layers, entlang derer die Variable aggregiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Gibt an, ob der Layer Dimensionswerte aufweist.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Die Variable des multidimensionalen Bilddaten-Layers, die entlang der definierten Dimension aggregiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Die mathematische Methode, die zum Aggregieren der Segmente des multidimensionalen Bilddaten-Layers verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Der Perzentilwert, der nach Festlegung der Aggregationsmethode f&uuml;r Berechnungen verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Die Perzentil-Interpolationsmethode, die verwendet werden soll, wenn eine gerade Anzahl an Werten aus dem Eingabe-Bilddaten-Layer vorliegt.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Die benutzerdefinierte Raster-Funktion, mit der die Pixelwerte der aggregierten Bilddaten-Layer berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Das Dimensionsintervall, das zum Aggregieren der multidimensionalen Daten verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Jedes Schl&uuml;sselwort gibt die Zeiteinheit an, f&uuml;r die jede Statistik aggregiert wird. Die Liste der Schl&uuml;sselw&ouml;rter umfasst die folgenden W&ouml;rter: &quot;St&uuml;ndlich&quot;, &quot;T&auml;glich&quot;, &quot;W&ouml;chentlich&quot;, &quot;Monatlich&quot;, &quot;Viertelj&auml;hrlich&quot; und &quot;J&auml;hrlich&quot;.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Die Gr&ouml;&szlig;e des Intervalls, das beim Aggregieren entlang der Dimension verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Die Ma&szlig;einheiten f&uuml;r den Intervallwert.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Die Wertetabelle, die beim Aggregieren entlang der angegebenen Dimension verwendet wird. Mit den Minimal- und Maximalwerten geben Sie den einzubeziehenden Bereich an.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Der Mindestwert f&uuml;r den Intervallbereich.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Der Maximalwert f&uuml;r den Intervallbereich.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Gibt an, ob NoData-Werte bei der Aggregation ignoriert werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgaben k&ouml;nnen gekachelte Bilddaten-Layer oder dynamische Bilddaten-Layer sein.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

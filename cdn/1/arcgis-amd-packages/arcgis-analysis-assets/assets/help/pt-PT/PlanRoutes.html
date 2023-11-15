@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Planear Rotas cria rotas de viagem com m&uacute;ltiplas paragens para uma frota de ve&iacute;culos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>Os elementos de ponto que especificam onde os ve&iacute;culos iniciam as suas rotas.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>Os elementos que os ve&iacute;culos t&ecirc;m de visitar durante as suas rotas. Estes pontos tornam-se paragens atribuidas e n&atilde;o atribuidas de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>Determina se os ve&iacute;culos t&ecirc;m de regressar &agrave; sua localiza&ccedil;&atilde;o inicial (ativada) ou terminar em localiza&ccedil;&otilde;es especificadas (desativada).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>Os elementos de ponto que especificam onde os ve&iacute;culos terminam as suas rotas. Se a camada incluir apenas um ponto, todos os ve&iacute;culos s&atilde;o encaminhados para um ponto final comum. Se a camada incluir v&aacute;rios pontos, cada ve&iacute;culo ser&aacute; encaminhado para uma localiza&ccedil;&atilde;o final &uacute;nica.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>O campo na camada de in&iacute;cio que identifica de forma &uacute;nica os ve&iacute;culos, condutores ou rotas individuais. Se os ve&iacute;culos iniciarem a rota a partir de v&aacute;rias localiza&ccedil;&otilde;es a terminarem em v&aacute;rias localiza&ccedil;&otilde;es, os ID de rota escolhidos para as camadas de in&iacute;cio e fim t&ecirc;m de corresponder.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>O campo na camada de fim que identifica de forma &uacute;nica os ve&iacute;culos, condutores ou rotas individuais. Se os ve&iacute;culos iniciarem a rota a partir de v&aacute;rias localiza&ccedil;&otilde;es a terminarem em v&aacute;rias localiza&ccedil;&otilde;es, os ID de rota escolhidos para as camadas de in&iacute;cio e fim t&ecirc;m de corresponder.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Um ou mais elementos de ponto que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao transitar pelas ruas subjacentes. &Eacute; poss&iacute;vel transitar na rua, mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Um ou mais elementos de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao transitar pelas ruas subjacentes. As barreiras de linha pro&iacute;bem a circula&ccedil;&atilde;o em qualquer ponto onde as barreiras intersectam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Um ou mais elementos de pol&iacute;gono que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao transitar pelas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem que se transite por qualquer ponto de intersec&ccedil;&atilde;o entre o pol&iacute;gono e as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>O m&eacute;todo de viagem com o qual as rotas ser&atilde;o criadas. O modo de viagem pode ser baseado na dist&acirc;ncia ou no tempo.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>A data e hora de partida dos ve&iacute;culos.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>O n&uacute;mero m&aacute;ximo de ve&iacute;culos que est&atilde;o dispon&iacute;veis para visitar as paragens. Pode especificar  100 at&eacute; ve&iacute;culos, se a  <b>camada de in&iacute;cio</b> e a <b>camada de fim</b> tiverem, cada uma, um elemento. Se qualquer das camadas tiver mais do que um elemento, o valor predefinido n&atilde;o pode ser editado.
+            </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>O n&uacute;mero m&aacute;ximo de paragens que cada ve&iacute;culo pode fazer numa rota. Pode especificar um valor entre 1 e  200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Especifique o tempo de servi&ccedil;o m&eacute;dio esperado despendido em cada paragens.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>Determina se o tempo m&aacute;ximo da rota &eacute; aplicado aos ve&iacute;culos. O tempo de rota inclui o tempo de viagem esperado e os tempos de servi&ccedil;o despendidos em paragens ao longo da rota.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>Especifique a quantidade m&aacute;xima de tempo que um percurso deve durar do in&iacute;cio ao fim.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Especifica se cada rota resultante ser&aacute; guardada como uma camada de rota.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde os resultados ser&atilde;o guardados.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

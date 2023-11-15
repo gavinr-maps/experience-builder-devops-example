@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ M&atilde; h&oacute;a địa l&yacute; Vị tr&iacute; từ Bảng gi&uacute;p chuyển đổi địa chỉ hoặc địa điểm từ bảng th&ocirc;ng tin đầu v&agrave;o th&agrave;nh c&aacute;c điểm tọa độ.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Bảng đầu v&agrave;o với c&aacute;c địa chỉ hoặc địa điểm cần được m&atilde; h&oacute;a địa l&yacute;. Đầu v&agrave;o phải l&agrave; một bảng, một tệp  <code>.csv</code> hoặc tệp Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Dịch vụ bộ định vị d&ugrave;ng để m&atilde; h&oacute;a địa l&yacute;. Nếu dịch vụ định vị bạn muốn sử dụng kh&ocirc;ng c&oacute; trong menu xổ xuống, h&atilde;y li&ecirc;n hệ với quản trị vi&ecirc;n của bạn để cấu h&igrave;nh th&ecirc;m dịch vụ định vị n&agrave;y cho quy tr&igrave;nh tự động m&atilde; h&oacute;a địa l&yacute;.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>X&aacute;c định xem dữ liệu đầu v&agrave;o đang nằm trong một trường duy nhất hay nhiều trường.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>C&aacute;c trường sẽ được bộ định vị sử dụng để x&aacute;c định vị tr&iacute; của dữ liệu. C&aacute;c trường cụ thể được giả định l&agrave; nằm trong dữ liệu, v&iacute; dụ như địa chỉ, th&agrave;nh phố, tiểu bang v&agrave; m&atilde; bưu điện.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Quốc gia nơi dữ liệu được định vị. Nếu tất cả c&aacute;c địa chỉ đến từ một quốc gia, h&atilde;y n&ecirc;u quốc gia đ&oacute; để đảm bảo c&aacute;c kết quả ch&iacute;nh x&aacute;c nhất. Nếu kh&ocirc;ng, h&atilde;y để trống th&ocirc;ng số n&agrave;y.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Chỉ định c&aacute;c trường sẽ được th&ecirc;m v&agrave;o bộ dữ liệu đầu ra. C&aacute;c t&ugrave;y chọn như sau:
+            </p>
+            <ul>
+                <li> <b>Tất cả</b>&mdash;Tất cả c&aacute;c trường đầu ra c&oacute; định vị sẽ được th&ecirc;m v&agrave;o kết quả m&atilde; h&oacute;a địa l&yacute;.
+                </li>
+                <li> <b>Tối giản</b>&mdash;Một tập hợp con c&aacute;c trường từ bộ định vị v&agrave; c&aacute;c trường từ bảng đầu v&agrave;o sẽ được th&ecirc;m v&agrave;o kết quả.
+                </li>
+                <li> <b>Chỉ vị tr&iacute;</b>&mdash;Trường <i>Shape</i> từ bộ định vị v&agrave; c&aacute;c trường từ bảng đầu v&agrave;o sẽ được th&ecirc;m v&agrave;o kết quả.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; dịch vụ đối tượng, tệp  <code>.csv</code> hoặc tệp <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>T&ecirc;n mục đầu ra nơi lưu trữ dữ liệu đ&atilde; được định vị.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'צור רסטר קו מגמה' מעריכה את המגמות עבור כל פיקסל לאורך ממד עבור משתנה אחד או יותר בשכבת תצלומים רב-ממדית.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>שכבת התמונה הרב-ממדית אשר תשמש להפקת קו המגמה.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>הממד שלאורכו מגמה תופק עבור המשתנה או המשתנים שנבחרו בניתוח.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>המשתנה/ים שעבורו/ם יחושבו מגמות.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>יחידת הזמן שתשמש עבור האורך של תקופה עונתית בעת שימוש בסוג קו Seasonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>סוג ניתוח קו המגמה שיתבצע על ערכי הפיקסל לאורך ממד.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>התדירות או מספר הסדר הפולינומיאלי אשר ישמשו להתאמת קו המגמה.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>מציין האם הניתוח יתעלם מערכי NoData או מערכים חסרים.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>אורך השונות התקופתית למידול עבור מחזור הרמוני.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>יחידת הזמן אשר תשמש עבור אורך המחזור ההרמוני.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>מציין האם יחושב שורש ריבועי ממוצע (RMSE) של קו ההתאמה של המגמה.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>מציין האם תחושב הסטטיסטיקה של מידת התאמה R-squared עבור קו ההתאמה של המגמה.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>מציין האם תחושב סטטיסטיקת ערך-p עבור מקדם השיפוע של קו התאמת המגמה.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>סוג הקלט שייווצר. הפלט יכול להיות Tiled imagery או Dynamic imagery.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

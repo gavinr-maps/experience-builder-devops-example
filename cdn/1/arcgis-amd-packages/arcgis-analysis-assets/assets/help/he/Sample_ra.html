@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'דגימה' יוצר טבלה או קבוצת ישויות נקודה להצגת ערכי פיקסל מרסטר, או ערכת רסטרים, במיקומים שהוגדרו.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>שכבות התצלומים שמכילות ערכים שיידגמו על בסיס נתוני המיקום של הקלט.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>השכבה שמכילה את המיקומים עבור כל דגימה.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>אלגוריתם הדגימה מחדש אשר ישמש בתהליך הדגימה.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>שדה בשכבה שמכיל ערך שונה עבור כל מיקום או ישות קלט.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>מציין האם שכבת תצלומי הקלט כוללת נתוני רסטר רב-ממדי.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>מציין את השעה, העומק או נתוני השגה אחרים שקשורים ליישויות המיקום.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>הממד של שכבת הקלט הרב-ממדי.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>השדה אשר ישמש כדי להתחיל את טווח הזמן עבור שכבת הקלט הרב-ממדי.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>השדה אשר ישמש כדי לסיים את טווח הזמן עבור שכבת הקלט הרב-ממדי.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>מספר שאינו שלילי אשר יתווסף לפרמטר  <b>ממד</b> או ערך אשר יגדיר את ההתחלה של טווח ערך ממד.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>מספר שאינו שלילי אשר יתווסף לפרמטר  <b>ממד</b> או ערך אשר יגדיר את הסיום של טווח ערך ממד.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>הסטטיסטיקה שתופק בעת עיבוד שכבת תצלומים רב-ממדית.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>ערך האוז אשר ישמש עבור סוג סטטיסטיקת האחוזון.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>מרחק החיץ שיוחל על מיקומי הקלט.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>מציין האם סוג הפלט יהיה ישות או טבלה.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>מציין האם הפלט יהיה מבחינת שורה או מבחינת עמודה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Mit dem Werkzeug &quot;Ausrei&szlig;er suchen&quot; kann anhand des r&auml;umlichen Musters der Daten ermittelt werden, ob es Positionen gibt, deren Werte signifikant von ihren Nachbarn abweichen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Der Punkt- oder Polygon-Layer, zu dem Ausrei&szlig;er gefunden werden.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Gibt an, ob Ausrei&szlig;er anhand von Feature-Positionen (<b>Punktanzahl</b>) oder Feature-Feldwerten (<b>Feld</b>) bestimmt werden.
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Das Feld, das zur Bestimmung von Ausrei&szlig;ern analysiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Der Typ der Begrenzungs-Features, innerhalb derer die Eingabe-Features aggregiert werden sollen. Hierbei kann es sich um einen Polygon-Layer (<b>Polygon-Layer</b>) oder ein Mosaik-Raster aus Quadraten (<b>Netzzellen</b>) oder Hexagonen (<b>Hexagonzellen</b>) handeln.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Der Layer, der die Polygon-Features enth&auml;lt, in die die Eingabe-Punkt-Features aggregiert werden.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Der Polygon-Layer, der die Grenze der Analyse definiert. Features innerhalb des Polygons werden bei der Ausrei&szlig;er-Analyse ber&uuml;cksichtigt.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Gibt an, wie die  <b>Analysefeld</b>-Werte oder die aggregierten Punktzahlen geteilt werden. Mit der Option <b>Feld</b> werden die <b>Analysefeld</b>-Werte durch Werte des angegebenen Feldes im Parameter <b>Eingabe-Layer</b> geteilt werden. Die Option <b>Anreicherungsdaten</b> reichert die Features oder die Aggregationsformen mit Populationsdaten an. Dann werden die <b>Analysefeld</b>-Werte oder aggregierten Punktzahlen durch die Population geteilt. Mit dieser Option werden zus&auml;tzliche Credits verbraucht.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Gibt an, ob das Werkzeug im Hinblick auf eine schnellere Verarbeitung oder eine h&ouml;here Genauigkeit der Ergebnisse optimiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Ein ganzzahliger Wert, der den Zufallszahlengenerator startet.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Die L&auml;nge einer Seite der quadratischen Zellen (Netzzellen) oder hexagonalen Zellen, die zum Aggregieren der Eingabe-Features verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Gibt die Einheiten f&uuml;r die Zellengr&ouml;&szlig;e an.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Das Entfernungsband, das zum Definieren einer Nachbarschaft verwendet wird. Benachbarte Features innerhalb des Entfernungsbands eines Ziel-Features werden w&auml;hrend der Analyse in die Nachbarschaft des Ziel-Features aufgenommen.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Gibt die Einheiten f&uuml;r das Entfernungsband an.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

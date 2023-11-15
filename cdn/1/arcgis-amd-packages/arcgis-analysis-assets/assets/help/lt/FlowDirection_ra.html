@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Tėkmės krypties įrankis sukuria tėkmės krypties rastrą i&scaron; kiekvienos gardelės į &scaron;laito kaimyną arba kaimynus naudodamas D8, Kelių tėkmių krypties (MDF) arba D-Infinity (DINF) būdą.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Auk&scaron;čio rastras, kuris bus naudojamas skaičiavimams.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Nurodo tėkmės, kuri bus naudojama skaičiuojant tėkmės kryptį, tipą.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Nurodo, ar tėkmės kra&scaron;tinėse gardelėse bus vykdomas pagal įprastas srauto taisykles, ar visada tekės į i&scaron;orę.
+            </p>
+            <p>Jei nepažymėta, tėkmė tekės link vidinės gardelės, kurioje z reik&scaron;mės kritimas yra staigiausias. Tačiau jei kritimas yra mažesnis arba lygus nuliui, gardelė tekės į i&scaron;orę nuo pavir&scaron;iaus rastro. Jei pažymėta, tėkmės kryptis visada bus nukreipta į i&scaron;orę nuo pavir&scaron;iaus rastro.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionName">
+        <div>
+            <p>Tėkmės krypties rastrinio sluoksnio, kuris bus sukurtas ir pridėtas prie žemėlapio, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="outputDropName">
+        <div>
+            <p>Kritimo rastro sluoksnio, kuris bus sukurtas ir pridėtas prie žemėlapio, pavadinimas. &Scaron;iame sluoksnyje yra didžiausio pakilimo pokyčio ir kelio ilgio i&scaron;ilgai tėkmės krypties santykio procentinė vertė.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Sukuriamos i&scaron;vesties tipas. I&scaron;vestys gali būti i&scaron;klotinių vaizdų sluoksniai arba dinaminiai vaizdų sluoksniai.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

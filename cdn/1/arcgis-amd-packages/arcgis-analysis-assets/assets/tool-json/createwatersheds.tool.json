@@ -1,0 +1,105 @@
+{
+  "name": "CreateWatersheds",
+  "displayName": "CreateWatersheds",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/CreateWatersheds.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "inputLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "searchDistance",
+      "dataType": "GPDouble",
+      "displayName": "searchDistance",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "searchUnits",
+      "dataType": "GPString",
+      "displayName": "searchUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Meters",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Meters", "Kilometers", "Feet", "Yards", "Miles"]
+    },
+    {
+      "name": "sourceDatabase",
+      "dataType": "GPString",
+      "displayName": "sourceDatabase",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "FINEST",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["FINEST", "30m", "90m"]
+    },
+    {
+      "name": "generalize",
+      "dataType": "GPBoolean",
+      "displayName": "generalize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "snapPourPtsLayer",
+      "dataType": "GPString",
+      "displayName": "snapPourPtsLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "watershedLayer",
+      "dataType": "GPString",
+      "displayName": "watershedLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Tr&iacute;ch xuất dữ liệu sẽ chọn đối tượng trong một phạm vi v&agrave; tạo th&agrave;nh một mục trong nội dung của bạn.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>C&aacute;c lớp sẽ được tr&iacute;ch xuất. C&aacute;c lớp đầu v&agrave;o được hỗ trợ bao gồm c&aacute;c lớp bạn sở hữu v&agrave; c&aacute;c lớp được bật tuỳ chọn xuất.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Phạm vi đối tượng sẽ được tr&iacute;ch xuất.
+            </p>
+        </div>
+    </div>
+    <div id="clip">
+        <div>
+            <p>X&aacute;c định xem đối tượng giao cắt với phạm vi c&oacute; bị cắt hay kh&ocirc;ng. Khi kh&ocirc;ng được chọn, to&agrave;n bộ đối tượng giao cắt với phạm vi sẽ được tr&iacute;ch xuất. Khi được chọn, c&aacute;c đối tượng giao cắt với phạm vi sẽ bị cắt v&agrave; chỉ tr&iacute;ch xuất một phần của c&aacute;c đối tượng trong phạm vi.
+            </p>
+        </div>
+    </div>
+    <div id="dataFormat">
+        <div>
+            <p>Định dạng tệp của dữ liệu sẽ được tr&iacute;ch xuất.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n mục đầu ra nơi lưu trữ tệp sẽ được tr&iacute;ch xuất.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

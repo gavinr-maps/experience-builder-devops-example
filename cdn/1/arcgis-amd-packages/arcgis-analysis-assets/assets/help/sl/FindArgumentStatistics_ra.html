@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Najdi statistiko argumenta ekstrahira vrednost dimenzije ali indeks pasu, pri katerem je bila za vsak piksel v večdimenzionalnem slikovnem sloju pridobljena dana statistika.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Večdimenzionalen slikovni sloj, ki bo ocenjen.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzija večdimenzionalnega slikovnega sloja, iz katerega bo ocenjena spremenljivka.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Spremenljivka večdimenzionalnega slikovnega sloja, ki bo ocenjena vzdolž opredeljenega intervala.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Tip statistike, ki bo ekstrahiran iz spremenljivke ali spremenljivk vzdolž dane dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Najmanj&scaron;a vrednost, ki bo uporabljena za trajanje argumenta.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Največja vrednost, ki bo uporabljena za trajanje argumenta.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Vrednost, ki kaže, de je bila statistika argumenta dosežene večkrat. Privzet način je prvič, ko se doseže statistika argumenta.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Določi ali bo vrednost dimenzije vrnjena, kadar se argument doseže prvič ali zadnjič. Privzeta nastavitev je ob prvem pojavu.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Ekstrahira se vrednost dimenzije pri kateri se doseže določena vrednost spremenljivke.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Določi vrsto primerjave, ki bo uporabljena za ekstrahiranje vrednosti dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Določi način ekstrahiranja statistike iz dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Enota časa, za katero bo ekstrahirana statistika.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Kaže, ali bodo vrednosti NoData v ekstrahiranju prezrte.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Vrsta rezultata, ki bo ustvarjen. Rezultat je lahko plo&scaron;čični slikovni sloj ali dinamični slikovni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

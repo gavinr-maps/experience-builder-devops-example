@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Laadi yhteenveto keskikohdasta ja hajonnasta etsii kohdejoukon keskikohteen, keskisuuntauksen ja keskihajontaellipsin.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Piste, viiva tai aluekohde, jolle lasketaan keskikohde, keskisuuntaus ja keskihajontaellipsi.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; menetelm&auml;t, joilla laaditaan yhteenveto kohteiden keskikohdasta ja hajonnasta.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; soikean aluekohteen koon keskihajonnoissa. Jos keskim&auml;&auml;r&auml;isen keskipisteen ja kohdesijaintien v&auml;linen et&auml;isyys noudattaa Rayleigh'n jakaumaa,  <b>1 keskihajonta</b>-, <b>2 keskihajontaa</b>- ja <b>3 keskihajontaa</b>&nbsp;-vaihtoehto tuottaa soikean aluekohteen, joka peitt&auml;&auml; 63 prosenttia, 89 prosenttia ja 99,9 prosenttia kohteista vastaavasti.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Kentt&auml;, jota k&auml;ytet&auml;&auml;n kohteen painon m&auml;&auml;ritt&auml;miseen.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Kentt&auml;, jota k&auml;ytet&auml;&auml;n kohteiden ryhmitt&auml;miseen. Jokaiselle ryhm&auml;lle lasketaan valitut  <b>yhteenvetotyypit</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

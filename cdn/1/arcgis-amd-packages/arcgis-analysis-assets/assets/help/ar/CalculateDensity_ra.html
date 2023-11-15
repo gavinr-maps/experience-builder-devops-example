@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تحسب أداة &quot;حساب الكثافة&quot; تقدير الكثافة من المعالم النقطية أو الخطية. تنشئ الأداة إخراج بيانات نقطية.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>طبقة النقاط أو الخطوط التي سيتم لحساب الكثافة منها.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>الحقل الذي يحدد عدد الحوادث في كل موقع.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>الطبقة التي تحدد العوائق. يمكن أن تكون الحواجز طبقة معالم من المعالم المتعددة الخطوط أو معالم المضلع.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>حجم الخلية والوحدة اللتان ستُستخدمان للبيانات النقطية الناتجة.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>تحدد المسافة للبحث عن النقاط أو الخطوط عند حساب الكثافة باستخدام قيمة ووحداتها.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>الوحدات المراد استخدامها لمنطقة الإخراج.
+            </p>
+            <p>الكثافة هي العدد مقسومًا على المنطقة وتُحدد هذه المعلمة وحدة المنطقة في حساب الكثافة.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم طبقة البيانات النقطية للكثافة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقات صور متجانبة أو طبقات صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

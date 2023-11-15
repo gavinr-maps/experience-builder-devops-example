@@ -1,0 +1,101 @@
+{
+  "name": "OptimalPathAsLine",
+  "displayName": "OptimalPathAsLine",
+  "description": "Calculates the optimal path from a source to a destination as a\nline.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/OptimalPathAsLine.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputDestinationRasterOrFeatures",
+      "dataType": "GPString",
+      "displayName": "inputDestinationRasterOrFeatures",
+      "description": "An image service or feature service that identifies those locations from which the least-cost path is determined to the least costly source.If the input is an image service, the input consists of cells that have valid values (zero is a valid value), and the remaining cells must be assigned NoData.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputDistanceAccumulationRaster",
+      "dataType": "GPString",
+      "displayName": "inputDistanceAccumulationRaster",
+      "description": "The input distance accumulation raster.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputBackDirectionRaster",
+      "dataType": "GPString",
+      "displayName": "inputBackDirectionRaster",
+      "description": "The name of the raster used to determine the path to return to a source via the least-cost path or the shortest path.For each cell in the back link or direction raster, a value identifies the neighbor that is the next cell on the path from the cell to a source cell.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputPolylineName",
+      "dataType": "GPString",
+      "displayName": "outputPolylineName",
+      "description": "The output feature service that will contain the least cost path.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "destinationField",
+      "dataType": "GPString",
+      "displayName": "destinationField",
+      "description": "The field that will be used to obtain values for the destination locations.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "pathType",
+      "dataType": "GPString",
+      "displayName": "pathType",
+      "description": "Specifies the manner in which the values and zones on the input destination data will be interpreted in the cost path calculations.Best single—For all cells on the input destination data, the least-cost path will be derived from the cell with the minimum of the least-cost paths to source cells.Each zone—For each zone on the input destination data a least-cost path is determined. With this option, the least-cost path for each zone will begin at the cell with the lowest cost distance weighting in the zone. This is the default.\nEach cell—For each cell with valid values on the input destination data, a least-cost path is determined and saved on the output raster. With this option, each cell of the input destination data will be treated separately, and a least-cost path will be determined for each from cell.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["BEST_SINGLE", "EACH_CELL", "EACH_ZONE"]
+    },
+    {
+      "name": "createNetworkPaths",
+      "dataType": "GPBoolean",
+      "displayName": "createNetworkPaths",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputPolylineFeatures",
+      "dataType": "GPString",
+      "displayName": "outputPolylineFeatures",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

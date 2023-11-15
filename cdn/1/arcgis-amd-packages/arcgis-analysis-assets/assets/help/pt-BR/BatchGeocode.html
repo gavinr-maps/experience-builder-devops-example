@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Geocodificar Locais da Tabela converte endere&ccedil;os ou locais de uma tabela de entrada em coordenadas.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>A tabela de entrada com os endere&ccedil;os ou lugares a serem geocodificados. A entrada deve ser uma tabela, um arquivo  <code>.csv</code> ou um arquivo do Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>O servi&ccedil;o localizador a ser usado para geocodifica&ccedil;&atilde;o. Se o servi&ccedil;o localizador que voc&ecirc; deseja utilizar n&atilde;o estiver no menu suspenso, entre em contato com seu administrador para ter o servi&ccedil;o do localizador configurado para geocodifica&ccedil;&atilde;o em lote.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Especifica se os dados de entrada est&atilde;o contidos em um &uacute;nico campo ou em v&aacute;rios campos.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Os campos que ser&atilde;o usados pelo localizador para determinar a localiza&ccedil;&atilde;o dos dados. Presume-se que determinados campos estejam nos dados, como endere&ccedil;o, cidade, estado e c&oacute;digo postal.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>O pa&iacute;s no qual os dados est&atilde;o localizados. Se todos os endere&ccedil;os forem de um pa&iacute;s, forne&ccedil;a esse pa&iacute;s para garantir resultados mais precisos. Caso contr&aacute;rio, deixe este par&acirc;metro vazio.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Especifica os campos que ser&atilde;o inclu&iacute;dos no conjunto de dados de sa&iacute;da. Estas op&ccedil;&otilde;es s&atilde;o as seguintes:
+            </p>
+            <ul>
+                <li> <b>Todos</b>&mdash;Todos os campos de sa&iacute;da do localizador dispon&iacute;veis ser&atilde;o inclu&iacute;dos nos resultados do geoc&oacute;digo.
+                </li>
+                <li> <b>M&iacute;nimo</b>&mdash;Um subconjunto de campos do localizador, como tamb&eacute;m, os campos da tabela de entrada ser&atilde;o inclu&iacute;dos nos resultados.
+                </li>
+                <li> <b>Somente localiza&ccedil;&atilde;o</b>&mdash;O campo <i>Shape</i> do localizador, como tamb&eacute;m, os campos da tabela de entrada ser&atilde;o inclu&iacute;dos nos resultados.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. A sa&iacute;da pode ser um servi&ccedil;o da fei&ccedil;&atilde;o, arquivo  <code>.csv</code> ou arquivo <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>O nome do item de sa&iacute;da onde o arquivo extra&iacute;do ser&aacute; armazenado.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

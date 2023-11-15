@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riistaga &quot;Koonda punktid&quot; saab arvutada m&auml;&auml;ratud salvedes v&otilde;i pol&uuml;goonides punktide arvu ja muu statistika.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>Punktikiht, mis agregeeritakse kokkuv&otilde;tte aladeks.
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>Pol&uuml;goonikiht, mille punktid agregeeritakse.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Piiravate objektide t&uuml;&uuml;p, milles sisendpunktid agregeeritakse. See v&otilde;ib olla pol&uuml;goonikiht v&otilde;i ruut- v&otilde;i kuusnurksalvedest mosaiikruudustik, mis luuakse, kui t&ouml;&ouml;riist k&auml;ivitub.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Loodud salvede suurus. Ruutsalvede puhul m&auml;&auml;ravad arv ja &uuml;hikud ruudu k&otilde;rguse ning pikkuse. Kuusnurksalvede puhul m&auml;&auml;ravad arv ja &uuml;hikud paralleelk&uuml;lgede vahelise vahemaa.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Salve suuruse m&auml;&auml;ramiseks kasutatavad &uuml;hikud.
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>M&auml;&auml;rab, kas punkte mittesisaldavad objektid ilmuvad tulemkihti. Kui see pole m&auml;rgitud, siis punkte mittesisaldavad objektid ei ilmu tulemusse. Kui see on m&auml;rgitud, ilmuvad punkte mittesisaldavad objektid tulemusse.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Sisendkihi kokkuv&otilde;etavad numbri- v&otilde;i kuup&auml;evav&auml;ljad ja iga v&auml;lja kohta arvutatav statistika.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Sisendkihi v&auml;li, mida kasutatakse statistiliste arvutuste jaoks andmete eraldamiseks eri gruppidesse.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Saate arvutada igal kokkuv&otilde;tte alal v&auml;hemuses (k&otilde;ige v&auml;hem domineerivad) v&otilde;i enamuses (k&otilde;ige rohkem domineerivad) olevad grupid.
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>Arvutab igal kokkuv&otilde;tte alal igasse gruppi kuuluvate punktide protsendi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

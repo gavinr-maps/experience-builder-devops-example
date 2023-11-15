@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Sulauta rajat -ty&ouml;kalu etsii alueet, jotka ovat p&auml;&auml;llekk&auml;in tai jakavat yhteisen rajan, ja muodostaa niist&auml; yhden alueen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Karttataso, joka sis&auml;lt&auml;&auml; sulautettavat aluekarttakohteet.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, sulauttaako ty&ouml;kalu vain ne aluekohteet, jotka ovat p&auml;&auml;llekk&auml;in tai jakavat yhteisen rajan ja joilla on sama kentt&auml;arvo (k&auml;yt&ouml;ss&auml;), vai kaikki aluekohteet, jotka ovat p&auml;&auml;llekk&auml;in tai jakavat yhteisen rajan (pois k&auml;yt&ouml;st&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; kent&auml;n, jota k&auml;ytet&auml;&auml;n aluekohteiden sulauttamiseen vastaavien arvojen perusteella.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, voiko kohde sis&auml;lt&auml;&auml; moniosaisia aluekohteita eli yhdeksi kohteeksi m&auml;&auml;ritettyj&auml; useita aluekohteita (k&auml;yt&ouml;ss&auml;) vai voiko se sis&auml;lt&auml;&auml; vain yksitt&auml;isi&auml; kohteita (pois k&auml;yt&ouml;st&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, lasketaanko sulautetuille aluekohteille yhteenvetotilastot.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>L&auml;ht&ouml;aineiston karttatason numero- tai p&auml;iv&auml;m&auml;&auml;r&auml;kent&auml;t, joista lasketaan yhteenveto, ja jokaisesta kent&auml;st&auml; laskettavat tilastotiedot.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

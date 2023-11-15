@@ -1,0 +1,119 @@
+{
+  "name": "DetectObjectsUsingDeepLearning",
+  "displayName": "DetectObjectsUsingDeepLearning",
+  "description": "In a raster analysis deployment, this tool runs a trained deep learning model on an input raster to produce a feature class containing the objects it identifies. The feature class can be shared as a hosted feature layer in your portal. The features can be bounding boxes or polygons around the objects found, or points at the centers of the objects.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/DetectObjectsUsingDeepLearning.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputRaster",
+      "dataType": "GPString",
+      "displayName": "inputRaster",
+      "description": "The input image used to detect objects. It can be an image service URL, a raster layer, an image service, a map server layer, or an internet tiled layer.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputObjects",
+      "dataType": "GPString",
+      "displayName": "outputObjects",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "model",
+      "dataType": "GPString",
+      "displayName": "model",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "modelArguments",
+      "dataType": "GPString",
+      "displayName": "modelArguments",
+      "description": "The function model arguments are defined in the Python raster function class referenced by the input model. This is where you list additional deep learning parameters and arguments for experiments and refinement, such as a confidence threshold for fine tuning the sensitivity. The names of the arguments are populated by the tool from reading the Python module on the RA server.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "runNMS",
+      "dataType": "GPBoolean",
+      "displayName": "runNMS",
+      "description": "Specifies whether non maximum suppression, where duplicate objects are identified and the duplicate feature with a lower confidence value is removed, will be performed.Unchecked—All detected objects will be in the output feature class. This is the default.Checked— Duplicate detected objects will be removed.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "confidenceScoreField",
+      "dataType": "GPString",
+      "displayName": "confidenceScoreField",
+      "description": "The field in the feature service that contains the confidence scores that will be used as output by the object detection method. This parameter is required when the Non Maximum Suppression parameter is checked.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "classValueField",
+      "dataType": "GPString",
+      "displayName": "classValueField",
+      "description": "The name of the class value field in the feature service.  If a field name is not specified, the tool will attempt to use a   Classvalue or Value field. If these fields do not exist, the tool will identify all records as belonging to one class.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "maxOverlapRatio",
+      "dataType": "GPDouble",
+      "displayName": "maxOverlapRatio",
+      "description": "The maximum overlap ratio for two overlapping features, which is defined as the ratio of intersection area over union area. The default is 0.",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "processAllRasterItems",
+      "dataType": "GPBoolean",
+      "displayName": "processAllRasterItems",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outObjects",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "outObjects",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

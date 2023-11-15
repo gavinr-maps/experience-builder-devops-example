@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تحدد أداة مجال الرؤية الجيوديسية مواقع سطح البيانات النقطية المرئية لمواقع مراقب الإدخال.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>البيانات النقطية للارتفاع التي سيتم حساب مجال الرؤية على أساسها.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>مواقع المراقب التي سيتم حساب مجال الرؤية لها.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>تحسّن حساب مجال الرؤية بناءً على السرعة أو الدقة.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>تحدد الحد الأقصى لمسافة العرض لحساب مجال الرؤية.
+            </p>
+            <p>يمكن تحديد المسافة بقيمة ووحداتها، أو من حقل في  <b>نقطة مراقب الإدخال أو المعالم الخطية</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>تحدد الحد الأدنى لمسافة العرض لحساب مجال الرؤية.
+            </p>
+            <p>يمكن تحديد المسافة بقيمة ووحداتها، أو من حقل في  <b>نقطة مراقب الإدخال أو المعالم الخطية</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>يحدد الحد الأقصى والحد الأدنى لنوع مسافات العرض.
+            </p>
+            <p>إذا لم يتم التأشير عليها، فسيتم التعامل مع مسافات العرض على أنها مسافات إقليدية ثنائية الأبعاد. إذا تم التأشير عليها، فسيتم التعامل مع مسافات العرض على أنها مسافات ثلاثية الأبعاد.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>تحدد ارتفاع السطح لمواقع المراقب.
+            </p>
+            <p>يمكن تحديد الارتفاع بقيمة ووحداتها، أو من حقل في  <b>معالم النقاط أو المعالم الخطية لمراقب الإدخال</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>تحدد ارتفاع المراقبين فوق سطح الأرض.
+            </p>
+            <p>يمكن تحديد الارتفاع بقيمة ووحداتها، أو من حقل في  <b>معالم النقاط أو المعالم الخطية لمراقب الإدخال</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>تحدد ارتفاع الأهداف فوق سطح الأرض.
+            </p>
+            <p>يمكن تحديد الارتفاع بقيمة ووحداتها، أو من حقل في  <b>معالم النقاط أو المعالم الخطية لمراقب الإدخال</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم طبقة البيانات النقطية لمجال الرؤية التي سيتم إنشاؤها وإضافتها إلى الخريطة. تحتوي هذه الطبقة على المناطق المرئية التي يمكن للمراقبين الرؤية منها، وتمثل قيم الخلية عدد المراقبين الذين يمكنهم عرض الخلايا.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>اسم طبقة البيانات النقطية فوق مستوى سطح الأرض (AGL) التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقة صور متجانبة أو طبقة صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

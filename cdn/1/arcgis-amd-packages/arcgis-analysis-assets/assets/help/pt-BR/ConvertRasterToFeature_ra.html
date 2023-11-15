@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Converter Raster para Fei&ccedil;&atilde;o vetoriza um raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>O raster de entrada que ser&aacute; convertido em fei&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>O campo que cont&eacute;m os valores que ser&atilde;o convertidos.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>O tipo de fei&ccedil;&otilde;es (ponto, linha ou pol&iacute;gono) que ser&atilde;o criadas na camada de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>Especifica se as linhas ou pol&iacute;gonos ser&atilde;o simplificados (suavizados).
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>Especifica se os pol&iacute;gonos de sa&iacute;da consistir&aacute; de fei&ccedil;&otilde;es de parte &uacute;nica ou partes m&uacute;ltiplas.
+            </p>
+            <p>As fei&ccedil;&otilde;es de m&uacute;ltiplas partes normalmente s&atilde;o processados ​​mais rapidamente. No entanto, se a sa&iacute;da contiver um n&uacute;mero muito grande de fei&ccedil;&otilde;es, ela pode n&atilde;o ser mais r&aacute;pida.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>O limite de v&eacute;rtice que ser&aacute; usado para subdividir um pol&iacute;gono em pol&iacute;gonos menores.
+            </p>
+            <p>Se deixado em branco, os pol&iacute;gonos de sa&iacute;da n&atilde;o ser&atilde;o divididos.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada de fei&ccedil;&atilde;o que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

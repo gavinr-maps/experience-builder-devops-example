@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Jalur Optimal sebagai Garis menghitung jalur dari tujuan ke sumber optimal dalam garis.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>Layer yang mengidentifikasi tujuan dari mana jarak dihitung ke sumber yang paling murah.
+            </p>
+            <p>Jika inputnya adalah raster, maka harus terdiri dari sel yang memiliki nilai integer valid (nol adalah nilai valid) untuk tujuan, dan sel yang tersisa harus diberi NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>Kolom yang akan digunakan guna mendapatkan nilai untuk lokasi tujuan.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>Raster yang menentukan jalan optimal dari tujuan ke sumber.
+            </p>
+            <p>Raster akumulasi jarak biasanya dibuat dengan alat Akumulasi Jarak atau Alokasi Jarak.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>Raster yang berisi arah yang dihitung dalam derajat.
+            </p>
+            <p>Raster arah balik biasanya dibuat dengan alat Akumulasi Jarak atau Alokasi Jarak.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>Menentukan cara nilai dan zona di data tujuan input diinterpretasikan dalam perhitungan jalan optimal.
+            </p>
+        </div>
+    </div>
+    <div id="createNetworkPaths">
+        <div>
+            <p>Menentukan jalur lengkap yang mungkin bertabrakan dari tujuan ke sumber akan dihitung atau jalur jaringan yang tidak bertabrakan akan dibuat.
+            </p>
+        </div>
+    </div>
+    <div id="outputPolylineName">
+        <div>
+            <p>Nama layer jalur optimal sebagai garis akan dibuat dan ditambahkan ke peta.
+            </p>
+            <p>Layer akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

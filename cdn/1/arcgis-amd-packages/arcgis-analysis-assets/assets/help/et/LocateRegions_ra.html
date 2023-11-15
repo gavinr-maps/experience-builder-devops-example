@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Piirkondade asukoha m&auml;&auml;ramine&quot; tuvastab sisendrastri parimad piirkonnad, mis vastavad kindlaksm&auml;&auml;ratud suurusn&otilde;uetele ja ruumilistele piirangutele.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Kommunaalv&otilde;rgu sisendraster, millest piirkonnad tuvastatakse.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>K&otilde;igi piirkondade kogupindala.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>M&auml;&auml;rab pindala&uuml;hikud, mida kasutatakse parameetrite  <b>Kogupindala</b>, <b>Piirkonna minimaalne pindala</b> ja <b>Piirkonna maksimaalne pindala</b> puhul.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>M&auml;&auml;rab, mitme piirkonna vahel  <b>kogupindala</b> jaotatakse.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>M&auml;&auml;ratleb kompromissi lahtri panuse vahel piirkonna kuju s&auml;ilitamiseks v&otilde;rreldes lahtri atribuudi v&auml;&auml;rtuse kasulikkuse panusega.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Hindamiskriteeriumid, mille alusel m&auml;&auml;ratakse kindlaks, millised kandidaatpiirkonnad on k&otilde;ige eelistatumad.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>M&auml;&auml;ratleb v&auml;ljundpiirkondade kujuomadused.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>M&auml;&auml;rab m&auml;&auml;ratletud kuju orientatsiooni.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>M&auml;&auml;rab igale piirkonnale lubatud minimaalse pindala. Kasutatakse parameetriga  <b>Pindala&uuml;hikud</b> m&auml;&auml;ratud &uuml;hikuid.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>M&auml;&auml;rab igale piirkonnale lubatud maksimaalse pindala. Kasutatakse parameetriga  <b>Pindala&uuml;hikud</b> m&auml;&auml;ratud &uuml;hikuid.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>M&auml;&auml;rab igale piirkonnale lubatud minimaalse vahemaa.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>M&auml;&auml;rab igale piirkonnale lubatud maksimaalse vahemaa.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>M&auml;&auml;rab vahekauguse &uuml;hikud, mida kasutatakse parameetritega  <b>Minimaalne vahemaa piirkondade vahel</b> ja <b>Maksimaalne vahemaa piirkondade vahel</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>Sisendkiht, mis m&auml;&auml;rab kohad, kus piirkonnad on juba olemas.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>M&auml;&auml;rab, milliseid naaberlahtreid tuleb kasutada piirkondade kasvu v&auml;ljendamiseks.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>M&auml;&auml;rab, kas potentsiaalsetes piirkondades on lubatud kasutada saari.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>M&auml;&auml;rab algseemnete arvu, millest v&otilde;ivad potentsiaalsed piirkonnad v&auml;lja kasvada.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>M&auml;&auml;rab piirkondade kasvu eraldusv&otilde;ime.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>M&auml;&auml;rab piirkondade valimise viisi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Piirkondade asukoha m&auml;&auml;ramise rastrikihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

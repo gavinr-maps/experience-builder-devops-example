@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>En Yakındakini Bul aracı, belirli konumlara en yakın detayları bulur ve sıralar.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">En yakın detayların bulunması i&ccedil;in kullanılan başlangı&ccedil; katmanı.  5.000 adete kadar detay i&ccedil;eren katmanlar desteklenmektedir. </p> 
+            <p class="PortalOnly">En yakın detayların bulunması i&ccedil;in kullanılan başlangı&ccedil; katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Girdi katmanına yakınlığa dayanarak bulunan detaylar.  5.000 adete kadar detay i&ccedil;eren katmanlar desteklenmektedir. </p> 
+            <p class="PortalOnly">Girdi katmanına yakınlığa dayanarak bulunan detaylar.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Aşağıdaki sokaklarda seyahat ederken ge&ccedil;ici kısıtlamalar (engeller) işlevi g&ouml;recek bir ya da daha fazla nokta detayı. Sokakta harekete izin verilir ancak engel ge&ccedil;ilemez.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Aşağıdaki sokaklarda seyahat ederken ge&ccedil;ici kısıtlamalar (engeller) işlevi g&ouml;recek bir ya da daha fazla &ccedil;izgi detayı. &Ccedil;izgi engelleri, engellerin sokaklarla kesiştiği her yerde seyahati engeller.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Aşağıdaki sokaklarda seyahat ederken ge&ccedil;ici kısıtlamalar (engeller) işlevi g&ouml;recek bir ya da daha fazla &ccedil;okgen detayı. &Ccedil;okgen engeller, &ccedil;okgenlerin sokaklarla kesiştiği her yerde seyahati engeller.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Mesafe veya s&uuml;reyi &ouml;l&ccedil;mek i&ccedil;in kullanılacak y&ouml;ntem. Bu y&ouml;ntem, &ccedil;izgi mesafesi veya seyahat modu olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Seyahat edenin  <b>Girdi katmanı</b>'ndaki konumlardan ayrılma tarihini ve saatini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>&Ouml;zel bir maksimum en yakın detaylar sayısının mı (etkinleştirilmiş), yoksa aracın 100 varsayılan maksimum değerinin mi (devre dışı) kullanılacağını belirler.
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Her bir girdi detayı i&ccedil;in bulunabilecek maksimum en yakın detaylar sayısı.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Maksimum bir arama aralığının mı kullanılacağını (etkinleştirilmiş), yoksa arama aralığının sınırsız mı olacağını (devre dışı) belirler.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>En yakın detayları bulmak i&ccedil;in maksimum arama aralığı.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Arama aralığını belirtmek i&ccedil;in kullanılan birimler.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Her sonu&ccedil; rotasının bir rota katmanı olarak dahil edilip edilmeyeceğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonu&ccedil;ların kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Rasti argumento statistiką i&scaron;gauna matmens vertę arba kanalo indeksą, kurį pasiekus kiekviename daugiamačių vaizdų sluoksnio pikselyje pasiekiama tam tikra statistika
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Daugiamačių vaizdų sluoksnis, kuris bus vertinamas.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Daugiamačių vaizdų sluoksnio, i&scaron; kurio bus vertinamas kintamasis, matmuo.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Daugiamačių vaizdų sluoksnio kintamasis, kuris bus vertinamas apibrėžtame intervale.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Statistikos, kuri bus i&scaron;gaunama i&scaron; kintamojo ar kintamųjų pagal tam tikrą dimensiją, tipas.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Mažiausia vertė, kuri bus naudojama argumento galiojimo laikotarpiu.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Didžiausia vertė, kuri bus naudojama argumento galiojimo laikotarpiu.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Reik&scaron;mė, rodanti, kad tam tikro argumento statistika buvo pasiekta daugiau nei vieną kartą. Pagal numatytuosius nustatymus argumento statistika pasiekiama pirmą kartą.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Nurodoma, ar matmens reik&scaron;mė bus grąžinta pirmą ar paskutinį kartą pasiekus argumentą. Numatytoji reik&scaron;mė yra pirmasis atvejis.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Bus i&scaron;gauta matmens reik&scaron;mė, kurią pasiekus pasiekiama nurodyta kintamojo reik&scaron;mė.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Nurodo palyginimo tipą, kuris bus naudojamas matmens reik&scaron;mei i&scaron;gauti.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Nurodo, kaip i&scaron; matmens bus i&scaron;gaunama statistika.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Laiko vienetas, už kurį bus i&scaron;gaunama kiekviena statistika.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Nurodo, ar i&scaron;skiriant bus ignoruojamos NoData reik&scaron;mės.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Sukuriamos i&scaron;vesties tipas. I&scaron;vestis gali būti i&scaron;klotinių vaizdų sluoksnis arba dinaminis vaizdų sluoksnis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

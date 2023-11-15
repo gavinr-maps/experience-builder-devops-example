@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Etsi l&auml;hin -ty&ouml;kalu etsii ja laittaa j&auml;rjestykseen kohteet, jotka ovat l&auml;himp&auml;n&auml; m&auml;&auml;ritettyj&auml; sijainteja.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Aloituskarttataso, josta l&auml;himm&auml;t kohteet l&ouml;ytyv&auml;t. Karttatasojen tuettujen kohteiden m&auml;&auml;r&auml; on enint&auml;&auml;n  5 000. </p> 
+            <p class="PortalOnly">Aloituskarttataso, josta l&auml;himm&auml;t kohteet l&ouml;ytyv&auml;t.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Kohteet, jotka l&ouml;ytyv&auml;t sen perusteella, kuinka l&auml;hell&auml; ne ovat l&auml;ht&ouml;aineiston karttatasoa. Karttatasojen tuettujen kohteiden m&auml;&auml;r&auml; on enint&auml;&auml;n  5 000. </p> 
+            <p class="PortalOnly">Kohteet, jotka l&ouml;ytyv&auml;t sen perusteella, kuinka l&auml;hell&auml; ne ovat l&auml;ht&ouml;aineiston karttatasoa.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi pistekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Liikkuminen on sallittu kadulla, mutta ei esteen kohdalla.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi viivakohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Viivaesteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa esteet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi aluekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Alue-esteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa alueet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Menetelm&auml;, jota k&auml;ytet&auml;&auml;n et&auml;isyyden tai ajan mittaamiseen. Menetelm&auml; voi olla suora et&auml;isyys tai matkustustapa.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; p&auml;iv&auml;m&auml;&auml;r&auml;n ja ajan, jolloin matkustaja l&auml;htee  <b>L&auml;ht&ouml;karttatason</b> sijainneista.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, k&auml;ytet&auml;&auml;nk&ouml; mukautettua l&auml;himpien kohteiden enimm&auml;ism&auml;&auml;r&auml;&auml; (k&auml;yt&ouml;ss&auml;) vai ty&ouml;kalun oletusenimm&auml;ism&auml;&auml;r&auml;&auml; 100 (pois k&auml;yt&ouml;st&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>L&auml;himpien kohteiden enimm&auml;ism&auml;&auml;r&auml;, joka voi l&ouml;yty&auml; kullekin l&auml;ht&ouml;aineiston kohteelle.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, k&auml;ytet&auml;&auml;nk&ouml; enimm&auml;ishakualuetta (k&auml;yt&ouml;ss&auml;) vai onko hakualue rajoittamaton (pois k&auml;yt&ouml;st&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Enimm&auml;ishakualue l&auml;himpien kohteiden etsimiseen.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Hakualueen m&auml;&auml;ritt&auml;miseen k&auml;ytett&auml;v&auml;t yksik&ouml;t.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, tallennetaanko jokainen tulosreitti reittikarttatasona.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulokset tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

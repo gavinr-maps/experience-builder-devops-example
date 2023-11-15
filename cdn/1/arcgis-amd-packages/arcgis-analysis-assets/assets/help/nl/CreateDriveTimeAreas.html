@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Reisgebieden genereren cre&euml;ert gebieden die binnen een reistijd of afstand kunnen worden bereikt.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>De puntobjecten rond welke gebieden worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>E&eacute;n of meerdere puntobjecten die dienen als tijdelijke beperkingen (barri&egrave;res) tijdens het reizen op de onderliggende straten. Verkeer heeft toegang tot de straat maar kan de barri&egrave;re niet passeren.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>E&eacute;n of meerdere lijnobjecten die dienen als tijdelijke beperkingen (barri&egrave;res) tijdens het reizen op de onderliggende straten. De lijnbarri&egrave;res verbieden het verkeer overal waar de barri&egrave;res de straten kruisen.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>E&eacute;n of meerdere polygoonobjecten die dienen als tijdelijke beperkingen (barri&egrave;res) tijdens het reizen op de onderliggende straten. De polygoonbarri&egrave;res verbieden het verkeer overal waar de polygonen de straten kruisen.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>De reismodus die zal worden gebruikt om de reisgebieden te maken. De reismethode kan gebaseerd zijn op afstand of tijd.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>De reisafstand of tijdslimiet voor elk invoerpunt. Indien meerdere waarden worden toegevoegd, wordt elke waarde gebruikt om de reisgebieden voor alle invoerpunten te berekenen.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>De eenheden die worden gebruikt om reisafstand of tijd aan te geven. De waarde  <b>Cutoff</b> wordt in deze eenheden ge&iuml;nterpreteerd.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Bepaalt of reisgebieden worden gecre&euml;erd voor reizen weg van de invoerpunten of naar de invoerpunten toe.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Specificeert de datum en tijd waarop de reiziger vertrekt van of aankomt op de ingevoerde locaties.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Bepaalt hoe met gedeelde gebieden van verschillende invoerpunten wordt omgegaan wanneer ze elkaar bereiken.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Geeft aan of elk uitvoergebied &eacute;&eacute;n ononderbroken polygoon zal zijn (niet aangevinkt) of gaten zal bevatten in straten die niet bereikbaar zijn, maar volledig omgeven zijn door bereikbare straten (aangevinkt).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Specificeert of de straten die voor het maken van de reisgebieden worden gebruikt, zullen worden opgenomen in de uitvoerlaag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>De naam van de map in  <b>Mijn content</b> waar de resultaten worden opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

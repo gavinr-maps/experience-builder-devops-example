@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Seyahat Maliyetini Hesapla aracı, nokta &ccedil;iftleri arasındaki seyahat s&uuml;resini veya mesafeyi &ouml;l&ccedil;er.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Seyahat maliyetinin hesaplanmasında kalkış noktası olarak alınan başlangı&ccedil; konumlarını temsil eden nokta katmanı.  5.000 adete kadar detay i&ccedil;eren katmanlar desteklenmektedir. </p> 
+            <p class="PortalOnly">Seyahat maliyetinin hesaplanmasında kalkış noktası olarak alınan başlangı&ccedil; konumlarını temsil eden nokta katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Seyahat maliyetinin hesaplanmasında varış noktası olarak alınan hedef konumlarını temsil eden nokta katmanı.  5.000 adete kadar detay i&ccedil;eren katmanlar desteklenmektedir. </p> 
+            <p class="PortalOnly">Seyahat maliyetinin hesaplanmasında varış noktası olarak alınan hedef konumlarını temsil eden nokta katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>&Ouml;nceden atanmış başlangı&ccedil;-hedef &ccedil;iftini tanımlayan  <b>Başlangı&ccedil; katmanı</b>'ndaki alan. Birden fazla başlangı&ccedil; ve hedef konumu varsa bu kimlik <b>Bitiş katmanı rota kimliği alanı</b>'ndaki bir değerle eşleşmelidir.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>&Ouml;nceden atanmış başlangı&ccedil;-hedef &ccedil;iftini tanımlayan  <b>Bitiş katmanı</b>'ndaki alan. Birden fazla başlangı&ccedil; ve hedef konumu varsa bu kimlik <b>Başlangı&ccedil; katmanı rota kimliği alanı</b>'ndaki bir değerle eşleşmelidir.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Aşağıdaki sokaklarda seyahat ederken ge&ccedil;ici kısıtlamalar (engeller) işlevi g&ouml;recek bir ya da daha fazla nokta detayı. Sokakta harekete izin verilir ancak engel ge&ccedil;ilemez.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Aşağıdaki sokaklarda seyahat ederken ge&ccedil;ici kısıtlamalar (engeller) işlevi g&ouml;recek bir ya da daha fazla &ccedil;izgi detayı. &Ccedil;izgi engelleri, engellerin sokaklarla kesiştiği her yerde seyahati engeller.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Aşağıdaki sokaklarda seyahat ederken ge&ccedil;ici kısıtlamalar (engeller) işlevi g&ouml;recek bir ya da daha fazla &ccedil;okgen detayı. &Ccedil;okgen engeller, &ccedil;okgenlerin sokaklarla kesiştiği her yerde seyahati engeller.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Mesafe veya s&uuml;reyi &ouml;l&ccedil;mek i&ccedil;in kullanılacak y&ouml;ntem. Bu y&ouml;ntem, &ccedil;izgi mesafesi veya seyahat modu olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p> <b>Başlangı&ccedil; katmanı</b>'ndaki başlangı&ccedil; konumlarından kalkışın tarihi ve saati.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Başlangı&ccedil; ve hedeflerin &ouml;r&uuml;mcek &ccedil;izgileri veya istek &ccedil;izgileri kullanılarak mı (<b>D&uuml;z &ccedil;izgi</b>), yoksa altta yatan sokak ağındaki sokaklar kullanılarak mı (<b>Sokakları takip et</b>) bağlandığını belirler.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Her sonu&ccedil; rotasının bir rota katmanı olarak dahil edilip edilmeyeceğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonu&ccedil;ların kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

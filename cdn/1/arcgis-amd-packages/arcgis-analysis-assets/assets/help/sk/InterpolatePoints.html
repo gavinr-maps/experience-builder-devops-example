@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Interpolovať body predpoved&aacute; hodnoty na nov&yacute;ch lokalit&aacute;ch na z&aacute;klade bodov&yacute;ch meran&iacute;. N&aacute;stroj vytvor&iacute; prvkov&yacute; v&yacute;stup.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Vyberte bodov&uacute; vrstvu lokal&iacute;t, ktor&eacute; bud&uacute; interpolovan&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Vyberte pole obsahuj&uacute;ce nameran&eacute; hodnoty, ktor&eacute; bud&uacute; interpolovan&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Vyberte, či sa m&aacute; uprednostniť r&yacute;chlosť v&yacute;počtu alebo presnosť a prec&iacute;znosť. Presnej&scaron;ie a prec&iacute;znej&scaron;ie predpovede sa poč&iacute;taj&uacute; dlh&scaron;ie.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Vyberte, či sa do v&yacute;stupu zahrnie aj vrstva &scaron;tandardn&yacute;ch ch&yacute;b pre predpovede interpol&aacute;cie.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Vyberte sp&ocirc;sob v&yacute;počtu hraničn&yacute;ch hodn&ocirc;t tried.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Zadajte počet tried (rozsahov predpovedan&yacute;ch hodn&ocirc;t), ktor&eacute; bud&uacute; zahrnut&eacute; do v&yacute;slednej vrstvy. Každ&aacute; trieda definuje hranicu polyg&oacute;nu a predstavuje kont&uacute;ry predpovedan&yacute;ch hodn&ocirc;t. Hraničn&eacute; hodnoty tried s&uacute; určen&eacute; typom klasifik&aacute;cie.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Zadajte hraničn&eacute; hodnoty tried, ktor&eacute; sa použij&uacute;.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Vyberte polyg&oacute;nov&uacute; vrstvu, ktor&aacute; sa použije na vymedzenie z&aacute;ujmovej oblasti. V&yacute;sledky bud&uacute; orezan&eacute; tak, aby sa zobrazovali len v r&aacute;mci z&aacute;ujmovej oblasti.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Vyberte bodov&uacute; vrstvu reprezentuj&uacute;cu lokality, ktor&eacute; sa použij&uacute; na predpovedanie hodn&ocirc;t. Ak je zadan&eacute;, vytvor&iacute; sa bodov&aacute; vrstva obsahuj&uacute;ca predpovedan&eacute; hodnoty v miestach zadan&yacute;ch lokal&iacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

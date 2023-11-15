@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Настройки среды анализа в  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Задает систему координат для анализа и итогового слоя.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Указывает область, которая будет использоваться для анализа.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Настраивает экстент выходных данных таким образом, чтобы он соответствовал выравниванию ячеек указанного растрового слоя привязки.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Задает размер ячейки или разрешение, использующееся для анализа и при создании выходного растрового слоя.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Указывает слой маски, в котором для анализа будут использоваться только ячейки, попадающие в область маски.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Определяет, как будут интерполироваться значения пикселов в случае, когда входной и выходной растр не выровнены.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Определяет тип процессора, который будет использоваться. Опции:  <b>ЦПУ</b>, <b>ГПУ</b> и <b>Автоматически</b>. Если указано <b>Автоматически</b>, инструмент сам определит тип процессора.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Указывает количество экземпляров сервиса обработки растра, используемых во время запуска инструмента. Поддерживаемые значения включают пустые строки (инструмент определит количество используемых экземпляров сервиса обработки растра), целые числа (0 или положительные целые числа) и проценты. Проценты должны включать знак процента (%) после процентного значения.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>Определяет, показывать ли предупреждающее сообщение, если расчетное количество кредитов превышает заданный порог (включено), или анализ будет выполняться без отображения сообщения независимо от расчетного числа кредитов (не включено). При анализе все равно будут учтены настройки расхода кредитов, установленные для организации.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Задает пороговое значение, при достижении которого будет отображаться предупреждающее сообщение, основанное на предполагаемом расходе кредитов для выполнения анализа. Даже если число кредитов превышает порог, анализ все равно может быть выполнен.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;连接要素&rdquo;工具用于根据指定空间和属性关系，将属性从一个图层或表添加到另一个图层或表。 或者，当存在多条匹配记录时，可以计算统计信息。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>将具有来自追加到其属性表的连接图层的属性的图层或表。
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>要将其属性追加到目标图层的图层或表。
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>指定是否根据空间关系连接图层。 两个图层都具有几何时才能使用此类型。
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>指定用于确定连接要素的空间关系。 将连接与目标图层具有指定关系的连接图层中的要素。 可用关系取决于输入的几何类型。
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>将使用与目标图层中要素的距离确定是否应连接要素。
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>将用于指定距离的单位。
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>指定是否根据匹配字段值连接图层。 如果一个或多个输入为表，这将使是唯一的选择。
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>指定用于确定连接要素的属性关系。 如果连接图层中的字段值等于目标图层中的字段值，则会对要素进行匹配。
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>指定如果来自连接图层的多条记录满足连接条件，将如何处理连接。 请从以下选项中选择：
+                <ul>
+                    <li> <b>一对一连接</b> - 将连接图层中的单条记录连接到目标图层中的每个要素。
+                    </li>
+                    <li> <b>一对多连接</b> - 将连接图层中的所有匹配要素连接到目标图层。 此结果图层将包含目标要素的多个记录。
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>当连接图层中的多个要素与目标要素匹配时，指定是从连接图层连接单条记录还是从连接图层计算所有匹配记录的汇总统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>当有多个连接要素与目标要素匹配时，将计算所有匹配记录的汇总统计信息。 指定连接图层中的数值或日期字段，以及将为每个字段计算的统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>当有多个连接要素与目标要素匹配时，将在输出中包含连接图层属性表中的第一条记录。 或者，选择一个数值或日期字段以及将用于确定属性表排序的排序顺序。
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>确定不匹配的目标要素是否将包含在输出中。  <b>内部连接</b>仅返回匹配的目标记录，而 <b>左连接</b>将返回所有目标记录，即使目标要素在连接图层中没有匹配项。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层或表的名称。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Th&ocirc;ng số Bề mặt t&iacute;nh to&aacute;n c&aacute;c th&ocirc;ng số của bề mặt raster như g&oacute;c độ, độ dốc v&agrave; độ cong bằng phương ph&aacute;p trắc địa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster độ cao sẽ được sử dụng để t&iacute;nh to&aacute;n.
+            </p>
+            <p>Nếu đơn vị z c&oacute; sẵn trong hệ tọa độ dọc của raster đầu v&agrave;o, n&oacute; sẽ được &aacute;p dụng tự động.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Loại th&ocirc;ng số bề mặt sẽ được đo.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>C&aacute;c đơn vị đo lường của raster độ dốc đầu ra.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Chỉ định chiếu c&aacute;c phương vị trắc địa hay kh&ocirc;ng.
+            </p>
+            <p>Nếu được chọn, c&aacute;c phương vị trắc địa sẽ được chiếu để sửa sai lệch g&oacute;c do tham chiếu kh&ocirc;ng gian đầu ra g&acirc;y ra. Nếu kh&ocirc;ng được chọn, c&aacute;c phương vị trắc địa sẽ kh&ocirc;ng được chiếu.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Chỉ định đo hướng từ một điểm tr&ecirc;n đường x&iacute;ch đạo hay từ cực bắc.
+            </p>
+            <p>Nếu được chọn, hướng sẽ được đo từ một điểm tr&ecirc;n đường x&iacute;ch đạo. Nếu kh&ocirc;ng được chọn, hướng sẽ được đo từ cực bắc.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Loại h&agrave;m bề mặt sẽ được khớp xung quanh cell đ&iacute;ch.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Khoảng c&aacute;ch từ trung t&acirc;m cell đ&iacute;ch m&agrave; từ đ&oacute; đầu ra sẽ được t&iacute;nh to&aacute;n. Kết quả n&agrave;y x&aacute;c định k&iacute;ch thước v&ugrave;ng l&acirc;n cận được sử dụng để t&iacute;nh to&aacute;n.
+            </p>
+            <p>Gi&aacute; trị mặc định l&agrave; k&iacute;ch thước cell của raster được chỉ định trong th&ocirc;ng số  <b>Raster bề mặt đầu v&agrave;o</b>. Nếu được chỉ định, gi&aacute; trị phải lớn hơn gi&aacute; trị mặc định.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch v&ugrave;ng l&acirc;n cận c&oacute; thay đổi khi thay đổi cảnh quan hay kh&ocirc;ng.
+            </p>
+            <p>Nếu được chọn, khoảng c&aacute;ch v&ugrave;ng l&acirc;n cận sẽ thay đổi khi thay đổi cảnh quan. Nếu kh&ocirc;ng được chọn, khoảng c&aacute;ch v&ugrave;ng l&acirc;n cận cố định sẽ được sử dụng ở tất cả c&aacute;c vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Đơn vị đường của c&aacute;c gi&aacute; trị z dọc.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp raster bề mặt sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

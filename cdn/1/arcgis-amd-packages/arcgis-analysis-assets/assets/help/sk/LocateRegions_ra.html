@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Lokalizovať regi&oacute;ny identifikuje najvhodnej&scaron;ie regi&oacute;ny vo vstupnom rastri, ktor&eacute; spĺňaj&uacute; zadan&eacute; požiadavky na veľkosť a priestorov&eacute; obmedzenia.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Vstupn&yacute; utility raster, z ktor&eacute;ho bud&uacute; odvoden&eacute; regi&oacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>Celkov&aacute; plocha v&scaron;etk&yacute;ch regi&oacute;nov.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Určuje jednotky plochy použit&eacute; pre parametre  <b>Celkov&aacute; plocha</b>, <b>Minim&aacute;lna plocha regi&oacute;nu</b>, a <b>Maxim&aacute;lna plocha regi&oacute;nu</b>.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>Určuje v koľk&yacute;ch regi&oacute;noch bude  <b>Celkov&aacute; plocha</b> distribuovan&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>Určuje kompromis medzi pr&iacute;spevkom bunky na zachovanie tvaru regi&oacute;nu relat&iacute;vne k pr&iacute;spevku atrib&uacute;tovej hodnoty bunky.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Krit&eacute;ri&aacute; hodnotenia na určenie, ktor&eacute; z kandid&aacute;tskych regi&oacute;nov s&uacute; najv&yacute;hodnej&scaron;ie.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>Určuje tvarov&eacute; charakteristiky v&yacute;stupn&yacute;ch regi&oacute;nov.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>Určuje orient&aacute;ciu definovan&eacute;ho tvaru.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>Určuje minim&aacute;lnu plochu povolen&uacute; pre každ&yacute; regi&oacute;n. Použij&uacute; sa jednotky zadan&eacute; parametrom  <b>Jednotky plochy</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>Určuje maxim&aacute;lnu plochu povolen&uacute; pre každ&yacute; regi&oacute;n. Použij&uacute; sa jednotky zadan&eacute; parametrom  <b>Jednotky plochy</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>Určuje minim&aacute;lnu povolen&uacute; vzdialenosť medzi regi&oacute;nmi.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Určuje maxim&aacute;lnu povolen&uacute; vzdialenosť medzi regi&oacute;nmi.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>Určuje jednotky vzdialenosti, ktor&eacute; sa použij&uacute; pre parametre  <b>Minim&aacute;lna vzdialenosť medzi regi&oacute;nmi</b> a <b>Maxim&aacute;lna vzdialenosť medzi regi&oacute;nmi</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>Vstupn&aacute; vrstva, ktor&aacute; identifikuje, kde už existuj&uacute; regi&oacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Určuje, ktor&eacute; susedn&eacute; bunky sa maj&uacute; použiť pri raste regi&oacute;nov.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>Určuje, či v r&aacute;mci potenci&aacute;lnych regi&oacute;nov bud&uacute; alebo nebud&uacute; povolen&eacute; ostrovy.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>Určuje počet seedov, z ktor&yacute;ch sa maj&uacute; vytvoriť potenci&aacute;lne regi&oacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>Určuje rozl&iacute;&scaron;enie, pri ktorom doch&aacute;dza k rastu regi&oacute;nu.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>Určuje sp&ocirc;sob v&yacute;beru regi&oacute;nov.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov rastrovej vrstvy lokalizovan&yacute;ch regi&oacute;nov, ktor&aacute; bude vytvoren&aacute; a pridan&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

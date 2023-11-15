@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Geodetisk synsfelt idenfiserer lokasjonene p&aring; en rasterflate som er synlige for angitte observat&oslash;rlokasjoner.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>H&oslash;yderasteret som synsfeltet beregnes p&aring;.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Observat&oslash;rlokasjonene som synsfeltet skal beregnes for.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimaliserer synsfeltberegningen basert p&aring; enten hastighet eller n&oslash;yaktighet.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Angir maksimum betraktningsavstand for synsfeltberegningen.
+            </p>
+            <p>Avstanden kan angis av en verdi og enheter eller fra et felt i  <b>Legg inn observat&oslash;rpunkt- eller linjegeoobjekter</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Angir minimum betraktningsavstand for synsfeltberegningen.
+            </p>
+            <p>Avstanden kan angis av en verdi og enheter eller fra et felt i  <b>Legg inn observat&oslash;rpunkt- eller linjegeoobjekter</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Angir maksimum og minimum betraktningsavstandstype.
+            </p>
+            <p>N&aring;r alternativet ikke er valgt, behandles betraktningsavstander som todimensjonale euklidske avstander. N&aring;r alternativet er valgt, behandles betraktningsavstander som tredimensjonale euklidske avstander.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Angir overflateh&oslash;yden for observat&oslash;rlokasjonene.
+            </p>
+            <p>H&oslash;yden kan angis av en verdi og enheter eller fra et felt i  <b>Legg inn observat&oslash;rpunkt- eller linjegeoobjekter</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Angir observat&oslash;renes h&oslash;yde over bakken.
+            </p>
+            <p>H&oslash;yden kan angis av en verdi og enheter eller fra et felt i  <b>Legg inn observat&oslash;rpunkt- eller linjegeoobjekter</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Angir h&oslash;yden p&aring; m&aring;lene p&aring; bakken.
+            </p>
+            <p>H&oslash;yden kan angis av en verdi og enheter eller fra et felt i  <b>Legg inn observat&oslash;rpunkt- eller linjegeoobjekter</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; synsfeltrasterlaget som opprettes og legges til kartet. Laget inneholder de synlige omr&aring;dene der observat&oslash;rene kan se, og celleverdiene representerer antallet observat&oslash;rer som kan se cellene.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for over bakkeniv&aring; som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typen utdata som blir opprettet. Utdata kan v&aelig;re et flisinndelt bildelag eller et dynamisk bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Katmanı Zenginleştir aracı, demografik ve peyzaj verileriyle girdi detaylarını geliştirir.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Ek verilerle zenginleştirilecek olan nokta, &ccedil;izgi veya &ccedil;okgen detayları.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Girdi detaylarına &ouml;znitelik olarak eklenecek değişkenler.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Girdi noktası veya &ccedil;izgi detayları etrafındaki alanın nasıl tanımlanacağını belirtir. Her detay etrafındaki t&uuml;m alan zenginleştirilecektir.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Alanın genişleyeceği her bir girdi detayı etrafındaki mesafe veya zamanı belirten sayısal bir değer.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Zenginleştirilmiş alanın her bir girdi detayı etrafına genişleteceği mesafe veya zamanı belirtmek i&ccedil;in kullanılacak birimler.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>&Ccedil;ıktı katmanının  <b>Zenginleştirme alanları</b> ayarları (işaretli) veya girdi detayları (işaretsiz) ile tanımlanan &ccedil;okgen detayları i&ccedil;erip i&ccedil;ermeyeceğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

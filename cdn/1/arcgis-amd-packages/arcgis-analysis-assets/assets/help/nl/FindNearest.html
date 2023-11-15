@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Dichtstbijzijnde zoeken zoekt en rangschikt de objecten die het dichtst bij gespecificeerde locaties liggen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">De startlaag van waaruit de dichtstbijzijnde objecten worden gevonden. Lagen met maximaal  5000 objecten worden ondersteund. </p> 
+            <p class="PortalOnly">De startlaag van waaruit de dichtstbijzijnde objecten worden gevonden.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">De gevonden objecten zijn gebaseerd op de nabijheid van de invoerlaag. Lagen met maximaal  5000 objecten worden ondersteund. </p> 
+            <p class="PortalOnly">De gevonden objecten zijn gebaseerd op de nabijheid van de invoerlaag.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>E&eacute;n of meerdere puntobjecten die dienen als tijdelijke beperkingen (barri&egrave;res) tijdens het reizen op de onderliggende straten. Verkeer heeft toegang tot de straat maar kan de barri&egrave;re niet passeren.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>E&eacute;n of meerdere lijnobjecten die dienen als tijdelijke beperkingen (barri&egrave;res) tijdens het reizen op de onderliggende straten. De lijnbarri&egrave;res verbieden het verkeer overal waar de barri&egrave;res de straten kruisen.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>E&eacute;n of meerdere polygoonobjecten die dienen als tijdelijke beperkingen (barri&egrave;res) tijdens het reizen op de onderliggende straten. De polygoonbarri&egrave;res verbieden het verkeer overal waar de polygonen de straten kruisen.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>De methode die zal worden gebruikt om afstand of tijd te meten. De methode kan een lijnafstand of een reismethode zijn.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Specificeert de datum en het tijdstip waarop de reiziger vertrekt van de locaties in de  <b>Invoerlaag</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Bepaalt of een aangepast maximum aantal dichtstbijzijnde objecten wordt gebruikt (ingeschakeld) of dat het standaard maximum van 100 wordt gebruikt (uitgeschakeld).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Het maximale aantal dichtstbijzijnde objecten dat voor elk invoerobject kan worden gevonden.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Bepaalt of een maximaal zoekbereik wordt gebruikt (ingeschakeld) of dat het zoekbereik onbeperkt is (uitgeschakeld).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Het maximale zoekbereik voor het vinden van de dichtstbijzijnde objecten.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>De eenheden die worden gebruikt om het zoekbereik aan te geven.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Specificeert of elke resultaatroute al routelaag zal worden opgeslagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar de resultaten worden opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,82 @@
+{
+  "name": "FlowAccumulation",
+  "displayName": "FlowAccumulation",
+  "description": "Creates a raster of accumulated flow into each cell.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/FlowAccumulation.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputFlowDirectionRaster",
+      "dataType": "GPString",
+      "displayName": "inputFlowDirectionRaster",
+      "description": "The input raster that shows the direction of flow out of each cell. The flow direction raster can be created using the D8, Multiple Flow Direction (MFD), or D-Infinity method. Use the Flow Direction Type parameter to specify the method used when the flow direction raster was created.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "The name of the output flow accumulation raster service. The default name is based on the tool name and the input layer name. If the layer already exists, you will be prompted to provide another name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputWeightRaster",
+      "dataType": "GPString",
+      "displayName": "inputWeightRaster",
+      "description": "An optional integer input raster for applying a weight to each cell.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "dataType",
+      "dataType": "GPString",
+      "displayName": "dataType",
+      "description": "The output accumulation raster can be integer, floating or double type. Float—The output raster will be floating point type. This is the default. Integer—The output raster will be integer type. Double—The output raster will be double type.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "float",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["INTEGER", "FLOAT", "DOUBLE"]
+    },
+    {
+      "name": "flowDirectionType",
+      "dataType": "GPString",
+      "displayName": "flowDirectionType",
+      "description": "Specifies the input flow direction raster type. D8—The input flow direction raster is of type D8. This is the default. MFD—The input flow direction raster is of type Multi Flow Direction (MFD). DINF—The input flow direction raster is of type D-Infinity (DINF).",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "D8",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["D8", "MFD", "DINF"]
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

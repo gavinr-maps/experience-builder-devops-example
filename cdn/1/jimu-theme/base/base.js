@@ -1,1 +1,0 @@
-System.register([],(function(e,t){return{execute:function(){e((()=>{"use strict";var e={};return(e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})})(e),e})())}}}));

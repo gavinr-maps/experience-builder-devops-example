@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تلخص أداة الإحصائيات النطاقية كجدول قيم البيانات النقطية داخل مناطق مجموعة بيانات أخرى وتخرج النتائج في صورة جدول.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>الإدخال الذي يُعرّف حدود المناطق أو النطاقات التي سيتم تلخيصها.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>الحقل الذي يحتوي على القيم التي تحدد كل منطقة.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>طبقة البيانات النقطية التي تحتوي على قيم الخلية التي ستُستخدم لحساب الإحصائيات.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>تحدد نوع الإحصائية المراد حسابها.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>تحدد القيم المئوية التي سيتم حسابها.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>تحدد الطريقة المراد استخدامها عندما يكون عدد القيم من البيانات النقطية الخاصة بالإدخال المراد حسابها زوجيًا.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>تحدد كيفية معالجة قيم خلية  <b>البيانات النقطية لقيمة الإدخال</b> للبيانات الدائرية.
+            </p>
+            <p>في حال كانت غير محددة، سيتم حساب إحصائيات الحساب العادي (الخطي). إن كانت محددة، سيتم احتساب الإحصائيات الدائرية.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>تحدد القيمة المراد استخدامها لتقريب قيمة خطية إلى نطاق إحصائية دائرية معينة.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>تحدد ما إذا كان سيتم تجاهل خلايا NoData الموجودة في  <b>البيانات النقطية لقيمة الإدخال</b> في نتائج المناطق التي تقع ضمنها.
+            </p>
+            <p>عند التأشير عليها، سيتم تجاهل خلايا NoData في البيانات النقطية للقيمة في حساب الإحصائية. عند إلغاء التأشير عليها، لن يتم تجاهل خلايا NoData، وستستلم المنطقة بالكامل قيمة NoData على البيانات النقطية الخاصة بالإخراج.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>يحدد كيفية معالجة البيانات النقطية للإدخال إذا كانت متعددة الأبعاد.
+            </p>
+            <p>وإن كانت غير محددة، سيتم حساب الإحصائيات لكل الأبعاد لمجموعة بيانات الإدخال متعددة الأبعاد. في حال كانت محددة، سيتم حساب الإحصائيات من الشريحة الحالية لمجموعة بيانات الإدخال متعددة الأبعاد.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>اسم طبقة جدول الإحصائيات النطاقية التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Find Closest (Trouver le plus proche) recherche et classe les entit&eacute;s les plus proches des localisations sp&eacute;cifi&eacute;es.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Couche de d&eacute;part dans laquelle les entit&eacute;s les plus proches sont trouv&eacute;es. Les couches comportant jusqu'&agrave;  5 000&nbsp;entit&eacute;s sont prises en charge. </p> 
+            <p class="PortalOnly">Couche de d&eacute;part dans laquelle les entit&eacute;s les plus proches sont trouv&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Entit&eacute;s trouv&eacute;es en fonction de leur proximit&eacute; avec la couche en entr&eacute;e. Les couches comportant jusqu'&agrave;  5 000&nbsp;entit&eacute;s sont prises en charge. </p> 
+            <p class="PortalOnly">Entit&eacute;s trouv&eacute;es en fonction de leur proximit&eacute; avec la couche en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s ponctuelles qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Le d&eacute;placement est autoris&eacute; sur la rue, hormis franchir l&rsquo;interruption.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s lin&eacute;aires qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions lin&eacute;aires interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Une ou plusieurs entit&eacute;s surfaciques qui agissent comme restrictions temporaires (interruptions) lors du d&eacute;placement dans les rues sous-jacentes. Les interruptions surfaciques interdisent la circulation partout o&ugrave; elles intersectent les rues.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>M&eacute;thode &agrave; utiliser pour mesurer la distance ou la dur&eacute;e. Il peut s&rsquo;agir de la distance en ligne droite ou d&rsquo;un mode de d&eacute;placement.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Sp&eacute;cifie la date et l'heure auxquelles le voyageur quitte les localisations dans la  <b>Input layer (Couche en entr&eacute;e)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>D&eacute;termine si un nombre maximal personnalis&eacute; d'entit&eacute;s les plus proches (param&egrave;tre s&eacute;lectionn&eacute;) ou la valeur maximale par d&eacute;faut (100) de l'outil (param&egrave;tre non s&eacute;lectionn&eacute;) est utilis&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Nombre maximal d'entit&eacute;s les plus proches pouvant &ecirc;tre trouv&eacute;es par entit&eacute; en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>D&eacute;termine si une plage de recherche maximale est utilis&eacute;e (param&egrave;tre s&eacute;lectionn&eacute;) ou si la plage de recherche est illimit&eacute;e (param&egrave;tre non s&eacute;lectionn&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Plage de recherche maximale pour trouver les entit&eacute;s les plus proches.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Unit&eacute;s utilis&eacute;es pour sp&eacute;cifier la plage de recherche.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Indique si chaque itin&eacute;raire de r&eacute;sultat est enregistr&eacute; comme couche d&rsquo;itin&eacute;raires.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel seront enregistr&eacute;s les r&eacute;sultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

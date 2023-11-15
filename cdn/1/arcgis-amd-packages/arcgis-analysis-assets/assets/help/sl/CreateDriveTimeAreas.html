@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Ustvari območja potovanja ustvari območja, ki jih je mogoče doseči v določenem času ali razdalji potovanja.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Točkovni geoobjekti, okrog katerih bo izračunan poligon.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Eden ali več točkovnih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Potovanje po ulici je dovoljeno, vendar ne skozi oviro.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Eden ali več linijskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Linijske pregrade prepovedujejo potovanje na območju, kjer se pregrada križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Eden ali več poligonskih geoobjektov, ki imajo vlogo začasnih omejitev (pregrad) pri potovanju po ulicah. Poligonska pregrada prepoveduje potovanje na območju, kjer se poligon križa z ulico.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Način potovanja, ki bo uporabljen za ustvarjanje območij potovanja. Način potovanja lahko temelji na razdalji ali času.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Razdalja potovanja ali časovna omejitev za vsako vhodno točko. Če je dodanih več vrednosti, bo vsaka vrednost uporabljena za izračun območij potovanja za vse vhodne točke.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Enote, ki bodo uporabljene za določanje razdalje in časa potovanja. Vrednost  <b>Meje</b> je obravnavana v teh enotah.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Določi, ali so območja potovanja ustvarjena za potovanje stran od vhodnih točk ali potovanje k vhodnim točkam.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Določi datum in čas odhoda ali prihoda popotnika na vhodne lokacije.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Določi, kako naj se ravna s stiki območij različnih vhodnih točk, ko ti dosežejo drug drugega.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Določi, ali bo vsaka od izhodnih povr&scaron;in en neprekinjen poligon (ni obkljukano) ali vključuje luknje na ulicah, ki niso dosegljive, a so obkoljene z dosegljivimi ulicami (obkljukano).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Določa, ali bodo ulice, ki so uporabljene za ustvarjanje območji potovanja, vključene kot izhodni sloj.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

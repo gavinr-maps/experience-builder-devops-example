@@ -1,0 +1,54 @@
+{
+  "next": "Next",
+  "save": "Save",
+  "cancel": "Cancel",
+  "back": "Back",
+  "loading": "Loading...",
+  "error": {
+    "title": "Error",
+    "description": "There was an error while adding this item.",
+    "alreadyExists": {
+      "title": "Existing file",
+      "description": "A file named \"${fileName}\" already exists in this folder. Please change the folder or rename the file and try again.",
+      "linkText": "View existing item"
+    },
+    "arcgisServerUpload": {
+      "title": "Unable to publish item",
+      "description": "This service definition file was created for an ArcGIS Server site and must be uploaded to ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Invalid shapefile",
+      "description": "Error while analyzing shapefile '${fileName}'. Invalid Shapefile."
+    },
+    "invalidGeodatabase": {
+      "title": "Invalid Geodatabase",
+      "description": "The uploaded file does not contain a file geodatabase."
+    },
+    "serviceNameExists": {
+      "title": "Service name not available",
+      "description": "A published service with this name already exists within the organization. Service names must be unique across the organization. Please use a different name."
+    },
+    "invalidGeoJSON": {
+      "title": "Invalid GeoJSON",
+      "description": "The JSON file you are uploading is not valid GeoJSON (missing 'type')."
+    },
+    "invalidJSON": {
+      "title": "Invalid JSON",
+      "description": "The JSON file you are uploading is not valid JSON."
+    },
+    "failDatastorePublish": {
+      "title": "Unable to publish from data store",
+      "description": "Failed to publish ${type}, please see server logs for more details.",
+      "tileLayer": "tile layer",
+      "sceneLayer": "scene layer"
+    },
+    "invalidSpatialRef": {
+      "title": "Invalid spatial reference",
+      "description": "This service has an incompatible spatial reference"
+    }
+  },
+  "publish": {
+    "publish": "Publish",
+    "publishService": "Publish service"
+  }
+}

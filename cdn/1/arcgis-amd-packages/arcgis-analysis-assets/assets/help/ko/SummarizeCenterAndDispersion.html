@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>중심 및 분산 요약 도구는 피처 모음의 중심 피처, 중심 성향, 표준편차 타원을 찾습니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>중심 피처, 중심 성향, 표준편차 타원이 계산될 포인트, 라인, 폴리곤 피처입니다.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>피처의 중심과 분산을 요약하는 방법을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>타원 폴리곤의 크기를 표준편차로 지정합니다. 평균 중심 및 피처 위치 간의 거리가 Rayleigh 분포를 따르는 경우  <b>1 표준편차</b>, <b>2 표준편차</b>, <b>3 표준편차</b> 옵션은 피처의 63%, 89%, 99.9%를 포함하는 타원형 폴리곤을 각각 결과로 출력합니다.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>피처의 가중치를 판단하는 데 사용할 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>피처를 그룹화하는 데 사용할 필드입니다. 선택한  <b>요약 유형</b>은 각 그룹에 대해 계산됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Geokoodaa sijainnit taulukosta&nbsp;-ty&ouml;kalu muuntaa l&auml;ht&ouml;aineistotaulun osoitteet tai paikat koordinaateiksi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>Geokoodattavat osoitteet tai paikat sis&auml;lt&auml;v&auml; l&auml;ht&ouml;aineistotaulu. L&auml;ht&ouml;aineiston on oltava taulu,  <code>.csv</code>-tiedosto tai Excel-tiedosto. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Geokoodaukseen k&auml;ytett&auml;v&auml; paikannuspalvelu. Jos paikannuspalvelua, jota haluat k&auml;ytt&auml;&auml;, ei n&auml;y avattavassa valikossa, ota yhteys p&auml;&auml;k&auml;ytt&auml;j&auml;&auml;n ja pyyd&auml; h&auml;nt&auml; m&auml;&auml;ritt&auml;m&auml;&auml;n paikannuspalvelu er&auml;geokoodausta varten.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, sis&auml;ltyyk&ouml; l&auml;ht&ouml;aineisto yhteen vai useaan kentt&auml;&auml;n.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>Kent&auml;t, joita paikannin k&auml;ytt&auml;&auml; aineiston sijaintien m&auml;&auml;ritt&auml;miseen. Aineiston oletetaan sis&auml;lt&auml;v&auml;n tietyt kent&auml;t, kuten osoitteen, kaupungin, osavaltion ja postinumeron.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Maa, jossa aineisto sijaitsee. Jos kaikki osoitteet ovat yhdest&auml; maasta, voit varmistaa mahdollisimman tarkat tulokset valitsemalla kyseisen maan. J&auml;t&auml; muussa tapauksessa t&auml;m&auml; parametri tyhj&auml;ksi.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; kent&auml;t, jotka sis&auml;llytet&auml;&auml;n tulosaineiston aineistoryhm&auml;&auml;n. Asetukset ovat seuraavat:
+            </p>
+            <ul>
+                <li> <b>Kaikki</b> &ndash; kaikki k&auml;ytett&auml;viss&auml; olevat paikantimen tuloskent&auml;t sis&auml;llytet&auml;&auml;n geokoodaustuloksiin.
+                </li>
+                <li> <b>Minimaalinen</b> &ndash; tuloksiin sis&auml;llytet&auml;&auml;n kenttien osajoukko paikantimesta ja kent&auml;t l&auml;ht&ouml;aineistotaulusta.
+                </li>
+                <li> <b>Vain sijainti</b> &ndash; tuloksiin sis&auml;llytet&auml;&auml;n <i>Shape</i>-kentt&auml; paikantimesta ja kent&auml;t l&auml;ht&ouml;aineistotaulusta.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineisto voi olla kohdepalvelu,  <code>.csv</code>-tieodosto tai <code>.xls</code>-tiedosto.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Sen tulosaineiston kohteen nimi, jonne paikannettu aineisto tallennetaan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Calcolo costo del viaggio misura il tempo di percorrenza o la distanza tra coppie di punti.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Il layer punto che rappresenta le posizioni di origine da cui si calcola il costo del viaggio. Sono supportati i layer con fino a  5,000 feature. </p> 
+            <p class="PortalOnly">Il layer punto che rappresenta le posizioni di origine da cui si calcola il costo del viaggio.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Il layer punto che rappresenta le posizioni di destinazione verso le quali viene calcolato il costo del viaggio. Sono supportati i layer con fino a  5,000 feature. </p> 
+            <p class="PortalOnly">Il layer punto che rappresenta le posizioni di destinazione verso le quali viene calcolato il costo del viaggio.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Il campo in  <b>Da layer</b> che definisce la coppia origine-destinazione preassegnata. Se esistono pi&ugrave; posizioni di origine e di destinazione, questo ID deve corrispondere a un valore nel campo <b>A ID layer itinerario</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Il campo in  <b>A layer</b> che definisce la coppia origine-destinazione preassegnata. Se esistono pi&ugrave; posizioni di origine e di destinazione, questo ID deve corrispondere a un valore nel campo <b>Da ID layer itinerario</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Uno o pi&ugrave; feature punto che agiscono come restrizioni temporanee (barriere) quando si viaggia sulle strade sottostanti. &Egrave; possibile viaggiare sulla strada ma non &egrave; possibile attraversare la barriera.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Uno o pi&ugrave; feature linea che agiscono come restrizioni temporanee (barriere) quando si viaggia sulle strade sottostanti. Le barriere di linea vietano la circolazione ovunque le barriere intersechino le strade.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Uno o pi&ugrave; feature poligono che agiscono come restrizioni temporanee (barriere) quando si viaggia sulle strade sottostanti. Le barriere poligono vietano la circolazione ovunque i poligoni intersecano le strade.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Il metodo che verr&agrave; utilizzato per misurare la distanza o il tempo. Il metodo pu&ograve; essere Distanza in linea retta o una modalit&agrave; di viaggio.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>La data e l'ora di partenza dalle posizioni di origine in  <b>Da layer</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Determina se le origini e le destinazioni sono collegate tramite linee ragnatela o linee desiderio (<b>Linea retta</b>) o le strade della rete di strade sottostante (<b>Segui strade</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Specifica se ogni itinerario risultato verr&agrave; salvato come layer itinerario.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

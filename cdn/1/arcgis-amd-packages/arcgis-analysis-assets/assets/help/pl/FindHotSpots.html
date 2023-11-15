@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Znajdź lokalizacje skupień hot spot identyfikuje statystycznie istotne zgrupowania w obiektach wejściowych.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Wejściowa warstwa punktowa lub poligonowa, na kt&oacute;rej zostanie przeprowadzona analiza lokalizacji hot spot.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Określa, czy lokalizacje skupień hot spot i lokalizacje rozrzedzeń cold spot będą odzwierciedlać lokalizacje obiekt&oacute;w (<b>Liczba punkt&oacute;w</b>) czy wartości p&oacute;l obiekt&oacute;w (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Pole, kt&oacute;re będzie analizowane pod kątem klastr&oacute;w o wysokiej i niskiej wartości.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Typ obiekt&oacute;w granicznych, w kt&oacute;rych będą agregowane wejściowe obiekty punktowe. Może to być warstwa poligonowa (<b>Warstwa poligonowa</b>) lub siatka mozaikowania złożona z kwadrat&oacute;w (<b>Kom&oacute;rki siatki</b>) lub sześciokąt&oacute;w (<b>Kom&oacute;rki sześciokątne</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Warstwa zawierająca obiekty poligonowe, w kt&oacute;rych będą agregowane wejściowe obiekty punktowe.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Warstwa poligonowa, kt&oacute;ra określi granicę analizy. Obiekty punktowe w obrębie poligonu zostaną uwzględnione w analizie lokalizacji hot spot.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Określa spos&oacute;b dzielenia wartości w polu  <b>Pole analizy</b> lub zagregowanych liczb punkt&oacute;w. Opcja <b>Pole</b> powoduje dzielenie wartości w polu <b>Pole analizy</b> przez wartości podanego pola w parametrze <b>Warstwa wejściowa</b>. Opcja <b>Dane wzbogacania</b> powoduje wzbogacanie obiekt&oacute;w lub kształt&oacute;w agregacji danymi dotyczącymi populacji i dzielenie wartości w polu <b>Pole analizy</b> bądź zagregowanych liczb punkt&oacute;w przez populację. Ta opcja spowoduje wykorzystanie dodatkowych kredyt&oacute;w.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Długość boku kom&oacute;rek kwadratowych lub sześciokątnych, kt&oacute;re zostaną użyte do agregacji obiekt&oacute;w wejściowych.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Określa jednostki, kt&oacute;re będą używane w odniesieniu do wielkości kom&oacute;rki.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Pasmo odległości, kt&oacute;re zostanie użyte do zdefiniowania sąsiedztwa. Obiekty sąsiadujące w paśmie odległości od obiektu docelowego zostaną włączone do sąsiedztwa obiektu docelowego podczas analizy lokalizacji hot spot.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Określa jednostki, kt&oacute;re będą używane w odniesieniu do pasma odległości
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

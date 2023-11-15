@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>إعدادات البيئة الخاصة بالتحليل في  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>تحدد النظام الإحداثي للتحليل وطبقة النتيجة.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>تحدد المساحة المراد استخدامها للتحليل.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>تضبط نطاق الإخراج، كي تتطابق مع محاذاة الخلية لطبقة انطباق البيانات النقطية المحددة.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>تحدد حجم الخلية أو الدقة التي تستخدم للتحليل ولإنشاء طبقة البيانات النقطية الخاصة بالإخراج.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>تحدد طبقة قناع، التي ستُستخدم فيها فقط الخلايا التي تقع ضمن منطقة القناع للتحليل.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>تحديد كيفية استيفاء قيم البكسل عند عدم محاذاة البيانات النقطية للإدخال والإخراج.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>تحديد نوع المعالج المراد استخدامه. الخيارات هي  <b>وحدة المعالجة المركزية (CPU)</b> و <b>وحدة معالجة الرسومات (GPU)</b> و <b>تلقائي</b>. عند تحديد <b>تلقائي</b>، ستحدد الأداة نوع المعالج.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>تحديد عدد مثيلات خدمة معالجة البيانات النقطية المستخدمة في أثناء تشغيل الأداة. تتضمن القيم المدعومة سلاسل فارغة (ستحدد الأداة عدد مثيلات خدمة معالجة البيانات النقطية المراد استخدامها)، وأعدادًا صحيحة (0 أو الأعداد الصحيحة الموجبة)، ونسب مئوية. يجب أن تتضمن النسب علامة النسبة المئوية (%) بعد قيمة النسبة المئوية.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>يحدد ما إذا كان سيظهر رسالة تحذير إذا تجاوزت العدد المقدر للوحدات الائتمان الحد المحدد (مُمكّن) أم ستتم عملية التحليل دون عرض رسالة بغض النظر عن استهلاك وحدات الائتمان المقدرة (غير مُمكّن). سيظل التحليل يُنفذ وفقًا لإعدادات ميزانية الائتمان الخاصة بالمؤسسة.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>يحدد الحد الذي يتم فيه ظهور رسالة تحذير استنادًا إلى استهلاك وحدات الائتمان المقدرة من تشغيل التحليل. ما زال بإمكانك إجراء التحليل حتى إذا تجاوز التقدير الحد.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

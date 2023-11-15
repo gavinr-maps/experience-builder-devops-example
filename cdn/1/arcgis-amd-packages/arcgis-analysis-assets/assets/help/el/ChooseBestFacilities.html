@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="regularsize">
+    <p>&Tau;&omicron; &epsilon;&rho;&gamma;&alpha;&lambda;&epsilon;ί&omicron; &laquo;&Epsilon;&pi;&iota;&lambda;&omicron;&gamma;ή &tau;&omega;&nu; &kappa;&alpha;&lambda;ύ&tau;&epsilon;&rho;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu;&raquo; &beta;&rho;ί&sigma;&kappa;&epsilon;&iota; &tau;&omicron; &sigma;ύ&nu;&omicron;&lambda;&omicron; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &pi;&omicron;&upsilon; &theta;&alpha; &epsilon;&xi;&upsilon;&pi;&eta;&rho;&epsilon;&tau;ή&sigma;&omicron;&upsilon;&nu; &kappa;&alpha;&lambda;ύ&tau;&epsilon;&rho;&alpha; &tau;&eta; &zeta;ή&tau;&eta;&sigma;&eta;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>&Omicron; &sigma;&tau;ό&chi;&omicron;&sigmaf; &pi;&omicron;&upsilon; &pi;&rho;έ&pi;&epsilon;&iota; &nu;&alpha; &epsilon;&pi;&iota;&tau;&upsilon;&gamma;&chi;ά&nu;&epsilon;&tau;&alpha;&iota; &kappa;&alpha;&tau;ά &tau;&eta;&nu; &alpha;&nu;&tau;&iota;&sigma;&tau;&omicron;ί&chi;&iota;&sigma;&eta; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;&iota;ώ&nu; &sigma;&tau;&iota;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Κατανομή ζήτησης σε εγκαταστάσεις με βάση τη δυναμικότητα στην εγκατάσταση και το ποσό ζήτησης από τη γύρω περιοχή. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Επιλογή εγκαταστάσεων με τρόπο ώστε να ελαχιστοποιείται ο συνολικός χρόνος ή η απόσταση μετάβασης από όλες τις τοποθεσίες ζήτησης προς την εγκατάσταση που τους έχει εκχωρηθεί. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Επιλογή εγκαταστάσεων με τρόπο ώστε να κατανέμεται το μέγιστο ποσό ζήτησης, με όλη τη ζήτηση από κάθε τοποθεσία ζήτησης να κατανέμεται στην πλησιέστερη και μόνο εγκατάσταση. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Επιλογή εγκαταστάσεων με τρόπο ώστε να κατανέμεται το μέγιστο ποσό ζήτησης χωρίς να υπερβαίνεται η δυναμικότητα καμίας εγκατάστασης. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Επιλογή του ελάχιστου αριθμού εγκαταστάσεων που χρειάζονται ώστε να επιτευχθεί το καθορισμένο ποσοστό της ζήτησης. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>&Omicron; &tau;&rho;ό&pi;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &theta;&alpha; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&eta;&theta;&epsilon;ί &gamma;&iota;&alpha; &tau;&eta; &mu;έ&tau;&rho;&eta;&sigma;&eta; &tau;&omicron;&upsilon; &chi;&rho;ό&nu;&omicron;&upsilon; ή &tau;&eta;&sigmaf; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; &mu;&epsilon;&tau;&alpha;&xi;ύ &tau;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &kappa;&alpha;&iota; &tau;&omega;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;&iota;ώ&nu; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>&Eta; &eta;&mu;&epsilon;&rho;&omicron;&mu;&eta;&nu;ί&alpha; &kappa;&alpha;&iota; ώ&rho;&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&alpha;&chi;&omega;&rho;&epsilon;ί &omicron; &tau;&alpha;&xi;&iota;&delta;&iota;ώ&tau;&eta;&sigmaf; &alpha;&pi;ό &tau;&iota;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; ή &tau;&iota;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &epsilon;ά&nu; &eta; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta; &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; έ&xi;&omega;, &pi;&rho;&omicron;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; ή &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; &mu;έ&sigma;&alpha;, &pi;&rho;&omicron;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &epsilon;ά&nu; &eta; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta; &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; έ&xi;&omega;, &pi;&rho;&omicron;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; ή &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; &mu;έ&sigma;&alpha;, &pi;&rho;&omicron;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &epsilon;ά&nu; &eta; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta; &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; έ&xi;&omega;, &pi;&rho;&omicron;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; ή &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; &mu;έ&sigma;&alpha;, &pi;&rho;&omicron;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &epsilon;ά&nu; &eta; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta; &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; έ&xi;&omega;, &pi;&rho;&omicron;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; ή &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; &mu;έ&sigma;&alpha;, &pi;&rho;&omicron;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &epsilon;ά&nu; &eta; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta; &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; έ&xi;&omega;, &pi;&rho;&omicron;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; ή &xi;&epsilon;&kappa;&iota;&nu;ά &sigma;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &kappa;&iota;&nu;&epsilon;ί&tau;&alpha;&iota; &pi;&rho;&omicron;&sigmaf; &tau;&alpha; &mu;έ&sigma;&alpha;, &pi;&rho;&omicron;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Eta; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &sigma;&tau;&omicron;&nu; &delta;&rho;ό&mu;&omicron; &alpha;&lambda;&lambda;ά ό&chi;&iota; &mu;έ&sigma;&omega; &tau;&omicron;&upsilon; &epsilon;&mu;&pi;&omicron;&delta;ί&omicron;&upsilon;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Eta; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &sigma;&tau;&omicron;&nu; &delta;&rho;ό&mu;&omicron; &alpha;&lambda;&lambda;ά ό&chi;&iota; &mu;έ&sigma;&omega; &tau;&omicron;&upsilon; &epsilon;&mu;&pi;&omicron;&delta;ί&omicron;&upsilon;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Eta; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &sigma;&tau;&omicron;&nu; &delta;&rho;ό&mu;&omicron; &alpha;&lambda;&lambda;ά ό&chi;&iota; &mu;έ&sigma;&omega; &tau;&omicron;&upsilon; &epsilon;&mu;&pi;&omicron;&delta;ί&omicron;&upsilon;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Eta; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &sigma;&tau;&omicron;&nu; &delta;&rho;ό&mu;&omicron; &alpha;&lambda;&lambda;ά ό&chi;&iota; &mu;έ&sigma;&omega; &tau;&omicron;&upsilon; &epsilon;&mu;&pi;&omicron;&delta;ί&omicron;&upsilon;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Eta; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &sigma;&tau;&omicron;&nu; &delta;&rho;ό&mu;&omicron; &alpha;&lambda;&lambda;ά ό&chi;&iota; &mu;έ&sigma;&omega; &tau;&omicron;&upsilon; &epsilon;&mu;&pi;&omicron;&delta;ί&omicron;&upsilon;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&eta; &mu;&epsilon;&tau;&alpha;&kappa;ί&nu;&eta;&sigma;&eta; &omicron;&pi;&omicron;&upsilon;&delta;ή&pi;&omicron;&tau;&epsilon; &tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &tau;έ&mu;&nu;&omicron;&nu;&tau;&alpha;&iota; &mu;&epsilon; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&eta; &mu;&epsilon;&tau;&alpha;&kappa;ί&nu;&eta;&sigma;&eta; &omicron;&pi;&omicron;&upsilon;&delta;ή&pi;&omicron;&tau;&epsilon; &tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &tau;έ&mu;&nu;&omicron;&nu;&tau;&alpha;&iota; &mu;&epsilon; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&eta; &mu;&epsilon;&tau;&alpha;&kappa;ί&nu;&eta;&sigma;&eta; &omicron;&pi;&omicron;&upsilon;&delta;ή&pi;&omicron;&tau;&epsilon; &tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &tau;έ&mu;&nu;&omicron;&nu;&tau;&alpha;&iota; &mu;&epsilon; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&eta; &mu;&epsilon;&tau;&alpha;&kappa;ί&nu;&eta;&sigma;&eta; &omicron;&pi;&omicron;&upsilon;&delta;ή&pi;&omicron;&tau;&epsilon; &tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &tau;έ&mu;&nu;&omicron;&nu;&tau;&alpha;&iota; &mu;&epsilon; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &gamma;&rho;&alpha;&mu;&mu;ή&sigmaf; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&eta; &mu;&epsilon;&tau;&alpha;&kappa;ί&nu;&eta;&sigma;&eta; &omicron;&pi;&omicron;&upsilon;&delta;ή&pi;&omicron;&tau;&epsilon; &tau;&alpha; &epsilon;&mu;&pi;ό&delta;&iota;&alpha; &tau;έ&mu;&nu;&omicron;&nu;&tau;&alpha;&iota; &mu;&epsilon; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&lambda;&upsilon;&gamma;ώ&nu;&omicron;&upsilon; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&omicron; &pi;&omicron;&lambda;&upsilon;&gamma;&omega;&nu;&iota;&kappa;ό &epsilon;&mu;&pi;ό&delta;&iota;&omicron; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&epsilon;&iota; &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&epsilon; ό&pi;&omicron;&iota;&alpha; &sigma;&eta;&mu;&epsilon;ί&alpha; &tau;&omicron; &pi;&omicron;&lambda;ύ&gamma;&omega;&nu;&omicron; &tau;έ&mu;&nu;&epsilon;&iota; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&lambda;&upsilon;&gamma;ώ&nu;&omicron;&upsilon; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&omicron; &pi;&omicron;&lambda;&upsilon;&gamma;&omega;&nu;&iota;&kappa;ό &epsilon;&mu;&pi;ό&delta;&iota;&omicron; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&epsilon;&iota; &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&epsilon; ό&pi;&omicron;&iota;&alpha; &sigma;&eta;&mu;&epsilon;ί&alpha; &tau;&omicron; &pi;&omicron;&lambda;ύ&gamma;&omega;&nu;&omicron; &tau;έ&mu;&nu;&epsilon;&iota; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&lambda;&upsilon;&gamma;ώ&nu;&omicron;&upsilon; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&omicron; &pi;&omicron;&lambda;&upsilon;&gamma;&omega;&nu;&iota;&kappa;ό &epsilon;&mu;&pi;ό&delta;&iota;&omicron; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&epsilon;&iota; &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&epsilon; ό&pi;&omicron;&iota;&alpha; &sigma;&eta;&mu;&epsilon;ί&alpha; &tau;&omicron; &pi;&omicron;&lambda;ύ&gamma;&omega;&nu;&omicron; &tau;έ&mu;&nu;&epsilon;&iota; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&lambda;&upsilon;&gamma;ώ&nu;&omicron;&upsilon; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&omicron; &pi;&omicron;&lambda;&upsilon;&gamma;&omega;&nu;&iota;&kappa;ό &epsilon;&mu;&pi;ό&delta;&iota;&omicron; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&epsilon;&iota; &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&epsilon; ό&pi;&omicron;&iota;&alpha; &sigma;&eta;&mu;&epsilon;ί&alpha; &tau;&omicron; &pi;&omicron;&lambda;ύ&gamma;&omega;&nu;&omicron; &tau;έ&mu;&nu;&epsilon;&iota; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&lambda;&upsilon;&gamma;ώ&nu;&omicron;&upsilon; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &pi;&rho;&omicron;&sigma;&omega;&rho;&iota;&nu;&omicron;ί &pi;&epsilon;&rho;&iota;&omicron;&rho;&iota;&sigma;&mu;&omicron;ί (&epsilon;&mu;&pi;ό&delta;&iota;&alpha;) &kappa;&alpha;&tau;ά &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&tau;&omicron;&upsilon;&sigmaf; &upsilon;&pi;&omicron;&kappa;&epsilon;ί&mu;&epsilon;&nu;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;. &Tau;&omicron; &pi;&omicron;&lambda;&upsilon;&gamma;&omega;&nu;&iota;&kappa;ό &epsilon;&mu;&pi;ό&delta;&iota;&omicron; &alpha;&pi;&alpha;&gamma;&omicron;&rho;&epsilon;ύ&epsilon;&iota; &tau;&eta;&nu; &kappa;&upsilon;&kappa;&lambda;&omicron;&phi;&omicron;&rho;ί&alpha; &sigma;&epsilon; ό&pi;&omicron;&iota;&alpha; &sigma;&eta;&mu;&epsilon;ί&alpha; &tau;&omicron; &pi;&omicron;&lambda;ύ&gamma;&omega;&nu;&omicron; &tau;έ&mu;&nu;&epsilon;&iota; &tau;&omicron;&upsilon;&sigmaf; &delta;&rho;ό&mu;&omicron;&upsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; ό&pi;&omicron;&upsilon; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &zeta;ή&tau;&eta;&sigma;&eta; &gamma;&iota;&alpha; &upsilon;&pi;&eta;&rho;&epsilon;&sigma;ί&alpha; &pi;&omicron;&upsilon; &pi;&rho;&omicron;&sigma;&phi;έ&rho;&omicron;&upsilon;&nu; &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; ό&pi;&omicron;&upsilon; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &zeta;ή&tau;&eta;&sigma;&eta; &gamma;&iota;&alpha; &upsilon;&pi;&eta;&rho;&epsilon;&sigma;ί&alpha; &pi;&omicron;&upsilon; &pi;&rho;&omicron;&sigma;&phi;έ&rho;&omicron;&upsilon;&nu; &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; ό&pi;&omicron;&upsilon; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &zeta;ή&tau;&eta;&sigma;&eta; &gamma;&iota;&alpha; &upsilon;&pi;&eta;&rho;&epsilon;&sigma;ί&alpha; &pi;&omicron;&upsilon; &pi;&rho;&omicron;&sigma;&phi;έ&rho;&omicron;&upsilon;&nu; &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; ό&pi;&omicron;&upsilon; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &zeta;ή&tau;&eta;&sigma;&eta; &gamma;&iota;&alpha; &upsilon;&pi;&eta;&rho;&epsilon;&sigma;ί&alpha; &pi;&omicron;&upsilon; &pi;&rho;&omicron;&sigma;&phi;έ&rho;&omicron;&upsilon;&nu; &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; ό&pi;&omicron;&upsilon; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &zeta;ή&tau;&eta;&sigma;&eta; &gamma;&iota;&alpha; &upsilon;&pi;&eta;&rho;&epsilon;&sigma;ί&alpha; &pi;&omicron;&upsilon; &pi;&rho;&omicron;&sigma;&phi;έ&rho;&omicron;&upsilon;&nu; &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &pi;ώ&sigmaf; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &eta; &zeta;ή&tau;&eta;&sigma;&eta; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &epsilon;ί&nu;&alpha;&iota; ί&delta;&iota;&alpha; &sigma;&epsilon; ό&lambda;&epsilon;&sigmaf; &tau;&iota;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon;  <b>&Tau;&iota;&mu;ή</b>. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &delta;&iota;&alpha;&phi;έ&rho;&epsilon;&iota; &alpha;&nu;ά &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon; <b>&Pi;&epsilon;&delta;ί&omicron;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &pi;ώ&sigmaf; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &eta; &zeta;ή&tau;&eta;&sigma;&eta; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &epsilon;ί&nu;&alpha;&iota; ί&delta;&iota;&alpha; &sigma;&epsilon; ό&lambda;&epsilon;&sigmaf; &tau;&iota;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon;  <b>&Tau;&iota;&mu;ή</b>. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &delta;&iota;&alpha;&phi;έ&rho;&epsilon;&iota; &alpha;&nu;ά &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon; <b>&Pi;&epsilon;&delta;ί&omicron;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &pi;ώ&sigmaf; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &eta; &zeta;ή&tau;&eta;&sigma;&eta; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &epsilon;ί&nu;&alpha;&iota; ί&delta;&iota;&alpha; &sigma;&epsilon; ό&lambda;&epsilon;&sigmaf; &tau;&iota;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon;  <b>&Tau;&iota;&mu;ή</b>. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &delta;&iota;&alpha;&phi;έ&rho;&epsilon;&iota; &alpha;&nu;ά &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon; <b>&Pi;&epsilon;&delta;ί&omicron;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &pi;ώ&sigmaf; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &eta; &zeta;ή&tau;&eta;&sigma;&eta; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &epsilon;ί&nu;&alpha;&iota; ί&delta;&iota;&alpha; &sigma;&epsilon; ό&lambda;&epsilon;&sigmaf; &tau;&iota;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon;  <b>&Tau;&iota;&mu;ή</b>. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &delta;&iota;&alpha;&phi;έ&rho;&epsilon;&iota; &alpha;&nu;ά &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon; <b>&Pi;&epsilon;&delta;ί&omicron;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &pi;ώ&sigmaf; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &eta; &zeta;ή&tau;&eta;&sigma;&eta; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &epsilon;ί&nu;&alpha;&iota; ί&delta;&iota;&alpha; &sigma;&epsilon; ό&lambda;&epsilon;&sigmaf; &tau;&iota;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon;  <b>&Tau;&iota;&mu;ή</b>. &Epsilon;ά&nu; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &delta;&iota;&alpha;&phi;έ&rho;&epsilon;&iota; &alpha;&nu;ά &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;, &epsilon;&pi;&iota;&lambda;έ&xi;&tau;&epsilon; <b>&Pi;&epsilon;&delta;ί&omicron;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>&Tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;. &Tau;&omicron; ί&delta;&iota;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>&Tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;. &Tau;&omicron; ί&delta;&iota;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>&Tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;. &Tau;&omicron; ί&delta;&iota;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>&Tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;. &Tau;&omicron; ί&delta;&iota;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>&Tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf;. &Tau;&omicron; ί&delta;&iota;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &alpha;&pi;ό &tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &alpha;&pi;ό &tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &alpha;&pi;ό &tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &alpha;&pi;ό &tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &alpha;&pi;ό &tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &tau;&omicron; &pi;&omicron;&sigma;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &mu;έ&gamma;&iota;&sigma;&tau;&eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &mu;&epsilon;&tau;&alpha;&xi;ύ &mu;&iota;&alpha;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &tau;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; &sigma;&tau;&eta;&nu; &omicron;&pi;&omicron;ί&alpha; έ&gamma;&iota;&nu;&epsilon; &epsilon;&kappa;&chi;ώ&rho;&eta;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>) ή &alpha;&nu; &delta;&epsilon;&nu; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; (<b>&Alpha;&pi;&epsilon;&rho;&iota;ό&rho;&iota;&sigma;&tau;&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &mu;έ&gamma;&iota;&sigma;&tau;&eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &mu;&epsilon;&tau;&alpha;&xi;ύ &mu;&iota;&alpha;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &tau;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; &sigma;&tau;&eta;&nu; &omicron;&pi;&omicron;ί&alpha; έ&gamma;&iota;&nu;&epsilon; &epsilon;&kappa;&chi;ώ&rho;&eta;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>) ή &alpha;&nu; &delta;&epsilon;&nu; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; (<b>&Alpha;&pi;&epsilon;&rho;&iota;ό&rho;&iota;&sigma;&tau;&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &mu;έ&gamma;&iota;&sigma;&tau;&eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &mu;&epsilon;&tau;&alpha;&xi;ύ &mu;&iota;&alpha;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &tau;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; &sigma;&tau;&eta;&nu; &omicron;&pi;&omicron;ί&alpha; έ&gamma;&iota;&nu;&epsilon; &epsilon;&kappa;&chi;ώ&rho;&eta;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &mu;έ&gamma;&iota;&sigma;&tau;&eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &mu;&epsilon;&tau;&alpha;&xi;ύ &mu;&iota;&alpha;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &tau;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; &sigma;&tau;&eta;&nu; &omicron;&pi;&omicron;ί&alpha; έ&gamma;&iota;&nu;&epsilon; &epsilon;&kappa;&chi;ώ&rho;&eta;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>) ή &alpha;&nu; &delta;&epsilon;&nu; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; (<b>&Alpha;&pi;&epsilon;&rho;&iota;ό&rho;&iota;&sigma;&tau;&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &mu;έ&gamma;&iota;&sigma;&tau;&eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &epsilon;&pi;&iota;&tau;&rho;έ&pi;&epsilon;&tau;&alpha;&iota; &mu;&epsilon;&tau;&alpha;&xi;ύ &mu;&iota;&alpha;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;&sigmaf; &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &kappa;&alpha;&iota; &tau;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; &sigma;&tau;&eta;&nu; &omicron;&pi;&omicron;ί&alpha; έ&gamma;&iota;&nu;&epsilon; &epsilon;&kappa;&chi;ώ&rho;&eta;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>) ή &alpha;&nu; &delta;&epsilon;&nu; &epsilon;&phi;&alpha;&rho;&mu;ό&zeta;&epsilon;&tau;&alpha;&iota; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; (<b>&Alpha;&pi;&epsilon;&rho;&iota;ό&rho;&iota;&sigma;&tau;&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>&Eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &omicron; &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;. &Tau;&omicron; ί&delta;&iota;&omicron; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; &epsilon;ύ&rho;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>&Eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &omicron; &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;. &Tau;&omicron; ί&delta;&iota;&omicron; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; &epsilon;ύ&rho;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>&Eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &omicron; &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;. &Tau;&omicron; ί&delta;&iota;&omicron; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; &epsilon;ύ&rho;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>&Eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &omicron; &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;. &Tau;&omicron; ί&delta;&iota;&omicron; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; &epsilon;ύ&rho;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>&Eta; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &omicron; &chi;&rho;ό&nu;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;. &Tau;&omicron; ί&delta;&iota;&omicron; &mu;έ&gamma;&iota;&sigma;&tau;&omicron; &epsilon;ύ&rho;&omicron;&sigmaf; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&alpha;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &tau;&omicron;&nu; &chi;&rho;ό&nu;&omicron; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &tau;&omicron;&nu; &chi;&rho;ό&nu;&omicron; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &tau;&omicron;&nu; &chi;&rho;ό&nu;&omicron; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &tau;&omicron;&nu; &chi;&rho;ό&nu;&omicron; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta; ή &tau;&omicron;&nu; &chi;&rho;ό&nu;&omicron; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf; &pi;ά&nu;&omega; &alpha;&pi;ό &tau;&omicron;&nu; &omicron;&pi;&omicron;ί&omicron; &delta;&epsilon;&nu; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&nu;&epsilon;&mu;&eta;&theta;&epsilon;ί &zeta;ή&tau;&eta;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>&Omicron;&iota; &mu;&omicron;&nu;ά&delta;&epsilon;&sigmaf; &pi;&omicron;&upsilon; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &gamma;&iota;&alpha; &tau;&omicron;&nu; &kappa;&alpha;&theta;&omicron;&rho;&iota;&sigma;&mu;ό &tau;&eta;&sigmaf; &mu;έ&gamma;&iota;&sigma;&tau;&eta;&sigmaf; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; ή &chi;&rho;ό&nu;&omicron;&upsilon; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>&Omicron;&iota; &mu;&omicron;&nu;ά&delta;&epsilon;&sigmaf; &pi;&omicron;&upsilon; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &gamma;&iota;&alpha; &tau;&omicron;&nu; &kappa;&alpha;&theta;&omicron;&rho;&iota;&sigma;&mu;ό &tau;&eta;&sigmaf; &mu;έ&gamma;&iota;&sigma;&tau;&eta;&sigmaf; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; ή &chi;&rho;ό&nu;&omicron;&upsilon; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>&Omicron;&iota; &mu;&omicron;&nu;ά&delta;&epsilon;&sigmaf; &pi;&omicron;&upsilon; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &gamma;&iota;&alpha; &tau;&omicron;&nu; &kappa;&alpha;&theta;&omicron;&rho;&iota;&sigma;&mu;ό &tau;&eta;&sigmaf; &mu;έ&gamma;&iota;&sigma;&tau;&eta;&sigmaf; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; ή &chi;&rho;ό&nu;&omicron;&upsilon; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>&Omicron;&iota; &mu;&omicron;&nu;ά&delta;&epsilon;&sigmaf; &pi;&omicron;&upsilon; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &gamma;&iota;&alpha; &tau;&omicron;&nu; &kappa;&alpha;&theta;&omicron;&rho;&iota;&sigma;&mu;ό &tau;&eta;&sigmaf; &mu;έ&gamma;&iota;&sigma;&tau;&eta;&sigmaf; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; ή &chi;&rho;ό&nu;&omicron;&upsilon; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>&Omicron;&iota; &mu;&omicron;&nu;ά&delta;&epsilon;&sigmaf; &pi;&omicron;&upsilon; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &gamma;&iota;&alpha; &tau;&omicron;&nu; &kappa;&alpha;&theta;&omicron;&rho;&iota;&sigma;&mu;ό &tau;&eta;&sigmaf; &mu;έ&gamma;&iota;&sigma;&tau;&eta;&sigmaf; &alpha;&pi;ό&sigma;&tau;&alpha;&sigma;&eta;&sigmaf; ή &chi;&rho;ό&nu;&omicron;&upsilon; &mu;&epsilon;&tau;ά&beta;&alpha;&sigma;&eta;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>&Tau;&omicron; &epsilon;&lambda;ά&chi;&iota;&sigma;&tau;&omicron; &pi;&omicron;&sigma;&omicron;&sigma;&tau;ό &zeta;ή&tau;&eta;&sigma;&eta;&sigmaf; &pi;&omicron;&upsilon; &pi;&rho;έ&pi;&epsilon;&iota; &nu;&alpha; &kappa;&alpha;&lambda;ύ&psi;&omicron;&upsilon;&nu; &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &sigma;&tau;&iota;&sigmaf; &omicron;&pi;&omicron;ί&epsilon;&sigmaf; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&sigma;&kappa;&epsilon;&upsilon;&alpha;&sigma;&tau;&omicron;ύ&nu; ή &tau;&omicron;&pi;&omicron;&theta;&epsilon;&tau;&eta;&theta;&omicron;ύ&nu; &nu;έ&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &sigma;&tau;&iota;&sigmaf; &omicron;&pi;&omicron;ί&epsilon;&sigmaf; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&sigma;&kappa;&epsilon;&upsilon;&alpha;&sigma;&tau;&omicron;ύ&nu; ή &tau;&omicron;&pi;&omicron;&theta;&epsilon;&tau;&eta;&theta;&omicron;ύ&nu; &nu;έ&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &sigma;&tau;&iota;&sigmaf; &omicron;&pi;&omicron;ί&epsilon;&sigmaf; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&sigma;&kappa;&epsilon;&upsilon;&alpha;&sigma;&tau;&omicron;ύ&nu; ή &tau;&omicron;&pi;&omicron;&theta;&epsilon;&tau;&eta;&theta;&omicron;ύ&nu; &nu;έ&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &sigma;&tau;&iota;&sigmaf; &omicron;&pi;&omicron;ί&epsilon;&sigmaf; &theta;&alpha; &kappa;&alpha;&tau;&alpha;&sigma;&kappa;&epsilon;&upsilon;&alpha;&sigma;&tau;&omicron;ύ&nu; ή &tau;&omicron;&pi;&omicron;&theta;&epsilon;&tau;&eta;&theta;&omicron;ύ&nu; &nu;έ&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&alpha; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>&Eta; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &kappa;ά&theta;&epsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&alpha;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf;. &Eta; ί&delta;&iota;&alpha; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&alpha; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&alpha; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>&Omicron; &alpha;&rho;&iota;&theta;&mu;ό&sigmaf; &tau;&omega;&nu; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &pi;&rho;&omicron;&sigmaf; &epsilon;&pi;&iota;&lambda;&omicron;&gamma;ή &alpha;&pi;ό &tau;&omicron; &sigma;ύ&nu;&omicron;&lambda;&omicron; &tau;&omega;&nu; &upsilon;&pi;&omicron;&psi;&eta;&phi;ί&omega;&nu;. &Epsilon;ά&nu; &kappa;&alpha;&theta;&omicron;&rho;ί&sigma;&epsilon;&tau;&epsilon; &tau;ό&sigma;&omicron; &tau;&iota;&sigmaf; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&epsilon;&sigmaf; ό&sigma;&omicron; &kappa;&alpha;&iota; &tau;&iota;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;, &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &pi;&omicron;&upsilon; &beta;&rho;ί&sigma;&kappa;&omicron;&nu;&tau;&alpha;&iota; &sigma;&tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &theta;&alpha; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&eta;&theta;&omicron;ύ&nu; &pi;&rho;&iota;&nu; &alpha;&pi;ό &omicron;&pi;&omicron;&iota;&alpha;&delta;ή&pi;&omicron;&tau;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta; &tau;&omicron;&upsilon; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;&omicron;ύ &epsilon;&pi;&iota;&pi;έ&delta;&omicron;&upsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>&Omicron; &alpha;&rho;&iota;&theta;&mu;ό&sigmaf; &tau;&omega;&nu; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &pi;&rho;&omicron;&sigmaf; &epsilon;&pi;&iota;&lambda;&omicron;&gamma;ή &alpha;&pi;ό &tau;&omicron; &sigma;ύ&nu;&omicron;&lambda;&omicron; &tau;&omega;&nu; &upsilon;&pi;&omicron;&psi;&eta;&phi;ί&omega;&nu;. &Epsilon;ά&nu; &kappa;&alpha;&theta;&omicron;&rho;ί&sigma;&epsilon;&tau;&epsilon; &tau;ό&sigma;&omicron; &tau;&iota;&sigmaf; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&epsilon;&sigmaf; ό&sigma;&omicron; &kappa;&alpha;&iota; &tau;&iota;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;, &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &pi;&omicron;&upsilon; &beta;&rho;ί&sigma;&kappa;&omicron;&nu;&tau;&alpha;&iota; &sigma;&tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &theta;&alpha; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&eta;&theta;&omicron;ύ&nu; &pi;&rho;&iota;&nu; &alpha;&pi;ό &omicron;&pi;&omicron;&iota;&alpha;&delta;ή&pi;&omicron;&tau;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta; &tau;&omicron;&upsilon; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;&omicron;ύ &epsilon;&pi;&iota;&pi;έ&delta;&omicron;&upsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>&Omicron; &alpha;&rho;&iota;&theta;&mu;ό&sigmaf; &tau;&omega;&nu; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &pi;&rho;&omicron;&sigmaf; &epsilon;&pi;&iota;&lambda;&omicron;&gamma;ή &alpha;&pi;ό &tau;&omicron; &sigma;ύ&nu;&omicron;&lambda;&omicron; &tau;&omega;&nu; &upsilon;&pi;&omicron;&psi;&eta;&phi;ί&omega;&nu;. &Epsilon;ά&nu; &kappa;&alpha;&theta;&omicron;&rho;ί&sigma;&epsilon;&tau;&epsilon; &tau;ό&sigma;&omicron; &tau;&iota;&sigmaf; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&epsilon;&sigmaf; ό&sigma;&omicron; &kappa;&alpha;&iota; &tau;&iota;&sigmaf; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;, &omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &pi;&omicron;&upsilon; &beta;&rho;ί&sigma;&kappa;&omicron;&nu;&tau;&alpha;&iota; &sigma;&tau;&omicron; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;ό &epsilon;&pi;ί&pi;&epsilon;&delta;&omicron; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu; &theta;&alpha; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&eta;&theta;&omicron;ύ&nu; &pi;&rho;&iota;&nu; &alpha;&pi;ό &omicron;&pi;&omicron;&iota;&alpha;&delta;ή&pi;&omicron;&tau;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta; &tau;&omicron;&upsilon; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;&omicron;ύ &epsilon;&pi;&iota;&pi;έ&delta;&omicron;&upsilon; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omega;&nu; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&omega;&nu;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &mu;ό&nu;&omicron; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &omega;&sigmaf; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &epsilon;&iota;&sigma;ό&delta;&omicron;&upsilon; (&mu;&eta; &epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;) ή &alpha;&nu; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&nu;&tau;&alpha;&iota; &kappa;ά&pi;&omicron;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; (&epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &mu;ό&nu;&omicron; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &omega;&sigmaf; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &epsilon;&iota;&sigma;ό&delta;&omicron;&upsilon; (&mu;&eta; &epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;) ή &alpha;&nu; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&nu;&tau;&alpha;&iota; &kappa;ά&pi;&omicron;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; (&epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &mu;ό&nu;&omicron; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &omega;&sigmaf; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &epsilon;&iota;&sigma;ό&delta;&omicron;&upsilon; (&mu;&eta; &epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;) ή &alpha;&nu; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&nu;&tau;&alpha;&iota; &kappa;ά&pi;&omicron;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; (&epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &mu;ό&nu;&omicron; &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &chi;&rho;&eta;&sigma;&iota;&mu;&omicron;&pi;&omicron;&iota;&omicron;ύ&nu;&tau;&alpha;&iota; &omega;&sigmaf; &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &epsilon;&iota;&sigma;ό&delta;&omicron;&upsilon; (&mu;&eta; &epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;) ή &alpha;&nu; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&nu;&tau;&alpha;&iota; &kappa;ά&pi;&omicron;&iota;&epsilon;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; (&epsilon;&nu;&epsilon;&rho;&gamma;&omicron;&pi;&omicron;&iota;&eta;&mu;έ&nu;&epsilon;&sigmaf;).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &alpha;&upsilon;&tau;έ&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&sigma;&epsilon;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &alpha;&upsilon;&tau;έ&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&sigma;&epsilon;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &alpha;&upsilon;&tau;έ&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&sigma;&epsilon;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &alpha;&upsilon;&tau;έ&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&sigma;&epsilon;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>&Tau;&alpha; &sigma;&eta;&mu;&epsilon;&iota;&alpha;&kappa;ά &sigma;&tau;&omicron;&iota;&chi;&epsilon;ί&alpha; &pi;&omicron;&upsilon; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf; &pi;&omicron;&upsilon; &lambda;&epsilon;&iota;&tau;&omicron;&upsilon;&rho;&gamma;&omicron;ύ&nu; &omega;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf;. &Omicron;&iota; &epsilon;&gamma;&kappa;&alpha;&tau;&alpha;&sigma;&tau;ά&sigma;&epsilon;&iota;&sigmaf; &alpha;&upsilon;&tau;έ&sigmaf; &sigma;&upsilon;&nu;ή&theta;&omega;&sigmaf; &alpha;&nu;&tau;&iota;&pi;&rho;&omicron;&sigma;&omega;&pi;&epsilon;ύ&omicron;&upsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&sigma;&epsilon;&sigmaf; &tau;&omicron;&pi;&omicron;&theta;&epsilon;&sigma;ί&epsilon;&sigmaf;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>&Kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&iota; &alpha;&nu; &eta; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta; &kappa;&alpha;&theta;&omicron;&rho;ί&zeta;&epsilon;&tau;&alpha;&iota; &alpha;&pi;ό &sigma;&tau;&alpha;&theta;&epsilon;&rho;ά (<b>&Tau;&iota;&mu;ή</b>) ή &tau;&iota;&mu;ή &pi;&epsilon;&delta;ί&omicron;&upsilon; (<b>&Pi;&epsilon;&delta;ί&omicron;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>&Eta; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &kappa;ά&theta;&epsilon; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf;. &Eta; ί&delta;&iota;&alpha; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&eta; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>&Eta; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &kappa;ά&theta;&epsilon; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&eta;&sigmaf; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;&sigmaf;. &Eta; ί&delta;&iota;&alpha; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &theta;&alpha; &epsilon;&phi;&alpha;&rho;&mu;&omicron;&sigma;&tau;&epsilon;ί &sigma;&epsilon; &kappa;ά&theta;&epsilon; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&eta; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&eta; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>&Tau;&omicron; &pi;&epsilon;&delta;ί&omicron; &pi;&omicron;&upsilon; &pi;&epsilon;&rho;&iota;έ&chi;&epsilon;&iota; &tau;&eta;&nu; &chi;&omega;&rho;&eta;&tau;&iota;&kappa;ό&tau;&eta;&tau;&alpha; &gamma;&iota;&alpha; &kappa;ά&theta;&epsilon; &alpha;&pi;&alpha;&iota;&tau;&omicron;ύ&mu;&epsilon;&nu;&eta; &epsilon;&gamma;&kappa;&alpha;&tau;ά&sigma;&tau;&alpha;&sigma;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>&Tau;&omicron; ό&nu;&omicron;&mu;&alpha; &tau;&omicron;&upsilon; &theta;&epsilon;&mu;&alpha;&tau;&iota;&kappa;&omicron;ύ &epsilon;&pi;&iota;&pi;έ&delta;&omicron;&upsilon; &pi;&omicron;&upsilon; &theta;&alpha; &delta;&eta;&mu;&iota;&omicron;&upsilon;&rho;&gamma;&eta;&theta;&epsilon;ί &kappa;&alpha;&iota; &theta;&alpha; &pi;&rho;&omicron;&sigma;&tau;&epsilon;&theta;&epsilon;ί &sigma;&tau;&omicron;&nu; &chi;ά&rho;&tau;&eta;.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>&Tau;&omicron; ό&nu;&omicron;&mu;&alpha; &tau;&omicron;&upsilon; &phi;&alpha;&kappa;έ&lambda;&omicron;&upsilon; &sigma;&tau;&eta;&nu; &epsilon;&nu;ό&tau;&eta;&tau;&alpha;  <b>&Tau;&omicron; &pi;&epsilon;&rho;&iota;&epsilon;&chi;ό&mu;&epsilon;&nu;ό &mu;&omicron;&upsilon;</b> ό&pi;&omicron;&upsilon; &theta;&alpha; &alpha;&pi;&omicron;&theta;&eta;&kappa;&epsilon;&upsilon;&tau;&epsilon;ί &tau;&omicron; &alpha;&pi;&omicron;&tau;έ&lambda;&epsilon;&sigma;&mu;&alpha;.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Zonalne statistike rezimira vrijednosti rastera unutar zona drugog skupa podataka.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>Ulaz koji definira granice zona ili područja koja će se sažeti.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Polje koje sadrži vrijednosti koje definiraju svaku zonu.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>Rasterski sloj koji sadrži vrijednosti ćelija koje će se koristiti za izračun statistike.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Određuje vrstu statistike koja će se izračunati.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Određuje postotnu vrijednost koja će se izračunati.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Određuje metodu koja će se koristiti kada je broj vrijednosti iz ulaznog rastera koji treba izračunati paran broj.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Određuje kako će se vrijednosti ćelije  <b>Rastera ulazne vrijednosti</b> obrađivati za kružne podatke.
+            </p>
+            <p>Ako nije označeno, izračunat će se obična aritmetička (linearna) statistika. Ako je označeno, izračunat će se kružna statistika.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Određuje vrijednost koja će se koristiti za zaokruživanje linearne vrijednosti na raspon dane kružne statistike.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>Određuje hoće li ćelije Bez podataka u  <b>Rasteru ulazne vrijednosti</b> biti zanemarene u rezultatima zona u koje spadaju.
+            </p>
+            <p>Ako je označeno, ćelije Bez podataka rasteru vrijednosti zanemarit će se u statističkom izračunu. Ako nije označeno, ćelije Bez podataka neće biti zanemarene, a cijela zona će dobiti vrijednost Bez podataka na izlaznom rasteru.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Određuje kako će se obrađivati ulazni rasteri ako su vi&scaron;edimenzionalni.
+            </p>
+            <p>Ako nije označeno, statistika će se izračunati za sve dimenzije ulaznog vi&scaron;edimenzionalnog skupa podataka. Ako je označeno, statistika će se izračunati iz trenutnog isječka ulaznog vi&scaron;edimenzionalnog skupa podataka.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv rasterskog sloja zonske statistike koji će se izraditi i dodati na kartu.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Vrsta izlaza koji će se stvoriti. Izlaz može biti sloj s pločastom slikom ili sloj s dinamičnom slikom.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

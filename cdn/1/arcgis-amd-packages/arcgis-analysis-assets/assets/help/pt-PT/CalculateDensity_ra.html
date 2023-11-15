@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Calcular Densidade calcula uma estimativa de densidade a partir de elementos de ponto e linha. A ferramenta cria uma sa&iacute;da de raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>O ponto ou camada de linha da qual a densidade ser&aacute; calculada.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>O campo que especifica o n&uacute;mero de incidentes em cada localiza&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>A camada que define as barreiras. As barreiras podem ser uma camada de elementos polilinha ou poligonais.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>O tamanho da c&eacute;lula e a unidade que ser&aacute; utilizada para o raster de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Especifica a dist&acirc;ncia at&eacute; aos pontos ou linhas de pesquisa ao calcular a densidade atrav&eacute;s de um valor e respetivas unidades.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>As unidades que ser&atilde;o utilizadas para a &aacute;rea de sa&iacute;da.
+            </p>
+            <p>A densidade &eacute; dividida por contagem de &aacute;rea, e este par&acirc;metro especifica a unidade de &aacute;rea no c&aacute;lculo da densidade.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada de raster de densidade que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. As sa&iacute;das podem ser camadas de imagens em mosaico ou camadas de imagens din&acirc;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde os resultados ser&atilde;o guardados.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

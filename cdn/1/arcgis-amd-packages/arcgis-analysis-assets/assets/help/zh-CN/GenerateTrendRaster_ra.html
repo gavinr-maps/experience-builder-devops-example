@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;生成趋势栅格&rdquo;工具用于面向多维影像图层中一个或多个变量估计每个像素沿维度的趋势。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>将用于生成趋势的多维影像图层。
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>将沿此维度为分析中所选的一个或多个变量提取趋势。
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>将计算趋势的一个或多个变量。
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>在使用 Seasonal-Kendall 线类型时将用于季节性期间长度的时间单位。
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>将对沿维度像素值执行的趋势分析类型。
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>将用于趋势拟合的频率或多项式阶数。
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>指定在分析中是否忽略 NoData 或缺失值。
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>将为谐波循环建模的周期性变化的长度。
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>将用于谐波周期长度的时间单位。
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>指定是否将计算趋势拟合线的均方根误差 (RMSE)。
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>指定是否将为趋势拟合线计算 R 平方拟合优度统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>指定是否将为趋势拟合线的斜率系数计算 p 值统计数据。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>要创建并添加至地图的图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>要创建的输出的类型。 输出可以为切片影像图层或动态影像图层。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

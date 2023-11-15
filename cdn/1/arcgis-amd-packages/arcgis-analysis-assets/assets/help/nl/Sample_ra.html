@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Voorbeeld maakt een tabel of een puntobjectklasse om de pixelwaarden van een raster of reeks rasters op gedefinieerde plaatsen weer te geven.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>De beeldlagen met waarden die worden bemonsterd op basis van de ingevoerde locatiegegevens.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>De laag met de locaties voor elk voorbeeld.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Het resampling-algoritme dat tijdens het bemonsteringsproces zal worden gebruikt.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Een veld in de laag dat voor elke locatie of invoerfunctie een andere waarde bevat.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Geeft aan of de beeldlagen van de invoer multidimensionale gegevens bevatten.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Specificeert de tijd, diepte of andere acquisitiegegevens die verband houden met de locatie-objecten.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>De dimensie van de multidimensionale invoerlaag.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Het veld dat wordt gebruikt om het tijdbereik voor de multidimensionale invoerlaag te starten.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Het veld dat wordt gebruikt om het tijdbereik voor de multidimensionale invoerlaag af te sluiten.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Een niet-negatief getal dat zal worden toegevoegd aan de parameter  <b>Dimensie</b> of een waarde die het begin van een waardebereik van een dimensie zal defini&euml;ren.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Een niet-negatief getal dat zal worden toegevoegd aan de parameter  <b>Dimensie</b> of een waarde die het einde van een waardebereik van een dimensie zal defini&euml;ren.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>De statistieken die worden gegenereerd bij de verwerking van multidimensionale beeldlagen.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>De procentuele waarde die wordt gebruikt voor het type percentielstatistiek.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>De bufferafstand die zal worden toegepast op de invoerlocaties.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Geeft aan of het uitvoertype een object of een tabel zal zijn.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Geeft aan of de uitvoer per rij of kolom wordt uitgevoerd.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

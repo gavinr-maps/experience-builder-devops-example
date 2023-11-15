@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Ber&auml;kna densitet ber&auml;knar en densitetsuppskattning fr&aring;n punkt- och linjegeoobjekt. Verktyget skapar geoobjektutdata.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Det punkt- eller linjelager som densiteten ska ber&auml;knas fr&aring;n.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>F&auml;ltet som anger antalet incidenter p&aring; respektive plats.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Polygongeoobjektlagret som definierar var densiteterna ska ber&auml;knas.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Anger avst&aring;ndet till s&ouml;kning efter punkter eller linjer n&auml;r densitet ber&auml;knas.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Enheterna som anv&auml;nds f&ouml;r parameterv&auml;rdet  <b>S&ouml;kavst&aring;nd</b>.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Ange hur densitetsv&auml;rden ska klassificeras i omr&aring;den.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Antalet klasser (intervall med f&ouml;rutsagda v&auml;rden) i resultatlagret.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Enheterna som anv&auml;nds f&ouml;r utdataomr&aring;det.
+            </p>
+            <p>Densiteten &auml;r antalet delat med omr&aring;det, och den h&auml;r parametern anger areaenheten i densitetsber&auml;kningen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultaten ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

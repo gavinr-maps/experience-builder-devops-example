@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Acumulaci&oacute; de dist&agrave;ncia calcula la dist&agrave;ncia acumulada des de cada cel&middot;la a l'origen de l'entrada, tenint en compte la dist&agrave;ncia en l&iacute;nia recta, el cost en pla i la dist&agrave;ncia de superf&iacute;cie real, aix&iacute; com els factors de cost horitzontal i vertical.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>R&agrave;ster d'entrada o capa d'entitats que identifica els or&iacute;gens als quals es calcular&agrave; la dist&agrave;ncia.
+            </p>
+            <p>Si l'entrada &eacute;s un r&agrave;ster, ha d'estar formada per cel&middot;les que tinguin valors enters v&agrave;lids (zero &eacute;s un valor v&agrave;lid) per als or&iacute;gens, i les cel&middot;les restants tindran assignat el valor NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Barreres que defineixen obstacles que cal esquivar.
+            </p>
+            <p>Per a una capa r&agrave;ster, les cel&middot;les que tinguin un valor (incl&ograve;s el zero) es tractaran com una barrera.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>R&agrave;ster que defineix els valors d'elevaci&oacute; a la ubicaci&oacute; de cada cel&middot;la.
+            </p>
+            <p>Els valors s'utilitzen per calcular la dist&agrave;ncia de superf&iacute;cie real coberta en passar entre cel&middot;les.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>R&agrave;ster que defineix la imped&agrave;ncia o el cost del moviment a trav&eacute;s de cada cel&middot;la.
+            </p>
+            <p>El valor de cada ubicaci&oacute; de cel&middot;la representa la dist&agrave;ncia de cost per unitat per moure's a trav&eacute;s de la cel&middot;la. El valor no pot ser negatiu ni un zero.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Especifica si la dist&agrave;ncia es calcular&agrave; mitjan&ccedil;ant un m&egrave;tode pla (terra plana) o un m&egrave;tode geod&egrave;sic (el&middot;lipsoide).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>R&agrave;ster que defineix els valors z per a la ubicaci&oacute; de cada cel&middot;la.
+            </p>
+            <p>Els valors s'utilitzen per calcular el pendent utilitzat per identificar el factor vertical que es produeix en passar d'una cel&middot;la a una altra.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Factor que defineix la relaci&oacute; entre el factor de cost vertical i l'angle de moviment relatiu vertical.
+            </p>
+            <p>Hi ha diverses opcions per a factors amb modificadors que identifiquen un gr&agrave;fic de factor vertical definit. Els gr&agrave;fics s'utilitzen per identificar el factor vertical utilitzat per calcular el cost total del moviment a una cel&middot;la ve&iuml;na.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>R&agrave;ster que defineix la direcci&oacute; horitzontal a cada cel&middot;la.
+            </p>
+            <p>Els valors en cada ubicaci&oacute; s'utilitzaran juntament amb el par&agrave;metre  <b>Factor horitzontal</b> per determinar el cost horitzontal que es produeix en passar d'una cel&middot;la a les ve&iuml;nes.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Factor que defineix la relaci&oacute; entre el factor de cost horitzontal i l'angle de moviment relatiu horitzontal.
+            </p>
+            <p>Hi ha diverses opcions per a factors amb modificadors que identifiquen un gr&agrave;fic de factor horitzontal definit. Els gr&agrave;fics s'utilitzen per identificar el factor horitzontal que es fa servir per calcular el cost total del moviment a una cel&middot;la ve&iuml;na.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Cost acumulatiu inicial amb el qual s'iniciar&agrave; el c&agrave;lcul del cost.
+            </p>
+            <p>El valor per defecte &eacute;s 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Acumulaci&oacute; m&agrave;xima del viatger per a un origen.
+            </p>
+            <p>L'acumulaci&oacute; per defecte &eacute;s fins a la vora del r&agrave;ster de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Multiplicador que s'aplicar&agrave; als valors dels costos.
+            </p>
+            <p>El valor per defecte &eacute;s l'1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Direcci&oacute; del viatger en aplicar factors horitzontals i verticals.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Nom de la capa r&agrave;ster de dist&agrave;ncia acumulativa que es crear&agrave; i s'afegir&agrave; al mapa. La capa cont&eacute; la dist&agrave;ncia acumulativa per a cada cel&middot;la des de o cap a l'origen de menor cost.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Nom de la capa de r&agrave;ster de direcci&oacute; inversa que es crear&agrave; i s'afegir&agrave; al mapa. Capa que cont&eacute; la direcci&oacute; en graus.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Nom de la capa de r&agrave;ster de direcci&oacute; d'origen que es crear&agrave; i s'afegir&agrave; al mapa. Capa que cont&eacute; la direcci&oacute; azimutal de la cel&middot;la d'origen de menor cost acumulat en graus.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Nom de la capa r&agrave;ster multibanda de direcci&oacute; d'origen que es crear&agrave; i s'afegir&agrave; al mapa. Capa que cont&eacute; les ubicacions d'origen on la primera banda cont&eacute; un &iacute;ndex de files i la segona banda cont&eacute; un &iacute;ndex de columnes.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipus de sortida que es crear&agrave;. Les sortides poden ser capes d'imatges en mosaic o capes d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

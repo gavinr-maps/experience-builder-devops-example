@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือสถิติโซนจะสรุปข้อมูลค่าของแรสเตอร์ภายในโซนของชุดข้อมูลอื่น
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>อินพุทที่กำหนดขอบเขตของโซน หรือพื้นที่ ซึ่งจะทำการสรุปค่า
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>ฟิลด์ที่มีค่าที่กำหนดแต่ละโซน
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>ชั้นข้อมูลแรสเตอร์ที่มีค่าเซลล์ซึ่งจะใช้ในการคำนวณสถิติ
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>ระบุประเภทสถิติที่จะคำนวณ
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>ระบุค่าเปอร์เซ็นไทล์ที่จะคำนวณ
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>ระบุวิธีการที่จะใช้ เมื่อจำนวนค่าจากอินพุทแรสเตอร์ที่จะคำนวณนั้นเป็นเลขคู่
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>ระบุวิธีการที่จะใช้ในการประมวลผลค่าเซลล์  <b>แรสเตอร์ค่าอินพุท</b> สำหรับข้อมูลวงกลม
+            </p>
+            <p>เมื่อไม่เลือก จะคำนวณสถิติเลขคณิตธรรมดา (เชิงเส้น) เมื่อเลือก จะคำนวณสถิติวงกลม
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>ระบุค่าที่จะใช้ในการปัดเศษค่าเชิงเส้นเป็นช่วงของสถิติวงกลมที่กำหนด
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>ระบุว่าจะไม่สนใจเซลล์ NoData ใน  <b>แรสเตอร์ค่าอินพุท</b> ในผลลัพธ์ของโซนที่ตกอยู่ภายในหรือไม่
+            </p>
+            <p>เมื่อเลือก จะไม่สนใจเซลล์ NoData ในแรสเตอร์ค่าในการคำนวณสถิติ เมื่อไม่เลือก จะใช้งานเซลล์ NoData และทั้งโซนจะได้รับค่า NoData บนแรสเตอร์เอาท์พุท
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>ระบุวิธีการประมวลผลอินพุทแรสเตอร์ หลากเป็นแบบหลายมิติ
+            </p>
+            <p>เมื่อไม่เลือก สถิติจะถูกคำนวณสำหรับมิติทั้งหมดของชุดข้อมูลหลายมิติอินพุท เมื่อเลือก สถิติจะถูกคำนวณจากสไลซ์ปัจจุบันของชุดข้อมูลหลายมิติอินพุท
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลแรสเตอร์สถิติโซนที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>ประเภทของเอาท์พุทที่จะสร้างขึ้น เอาท์พุทสามารถเป็นชั้นข้อมูลภาพแบบไทล์หรือชั้นข้อมูลภาพแบบไดนามิก
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

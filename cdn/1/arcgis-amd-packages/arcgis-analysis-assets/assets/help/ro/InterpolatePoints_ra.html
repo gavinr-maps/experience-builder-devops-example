@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Puncte de interpolare previzionează valori &icirc;n locații noi pe baza măsurătorilor &icirc;n puncte. Instrumentul creează o ieșire de raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Stratul tematic de puncte care conţine punctele &icirc;n care au fost măsurate valorile.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>C&acirc;mpul numeric care conține valorile care vor fi interpolate.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Specifică dacă viteza sau acuratețea vor fi optimizate. Predicţiile mai precise necesită mai mult timp pentru a fi calculate.
+            </p>
+            <p>Acest parametru modifică valorile implicite ale altor c&acirc;torva parametri.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>Dimensiunea celulei şi unitatea de măsură pentru rasterele de ieşire.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Specifică dacă datele vor fi transformate sau nu. Interpolarea este cea mai precisă pentru datele care urmează o distribuţie normală (&icirc;n formă de clopot).
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>Dimensiunea modelelor de interpolare locale care vor fi combinate pentru a crea harta de predicție finală.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Numărul de vecini care va fi utilizat. Un număr mare de vecini produce &icirc;n general rezultate mai precise, &icirc;nsă calculul acestora durează mai mult.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic de raster interpolat care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Alegeți dacă doriți să creați și un raster opțional cu erori standard pentru valorile prezise.
+            </p>
+            <p>Dacă este selectată, rasterul de erori standard de ieșire va avea același nume ca și  <b>Numele rasterului de ieșire</b>, dar se va adăuga cuv&acirc;ntul Erori. Stratul tematic va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipul de ieșire care va fi creată. Ieșirile pot fi straturi tematice de imagini satelitare cu structură tile sau straturi tematice de imagini satelitare dinamice.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

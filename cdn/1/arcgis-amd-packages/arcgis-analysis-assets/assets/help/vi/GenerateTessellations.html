@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Tạo Lưới tổ ong sẽ tạo ra một lưới đa gi&aacute;c dựa tr&ecirc;n phạm vi, h&igrave;nh dạng v&agrave; k&iacute;ch thước được chỉ định.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>H&igrave;nh dạng của c&aacute;c lưới tổ ong sẽ được tạo.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Chỉ định xem k&iacute;ch thước lưới tổ ong sẽ được x&aacute;c định theo diện t&iacute;ch (<b>Diện t&iacute;ch</b>) hay theo gi&aacute; trị khoảng c&aacute;ch (<b>Khoảng c&aacute;ch</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>K&iacute;ch thước (diện t&iacute;ch hoặc khoảng c&aacute;ch) của c&aacute;c lưới tổ ong được tạo. Đối với h&igrave;nh vu&ocirc;ng, h&igrave;nh lục gi&aacute;c, h&igrave;nh tam gi&aacute;c v&agrave; h&igrave;nh thoi, khoảng c&aacute;ch x&aacute;c định chiều cao của c&aacute;c lưới tổ ong. Đối với c&aacute;c h&igrave;nh lục gi&aacute;c ngang, khoảng c&aacute;ch x&aacute;c định chiều rộng của c&aacute;c lưới tổ ong.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Độ ph&acirc;n giải H3 của lưới tổ ong. Phạm vi độ ph&acirc;n giải từ 0 đến 15. Với mỗi k&iacute;ch thước độ ph&acirc;n giải tăng l&ecirc;n, diện t&iacute;ch của đa gi&aacute;c sẽ giảm xuống 1/7 k&iacute;ch thước ở độ ph&acirc;n giải thấp hơn.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>X&aacute;c định c&aacute;c đơn vị sẽ được sử dụng cho k&iacute;ch thước lưới tổ ong.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Phạm vi m&agrave; c&aacute;c lưới tổ ong sẽ bao tr&ugrave;m.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>Đối với c&aacute;c lớp đối tượng, chỉ định xem lưới tổ ong sẽ bao phủ to&agrave;n bộ phạm vi hay chỉ bao phủ c&aacute;c khu vực m&agrave; lưới tổ ong giao cắt với c&aacute;c đối tượng.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

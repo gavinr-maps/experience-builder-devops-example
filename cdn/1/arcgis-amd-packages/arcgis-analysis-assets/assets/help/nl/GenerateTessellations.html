@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Moza&iuml;ekwerk genereren cre&euml;ert een raster van polygonen op basis van gespecificeerde omvang, vorm en grootte.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>De vorm van de moza&iuml;ekwerken die worden gemaakt.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Geeft aan of het moza&iuml;ekwerk wordt gedefinieerd door het gebied (<b>Gebied</b>) of door een afstandswaarde (<b>Afstand</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>De grootte (gebied of afstand) van de gegenereerde moza&iuml;ekwerken. Voor vierkanten, zeshoeken, driehoeken en ruiten bepaalt de afstand de hoogte van de moza&iuml;ekwerken. Voor transversale zeshoeken bepaalt de afstand de breedte van de moza&iuml;ekwerken.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>De H3-resolutie van de moza&iuml;ekwerken. Resolutie ligt tussen 0-15. Met elke toenemende resolutiegrootte neemt het oppervlak van de polygonen af tot een-zevende van de grootte bij de lagere resolutie.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Specificeert de eenheden die voor de moza&iuml;ekwerkgrootte zullen worden gebruikt.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>De extent die de moza&iuml;ekwerken zullen bedekken.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>Specificeert voor objectlagen of de moza&iuml;ekwerken het gehele gebied zullen bestrijken of alleen de gebieden waar de moza&iuml;ekwerken de objecten snijden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

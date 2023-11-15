@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+        <h2>Detect Objects Using Deep Learning</h2><p/>
+        <h2></h2>
+        <hr/>
+    <p>The Detect Objects Using Deep Learning tool uses a deep learning model on an input imagery layer to produce a feature layer containing the detected objects. 
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>The imagery layer that will be used to detect objects.
+
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Specifies how raster items in an imagery layer will be processed after being mosaicked: together or individually.
+
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>The deep learning package that contains the model that will be used to detect the objects.
+
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>The model arguments that are present in the deep learning model together with their default values.
+
+            </p>
+        </div>
+    </div>
+    <div id="runNMS">
+        <div>
+            <p>Specifies whether nonmaximum suppression will be performed to remove duplicate objects.
+
+            </p>
+        </div>
+    </div>
+    <div id="confidenceScoreField">
+        <div>
+            <p>The name of the field that will be added to the output feature layer to indicate the confidence value reported.  
+
+            </p>
+        </div>
+    </div>
+    <div id="classValueField">
+        <div>
+            <p>The name of the field that will be added to the output feature layer to indicate the classified label for the object. 
+
+            </p>
+        </div>
+    </div>
+    <div id="maxOverlapRatio">
+        <div>
+            <p>The maximum ratio allowed for each found feature that overlaps another feature. The default value is 0. 
+
+            </p>
+        </div>
+    </div>
+    <div id="outputObjects">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>The name of the folder in  <b>My Content</b> where the result will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

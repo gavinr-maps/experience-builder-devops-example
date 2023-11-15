@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Classify Pixels Using Deep Learning eszk&ouml;z egy betan&iacute;tott m&eacute;lytanul&aacute;si modellt haszn&aacute;l a bemeneti k&eacute;pen, hogy oszt&aacute;lyozott rasztert k&eacute;sz&iacute;tsen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>A k&eacute;ppontok oszt&aacute;lyoz&aacute;s&aacute;hoz haszn&aacute;lt t&aacute;v&eacute;rz&eacute;kelt felv&eacute;tel r&eacute;teg.
+            </p> 
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a t&aacute;v&eacute;rz&eacute;kelt felv&eacute;tel r&eacute;teg raszterelemeinek feldolgoz&aacute;sa hogyan t&ouml;rt&eacute;njen a mozaikba rendez&eacute;s ut&aacute;n: egy&uuml;tt vagy k&uuml;l&ouml;n-k&uuml;l&ouml;n.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>A pixelek oszt&aacute;lyoz&aacute;s&aacute;ra haszn&aacute;lt modellt tartalmaz&oacute; m&eacute;lytanul&aacute;si modell.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>A m&eacute;lytanul&aacute;si modellben szereplő modellargumentumok &eacute;s azok alap&eacute;rtelmezett &eacute;rt&eacute;kei.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRaster">
+        <div>
+            <p>Az oszt&aacute;lyozand&oacute; kimeneti t&aacute;v&eacute;rz&eacute;kelt felv&eacute;tel r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>A l&eacute;trej&ouml;vő kimenet t&iacute;pusa. A kimenet csemp&eacute;zett t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;teg vagy pedig dinamikus t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;teg lehet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

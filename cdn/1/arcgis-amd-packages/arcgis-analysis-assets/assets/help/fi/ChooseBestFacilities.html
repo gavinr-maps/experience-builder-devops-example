@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Valitse parhaat palvelut&nbsp;-ty&ouml;kalu etsii palvelujoukon, joka vastaa parhaiten kysynt&auml;&auml;n.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Tavoite, jonka on t&auml;ytytt&auml;v&auml;, kun allokoidaan kysynt&auml;sijainteja palveluille.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Määritä kysynnät palveluihin palvelun kapasiteetin ja ympäröivän alueen kysynnän määrän perusteella. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Valitse palveluja siten, että kokonaismatkustusaika tai -etäisyys kaikista kysyntäsijainneista niille määritettyyn palveluun on mahdollisimman lyhyt. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Valitse palveluja siten, että kysynnän enimmäismäärä on allokoitu ja että kunkin kysyntäsijainnin kysyntä on allokoitu yksittäiseen, lähinnä olevaan palveluun. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Valitse palvelut siten, että kysynnän enimmäismäärä allokoidaan ylittämättä yhdenkään palvelun kapasiteettia. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Valitse niiden palvelujen vähimmäismäärä, jotka tarvitaan määritetyn kysynnän prosenttiosuuden saavuttamiseen. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Matkustustapa, jolla mitataan palvelujen ja kysynt&auml;sijaintien v&auml;list&auml; aikaa tai et&auml;isyytt&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>P&auml;iv&auml;m&auml;&auml;r&auml; ja aika, jolloin matkustaja l&auml;htee palveluista tai kysynt&auml;sijainneista.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, alkaako matkustus palveluista ja siirtyy ulosp&auml;in kohti kysynt&auml;sijainteja vai alkaako se kysynt&auml;sijainneista ja siirtyy sis&auml;&auml;np&auml;in kohti palveluja.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, alkaako matkustus palveluista ja siirtyy ulosp&auml;in kohti kysynt&auml;sijainteja vai alkaako se kysynt&auml;sijainneista ja siirtyy sis&auml;&auml;np&auml;in kohti palveluja.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, alkaako matkustus palveluista ja siirtyy ulosp&auml;in kohti kysynt&auml;sijainteja vai alkaako se kysynt&auml;sijainneista ja siirtyy sis&auml;&auml;np&auml;in kohti palveluja.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, alkaako matkustus palveluista ja siirtyy ulosp&auml;in kohti kysynt&auml;sijainteja vai alkaako se kysynt&auml;sijainneista ja siirtyy sis&auml;&auml;np&auml;in kohti palveluja.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, alkaako matkustus palveluista ja siirtyy ulosp&auml;in kohti kysynt&auml;sijainteja vai alkaako se kysynt&auml;sijainneista ja siirtyy sis&auml;&auml;np&auml;in kohti palveluja.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi pistekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Liikkuminen on sallittu kadulla, mutta ei esteen kohdalla.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi pistekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Liikkuminen on sallittu kadulla, mutta ei esteen kohdalla.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi pistekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Liikkuminen on sallittu kadulla, mutta ei esteen kohdalla.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi pistekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Liikkuminen on sallittu kadulla, mutta ei esteen kohdalla.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi pistekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Liikkuminen on sallittu kadulla, mutta ei esteen kohdalla.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi viivakohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Viivaesteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa esteet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi viivakohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Viivaesteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa esteet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi viivakohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Viivaesteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa esteet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi viivakohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Viivaesteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa esteet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi viivakohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Viivaesteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa esteet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi aluekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Alue-esteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa alueet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi aluekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Alue-esteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa alueet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi aluekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Alue-esteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa alueet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi aluekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Alue-esteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa alueet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>V&auml;hint&auml;&auml;n yksi aluekohde, joka toimii tilap&auml;isen&auml; rajoitteena (esteen&auml;) liikuttaessa taustalla olevilla kaduilla. Alue-esteet est&auml;v&auml;t liikkumisen miss&auml; tahansa kohdassa, jossa alueet riste&auml;v&auml;t katujen kanssa.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Pistekohteet, jotka edustavat sijainteja, joissa on kysynt&auml;&auml; palvelujen tarjoamille palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Pistekohteet, jotka edustavat sijainteja, joissa on kysynt&auml;&auml; palvelujen tarjoamille palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Pistekohteet, jotka edustavat sijainteja, joissa on kysynt&auml;&auml; palvelujen tarjoamille palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Pistekohteet, jotka edustavat sijainteja, joissa on kysynt&auml;&auml; palvelujen tarjoamille palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Pistekohteet, jotka edustavat sijainteja, joissa on kysynt&auml;&auml; palvelujen tarjoamille palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tavan, jolla kysynt&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa. Jos kysynn&auml;n m&auml;&auml;r&auml; on sama kaikissa sijainneissa, valitse  <b>Arvo</b>. Jos kysynn&auml;n m&auml;&auml;r&auml; vaihtelee sijainnin mukaan, valitse <b>Kentt&auml;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tavan, jolla kysynt&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa. Jos kysynn&auml;n m&auml;&auml;r&auml; on sama kaikissa sijainneissa, valitse  <b>Arvo</b>. Jos kysynn&auml;n m&auml;&auml;r&auml; vaihtelee sijainnin mukaan, valitse <b>Kentt&auml;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tavan, jolla kysynt&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa. Jos kysynn&auml;n m&auml;&auml;r&auml; on sama kaikissa sijainneissa, valitse  <b>Arvo</b>. Jos kysynn&auml;n m&auml;&auml;r&auml; vaihtelee sijainnin mukaan, valitse <b>Kentt&auml;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tavan, jolla kysynt&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa. Jos kysynn&auml;n m&auml;&auml;r&auml; on sama kaikissa sijainneissa, valitse  <b>Arvo</b>. Jos kysynn&auml;n m&auml;&auml;r&auml; vaihtelee sijainnin mukaan, valitse <b>Kentt&auml;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tavan, jolla kysynt&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa. Jos kysynn&auml;n m&auml;&auml;r&auml; on sama kaikissa sijainneissa, valitse  <b>Arvo</b>. Jos kysynn&auml;n m&auml;&auml;r&auml; vaihtelee sijainnin mukaan, valitse <b>Kentt&auml;</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Kysynn&auml;n m&auml;&auml;r&auml; kussakin kysynt&auml;sijainnissa. Samaa kysynn&auml;n m&auml;&auml;r&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Kysynn&auml;n m&auml;&auml;r&auml; kussakin kysynt&auml;sijainnissa. Samaa kysynn&auml;n m&auml;&auml;r&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Kysynn&auml;n m&auml;&auml;r&auml; kussakin kysynt&auml;sijainnissa. Samaa kysynn&auml;n m&auml;&auml;r&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Kysynn&auml;n m&auml;&auml;r&auml; kussakin kysynt&auml;sijainnissa. Samaa kysynn&auml;n m&auml;&auml;r&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Kysynn&auml;n m&auml;&auml;r&auml; kussakin kysynt&auml;sijainnissa. Samaa kysynn&auml;n m&auml;&auml;r&auml;&auml; k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Kysynt&auml;karttatason kentt&auml;, joka m&auml;&auml;ritt&auml;&auml; kysynn&auml;n m&auml;&auml;r&auml;n kussakin sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Kysynt&auml;karttatason kentt&auml;, joka m&auml;&auml;ritt&auml;&auml; kysynn&auml;n m&auml;&auml;r&auml;n kussakin sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Kysynt&auml;karttatason kentt&auml;, joka m&auml;&auml;ritt&auml;&auml; kysynn&auml;n m&auml;&auml;r&auml;n kussakin sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Kysynt&auml;karttatason kentt&auml;, joka m&auml;&auml;ritt&auml;&auml; kysynn&auml;n m&auml;&auml;r&auml;n kussakin sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Kysynt&auml;karttatason kentt&auml;, joka m&auml;&auml;ritt&auml;&auml; kysynn&auml;n m&auml;&auml;r&auml;n kussakin sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; kysynt&auml;sijainnin ja m&auml;&auml;ritetyn palvelun v&auml;linen sallittu enimm&auml;ismatkustuset&auml;isyys ja -aika k&auml;ytt&auml;m&auml;ll&auml; vakiota (<b>arvo</b>) vai kentt&auml;arvoa (<b>kentt&auml;</b>) vai k&auml;ytet&auml;&auml;nk&ouml; enimm&auml;isarvoa ollenkaan (<b>rajoittamaton</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; kysynt&auml;sijainnin ja m&auml;&auml;ritetyn palvelun v&auml;linen sallittu enimm&auml;ismatkustuset&auml;isyys ja -aika k&auml;ytt&auml;m&auml;ll&auml; vakiota (<b>arvo</b>) vai kentt&auml;arvoa (<b>kentt&auml;</b>) vai k&auml;ytet&auml;&auml;nk&ouml; enimm&auml;isarvoa ollenkaan (<b>rajoittamaton</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; kysynt&auml;sijainnin ja m&auml;&auml;ritetyn palvelun v&auml;linen sallittu enimm&auml;ismatkustuset&auml;isyys ja -aika k&auml;ytt&auml;m&auml;ll&auml; vakiota (<b>arvo</b>) vai kentt&auml;arvoa (<b>kentt&auml;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; kysynt&auml;sijainnin ja m&auml;&auml;ritetyn palvelun v&auml;linen sallittu enimm&auml;ismatkustuset&auml;isyys ja -aika k&auml;ytt&auml;m&auml;ll&auml; vakiota (<b>arvo</b>) vai kentt&auml;arvoa (<b>kentt&auml;</b>) vai k&auml;ytet&auml;&auml;nk&ouml; enimm&auml;isarvoa ollenkaan (<b>rajoittamaton</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; kysynt&auml;sijainnin ja m&auml;&auml;ritetyn palvelun v&auml;linen sallittu enimm&auml;ismatkustuset&auml;isyys ja -aika k&auml;ytt&auml;m&auml;ll&auml; vakiota (<b>arvo</b>) vai kentt&auml;arvoa (<b>kentt&auml;</b>) vai k&auml;ytet&auml;&auml;nk&ouml; enimm&auml;isarvoa ollenkaan (<b>rajoittamaton</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Matkustuset&auml;isyys tai -aika, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida. Samaa enimm&auml;ismatkustusaluetta k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Matkustuset&auml;isyys tai -aika, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida. Samaa enimm&auml;ismatkustusaluetta k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Matkustuset&auml;isyys tai -aika, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida. Samaa enimm&auml;ismatkustusaluetta k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Matkustuset&auml;isyys tai -aika, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida. Samaa enimm&auml;ismatkustusaluetta k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Matkustuset&auml;isyys tai -aika, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida. Samaa enimm&auml;ismatkustusaluetta k&auml;ytet&auml;&auml;n jokaisessa sijainnissa.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; matkustuset&auml;isyyden tai -ajan, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; matkustuset&auml;isyyden tai -ajan, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; matkustuset&auml;isyyden tai -ajan, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; matkustuset&auml;isyyden tai -ajan, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; matkustuset&auml;isyyden tai -ajan, jonka j&auml;lkeen kysynt&auml;&auml; ei allokoida.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Yksik&ouml;t, joita k&auml;ytet&auml;&auml;n matkan enimm&auml;ispituuden tai matkustusajan m&auml;&auml;ritt&auml;misess&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Yksik&ouml;t, joita k&auml;ytet&auml;&auml;n matkan enimm&auml;ispituuden tai matkustusajan m&auml;&auml;ritt&auml;misess&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Yksik&ouml;t, joita k&auml;ytet&auml;&auml;n matkan enimm&auml;ispituuden tai matkustusajan m&auml;&auml;ritt&auml;misess&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Yksik&ouml;t, joita k&auml;ytet&auml;&auml;n matkan enimm&auml;ispituuden tai matkustusajan m&auml;&auml;ritt&auml;misess&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Yksik&ouml;t, joita k&auml;ytet&auml;&auml;n matkan enimm&auml;ispituuden tai matkustusajan m&auml;&auml;ritt&auml;misess&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Kysynn&auml;n v&auml;himm&auml;isprosenttiosuus, joka palvelujen on t&auml;ytett&auml;v&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat ehdokaspalveluina. Ehdokaspalvelut edustavat yleens&auml; sijainteja, joihin uusia palveluja rakennetaan tai sijoitetaan.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat ehdokaspalveluina. Ehdokaspalvelut edustavat yleens&auml; sijainteja, joihin uusia palveluja rakennetaan tai sijoitetaan.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat ehdokaspalveluina. Ehdokaspalvelut edustavat yleens&auml; sijainteja, joihin uusia palveluja rakennetaan tai sijoitetaan.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat ehdokaspalveluina. Ehdokaspalvelut edustavat yleens&auml; sijainteja, joihin uusia palveluja rakennetaan tai sijoitetaan.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; jokaisen ehdokaspalvelun kapasiteetti k&auml;ytt&auml;m&auml;ll&auml; vakioarvoa (<b>arvo</b>) vai kentt&auml;arvoa (<b>kentt&auml;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Jokaisen ehdokaspalvelun kapasiteetti. Samaa kapasiteettia k&auml;ytet&auml;&auml;n jokaiseen ehdokaspalveluun.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; kapasiteetin jokaiselle ehdokaspalvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Niiden ehdokaspalvelujen m&auml;&auml;r&auml;, joista ehdokasjoukko valitaan. Jos m&auml;&auml;rit&auml;t sek&auml; pakollisia palveluja ett&auml; ehdokaspalveluja, pakollisten palvelujen karttatason palveluja k&auml;ytet&auml;&auml;n ennen yht&auml;k&auml;&auml;n ehdokaspalvelujen karttatason palvelua.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Niiden ehdokaspalvelujen m&auml;&auml;r&auml;, joista ehdokasjoukko valitaan. Jos m&auml;&auml;rit&auml;t sek&auml; pakollisia palveluja ett&auml; ehdokaspalveluja, pakollisten palvelujen karttatason palveluja k&auml;ytet&auml;&auml;n ennen yht&auml;k&auml;&auml;n ehdokaspalvelujen karttatason palvelua.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Niiden ehdokaspalvelujen m&auml;&auml;r&auml;, joista ehdokasjoukko valitaan. Jos m&auml;&auml;rit&auml;t sek&auml; pakollisia palveluja ett&auml; ehdokaspalveluja, pakollisten palvelujen karttatason palveluja k&auml;ytet&auml;&auml;n ennen yht&auml;k&auml;&auml;n ehdokaspalvelujen karttatason palvelua.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, k&auml;ytet&auml;&auml;nk&ouml; vain ehdokaspalveluja l&auml;ht&ouml;aineistona (ei k&auml;yt&ouml;ss&auml;) tai ovatko jotkin palvelut pakollisia (k&auml;yt&ouml;ss&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, k&auml;ytet&auml;&auml;nk&ouml; vain ehdokaspalveluja l&auml;ht&ouml;aineistona (ei k&auml;yt&ouml;ss&auml;) tai ovatko jotkin palvelut pakollisia (k&auml;yt&ouml;ss&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, k&auml;ytet&auml;&auml;nk&ouml; vain ehdokaspalveluja l&auml;ht&ouml;aineistona (ei k&auml;yt&ouml;ss&auml;) tai ovatko jotkin palvelut pakollisia (k&auml;yt&ouml;ss&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, k&auml;ytet&auml;&auml;nk&ouml; vain ehdokaspalveluja l&auml;ht&ouml;aineistona (ei k&auml;yt&ouml;ss&auml;) tai ovatko jotkin palvelut pakollisia (k&auml;yt&ouml;ss&auml;).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat palveluina. N&auml;m&auml; palvelut edustavat yleens&auml; olemassa olevia sijainteja.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat palveluina. N&auml;m&auml; palvelut edustavat yleens&auml; olemassa olevia sijainteja.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat palveluina. N&auml;m&auml; palvelut edustavat yleens&auml; olemassa olevia sijainteja.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat palveluina. N&auml;m&auml; palvelut edustavat yleens&auml; olemassa olevia sijainteja.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Sijainteja edustavat pistekohteet, jotka toimivat palveluina. N&auml;m&auml; palvelut edustavat yleens&auml; olemassa olevia sijainteja.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; jokaisen palvelun kapasiteetti k&auml;ytt&auml;m&auml;ll&auml; vakioarvoa (<b>arvo</b>) tai kentt&auml;arvoa (<b>kentt&auml;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, m&auml;&auml;ritet&auml;&auml;nk&ouml; jokaisen palvelun kapasiteetti k&auml;ytt&auml;m&auml;ll&auml; vakioarvoa (<b>arvo</b>) tai kentt&auml;arvoa (<b>kentt&auml;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Jokaisen pakollisen palvelun kapasiteetti. Samaa kapasiteettia k&auml;ytet&auml;&auml;n jokaiseen pakolliseen palveluun.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Jokaisen pakollisen palvelun kapasiteetti. Samaa kapasiteettia k&auml;ytet&auml;&auml;n jokaiseen pakolliseen palveluun.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; kapasiteetin jokaiselle palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; kapasiteetin jokaiselle palvelulle.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulokset tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

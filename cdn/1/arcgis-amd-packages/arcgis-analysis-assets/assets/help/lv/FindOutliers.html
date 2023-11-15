@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Nepiedero&scaron;o vērtību atra&scaron;anas rīks nosaka, vai pastāv atra&scaron;anās vietas, kuru vērtības būtiski at&scaron;ķiras no blakus vērtībām, pamatojoties uz datu telpisko modeli.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Punkts vai laukuma slānis, kurā tiks meklētas nepiedero&scaron;ās vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Norāda, vai, pamatojoties uz elementu atra&scaron;anās vietām (<b>punktu skaits</b>) vai elementu lauku vērtībām (<b>lauks</b>), tiks noteiktas nepiedero&scaron;ās vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Lauks, kas tiks analizēts, lai noteiktu nepiedero&scaron;ās vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Ierobežojo&scaron;o elementu veids, kādā tiks apkopoti ievades elementi. Tas var būt laukuma slānis (<b>Laukuma slānis</b>) vai mozaīkas veido&scaron;anas režģis no kvadrātiem (<b>Režģa &scaron;ūnas</b>) vai se&scaron;stūriem (<b>Se&scaron;stūra &scaron;ūnas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Slānis, kas satur laukuma elementus, kuros tiks apkopoti ievades punkta elementi.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Laukuma slānis, kas noteiks analīzes robežu. Elementi, kas atrodas laukumā, tiks iekļauti nepiedero&scaron;o elementu analīzē.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Norāda, kā sadalīt  <b>analīzes lauka</b> vērtības vai apkopoto punktu skaitu. Opcija <b>Lauks</b> sadala <b>analīzes lauka</b> vērtības ar norādītā lauka vērtībām <b>ievades slāņa</b> parametros. Opcija <b>Bagātinā&scaron;anas dati</b> bagātinās elementus vai apkopo&scaron;anas formas ar populācijas datiem un sadalīs <b>analīzes lauku</b> vērtības vai apkopoto punktu skaitu pēc populācijas. &Scaron;ī iespēja patērēs papildu servisa kredītus.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Norāda, vai rīks tiks optimizēts, lai paātrinātu apstrādes laiku vai palielinātu rezultātu precizitāti.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Vesela skaitļa vērtība, kas aktivizē nejau&scaron;u skaitļu ģenerē&scaron;anu.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Kvadrāta (režģa) vai se&scaron;stūra &scaron;ūnu malas garums, ko izmantos ievades elementu apkopo&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Norāda vienības, kas tiks izmantotas &scaron;ūnas izmēriem.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Attāluma josla, kas tiks izmantota, lai definētu apkaimi. Blakus eso&scaron;ie elementi mērķa elementa attāluma joslā tiks iekļauti mērķa objekta apkaimē analīzes laikā.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Norāda vienības, kas tiks izmantotas attāluma joslai.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

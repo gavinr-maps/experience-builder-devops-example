@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Procurar Localiza&ccedil;&otilde;es Semelhantes avalia a semelhan&ccedil;a entre as localiza&ccedil;&otilde;es candidatas e uma localiza&ccedil;&atilde;o de refer&ecirc;ncia com base num conjunto de crit&eacute;rios e classifica as localiza&ccedil;&otilde;es candidatas da mais para a menos semelhante.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>A camada de pontos, linhas ou pol&iacute;gonos que cont&eacute;m as localiza&ccedil;&otilde;es de refer&ecirc;ncia que ser&atilde;o objeto de correspond&ecirc;ncia. Se a camada incluir v&aacute;rias localiza&ccedil;&otilde;es, ser&aacute; calculada a m&eacute;dia de todas as localiza&ccedil;&otilde;es para criar uma &uacute;nica localiza&ccedil;&atilde;o de refer&ecirc;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>A camada de pontos, linhas ou pol&iacute;gonos que cont&eacute;m as localiza&ccedil;&otilde;es candidatas de pesquisa. Cada localiza&ccedil;&atilde;o candidata de pesquisa ser&aacute; comparada com a localiza&ccedil;&atilde;o de refer&ecirc;ncia pelo valor de  <b>sele&ccedil;&atilde;o de crit&eacute;rios</b> especificada e ordenada da mais para a menos semelhante.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Os campos num&eacute;ricos que ser&atilde;o utilizados para avaliar a semelhan&ccedil;a entre a localiza&ccedil;&atilde;o de refer&ecirc;ncia e cada localiza&ccedil;&atilde;o candidata de pesquisa. Cada valor de  <b>Sele&ccedil;&atilde;o de crit&eacute;rios</b> ter&aacute; um valor de <b>Campo da camada de refer&ecirc;ncia</b> e um valor de <b>Campo da camada candidata</b>. Os valores <b>Campo da camada de refer&ecirc;ncia</b> e <b>Campo da camada candidata</b> s&atilde;o campos correspondentes nos valores da <b>Camada de localiza&ccedil;&otilde;es de refer&ecirc;ncia</b> e <b>Camada de pesquisa de candidatos</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>O campo da  <b>Camada de localiza&ccedil;&otilde;es de refer&ecirc;ncia</b> que corresponde ao campo da <b>Camada de pesquisa de candidatos</b> especificado pelo valor de <b>Campo da camada candidata</b>. Os valores nestes campos correspondentes ser&atilde;o comparados para avaliar a semelhan&ccedil;a entre a localiza&ccedil;&atilde;o de refer&ecirc;ncia e cada localiza&ccedil;&atilde;o candidata de pesquisa.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>O campo da  <b>Camada de candidatos de pesquisa</b> que corresponde ao campo da <b>Camada de localiza&ccedil;&otilde;es de refer&ecirc;ncia</b> especificado pelo valor de <b>Campo da camada de refer&ecirc;ncia</b>. Os valores nestes campos correspondentes ser&atilde;o comparados para avaliar a semelhan&ccedil;a entre a localiza&ccedil;&atilde;o de refer&ecirc;ncia e cada localiza&ccedil;&atilde;o candidata de pesquisa.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Especifica se todas as localiza&ccedil;&otilde;es no valor da  <b>Camada de candidatos de pesquisa</b> ser&atilde;o inclu&iacute;das na camada de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>O n&uacute;mero de localiza&ccedil;&otilde;es mais semelhantes no valor da  <b>Camada de candidatos de pesquisa</b> que ser&aacute; inclu&iacute;do na camada de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

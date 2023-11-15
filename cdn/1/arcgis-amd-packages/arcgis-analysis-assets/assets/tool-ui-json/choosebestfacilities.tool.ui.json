@@ -1,0 +1,1743 @@
+{
+  "toolName": "ChooseBestFacilities",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].goal = NULL",
+      "destination": "workflowSection",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].goal.selectUIparameterInfos",
+      "destination": "workflowSection",
+      "property": "UIparameters"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].previousWorkflow NOT $[Data].goal",
+      "destination": "travelMode",
+      "effectParams": {
+        "value": null,
+        "required": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].previousWorkflow NOT $[Data].goal",
+      "destination": "timeOfDay",
+      "effectParams": {
+        "value": null,
+        "resetTimeZoneValue": true,
+        "required": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].previousWorkflow NOT $[Data].goal",
+      "destination": "outputName",
+      "effectParams": {
+        "value": null,
+        "required": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].previousWorkflow NOT $[Data].goal",
+      "destination": "saveResultIn",
+      "effectParams": {
+        "value": null,
+        "required": false
+      }
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Data].goal",
+      "destination": "previousWorkflow",
+      "property": "value"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].travelMode.impedanceAttributeName",
+      "valueB": "$[Data].travelMode.timeAttributeName",
+      "destination": [
+        "alloc_maxTravelRangeUnits",
+        "minTrv_maxTravelRangeUnits",
+        "maxCov_maxTravelRangeUnits",
+        "maxCapCov_maxTravelRangeUnits",
+        "pctCov_maxTravelRangeUnits"
+      ],
+      "effectParams": {
+        "choiceList": ["Minutes", "Seconds", "Hours"],
+        "choiceListLabels": { "Minutes": "$minutes", "Seconds": "$seconds", "Hours": "$hours" },
+        "defaultValue": "Minutes"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].travelMode.impedanceAttributeName",
+      "valueB": "$[Data].travelMode.distanceAttributeName",
+      "destination": [
+        "alloc_maxTravelRangeUnits",
+        "minTrv_maxTravelRangeUnits",
+        "maxCov_maxTravelRangeUnits",
+        "maxCapCov_maxTravelRangeUnits",
+        "pctCov_maxTravelRangeUnits"
+      ],
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].travelMode.impedanceAttributeName = $[Data].travelMode.distanceAttributeName) AND ($[Data].userSettings.unitSystem = 'english')",
+      "destination": [
+        "alloc_maxTravelRangeUnits",
+        "minTrv_maxTravelRangeUnits",
+        "maxCov_maxTravelRangeUnits",
+        "maxCapCov_maxTravelRangeUnits",
+        "pctCov_maxTravelRangeUnits"
+      ],
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].travelMode.impedanceAttributeName = $[Data].travelMode.distanceAttributeName) AND ($[Data].userSettings.unitSystem = 'metric')",
+      "destination": [
+        "alloc_maxTravelRangeUnits",
+        "minTrv_maxTravelRangeUnits",
+        "maxCov_maxTravelRangeUnits",
+        "maxCapCov_maxTravelRangeUnits",
+        "pctCov_maxTravelRangeUnits"
+      ],
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "Feet", "Yards"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Kilometers"
+      }
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].alloc_demandLocationsLayer.selectedLayers",
+      "destination": ["alloc_demandField", "alloc_maxTravelRangeField"],
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].minTrv_demandLocationsLayer.selectedLayers",
+      "destination": ["minTrv_demandField", "minTrv_maxTravelRangeField"],
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].maxCov_demandLocationsLayer.selectedLayers",
+      "destination": ["maxCov_demandField", "maxCov_maxTravelRangeField"],
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].maxCapCov_demandLocationsLayer.selectedLayers",
+      "destination": ["maxCapCov_demandField", "maxCapCov_maxTravelRangeField"],
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].pctCov_demandLocationsLayer.selectedLayers",
+      "destination": ["pctCov_demandField", "pctCov_maxTravelRangeField"],
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].alloc_demandChoice",
+      "valueB": "Value",
+      "destination": "alloc_demand",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].alloc_demandChoice",
+      "valueB": "Field",
+      "destination": "alloc_demandField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].minTrv_demandChoice",
+      "valueB": "Value",
+      "destination": "minTrv_demand",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].minTrv_demandChoice",
+      "valueB": "Field",
+      "destination": "minTrv_demandField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCov_demandChoice",
+      "valueB": "Value",
+      "destination": "maxCov_demand",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCov_demandChoice",
+      "valueB": "Field",
+      "destination": "maxCov_demandField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_demandChoice",
+      "valueB": "Value",
+      "destination": "maxCapCov_demand",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_demandChoice",
+      "valueB": "Field",
+      "destination": "maxCapCov_demandField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].pctCov_demandChoice",
+      "valueB": "Value",
+      "destination": "pctCov_demand",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].pctCov_demandChoice",
+      "valueB": "Field",
+      "destination": "pctCov_demandField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].alloc_maxTravelRangeChoice",
+      "valueB": "Value",
+      "destination": ["alloc_maxTravelRange", "alloc_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].alloc_maxTravelRangeChoice",
+      "valueB": "Field",
+      "destination": ["alloc_maxTravelRangeField", "alloc_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].minTrv_maxTravelRangeChoice",
+      "valueB": "Value",
+      "destination": ["minTrv_maxTravelRange", "minTrv_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].minTrv_maxTravelRangeChoice",
+      "valueB": "Field",
+      "destination": ["minTrv_maxTravelRangeField", "minTrv_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCov_maxTravelRangeChoice",
+      "valueB": "Value",
+      "destination": "maxCov_maxTravelRange",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCov_maxTravelRangeChoice",
+      "valueB": "Field",
+      "destination": "maxCov_maxTravelRangeField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_maxTravelRangeChoice",
+      "valueB": "Value",
+      "destination": ["maxCapCov_maxTravelRange", "maxCapCov_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_maxTravelRangeChoice",
+      "valueB": "Field",
+      "destination": ["maxCapCov_maxTravelRangeField", "maxCapCov_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].pctCov_maxTravelRangeChoice",
+      "valueB": "Value",
+      "destination": ["pctCov_maxTravelRange", "pctCov_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].pctCov_maxTravelRangeChoice",
+      "valueB": "Field",
+      "destination": ["pctCov_maxTravelRangeField", "pctCov_maxTravelRangeUnits"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].alloc_requiredFacilitiesLayer.selectedLayers",
+      "destination": "alloc_requiredFacilitiesCapacityField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].minTrv_hasRequiredFacilities",
+      "valueB": true,
+      "destination": "minTrv_requiredFacilitiesLayer",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCov_hasRequiredFacilities",
+      "valueB": true,
+      "destination": "maxCov_requiredFacilitiesLayer",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_hasRequiredFacilities",
+      "valueB": true,
+      "destination": "maxCapCov_requiredFacilitiesLayer",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].pctCov_hasRequiredFacilities",
+      "valueB": true,
+      "destination": "pctCov_requiredFacilitiesLayer",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].maxCapCov_requiredFacilitiesLayer.selectedLayers",
+      "destination": "maxCapCov_requiredFacilitiesCapacityField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].maxCapCov_candidateFacilitiesLayer.selectedLayers",
+      "destination": "maxCapCov_candidateFacilitiesCapacityField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].alloc_requiredFacilitiesCapacityChoice",
+      "valueB": "Value",
+      "destination": "alloc_requiredFacilitiesCapacity",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].alloc_requiredFacilitiesCapacityChoice",
+      "valueB": "Field",
+      "destination": "alloc_requiredFacilitiesCapacityField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_candidateFacilitiesCapacityChoice",
+      "valueB": "Value",
+      "destination": "maxCapCov_candidateFacilitiesCapacity",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].maxCapCov_candidateFacilitiesCapacityChoice",
+      "valueB": "Field",
+      "destination": "maxCapCov_candidateFacilitiesCapacityField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].maxCapCov_requiredFacilitiesLayer NOT null",
+      "destination": "maxCapCov_requiredFacilitiesCapacityChoice",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].maxCapCov_requiredFacilitiesLayer NOT null) AND ($[Data].maxCapCov_requiredFacilitiesCapacityChoice = 'Value'",
+      "destination": "maxCapCov_requiredFacilitiesCapacity",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].maxCapCov_requiredFacilitiesLayer NOT null) AND ($[Data].maxCapCov_requiredFacilitiesCapacityChoice = 'Field'",
+      "destination": "maxCapCov_requiredFacilitiesCapacityField",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].minTrv_demandLocationsLayer.user.portal.isPortal = false",
+      "destination": "minTrv_candidateCount",
+      "effectParams": {
+        "max": 100
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].maxCov_demandLocationsLayer.user.portal.isPortal = false",
+      "destination": "maxCov_candidateCount",
+      "effectParams": {
+        "max": 100
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].maxCapCov_demandLocationsLayer.user.portal.isPortal = false",
+      "destination": "maxCapCov_candidateCount",
+      "effectParams": {
+        "max": 100
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].travelMode.id",
+      "valueB": null,
+      "destination": "travelMode",
+      "effectParams": {
+        "validationParams": {
+          "message": "$travelModeRequiredMessage"
+        }
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "label": "$goalSelectLabel",
+          "name": "goal",
+          "componentName": "analysis-workflow-select",
+          "required": true,
+          "choiceListLabels": {
+            "Allocate": "$alloc_goalLabel",
+            "MinimizeImpedance": "$minTrv_goalLabel",
+            "MaximizeCoverage": "$maxCov_goalLabel",
+            "MaximizeCapacitatedCoverage": "$maxCapCov_goalLabel",
+            "PercentCoverage": "$pctCov_goalLabel"
+          },
+          "defaultValue": null,
+          "UIparameterInfos": [
+            {
+              "name": "Allocate",
+              "label": "$alloc_goalLabel",
+              "UIparameters": [
+                {
+                  "label": "$inputAnalysisSettingGroupLabel",
+                  "layout": "vertical",
+                  "componentName": "analysis-block",
+                  "summaryText": "$analysisSettingsSummary",
+                  "UIparameters": [
+                    {
+                      "name": "travelMode",
+                      "label": "$travelModeLabel",
+                      "required": true,
+                      "value": ""
+                    },
+                    {
+                      "name": "timeOfDay",
+                      "label": "$departTime",
+                      "componentName": "analysis-traffic-time-input",
+                      "visible": true
+                    },
+                    {
+                      "name": "timeZoneForTimeOfDay",
+                      "label": "$timeZoneForTimeOfDay",
+                      "visible": false
+                    },
+                    {
+                      "name": "alloc_travelDirection",
+                      "submissionName": "travelDirection",
+                      "label": "$travelDirectionLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["FacilityToDemand", "DemandToFacility"],
+                      "choiceListIcons": { "FacilityToDemand": "expand", "DemandToFacility": "contract" },
+                      "choiceListLabels": {
+                        "FacilityToDemand": "$facilityToDemand",
+                        "DemandToFacility": "$demandToFacility"
+                      },
+                      "defaultValue": "FacilityToDemand",
+                      "useDefaultOnReset": true,
+                      "required": true
+                    },
+                    {
+                      "label": "$barrierSectionLabel",
+                      "componentName": "analysis-section",
+                      "UIparameters": [
+                        {
+                          "name": "alloc_pointBarrierLayer",
+                          "submissionName": "pointBarrierLayer",
+                          "label": "$pointBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_point"]
+                        },
+                        {
+                          "name": "alloc_lineBarrierLayer",
+                          "submissionName": "lineBarrierLayer",
+                          "label": "$lineBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_line"]
+                        },
+                        {
+                          "name": "alloc_polygonBarrierLayer",
+                          "submissionName": "polygonBarrierLayer",
+                          "label": "$polygonBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_polygon"]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "label": "$demandGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$demandLayerSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "alloc_demandLocationsLayer",
+                      "submissionName": "demandLocationsLayer",
+                      "label": "$demandLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "alloc_demandChoice",
+                      "label": "$demandChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "defaultValue": "Value",
+                      "useDefaultOnReset": true
+                    },
+                    {
+                      "name": "alloc_demand",
+                      "submissionName": "demand",
+                      "label": "$demandLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "alloc_demandField",
+                      "submissionName": "demandField",
+                      "label": "$demandFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "alloc_maxTravelRangeChoice",
+                      "label": "$maxTravelRangeChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Unlimited", "Value", "Field"],
+                      "choiceListLabels": { "Unlimited": "$unlimited", "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Unlimited"
+                    },
+                    {
+                      "name": "alloc_maxTravelRange",
+                      "submissionName": "maxTravelRange",
+                      "label": "$maxTravelRange",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 5,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "alloc_maxTravelRangeField",
+                      "submissionName": "maxTravelRangeField",
+                      "label": "$maxTravelRangeField",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "alloc_maxTravelRangeUnits",
+                      "submissionName": "maxTravelRangeUnits",
+                      "label": "$maxTravelRangeUnits",
+                      "componentName": "analysis-string-input",
+                      "visible": false,
+                      "required": true,
+                      "defaultValue": "Minutes",
+                      "useDefaultOnReset": true
+                    }
+                  ]
+                },
+                {
+                  "label": "$facilitiesGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$alloc_facilitiesSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "alloc_requiredFacilitiesLayer",
+                      "submissionName": "requiredFacilitiesLayer",
+                      "label": "$alloc_requiredFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "alloc_requiredFacilitiesCapacityChoice",
+                      "label": "$capacityChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Unlimited", "Value", "Field"],
+                      "choiceListLabels": { "Unlimited": "$unlimited", "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "defaultValue": "Unlimited",
+                      "useDefaultOnReset": true,
+                      "required": true
+                    },
+                    {
+                      "name": "alloc_requiredFacilitiesCapacity",
+                      "submissionName": "requiredFacilitiesCapacity",
+                      "label": "$capacityLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "alloc_requiredFacilitiesCapacityField",
+                      "submissionName": "requiredFacilitiesCapacityField",
+                      "label": "$capacityFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    }
+                  ]
+                },
+                {
+                  "label": "$resultLayersGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$resultLayerGroupText",
+                  "UIparameters": [
+                    {
+                      "name": "outputName",
+                      "label": "$outputName",
+                      "componentName": "analysis-string-input",
+                      "required": true,
+                      "placeholderText": "$outputNamePlaceholderText"
+                    },
+                    {
+                      "name": "saveResultIn",
+                      "label": "$saveResultIn",
+                      "componentName": "analysis-folder-input"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "MinimizeImpedance",
+              "label": "$minTrv_goalLabel",
+              "UIparameters": [
+                {
+                  "label": "$inputAnalysisSettingGroupLabel",
+                  "layout": "vertical",
+                  "componentName": "analysis-block",
+                  "summaryText": "$analysisSettingsSummary",
+                  "UIparameters": [
+                    {
+                      "name": "travelMode",
+                      "label": "$travelModeLabel",
+                      "required": true,
+                      "value": ""
+                    },
+                    {
+                      "name": "timeOfDay",
+                      "label": "$departTime",
+                      "componentName": "analysis-traffic-time-input",
+                      "visible": true
+                    },
+                    {
+                      "name": "timeZoneForTimeOfDay",
+                      "label": "$timeZoneForTimeOfDay",
+                      "visible": false
+                    },
+                    {
+                      "name": "minTrv_travelDirection",
+                      "submissionName": "travelDirection",
+                      "label": "$travelDirectionLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["FacilityToDemand", "DemandToFacility"],
+                      "choiceListIcons": { "FacilityToDemand": "expand", "DemandToFacility": "contract" },
+                      "choiceListLabels": {
+                        "FacilityToDemand": "$facilityToDemand",
+                        "DemandToFacility": "$demandToFacility"
+                      },
+                      "defaultValue": "FacilityToDemand",
+                      "useDefaultOnReset": true,
+                      "required": true
+                    },
+                    {
+                      "label": "$barrierSectionLabel",
+                      "componentName": "analysis-section",
+                      "UIparameters": [
+                        {
+                          "name": "minTrv_pointBarrierLayer",
+                          "submissionName": "pointBarrierLayer",
+                          "label": "$pointBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_point"]
+                        },
+                        {
+                          "name": "minTrv_lineBarrierLayer",
+                          "submissionName": "lineBarrierLayer",
+                          "label": "$lineBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_line"]
+                        },
+                        {
+                          "name": "minTrv_polygonBarrierLayer",
+                          "submissionName": "polygonBarrierLayer",
+                          "label": "$polygonBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_polygon"]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "label": "$demandGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$demandLayerSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "minTrv_demandLocationsLayer",
+                      "submissionName": "demandLocationsLayer",
+                      "label": "$demandLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "minTrv_demandChoice",
+                      "label": "$demandChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Value"
+                    },
+                    {
+                      "name": "minTrv_demand",
+                      "submissionName": "demand",
+                      "label": "$demandLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "required": true,
+                      "visible": false
+                    },
+                    {
+                      "name": "minTrv_demandField",
+                      "submissionName": "demandField",
+                      "label": "$demandFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "minTrv_maxTravelRangeChoice",
+                      "label": "$maxTravelRangeChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Unlimited", "Value", "Field"],
+                      "choiceListLabels": { "Unlimited": "$unlimited", "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Unlimited"
+                    },
+                    {
+                      "name": "minTrv_maxTravelRange",
+                      "submissionName": "maxTravelRange",
+                      "label": "$maxTravelRange",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 5,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "minTrv_maxTravelRangeField",
+                      "submissionName": "maxTravelRangeField",
+                      "label": "$maxTravelRangeField",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "minTrv_maxTravelRangeUnits",
+                      "submissionName": "maxTravelRangeUnits",
+                      "label": "$maxTravelRangeUnits",
+                      "componentName": "analysis-string-input",
+                      "visible": false,
+                      "required": true,
+                      "defaultValue": "Minutes",
+                      "useDefaultOnReset": true
+                    }
+                  ]
+                },
+                {
+                  "label": "$facilitiesGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$facilitiesSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "minTrv_candidateFacilitiesLayer",
+                      "submissionName": "candidateFacilitiesLayer",
+                      "label": "$candidateFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "minTrv_candidateCount",
+                      "submissionName": "candidateCount",
+                      "label": "$candidateCountLabel",
+                      "componentName": "analysis-number-input",
+                      "visible": true,
+                      "required": true,
+                      "defaultValue": 1,
+                      "min": 1,
+                      "numberType": "integer"
+                    },
+                    {
+                      "name": "minTrv_hasRequiredFacilities",
+                      "label": "$hasRequiredFacilities",
+                      "componentName": "analysis-boolean-input",
+                      "visible": true,
+                      "defaultValue": false,
+                      "displayStyle": "switch"
+                    },
+                    {
+                      "name": "minTrv_requiredFacilitiesLayer",
+                      "submissionName": "requiredFacilitiesLayer",
+                      "label": "$requiredFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": false,
+                      "visible": false
+                    }
+                  ]
+                },
+                {
+                  "label": "$resultLayersGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$resultLayerGroupText",
+                  "UIparameters": [
+                    {
+                      "name": "outputName",
+                      "label": "$outputName",
+                      "componentName": "analysis-string-input",
+                      "required": true,
+                      "placeholderText": "$outputNamePlaceholderText"
+                    },
+                    {
+                      "name": "saveResultIn",
+                      "label": "$saveResultIn",
+                      "componentName": "analysis-folder-input"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "MaximizeCoverage",
+              "label": "$maxCov_goalLabel",
+              "UIparameters": [
+                {
+                  "label": "$inputAnalysisSettingGroupLabel",
+                  "layout": "vertical",
+                  "componentName": "analysis-block",
+                  "summaryText": "$analysisSettingsSummary",
+                  "UIparameters": [
+                    {
+                      "name": "travelMode",
+                      "label": "$travelModeLabel",
+                      "required": true,
+                      "value": ""
+                    },
+                    {
+                      "name": "timeOfDay",
+                      "label": "$departTime",
+                      "componentName": "analysis-traffic-time-input",
+                      "visible": true
+                    },
+                    {
+                      "name": "timeZoneForTimeOfDay",
+                      "label": "$timeZoneForTimeOfDay",
+                      "visible": false
+                    },
+                    {
+                      "name": "maxCov_travelDirection",
+                      "submissionName": "travelDirection",
+                      "label": "$travelDirectionLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["FacilityToDemand", "DemandToFacility"],
+                      "choiceListIcons": { "FacilityToDemand": "expand", "DemandToFacility": "contract" },
+                      "choiceListLabels": {
+                        "FacilityToDemand": "$facilityToDemand",
+                        "DemandToFacility": "$demandToFacility"
+                      },
+                      "defaultValue": "FacilityToDemand",
+                      "useDefaultOnReset": true,
+                      "required": true
+                    },
+                    {
+                      "label": "$barrierSectionLabel",
+                      "componentName": "analysis-section",
+                      "UIparameters": [
+                        {
+                          "name": "maxCov_pointBarrierLayer",
+                          "submissionName": "pointBarrierLayer",
+                          "label": "$pointBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_point"]
+                        },
+                        {
+                          "name": "maxCov_lineBarrierLayer",
+                          "submissionName": "lineBarrierLayer",
+                          "label": "$lineBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_line"]
+                        },
+                        {
+                          "name": "maxCov_polygonBarrierLayer",
+                          "submissionName": "polygonBarrierLayer",
+                          "label": "$polygonBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_polygon"]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "label": "$demandGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$demandLayerSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "maxCov_demandLocationsLayer",
+                      "submissionName": "demandLocationsLayer",
+                      "label": "$demandLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "maxCov_demandChoice",
+                      "label": "$demandChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Value"
+                    },
+                    {
+                      "name": "maxCov_demand",
+                      "submissionName": "demand",
+                      "label": "$demandLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "required": true,
+                      "visible": false
+                    },
+                    {
+                      "name": "maxCov_demandField",
+                      "submissionName": "demandField",
+                      "label": "$demandFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCov_maxTravelRangeChoice",
+                      "label": "$maxTravelRangeChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Value"
+                    },
+                    {
+                      "name": "maxCov_maxTravelRange",
+                      "submissionName": "maxTravelRange",
+                      "label": "$maxTravelRange",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 5,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCov_maxTravelRangeField",
+                      "submissionName": "maxTravelRangeField",
+                      "label": "$maxTravelRangeField",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCov_maxTravelRangeUnits",
+                      "submissionName": "maxTravelRangeUnits",
+                      "label": "$maxTravelRangeUnits",
+                      "componentName": "analysis-string-input",
+                      "visible": true,
+                      "required": true,
+                      "defaultValue": "Minutes",
+                      "useDefaultOnReset": true
+                    }
+                  ]
+                },
+                {
+                  "label": "$facilitiesGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$facilitiesSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "maxCov_candidateFacilitiesLayer",
+                      "submissionName": "candidateFacilitiesLayer",
+                      "label": "$candidateFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "maxCov_candidateCount",
+                      "submissionName": "candidateCount",
+                      "label": "$candidateCountLabel",
+                      "componentName": "analysis-number-input",
+                      "visible": true,
+                      "required": true,
+                      "defaultValue": 1,
+                      "min": 1,
+                      "numberType": "integer"
+                    },
+                    {
+                      "name": "maxCov_hasRequiredFacilities",
+                      "label": "$hasRequiredFacilities",
+                      "componentName": "analysis-boolean-input",
+                      "visible": true,
+                      "defaultValue": false,
+                      "displayStyle": "switch"
+                    },
+                    {
+                      "name": "maxCov_requiredFacilitiesLayer",
+                      "submissionName": "requiredFacilitiesLayer",
+                      "label": "$requiredFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": false,
+                      "visible": false
+                    }
+                  ]
+                },
+                {
+                  "label": "$resultLayersGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$resultLayerGroupText",
+                  "UIparameters": [
+                    {
+                      "name": "outputName",
+                      "label": "$outputName",
+                      "componentName": "analysis-string-input",
+                      "required": true,
+                      "placeholderText": "$outputNamePlaceholderText"
+                    },
+                    {
+                      "name": "saveResultIn",
+                      "label": "$saveResultIn",
+                      "componentName": "analysis-folder-input"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "MaximizeCapacitatedCoverage",
+              "label": "$maxCapCov_goalLabel",
+              "UIparameters": [
+                {
+                  "label": "$inputAnalysisSettingGroupLabel",
+                  "layout": "vertical",
+                  "componentName": "analysis-block",
+                  "summaryText": "$analysisSettingsSummary",
+                  "UIparameters": [
+                    {
+                      "name": "travelMode",
+                      "label": "$travelModeLabel",
+                      "required": true,
+                      "value": ""
+                    },
+                    {
+                      "name": "timeOfDay",
+                      "label": "$departTime",
+                      "componentName": "analysis-traffic-time-input",
+                      "visible": true
+                    },
+                    {
+                      "name": "timeZoneForTimeOfDay",
+                      "label": "$timeZoneForTimeOfDay",
+                      "visible": false
+                    },
+                    {
+                      "name": "maxCapCov_travelDirection",
+                      "submissionName": "travelDirection",
+                      "label": "$travelDirectionLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["FacilityToDemand", "DemandToFacility"],
+                      "choiceListIcons": { "FacilityToDemand": "expand", "DemandToFacility": "contract" },
+                      "choiceListLabels": {
+                        "FacilityToDemand": "$facilityToDemand",
+                        "DemandToFacility": "$demandToFacility"
+                      },
+                      "defaultValue": "FacilityToDemand",
+                      "useDefaultOnReset": true,
+                      "required": true
+                    },
+                    {
+                      "label": "$barrierSectionLabel",
+                      "componentName": "analysis-section",
+                      "UIparameters": [
+                        {
+                          "name": "maxCapCov_pointBarrierLayer",
+                          "submissionName": "pointBarrierLayer",
+                          "label": "$pointBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_point"]
+                        },
+                        {
+                          "name": "maxCapCov_lineBarrierLayer",
+                          "submissionName": "lineBarrierLayer",
+                          "label": "$lineBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_line"]
+                        },
+                        {
+                          "name": "maxCapCov_polygonBarrierLayer",
+                          "submissionName": "polygonBarrierLayer",
+                          "label": "$polygonBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_polygon"]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "label": "$demandGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$demandLayerSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "maxCapCov_demandLocationsLayer",
+                      "submissionName": "demandLocationsLayer",
+                      "label": "$demandLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "maxCapCov_demandChoice",
+                      "label": "$demandChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Value"
+                    },
+                    {
+                      "name": "maxCapCov_demand",
+                      "submissionName": "demand",
+                      "label": "$demandLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "required": true,
+                      "visible": false
+                    },
+                    {
+                      "name": "maxCapCov_demandField",
+                      "submissionName": "demandField",
+                      "label": "$demandFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCapCov_maxTravelRangeChoice",
+                      "label": "$maxTravelRangeChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Unlimited", "Value", "Field"],
+                      "choiceListLabels": { "Unlimited": "$unlimited", "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Unlimited"
+                    },
+                    {
+                      "name": "maxCapCov_maxTravelRange",
+                      "submissionName": "maxTravelRange",
+                      "label": "$maxTravelRange",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 5,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCapCov_maxTravelRangeField",
+                      "submissionName": "maxTravelRangeField",
+                      "label": "$maxTravelRangeField",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCapCov_maxTravelRangeUnits",
+                      "submissionName": "maxTravelRangeUnits",
+                      "label": "$maxTravelRangeUnits",
+                      "componentName": "analysis-string-input",
+                      "visible": false,
+                      "required": true,
+                      "defaultValue": "Minutes",
+                      "useDefaultOnReset": true
+                    }
+                  ]
+                },
+                {
+                  "label": "$facilitiesGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$maxCapCov_facilitiesSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "maxCapCov_candidateFacilitiesLayer",
+                      "submissionName": "candidateFacilitiesLayer",
+                      "label": "$candidateFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "maxCapCov_candidateFacilitiesCapacityChoice",
+                      "label": "$capacityChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Value"
+                    },
+                    {
+                      "name": "maxCapCov_candidateFacilitiesCapacity",
+                      "submissionName": "candidateFacilitiesCapacity",
+                      "label": "$capacityLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCapCov_candidateFacilitiesCapacityField",
+                      "submissionName": "candidateFacilitiesCapacityField",
+                      "label": "$capacityFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCapCov_candidateCount",
+                      "submissionName": "candidateCount",
+                      "label": "$candidateCountLabel",
+                      "componentName": "analysis-number-input",
+                      "visible": true,
+                      "required": true,
+                      "defaultValue": 1,
+                      "min": 1,
+                      "numberType": "integer"
+                    },
+                    {
+                      "name": "maxCapCov_hasRequiredFacilities",
+                      "label": "$hasRequiredFacilities",
+                      "componentName": "analysis-boolean-input",
+                      "visible": true,
+                      "defaultValue": false,
+                      "displayStyle": "switch"
+                    },
+                    {
+                      "name": "maxCapCov_requiredFacilitiesLayer",
+                      "submissionName": "requiredFacilitiesLayer",
+                      "label": "$requiredFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": false,
+                      "visible": false
+                    },
+                    {
+                      "name": "maxCapCov_requiredFacilitiesCapacityChoice",
+                      "label": "$requiredFacilityCapacityChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "defaultValue": "Value",
+                      "useDefaultOnReset": true,
+                      "visible": false
+                    },
+                    {
+                      "name": "maxCapCov_requiredFacilitiesCapacity",
+                      "submissionName": "requiredFacilitiesCapacity",
+                      "label": "$capacityLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "maxCapCov_requiredFacilitiesCapacityField",
+                      "submissionName": "requiredFacilitiesCapacityField",
+                      "label": "$capacityFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    }
+                  ]
+                },
+                {
+                  "label": "$resultLayersGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$resultLayerGroupText",
+                  "UIparameters": [
+                    {
+                      "name": "outputName",
+                      "label": "$outputName",
+                      "componentName": "analysis-string-input",
+                      "required": true,
+                      "placeholderText": "$outputNamePlaceholderText"
+                    },
+                    {
+                      "name": "saveResultIn",
+                      "label": "$saveResultIn",
+                      "componentName": "analysis-folder-input"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "PercentCoverage",
+              "label": "$pctCov_goalLabel",
+              "UIparameters": [
+                {
+                  "label": "$inputAnalysisSettingGroupLabel",
+                  "layout": "vertical",
+                  "componentName": "analysis-block",
+                  "summaryText": "$analysisSettingsSummary",
+                  "UIparameters": [
+                    {
+                      "name": "travelMode",
+                      "label": "$travelModeLabel",
+                      "required": true,
+                      "value": ""
+                    },
+                    {
+                      "name": "timeOfDay",
+                      "label": "$departTime",
+                      "componentName": "analysis-traffic-time-input",
+                      "visible": true
+                    },
+                    {
+                      "name": "timeZoneForTimeOfDay",
+                      "label": "$timeZoneForTimeOfDay",
+                      "visible": false
+                    },
+                    {
+                      "name": "pctCov_travelDirection",
+                      "submissionName": "travelDirection",
+                      "label": "$travelDirectionLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["FacilityToDemand", "DemandToFacility"],
+                      "choiceListIcons": { "FacilityToDemand": "expand", "DemandToFacility": "contract" },
+                      "choiceListLabels": {
+                        "FacilityToDemand": "$facilityToDemand",
+                        "DemandToFacility": "$demandToFacility"
+                      },
+                      "defaultValue": "FacilityToDemand",
+                      "useDefaultOnReset": true,
+                      "required": true
+                    },
+                    {
+                      "label": "$barrierSectionLabel",
+                      "componentName": "analysis-section",
+                      "UIparameters": [
+                        {
+                          "name": "pctCov_pointBarrierLayer",
+                          "submissionName": "pointBarrierLayer",
+                          "label": "$pointBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_point"]
+                        },
+                        {
+                          "name": "pctCov_lineBarrierLayer",
+                          "submissionName": "lineBarrierLayer",
+                          "label": "$lineBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_line"]
+                        },
+                        {
+                          "name": "pctCov_polygonBarrierLayer",
+                          "submissionName": "polygonBarrierLayer",
+                          "label": "$polygonBarrierLayerLabel",
+                          "componentName": "analysis-layer-input",
+                          "layerFilterType": ["feature_polygon"]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "label": "$demandGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$demandLayerSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "pctCov_demandLocationsLayer",
+                      "submissionName": "demandLocationsLayer",
+                      "label": "$demandLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "pctCov_demandChoice",
+                      "label": "$demandChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Value", "Field"],
+                      "choiceListLabels": { "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Value"
+                    },
+                    {
+                      "name": "pctCov_demand",
+                      "submissionName": "demand",
+                      "label": "$demandLabel",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 1,
+                      "required": true,
+                      "visible": false
+                    },
+                    {
+                      "name": "pctCov_demandField",
+                      "submissionName": "demandField",
+                      "label": "$demandFieldLabel",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "pctCov_maxTravelRangeChoice",
+                      "label": "$maxTravelRangeChoiceLabel",
+                      "componentName": "analysis-string-input",
+                      "choiceList": ["Unlimited", "Value", "Field"],
+                      "choiceListLabels": { "Unlimited": "$unlimited", "Value": "$value", "Field": "$fieldLabel" },
+                      "showAsRadioGroup": true,
+                      "selectionMode": "single",
+                      "useDefaultOnReset": true,
+                      "defaultValue": "Unlimited"
+                    },
+                    {
+                      "name": "pctCov_maxTravelRange",
+                      "submissionName": "maxTravelRange",
+                      "label": "$maxTravelRange",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "defaultValue": 5,
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "pctCov_maxTravelRangeField",
+                      "submissionName": "maxTravelRangeField",
+                      "label": "$maxTravelRangeField",
+                      "componentName": "analysis-field-input",
+                      "fieldTypes": ["double", "integer", "small-integer", "single"],
+                      "visible": false,
+                      "required": true
+                    },
+                    {
+                      "name": "pctCov_maxTravelRangeUnits",
+                      "submissionName": "maxTravelRangeUnits",
+                      "label": "$maxTravelRangeUnits",
+                      "componentName": "analysis-string-input",
+                      "visible": false,
+                      "required": true,
+                      "defaultValue": "Minutes",
+                      "useDefaultOnReset": true
+                    },
+                    {
+                      "name": "pctCov_percentDemandCoverage",
+                      "submissionName": "percentDemandCoverage",
+                      "label": "$percentDemandCoverage",
+                      "componentName": "analysis-number-input",
+                      "min": 0,
+                      "excludeMinValue": true,
+                      "visible": true,
+                      "required": true,
+                      "defaultValue": 100,
+                      "max": 100
+                    }
+                  ]
+                },
+                {
+                  "label": "$facilitiesGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$facilitiesSummaryText",
+                  "UIparameters": [
+                    {
+                      "name": "pctCov_candidateFacilitiesLayer",
+                      "submissionName": "candidateFacilitiesLayer",
+                      "label": "$candidateFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": true,
+                      "minimumFeatureCount": 1
+                    },
+                    {
+                      "name": "pctCov_hasRequiredFacilities",
+                      "label": "$hasRequiredFacilities",
+                      "componentName": "analysis-boolean-input",
+                      "visible": true,
+                      "defaultValue": false,
+                      "displayStyle": "switch"
+                    },
+                    {
+                      "name": "pctCov_requiredFacilitiesLayer",
+                      "submissionName": "requiredFacilitiesLayer",
+                      "label": "$requiredFacilitiesLayerLabel",
+                      "componentName": "analysis-layer-input",
+                      "layerFilterType": ["feature_point"],
+                      "required": false,
+                      "visible": false
+                    }
+                  ]
+                },
+                {
+                  "label": "$resultLayersGroupLabel",
+                  "componentName": "analysis-block",
+                  "summaryText": "$resultLayerGroupText",
+                  "UIparameters": [
+                    {
+                      "name": "outputName",
+                      "label": "$outputName",
+                      "componentName": "analysis-string-input",
+                      "required": true,
+                      "placeholderText": "$outputNamePlaceholderText"
+                    },
+                    {
+                      "name": "saveResultIn",
+                      "label": "$saveResultIn",
+                      "componentName": "analysis-folder-input"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "timeZoneForTimeOfDay",
+      "label": "$timeZoneForTimeOfDay",
+      "visible": false
+    },
+    {
+      "UIparameters": [
+        {
+          "label": "",
+          "name": "workflowSection"
+        }
+      ]
+    },
+    {
+      "UIparameters": [
+        {
+          "UIparameters": [
+            {
+              "label": "",
+              "name": "previousWorkflow",
+              "visible": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

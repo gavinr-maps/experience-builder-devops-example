@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Hotspots zoeken identificeert statistisch significante clustering in de invoerobjecten.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Het invoerpunt of polygoonlaag waarop de hotspotanalyse zal worden uitgevoerd.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Specificeert of hot- en cold spots objectlocaties (<b>Punttelling</b>) of objectveldwaarden (<b>Veld</b>) weergeven.
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Het veld dat zal worden geanalyseerd voor hoge en lage waardeclusters.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Het type begrenzende objecten waarbinnen de invoerpuntobjecten worden samengevoegd. Dit kan een polygoonlaag zijn (<b>Polygoonlaag</b>) of een betegelingsraster van vierkanten (<b>Visnetcellen</b>) of zeshoeken (<b>Zeshoekige cellen</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>De laag met polygoonobjecten waarin de ingevoerde puntobjecten zullen worden samengevoegd.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>De polygoonlaag die de grens van de analyse bepaalt. Puntobjecten binnen de polygoon worden opgenomen in de hotspotanalyse.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Specificeert hoe de waarden in het  <b>Analyseveld</b> of de geaggregeerde punten-tellingen moeten worden verdeeld. De optie <b>Veld</b> zal de waarden in het <b>Analyseveld</b> splitsen aan de hand van de waarden van een opgegeven veld in de parameter <b>Invoerlaag</b>. De optie <b>Verrijkingsgegevens</b> zal de functies of de aggregatievormen verrijken met populatiegegevens en zal de waarden in het <b>Analyseveld</b> of de geaggregeerde punt-tellingen delen door de bevolking. Deze optie verbruikt extra credits.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>De lengte van een zijde van de vierkante of zeshoekige cellen die zullen worden gebruikt om de invoerobjecten samen te voegen.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Specificeert de eenheden die voor de celgrootte zullen worden gebruikt.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>De afstandsband die zal worden gebruikt om een buurt te defini&euml;ren. Naburige objecten binnen de afstandsband van een doelobect worden tijdens de hotspotanalyse opgenomen in de buurt van het doelobject.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Specificeert de eenheden die voor de afstandsband zullen worden gebruikt.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

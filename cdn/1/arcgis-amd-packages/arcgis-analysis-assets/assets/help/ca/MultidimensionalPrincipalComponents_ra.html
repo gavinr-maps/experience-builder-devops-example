@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Components principals multidimensionals transforma les capes d'imatges multidimensionals en un nombre redu&iuml;t de components que t&eacute; en compte la vari&agrave;ncia de les dades, de manera que es puguin identificar f&agrave;cilment els patrons espacials i temporals.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Capa d'imatges multidimensional que s'analitzar&agrave;.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>M&egrave;tode que s'utilitzar&agrave; per dur a terme l'an&agrave;lisi de components principals. Les opcions s&oacute;n:  <b>Reducci&oacute; de la dimensi&oacute;</b> i <b>Reducci&oacute; espacial</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensi&oacute; de la capa d'imatges multidimensionals al llarg de la qual s'analitzar&agrave; la variable.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Nom de la capa de taules o de la capa d'imatges de sortida que mostra els components principals trobats en funci&oacute; de les opcions de mode seg&uuml;ents:
+                <ul>
+                    <li>La sortida de la reducci&oacute; de la dimensi&oacute; ser&agrave; una capa d'imatges multibanda.
+                    </li>
+                    <li>La sortida de la reducci&oacute; espacial ser&agrave; una capa de taules.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Nom de la capa de taules o la capa d'imatges de sortida que mostra les dades de suport en l'elecci&oacute; de components principal en funci&oacute; de les opcions de mode seg&uuml;ents:
+                <ul>
+                    <li>La sortida de la reducci&oacute; de la dimensi&oacute; ser&agrave; una capa de taules.
+                    </li>
+                    <li>La sortida de la reducci&oacute; espacial ser&agrave; una capa d'imatges.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Nom de la taula de valors eigen, que indica el percentatge de vari&agrave;ncia de cada component.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Nom de la variable de la capa d'imatges multidimensional d'entrada utilitzada en el c&agrave;lcul.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Nombre de components principals per calcular, que sol ser inferior al nombre de r&agrave;sters d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Tipus de sortida que es crear&agrave;. Les sortides poden ser capes d'imatges en mosaic o capes d'imatges din&agrave;miques.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desaran els resultats.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

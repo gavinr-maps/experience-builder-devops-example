@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'בצע אינטרפולציה לנקודות' חוזה ערכים במיקומים חדשים על בסיס מדידות נקודה. הכלי יוצר פלט ישויות.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>בחר את שכבת הנקודות של המיקומים שיעברו אינטרפולציה.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>בחר את השדה שמכיל את הערכים הנמדדים שיעברו אינטרפולציה.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>בחר האם מהירות חישוב או דיוק יקבלו עדיפות. תחזיות מדויקות יותר דורשות זמן חישוב ארוך יותר.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>בחר האם שכבה של סטיות תקן עבור תחזיות האינטרפולציה תיכלל בפלט.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>בחר כיצד ערכי חיתוך קבוצות יחושבו.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>ציין את מספר הקבוצות (טווח ערכים חזוי) שייכללו בשכבת התוצאה. כל קבוצה מגדירה את הגבול של פוליגון ומייצגת קווי מתאר של ערכים חזויים. ערכי חיתוך הקבוצות נקבעים על ידי סוג הסיווג.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>מספק את ערכי חיתוך הקבוצות שבהם יעשה שימוש.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>בחר שכבת פוליגון אשר תשמש להגדרת אזור מחקר. התוצאות ייחתכו כך שיוצגו רק בתוך אזור המחקר.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>בחר שכבת נקודות שמייצגת את המיקומים שבהם יעשה שימוש לחיזוי ערכים. אם צוין, תיווצר שכבת נקודות שמכילה ערכים חזויים במיקומים שצוינו.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאות יישמרו.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

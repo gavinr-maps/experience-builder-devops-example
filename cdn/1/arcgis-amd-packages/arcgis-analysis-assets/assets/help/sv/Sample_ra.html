@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Sampla skapar en tabell eller punktgeoobjektklass som visar pixelv&auml;rdena fr&aring;n ett raster eller upps&auml;ttning med raster p&aring; definierade platser.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Bildlagren som inneh&aring;ller v&auml;rden som ska samplas baserat p&aring; platsdata f&ouml;r indata.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Det lager som inneh&aring;ller platserna f&ouml;r varje sampling.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Omsamplingsalgoritmen som anv&auml;nds under samplingsprocessen.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Ett f&auml;lt i lagret som inneh&aring;ller olika v&auml;rden f&ouml;r varje plats eller indatageoobjekt.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Anger om indatabildlagren inneh&aring;ller flerdimensionella data.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Anger tid, djup eller andra inh&auml;mtningsdata kopplade till platsgeoobjekten.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensionen f&ouml;r det flerdimensionella indatalagret.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>F&auml;ltet som anv&auml;nds f&ouml;r att starta tidsintervallet f&ouml;r det flerdimensionella indatalagret.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>F&auml;ltet som anv&auml;nds f&ouml;r att avsluta tidsintervallet f&ouml;r det flerdimensionella indatalagret.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Ett icke-negativt tal som l&auml;ggs till i parametern  <b>Dimension</b> eller ett v&auml;rde som definierar starten av ett dimensionsv&auml;rdeintervall.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Ett icke-negativt tal som l&auml;ggs till i parametern  <b>Dimension</b> eller ett v&auml;rde som definierar slutet av ett dimensionsv&auml;rdeintervall.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Statistiken som genereras vid bearbetning av flerdimensionella bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Procentv&auml;rdet som anv&auml;nds f&ouml;r percentilstatistiktypen.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Buffertavst&aring;ndet som till&auml;mpas p&aring; platser f&ouml;r indata.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; lagret som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Anger om utdatatypen kommer att vara ett geoobjekt eller en tabell.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Anger om utdata kommer att vara efter rad eller efter kolumn.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

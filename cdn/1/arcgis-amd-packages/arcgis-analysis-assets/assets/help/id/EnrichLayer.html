@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Enrich Layer meningkatkan fitur input dengan data demografis dan lanskap.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Fitur titik, garis, atau poligon yang akan ditingkatkan dengan data tambahan.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Variabel yang akan ditambahkan sebagai atribut ke fitur input.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Menentukan cara mendefinisikan area sekitar fitur titik atau garis input. Area keseluruhan sekitar masing-masing fitur akan diperkaya.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Nilai numerik yang menentukan jarak atau waktu di sekitar masing-masing fitur input yang akan diperluas oleh area tersebut.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Unit yang akan digunakan untuk menentukan jarak atau waktu yang akan diperluas oleh area yang diperkaya di sekitar setiap fitur masukan.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Menentukan layer output akan berisi fitur poligon yang ditentukan oleh pengaturan  <b>Area pengayaan</b> (dicentang) atau fitur input (tidak dicentang).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

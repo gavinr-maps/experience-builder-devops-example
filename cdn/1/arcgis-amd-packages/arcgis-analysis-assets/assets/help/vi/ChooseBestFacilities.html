@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Chọn Cơ sở Tốt nhất sẽ t&igrave;m ra tập hợp c&aacute;c cơ sở ph&ugrave; hợp nhất với nhu cầu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Mục ti&ecirc;u cần phải được đ&aacute;p ứng khi ph&acirc;n bổ c&aacute;c vị tr&iacute; c&oacute; nhu cầu cho c&aacute;c cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Chỉ định nhu cầu cho các cơ sở dựa trên khả năng của cơ sở và số lượng nhu cầu từ khu vực xung quanh. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Chọn các cơ sở sao cho tổng thời gian di chuyển và khoảng cách di chuyển từ tất cả vị trí có nhu cầu đến cơ sở được chỉ định được giảm đến mức tối thiểu. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Chọn các cơ sở sao cho số lượng nhu cầu tối đa được phân bổ mà tất cả nhu cầu từ mỗi vị trí có nhu cầu đều được phân bổ cho một cơ sở gần nhất. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Chọn các cơ sở sao cho số lượng nhu cầu tối đa được phân bổ không vượt quá khả năng của bất kỳ cơ sở nào. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Chọn số lượng cơ sở tối thiểu cần thiết để đạt được tỷ lệ phần trăm nhu cầu cụ thể. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Phương thức di chuyển sẽ được sử dụng để đo lường thời gian hoặc khoảng c&aacute;ch giữa c&aacute;c cơ sở v&agrave; vị tr&iacute; c&oacute; nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Ng&agrave;y v&agrave; thời gian m&agrave; người đi lại khởi h&agrave;nh từ cơ sở hoặc vị tr&iacute; c&oacute; nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>X&aacute;c định xem h&agrave;nh tr&igrave;nh bắt đầu tại c&aacute;c cơ sở v&agrave; di chuyển ra b&ecirc;n ngo&agrave;i tới c&aacute;c vị tr&iacute; c&oacute; nhu cầu hay bắt đầu tại c&aacute;c vị tr&iacute; c&oacute; nhu cầu v&agrave; di chuyển v&agrave;o trong tới c&aacute;c cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>X&aacute;c định xem h&agrave;nh tr&igrave;nh bắt đầu tại c&aacute;c cơ sở v&agrave; di chuyển ra b&ecirc;n ngo&agrave;i tới c&aacute;c vị tr&iacute; c&oacute; nhu cầu hay bắt đầu tại c&aacute;c vị tr&iacute; c&oacute; nhu cầu v&agrave; di chuyển v&agrave;o trong tới c&aacute;c cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>X&aacute;c định xem h&agrave;nh tr&igrave;nh bắt đầu tại c&aacute;c cơ sở v&agrave; di chuyển ra b&ecirc;n ngo&agrave;i tới c&aacute;c vị tr&iacute; c&oacute; nhu cầu hay bắt đầu tại c&aacute;c vị tr&iacute; c&oacute; nhu cầu v&agrave; di chuyển v&agrave;o trong tới c&aacute;c cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>X&aacute;c định xem h&agrave;nh tr&igrave;nh bắt đầu tại c&aacute;c cơ sở v&agrave; di chuyển ra b&ecirc;n ngo&agrave;i tới c&aacute;c vị tr&iacute; c&oacute; nhu cầu hay bắt đầu tại c&aacute;c vị tr&iacute; c&oacute; nhu cầu v&agrave; di chuyển v&agrave;o trong tới c&aacute;c cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>X&aacute;c định xem h&agrave;nh tr&igrave;nh bắt đầu tại c&aacute;c cơ sở v&agrave; di chuyển ra b&ecirc;n ngo&agrave;i tới c&aacute;c vị tr&iacute; c&oacute; nhu cầu hay bắt đầu tại c&aacute;c vị tr&iacute; c&oacute; nhu cầu v&agrave; di chuyển v&agrave;o trong tới c&aacute;c cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; nhu cầu đối với dịch vụ do cơ sở cung cấp.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; nhu cầu đối với dịch vụ do cơ sở cung cấp.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; nhu cầu đối với dịch vụ do cơ sở cung cấp.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; nhu cầu đối với dịch vụ do cơ sở cung cấp.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; nhu cầu đối với dịch vụ do cơ sở cung cấp.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>X&aacute;c định c&aacute;ch &aacute;p dụng nhu cầu cho mỗi vị tr&iacute;. Nếu số lượng nhu cầu giống nhau ở tất cả c&aacute;c vị tr&iacute;, h&atilde;y chọn  <b>Gi&aacute; trị</b>. Nếu số lượng nhu cầu kh&aacute;c nhau theo vị tr&iacute;, h&atilde;y chọn <b>Trường</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>X&aacute;c định c&aacute;ch &aacute;p dụng nhu cầu cho mỗi vị tr&iacute;. Nếu số lượng nhu cầu giống nhau ở tất cả c&aacute;c vị tr&iacute;, h&atilde;y chọn  <b>Gi&aacute; trị</b>. Nếu số lượng nhu cầu kh&aacute;c nhau theo vị tr&iacute;, h&atilde;y chọn <b>Trường</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>X&aacute;c định c&aacute;ch &aacute;p dụng nhu cầu cho mỗi vị tr&iacute;. Nếu số lượng nhu cầu giống nhau ở tất cả c&aacute;c vị tr&iacute;, h&atilde;y chọn  <b>Gi&aacute; trị</b>. Nếu số lượng nhu cầu kh&aacute;c nhau theo vị tr&iacute;, h&atilde;y chọn <b>Trường</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>X&aacute;c định c&aacute;ch &aacute;p dụng nhu cầu cho mỗi vị tr&iacute;. Nếu số lượng nhu cầu giống nhau ở tất cả c&aacute;c vị tr&iacute;, h&atilde;y chọn  <b>Gi&aacute; trị</b>. Nếu số lượng nhu cầu kh&aacute;c nhau theo vị tr&iacute;, h&atilde;y chọn <b>Trường</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>X&aacute;c định c&aacute;ch &aacute;p dụng nhu cầu cho mỗi vị tr&iacute;. Nếu số lượng nhu cầu giống nhau ở tất cả c&aacute;c vị tr&iacute;, h&atilde;y chọn  <b>Gi&aacute; trị</b>. Nếu số lượng nhu cầu kh&aacute;c nhau theo vị tr&iacute;, h&atilde;y chọn <b>Trường</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Số lượng nhu cầu ở từng vị tr&iacute; c&oacute; nhu cầu. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một số lượng nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Số lượng nhu cầu ở từng vị tr&iacute; c&oacute; nhu cầu. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một số lượng nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Số lượng nhu cầu ở từng vị tr&iacute; c&oacute; nhu cầu. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một số lượng nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Số lượng nhu cầu ở từng vị tr&iacute; c&oacute; nhu cầu. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một số lượng nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Số lượng nhu cầu ở từng vị tr&iacute; c&oacute; nhu cầu. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một số lượng nhu cầu.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Trường từ lớp c&oacute; nhu cầu x&aacute;c định số lượng nhu cầu cho từng vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Trường từ lớp c&oacute; nhu cầu x&aacute;c định số lượng nhu cầu cho từng vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Trường từ lớp c&oacute; nhu cầu x&aacute;c định số lượng nhu cầu cho từng vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Trường từ lớp c&oacute; nhu cầu x&aacute;c định số lượng nhu cầu cho từng vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Trường từ lớp c&oacute; nhu cầu x&aacute;c định số lượng nhu cầu cho từng vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>X&aacute;c định xem khoảng c&aacute;ch hoặc thời gian di chuyển tối đa cho ph&eacute;p giữa một vị tr&iacute; c&oacute; nhu cầu v&agrave; cơ sở được chỉ định được x&aacute;c định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>) hay kh&ocirc;ng &aacute;p dụng gi&aacute; trị tối đa (<b>Kh&ocirc;ng bị giới hạn</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>X&aacute;c định xem khoảng c&aacute;ch hoặc thời gian di chuyển tối đa cho ph&eacute;p giữa một vị tr&iacute; c&oacute; nhu cầu v&agrave; cơ sở được chỉ định được x&aacute;c định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>) hay kh&ocirc;ng &aacute;p dụng gi&aacute; trị tối đa (<b>Kh&ocirc;ng bị giới hạn</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>X&aacute;c định xem khoảng c&aacute;ch hoặc thời gian di chuyển tối đa cho ph&eacute;p giữa một vị tr&iacute; c&oacute; nhu cầu v&agrave; cơ sở được chỉ định được x&aacute;c định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>X&aacute;c định xem khoảng c&aacute;ch hoặc thời gian di chuyển tối đa cho ph&eacute;p giữa một vị tr&iacute; c&oacute; nhu cầu v&agrave; cơ sở được chỉ định được x&aacute;c định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>) hay kh&ocirc;ng &aacute;p dụng gi&aacute; trị tối đa (<b>Kh&ocirc;ng bị giới hạn</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>X&aacute;c định xem khoảng c&aacute;ch hoặc thời gian di chuyển tối đa cho ph&eacute;p giữa một vị tr&iacute; c&oacute; nhu cầu v&agrave; cơ sở được chỉ định được x&aacute;c định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>) hay kh&ocirc;ng &aacute;p dụng gi&aacute; trị tối đa (<b>Kh&ocirc;ng bị giới hạn</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một phạm vi di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một phạm vi di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một phạm vi di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một phạm vi di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ. Mọi vị tr&iacute; sẽ được &aacute;p dụng c&ugrave;ng một phạm vi di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Trường chứa thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Trường chứa thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Trường chứa thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Trường chứa thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Trường chứa thời gian hoặc khoảng c&aacute;ch di chuyển vượt qu&aacute; nhu cầu sẽ kh&ocirc;ng được ph&acirc;n bổ.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>C&aacute;c đơn vị được sử dụng để x&aacute;c định khoảng c&aacute;ch hoặc thời gian di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>C&aacute;c đơn vị được sử dụng để x&aacute;c định khoảng c&aacute;ch hoặc thời gian di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>C&aacute;c đơn vị được sử dụng để x&aacute;c định khoảng c&aacute;ch hoặc thời gian di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>C&aacute;c đơn vị được sử dụng để x&aacute;c định khoảng c&aacute;ch hoặc thời gian di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>C&aacute;c đơn vị được sử dụng để x&aacute;c định khoảng c&aacute;ch hoặc thời gian di chuyển tối đa.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Tỷ lệ phần trăm nhu cầu tối thiểu m&agrave; c&aacute;c cơ sở phải c&oacute; được.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở ứng vi&ecirc;n. C&aacute;c cơ sở ứng vi&ecirc;n thường biểu thị c&aacute;c vị tr&iacute; nơi sẽ x&acirc;y dựng hoặc đặt c&aacute;c cơ sở mới.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở ứng vi&ecirc;n. C&aacute;c cơ sở ứng vi&ecirc;n thường biểu thị c&aacute;c vị tr&iacute; nơi sẽ x&acirc;y dựng hoặc đặt c&aacute;c cơ sở mới.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở ứng vi&ecirc;n. C&aacute;c cơ sở ứng vi&ecirc;n thường biểu thị c&aacute;c vị tr&iacute; nơi sẽ x&acirc;y dựng hoặc đặt c&aacute;c cơ sở mới.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở ứng vi&ecirc;n. C&aacute;c cơ sở ứng vi&ecirc;n thường biểu thị c&aacute;c vị tr&iacute; nơi sẽ x&acirc;y dựng hoặc đặt c&aacute;c cơ sở mới.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>X&aacute;c định xem khả năng cho mỗi cơ sở ứng vi&ecirc;n được quyết định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Khả năng của mỗi cơ sở ứng vi&ecirc;n. Mọi cơ sở ứng vi&ecirc;n sẽ được &aacute;p dụng c&ugrave;ng một khả năng.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Trường n&agrave;y c&oacute; chứa khả năng cho mỗi cơ sở ứng vi&ecirc;n.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Số lượng cơ sở ứng vi&ecirc;n cần chọn từ tập hợp ứng vi&ecirc;n. Khi bạn x&aacute;c định cả cơ sở y&ecirc;u cầu v&agrave; cơ sở ứng vi&ecirc;n, c&aacute;c cơ sở trong lớp cơ sở y&ecirc;u cầu sẽ được sử dụng trước bất kỳ cơ sở n&agrave;o từ lớp cơ sở ứng vi&ecirc;n.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Số lượng cơ sở ứng vi&ecirc;n cần chọn từ tập hợp ứng vi&ecirc;n. Khi bạn x&aacute;c định cả cơ sở y&ecirc;u cầu v&agrave; cơ sở ứng vi&ecirc;n, c&aacute;c cơ sở trong lớp cơ sở y&ecirc;u cầu sẽ được sử dụng trước bất kỳ cơ sở n&agrave;o từ lớp cơ sở ứng vi&ecirc;n.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Số lượng cơ sở ứng vi&ecirc;n cần chọn từ tập hợp ứng vi&ecirc;n. Khi bạn x&aacute;c định cả cơ sở y&ecirc;u cầu v&agrave; cơ sở ứng vi&ecirc;n, c&aacute;c cơ sở trong lớp cơ sở y&ecirc;u cầu sẽ được sử dụng trước bất kỳ cơ sở n&agrave;o từ lớp cơ sở ứng vi&ecirc;n.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>X&aacute;c định xem chỉ c&aacute;c cơ sở ứng vi&ecirc;n được sử dụng l&agrave;m đầu v&agrave;o (chưa được bật) hay một số cơ sở l&agrave; bắt buộc (đ&atilde; bật).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>X&aacute;c định xem chỉ c&aacute;c cơ sở ứng vi&ecirc;n được sử dụng l&agrave;m đầu v&agrave;o (chưa được bật) hay một số cơ sở l&agrave; bắt buộc (đ&atilde; bật).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>X&aacute;c định xem chỉ c&aacute;c cơ sở ứng vi&ecirc;n được sử dụng l&agrave;m đầu v&agrave;o (chưa được bật) hay một số cơ sở l&agrave; bắt buộc (đ&atilde; bật).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>X&aacute;c định xem chỉ c&aacute;c cơ sở ứng vi&ecirc;n được sử dụng l&agrave;m đầu v&agrave;o (chưa được bật) hay một số cơ sở l&agrave; bắt buộc (đ&atilde; bật).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở. C&aacute;c cơ sở n&agrave;y thường thể hiện c&aacute;c vị tr&iacute; hiện c&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở. C&aacute;c cơ sở n&agrave;y thường thể hiện c&aacute;c vị tr&iacute; hiện c&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở. C&aacute;c cơ sở n&agrave;y thường thể hiện c&aacute;c vị tr&iacute; hiện c&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở. C&aacute;c cơ sở n&agrave;y thường thể hiện c&aacute;c vị tr&iacute; hiện c&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm biểu thị c&aacute;c vị tr&iacute; c&oacute; vai tr&ograve; l&agrave; cơ sở. C&aacute;c cơ sở n&agrave;y thường thể hiện c&aacute;c vị tr&iacute; hiện c&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>X&aacute;c định xem khả năng của mỗi cơ sở được quyết định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>X&aacute;c định xem khả năng của mỗi cơ sở được quyết định bởi một hằng số (<b>Gi&aacute; trị</b>) hay một gi&aacute; trị trường (<b>Trường</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Khả năng của mỗi cơ sở bắt buộc. Mọi cơ sở bắt buộc sẽ được &aacute;p dụng c&ugrave;ng một khả năng.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Khả năng của mỗi cơ sở bắt buộc. Mọi cơ sở bắt buộc sẽ được &aacute;p dụng c&ugrave;ng một khả năng.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Trường n&agrave;y c&oacute; chứa khả năng cho mỗi cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Trường n&agrave;y c&oacute; chứa khả năng cho mỗi cơ sở.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

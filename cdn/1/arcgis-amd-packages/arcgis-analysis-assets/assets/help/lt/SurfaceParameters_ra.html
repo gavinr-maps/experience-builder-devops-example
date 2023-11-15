@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Pavir&scaron;iaus parametrai apskaičiuoja rastro pavir&scaron;iaus parametrus, pvz., padėtį, pasvirimą ir i&scaron;linkį, naudojant geodezinius metodus.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Auk&scaron;čio rastras, kuris bus naudojamas skaičiavimams.
+            </p>
+            <p>Jei įvesties rastrų vertikaliojoje koordinačių sistemoje yra z vienetas, jis bus taikomas automati&scaron;kai.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Matuojamo pavir&scaron;iaus parametro tipas.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>I&scaron;vesties nuolydžio rastro matavimo vienetai.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Nurodo, ar bus projektuojami geodeziniai azimutai.
+            </p>
+            <p>Jei pažymėta, bus projektuojami geodeziniai azimutai, kad būtų i&scaron;taisytas kampinis i&scaron;kraipymas, kurį sukelia i&scaron;vesties erdvinė nuoroda. Jei nepažymėta, geodeziniai azimutai nebus projektuojami.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Nurodo, ar aspektas bus matuojamas nuo ta&scaron;ko ekvatoriuje, ar nuo &scaron;iaurės a&scaron;igalio.
+            </p>
+            <p>Jei pažymėta, aspektas bus matuojamas nuo ta&scaron;ko, esančio ekvatoriuje. Jei nepažymėta, aspektas bus matuojamas nuo &scaron;iaurės a&scaron;igalio.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Pavir&scaron;iaus funkcijos, kuri bus pritaikyta tikslinės gardelės atžvilgiu, tipas.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Atstumas nuo tikslinės gardelės centro, nuo kurio bus skaičiuojama i&scaron;vestis. Jis nustato skaičiavimams naudojamą apylinkės dydį.
+            </p>
+            <p>Numatytoji reik&scaron;mė yra rastro, nurodyto parametre  <b>Įvesties pavir&scaron;iaus rastras</b>, gardelės dydis. Jei nurodoma vertė, ji turi būti didesnė už numatytąją.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Nurodo, ar atstumas iki kaimynystės skirsis priklausomai nuo kra&scaron;tovaizdžio pokyčių.
+            </p>
+            <p>Jei pažymėta, atstumas iki kaimynystės keisis priklausomai nuo kra&scaron;tovaizdžio pokyčių. Jei nepažymėta, visose vietose bus naudojamas fiksuotas atstumas iki kaimynystės.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Vertikalių z verčių linijinis vienetas.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Pavir&scaron;iaus rastrinio sluoksnio, kuris bus sukurtas ir pridėtas prie žemėlapio, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Sukuriamos i&scaron;vesties tipas. I&scaron;vestis gali būti i&scaron;klotinių vaizdų sluoksnis arba dinaminis vaizdų sluoksnis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

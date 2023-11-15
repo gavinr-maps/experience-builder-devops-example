@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&ldquo;距离分配&rdquo;工具根据直线距离、成本距离、真实表面距离以及垂直和水平成本系数计算每个像元到输入源的距离分配。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>输入源栅格或要素图层用于识别计算分配值的源。
+            </p>
+            <p>如果输入是栅格，则它必须由具有源的有效整数值（零是有效值）的像元组成，并且必须为其余的像元指定 NoData。
+            </p>
+        </div>
+    </div>
+    <div id="sourceField">
+        <div>
+            <p>将用于向源位置分配值的字段。 该字段必须为整型。
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>用于定义必须绕过的障碍物的障碍。
+            </p>
+            <p>对于栅格图层，任何拥有值（包括零）的像元都将被视为障碍。
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>用于定义每个像元位置的高程值的栅格。
+            </p>
+            <p>这些值用于计算经过两个像元时所涉及的实际表面距离。
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>用于定义移动通过每个像元的阻抗或成本的栅格。
+            </p>
+            <p>每个像元位置上的值表示经过像元时移动每单位距离所需的成本。 值不能为负或零。
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>指定是否使用平面（平地）方法或测地线（椭球）方法计算距离。
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>用于定义每个像元位置的 z 值的栅格。
+            </p>
+            <p>这些 z 值用于计算斜率，而斜率用于标识在不同的像元之间移动时产生的垂直系数。
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>用于定义垂直成本系数和垂直相对移动角度之间的关系的系数。
+            </p>
+            <p>有若干个带有修饰属性的系数选项可用于标识定义的垂直系数图。 这些图表用于标识在计算移动到相邻像元的总成本时的垂直系数。
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>定义每个像元的水平方向的栅格。
+            </p>
+            <p>每个位置上的值与 <b>水平系数</b>参数结合使用，用来确定在相邻像元之间移动时产生的水平成本。
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>用于定义水平成本系数与水平相对移动角度之间的关系的系数。
+            </p>
+            <p>有若干个带有修饰属性的系数选项可用于标识定义的水平系数图。 这些图表用于标识在计算移动到相邻像元的总成本时的水平系数。
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>用于开始进行成本计算的初始累积成本。
+            </p>
+            <p>默认值为 0。
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>源的旅行者的最大累积。
+            </p>
+            <p>默认累积为到输出栅格边的边。
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>要应用于成本值的乘数。
+            </p>
+            <p>默认值为 1。
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>应用水平和垂直系数时的旅行者的方向。
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAllocationRasterName">
+        <div>
+            <p>将创建并添加到地图的距离分配值栅格图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>将创建并添加到地图的累积距离栅格图层的名称。 此图层包含每个像元距最低成本源的累积距离。
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>将创建并添加到地图的反向栅格图层的名称。 该图层包含以度为单位的方向。
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>将创建并添加到地图的源栅格图层的名称。 该图层包含最小累积成本源像元的方位角方向（以度为单位）。
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>将创建并添加到地图的源位置多波段栅格图层的名称。 该图层包含源位置，其中第一个波段包含行索引，第二个波段包含列索引。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>要创建的输出的类型。 输出可以为切片影像图层或动态影像图层。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

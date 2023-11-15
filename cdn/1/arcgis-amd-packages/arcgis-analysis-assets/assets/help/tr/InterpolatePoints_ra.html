@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Noktaların Ara Değerlerini Hesapla aracı, nokta &ouml;l&ccedil;&uuml;mlerini temel alarak yeni konumlardaki değerleri tahmin eder. Ara&ccedil; bir raster &ccedil;ıktısı oluşturur.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Değerlerin &ouml;l&ccedil;&uuml;ld&uuml;ğ&uuml; noktaları i&ccedil;eren nokta katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Ara değerleri hesaplanacak değerleri i&ccedil;eren sayısal alan.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Hızın mı, yoksa doğruluğun mu optimize edileceğini belirtir. Daha hassas tahminlerin hesaplanmasının daha uzun s&uuml;receğini unutmayın.
+            </p>
+            <p>Bu parametre başka bir&ccedil;ok parametrenin varsayılan değerlerini değiştirir.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>&Ccedil;ıktı rasterları i&ccedil;in h&uuml;cre boyutu ve birimi.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Verilerin d&ouml;n&uuml;şt&uuml;r&uuml;l&uuml;p d&ouml;n&uuml;şt&uuml;r&uuml;lmeyeceğini belirtir. Ara değer hesaplama, en iyi sonucu bir normal (&ccedil;an eğrisi) dağılımını izleyen veriler i&ccedil;in sağlar.
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>Son tahmin haritasını oluşturmak i&ccedil;in birleştirilecek yerel ara değer hesaplama modellerinin boyutu.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Kullanılacak komşuların sayısı. Daha b&uuml;y&uuml;k sayıda komşu, daha doğru sonu&ccedil;lar &uuml;retse de sonu&ccedil;ların hesaplanması daha uzun s&uuml;recektir.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek ara değeri hesaplanmış raster katmanının adı.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Tahmin edilen değerler i&ccedil;in isteğe bağlı bir standart hata rasterı oluşturmak isteyip istemediğinizi belirtin.
+            </p>
+            <p>İşaretlenirse, &ccedil;ıktı standart hata rasterının adı  <b>&Ccedil;ıktı raster adı</b> ile aynı olacak ve sadece Hatalar kelimesi sonuna eklenecektir. Katman oluşturulacak ve haritaya eklenecektir.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Oluşturulacak &ccedil;ıktının t&uuml;r&uuml;. &Ccedil;ıktılar D&ouml;şemeli g&ouml;r&uuml;nt&uuml; katmanları veya Dinamik g&ouml;r&uuml;nt&uuml; katmanları olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonu&ccedil;ların kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

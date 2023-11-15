@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>The Summarize Nearby tool calculates statistics for features within a specified distance of other features. The distance can be calculated using a straight line distance or a travel mode.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>The layer to summarize within a distance of the nearby layer.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>The point, line, or polygon layer used as the starting locations around which bounding areas will be created to summarize nearby features.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>The method with which the bounding areas will be created. The method can be straight line distance or a travel mode.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>The distance or time that will be used to create bounding areas. If multiple values are added, each value will be used to calculate bounding areas for all input features.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>The units that will be used to specify distance or time.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Specify whether the result layer should be the bounding areas (checked) or the same geometry as the input nearby layer (unchecked). 
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Calculate the total size of the features summarized in each bounding area. For lines, the total length is calculated. For polygons, the total area is calculated.
+
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>The units that will be used to calculate the total size of summarized features.
+
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>The number or date fields from the input layer that will be summarized, and the statistics that will be calculated for each field.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>The field from the input layer that will be used to separate the data into distinct groups for statistical calculations.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Calculate the minority (least dominant) and majority (most dominant) groups within each summary area.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Calculate the percentage of the summarized features that belong to each group within each boundary.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>The name of the layer that will be created and added to the map.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>The name of the folder in  <b>My Content</b> where the results will be saved.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

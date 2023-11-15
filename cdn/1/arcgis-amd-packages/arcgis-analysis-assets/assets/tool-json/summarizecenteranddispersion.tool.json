@@ -1,0 +1,133 @@
+{
+  "name": "SummarizeCenterAndDispersion",
+  "displayName": "SummarizeCenterAndDispersion",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/SummarizeCenterAndDispersion.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "analysisLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "analysisLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "summarizeType",
+      "dataType": "GPMultiValue:GPString",
+      "displayName": "summarizeType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": "",
+      "choiceList": ["CentralFeature", "MeanCenter", "MedianCenter", "Ellipse"],
+      "parameterInfos": [
+        {
+          "name": "String",
+          "dataType": "GPString",
+          "displayName": "String"
+        }
+      ]
+    },
+    {
+      "name": "ellipseSize",
+      "dataType": "GPString",
+      "displayName": "ellipseSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["1 standard deviation", "2 standard deviations", "3 standard deviations"]
+    },
+    {
+      "name": "weightField",
+      "dataType": "GPString",
+      "displayName": "weightField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "groupField",
+      "dataType": "GPString",
+      "displayName": "groupField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "centralFeatureResultLayer",
+      "dataType": "GPString",
+      "displayName": "centralFeatureResultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "meanCenterResultLayer",
+      "dataType": "GPString",
+      "displayName": "meanCenterResultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "medianCenterResultLayer",
+      "dataType": "GPString",
+      "displayName": "medianCenterResultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "ellipseResultLayer",
+      "dataType": "GPString",
+      "displayName": "ellipseResultLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

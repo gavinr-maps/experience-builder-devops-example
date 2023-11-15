@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Find by Attributes and Location eszk&ouml;z megadott t&eacute;rbeli vagy attrib&uacute;tum-krit&eacute;riumoknak megfelelő vektoros elemek vagy elem r&eacute;szek &uacute;j r&eacute;teg&eacute;t hozza l&eacute;tre.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>A pont, vonal vagy polygon r&eacute;teg, amelyhez attrib&uacute;tum &eacute;s t&eacute;rbeli lek&eacute;rdez&eacute;s kombin&aacute;ci&oacute;ja alapj&aacute;n fog vektoros elemeket keresni.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Azok a t&eacute;rbeli vagy attrib&uacute;tum-krit&eacute;riumok, amelyek alapj&aacute;n vektoros elemeket fog keresni. Kattintson az  <b>&Uacute;j lek&eacute;rdez&eacute;s &ouml;ssze&aacute;ll&iacute;t&aacute;sa</b> gombra egy vagy t&ouml;bb t&eacute;rbeli vagy attrib&uacute;tum-krit&eacute;rium megad&aacute;s&aacute;hoz. Azok a vektoros elemek vagy vektoros elemek r&eacute;szei, amelyek minden krit&eacute;riumnak megfelelnek, az eredm&eacute;nyr&eacute;tegbe ker&uuml;lnek.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Azok a t&eacute;rbeli vagy attrib&uacute;tum-krit&eacute;riumok, amelyek alapj&aacute;n vektoros elemeket fog keresni. Kattintson az <b>&Uacute;j lek&eacute;rdez&eacute;s &ouml;ssze&aacute;ll&iacute;t&aacute;sa</b> gombra egy, vagy t&ouml;bb t&eacute;rbeli vagy attrib&uacute;tum-krit&eacute;rium megad&aacute;s&aacute;hoz. Azok a vektoros elemek vagy vektoros elem r&eacute;szek, amelyek minden krit&eacute;riumnak megfelelnek, az eredm&eacute;nyr&eacute;tegre ker&uuml;lnek.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Ha egy vektoros elemnek csak egy r&eacute;sze felel meg a krit&eacute;riumoknak, megadja, hogy az eredm&eacute;ny a teljes vektoros elemet tartalmazza, vagy a vektoros elemnek csak azt a r&eacute;sz&eacute;t, amely megfelel az &ouml;sszes krit&eacute;riumnak. Ha be van jel&ouml;lve, a vektoros elemnek csak azon r&eacute;szeit adja vissza, amelyek megfelelnek az &ouml;sszes krit&eacute;riumnak. Ha nincs bejel&ouml;lve, akkor a teljes vektoros elemet adja vissza, felt&eacute;ve, hogy a vektoros elem legal&aacute;bb egy r&eacute;sze megfelel az &ouml;sszes krit&eacute;riumnak.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Znajdź statystyki argumentu wyodrębnia wartość wymiaru lub indeks pasma, przy kt&oacute;rym dana statystyka jest osiągana dla każdego piksela w wielowymiarowej warstwie zobrazowań.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Wielowymiarowa warstwa zobrazowań, kt&oacute;ra zostanie oszacowana.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Wymiar wielowymiarowej warstwy zobrazowań, z kt&oacute;rej zostanie oszacowana zmienna.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Zmienna wielowymiarowej warstwy zobrazowań, kt&oacute;ra zostanie oszacowana w określonym przedziale czasu.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Typ statystyki, kt&oacute;ra zostanie wyodrębniona ze zmiennej lub zmiennych w danym wymiarze.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Wartość minimalna, kt&oacute;ra będzie używana przez czas trwania argumentu.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Wartość maksymalna, kt&oacute;ra będzie używana przez czas trwania argumentu.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Wartość wskazująca, że dana statystyka argumentu została osiągnięta więcej niż raz. Domyślnie jest to wartość przy pierwszym osiągnięciu statystyki argumentu.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Określa, czy wartość wymiaru zostanie zwr&oacute;cona, gdy argument zostanie osiągnięty po raz pierwszy czy ostatni. Domyślnie jest to pierwsze wystąpienie.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Zostanie wyodrębniona wartość wymiaru, przy kt&oacute;rej osiągana jest określona wartość zmiennej.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Określa typ por&oacute;wnania, kt&oacute;ry zostanie użyty do wyodrębnienia wartości wymiaru.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Podaje spos&oacute;b wyodrębnienia statystyki z wymiaru.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Jednostka czasu, dla kt&oacute;rej zostanie wyodrębniona każda statystyka.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Określa, czy wartości Brak danych będą ignorowane podczas wyodrębniania.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Dane wynikowe mogą być warstwą zobrazowań kafelkowych lub dynamiczną warstwą zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostanie zapisany wynik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,81 @@
+{
+  "name": "MosaicImage",
+  "displayName": "MosaicImage",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://10.126.15.50:6443/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/MosaicImage.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "InputRasters",
+      "dataType": "GPString",
+      "displayName": "inputRasters",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "TargetRaster",
+      "dataType": "GPString",
+      "displayName": "targetRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "MosaicOperator",
+      "dataType": "GPString",
+      "displayName": "mosaicOperator",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["FIRST", "LAST", "BLEND", "MEAN", "MININUM", "MAXIMUM", "SUM"]
+    },
+    {
+      "name": "MosaicColormapMode",
+      "dataType": "GPString",
+      "displayName": "mosaicColormapMode",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["FIRST", "LAST", "MATCH", "REJECT"]
+    },
+    {
+      "name": "noDataValue",
+      "dataType": "GPDouble",
+      "displayName": "noDataValue",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

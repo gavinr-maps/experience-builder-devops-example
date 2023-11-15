@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>トレンド ラスターを使用した予測ツールは、トレンド ラスターの生成ツールで作成された出力トレンド イメージ レイヤーを使用して、予測される多次元イメージ レイヤーを計算します。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>予測に使用する入力多次元トレンド イメージ レイヤー。
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>予測に使用する多次元トレンド イメージ レイヤーの変数。
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>予測ディメンション値の指定に使用する方法。
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>予測で使用するディメンション間隔の開始および終了の日付、高さ、または深さを定義します。
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>予測で使用するディメンション間隔の開始日、高さ、または深さ。
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>予測で使用するディメンション間隔の終了日、高さ、または深さ。
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>予測に含める 2 つのディメンション値の間のステップ数。
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>間隔値に使用する単位。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>作成されマップに追加されるレイヤーの名前。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>作成する出力のタイプ。 出力は、タイル イメージ レイヤーまたはダイナミック イメージ レイヤーです。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>結果を保存する  <b>[マイ コンテンツ]</b> 内のフォルダーの名前。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

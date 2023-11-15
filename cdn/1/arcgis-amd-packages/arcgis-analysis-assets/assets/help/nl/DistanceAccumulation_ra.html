@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Afstandaccumulatie berekent de geaccumuleerde afstand voor elke cel naar bronnen, zodat de afstand hemelsbreed, kostenafstand en ware oppervlakafstand, evenals verticale en horizontale factoren mogelijk is.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Het invoerraster of objectlaag die de bronnen definieert waarnaar de afstand wordt berekend.
+            </p>
+            <p>Als de input een raster is dan moet het uit cellen bestaan die geldige hele waarden hebben (nul is een geldige waarde) voor de bronnen en aan de resterende cellen moet NoData worden toegewezen.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>De barri&egrave;res die de obstakels defini&euml;ren waar men omheen moet.
+            </p>
+            <p>Voor een rasterlaag worden cellen met een waarde (inclusief nul) behandeld als een barri&egrave;re.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Het raster dat de hoogtewaarden op elke cellocatie definieert.
+            </p>
+            <p>De waardes worden gebruikt om de daadwerkelijke oppervlakteafstand te berekenen die wordt afgelegd bij het voorbijgaan tussen cellen.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Het raster dat de impedantie, of kosten, bepaalt om door elke cel te bewegen.
+            </p>
+            <p>De waarde op elke cellocatie vertegenwoordigt de kosten per eenheid afstand voor het verplaatsen door de cel. De waarde kan niet negatief of nul zijn.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Bepaalt of de afstand wordt berekend met behulp van een vlakke (vlakke aarde) of een geodetische (ellipsvormige) methode.
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Het raster dat de z-waarden voor elke cellocatie definieert.
+            </p>
+            <p>De waardes worden gebruikt om de helling te berekenen die gebruikt wordt om de verticale factor die oploopt bij het bewegen van de ene cel naar de andere te identificeren.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>De factor die de relatie definieert tussen de verticale kostenfactor en de verticale relatieve bewegende hoek.
+            </p>
+            <p>Er zijn verschillende opties voor factoren met modifiers die een gedefinieerde verticale factorgrafiek aangeven. De grafieken worden gebruikt om de verticale factor te identificeren die gebruikt wordt bij de berekening van de totale kosten om naar een naburige cel te bewegen.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Het raster dat de horizontale richting bij elke cel bepaalt.
+            </p>
+            <p>De waarden op elke locatie worden gebruikt in combinatie met de parameter  <b>Horizontale factor</b> om de gemaakte kosten te bepalen bij het bewegen van een cel naar zijn buren.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>De factor die de relatie definieert tussen de horizontale kostenfactor en de horizontale relatieve bewegende hoek.
+            </p>
+            <p>Er zijn verschillende opties voor factoren met modifiers die een gedefinieerde horizontale factorgrafiek aangeven. De grafieken worden gebruikt om de horizontale factor te identificeren die gebruikt wordt bij de berekening van de totale kosten om naar een naburige cel te bewegen.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>De oorspronkelijke cumulatieve kosten waarmee de kostenberekening begint.
+            </p>
+            <p>De standaardwaarde is 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>De maximale accumulatie voor de reiziger voor een bron.
+            </p>
+            <p>De standaardaccumulatie is tot de rand van het outputraster.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Een multiplicator die wordt toegepast op de kostenwaarden.
+            </p>
+            <p>De standaardwaarde is 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>De richting van de reiziger bij het toepassen van horizontale en verticale factoren.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>De naam van de cumulatieve afstandrasterlaag die wordt aangemaakt en toegevoegd aan de kaart. De laag bevat de cumulatieve afstand voor elke cel van of tot de goedkoopste bron.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>De naam van de rasterlaag voor de terugweg die wordt aangemaakt en toegevoegd aan de kaart. De laag bevat de richting in graden.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>De naam van de rasterlaag bronrichting die wordt aangemaakt en toegevoegd aan de kaart. De laag bevat de azimutrichting van de minst geaccumuleerde kostenbron in graden.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>De naam van de rasterlaag bronlocatie multiband die wordt aangemaakt en toegevoegd aan de kaart. De laag bevat de bronlocaties waarbij de eerste band een rij-index bevat en de derde band een kolomindex bevat.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Het type uitvoer dat wordt gemaakt. De uitvoer kan bestaan uit getegelde beeldlagen of dynamische beeldlagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar de resultaten worden opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

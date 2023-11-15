@@ -1,0 +1,141 @@
+{
+  "toolName": "FlowDirection",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputSurfaceRaster.user.portal NOT undefined) AND ($[Component].inputSurfaceRaster.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputSurfaceRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputSurfaceRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputSurfaceRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputSurfaceRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["snapRaster", "cellSize", "mask", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputSurfaceRaster",
+          "label": "$inputSurfaceRasterLabel",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "selectionMode": "single",
+          "hideSketch": true,
+          "layerFilterType": ["imagery"]
+        }
+      ]
+    },
+    {
+      "label": "$inputFlowDirSettingsGroupLabel",
+      "summaryText": "$inputFlowDirSettingsGroupText",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "flowDirectionType",
+          "label": "$flowDirectionTypeLabel",
+          "componentName": "analysis-string-input",
+          "required": false,
+          "selectionMode": "single",
+          "defaultValue": "D8",
+          "choiceList": ["D8", "MFD", "DINF"],
+          "choiceListLabels": {
+            "D8": "$d8",
+            "MFD": "$mfd",
+            "DINF": "$dinf"
+          }
+        },
+        {
+          "name": "forceFlow",
+          "label": "$forceFlow",
+          "componentName": "analysis-boolean-input",
+          "required": false,
+          "displayStyle": "checkbox",
+          "labelLayout": "inline-space-between"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "outputFlowDirectionName",
+          "label": "$outputFlowDirectionNameLabel",
+          "placeholderText": "$outputNamePlaceholderText",
+          "componentName": "analysis-string-input",
+          "required": true
+        },
+        {
+          "label": "$optionalLayersSectionLabel",
+          "componentName": "analysis-section",
+          "UIparameters": [
+            {
+              "name": "outputDropName",
+              "label": "$outputDropNameLabel",
+              "placeholderText": "$outputNamePlaceholderText",
+              "componentName": "analysis-string-input",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "defaultValue": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

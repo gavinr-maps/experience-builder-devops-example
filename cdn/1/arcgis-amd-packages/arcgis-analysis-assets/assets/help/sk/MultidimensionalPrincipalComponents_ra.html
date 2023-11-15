@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Multidimenzion&aacute;lne z&aacute;kladn&eacute; komponenty transformuje multidimenzion&aacute;lne sm&iacute;nkov&eacute; vrstvy na redukovan&yacute; počet komponentov, ktor&eacute; zohľadňuj&uacute; rozptyl d&aacute;t, takže je možn&eacute; ľahko identifikovať priestorov&eacute; a časov&eacute; vzory.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Multidimenzion&aacute;lna sn&iacute;mkov&aacute; vrstva, ktor&aacute; sa bude analyzovať.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Met&oacute;da, ktor&aacute; sa použije na vykonanie anal&yacute;zy z&aacute;kladn&yacute;ch komponentov. Možnosti zahŕňaj&uacute;   <b>Redukciu dimenzie</b> a <b>Priestorov&uacute; redukciu</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzia multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy, pozdĺž ktorej sa bude premenn&aacute; analyzovať.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>N&aacute;zov v&yacute;stupnej sn&iacute;mkovej vrstvy alebo tabuľkovej vrstvy predstavuj&uacute;cej n&aacute;jden&eacute; z&aacute;kladn&eacute; komponenty v z&aacute;vislosti od nasleduj&uacute;cich možnost&iacute; režimu:
+                <ul>
+                    <li>V&yacute;stupom redukcie dimenzie bude viacp&aacute;smov&aacute; sn&iacute;mkov&aacute; vrstva.
+                    </li>
+                    <li>V&yacute;stupom priestorovej redukcie bude tabuľkov&aacute; vrstva.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>N&aacute;zov v&yacute;stupnej sn&iacute;mkovej vrstvy alebo tabuľkovej vrstvy predstavuj&uacute;cej podporn&eacute; d&aacute;ta pri v&yacute;bere hlavn&yacute;ch komponentov v z&aacute;vislosti od nasleduj&uacute;cich možnost&iacute; režimu:
+                <ul>
+                    <li>V&yacute;stupom redukcie dimenzie bude tabuľkov&aacute; vrstva.
+                    </li>
+                    <li>V&yacute;stupom priestorovej redukcie bude sn&iacute;mkov&aacute; vrstva.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>N&aacute;zov tabuľky ud&aacute;vaj&uacute;cej percentu&aacute;lny rozptyl každ&eacute;ho komponentu.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>N&aacute;zov premennej vstupnej multidimenzion&aacute;lnej sn&iacute;mkovej vrstvy použitej pri v&yacute;počte.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Počet z&aacute;kladn&yacute;ch komponentov, ktor&eacute; sa maj&uacute; vypoč&iacute;tať, zvyčajne men&scaron;&iacute; ako počet vstupn&yacute;ch rastrov.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

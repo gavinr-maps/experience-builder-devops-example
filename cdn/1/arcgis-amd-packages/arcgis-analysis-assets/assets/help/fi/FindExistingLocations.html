@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Etsi ominaisuustietojen ja sijainnin mukaan&nbsp;-ty&ouml;kalu luo uuden karttatason kohteiden ominaisuuksista tai osista, jotka vastaavat sijainnin tai ominaisuustietojen ehtoja.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Piste-, viiva- tai aluekarttataso, jolle etsit&auml;&auml;n kohteita ominaisuustieto- ja sijaintikyselyjen perusteella.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Sijainnin tai ominaisuustiedon ehdot, joita k&auml;ytet&auml;&auml;n kohteiden etsimiseen. M&auml;&auml;rit&auml; v&auml;hint&auml;&auml;n yksi sijainnin tai ominaisuustiedon ehto napsauttamalla  <b>Muodosta uusi kysely</b>&nbsp;-painiketta. Kohteet tai niiden osat, jotka t&auml;ytt&auml;v&auml;t kaikki ehdot, kirjoitetaan tuloskarttatasoon.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Sijainnin tai ominaisuustiedon ehdot, joita k&auml;ytet&auml;&auml;n kohteiden etsimiseen. M&auml;&auml;rit&auml; v&auml;hint&auml;&auml;n yksi sijainnin tai ominaisuustiedon ehto napsauttamalla <b>Muodosta uusi kysely</b>&nbsp;-painiketta. Kohteet tai niiden osat, jotka t&auml;ytt&auml;v&auml;t kaikki ehdot, kirjoitetaan tuloskarttatasoon.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Kun vain osa kohteesta t&auml;ytt&auml;&auml; ehdot, m&auml;&auml;ritt&auml;&auml;, sis&auml;lt&auml;&auml;k&ouml; tulos koko kohteen tai vain ehdot t&auml;ytt&auml;v&auml;n osan siit&auml;. Kun on valittu, vain kaikki ehdot t&auml;ytt&auml;v&auml;t kohteen osat palautetaan. Kun ei ole valittu, koko kohde palautetaan, jos v&auml;hint&auml;&auml;n osa kohteesta t&auml;ytt&auml;&auml; kaikki ehdot.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n karttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

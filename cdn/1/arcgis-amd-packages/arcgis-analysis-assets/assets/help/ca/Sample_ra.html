@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Mostra crea una taula o una classe d'entitat de punt per mostrar els valors de p&iacute;xels d'un r&agrave;ster o d'un conjunt de r&agrave;sters en ubicacions definides.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Capa d'imatges que cont&eacute; els valors que es mostrejaran en funci&oacute; de les dades d'ubicaci&oacute; d'entrada.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Capa que cont&eacute; les ubicacions de cada mostra.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Algorisme de remostreig que s'utilitzar&agrave; durant el proc&eacute;s de mostreig.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Cap de la capa que cont&eacute; un valor diferent per a cada ubicaci&oacute; o entitat d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Indica si les capes d'imatges d'entrada inclouen dades multidimensionals.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Especifiqueu el temps, la profunditat o altres dades d'adquisici&oacute; de les dades associades amb les entitats d'ubicaci&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensi&oacute; de la capa d'entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Camp que s'utilitzar&agrave; per iniciar l'interval de temps per a la capa d'entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Camp que s'utilitzar&agrave; per finalitzar l'interval de temps per a la capa d'entrada multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Nombre no negatiu que s'afegir&agrave; al par&agrave;metre  <b>Dimensi&oacute;</b> o valor que definir&agrave; l'inici d'un interval de valors de dimensi&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Nombre no negatiu que s'afegir&agrave; al par&agrave;metre  <b>Dimensi&oacute;</b> o valor que definir&agrave; el final d'un interval de valors de dimensi&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Estad&iacute;stiques que es generaran en processar capes d'imatges multidimensionals.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Valor percentual que s'utilitzar&agrave; per al tipus d'estad&iacute;stica Percentil.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Valor percentual que s'aplicar&agrave; a les ubicacions d'entrada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Especifica si el tipus de sortida ser&agrave; una entitat o una taula.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Especifica si el tipus de sortida ser&agrave; en files o en columnes.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

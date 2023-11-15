@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Muunna rasteri kohteeksi -ty&ouml;kalu vektoroi rasterin.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>L&auml;ht&ouml;aineiston rasteri, joka muunnetaan kohteiksi.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Kentt&auml;, joka sis&auml;lt&auml;&auml; muunnettavat arvot.
+            </p>
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Kohdetyypit (piste, viiva tai aluekohde), joita luodaan tulosaineistokarttatasoon.
+            </p>
+        </div>
+    </div>
+    <div id="simplifyLinesOrPolygons">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, yksinkertaistetaanko (pehmennet&auml;&auml;nk&ouml;) viivat tai aluekohteet.
+            </p>
+        </div>
+    </div>
+    <div id="createMultipartFeatures">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, koostuvatko tulosaineiston aluekohteet yksiosaisista vai moniosaisista kohteista.
+            </p>
+            <p>Moniosaiset kohteet yleens&auml; k&auml;sitell&auml;&auml;n nopeammin. Jos tulosaineistossa kuitenkin on hyvin monta kohdetta, k&auml;sittely ei v&auml;ltt&auml;m&auml;tt&auml; tapahdu nopeammin.
+            </p>
+        </div>
+    </div>
+    <div id="maxVerticesPerFeature">
+        <div>
+            <p>Taitepisteen raja, jota k&auml;ytet&auml;&auml;n aluekohteen jakamiseksi osiin pienemmiksi aluekohteiksi.
+            </p>
+            <p>Jos t&auml;m&auml; on j&auml;tetty tyhj&auml;ksi, tulosaineiston aluekohteita ei jaeta.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n kohdekarttatason nimi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

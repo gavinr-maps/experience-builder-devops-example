@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Acest instrument de Statistică zonală rezumă valorile unui raster &icirc;n cadrul zonelor unui alt set de date.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>Intrarea care definește limitele zonelor sau ale suprafețelor care vor fi rezumate.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>C&acirc;mpul care include valorile care definesc fiecare zonă.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>Stratul tematic de raster care conține valorile celulelor care vor fi utilizate pentru a calcula date statistice.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Specifică tipul de statistică ce va fi calculată.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Specifică valoarea percentilei care va fi calculată.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Specifică metoda care va fi utilizată atunci c&acirc;nd numărul valorilor din rasterul de intrare de calculat este un număr par.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Specifică modul &icirc;n care valorile celulelor  <b>Raster valoare de intrare</b> vor fi procesate pentru date circulare.
+            </p>
+            <p>Dacă nu este selectată, vor fi calculate date statistice aritmetice normale (liniare). Dacă este selectată, vor fi calculate date statistice circulare.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Specifică valoarea care va fi utilizată pentru a rotunji o valoare liniară la un interval de date statistice circulare date.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>Specifică dacă celulele NoData din  <b>Raster valoare intrare</b> vor fi ignorate &icirc;n rezultatelor zonelor &icirc;n care se &icirc;ncadrează.
+            </p>
+            <p>Dacă este selectată, celulele NoData din rasterul de valoare vor fi ignorate la calcularea statisticii. Dacă nu este selectată, celulele NoData nu vor fi ignorate și &icirc;ntreaga zonă va primi valoarea NoData pe rasterul de ieșire.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Specifică modul &icirc;n care rasterele de intrare vor fi procesate dacă acestea sunt multidimensionale.
+            </p>
+            <p>Dacă este neselectată, statisticile vor fi calculate pentru toate dimensiunile setului de date multidimensional de intrare. Dacă este selectată, statisticile vor fi calculate din &icirc;mpărțirea actuală a setului de date multidimensional de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic de raster al statisticii zonale care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Tipul de ieșire care va fi creată. Ieșirea poate fi un strat tematic de imagini satelitare cu structură tile sau un strat tematic de imagini satelitare dinamic.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Klasifikovat objekty pomoc&iacute; deep learningu (Classify Objects Using Deep Learning) použije model hlubok&eacute;ho učen&iacute; k přiřazen&iacute; popisku tř&iacute;dy nebo kategorie objektu nebo prvku.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Vrstva obrazov&yacute;ch dat nebo vrstva prvků, kter&aacute; se použije ke klasifikaci objektů.
+            </p>
+        </div>
+    </div>
+    <div id="inputFeatures">
+        <div>
+            <p>Vrstva prvků, kter&aacute; identifikuje um&iacute;stěn&iacute; každ&eacute;ho objektu, kter&yacute; m&aacute; b&yacute;t klasifikov&aacute;n nebo označen popiskem.
+            </p>
+        </div>
+    </div>
+    <div id="processAllRasterItems">
+        <div>
+            <p>Určuje, jak budou rastrov&eacute; položky ve vrstvě obrazov&yacute;ch dat zpracov&aacute;ny po mozaikov&aacute;n&iacute;: společně nebo jednotlivě.
+            </p>
+        </div>
+    </div>
+    <div id="model">
+        <div>
+            <p>Bal&iacute;ček Deep Learning obsahuj&iacute;c&iacute; model, kter&yacute; bude použit ke klasifikaci objektů.
+            </p> 
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>Argumenty modelu, kter&eacute; jsou př&iacute;tomny v modelu deep learningu, spolu s jejich v&yacute;choz&iacute;mi hodnotami.
+            </p>
+        </div>
+    </div>
+    <div id="classLabelField">
+        <div>
+            <p>N&aacute;zev pole, kter&eacute; bude obsahovat klasifikačn&iacute; popisek ve v&yacute;stupn&iacute; vrstvě prvků.
+            </p>
+        </div>
+    </div>
+    <div id="outputFeatureClass">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

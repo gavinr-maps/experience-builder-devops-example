@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>V&aelig;rkt&oslash;jet S&oslash;g efter attributter og position opretter et nyt lag med objekter eller dele af objekter, der overholder de angivne spatiale kriterier eller attributkriterier.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Det punkt-, linje- eller polygonlag, hvor hvilket objekter, baseret p&aring; en kombination af attributforesp&oslash;rgsler og spatiale foresp&oslash;rgsler, findes.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>De spatiale kriterier eller attributkriterier, der bruges til at s&oslash;ge efter objekter. Klik p&aring; knappen  <b>Opret ny foresp&oslash;rgsel</b> for at definere en eller flere spatiale kriterier eller attributkriterier. Disse objekter, eller dele af objekter, der opfylder alle kriterier, skrives til resultatlaget.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> De spatiale kriterier eller attributkriterier, der bruges til at s&oslash;ge efter objekter. Klik p&aring; knappen <b>Opret ny foresp&oslash;rgsel</b> for at definere en eller flere spatiale kriterier eller attributkriterier. Disse objekter, eller dele af objekter, der opfylder alle kriterier, skrives til resultatlaget.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>N&aring;r kun en del af et objekt opfylder kriterier, angives det, om resultatet omfatter hele objektet eller kun den del af objektet, der opfylder alle kriterier. N&aring;r indstillingen er markeret, er det kun de dele af objektet, der opfylder alle kriterierne, der returneres. N&aring;r indstillingen ikke er markeret, returneres hele objektet, under foruds&aelig;tning af at mindst &eacute;n del af objektet opfylder alle kriterier.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

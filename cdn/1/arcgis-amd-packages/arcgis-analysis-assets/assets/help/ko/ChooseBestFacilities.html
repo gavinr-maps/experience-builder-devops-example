@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>최상의 시설 선택 도구는 수요를 최적으로 충족할 수 있는 일련의 시설을 찾습니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>시설에 대한 수요 위치를 할당할 때 충족해야 하는 목표입니다.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> 시설의 수용력과 주변 지역의 수요량에 따라 시설의 수요를 할당합니다. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> 모든 수요 위치에서 할당된 시설까지의 총 이동 시간 또는 거리가 최소화되도록 시설을 선택합니다. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> 각 수요 위치의 모든 수요를 가장 가까운 단일 시설에 할당하는 방식으로 최대 수요량이 할당되도록 시설을 선택합니다. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> 시설 수용력을 초과하지 않고 최대 수요량이 할당되도록 시설을 선택합니다. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> 지정된 수요 비율에 도달하는 데 필요한 최소 시설 수를 선택합니다. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>시설과 수요 위치 간의 시간 또는 거리를 측정하는 데 사용되는 이동 방법입니다.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>여행자가 시설 또는 수요 위치에서 출발하는 날짜 및 시간입니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>시설에서 시작하여 수요 위치를 향해 바깥쪽으로 이동할지 아니면 수요 위치에서 시작하여 시설을 향해 안쪽으로 이동할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>시설에서 시작하여 수요 위치를 향해 바깥쪽으로 이동할지 아니면 수요 위치에서 시작하여 시설을 향해 안쪽으로 이동할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>시설에서 시작하여 수요 위치를 향해 바깥쪽으로 이동할지 아니면 수요 위치에서 시작하여 시설을 향해 안쪽으로 이동할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>시설에서 시작하여 수요 위치를 향해 바깥쪽으로 이동할지 아니면 수요 위치에서 시작하여 시설을 향해 안쪽으로 이동할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>시설에서 시작하여 수요 위치를 향해 바깥쪽으로 이동할지 아니면 수요 위치에서 시작하여 시설을 향해 안쪽으로 이동할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 포인트 피처입니다. 경계를 통과하지 않는 경우 도로 이동이 허용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 포인트 피처입니다. 경계를 통과하지 않는 경우 도로 이동이 허용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 포인트 피처입니다. 경계를 통과하지 않는 경우 도로 이동이 허용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 포인트 피처입니다. 경계를 통과하지 않는 경우 도로 이동이 허용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 포인트 피처입니다. 경계를 통과하지 않는 경우 도로 이동이 허용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 라인 피처입니다. 라인 경계는 경계가 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 라인 피처입니다. 라인 경계는 경계가 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 라인 피처입니다. 라인 경계는 경계가 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 라인 피처입니다. 라인 경계는 경계가 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 라인 피처입니다. 라인 경계는 경계가 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 폴리곤 피처입니다. 폴리곤 경계는 폴리곤이 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 폴리곤 피처입니다. 폴리곤 경계는 폴리곤이 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 폴리곤 피처입니다. 폴리곤 경계는 폴리곤이 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 폴리곤 피처입니다. 폴리곤 경계는 폴리곤이 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>기본 도로에서 이동할 때 임시 제한(경계)으로 사용할 하나 이상의 폴리곤 피처입니다. 폴리곤 경계는 폴리곤이 도로와 교차하는 모든 위치에서 이동을 금지합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>포인트 피처는 시설에서 제공할 수 있는 서비스에 대한 수요가 있는 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>포인트 피처는 시설에서 제공할 수 있는 서비스에 대한 수요가 있는 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>포인트 피처는 시설에서 제공할 수 있는 서비스에 대한 수요가 있는 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>포인트 피처는 시설에서 제공할 수 있는 서비스에 대한 수요가 있는 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>포인트 피처는 시설에서 제공할 수 있는 서비스에 대한 수요가 있는 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>수요가 각 위치에 적용되는 방법을 지정합니다. 모든 위치의 수요량이 동일한 경우  <b>값</b>을 선택합니다. 위치마다 수요량이 다른 경우 <b>필드</b>를 선택합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>수요가 각 위치에 적용되는 방법을 지정합니다. 모든 위치의 수요량이 동일한 경우  <b>값</b>을 선택합니다. 위치마다 수요량이 다른 경우 <b>필드</b>를 선택합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>수요가 각 위치에 적용되는 방법을 지정합니다. 모든 위치의 수요량이 동일한 경우  <b>값</b>을 선택합니다. 위치마다 수요량이 다른 경우 <b>필드</b>를 선택합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>수요가 각 위치에 적용되는 방법을 지정합니다. 모든 위치의 수요량이 동일한 경우  <b>값</b>을 선택합니다. 위치마다 수요량이 다른 경우 <b>필드</b>를 선택합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>수요가 각 위치에 적용되는 방법을 지정합니다. 모든 위치의 수요량이 동일한 경우  <b>값</b>을 선택합니다. 위치마다 수요량이 다른 경우 <b>필드</b>를 선택합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>각 수요 위치에서의 수요량입니다. 모든 위치에 동일한 수요량이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>각 수요 위치에서의 수요량입니다. 모든 위치에 동일한 수요량이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>각 수요 위치에서의 수요량입니다. 모든 위치에 동일한 수요량이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>각 수요 위치에서의 수요량입니다. 모든 위치에 동일한 수요량이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>각 수요 위치에서의 수요량입니다. 모든 위치에 동일한 수요량이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>각 위치에 대한 수요량을 지정하는 수요 레이어의 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>각 위치에 대한 수요량을 지정하는 수요 레이어의 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>각 위치에 대한 수요량을 지정하는 수요 레이어의 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>각 위치에 대한 수요량을 지정하는 수요 레이어의 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>각 위치에 대한 수요량을 지정하는 수요 레이어의 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>수요 위치와 할당된 시설 간에 허용되는 최대 이동 거리 또는 시간을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>)에 따라 결정할지 아니면 최대값을 적용하지 않을지(<b>무제한</b>) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>수요 위치와 할당된 시설 간에 허용되는 최대 이동 거리 또는 시간을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>)에 따라 결정할지 아니면 최대값을 적용하지 않을지(<b>무제한</b>) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>수요 위치와 할당된 시설 간에 허용되는 최대 이동 거리 또는 시간을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>)중 어느 것으로 판단할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>수요 위치와 할당된 시설 간에 허용되는 최대 이동 거리 또는 시간을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>)에 따라 결정할지 아니면 최대값을 적용하지 않을지(<b>무제한</b>) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>수요 위치와 할당된 시설 간에 허용되는 최대 이동 거리 또는 시간을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>)에 따라 결정할지 아니면 최대값을 적용하지 않을지(<b>무제한</b>) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간입니다. 모든 위치에 동일한 최대 이동 범위가 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간입니다. 모든 위치에 동일한 최대 이동 범위가 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간입니다. 모든 위치에 동일한 최대 이동 범위가 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간입니다. 모든 위치에 동일한 최대 이동 범위가 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간입니다. 모든 위치에 동일한 최대 이동 범위가 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>수요가 할당되지 않는 이동 거리 또는 시간을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>최대 이동 거리 또는 시간을 지정하는 데 사용되는 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>최대 이동 거리 또는 시간을 지정하는 데 사용되는 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>최대 이동 거리 또는 시간을 지정하는 데 사용되는 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>최대 이동 거리 또는 시간을 지정하는 데 사용되는 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>최대 이동 거리 또는 시간을 지정하는 데 사용되는 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>시설이 수용해야 하는 최소 수요 비율입니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>후보 시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 후보 시설은 건설 예정이거나 배치될 새 시설의 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>후보 시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 후보 시설은 건설 예정이거나 배치될 새 시설의 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>후보 시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 후보 시설은 건설 예정이거나 배치될 새 시설의 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>후보 시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 후보 시설은 건설 예정이거나 배치될 새 시설의 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>각 후보 시설의 수용력을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>) 중 어느 것으로 판단할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>각 후보 시설의 수용력입니다. 모든 후보 시설에 동일한 수용력이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>각 후보 시설의 수용력을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>일련의 후보지에서 선택할 후보 시설의 수입니다. 필요 시설과 후보 시설을 모두 지정한 경우 필요 시설 레이어의 시설이 후보 시설 레이어에 있는 모든 시설보다 먼저 사용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>일련의 후보지에서 선택할 후보 시설의 수입니다. 필요 시설과 후보 시설을 모두 지정한 경우 필요 시설 레이어의 시설이 후보 시설 레이어에 있는 모든 시설보다 먼저 사용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>일련의 후보지에서 선택할 후보 시설의 수입니다. 필요 시설과 후보 시설을 모두 지정한 경우 필요 시설 레이어의 시설이 후보 시설 레이어에 있는 모든 시설보다 먼저 사용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>후보 시설만 입력으로 사용할지(활성화되지 않음) 또는 필요 시설도 포함할지(활성화됨) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>후보 시설만 입력으로 사용할지(활성화되지 않음) 또는 필요 시설도 포함할지(활성화됨) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>후보 시설만 입력으로 사용할지(활성화되지 않음) 또는 필요 시설도 포함할지(활성화됨) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>후보 시설만 입력으로 사용할지(활성화되지 않음) 또는 필요 시설도 포함할지(활성화됨) 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 이러한 시설은 기존 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 이러한 시설은 기존 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 이러한 시설은 기존 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 이러한 시설은 기존 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>시설로 동작하는 위치를 나타내는 포인트 피처입니다. 보통 이러한 시설은 기존 위치를 나타냅니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>각 시설의 수용력을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>) 중 어느 것으로 판단할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>각 시설의 수용력을 상수(<b>값</b>) 또는 필드 값(<b>필드</b>) 중 어느 것으로 판단할지 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>각 필요 시설의 수용력입니다. 모든 필요 시설에 동일한 수용력이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>각 필요 시설의 수용력입니다. 모든 필요 시설에 동일한 수용력이 적용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>각 시설의 수용력을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>각 시설의 수용력을 포함하는 필드입니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

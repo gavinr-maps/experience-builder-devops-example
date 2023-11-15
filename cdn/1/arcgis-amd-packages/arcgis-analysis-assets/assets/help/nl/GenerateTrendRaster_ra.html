@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Trendraster genereren schat de trend voor elke pixel in tegen een afmeting voor een of meerdere variabelen in een multidimensionale satellietbeeldenlaag.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>De multidimensionale beeldlaag die zal worden gebruikt om de trend te genereren.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>De afmeting waarmee een trend wordt ge&euml;xtraheerd voor de variabele of variabelen die in de analyse zijn geselecteerd.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>De variabele of variabelen waarvoor de trends worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>De tijdseenheid die wordt gebruikt voor de lengte van een seizoensperiode bij gebruik van het regeltype Seizoen-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Het type trendanalyse dat zal worden uitgevoerd op pixelwaarden langs een dimensie.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>De frequentie of het ordernummer van de polynoom die zal worden gebruikt voor de trendfitting.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Geeft aan of NoData of ontbrekende waarden in de analyse worden genegeerd.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>De lengte van de periodieke variatie die zal worden gemodelleerd voor de harmonische cyclus.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>De tijdeenheid die wordt gebruikt voor de lengte van de harmonische cyclus.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Geeft aan of de root mean square error (RMSE) van de trendlijn moet worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Geeft aan of de R-kwadraat goodness-of-fit statistiek voor de trendlijn moet worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Geeft aan of de p-waarde statistiek voor de hellingsco&euml;ffici&euml;nt van de trendlijn moet worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Het type uitvoer dat wordt gemaakt. De uitvoer kan een getegelde beeldlaag of een dynamische beeldlaag zijn.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

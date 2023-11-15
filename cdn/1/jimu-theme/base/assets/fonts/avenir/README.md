@@ -38,7 +38,7 @@ The CSS gives you styles for `300` (light), `400` (regular), `500` (medium), and
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/fonts/v1.4.1/fonts.css">
+<link rel="stylesheet" href="https://webapps-cdn.esri.com/CDN/fonts/v2.0.0/fonts.css">
 ```
 
 ## Sass
@@ -79,6 +79,7 @@ These styles cover every major language, automatically. Non-latin characters are
 | ------- | -------- |
 | ar | Arabic |
 | bs | Bosnian |
+| ca | Catalan |
 | cs | Czech |
 | da | Danish |
 | de | German |
@@ -91,6 +92,8 @@ These styles cover every major language, automatically. Non-latin characters are
 | ka | Georgian |
 | he | Hebrew |
 | hi | Hindi |
+| hr | Croatian |
+| hu | Hungarian |
 | id | Indonesian |
 | it | Italian |
 | lt | Lithuanian |
@@ -102,13 +105,30 @@ These styles cover every major language, automatically. Non-latin characters are
 | ro | Romanian |
 | ru | Russian |
 | sk | Slovak |
+| sl | Slovenian |
+| sr | Serbian |
 | sv | Swedish |
 | th | Thai |
 | tr | Turkish |
+| uk | Ukrainian |
 | vi | Vietnamese |
 
 *Note:* Logographic languages (like Chinese) will still be rendered in a system default. These languages require so many characters that loading a custom font may severely bloat the size of your app and negatively impact performance.
 
+## Get Access to Non-Branded Fonts
+
+If you need to use fonts other than Avenir Next for any reason, we can help! Our enterprise subscription with Monotype should be used whenever possible, and is the preferred alternative to open source options like Google Fonts. Contact [Font-Masters@esri.com](mailto:Font-Masters@esri.com) to get started.  (However, continue using Avenir Next for anything Calcite-themed.)
+
 ## Licensing
 
-This project is unlicensed (All Rights Reserved). This project should not be used in projects where the source code is visible to the public. Do not share the font files with anybody as that violates our service agreement with Monotype.
+COPYRIGHT © 2021 Esri
+
+All rights reserved under the copyright laws of the United States and applicable international laws, treaties, and conventions.
+
+This material is licensed for use under the Esri Master License Agreement (MLA), and is bound by the terms of that agreement. You may redistribute and use this code without modification, provided you adhere to the terms of the MLA and include this copyright notice.
+
+See use restrictions at http://www.esri.com/legal/pdfs/mla_e204_e300/english
+
+For additional information, contact: Environmental Systems Research Institute, Inc. Attn: Contracts and Legal Services Department 380 New York Street Redlands, California, USA 92373 USA
+
+email: contracts@esri.com

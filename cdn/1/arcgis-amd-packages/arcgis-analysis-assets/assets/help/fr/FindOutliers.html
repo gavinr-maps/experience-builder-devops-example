@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Find Outliers (Rechercher les points aberrants) d&eacute;termine s&rsquo;il existe des localisations poss&eacute;dant des valeurs consid&eacute;rablement diff&eacute;rentes de celles de leurs voisines en fonction du mod&egrave;le spatial de vos donn&eacute;es.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Couche ponctuelle ou surfacique dans laquelle les points aberrants sont recherch&eacute;s.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Indique si les points aberrants sont d&eacute;termin&eacute;s en fonction des localisations des entit&eacute;s (<b>Point counts (Nombre de points)</b>) ou des valeurs de champ des entit&eacute;s (<b>Field (Champ)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Champ &agrave; analyser pour d&eacute;terminer les points aberrants.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Type des entit&eacute;s d&rsquo;emprise &agrave; l&rsquo;int&eacute;rieur desquelles les entit&eacute;s en entr&eacute;e doivent &ecirc;tre agr&eacute;g&eacute;es. Il peut s&rsquo;agir d&rsquo;une couche surfacique (<b>Polygon layer (Couche de polygones)</b>) ou d&rsquo;une grille de tessellation de carr&eacute;s (<b>Fishnet cells (Cellules de quadrillage)</b>) ou d&rsquo;hexagones (<b>Hexagon cells (Cellules d&rsquo;hexagone)</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Couche contenant les entit&eacute;s surfaciques dans lesquelles les entit&eacute;s ponctuelles en entr&eacute;e doivent &ecirc;tre agr&eacute;g&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Couche surfacique qui doit d&eacute;finir l&rsquo;emprise de l&rsquo;analyse. Les entit&eacute;s &agrave; l&rsquo;int&eacute;rieur du polygone sont incluses dans l&rsquo;analyse des points aberrants.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Indique comment diviser les valeurs  <b>Analysis field (Champ d&rsquo;analyse)</b> ou les totaux de points agr&eacute;g&eacute;s. L&rsquo;option <b>Field (Champ)</b> divise les valeurs <b>Analysis field (Champ d&rsquo;analyse)</b> par les valeurs d&rsquo;un champ sp&eacute;cifi&eacute; dans le param&egrave;tre <b>Input layer (Couche en entr&eacute;e)</b>. L&rsquo;option <b>Enrichment data (Donn&eacute;es d&rsquo;enrichissement)</b> enrichit les entit&eacute;s ou les formes d&rsquo;agr&eacute;gation avec des donn&eacute;es de population et divise les valeurs <b>Analysis field (Champ d&rsquo;analyse)</b> ou les totaux de points agr&eacute;g&eacute;s par la population. Cette option consomme des cr&eacute;dits suppl&eacute;mentaires.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Indique si l&rsquo;outil doit &ecirc;tre optimis&eacute; pour un traitement plus rapide ou une plus grande pr&eacute;cision des r&eacute;sultats.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Valeur enti&egrave;re allant initialiser un g&eacute;n&eacute;rateur de nombres al&eacute;atoires.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Longueur d&rsquo;un c&ocirc;t&eacute; des cellules carr&eacute;es (quadrillage) ou hexagonales &agrave; utiliser pour agr&eacute;ger les entit&eacute;s en entr&eacute;e.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Sp&eacute;cifie les unit&eacute;s &agrave; utiliser pour la taille des cellules.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Canal de distance &agrave; utiliser pour d&eacute;finir un voisinage. Les entit&eacute;s voisines &agrave; l&rsquo;int&eacute;rieur du canal de distance d&rsquo;une entit&eacute; cible sont incluses dans le voisinage de cette entit&eacute; cible lors de l&rsquo;analyse.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Sp&eacute;cifie les unit&eacute;s &agrave; utiliser pour la bande de distance.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

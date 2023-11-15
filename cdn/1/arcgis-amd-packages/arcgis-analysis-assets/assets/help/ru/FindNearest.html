@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Найти ближайшие находит и ранжирует объекты, которые находятся ближе всего к указанным местоположениям.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            
+            <p class="OnlineOnly">Начальный слой, для которого будут найдены ближайшие объекты. Поддерживаются слои до  5 000 объектов. </p> 
+            <p class="PortalOnly">Начальный слой, для которого будут найдены ближайшие объекты.
+            </p>
+        </div>
+    </div>
+    <div id="nearLayer">
+        <div>
+            
+            <p class="OnlineOnly">Поиск объектов выполняется на основе их близости ко входному слою. Поддерживаются слои до  5 000 объектов. </p> 
+            <p class="PortalOnly">Поиск объектов выполняется на основе их близости ко входному слою.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Укажите один или более точечный объект, который действует как временное ограничение (иначе говоря, барьер) при перемещении по улицам. Передвижение разрешено по улице, но не через барьер.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Укажите один или более линейный объект, который действует как временное ограничение (иначе говоря, барьер) при перемещении по улицам. Линейные барьеры запрещают проезд в любом месте, где барьеры пересекаются с улицами.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Укажите один или более полигональный объект, который действует как временное ограничение (иначе говоря, барьер) при перемещении по улицам. Полигональные барьеры запрещают проезд в любом месте, где полигоны пересекаются с улицами.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Способ, который будет использоваться для измерения расстояния или времени. Это может быть метод Линейное расстояние или режим передвижения.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Определяет дату и время, когда путешественник отправляется из местоположений  <b>Входного слоя</b>.
+            </p>
+        </div>
+    </div>
+    <div id="limitNearNumberCheckbox">
+        <div>
+            <p>Определяет, используется ли заданное пользователем максимальное количество ближайших объектов (включено) или максимальное значение инструмента по умолчанию, равное 100 (отключено).
+            </p>
+        </div>
+    </div>
+    <div id="maxCount">
+        <div>
+            <p>Максимальное число ближайших объектов, которые могут быть найдены для каждого входного объекта.
+            </p>
+        </div>
+    </div>
+    <div id="limitSearchRangeCheckbox">
+        <div>
+            <p>Определяет, используется ли максимальный диапазон поиска (включено) или диапазон поиска не ограничен (отключено).
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoff">
+        <div>
+            <p>Максимальный диапазон поиска ближайших объектов.
+            </p>
+        </div>
+    </div>
+    <div id="searchCutoffUnits">
+        <div>
+            <p>Единицы, используемые для задания диапазона поиска.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Определяет, будет ли каждый результирующий маршрут сохраняться в виде слоя маршрута.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

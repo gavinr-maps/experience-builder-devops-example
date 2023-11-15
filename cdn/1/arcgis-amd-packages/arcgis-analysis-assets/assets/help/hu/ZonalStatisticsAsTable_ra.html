@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Zonal Statistics as Table (Z&oacute;nastatisztik&aacute;k t&aacute;bl&aacute;zatk&eacute;nt) eszk&ouml;z egy raszter &eacute;rt&eacute;keinek statisztik&aacute;j&aacute;t sz&aacute;m&iacute;tja ki egy m&aacute;sik adathalmaz z&oacute;n&aacute;iban, &eacute;s t&aacute;bl&aacute;zatk&eacute;nt jelen&iacute;ti meg az eredm&eacute;nyeket.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>Az &ouml;sszes&iacute;tendő z&oacute;n&aacute;k vagy ter&uuml;letek hat&aacute;rvonalait meghat&aacute;roz&oacute; bemenet.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Az egyes z&oacute;n&aacute;kat meghat&aacute;roz&oacute; &eacute;rt&eacute;keket tartalmaz&oacute; mező.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>Az a raszterr&eacute;teg, amely A statisztik&aacute;k kisz&aacute;m&iacute;t&aacute;s&aacute;hoz haszn&aacute;lt cella&eacute;rt&eacute;keket tartalmaz&oacute; raszteres r&eacute;teg.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>A kisz&aacute;m&iacute;tand&oacute; statisztika t&iacute;pus&aacute;t adja meg.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>A kisz&aacute;m&iacute;tand&oacute; percentilis &eacute;rt&eacute;keket adja meg.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Megadja azt a met&oacute;dust, amelyet akkor kell haszn&aacute;lni, amikor a bemeneti raszterből sz&aacute;rmaz&oacute; sz&aacute;m&iacute;tand&oacute; &eacute;rt&eacute;kek p&aacute;rosak.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a  <b>bemeneti &eacute;rt&eacute;k raszter</b> cell&aacute;inak &eacute;rt&eacute;keit hogyan kell feldolgozni a k&ouml;rk&ouml;r&ouml;s adatok eset&eacute;ben.
+            </p>
+            <p>Ha nincs bejel&ouml;lve, akkor a szok&aacute;sos aritmetikai (line&aacute;ris) statisztik&aacute;kat sz&aacute;m&iacute;tja ki az eszk&ouml;z. Ha be van jel&ouml;lve, akkor az eszk&ouml;z k&ouml;rk&ouml;r&ouml;s statisztik&aacute;kat sz&aacute;mol.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>A line&aacute;ris &eacute;rt&eacute;k adott k&ouml;rk&ouml;r&ouml;s statisztika tartom&aacute;ny&aacute;ra val&oacute; kerek&iacute;t&eacute;s&eacute;re szolg&aacute;l&oacute; &eacute;rt&eacute;ket hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a  <b>bemeneti &eacute;rt&eacute;k raszterben</b> l&eacute;vő NoData cell&aacute;k figyelembe leygenek-e v&eacute;ve a r&aacute;juk eső z&oacute;n&aacute;k eredm&eacute;nyeiben.
+            </p>
+            <p>Ha be van jel&ouml;lve, akkor az &eacute;rt&eacute;kraszterben tal&aacute;lhat&oacute; NoData cell&aacute;k nem lesznek figyelembe v&eacute;ve a statisztikai sz&aacute;m&iacute;t&aacute;sban. Ha nincs bejel&ouml;lve, a NoData cell&aacute;kat nem hagyja figyelmen k&iacute;v&uuml;l az eszk&ouml;z, &eacute;s az eg&eacute;sz z&oacute;na megkapja a NoData &eacute;rt&eacute;ket a kimeneti raszteren.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Azt hat&aacute;rozza meg, hogy mik&eacute;nt t&ouml;rt&eacute;njen a bemeneti raszterek feldolgoz&aacute;sa, amennyiben azok t&ouml;bbdimenzi&oacute;sak.
+            </p>
+            <p>Ha nincs bejel&ouml;lve, akkor a statisztika a t&ouml;bbdimenzi&oacute;s adathalmaz valamennyi dimenzi&oacute;j&aacute;ra lesz kisz&aacute;m&iacute;tva. Ha be van jel&ouml;lve, akkor a statisztika a bemeneti t&ouml;bbdimenzi&oacute;s adathalmaz aktu&aacute;lis szelet&eacute;ből lesz kisz&aacute;m&iacute;tva.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt z&oacute;nastatisztika t&aacute;blar&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

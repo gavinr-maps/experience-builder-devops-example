@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Tầm nh&igrave;n Trắc địa x&aacute;c định c&aacute;c vị tr&iacute; tr&ecirc;n bề mặt raster m&agrave; c&aacute;c vị tr&iacute; quan s&aacute;t đầu v&agrave;o c&oacute; thể nh&igrave;n thấy.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Raster độ cao sẽ được t&iacute;nh to&aacute;n tầm nh&igrave;n.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>C&aacute;c vị tr&iacute; quan s&aacute;t sẽ được t&iacute;nh to&aacute;n tầm nh&igrave;n.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Tối ưu h&oacute;a t&iacute;nh to&aacute;n tầm nh&igrave;n dựa tr&ecirc;n tốc độ hoặc độ ch&iacute;nh x&aacute;c.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch xem tối đa để t&iacute;nh tầm nh&igrave;n.
+            </p>
+            <p>Khoảng c&aacute;ch c&oacute; thể được x&aacute;c định bằng một gi&aacute; trị v&agrave; c&aacute;c đơn vị khoảng c&aacute;ch, hoặc từ một trường trong  <b>Đối tượng đường hoặc điểm quan s&aacute;t đầu v&agrave;o</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch xem tối thiểu để t&iacute;nh to&aacute;n tầm nh&igrave;n.
+            </p>
+            <p>Khoảng c&aacute;ch c&oacute; thể được x&aacute;c định bằng một gi&aacute; trị v&agrave; c&aacute;c đơn vị khoảng c&aacute;ch, hoặc từ một trường trong  <b>Đối tượng đường hoặc điểm quan s&aacute;t đầu v&agrave;o</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Chỉ định loại khoảng c&aacute;ch xem tối thiểu v&agrave; tối đa.
+            </p>
+            <p>Nếu kh&ocirc;ng chọn, khoảng c&aacute;ch xem sẽ được coi l&agrave; khoảng c&aacute;ch Euclid hai chiều. Nếu được chọn, khoảng c&aacute;ch xem sẽ được coi l&agrave; khoảng c&aacute;ch ba chiều.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Chỉ định độ cao bề mặt của c&aacute;c vị tr&iacute; quan s&aacute;t.
+            </p>
+            <p>Độ cao c&oacute; thể được x&aacute;c định bằng một gi&aacute; trị v&agrave; c&aacute;c đơn vị độ cao hoặc từ một trường trong  <b>Đối tượng đường hoặc điểm quan s&aacute;t đầu v&agrave;o</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Chỉ định chiều cao tr&ecirc;n mặt đất của người quan s&aacute;t.
+            </p>
+            <p>Chiều cao c&oacute; thể được x&aacute;c định bằng một gi&aacute; trị v&agrave; c&aacute;c đơn vị chiều cao hoặc từ một trường trong  <b>Đối tượng đường hoặc điểm quan s&aacute;t đầu v&agrave;o</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Chỉ định chiều cao tr&ecirc;n mặt đất của mục ti&ecirc;u.
+            </p>
+            <p>Chiều cao c&oacute; thể được x&aacute;c định bằng một gi&aacute; trị v&agrave; c&aacute;c đơn vị chiều cao hoặc từ một trường trong  <b>Đối tượng đường hoặc điểm quan s&aacute;t đầu v&agrave;o</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp raster tầm nh&igrave;n sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ. Lớp n&agrave;y chứa c&aacute;c khu vực hiển thị tại nơi người quan s&aacute;t c&oacute; thể nh&igrave;n thấy v&agrave; c&aacute;c gi&aacute; trị cell biểu thị số lượng người quan s&aacute;t c&oacute; thể xem cell.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>T&ecirc;n của lớp raster tr&ecirc;n mặt đất (AGL) sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

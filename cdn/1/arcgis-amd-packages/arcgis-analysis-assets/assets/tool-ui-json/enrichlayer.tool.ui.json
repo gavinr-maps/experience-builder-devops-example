@@ -1,0 +1,411 @@
+{
+  "toolName": "EnrichLayer",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polygon'",
+      "destination": "enrichmentAreas",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polygon'",
+      "destination": "bufferType",
+      "effectParams": {
+        "required": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.selectedLayers.geometryType NOT null) AND ($[Component].inputLayer.selectedLayers.geometryType NOT 'polygon'))",
+      "destination": ["distance", "units"],
+      "effectParams": {
+        "required": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].userSettings.hasNAPrivilege",
+      "valueB": false,
+      "destination": "bufferType",
+      "effectParams": {
+        "readOnly": true,
+        "value": "StraightLine",
+        "validationParams": { "message": "$travelModeRequiresNA", "type": "informative" }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].currentTool.portal.helperServices.asyncServiceArea.url = null) OR ($[Component].currentTool.portal.helperServices.routingUtilities.url = null))",
+      "destination": "bufferType",
+      "effectParams": {
+        "value": "StraightLine",
+        "readOnly": true,
+        "validationParams": { "message": "$travelModeRequiresRoutingService", "type": "informative" }
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polyline'))",
+      "destination": "bufferType",
+      "effectParams": {
+        "value": "StraightLine",
+        "readOnly": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].bufferType.impedanceAttributeName",
+      "valueB": "$[Data].bufferType.timeAttributeName",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Minutes", "Seconds", "Hours"],
+        "choiceListLabels": { "Minutes": "$minutes", "Seconds": "$seconds", "Hours": "$hours" },
+        "defaultValue": "Minutes"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].bufferType = 'StraightLine'",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].bufferType = 'StraightLine') AND ($[Data].userSettings.unitSystem = 'english'))",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].bufferType = 'StraightLine') AND ($[Data].userSettings.unitSystem = 'metric'))",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "Feet", "Yards"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Kilometers"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].bufferType.impedanceAttributeName = $[Data].bufferType.distanceAttributeName",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].bufferType.impedanceAttributeName = $[Data].bufferType.distanceAttributeName) AND ($[Data].userSettings.unitSystem = 'english'))",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Miles", "Feet", "Yards", "Kilometers", "Meters"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].bufferType.impedanceAttributeName = $[Data].bufferType.distanceAttributeName) AND ($[Data].userSettings.unitSystem = 'metric'))",
+      "destination": "units",
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "Feet", "Yards"],
+        "choiceListLabels": {
+          "Miles": "$miles",
+          "Kilometers": "$kilometers",
+          "Meters": "$meters",
+          "Feet": "$feet",
+          "Yards": "$yards"
+        },
+        "defaultValue": "Kilometers"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].units = 'Miles') AND ($[Data].bufferType = 'StraightLine'))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 1000
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Data].units = 'Kilometers') AND ($[Data].bufferType= 'StraightLine'))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 1609
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Minutes') AND ($[Data].bufferType.impedanceAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 300
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Hours') AND ($[Data].bufferType.impedanceAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 5
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Seconds') AND ($[Data].bufferType.impedanceAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 18000
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Minutes') AND ($[Data].bufferType.impedanceAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 540
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Hours') AND ($[Data].bufferType.impedanceAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 9
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Seconds') AND ($[Data].bufferType.impedanceAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 32400
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Miles') AND ($[Data].bufferType.timeAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 300
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Miles') AND ($[Data].bufferType.timeAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 27
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Kilometers') AND ($[Data].bufferType.timeAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 482.803
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Kilometers') AND ($[Data].bufferType.timeAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 43.452
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Meters') AND ($[Data].bufferType.timeAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 482803.2
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Meters') AND ($[Data].bufferType.timeAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 43452.288
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Feet') AND ($[Data].bufferType.timeAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 1584000
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Feet') AND ($[Data].bufferType.timeAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 142560
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Yards') AND ($[Data].bufferType.timeAttributeName NOT 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 528000
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputLayer.user.portal.isPortal = false) AND ((($[Data].units = 'Yards') AND ($[Data].bufferType.timeAttributeName = 'WalkTime'))))",
+      "destination": "distance",
+      "effectParams": {
+        "max": 47520
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "($[Data].bufferType = 'StraightLine')",
+      "destination": "distance",
+      "effectParams": {
+        "max": null
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$featuresToEnrichSectionLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$featuresToEnrichSectionText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputFeatures",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature"]
+        }
+      ]
+    },
+    {
+      "label": "$enrichmentVariablesSectionLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$enrichmentVariablesSectionText",
+      "UIparameters": [
+        {
+          "name": "dataCollections",
+          "label": "$dataCollections",
+          "visible": false
+        },
+        {
+          "name": "analysisVariables",
+          "label": "$enrichmentVariables",
+          "componentName": "analysis-geoenrichment-input",
+          "required": true
+        },
+        {
+          "name": "country",
+          "label": "$country",
+          "visible": false
+        },
+        {
+          "name": "hierarchy",
+          "label": "$hierarchy",
+          "visible": false
+        }
+      ]
+    },
+    {
+      "name": "enrichmentAreas",
+      "label": "$enrichmentAreasSectionLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$enrichmentAreasSectionText",
+      "visible": true,
+      "UIparameters": [
+        {
+          "name": "bufferType",
+          "label": "$measurementTypeLabel",
+          "required": true,
+          "defaultValue": "StraightLine"
+        },
+        {
+          "name": "distance",
+          "label": "$measurementDistanceLabel",
+          "min": 0,
+          "excludeMinValue": true
+        },
+        {
+          "name": "units",
+          "label": "$unitsLabel",
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "returnBoundaries",
+          "label": "$returnBoundariesLabel"
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

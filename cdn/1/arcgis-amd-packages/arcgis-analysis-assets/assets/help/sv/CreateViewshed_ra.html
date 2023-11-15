@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verktyget Geodetiskt siktf&auml;lt identifierar platserna p&aring; en rasteryta som &auml;r synliga f&ouml;r indataobservat&ouml;rsplatserna.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Det h&ouml;jdraster som siktf&auml;ltet ska ber&auml;knas p&aring;.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Observat&ouml;rsplatserna som siktf&auml;ltet ska ber&auml;knas f&ouml;r.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimerar ber&auml;kningen av siktf&auml;ltet baserat p&aring; antingen snabbhet eller noggrannhet.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Anger det maximala siktavst&aring;ndet f&ouml;r ber&auml;kningen av siktf&auml;ltet.
+            </p>
+            <p>Avst&aring;ndet kan definieras efter ett v&auml;rde och dess enheter, eller fr&aring;n ett f&auml;lt i  <b>Observat&ouml;rspunkt- eller linjegeoobjekt som indata</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Anger det minimala siktavst&aring;ndet f&ouml;r ber&auml;kningen av siktf&auml;ltet.
+            </p>
+            <p>Avst&aring;ndet kan definieras efter ett v&auml;rde och dess enheter, eller fr&aring;n ett f&auml;lt i  <b>Observat&ouml;rspunkt- eller linjegeoobjekt som indata</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Anger typ f&ouml;r maximala och minimala siktavst&aring;nd.
+            </p>
+            <p>Om alternativet inte &auml;r markerat hanteras visningsavst&aring;nden som tv&aring;dimensionella euklidiska avst&aring;nd. Om alternativet &auml;r markerat hanteras visningsavst&aring;nden som tredimensionella avst&aring;nd.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Anger yth&ouml;jden f&ouml;r observat&ouml;rsplatserna.
+            </p>
+            <p>H&ouml;jden kan definieras efter ett v&auml;rde och dess enheter, eller fr&aring;n ett f&auml;lt i  <b>Observat&ouml;rspunkt- eller linjegeoobjekt som indata</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Anger h&ouml;jden f&ouml;r observat&ouml;rna &ouml;ver marken.
+            </p>
+            <p>H&ouml;jden kan definieras efter ett v&auml;rde och dess enheter eller fr&aring;n ett f&auml;lt i  <b>Observat&ouml;rspunkt- eller linjegeoobjekt som indata</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Anger h&ouml;jden f&ouml;r m&aring;len p&aring; marken.
+            </p>
+            <p>H&ouml;jden kan definieras efter ett v&auml;rde och dess enheter eller fr&aring;n ett f&auml;lt i  <b>Observat&ouml;rspunkt- eller linjegeoobjekt som indata</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Namnet p&aring; rasterlagret f&ouml;r siktf&auml;lt som skapas och l&auml;ggs till i kartan. Det h&auml;r lagret inneh&aring;ller de synliga omr&aring;den d&auml;r observat&ouml;rerna kan se, och cellv&auml;rdena representerar antalet observat&ouml;rer som kan visa cellerna.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Namnet p&aring; rasterlagret &ouml;ver markniv&aring; (AGL) som skapas och l&auml;ggs till i kartan.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ av utdata som skapas. Utdata kan vara ett bildlager i tileform eller ett dynamiskt bildlager.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Namnet p&aring; mappen i  <b>Mitt inneh&aring;ll</b> d&auml;r resultatet ska sparas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

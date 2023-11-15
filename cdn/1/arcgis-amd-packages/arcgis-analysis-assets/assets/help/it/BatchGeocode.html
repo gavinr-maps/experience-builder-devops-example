@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Geocodifica posizioni da tabella converte indirizzi o luoghi da una tabella di input in coordinate.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>La tabella di input con gli indirizzi o luoghi da geocodificare. L'input deve essere una tabella, un file  <code>.csv</code>o un file Excel. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>Servizio di localizzazione da utilizzare per la geocodifica. Se il servizio localizzatore da utilizzare non &egrave; presente nel menu a discesa, contattare l'amministratore affinch&eacute; il servizio localizzatore venga configurato per la geocodifica batch.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Specifica se i dati di input sono contenuti in uno o pi&ugrave; campi.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>I campi saranno utilizzati dal localizzatore per determinare le posizioni dei dati. Alcuni campi devono essere nei dati, ad esempio indirizzo, citt&agrave;, stato e codice postale.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Il paese in cui si trovano i dati. Se tutti gli indirizzi sono relativi a un unico paese, seleziona il paese per garantire la massima precisione dei risultati. In caso contrario, lasciare questo parametro vuoto.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Specifica i campi che saranno inclusi nel dataset di output. Le opzioni sono le seguenti:
+            </p>
+            <ul>
+                <li> <b>Tutto</b>: tutti i campi di output del localizzatore disponibili saranno inclusi nei risultati del geocodice.
+                </li>
+                <li> <b>Minimo</b>: un sottoinsieme di campi del localizzatore e dei campi della tabella di input saranno inclusi nei risultati.
+                </li>
+                <li> <b>Solo posizione</b>: il campo <i>Shape</i> del localizzatore e i campi della tabella di input saranno inclusi nei risultati.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Il tipo di output che sar&agrave; creato. L'output pu&ograve; essere un feature service, un file  <code>.csv</code> o un file <code>.xls</code>.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>Il nome dell'elemento di output in cui saranno memorizzati i dati individuati.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

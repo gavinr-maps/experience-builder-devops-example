@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「計算行進成本」工具可測量點對間的行進時間或距離。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">表示從中計算行進成本的原點位置的點圖層。 支援最多  5,000 個圖徵的圖層。 </p> 
+            <p class="PortalOnly">表示從中計算行進成本的原點位置的點圖層。
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">表示計算行進成本之目的地位置的點圖層。 支援最多  5,000 個圖徵的圖層。 </p> 
+            <p class="PortalOnly">表示計算行進成本之目的地位置的點圖層。
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p> <b>來自圖層</b>中的欄位，用於定義預指派的原點-目的地配對。 如果有多個原點和目的地位置，則此 ID 必須與 <b>至圖層路線 ID 欄位</b>中的值相符。
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p> <b>至圖層</b>中的欄位，用於定義預指派的原點-目的地配對。 如果有多個原點和目的地位置，則此 ID 必須與 <b>從圖層路線 ID 欄位</b>中的值相符。
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>在基礎街道行進時要作為臨時限制 (屏障) 的一或多個點圖徵。 允許在街道行進，但無法通過屏障。
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>在基礎街道行進時要作為臨時限制 (屏障) 的一或多個線圖徵。 線屏障禁止在屏障與街道相交的任何地方行進。
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>在基礎街道行進時要作為臨時限制 (屏障) 的一或多個多邊形圖徵。 多邊形屏障禁止在多邊形與街道的任何相交處行進。
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>將用於測量距離或時間的方法。 方法可為線距離或行進模式。
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>從 <b>來自圖層</b>中的原點位置出發的日期和時間。
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>判定原點和目的地是否使用蜘蛛線或期望線 (<b>直線</b>) 或基礎街道網絡上的街道 (<b>沿著街道</b>) 連接。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>指定是否將每條結果路線儲存為路線圖層。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&auml;ksimist&ouml;&ouml;riist asendab maskile vastava rastri pikslid l&auml;himate naabrite v&auml;&auml;rtustega.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Sisendraster maskeeritud kohtadega, mis asendatakse (n&auml;ksitakse) nende l&auml;hima naabri v&auml;&auml;rtusega.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>Maski raster, mis m&auml;&auml;ratleb kohad sisendrastris, mis asendatakse. Lahtrid, mille v&auml;&auml;rtus on NoData, loetakse maskeeritud piirkonnas olevaks.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>Sisendtsooni raster. Iga tsooni puhul asendatakse maski sees olevad sisendruudud ainult l&auml;himate sama tsooni sisendruutude v&auml;&auml;rtustega.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>M&auml;&auml;rab, kas NoData-lahtrid sisendrastris v&otilde;ivad asendada (n&auml;ksida) lahtrid maskeeritud aladel, kui need on l&auml;himad naabrid.
+            </p>
+            <p>Kui need on &auml;ra m&auml;rgitud, v&otilde;ivad NoData-lahtrid sisendrastris nihkuda maskeeritud piirkonda. Kui need ei ole m&auml;rgitud, saavad maskeeritud piirkonda n&auml;ksida ainult sisendrastri kehtivad lahtrid.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>M&auml;&auml;rab, kas maskeeritud ala NoData-lahtrid s&auml;ilitatakse v&otilde;i asendatakse.
+            </p>
+            <p>Kui see ei ole m&auml;rgitud, s&auml;ilivad maskeeritud alas olevad NoData-lahtrid v&auml;ljundis. Kui see on m&auml;rgitud, asendatakse (n&auml;ksitakse) maskeeritud ala sees olevad NoData-lahtrid l&auml;hima naabri v&auml;&auml;rtusega, mis asub v&auml;ljaspool maskeeritud ala.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Loodava ja kaardile lisatava n&auml;ksitud rasterkihi nimi.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмент Найти схожие местоположения оценивает сходство между местоположениями-кандидатами и базовым местоположением на основе набора критериев и ранжирует предполагаемые местоположения от наиболее похожих к наименее похожим.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Точечный, линейный или полигональный слой, содержащий базовые местоположения для сопоставления. Если слой содержит несколько местоположений, все эти местоположения будут усреднены для получения одного базового местоположения.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Точечный, линейный или полигональный слой, содержащий местоположения-кандидаты для поиска. Каждое найденное местоположение-кандидат будет сравниваться с базовым местоположением по указанному значению  <b>Критерия выборки</b> и ранжироваться от наиболее похожего до наименее похожего.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Числовые поля, которые будут использоваться для оценки сходства между базовым местоположением и каждым из местоположений-кандидатов. Каждое значение  <b>Критерия выборки</b> будет содержать значение <b>Поля базового слоя</b> и значение <b>Поля слоя кандидатов</b>. Значения <b>Поле базового слоя</b> и <b>Поле слоя кандидатов</b> являются соответствующими полями в значениях <b>Слой базовых местоположений</b> и <b>Слой поиска кандидатов</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Поле  <b>Слой базовых местоположений</b>, соответствующее полю <b>Слой поиска кандидатов</b>, заданному значением <b>Поле слоя кандидатов</b>. Значения в соответствующих полях будут использоваться для оценки сходства базовых местоположений и каждого из местоположений-кандидатов.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Поле  <b>Слоя поиска кандидатов</b>, соответствующее полю <b>Слоя базовых местоположений</b>, заданному значением <b>Поле базового слоя</b>. Значения в сопоставленных полях будут использоваться для оценки сходства между базовым местоположением и каждым из местоположений-кандидатов.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Определяет, будут ли все местоположения  <b>Слоя поиска кандидатов</b> включены в выходной слой.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Число наиболее похожих местоположений  <b>Слоя поиска кандидатов</b>, которые будут включены в выходной слой.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Имя слоя, который будет создан и добавлен на карту.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Имя папки в разделе  <b>Мои ресурсы</b>, в которую будет сохранен результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

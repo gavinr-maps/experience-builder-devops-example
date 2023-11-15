@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ T&iacute;nh to&aacute;n Mật độ t&iacute;nh to&aacute;n gi&aacute; trị ước t&iacute;nh mật độ từ c&aacute;c đối tượng điểm v&agrave; đường. C&ocirc;ng cụ tạo đầu ra raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>Lớp điểm hoặc đường được d&ugrave;ng để t&iacute;nh to&aacute;n mật độ từ đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>Trường chỉ định số lượng sự cố tại mỗi vị tr&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>Lớp x&aacute;c định c&aacute;c r&agrave;o cản. C&aacute;c r&agrave;o cản c&oacute; thể l&agrave; một lớp đối tượng của c&aacute;c đối tượng đường hoặc v&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>K&iacute;ch thước cell v&agrave; đơn vị sẽ được sử dụng cho raster đầu ra.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Chỉ định khoảng c&aacute;ch để t&igrave;m kiếm c&aacute;c điểm hoặc đường khi t&iacute;nh to&aacute;n mật độ, sử dụng một gi&aacute; trị v&agrave; đơn vị của gi&aacute; trị đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>C&aacute;c đơn vị sẽ được sử dụng cho khu vực đầu ra.
+            </p>
+            <p>Mật độ l&agrave; số lượng chia cho diện t&iacute;ch v&agrave; th&ocirc;ng số n&agrave;y chỉ định đơn vị của diện t&iacute;ch trong ph&eacute;p t&iacute;nh mật độ.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp raster mật độ sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

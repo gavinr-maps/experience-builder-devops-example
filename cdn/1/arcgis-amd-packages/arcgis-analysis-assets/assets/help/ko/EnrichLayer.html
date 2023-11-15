@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>레이어 보강 도구는 인구 통계 및 경관 데이터로 입력 피처를 개선합니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>추가 데이터로 보강될 포인트, 라인, 폴리곤 피처입니다.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>입력 피처에 속성으로 추가될 변수입니다.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>입력 포인트 또는 라인 피처 주변 영역의 정의 방식을 지정합니다. 각 피처 주변의 전체 영역이 보강됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>영역이 확장될 각 입력 피처 주변의 거리 또는 시간을 지정하는 숫자 값입니다.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>보강된 영역이 각 입력 피처 주변으로 확장되는 거리 또는 시간을 지정하는 데 사용될 단위입니다.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>결과 레이어에  <b>보강 영역</b> 설정(선택됨) 또는 입력 피처(선택 안 됨)로 정의된 폴리곤 피처를 포함할지 여부를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가되는 레이어 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

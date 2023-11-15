@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Interpolate Points predviđa vrednosti na novim lokacijama na osnovu merenja tačaka. Alat kreira izlaz funkcije.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Izaberite tački sloj lokacija koje će biti interpolirane.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Izaberite polje koje sadrži izmerene vrednosti koje će biti interpolirane.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Odaberite da li će prioritet imati brzina izračunavanja ili tačnost i preciznost. Izračunavanje preciznijih i tačnijih predikcija traje duže.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Izaberite da li će sloj standardnih gre&scaron;aka za predviđanja interpolacije biti uključen u izlaz.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Izaberite kako će se izračunati vrednosti pauze u klasi.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Navedite broj klasa (opsega predviđenih vrednosti) koje će biti uključene u sloj rezultata. Svaka klasa defini&scaron;e granicu poligona i predstavlja konture predviđenih vrednosti. Vrednosti pauze klase određene su tipom klasifikacije.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Navedite vrednosti prekida klase koje će se koristiti.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Izaberite sloj poligona koji će se koristiti za definisanje oblasti proučavanja. Rezultati će biti isečeni tako da se prikazuju samo u oblasti proučavanja.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Izaberite sloj tačaka koji predstavlja lokacije koje će se koristiti za predviđanje vrednosti. Ako se obezbedi, kreiraće se sloj tačaka koji sadrži predviđene vrednosti na navedenim lokacijama.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će biti kreiran i dodat mapi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime fascikle u  <b>Moj sadržaj</b> gde će rezultati biti sačuvani.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

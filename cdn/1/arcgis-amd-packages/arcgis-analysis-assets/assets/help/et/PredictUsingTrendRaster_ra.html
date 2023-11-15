@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Trendi rastriga prognoosimine&quot; arvutab prognoositava mitmem&otilde;&otilde;tmelise pildikihi t&ouml;&ouml;riista &quot;Trendi rastri loomine&quot; v&auml;ljundi trendi pildikihi alusel.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Prognoosimiseks kasutatav mitmem&otilde;&otilde;tmeline trendi pildikiht.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Prognoosimiseks kasutatav mitmem&otilde;&otilde;tmelise trendi pildikihi muutuja.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Prognoosimise m&otilde;&otilde;tme v&auml;&auml;rtuste esitamiseks kasutatav meetod.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>M&auml;&auml;rake prognoosimisel kasutatava dimensiooni intervalli alguse ja l&otilde;pu kuup&auml;ev, k&otilde;rgus v&otilde;i s&uuml;gavus.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>Prognoosimiseks kasutatava m&otilde;&otilde;tme intervalli alguskuup&auml;ev, k&otilde;rgus v&otilde;i s&uuml;gavus.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Prognoosimiseks kasutatava m&otilde;&otilde;tme intervalli l&otilde;ppkuup&auml;ev, k&otilde;rgus v&otilde;i s&uuml;gavus.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Prognoosi kaasatud kahe m&otilde;&otilde;tme v&auml;&auml;rtuse vaheliste etappide arv.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Vahemiku v&auml;&auml;rtusena kasutatav &uuml;hik.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljund v&otilde;ib olla paanitud pildikiht v&otilde;i d&uuml;naamiline pildikiht.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

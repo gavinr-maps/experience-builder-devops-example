@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;&Uuml;henda objektid&quot; lisab ruumiliste v&otilde;i atribuutide seoste p&otilde;hjal &uuml;he kihi v&otilde;i tabeli atribuudid &uuml;le teise kihti v&otilde;i tabelisse. Vajaduse korral v&otilde;ib arvutada statistika, kui on mitu &uuml;htivat kirjet.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Kiht v&otilde;i tabel, mille atribuutide tabelisse on lisatud liidetava kihi atribuudid.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Sihtkihile lisatavate atribuutidega &uuml;hendatav kiht v&otilde;i tabel.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>M&auml;&auml;rake, kas kihid tuleb &uuml;hendada ruumilise seose alusel. See n&otilde;uab, et m&otilde;lemad kihid sisaldaksid geomeetriat.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>M&auml;&auml;rake ruumiline seos, mis m&auml;&auml;ratleb, millised objektid &uuml;hendatakse. &Uuml;hendatakse liidetava kihi objektid, millel on m&auml;&auml;ratletud seos sihtkihiga. Saadaolevad seosed olenevad sisendite geomeetria t&uuml;&uuml;bist.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Kaugus objektidest sihtkihil, mille p&otilde;hjal m&auml;&auml;ratakse, kas objektid tuleb &uuml;hendada.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse vahemaa m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>M&auml;&auml;rake, kas kihid tuleb &uuml;hendada &uuml;htivate v&auml;lja v&auml;&auml;rtuste alusel. Kui &uuml;ks v&otilde;i mitu sisendit on tabel, siis see on ainus valik.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>M&auml;&auml;rake atribuutide seos, mis m&auml;&auml;ratleb, millised objektid &uuml;hendatakse. Objektid vastendatakse, kui liidetava kihi v&auml;ljade v&auml;&auml;rtused on v&otilde;rdsed sihtkihi v&auml;ljade v&auml;&auml;rtustega.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>M&auml;&auml;rake, kuidas &uuml;hendamist k&auml;sitletakse, kui liidetaval kihil vastab &uuml;hendamise kriteeriumidele mitu kirjet. Valige m&otilde;ni j&auml;rgmistest suvanditest.
+                <ul>
+                    <li> <b>Liida &uuml;ks &uuml;hega</b> &ndash; &uuml;hendab liidetava kihi &uuml;he kirje sihtkihi iga objektiga.
+                    </li>
+                    <li> <b>Liida &uuml;ks mitmega</b> &ndash; &uuml;hendab k&otilde;ik liidetava kihi &uuml;hilduvad objektid sihtkihiga. Tulemkiht sisaldab sihtkihi mitut kirjet.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Kui liidetava kihi mitu objekti vastab sihtobjektile, siis m&auml;&auml;rake, kas &uuml;hendada liidetava kihi &uuml;ks kirje v&otilde;i arvutada liidetava kihi k&otilde;ikide &uuml;htivate kirjete kokkuv&otilde;ttestatistika.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Kui on mitu liidetavat kihti, mis &uuml;htivad sihtobjektiga, arvutatakse kokkuv&otilde;ttestatistika k&otilde;ikide &uuml;htivate kirjete jaoks. M&auml;&auml;rake liidetava kihi numbri- v&otilde;i kuup&auml;evav&auml;ljad ja statistika, mis iga v&auml;lja jaoks arvutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Kui on mitu &uuml;hendatavat objekti, mis vastavad sihtobjektile, kaasatakse v&auml;ljundisse liidetava kihi atribuutide tabeli esimene kirje. Vajaduse korral valige numbri- v&otilde;i kuup&auml;evav&auml;li ja sortimise j&auml;rjekord, mis m&auml;&auml;rab atribuutide tabeli j&auml;rjestamise.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>M&auml;&auml;rab, kas v&auml;ljundisse kaasatakse vastendamata sihtobjektid. Suvand  <b>Sisemine &uuml;hendus</b> tagastab ainult vastega sihtkirjed, suvand <b>Vasakpoolne &uuml;hendamine</b> tagastab k&otilde;ik sihtkirjed isegi siis, kui sihtobjektil pole liidetaval kihil vastet.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi v&otilde;i tabeli nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

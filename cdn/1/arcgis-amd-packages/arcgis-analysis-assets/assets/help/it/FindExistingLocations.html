@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Trova per attributi e posizione crea un nuovo layer delle feature o parti di feature che soddisfano i criteri spaziali o di attributo specificati.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Il layer punto, linea o poligono per il quale verranno trovate le feature, basate su una combinazione di attributi e interrogazioni spaziali.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>I criteri spaziali o di attributo che verranno utilizzati per trovare le feature. Fare clic sul pulsante  <b>Crea nuova interrogazione</b> per definire uno o pi&ugrave; criteri spaziali o di attributo. Le feature, o parti di feature, che soddisfano tutti i criteri saranno scritte nel layer risultati.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> I criteri spaziali o di attributo che verranno utilizzati per trovare le feature. Fare clic sul pulsante <b>Crea nuova interrogazione</b> per definire uno o pi&ugrave; criteri spaziali o di attributo. Le feature, o parti di feature, che soddisfano tutti i criteri saranno scritte nel layer risultati.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Quando solo una parte di una feature soddisfa i criteri, specifica se il risultato include l'intera feature o solo la parte della feature che soddisfa tutti i criteri. In caso di selezione, verranno restituite solo le parti della feature che soddisfano tutti i criteri. In case di deselezione, l'intera feature verr&agrave; restituita a condizione che almeno una parte della feature soddisfi tutti i criteri.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

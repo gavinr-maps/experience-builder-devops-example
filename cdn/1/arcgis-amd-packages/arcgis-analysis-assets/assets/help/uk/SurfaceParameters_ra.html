@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Параметри поверхні&raquo; за допомогою геодезичних методик обчислює параметри растрової поверхні, як-от орієнтація, ухил та кривина.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Растр висот, який використовуватиметься для розрахунків.
+            </p>
+            <p>Якщо одиниця z доступна у вертикальній системі координат вхідного растру, вона буде застосована автоматично.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Тип параметра поверхні, який буде вимірюватися.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Одиниці вимірювання вихідного растру ухилу.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Визначає, чи будуть проектуватися геодезичні азимути.
+            </p>
+            <p>Якщо вибрано, геодезичні азимути будуть проектуватися для усунення кутового спотворення, викликаного вихідною просторовою прив'язкою. Якщо не вибрано, геодезичні азимути не будуть проектуватися.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Визначає, чи буде орієнтація вимірюватися від точки на екваторі або від Північного полюса.
+            </p>
+            <p>Якщо вибрано, орієнтація буде вимірюватися від точки на екваторі. Якщо не вибрано, орієнтація буде вимірюватися від Північного полюса.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Тип функції поверхні, яка буде обчислена навколо цільового осередку
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Відстань від центру цільового осередку, з якого будуть обчислюватися вихідні дані. Визначає розмір околиці, що використовується для обчислення.
+            </p>
+            <p>Значенням за замовчуванням є розмір осередку растра, указаний у параметрі  <b>Вхідний растр поверхні</b>. Якщо вказано значення, воно має бути більшим за замовчування.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Указує, чи буде відстань околиці змінюватися відповідно до змін ландшафту.
+            </p>
+            <p>Якщо вибрано, відстань околиці змінюватися відповідно до змін ландшафту. Якщо не вибрано, буде використовуватись фіксована відстань околиці для всіх місць розташування.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Лінійні одиниці вимірювання вертикальних z-значень.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ім'я растрового шару поверхні, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип вихідних даних, які буде створено. Вихідними даними може бути шар зображень з тайлами або динамічний шар зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

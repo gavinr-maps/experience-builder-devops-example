@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Знайти останці&raquo; визначить, чи існують місця розташування зі значеннями, значущо відмінними від їх сусідів на основі просторової структури даних.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Шар точок або полігонів, в якому шукатимуться останці.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Визначає, чи будуть визначатися останці на основі місць розташування об&rsquo;єктів (<b>Кількість точок</b>) чи значень полів об&rsquo;єктів (<b>Поле</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Поле, яке буде проаналізовано для визначення останців.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Тип обмежувальних об&rsquo;єктів, у межах яких буде агреговано вхідні об&rsquo;єкти. Це може бути шар полігонів (<b>Шар полігонів</b>) або сітка замощення з квадратів (<b>Осередки рибальської сітки</b>) або шестикутників (<b>Шестикутні осередки</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Шар, що містить полігональні об&rsquo;єкти, у якому буде агреговано вхідні точкові об&rsquo;єкти.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Шар полігону, який визначатиме межу аналізу. Об&rsquo;єкти в полігоні будуть включені в аналіз останців.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Указує спосіб ділення значень  <b>Поле аналізу</b> або агрегованих кількостей точок. Опція <b>Поле</b> ділить значення <b>Поле аналізу</b> на значення заданого поля в параметрі <b>Вхідний шар</b>. Опція <b>Дані збагачення</b> збагачує об'єкти або форми агрегування демографічними даними та ділить значення <b>Поле аналізу</b> або агреговані кількості точок на кількість населення. Ця опція може вимагати додаткової оплати кредитами.
+            </p>
+        </div>
+    </div>
+    <div id="permutations">
+        <div>
+            <p>Визначає, чи буде інструмент оптимізований для швидшого часу обробки чи підвищення точності результатів.
+            </p>
+        </div>
+    </div>
+    <div id="randomGenerator">
+        <div>
+            <p>Цілочисельне значення, яке ініціює генератор випадкових чисел.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Довжина сторони клітинки квадрата (сітки) або шестикутника, які будуть використовуватися для агрегування вхідних об'єктів.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Указує одиниці, які використовуватимуться для розміру осередку.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>Діапазон відстані, який буде використовуватися для визначення околиці. Під час аналізу сусідні об&rsquo;єкти в діапазоні відстані від цільового об&rsquo;єкта будуть включені в околиці цільового об&rsquo;єкта.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Указує одиниці, які використовуватимуться для діапазону відстані.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

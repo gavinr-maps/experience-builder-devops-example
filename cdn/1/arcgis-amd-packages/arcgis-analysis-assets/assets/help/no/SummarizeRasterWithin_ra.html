@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Verkt&oslash;yet Sonestatistikk summerer verdiene for et raster innenfor sonene til et annet datasett.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>Inndataene som definerer grensene for sonene eller omr&aring;dene som skal summeres.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Feltet som inneholder verdiene som definerer hver sone.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>Rasterlaget som inneholder celleverdiene som brukes til &aring; beregne statistikk.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Angir statistikktypen som skal beregnes.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Angir persentilverdien som skal regnes ut.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Angi metoden som skal brukes n&aring;r antallet verdier fra inndatarasteret som skal beregnes, er et partall.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Angir hvordan  <b>Inndataverdiraster</b>-celleverdier behandles for sirkul&aelig;re data.
+            </p>
+            <p>Hvis alternativet ikke er valgt, beregnes vanlig aritmetisk (line&aelig;r) statistikk. Hvis alternativet er valgt, beregnes sirkul&aelig;r statistikk.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Angir verdien som brukes til &aring; runde av en line&aelig;r verdi til omr&aring;det for en gitt sirkul&aelig;r statistikk.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>Angir om NoData-celler i  <b>inndataverdirasteret</b> skal ignoreres i resultatene for sonene de faller innenfor.
+            </p>
+            <p>Hvis alternativet er valgt, blir NoData-cellene i verdirasteret ignorert i statistikkberegningen. Hvis alternativet ikke er valgt, blir NoData-celler ikke ignorert og hele sonen f&aring;r NoData-verdien i utdatarasteret.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Angir hvordan inndatarasterne blir behandlet hvis de er fleredimensjonale.
+            </p>
+            <p>Hvis alternativet ikke er valgt, beregnes statistikken for alle dimensjonene i det flerdimensjonale inndatasettet. Hvis alternativet er valgt, beregnes statistikken fra gjeldende sektor av det flerdimensjonale inndatasettet.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; rasterlaget med sonestatistikk som opprettes og legges til kartet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typen utdata som blir opprettet. Utdata kan v&aelig;re et flisinndelt bildelag eller et dynamisk bildelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen i  <b>Mitt innhold</b> der resultatet blir lagret.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

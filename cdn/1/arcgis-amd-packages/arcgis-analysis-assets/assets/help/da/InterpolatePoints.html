@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Interpol&eacute;r punkter-v&aelig;rkt&oslash;jet forudsiger v&aelig;rdier p&aring; nye steder baseret p&aring; punktm&aring;linger. V&aelig;rkt&oslash;jet opretter objektoutputs.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>V&aelig;lg punktlaget for de placeringer, der interpoleres.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>V&aelig;lg det felt, der indeholder de m&aring;lte v&aelig;rdier, der interpoleres.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>V&aelig;lg, om hastighed eller n&oslash;jagtighed og pr&aelig;cision af beregning optimeres. Mere n&oslash;jagtige og pr&aelig;cise forudsigelser tager l&aelig;ngere tid at beregne.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>V&aelig;lg, om et lag af standardfejl for interpoleringsforudsigelserne medtages i outputtet.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>V&aelig;lg, hvordan klasseskillev&aelig;rdierne beregnes.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Angiv antallet af klasser (intervaller af forudsagte v&aelig;rdier), der medtages i resultatlaget. Hver klasse definerer gr&aelig;nsen for et polygon og repr&aelig;senterer konturer af de forudsagte v&aelig;rdier. Klasseskillev&aelig;rdierne bestemmes af klassificeringstypen.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Angiv de klasseskillev&aelig;rdier, der bruges.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>V&aelig;lg et polygonlag, der bruges til at definere et unders&oslash;gelsesomr&aring;de. Resultaterne klippes, s&aring; de kun vises inden for unders&oslash;gelsesomr&aring;det.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>V&aelig;lg et punktlag, der repr&aelig;senterer de punkter, der bruges til at forudsige v&aelig;rdier. Hvis det er angivet, oprettes der et punktlag, der indeholder forudsagte v&aelig;rdier p&aring; de angiver steder.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

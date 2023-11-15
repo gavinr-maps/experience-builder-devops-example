@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Mit dem Werkzeug &quot;Features verbinden&quot; k&ouml;nnen Attribute von einem Layer oder einer Tabelle basierend auf angegebenen r&auml;umlichen Beziehungen und Attributbeziehungen einem anderen Layer bzw. einer anderen Tabelle hinzugef&uuml;gt werden. Optional k&ouml;nnen Statistiken berechnet werden, wenn mehrere &uuml;bereinstimmende Datens&auml;tze vorhanden sind.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Der Layer oder die Tabelle, an dessen bzw. deren Attributtabelle Attribute des Join-Layers angeh&auml;ngt werden.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Der Layer oder die Tabelle mit den Attributen, die an den Ziel-Layer angeh&auml;ngt werden.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Geben Sie an, ob Layer basierend auf ihrer r&auml;umlichen Beziehung verbunden werden sollen. Dies erfordert, dass beide Layer eine Geometrie aufweisen.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Geben Sie die r&auml;umliche Beziehung an, anhand derer bestimmt wird, welche Features verbunden werden. Features im Join-Layer, die die angegebene Beziehung zum Ziel-Layer aufweisen, werden verbunden. Die verf&uuml;gbaren Beziehungen h&auml;ngen vom Geometrietyp der Eingaben ab.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Die Entfernung von den Features im Ziel-Layer, anhand derer bestimmt wird, ob Features verbunden werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Die Einheiten, die zur Angabe der Entfernung verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Geben Sie an, ob Layer basierend auf &uuml;bereinstimmenden Feldwerten verbunden werden sollen. Wenn eine der Eingaben eine Tabelle ist, ist dies die einzige Option.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Geben Sie die Attributbeziehung an, anhand derer bestimmt wird, welche Features verbunden werden. Die Features werden zugeordnet, wenn die Feldwerte im Join-Layer den Feldwerten im Ziel-Layer entsprechen.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Geben Sie an, wie Verbindungen verarbeitet werden, wenn mehrere Datens&auml;tze aus dem Join-Layer die Kriterien f&uuml;r eine Verbindung erf&uuml;llen. Ihnen stehen folgende Optionen zur Auswahl:
+                <ul>
+                    <li> <b>Eins zu eins verbinden</b>: Verbindet einen einzelnen Datensatz im Join-Layer mit jedem Feature im Ziel-Layer.
+                    </li>
+                    <li> <b>Eins zu vielen verbinden</b>: Verbindet alle &uuml;bereinstimmenden Features im Join-Layer mit dem Ziel-Layer. Der Ergebnis-Layer enth&auml;lt mehrere Datens&auml;tze des Ziel-Features.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Wenn mehrere Features im Join-Layer mit einem Ziel-Feature &uuml;bereinstimmen, k&ouml;nnen Sie hier angeben, ob ein einzelner Datensatz aus dem Join-Layer verbunden werden soll oder ob Summenstatistiken aller &uuml;bereinstimmenden Datens&auml;tze aus dem Join-Layer berechnet werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Wenn es mehrere Join-Features gibt, die mit einem Ziel-Feature &uuml;bereinstimmen, werden f&uuml;r alle &uuml;bereinstimmenden Datens&auml;tze Summenstatistiken berechnet. Geben Sie die Zahlen- oder Datumsfelder aus dem Join-Layer und die Statistiken an, die f&uuml;r jedes Feld berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Wenn es mehrere Join-Features gibt, die mit einem Ziel-Feature &uuml;bereinstimmen, wird der erste Datensatz aus der Attributtabelle des Join-Layers bei der Ausgabe ber&uuml;cksichtigt. W&auml;hlen Sie optional ein Zahlen- oder Datumsfeld und die Sortierreihenfolge f&uuml;r die Sortierung der Attributtabelle aus.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Bestimmt, ob Ziel-Features ohne &Uuml;bereinstimmung bei der Ausgabe ber&uuml;cksichtigt werden sollen. Ein  <b>Inner Join</b> gibt nur &uuml;bereinstimmende Zieldatens&auml;tze zur&uuml;ck, w&auml;hrend ein <b>Left Join</b> alle Zieldatens&auml;tze zur&uuml;ckgibt, selbst wenn das Ziel-Feature keine &Uuml;bereinstimmung im Join-Layer aufweist.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers oder der Tabelle, der bzw. die erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

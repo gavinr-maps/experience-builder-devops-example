@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Vybrať najvhodnej&scaron;ie zariadenia vyhľad&aacute; množinu zariaden&iacute;, ktor&eacute; najlep&scaron;ie uspokoja dopyt.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Cieľ, ktor&yacute; mus&iacute; byť splnen&yacute; pri prideľovan&iacute; lokal&iacute;t dopytu zariadeniam.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Priraďte dopyt zariadeniam na základe kapacity zariadenia a množstva dopytu z okolia. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Vyberte zariadenia tak, aby sa minimalizoval celkový cestovný čas alebo vzdialenosť zo všetkých lokalít dopytu do prideleného zariadenia. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Vyberte zariadenia tak, aby sa pridelil maximálny objem dopytu, pričom všetok dopyt z každej lokality dopytu sa pridelí jedinému zariadeniu, ktoré je k nemu najbližšie. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Vyberte zariadenia tak, aby sa pridelil maximálny objem dopytu bez prekročenia kapacity niektorého zariadenia. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Vyberte minimálny počet zariadení potrebných na dosiahnutie stanoveného percenta dopytu. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Cestovn&yacute; režim, ktor&yacute; sa použije na meranie času alebo vzdialenosti medzi zariadeniami a lokalitami dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>D&aacute;tum a čas odchodu cestuj&uacute;ceho zo zariaden&iacute; alebo lokal&iacute;t dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Určuje, či cesta zač&iacute;na v zariadeniach a pohybuje sa smerom von k lokalit&aacute;m dopytu, alebo zač&iacute;na v lokalite dopytu a pohybuje sa smerom dovn&uacute;tra k zariadeniam.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Určuje, či cesta zač&iacute;na v zariadeniach a pohybuje sa smerom von k lokalit&aacute;m dopytu, alebo zač&iacute;na v lokalite dopytu a pohybuje sa smerom dovn&uacute;tra k zariadeniam.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Určuje, či cesta zač&iacute;na v zariadeniach a pohybuje sa smerom von k lokalit&aacute;m dopytu, alebo zač&iacute;na v lokalite dopytu a pohybuje sa smerom dovn&uacute;tra k zariadeniam.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Určuje, či cesta zač&iacute;na v zariadeniach a pohybuje sa smerom von k lokalit&aacute;m dopytu, alebo zač&iacute;na v lokalite dopytu a pohybuje sa smerom dovn&uacute;tra k zariadeniam.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Určuje, či cesta zač&iacute;na v zariadeniach a pohybuje sa smerom von k lokalit&aacute;m dopytu, alebo zač&iacute;na v lokalite dopytu a pohybuje sa smerom dovn&uacute;tra k zariadeniam.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Jeden alebo viac bodov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Cestovanie po cest&aacute;ch je povolen&eacute;, av&scaron;ak nie cez bari&eacute;ry.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Jeden alebo viac bodov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Cestovanie po cest&aacute;ch je povolen&eacute;, av&scaron;ak nie cez bari&eacute;ry.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Jeden alebo viac bodov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Cestovanie po cest&aacute;ch je povolen&eacute;, av&scaron;ak nie cez bari&eacute;ry.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Jeden alebo viac bodov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Cestovanie po cest&aacute;ch je povolen&eacute;, av&scaron;ak nie cez bari&eacute;ry.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Jeden alebo viac bodov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Cestovanie po cest&aacute;ch je povolen&eacute;, av&scaron;ak nie cez bari&eacute;ry.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Jeden alebo viac l&iacute;niov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. L&iacute;niov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde sa bari&eacute;ry pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Jeden alebo viac l&iacute;niov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. L&iacute;niov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde sa bari&eacute;ry pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Jeden alebo viac l&iacute;niov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. L&iacute;niov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde sa bari&eacute;ry pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Jeden alebo viac l&iacute;niov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. L&iacute;niov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde sa bari&eacute;ry pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Jeden alebo viac l&iacute;niov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. L&iacute;niov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde sa bari&eacute;ry pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Jeden alebo viac polyg&oacute;nov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Polyg&oacute;nov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde polyg&oacute;ny pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Jeden alebo viac polyg&oacute;nov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Polyg&oacute;nov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde polyg&oacute;ny pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Jeden alebo viac polyg&oacute;nov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Polyg&oacute;nov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde polyg&oacute;ny pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Jeden alebo viac polyg&oacute;nov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Polyg&oacute;nov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde polyg&oacute;ny pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Jeden alebo viac polyg&oacute;nov&yacute;ch prvkov, ktor&eacute; sl&uacute;žia ako dočasn&eacute; obmedzenia (bari&eacute;ry), pri prechode prvkami podkladov&yacute;ch ciest. Polyg&oacute;nov&eacute; bari&eacute;ry zakazuj&uacute; prejazd v miestach, kde polyg&oacute;ny pret&iacute;naj&uacute; cesty.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; maj&uacute; dopyt po službe, ktor&uacute; m&ocirc;žu zariadenia poskytovať.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; maj&uacute; dopyt po službe, ktor&uacute; m&ocirc;žu zariadenia poskytovať.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; maj&uacute; dopyt po službe, ktor&uacute; m&ocirc;žu zariadenia poskytovať.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; maj&uacute; dopyt po službe, ktor&uacute; m&ocirc;žu zariadenia poskytovať.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; maj&uacute; dopyt po službe, ktor&uacute; m&ocirc;žu zariadenia poskytovať.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Určuje, ako sa dopyt uplatňuje na každ&uacute; lokalitu. Ak je v&yacute;&scaron;ka dopytu rovnak&aacute; pre v&scaron;etky lokality, vyberte možnosť&nbsp; <b>Hodnota</b>. Ak sa v&yacute;&scaron;ka dopytu l&iacute;&scaron;i podľa lokality, vyberte možnosť <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Určuje, ako sa dopyt uplatňuje na každ&uacute; lokalitu. Ak je v&yacute;&scaron;ka dopytu rovnak&aacute; pre v&scaron;etky lokality, vyberte možnosť&nbsp; <b>Hodnota</b>. Ak sa v&yacute;&scaron;ka dopytu l&iacute;&scaron;i podľa lokality, vyberte možnosť <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Určuje, ako sa dopyt uplatňuje na každ&uacute; lokalitu. Ak je v&yacute;&scaron;ka dopytu rovnak&aacute; pre v&scaron;etky lokality, vyberte možnosť&nbsp; <b>Hodnota</b>. Ak sa v&yacute;&scaron;ka dopytu l&iacute;&scaron;i podľa lokality, vyberte možnosť <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Určuje, ako sa dopyt uplatňuje na každ&uacute; lokalitu. Ak je v&yacute;&scaron;ka dopytu rovnak&aacute; pre v&scaron;etky lokality, vyberte možnosť&nbsp; <b>Hodnota</b>. Ak sa v&yacute;&scaron;ka dopytu l&iacute;&scaron;i podľa lokality, vyberte možnosť <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Určuje, ako sa dopyt uplatňuje na každ&uacute; lokalitu. Ak je v&yacute;&scaron;ka dopytu rovnak&aacute; pre v&scaron;etky lokality, vyberte možnosť&nbsp; <b>Hodnota</b>. Ak sa v&yacute;&scaron;ka dopytu l&iacute;&scaron;i podľa lokality, vyberte možnosť <b>Pole</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>V&yacute;&scaron;ka dopytu na každej lokalite dopytu. V každej lokalite sa uplatn&iacute; rovnak&aacute; v&yacute;&scaron;ka dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>V&yacute;&scaron;ka dopytu na každej lokalite dopytu. V každej lokalite sa uplatn&iacute; rovnak&aacute; v&yacute;&scaron;ka dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>V&yacute;&scaron;ka dopytu na každej lokalite dopytu. V každej lokalite sa uplatn&iacute; rovnak&aacute; v&yacute;&scaron;ka dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>V&yacute;&scaron;ka dopytu na každej lokalite dopytu. V každej lokalite sa uplatn&iacute; rovnak&aacute; v&yacute;&scaron;ka dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>V&yacute;&scaron;ka dopytu na každej lokalite dopytu. V každej lokalite sa uplatn&iacute; rovnak&aacute; v&yacute;&scaron;ka dopytu.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Pole z vrstvy dopytu, ktor&eacute; určuje množstvo dopytu pre každ&uacute; lokalitu.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Pole z vrstvy dopytu, ktor&eacute; určuje množstvo dopytu pre každ&uacute; lokalitu.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Pole z vrstvy dopytu, ktor&eacute; určuje množstvo dopytu pre každ&uacute; lokalitu.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Pole z vrstvy dopytu, ktor&eacute; určuje množstvo dopytu pre každ&uacute; lokalitu.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Pole z vrstvy dopytu, ktor&eacute; určuje množstvo dopytu pre každ&uacute; lokalitu.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Určuje, či je maxim&aacute;lna povolen&aacute; vzdialenosť alebo čas pohybu medzi lokalitou dopytu a priraden&yacute;m zariaden&iacute;m určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>), alebo sa neuplatňuje žiadne maximum (<b>Neobmedzen&aacute;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Určuje, či je maxim&aacute;lna povolen&aacute; vzdialenosť alebo čas pohybu medzi lokalitou dopytu a priraden&yacute;m zariaden&iacute;m určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>), alebo sa neuplatňuje žiadne maximum (<b>Neobmedzen&aacute;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Určuje, či je maxim&aacute;lna povolen&aacute; cestovn&aacute; vzdialenosť alebo čas medzi lokalitou dopytu a priraden&yacute;m zariaden&iacute;m určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Určuje, či je maxim&aacute;lna povolen&aacute; vzdialenosť alebo čas pohybu medzi lokalitou dopytu a priraden&yacute;m zariaden&iacute;m určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>), alebo sa neuplatňuje žiadne maximum (<b>Neobmedzen&aacute;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Určuje, či je maxim&aacute;lna povolen&aacute; vzdialenosť alebo čas pohybu medzi lokalitou dopytu a priraden&yacute;m zariaden&iacute;m určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>), alebo sa neuplatňuje žiadne maximum (<b>Neobmedzen&aacute;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;. Na každej lokalite sa použije rovnak&yacute; maxim&aacute;lny rozsah cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;. Na každej lokalite sa použije rovnak&yacute; maxim&aacute;lny rozsah cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;. Na každej lokalite sa použije rovnak&yacute; maxim&aacute;lny rozsah cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;. Na každej lokalite sa použije rovnak&yacute; maxim&aacute;lny rozsah cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;. Na každej lokalite sa použije rovnak&yacute; maxim&aacute;lny rozsah cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Pole obsahuj&uacute;ce vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Pole obsahuj&uacute;ce vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Pole obsahuj&uacute;ce vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Pole obsahuj&uacute;ce vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Pole obsahuj&uacute;ce vzdialenosť alebo čas cestovania, po prekročen&iacute; ktor&eacute;ho sa dopyt nepridel&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Jednotky použ&iacute;van&eacute; na určenie maxim&aacute;lnej vzdialenosti alebo času cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Jednotky použ&iacute;van&eacute; na určenie maxim&aacute;lnej vzdialenosti alebo času cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Jednotky použ&iacute;van&eacute; na určenie maxim&aacute;lnej vzdialenosti alebo času cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Jednotky použ&iacute;van&eacute; na určenie maxim&aacute;lnej vzdialenosti alebo času cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Jednotky použ&iacute;van&eacute; na určenie maxim&aacute;lnej vzdialenosti alebo času cestovania.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Minim&aacute;lne percento dopytu, ktor&eacute; musia zariadenia pokryť.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; sl&uacute;žia ako kandid&aacute;tske zariadenia. Kandid&aacute;tske zariadenia zvyčajne predstavuj&uacute; lokality, na ktor&yacute;ch sa vybuduj&uacute; alebo umiestnia nov&eacute; zariadenia.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; sl&uacute;žia ako kandid&aacute;tske zariadenia. Kandid&aacute;tske zariadenia zvyčajne predstavuj&uacute; lokality, na ktor&yacute;ch sa vybuduj&uacute; alebo umiestnia nov&eacute; zariadenia.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; sl&uacute;žia ako kandid&aacute;tske zariadenia. Kandid&aacute;tske zariadenia zvyčajne predstavuj&uacute; lokality, na ktor&yacute;ch sa vybuduj&uacute; alebo umiestnia nov&eacute; zariadenia.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky reprezentuj&uacute;ce lokality, ktor&eacute; sl&uacute;žia ako kandid&aacute;tske zariadenia. Kandid&aacute;tske zariadenia zvyčajne predstavuj&uacute; lokality, na ktor&yacute;ch sa vybuduj&uacute; alebo umiestnia nov&eacute; zariadenia.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Určuje, či je kapacita pre každ&eacute; kandid&aacute;tske zariadenie určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Kapacita každ&eacute;ho kandid&aacute;tskeho zariadenia. Rovnak&aacute; kapacita sa uplatn&iacute; na každ&eacute; kandid&aacute;tske zariadenie.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Pole obsahuj&uacute;ce kapacitu pre každ&eacute; kandid&aacute;tske zariadenie.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Počet kandid&aacute;tskych zariaden&iacute; pre v&yacute;ber zo s&uacute;boru kandid&aacute;tov. Ak zad&aacute;te požadovan&eacute; aj kandid&aacute;tske zariadenia, zariadenia z vrstvy požadovan&yacute;ch zariaden&iacute; sa použij&uacute; pred zariadeniami z vrstvy kandid&aacute;tskych zariaden&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Počet kandid&aacute;tskych zariaden&iacute; pre v&yacute;ber zo s&uacute;boru kandid&aacute;tov. Ak zad&aacute;te požadovan&eacute; aj kandid&aacute;tske zariadenia, zariadenia z vrstvy požadovan&yacute;ch zariaden&iacute; sa použij&uacute; pred zariadeniami z vrstvy kandid&aacute;tskych zariaden&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Počet kandid&aacute;tskych zariaden&iacute; pre v&yacute;ber zo s&uacute;boru kandid&aacute;tov. Ak zad&aacute;te požadovan&eacute; aj kandid&aacute;tske zariadenia, zariadenia z vrstvy požadovan&yacute;ch zariaden&iacute; sa použij&uacute; pred zariadeniami z vrstvy kandid&aacute;tskych zariaden&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Určuje, či sa ako vstupy použ&iacute;vaj&uacute; len kandid&aacute;tske zariadenia (nepovolen&eacute;) alebo či sa vyžaduj&uacute; niektor&eacute; zariadenia (povolen&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Určuje, či sa ako vstupy použ&iacute;vaj&uacute; len kandid&aacute;tske zariadenia (nepovolen&eacute;) alebo či sa vyžaduj&uacute; niektor&eacute; zariadenia (povolen&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Určuje, či sa ako vstupy použ&iacute;vaj&uacute; len kandid&aacute;tske zariadenia (nepovolen&eacute;) alebo či sa vyžaduj&uacute; niektor&eacute; zariadenia (povolen&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Určuje, či sa ako vstupy použ&iacute;vaj&uacute; len kandid&aacute;tske zariadenia (nepovolen&eacute;) alebo či sa vyžaduj&uacute; niektor&eacute; zariadenia (povolen&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky predstavuj&uacute;ce lokality, ktor&eacute; funguj&uacute; ako zariadenia. Tieto zariadenia zvyčajne predstavuj&uacute; existuj&uacute;ce lokality.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky predstavuj&uacute;ce lokality, ktor&eacute; funguj&uacute; ako zariadenia. Tieto zariadenia zvyčajne predstavuj&uacute; existuj&uacute;ce lokality.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky predstavuj&uacute;ce lokality, ktor&eacute; funguj&uacute; ako zariadenia. Tieto zariadenia zvyčajne predstavuj&uacute; existuj&uacute;ce lokality.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky predstavuj&uacute;ce lokality, ktor&eacute; funguj&uacute; ako zariadenia. Tieto zariadenia zvyčajne predstavuj&uacute; existuj&uacute;ce lokality.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Bodov&eacute; prvky predstavuj&uacute;ce lokality, ktor&eacute; funguj&uacute; ako zariadenia. Tieto zariadenia zvyčajne predstavuj&uacute; existuj&uacute;ce lokality.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Určuje, či je kapacita pre každ&eacute; zariadenie určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Určuje, či je kapacita pre každ&eacute; zariadenie určen&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo hodnotou poľa (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Kapacita každ&eacute;ho požadovan&eacute;ho zariadenia. Rovnak&aacute; kapacita sa uplatn&iacute; na každ&eacute; požadovan&eacute; zariadenie.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Kapacita každ&eacute;ho požadovan&eacute;ho zariadenia. Rovnak&aacute; kapacita sa uplatn&iacute; na každ&eacute; požadovan&eacute; zariadenie.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Pole obsahuj&uacute;ce kapacitu pre každ&eacute; zariadenie.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Pole obsahuj&uacute;ce kapacitu pre každ&eacute; zariadenie.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

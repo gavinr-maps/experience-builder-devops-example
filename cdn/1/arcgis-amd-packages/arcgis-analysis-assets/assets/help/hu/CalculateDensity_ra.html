@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Calculate Density eszk&ouml;z sűrűs&eacute;gbecsl&eacute;st sz&aacute;mol pontos &eacute;s vonalas vektoros elemekből. Az eszk&ouml;z raszteres kimenetet hoz l&eacute;tre.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>A pont vagy vonal r&eacute;teg, amelyből a sűrűs&eacute;g sz&aacute;m&iacute;t&aacute;sa t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>Az a mező, amely megadja az incidensek sz&aacute;m&aacute;t az egyes helyeken.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>A hat&aacute;rokat meghat&aacute;roz&oacute; r&eacute;teg. Az akad&aacute;lyok lehetnek polyline vagy polygon t&iacute;pus&uacute; vektoros elemek r&eacute;tegei.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>A kimeneti raszter l&eacute;trehoz&aacute;shoz haszn&aacute;lt cellam&eacute;ret &eacute;s m&eacute;rt&eacute;kegys&eacute;g.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>A keres&eacute;si pontok vagy vonalak t&aacute;vols&aacute;g&aacute;t adja meg a sűrűs&eacute;g kisz&aacute;m&iacute;t&aacute;s&aacute;hoz, &eacute;rt&eacute;k &eacute;s m&eacute;rt&eacute;kegys&eacute;g haszn&aacute;lat&aacute;val.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>A kimeneti ter&uuml;leten haszn&aacute;land&oacute; m&eacute;rt&eacute;kegys&eacute;gek.
+            </p>
+            <p>A sűrűs&eacute;g a darabsz&aacute;m &eacute;s a ter&uuml;let h&aacute;nyadosa, &eacute;s ez a param&eacute;ter hat&aacute;rozza meg a ter&uuml;letegys&eacute;get a sűrűs&eacute;gsz&aacute;m&iacute;t&aacute;sban.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt sűrűs&eacute;g raszteres r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>A l&eacute;trej&ouml;vő kimenet t&iacute;pusa. A kimenetek csemp&eacute;zett t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek vagy pedig dinamikus t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;tegek lehetnek.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;nyek ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

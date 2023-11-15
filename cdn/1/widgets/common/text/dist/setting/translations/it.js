@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({wrap:"Unire",verticalAlignment:"Allineamento verticale"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Allineamento verticale"})}}}));

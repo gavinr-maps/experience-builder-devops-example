@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Souhrn středov&eacute; hodnoty a rozpt&yacute;len&iacute; (Summarize Center and Dispersion) najde středov&yacute; prvek a směrov&aacute; rozložen&iacute; sady prvků.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Bodov&eacute;, liniov&eacute; nebo polygonov&eacute; prvky, pro kter&eacute; se vypoč&iacute;t&aacute; středov&yacute; prvek a směrov&aacute; rozložen&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Určuje metody, kter&eacute; shrnou střed a rozptyl prvků.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Určuje velikost elipsy polygonov&eacute;ho prvku ve směrodatn&yacute;ch odchylk&aacute;ch. Pokud se vzd&aacute;lenost mezi středem a&nbsp;polohou prvků ř&iacute;d&iacute; Rayleighov&yacute;m rozdělen&iacute;m, možnosti  <b>1 standardn&iacute; odchylka</b>, <b>2 standardn&iacute; odchylky</b> a <b>3 standardn&iacute; odchylky</b> vytvoř&iacute; eliptick&yacute; polygon, kter&yacute; pokryje 63&nbsp;%, 89&nbsp;% a&nbsp;99,9&nbsp;% prvků.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Pole, kter&eacute; se použije k určen&iacute; v&aacute;hy prvku.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Pole, kter&eacute; bude použito pro seskupen&iacute; prvků. Pro každou skupinu se vypoč&iacute;taj&iacute; vybran&eacute;  <b>Typy souhrnů</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

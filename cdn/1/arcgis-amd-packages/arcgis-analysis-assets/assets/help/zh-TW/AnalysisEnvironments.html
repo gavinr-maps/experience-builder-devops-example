@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p> Map Viewer 中分析的環境設定。 </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>指定用於分析和結果圖層的座標系統。
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>指定要用於分析的區域。
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>調整輸出的範圍，使其符合指定的對齊點陣圖層的儲存格對齊。
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>指定將用於分析並用來建立輸出點陣圖層的儲存格大小或解析度。
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>指定遮罩圖層，其中只會將位於遮罩區域內的儲存格用於分析。
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>指定當輸入和輸出點陣不對齊時如何插值像素值。
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>指定要使用的處理器類型。 選項為  <b>CPU</b>、 <b>GPU</b> 和 <b>自動</b>。 若指定 <b>自動</b>，工具將定義處理器類型。
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>指定工具執行期間所使用的點陣處理服務執行個體的數量。 支援的值包括空字串 (此工具將確定要使用的點陣處理服務執行個體的數量)、整數 (0 或正整數) 和百分比。 百分比必須在百分比值後方包含百分號 (%)。
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>決定如果估計的點數超過指定的閾值是否顯示警告訊息 (啟用)，或者無論估計的點數消耗量為何，都將執行分析而不顯示訊息 (未啟用)。 此分析仍將遵循組織的點數預算設定。
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>指定根據執行分析所估計的點數消耗量，將顯示警告訊息的閾值。 如果估計值超過閾值，仍可執行分析。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

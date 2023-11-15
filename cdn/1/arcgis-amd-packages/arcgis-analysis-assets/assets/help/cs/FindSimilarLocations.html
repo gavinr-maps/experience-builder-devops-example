@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Naj&iacute;t podobn&eacute; lokality (Find Similar Locations) vyhodnot&iacute; podobnost mezi kandid&aacute;tsk&yacute;mi a&nbsp;referenčn&iacute;mi lokalitami na z&aacute;kladě sady krit&eacute;ri&iacute; a&nbsp;kandid&aacute;tsk&eacute; lokality seřad&iacute; od nejpodobněj&scaron;&iacute; po nejm&eacute;ně podobnou.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&aacute;, liniov&aacute; nebo polygonov&aacute; vrstva, kter&aacute; obsahuje referenčn&iacute; lokality, kter&eacute; budou porovn&aacute;v&aacute;ny. Pokud vrstva obsahuje v&iacute;ce lokalit, v&scaron;echny lokality se zprůměruj&iacute; a&nbsp;vytvoř&iacute; jedinou referenčn&iacute; lokalitu.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Bodov&aacute;, liniov&aacute; nebo polygonov&aacute; vrstva, kter&aacute; obsahuje hledan&eacute; kandid&aacute;tsk&eacute; lokality. Každ&aacute; kandid&aacute;tsk&aacute; lokalita bude porovn&aacute;na s&nbsp;referenčn&iacute; lokalitou podle zadan&eacute;ho  <b>V&yacute;běru krit&eacute;ri&iacute;</b> a&nbsp;bude seřazena od nejpodobněj&scaron;&iacute; po nejm&eacute;ně podobnou.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Č&iacute;seln&aacute; pole, kter&aacute; budou použita k&nbsp;vyhodnocen&iacute; podobnosti mezi referenčn&iacute; lokalitou a&nbsp;jednotliv&yacute;mi kandid&aacute;tsk&yacute;mi lokalitami. Každ&yacute;  <b>V&yacute;běr krit&eacute;ri&iacute;</b> bude m&iacute;t hodnotu <b>Pole z&nbsp;referenčn&iacute; vrstvy</b> a&nbsp;hodnotu <b>Pole z&nbsp;kandid&aacute;tsk&eacute; vrstvy</b>. Hodnoty <b>Pole z&nbsp;referenčn&iacute; vrstvy</b> a <b>Pole z&nbsp;kandid&aacute;tsk&eacute; vrstvy</b> jsou shodn&aacute; pole ve <b>Vrstvě referenčn&iacute;ch lokalit</b> a <b>Vrstvě pro vyhled&aacute;v&aacute;n&iacute; kandid&aacute;tů</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Pole  <b>Vrstvy referenčn&iacute;ch lokalit</b>, kter&eacute; odpov&iacute;d&aacute; poli ve <b>Vrstvě pro vyhled&aacute;v&aacute;n&iacute; kandid&aacute;tů</b> zadan&eacute;m hodnotou <b>Pole z&nbsp;kandid&aacute;tsk&eacute; vrstvy</b>. Hodnoty v&nbsp;těchto shodn&yacute;ch pol&iacute;ch se porovnaj&iacute; a&nbsp;vyhodnot&iacute; se podobnost mezi referenčn&iacute; lokalitou a&nbsp;jednotliv&yacute;mi kandid&aacute;tsk&yacute;mi lokalitami.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Pole  <b>Vrstvy pro vyhled&aacute;v&aacute;n&iacute; kandid&aacute;tů</b>, kter&eacute; odpov&iacute;d&aacute; poli ve <b>Vrstvě referenčn&iacute;ch lokalit</b> zadan&eacute;m hodnotou <b>Pole z&nbsp;referenčn&iacute; vrstvy</b>. Hodnoty v&nbsp;těchto shodn&yacute;ch pol&iacute;ch se porovnaj&iacute; a&nbsp;vyhodnot&iacute; se podobnost mezi referenčn&iacute; lokalitou a&nbsp;jednotliv&yacute;mi kandid&aacute;tsk&yacute;mi lokalitami.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Určuje, zda v&scaron;echny lokality ve&nbsp; <b>Vrstvě pro vyhled&aacute;v&aacute;n&iacute; kandid&aacute;tů</b> budou zahrnuty do v&yacute;stupn&iacute; vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Počet nejv&iacute;ce podobn&yacute;ch lokalit ve&nbsp; <b>Vrstvě pro vyhled&aacute;v&aacute;n&iacute; kandid&aacute;tů</b>, kter&eacute; budou zahrnuty do v&yacute;stupn&iacute; vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

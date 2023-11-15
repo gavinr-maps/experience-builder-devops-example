@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Згенерувати растр тренду&raquo; оцінює тренд для кожного пікселя за виміром для однієї або декількох змінних у багатовимірному растрі зображень.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Багатовимірний шар зображень, який буде використовуватися для створення трендів.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Вимір, за яким витягатиметься тренд для змінної або змінних, вибраних в аналізі.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Змінна або змінні, для яких розраховуватимуться тренди.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Одиниця часу, яка буде використовуватися для тривалості сезонного періоду під час використання лінії типу &laquo;Сезонний-Кендалл&raquo;.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Тип аналізу трендів, який буде використовуватися для значень пікселів за виміром.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Частота або порядковий номер полінома, який буде використовуватися для припасування тренду.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Визначає, чи ігноруватимуться NoData або відсутні значення під час аналізу.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Довжина періодичної зміни, яка буде змодельована для гармонійного циклу.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Одиниця часу, яка буде використовуватися для вимірювання тривалості гармонійного циклу.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Визначає, чи буде обчислюватися середньоквадратична помилка (RMSE) лінії припасування тренду.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Визначає, чи буде обчислюватися R-квадрат статистики відповідності для лінії відповідності тренду.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Визначає, чи буде обчислено статистичне значення p для коефіцієнта нахилу лінії відповідності тренду.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Назва шару, який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Тип вихідних даних, які буде створено. Вихідними даними може бути шар зображень з тайлами або динамічний шар зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

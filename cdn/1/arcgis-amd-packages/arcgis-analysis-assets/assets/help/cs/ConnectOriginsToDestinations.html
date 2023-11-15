@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Vypoč&iacute;tat cestovn&iacute; n&aacute;klady (Calculate Travel Cost) měř&iacute; cestovn&iacute; čas nebo vzd&aacute;lenost mezi dvojicemi bodů.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Bodov&aacute; vrstva představuj&iacute;c&iacute; v&yacute;choz&iacute; m&iacute;sta cesty, jej&iacute;ž n&aacute;klady se poč&iacute;taj&iacute;. Podporov&aacute;ny jsou vrstvy s počtem prvků až  5 000. </p> 
+            <p class="PortalOnly">Bodov&aacute; vrstva představuj&iacute;c&iacute; v&yacute;choz&iacute; m&iacute;sta cesty, jej&iacute;ž n&aacute;klady se poč&iacute;taj&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Bodov&aacute; vrstva představuj&iacute;c&iacute; c&iacute;lov&aacute; m&iacute;sta cesty, jej&iacute;ž n&aacute;klady se poč&iacute;taj&iacute;. Podporov&aacute;ny jsou vrstvy s počtem prvků až  5 000. </p> 
+            <p class="PortalOnly">Bodov&aacute; vrstva představuj&iacute;c&iacute; c&iacute;lov&aacute; m&iacute;sta cesty, jej&iacute;ž n&aacute;klady se poč&iacute;taj&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Pole ve  <b>Vrstvě poč&aacute;tků</b>, kter&eacute; definuje předem přiřazenou dvojici poč&aacute;tek-c&iacute;l. Pokud existuje v&iacute;ce v&yacute;choz&iacute;ch a c&iacute;lov&yacute;ch m&iacute;st, mus&iacute; se toto ID shodovat s hodnotou v poli <b>Pole ID trasy ve vrstvě c&iacute;lů</b>.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Pole ve  <b>Vrstvě c&iacute;lů</b>, kter&eacute; definuje předem přiřazenou dvojici poč&aacute;tek-c&iacute;l. Pokud existuje v&iacute;ce v&yacute;choz&iacute;ch a c&iacute;lov&yacute;ch m&iacute;st, mus&iacute; se toto ID shodovat s hodnotou v poli <b>Pole ID trasy ve vrstvě poč&aacute;tků</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Jeden nebo v&iacute;ce bodov&yacute;ch prvků, kter&eacute; slouž&iacute; jako dočasn&aacute; omezen&iacute; (přek&aacute;žky) při pohybu po př&iacute;slu&scaron;n&yacute;ch pozemn&iacute;ch komunikac&iacute;ch. Pohyb je povolen po komunikaci, zat&iacute;mco pohyb skrz přek&aacute;žku nen&iacute; možn&yacute;.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Jeden nebo v&iacute;ce liniov&yacute;ch prvků, kter&eacute; slouž&iacute; jako dočasn&aacute; omezen&iacute; (přek&aacute;žky) při pohybu po př&iacute;slu&scaron;n&yacute;ch pozemn&iacute;ch komunikac&iacute;ch. Liniov&eacute; přek&aacute;žky zakazuj&iacute; j&iacute;zdu v&scaron;ude, kde se kř&iacute;ž&iacute; s&nbsp;ulicemi.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Jeden nebo v&iacute;ce polygonov&yacute;ch prvků, kter&eacute; slouž&iacute; jako dočasn&aacute; omezen&iacute; (přek&aacute;žky) při pohybu po př&iacute;slu&scaron;n&yacute;ch pozemn&iacute;ch komunikac&iacute;ch. Polygonov&eacute; přek&aacute;žky zakazuj&iacute; j&iacute;zdu v m&iacute;stech, kde polygony prot&iacute;naj&iacute; ulice.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Metoda, kter&aacute; se použije k&nbsp;měřen&iacute; vzd&aacute;lenosti nebo času. Metodou může b&yacute;t liniov&aacute; vzd&aacute;lenost nebo způsob přepravy.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Datum a čas odjezdu z v&yacute;choz&iacute;ch m&iacute;st ve  <b>Vrstvě poč&aacute;tků</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Určuje, zda jsou v&yacute;choz&iacute; a c&iacute;lov&eacute; body propojeny pomoc&iacute; př&iacute;m&yacute;ch spojnic (<b>Vzdu&scaron;n&aacute; č&aacute;ra</b>) nebo pomoc&iacute; spojnic na z&aacute;kladě uličn&iacute; s&iacute;tě (<b>Sledovat ulice</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Určuje, zda bude každ&aacute; v&yacute;sledn&aacute; trasa uložena jako vrstva trasy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; budou v&yacute;sledky uloženy.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

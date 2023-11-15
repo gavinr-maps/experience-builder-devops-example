@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Predicția utilizării rasterului de tendințe calculează un strat tematic de imagini satelitare multidimensional prognozat folosind stratul tematic de imagini satelitare de tendințe de ieșire creat de instrumentul Generare raster de tendințe.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Stratul tematic de imagini satelitare de tendințe multidimensional de intrare care va fi utilizat pentru predicție.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabila stratului tematic de imagini satelitare multidimensional care va fi utilizat pentru predicție.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Metoda care va fi utilizată pentru a furniza valori de dimensiune a predicției.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Definiți data de &icirc;nceput și de sf&acirc;rșit, &icirc;nălțimea sau ad&acirc;ncimea intervalului de dimensiune de folosit la predicție.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>Data de &icirc;nceput, &icirc;nălțimea sau ad&acirc;ncimea intervalului de dimensiuni care vor fi utilizate &icirc;n prognoză.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Data de sf&acirc;rșit, &icirc;nălțimea sau ad&acirc;ncimea intervalului de dimensiuni care vor fi utilizate &icirc;n prognoză.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Numărul de pași dintre două valori ale dimensiunilor care vor fi incluse &icirc;n prognoză.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Unitatea care va fi folosită pentru valoarea de interval.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Tipul de ieșire care va fi creată. Ieșirea poate fi un strat tematic de imagini satelitare cu structură tile sau un strat tematic de imagini satelitare dinamic.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

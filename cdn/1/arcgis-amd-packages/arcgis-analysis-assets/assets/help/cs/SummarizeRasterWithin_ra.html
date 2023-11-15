@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Zon&aacute;ln&iacute; statistika (Zonal Statistics) shrne hodnoty rastru uvnitř z&oacute;n jin&eacute; datov&eacute; sady.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneLayer">
+        <div>
+            <p>Vstup definuj&iacute;c&iacute; hranice oblast&iacute;, nebo z&oacute;n, kter&eacute; budou sumarizov&aacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Pole obsahuj&iacute;c&iacute; hodnoty, kter&eacute; definuj&iacute; každou z&oacute;nu.
+            </p>
+        </div>
+    </div>
+    <div id="inputRasterLayertoSummarize">
+        <div>
+            <p>Rastrov&aacute; vrstva obsahuj&iacute;c&iacute; hodnoty buněk, kter&eacute; budou použity pro v&yacute;počet statistik.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Určuje typ statistiky, kter&yacute; bude vypoč&iacute;t&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Určuje hodnotu percentilu, kter&aacute; se vypoč&iacute;t&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Určuje metodu, kter&aacute; se použije, pokud je počet hodnot ze vstupn&iacute;ho rastru, kter&eacute; se maj&iacute; vypoč&iacute;tat, sud&yacute;.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Určuje, jak budou zpracov&aacute;ny hodnoty buněk  <b>Rastru vstupn&iacute;ch hodnot</b> pro cirkul&aacute;rn&iacute; data.
+            </p>
+            <p>Pokud nen&iacute; za&scaron;krtnuto, poč&iacute;t&aacute; se běžn&aacute; aritmetick&aacute; (line&aacute;rn&iacute;) statistika. Pokud je za&scaron;krtnuto, vypoč&iacute;t&aacute; se cirkul&aacute;rn&iacute; statistika.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Určuje hodnotu, kter&aacute; se použije k zaokrouhlen&iacute; line&aacute;rn&iacute; hodnoty na rozsah dan&eacute; cirkul&aacute;rn&iacute; statistiky.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreMissingValues">
+        <div>
+            <p>Určuje, zda budou buňky NoData v  <b>Rastru vstupn&iacute;ch hodnot</b> ignorov&aacute;ny ve v&yacute;sledc&iacute;ch z&oacute;n, do kter&yacute;ch spadaj&iacute;.
+            </p>
+            <p>Pokud je za&scaron;krtnuto, budou buňky NoData v rastru hodnot při v&yacute;počtu statistiky ignorov&aacute;ny. Pokud nen&iacute; za&scaron;krtnuto, buňky NoData nebudou ignorov&aacute;ny a cel&aacute; z&oacute;na obdrž&iacute; na v&yacute;stupn&iacute;m rastru hodnotu NoData.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Určuje, jak budou zpracov&aacute;ny vstupn&iacute; rastry, pokud jsou v&iacute;cerozměrn&eacute;.
+            </p>
+            <p>Pokud nen&iacute; za&scaron;krtnuto, statistika se vypoč&iacute;t&aacute; pro v&scaron;echny rozměry vstupn&iacute; v&iacute;cerozměrn&eacute; datov&eacute; sady. Pokud je za&scaron;krtnuto, statistika se vypoč&iacute;t&aacute; z aktu&aacute;ln&iacute;ho řezu vstupn&iacute; v&iacute;cerozměrn&eacute; datov&eacute; sady.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev rastrov&eacute; vrstvy zon&aacute;ln&iacute; statistiky, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, kter&yacute; bude vytvořen. V&yacute;stupem může b&yacute;t vrstva dlaždicov&yacute;ch sn&iacute;mků nebo vrstva dynamick&yacute;ch sn&iacute;mků.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

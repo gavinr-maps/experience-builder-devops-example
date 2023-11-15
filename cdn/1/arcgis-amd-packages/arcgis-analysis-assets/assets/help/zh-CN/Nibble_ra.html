@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>蚕食工具将用最邻近点的值替换掩膜范围内的栅格像元值。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>具有掩膜位置的输入栅格将替换（蚕食）为其最邻近像元值的栅格。
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>掩膜栅格标识输入栅格中可以替换的位置。 值为 NoData 的像元视为在掩膜区域内。
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>输入区域栅格。 在每个区域中，掩膜内的输入像元仅会被同一区域内的最近像元值替换。
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>指定输入栅格中的 NoData 像元是否可以替换（蚕食）掩膜区域中的像元（如果它们是最邻近像元）。
+            </p>
+            <p>如果选中，输入栅格中的 NoData 像元可能会蚕食掩膜区域。 如果未选中，仅输入栅格中的有效像元可能会蚕食掩膜区域。
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>用于指定掩膜区域中的 NoData 像元是保留还是替换。
+            </p>
+            <p>如果未选中，则掩膜区域内的任何 NoData 像元都将保留在输出中。 如果选中，则指定掩膜区域中的 NoData 像元将替换（蚕食）为掩膜区域外的最邻近像元值。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>将创建并添加到地图中的蚕食栅格图层的名称。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>要创建的输出的类型。 输出可以为切片影像图层或动态影像图层。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的内容</b>中要保存结果的文件夹名称。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

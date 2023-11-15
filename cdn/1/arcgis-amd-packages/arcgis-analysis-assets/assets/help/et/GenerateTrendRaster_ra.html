@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Trendirastri loomine&quot; hindab iga piksli trendi piki &uuml;he v&otilde;i mitme muutuja m&otilde;&otilde;det mitmem&otilde;&otilde;tmelisel pildikihil.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Trendi loomiseks kasutatav mitmem&otilde;&otilde;tmeline pildikiht.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensioon, mille p&otilde;hjal trend anal&uuml;&uuml;sis valitud muutuja v&otilde;i muutujate jaoks ekstraktitakse.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Muutuja v&otilde;i muutujad, mille jaoks trend arvutatakse.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Hooajalise Kendalli joone t&uuml;&uuml;bi rakendamisel hooaja pikkuse jaoks kasutatav aja&uuml;hik.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Trendi anal&uuml;&uuml;si t&uuml;&uuml;p, mis teostatakse piksliv&auml;&auml;rtustel m&ouml;&ouml;da m&otilde;&otilde;det.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Trendi sobitamiseks kasutatav sagedus v&otilde;i pol&uuml;noomi j&auml;rgunumber.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>M&auml;&auml;rab &auml;ra, kas NoData v&otilde;i puuduvaid v&auml;&auml;rtusi anal&uuml;&uuml;sis ignoreeritakse.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Harmoonilise ts&uuml;kli jaoks modelleeritava perioodilise varieerumise pikkus.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Aja&uuml;hik, mida kasutatakse harmoonilise ts&uuml;kli pikkuse m&auml;&auml;ratlemisel.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>M&auml;&auml;rab, kas arvutatakse trendi sobivusjoone ruutkeskmine viga (RMSE).
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>M&auml;&auml;rab, kas arvutatakse trendi sobivusjoone R-ruudu sobivuse headuse statistika.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>M&auml;&auml;rab, kas trendi sobitusjoone kaldeteguri jaoks arvutatakse p-v&auml;&auml;rtuse statistika.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljund v&otilde;ib olla paanitud pildikiht v&otilde;i d&uuml;naamiline pildikiht.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

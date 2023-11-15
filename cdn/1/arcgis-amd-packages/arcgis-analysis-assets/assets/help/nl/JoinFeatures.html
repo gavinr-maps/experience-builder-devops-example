@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Aanmeldfeatures voegt attributen toe van &eacute;&eacute;n laag of tabel aan een andere laag of tabel op basis van ruimtelijke en attribuutrelaties. Optioneel kunnen statistieken worden berekend wanneer er meerdere overeenstemmende records zijn.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>De laag of tabel waarvan de attributen van de samengevoegde laag worden toegevoegd aan de attribuuttabel.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>De laag of tabel met de attributen die aan de doellaag worden toegevoegd.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Geef aan of lagen moeten worden samengevoegd op basis van een ruimtelijke relatie. Dit vereist dat beide lagen een geometrie hebben.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Specificeer de ruimtelijke relatie die bepaalt welke objecten worden samengevoegd. Functies in de samengevoegde laag die de gespecificeerde relatie tot de doellaag hebben, worden samengevoegd. De beschikbare relaties zijn afhankelijk van het geometrietype van de invoer.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>De afstand tot de objecten in de doellaag die wordt gebruikt om te bepalen of objecten moeten worden samengevoegd.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>De eenheden die worden gebruikt om de afstand te specificeren.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Geef aan of lagen moeten worden samengevoegd op basis van overeenstemmende veldwaarden. Dit is de enige optie indien &eacute;&eacute;n of meer van de invoeren een tabel is.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Specificeer de attribuutrelatie die bepaalt welke objecten worden samengevoegd. Objecten worden gematched als de veldwaarden in de koppelingslaag gelijk zijn aan veldwaarden in de doellaag.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Specificeer hoe aansluitingen worden behandeld als meerdere records uit de koppellaag aan de koppelcriteria voldoen. Kies &eacute;&eacute;n van de volgende opties:
+                <ul>
+                    <li> <b>E&eacute;n-aan-&eacute;&eacute;n koppelen</b>&mdash;Koppel &eacute;&eacute;n record in de koppellaag aan elk object in de doellaag.
+                    </li>
+                    <li> <b>E&eacute;n-met-veel koppelen</b>&mdash;Koppel alle overeenkomende objecten in de koppellaag met de doellaag. De resultaatlaag zal meerdere records van het doelobject bevatten.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Wanneer meerdere objecten in de koppellaag overeenkomen met een doelobject, geeft u aan of een enkel record uit de koppellaag moet worden verbonden of dat samenvattende statistieken van alle overeenkomende records uit de koppellaag moeten worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Wanneer er meerdere koppelobjecten zijn die met een doelobject overeenkomen, worden samenvattende statistieken voor alle overeenkomende records berekend. Specificeer het aantal of de datumvelden van de koppellaag, en de statistieken die voor elk veld zullen worden berekend.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Wanneer er meerdere koppelobjecten zijn die met een doelobject overeenkomen, wordt de eerste record uit de attribuuttabel van de koppellaag in de uitvoer opgenomen. Kies optioneel een getal- of datumveld en de sorteervolgorde die de volgorde van de attribuuttabel zal bepalen.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Bepaalt of onge&euml;venaarde doelfuncties in de uitvoer worden opgenomen. Een  <b>Interne verbinding</b> levert alleen gematchte doelrecords op, terwijl een <b>Lnkerverbinding</b> alle doelrecords oplevert, zelfs als het doelobject geen match heeft in de koppellaag.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de laag of tabel die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

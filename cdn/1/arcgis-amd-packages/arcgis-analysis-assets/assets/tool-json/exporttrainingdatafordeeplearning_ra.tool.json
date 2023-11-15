@@ -1,0 +1,188 @@
+{
+  "name": "ExportTrainingDataforDeepLearning",
+  "displayName": "ExportTrainingDataforDeepLearning",
+  "description": "",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/ExportTrainingDataforDeepLearning.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputRaster",
+      "dataType": "GPString",
+      "displayName": "inputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputLocation",
+      "dataType": "GPString",
+      "displayName": "outputLocation",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "inputClassData",
+      "dataType": "GPString",
+      "displayName": "inputClassData",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "chipFormat",
+      "dataType": "GPString",
+      "displayName": "chipFormat",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "TIFF",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["JPEG", "MRF", "PNG", "TIFF"]
+    },
+    {
+      "name": "tileSize",
+      "dataType": "GPString",
+      "displayName": "tileSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "strideSize",
+      "dataType": "GPString",
+      "displayName": "strideSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "metadataFormat",
+      "dataType": "GPString",
+      "displayName": "metadataFormat",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "KITTI_rectangles",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["KITTI_rectangles", "PASCAL_VOC_rectangles", "Classified_Tiles", "RCNN_Masks", "Labeled_Tiles"]
+    },
+    {
+      "name": "classValueField",
+      "dataType": "GPString",
+      "displayName": "classValueField",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "bufferRadius",
+      "dataType": "GPDouble",
+      "displayName": "bufferRadius",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 0,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "inputMaskPolygons",
+      "dataType": "GPString",
+      "displayName": "inputMaskPolygons",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "rotationAngle",
+      "dataType": "GPDouble",
+      "displayName": "rotationAngle",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "range",
+        "minimum": 0,
+        "maximum": 359.999999999999
+      },
+      "defaultValue": 0,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "referenceSystem",
+      "dataType": "GPString",
+      "displayName": "referenceSystem",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "MAP_SPACE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["MAP_SPACE", "IMAGE_SPACE", "PIXEL_SPACE"]
+    },
+    {
+      "name": "processAllRasterItems",
+      "dataType": "GPBoolean",
+      "displayName": "processAllRasterItems",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "blackenAroundFeature",
+      "dataType": "GPBoolean",
+      "displayName": "blackenAroundFeature",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "fixChipSize",
+      "dataType": "GPBoolean",
+      "displayName": "fixChipSize",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": true,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outLocation",
+      "dataType": "GPString",
+      "displayName": "outLocation",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

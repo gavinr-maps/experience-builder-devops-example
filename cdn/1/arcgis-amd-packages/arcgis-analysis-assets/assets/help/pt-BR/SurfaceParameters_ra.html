@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Par&acirc;metros de Superf&iacute;cie calcula os par&acirc;metros de uma superf&iacute;cie raster, como aspecto, inclina&ccedil;&atilde;o e curvatura usando m&eacute;todos geod&eacute;sicos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>O raster de eleva&ccedil;&atilde;o que ser&aacute; usado para c&aacute;lculos.
+            </p>
+            <p>Se uma unidade z estiver dispon&iacute;vel no sistema de coordenadas vertical do raster de entrada, ela ser&aacute; aplicada automaticamente.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>O tipo de par&acirc;metro de superf&iacute;cie que ser&aacute; medido.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>As unidades de medida do raster de declividade de sa&iacute;da.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Especifica se os azimutes geod&eacute;sicos ser&atilde;o projetados.
+            </p>
+            <p>Se marcado, os azimutes geod&eacute;sicos ser&atilde;o projetados para corrigir a distor&ccedil;&atilde;o angular causada pela refer&ecirc;ncia espacial de sa&iacute;da. Se desmarcado, os azimutes geod&eacute;sicos n&atilde;o ser&atilde;o projetados.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Especifica se o aspecto ser&aacute; medido a partir de um ponto no equador ou no p&oacute;lo norte.
+            </p>
+            <p>Se marcado, o aspecto ser&aacute; medido a partir de um ponto no equador. Se desmarcado, o aspecto ser&aacute; medido a partir do p&oacute;lo norte.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>O tipo de fun&ccedil;&atilde;o de superf&iacute;cie que ser&aacute; ajustada ao redor da c&eacute;lula de destino.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>A dist&acirc;ncia do centro da c&eacute;lula de destino a partir da qual a sa&iacute;da ser&aacute; calculada. Ele determina o tamanho da vizinhan&ccedil;a usado para o c&aacute;lculo.
+            </p>
+            <p>O valor padr&atilde;o &eacute; o tamanho da c&eacute;lula do raster especificado no par&acirc;metro  <b>Raster da superf&iacute;cie de entrada</b>. Se um valor for especificado, ele dever&aacute; ser maior que o padr&atilde;o.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Especifica se a dist&acirc;ncia da vizinhan&ccedil;a ir&aacute; variar com as mudan&ccedil;as na paisagem.
+            </p>
+            <p>Se marcado, a dist&acirc;ncia da vizinhan&ccedil;a ir&aacute; variar com as mudan&ccedil;as na paisagem. Se desmarcado, uma dist&acirc;ncia de vizinhan&ccedil;a fixa ser&aacute; usada em todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>A unidade linear de valores z verticais.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada raster de superf&iacute;cie que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. A sa&iacute;da pode ser uma camada de imagem mosaicada ou uma camada de imagem din&acirc;mica.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

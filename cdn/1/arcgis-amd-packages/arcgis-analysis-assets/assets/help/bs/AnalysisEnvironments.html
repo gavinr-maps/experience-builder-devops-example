@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Postavke okruženja za analizu u  Map Viewer. </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>Određuje koordinatni sustav za analizu i sloj rezultata.
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>Određuje područje koje će se koristiti za analizu.
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>Prilagođava obuhvat izlaza tako da se podudara sa poravnanjem ćelija navedenog sloja za poravnanje rastera.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Određuje veličinu ćelije ili razlučivost koja će se koristiti za analizu i stvaranje izlaznog rasterskog sloja.
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>Određuje sloj maske u kojem će se za analizu koristiti samo ćelije koje spadaju unutar područja maske.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>Određuje kako će se vrijednosti piksela interpolirati kada ulazni i izlazni rasteri nisu poravnati.
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>Određuje vrstu procesora koji će se koristiti. Opcije su  <b>CPU</b>, <b>GPU</b> i <b>Automatski</b>. Ako je navedeno <b>Automatski</b>, alat će definirati vrstu procesora.
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>Određuje broj instanci usluge obrade rastera kori&scaron;tenih tijekom izvođenja alata. Podržane vrijednosti uključuju prazne nizove (alat će odrediti broj instanci usluge obrade rastera za kori&scaron;tenje), cijele brojeve (0 ili pozitivne cijele brojeve) i postotke. Postoci moraju sadržavati znak postotka (%) iza postotne vrijednosti.
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>Određuje hoće li se pojaviti poruka upozorenja ako procijenjeni broj kredita prema&scaron;i navedeni prag (omogućeno) ili ako će se analiza pokrenuti bez prikazivanja poruke bez obzira na procijenjenu potro&scaron;nju kredita (nije omogućeno). Analiza će i dalje po&scaron;tovati postavke kreditnog proračuna za organizaciju.
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>Određuje prag na kojem će se pojaviti poruka upozorenja na temelju procijenjene potro&scaron;nje kredita od izvođenja analize. Analiza se jo&scaron; uvijek može pokrenuti ako procjena prema&scaron;i prag.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

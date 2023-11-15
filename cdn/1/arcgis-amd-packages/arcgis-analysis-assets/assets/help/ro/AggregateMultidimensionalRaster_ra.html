@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Raster multidimensional agregat generează un strat tematic de imagini satelitare multidimensional prin combinarea variabilelor de strat tematic de imagini satelitare multidimensional existente de-a lungul unei dimensiuni.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Stratul tematic de imagini satelitare multidimensional care va fi agregat.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensiunea stratului tematic de imagini satelitare multidimensional de-a lungul căruia va fi agregată variabila.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Indică dacă stratul tematic are valori de dimensiune.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabila stratului tematic de imagini satelitare multidimensional care va fi agregată &icirc;mpreună cu dimensiunea definită.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Metoda matematică ce va fi utilizată pentru a agrega segmentele stratului tematic de imagini satelitare multidimensional.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Valoarea percentilei care va fi utilizată pentru calcule după ce este specificată metoda de agregare.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Metoda de interpolare a percentilei care va fi utilizată atunci c&acirc;nd există un număr par de valori din stratul tematic de imagini satelitare de intrare.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Funcția raster specifică ce va fi folosită pentru calcularea valorilor pixel ale straturilor tematice de imagini satelitare agregate.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Intervalul dimensiunii care va fi folosit pentru a agrega datele multidimensionale.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Fiecare cuv&acirc;nt cheie specifică unitatea de timp pentru care va fi agregată fiecare statistică. Lista de cuvinte cheie include La fiecare oră, Zilnic, Săptăm&acirc;nal, Lunar, Trimestrial și Anual.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Mărimea intervalului care va fi utilizat c&acirc;nd se realizează agregarea &icirc;mpreună cu dimensiunea.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Unitățile de măsură pentru valoarea intervalului.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Tabelul de valori care va fi utilizat la agregarea &icirc;mpreună cu dimensiunea specificată. Valorile minimă și maximă specifică intervalul care va fi inclus.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Valoarea minimă pentru gama intervalului.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Valoarea maximă pentru gama intervalului.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Indică dacă valorile NoData vor fi ignorate &icirc;n agregare.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Tipul de ieșire care va fi creată. Ieșirile pot fi straturi tematice de imagini satelitare cu structură tile sau straturi tematice de imagini satelitare dinamice.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

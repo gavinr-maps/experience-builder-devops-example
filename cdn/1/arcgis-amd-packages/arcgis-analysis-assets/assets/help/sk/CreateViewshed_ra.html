@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Geodetick&aacute; viditeľn&aacute; plocha identifikuje lokality na rastrovom povrchu, ktor&eacute; s&uacute; viditeľn&eacute; vzhľadom k vstupn&yacute;m miestam pozorovateľa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>V&yacute;&scaron;kov&yacute; raster, na z&aacute;klade ktor&eacute;ho sa vypoč&iacute;ta viditeľn&aacute; plocha.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Lokality pozorovateľov, pre ktor&eacute; sa vypoč&iacute;ta viditeľn&aacute; plocha.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimalizuje v&yacute;počet viditeľnej plochy na z&aacute;klade r&yacute;chlosti alebo presnosti.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Určuje maxim&aacute;lnu dohľadov&uacute; vzdialenosť pri v&yacute;počte viditeľnej plochy.
+            </p>
+            <p>Vzdialenosť m&ocirc;že byť definovan&aacute; pomocou hodnoty a jej jednotiek alebo pomocou poľa vo vstupnej triede  <b>bodov pozorovateľov alebo l&iacute;niov&yacute;ch prvkov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Určuje minim&aacute;lnu dohľadov&uacute; vzdialenosť pri v&yacute;počte viditeľnej plochy.
+            </p>
+            <p>Vzdialenosť m&ocirc;že byť definovan&aacute; pomocou hodnoty a jej jednotiek alebo pomocou poľa vo vstupnej triede  <b>bodov pozorovateľov alebo l&iacute;niov&yacute;ch prvkov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Určuje typ maxim&aacute;lnej a minim&aacute;lnej dohľadovej vzdialenosti.
+            </p>
+            <p>Ak nie je za&scaron;krtnut&eacute;, dohľadov&eacute; vzdialenosti sa bud&uacute; považovať za dvojrozmern&eacute; euklidovsk&eacute; vzdialenosti. Ak je za&scaron;krtnut&eacute;, dohľadov&eacute; vzdialenosti sa bud&uacute; považovať za trojrozmern&eacute; vzdialenosti.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Určuje povrchov&uacute; v&yacute;&scaron;ku lokal&iacute;t pozorovateľov.
+            </p>
+            <p>Nadmorsk&aacute; v&yacute;&scaron;ka m&ocirc;že byť definovan&aacute; pomocou hodnoty a jej jednotiek alebo pomocou poľa vo vstupnej triede  <b>bodov pozorovateľov alebo l&iacute;niov&yacute;ch prvkov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Určuje v&yacute;&scaron;ku pozorovateľov nad zemou.
+            </p>
+            <p>V&yacute;&scaron;ka m&ocirc;že byť definovan&aacute; pomocou hodnoty a jej jednotiek alebo pomocou poľa vo vstupnej triede  <b>bodov pozorovateľov alebo l&iacute;niov&yacute;ch prvkov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Určuje v&yacute;&scaron;ku cieľov na zemi.
+            </p>
+            <p>V&yacute;&scaron;ka m&ocirc;že byť definovan&aacute; pomocou hodnoty a jej jednotiek alebo pomocou poľa vo vstupnej triede  <b>bodov pozorovateľov alebo l&iacute;niov&yacute;ch prvkov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov rastrovej vrstvy viditeľnej plochy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy. T&aacute;to vrstva obsahuje oblasti, ktor&eacute; s&uacute; viditeľn&eacute; pozorovateľmi, a hodnoty buniek predstavuj&uacute; počet pozorovateľov, ktor&iacute; m&ocirc;žu tieto bunky vidieť.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>N&aacute;zov rastrovej vrstvy nad &uacute;rovňou ter&eacute;nu (AGL), ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

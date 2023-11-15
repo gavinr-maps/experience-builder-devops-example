@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'eina Cerca ubicacions similars avalua la similitud entre les ubicacions candidates i una ubicaci&oacute; de refer&egrave;ncia en funci&oacute; d'un conjunt de criteris i classifica les ubicacions candidates de m&eacute;s similar a menys.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Capa de punts, de l&iacute;nies o de pol&iacute;gons que cont&eacute; les ubicacions de refer&egrave;ncia que es compararan. Si la capa inclou diverses ubicacions, es calcular&agrave; la mitjana de totes les ubicacions per crear una sola ubicaci&oacute; de refer&egrave;ncia.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Capa de punts, de l&iacute;nies o de pol&iacute;gons que cont&eacute; les ubicacions de candidats de cerca. Cada ubicaci&oacute; de candidat de cerca es comparar&agrave; amb la ubicaci&oacute; de refer&egrave;ncia en funci&oacute; del valor de  <b>Selecci&oacute; de criteris</b> especificat i es classificaran de m&eacute;s similar a menys.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Els camps num&egrave;rics que es faran servir per avaluar la similitud entre la ubicaci&oacute; de refer&egrave;ncia i cada ubicaci&oacute; de candidat de cerca. Cada valor de  <b>Selecci&oacute; de cr&egrave;dits</b> tindr&agrave; un valor de <b>Camp de la capa de refer&egrave;ncia</b> i un valor de <b>Camp de la capa de candidats</b>. Els valors de <b>Camp de la capa de refer&egrave;ncia</b> i <b>Camp de la capa de candidats</b> s&oacute;n camps coincidents als valors de <b>Capa d'ubicacions de refer&egrave;ncia</b> i <b>Capa de candidats de cerca</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Camp  <b>Capa d'ubicacions de refer&egrave;ncia</b> que es correspon amb el camp <b>Capa de candidats de cerca</b> especificat pel valor <b>Camp de la capa de candidats</b>. Els valors d'aquests camps coincidents es compararan per avaluar la similitud entre la ubicaci&oacute; de refer&egrave;ncia i cada ubicaci&oacute; de candidat de cerca.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Camp  <b>Capa de candidats de cerca</b> que es correspon amb el camp <b>Capa d'ubicacions de refer&egrave;ncia</b> especificat pel valor <b>Camp de la capa de refer&egrave;ncia</b>. Els valors d'aquests camps coincidents es compararan per avaluar la similitud entre la ubicaci&oacute; de refer&egrave;ncia i cada ubicaci&oacute; de candidat de cerca.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Especifica si totes les ubicacions del valor  <b>Capa de candidats de cerca</b> s'inclouran a la capa de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Nombre d'ubicacions m&eacute;s similars del valor  <b>Capa de candidats de cerca</b> que s'inclouran a la capa de sortida.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la capa que es crear&agrave; i s'afegir&agrave; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom de la carpeta a  <b>El meu contingut</b> on es desar&agrave; el resultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

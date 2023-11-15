@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Gộp Lớp n&agrave;y sao ch&eacute;p c&aacute;c đối tượng từ hai lớp v&agrave;o một lớp mới. Bạn c&oacute; thể kiểm so&aacute;t c&aacute;ch sao ch&eacute;p v&agrave; kết hợp c&aacute;c trường từ c&aacute;c lớp đầu v&agrave;o.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>C&aacute;c đối tượng dạng điểm, đường hoặc v&ugrave;ng sẽ được gộp v&agrave;o lớp cần gộp.
+            </p>
+        </div>
+    </div>
+    <div id="mergeLayer">
+        <div>
+            <p>Lớp n&agrave;y sẽ được gộp với lớp đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="mergingAttributes">
+        <div>
+            <p>Chỉ định c&aacute;ch gộp c&aacute;c trường.
+            </p>
+            <p>Nếu cả hai lớp chứa một trường c&oacute; t&ecirc;n v&agrave; loại dữ liệu giống nhau, nội dung của cả hai trường sẽ được hợp nhất th&agrave;nh một trường của t&ecirc;n đ&oacute;. Điều n&agrave;y sẽ kh&ocirc;ng &aacute;p dụng cho c&aacute;c trường khi sử dụng  <b>Tr&ugrave;ng khớp</b> l&agrave;m gi&aacute; trị th&ocirc;ng số <b>Thao t&aacute;c gộp</b>. 
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

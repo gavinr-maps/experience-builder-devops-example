@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'קו ראייה גיאודזי' מזהה את המיקומים על פני שטח רסטר שהם גלויים למיקומי הצופה של הקלט.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>רסטר קו הגובה שעליו יחושב קו הראייה.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>מיקומי הצופה שעבורם קו הראייה יחושב.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>ממטב חישוב קו ראייה על בסיס מהירות או דיוק.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>מציין את מרחק הראייה המקסימלי לחישוב קו הראייה.
+            </p>
+            <p>ניתן להגדיר את המרחק באמצעות ערך והיחידות שלו, או משדה  <b>בקלט יישויות הקו או הנקודה של צופה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>מציין את מרחק הראייה המינימלי לחישוב קו הראייה.
+            </p>
+            <p>ניתן להגדיר את המרחק באמצעות ערך והיחידות שלו, או משדה  <b>בקלט יישויות הקו או הנקודה של צופה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>מציין את סוג מרחקי הצפייה המקסימלי והמינימלי.
+            </p>
+            <p>אם לא מסומן, מרחקי הצפייה יטופלו כמרחקים אוקלידיים דו-ממדיים. אם מסומן, מרחקי הצפייה יטופלו כמרחקי תלת-ממדיים.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>מציין את קו גובה פני השטח של מיקומי הצופה.
+            </p>
+            <p>ניתן להגדיר את קו הגובה באמצעות ערך והיחידות שלו, או משדה  <b>בקלט יישויות הקו או הנקודה של צופה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>מציין את הגובה ל הצופה מעל הקרקע.
+            </p>
+            <p>ניתן להגדיר את הגובה באמצעות ערך והיחידות שלו, או משדה  <b>בקלט יישויות הקו או הנקודה של צופה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>מציין את הגובה של מטרות על הקרקע.
+            </p>
+            <p>ניתן להגדיר את הגובה באמצעות ערך והיחידות שלו, או משדה  <b>בקלט יישויות הקו או הנקודה של צופה</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>השם של שכבת רסטר קו הראייה שתיווצר ותתווסף למפה. שכבה זו מכילה את האזורים הנראים שבהם הצופים יכולים לראות, וערכי התא מייצגים את מספר הצופים שיכולים לצפות בתאים.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>שם שכבת הרסטר של הרמה מעל הקרקע (AGL) שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>סוג הקלט שייווצר. הפלט יכול להיות Tiled imagery או Dynamic imagery.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

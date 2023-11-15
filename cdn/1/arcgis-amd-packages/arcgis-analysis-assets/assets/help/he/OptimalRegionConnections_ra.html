@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'חיבורי אזור מיטביים' מחשב את רשת הקישוריות המיטבית בין שני אזורי קלט או יותר.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>שכבת הרסטר או היישויות שמזהה את האזורים אשר יחוברו על ידי הרשת האופטימלית.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>שכבת הרסטר או היישויות שמזהה מחסומים שיש לנתב סביבם.
+            </p>
+            <p>עבור שכבת רסטר, תאים שיש להם ערך (כולל אפס) ייחשבו כמחסום.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>שכבת רסטר שמגדירה את העכבה או העלות לזוז בכל תא.
+            </p>
+            <p>הערך בכל מיקום תא מייצג את מרחק העלות-ליחידה עבור תזוזה בתוך התא. לא יכול להיות שלילי או אפס.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>מציין האם המרחק יחושב באמצעות שיטה מישורית (כדור ארץ שטוח) או גאודזית (אליפסואיד).
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>מציין האם הנתיבים ימשיכו ויחברו בתוך אזורי הקלט.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>שם הרשת המיטבית של שכבת נתיבים שמחברים כל אחד מאזורי הקלט שייווצרו ויתווספו למפה.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>שם שכבת קו חיבורי השכנים שתיווצר ותתווסף למפה. השכבה מזהה את כל הנתיבים מכל אזור אל כל אחד מהשכנים הקרובים ביותר או שכני עלות.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

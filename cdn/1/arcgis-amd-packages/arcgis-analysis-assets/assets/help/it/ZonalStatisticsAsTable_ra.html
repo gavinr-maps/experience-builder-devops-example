@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Statistiche zonali come tabella riassume i valori di un raster all'interno di zone di un altro dataset e riporta i risultati in una tabella.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputZoneRasterOrFeatures">
+        <div>
+            <p>L'input che definisce i confini delle zone o aree che verranno riepilogate.
+            </p>
+        </div>
+    </div>
+    <div id="zoneField">
+        <div>
+            <p>Il campo che contiene i valori che definiscono ogni zona.
+            </p>
+        </div>
+    </div>
+    <div id="inputValueRaster">
+        <div>
+            <p>Il layer raster che contiene i valori delle celle che verranno utilizzati per calcolare le statistiche.
+            </p>
+        </div>
+    </div>
+    <div id="statisticType">
+        <div>
+            <p>Specifica il tipo di statistica che verr&agrave; calcolata.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValues">
+        <div>
+            <p>Specifica i valori percentili che verranno calcolati.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Specifica il metodo che verr&agrave; utilizzato quando il numero di valori del raster di input da calcolare &egrave; un numero pari.
+            </p>
+        </div>
+    </div>
+    <div id="circularCalculation">
+        <div>
+            <p>Specifica come verranno elaborati i  <b>Valori delle celle raster di input</b> per i dati circolari.
+            </p>
+            <p>Se non selezionato, saranno calcolate le statistiche aritmetiche ordinarie (lineari). Se selezionato, saranno calcolate le statistiche circolari.
+            </p>
+        </div>
+    </div>
+    <div id="circularWrapValue">
+        <div>
+            <p>Specifica il valore che verr&agrave; utilizzato per arrotondare un valore lineare all'intervallo di una determinata statistica circolare.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Specifica se le celle NoData nel  <b>Raster dei valori di input</b> saranno ignorate nei risultati delle zone in cui rientrano.
+            </p>
+            <p>Se selezionato, le celle NoData nel raster dei valori verranno ignorate nel calcolo statistico. Se non selezionato, le celle NoData non saranno ignorate e l'intera zona ricever&agrave; il valore NoData sul raster di output.
+            </p>
+        </div>
+    </div>
+    <div id="processAsMultidimensional">
+        <div>
+            <p>Specifica il modo in cui vengono eleborati i raster di input se sono multidimensionali.
+            </p>
+            <p>Se non selezionato, le statistiche saranno calcolate per tutte le dimensioni del dataset multidimensionale dell'input. Se selezionato, le statistiche verranno calcolate dalla porzione corrente del dataset multidimensionale dell'input.
+            </p>
+        </div>
+    </div>
+    <div id="outputTableName">
+        <div>
+            <p>Il nome del layer della tabella delle statistiche zonali che verr&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

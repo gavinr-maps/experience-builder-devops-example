@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Luo n&auml;kym&auml;alue -ty&ouml;kalu k&auml;ytt&auml;&auml; Esrin korkeusanalyysipalvelua tunnistamaan alueita, jotka n&auml;kyv&auml;t m&auml;&auml;ritetyist&auml; tarkkailupisteist&auml;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Pistekohteet, joita k&auml;ytet&auml;&auml;n tarkkailupistein&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; tarkkailusijainnin korkeuden maanpinnan tasosta.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p>Mittayksik&ouml;t, joita k&auml;ytet&auml;&auml;n  <b>Tarkkailijan korkeus </b>-parametrina.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; kohteiden korkeuden maanpinnan tasosta.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p>Mittayksik&ouml;t, joita k&auml;ytet&auml;&auml;n  <b>Kohteen korkeus </b>-parametrina.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml; n&auml;kym&auml;alueen laskennan enimm&auml;iskatseluet&auml;isyyden.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p>Mittayksik&ouml;t, joita k&auml;ytet&auml;&auml;n  <b>Enimm&auml;iskatseluet&auml;isyys</b>-parametrina.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n n&auml;kym&auml;alueen aluekarttatason nimi. T&auml;m&auml; karttataso sis&auml;lt&auml;&auml; tarkkailijan n&auml;kem&auml;t alueet, ja tarkkailijoiden m&auml;&auml;r&auml; tallennetaan taajuuskentt&auml;&auml;n.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulos tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

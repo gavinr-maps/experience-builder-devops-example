@@ -1,0 +1,147 @@
+{
+  "name": "SurfaceParameters",
+  "displayName": "SurfaceParameters",
+  "description": "Calculates parameters of a raster surface such as aspect, slope, and curvature using geodesic methods.",
+  "category": "",
+  "helpUrl": "https://rasteranalysisdev.arcgis.com/arcgis/rest/directories/arcgisoutput/RasterAnalysisTools_GPServer/RasterAnalysisTools/SurfaceParameters.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputSurfaceRaster",
+      "dataType": "GPString",
+      "displayName": "inputSurfaceRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "parameterType",
+      "dataType": "GPString",
+      "displayName": "parameterType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "SLOPE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "SLOPE",
+        "ASPECT",
+        "MEAN_CURVATURE",
+        "TANGENTIAL_CURVATURE",
+        "PROFILE_CURVATURE",
+        "CONTOUR_CURVATURE",
+        "CONTOUR_GEODESIC_TORSION",
+        "GAUSSIAN_CURVATURE",
+        "CASORATI_CURVATURE"
+      ]
+    },
+    {
+      "name": "localSurfaceType",
+      "dataType": "GPString",
+      "displayName": "localSurfaceType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "QUADRATIC",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["QUADRATIC", "BIQUADRATIC"]
+    },
+    {
+      "name": "neighborhoodDistance",
+      "dataType": "GPLinearUnit",
+      "displayName": "neighborhoodDistance",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "inputSurfaceRaster",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "useAdaptiveNeighborhood",
+      "dataType": "GPBoolean",
+      "displayName": "useAdaptiveNeighborhood",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "zUnit",
+      "dataType": "GPString",
+      "displayName": "zUnit",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "inputSurfaceRaster",
+      "defaultValue": "METER",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputSlopeMeasurement",
+      "dataType": "GPString",
+      "displayName": "outputSlopeMeasurement",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "parameterType",
+      "defaultValue": "DEGREE",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["DEGREE", "PERCENT_RISE"]
+    },
+    {
+      "name": "projectGeodesicAzimuths",
+      "dataType": "GPBoolean",
+      "displayName": "projectGeodesicAzimuths",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "parameterType",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "useEquatorialAspect",
+      "dataType": "GPBoolean",
+      "displayName": "useEquatorialAspect",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "dependency": "parameterType",
+      "defaultValue": false,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputRaster",
+      "dataType": "GPString",
+      "displayName": "outputRaster",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

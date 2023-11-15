@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「豐富圖層」工具使用人口統計和景觀資料來增強輸入圖徵。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>將使用其他資料來豐富的點、線或多邊形圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>將新增為輸入圖徵之屬性的變數。
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>指定如何定義輸入點或線圖徵周圍的區域。 將豐富每個圖徵周圍的整個區域。
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>數值，用於指定區域將延伸的每個輸入圖徵周圍的距離或時間。
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>單位，用於指定豐富區域將圍繞每個輸入圖徵延伸的距離或時間。
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>指定輸出圖層是否包含由 <b>豐富區域</b>設定 (勾選) 或輸入圖徵 (未勾選) 定義的多邊形圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

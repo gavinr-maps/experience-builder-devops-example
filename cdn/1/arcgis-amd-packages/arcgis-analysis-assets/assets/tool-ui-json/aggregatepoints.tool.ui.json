@@ -1,0 +1,207 @@
+{
+  "toolName": "AggregatePoints",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].pointLayer.selectedLayers",
+      "destination": "summaryFields",
+      "property": "layer"
+    },
+    {
+      "ruleType": "set",
+      "value": "$[Component].pointLayer.selectedLayers",
+      "destination": "groupByField",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "expression",
+      "destination": ["binSize", "binSizeUnit"],
+      "expression": "(($[Data].binType = 'SQUARE') OR ($[Data].binType = 'HEXAGON')))",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": "polygonLayer",
+      "valueA": "$[Data].binType",
+      "valueB": null,
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "destination": ["binSize", "binSizeUnit"],
+      "valueA": "$[Data].binType",
+      "valueB": null,
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'english'",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceList": ["Miles", "NauticalMiles", "Feet", "Yards", "Kilometers", "Meters"],
+        "defaultValue": "Miles"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].userSettings.unitSystem = 'metric'",
+      "destination": "binSizeUnit",
+      "effectParams": {
+        "choiceList": ["Kilometers", "Meters", "Miles", "NauticalMiles", "Feet", "Yards"],
+        "defaultValue": "Kilometers"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].groupByField NOT null",
+      "destination": ["minorityMajority", "percentPoints"],
+      "effectParams": {
+        "visible": true
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$featuresToAggregateSectionLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$featuresToAggregateSectionText",
+      "UIparameters": [
+        {
+          "name": "pointLayer",
+          "label": "$inputPointLayer",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_point", "feature_multiPoint"]
+        }
+      ]
+    },
+    {
+      "label": "$summaryAreasSectionLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$summaryAreasSectionText",
+      "UIparameters": [
+        {
+          "label": "$binTypeLabel",
+          "name": "binType",
+          "choiceList": ["", "SQUARE", "HEXAGON"],
+          "choiceListLabels": {
+            "SQUARE": "$squareBins",
+            "HEXAGON": "$hexagonBins",
+            "": "$polygonLayer"
+          },
+          "choiceListIcons": {
+            "SQUARE": "grid-unit",
+            "HEXAGON": "grid-hexagon",
+            "": "layer-polygon"
+          },
+          "defaultValue": ""
+        },
+        {
+          "name": "polygonLayer",
+          "label": "$summaryPolygonLayer",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_polygon"],
+          "visible": false,
+          "hideSketch": true
+        },
+        {
+          "name": "binSizeGroup",
+          "UIparameters": [
+            {
+              "layout": "horizontal",
+              "name": "binSizeUnitGroup",
+              "UIparameters": [
+                {
+                  "name": "binSize",
+                  "label": "$binSizeLabel",
+                  "componentName": "analysis-number-input",
+                  "min": 0,
+                  "excludeMinValue": true,
+                  "visible": false
+                },
+                {
+                  "name": "binSizeUnit",
+                  "label": "$binSizeUnitLabel",
+                  "choiceListLabels": {
+                    "Meters": "$meters",
+                    "Kilometers": "$kilometers",
+                    "Feet": "$feet",
+                    "Yards": "$yards",
+                    "Miles": "$miles",
+                    "NauticalMiles": "$nauticalMiles"
+                  },
+                  "useDefaultOnReset": true,
+                  "visible": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "keepBoundariesWithNoPoints",
+          "label": "$keepBoundariesWithNoPoints"
+        }
+      ]
+    },
+    {
+      "label": "$calculateStatisticsSectionLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "summaryFields",
+          "label": "$summaryFieldsLabel",
+          "componentName": "analysis-summary-fields",
+          "allowDateType": true,
+          "serializationType": "sequentialValueArray",
+          "serializationParameterName": "summaryFields"
+        },
+        {
+          "name": "groupByField",
+          "label": "$groupByFieldLabel",
+          "placeholderText": "$groupByFieldPlaceholderText",
+          "componentName": "analysis-field-input",
+          "fieldTypes": ["integer", "small-integer", "single", "string", "date", "long"]
+        },
+        {
+          "name": "minorityMajority",
+          "label": "$minorityMajorityLabel",
+          "visible": false
+        },
+        {
+          "name": "percentPoints",
+          "label": "$percentPointsLabel",
+          "visible": false
+        }
+      ],
+      "summaryText": "$calculateStatisticsSectionText"
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

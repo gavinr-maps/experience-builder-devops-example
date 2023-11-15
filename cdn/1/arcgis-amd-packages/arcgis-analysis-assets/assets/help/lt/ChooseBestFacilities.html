@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Pasirinkti geriausius objektus randa objektus, kurie labiausiai atitinka jūsų poreikį.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>Sąlyga, kurią reikia patenkinti, kad priskirti poreikio vietas objektams.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Priskirkite paklausą objektui atsižvelgdami į objekto apimtį ir šalia esančiam plotui taikomą poreikį. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Pasirinkite objektus, kad bendras kelionės laikas arba atstumas nuo visų poreikio vietų iki jų priskirtų objektų būtų sumažintas. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Pasirinkite objektus, kad būtų priskirtas didžiausias poreikio dydis, kai visas poreikis iš kiekvienos poreikio vietos priskiriamas vienam arčiausiai esančiam objektui. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Šis tikslas parenka paslaugas, kad didžiausias poreikio dydis būtų priskirtas neviršijant nė vienos iš objekto galimybių. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Pasirinkite minimalų objektų skaičių, kad būtų patenkinta nurodyta poreikio procentinė reikšmė. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Keliavimo būdas, kuris bus naudojamas laikui arba atstumui i&scaron;matuoti tarp objektų ir poreikio vietų.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Data ir laikas, kai keliautojas i&scaron;vyksta i&scaron; objekto arba poreikio vietos.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Nurodo, ar kelionė prasideda ties objektais ir juda į i&scaron;orę link poreikio vietų arba prasideda ties poreikio vietomis ir juda į vidų link objektų.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Nurodo, ar kelionė prasideda ties objektais ir juda į i&scaron;orę link poreikio vietų arba prasideda ties poreikio vietomis ir juda į vidų link objektų.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Nurodo, ar kelionė prasideda ties objektais ir juda į i&scaron;orę link poreikio vietų arba prasideda ties poreikio vietomis ir juda į vidų link objektų.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Nurodo, ar kelionė prasideda ties objektais ir juda į i&scaron;orę link poreikio vietų arba prasideda ties poreikio vietomis ir juda į vidų link objektų.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Nurodo, ar kelionė prasideda ties objektais ir juda į i&scaron;orę link poreikio vietų arba prasideda ties poreikio vietomis ir juda į vidų link objektų.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau ta&scaron;kinių elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Galima judėti gatve, tačiau ne per &scaron;ią kliūtį.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau ta&scaron;kinių elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Galima judėti gatve, tačiau ne per &scaron;ią kliūtį.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau ta&scaron;kinių elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Galima judėti gatve, tačiau ne per &scaron;ią kliūtį.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau ta&scaron;kinių elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Galima judėti gatve, tačiau ne per &scaron;ią kliūtį.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau ta&scaron;kinių elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Galima judėti gatve, tačiau ne per &scaron;ią kliūtį.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau linijos elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Linijiniai užtvarai draudžia važiuoti bet kurioje vietoje, kur užtvarai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau linijos elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Linijiniai užtvarai draudžia važiuoti bet kurioje vietoje, kur užtvarai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau linijos elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Linijiniai užtvarai draudžia važiuoti bet kurioje vietoje, kur užtvarai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau linijos elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Linijiniai užtvarai draudžia važiuoti bet kurioje vietoje, kur užtvarai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau linijos elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Linijiniai užtvarai draudžia važiuoti bet kurioje vietoje, kur užtvarai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau poligono elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Poligonų užtvaros draudžia važiuoti visur, kur poligonai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau poligono elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Poligonų užtvaros draudžia važiuoti visur, kur poligonai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau poligono elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Poligonų užtvaros draudžia važiuoti visur, kur poligonai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau poligono elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Poligonų užtvaros draudžia važiuoti visur, kur poligonai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Vienas ar daugiau poligono elementų, kurie veikia kaip laikini apribojimai (kliūtys) važiuojant pagrindinėmis gatvėmis. Poligonų užtvaros draudžia važiuoti visur, kur poligonai kerta gatves.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kuriose yra paslaugą, kuriai yra paklausa, teikiančių objektų.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kuriose yra paslaugą, kuriai yra paklausa, teikiančių objektų.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kuriose yra paslaugą, kuriai yra paklausa, teikiančių objektų.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kuriose yra paslaugą, kuriai yra paklausa, teikiančių objektų.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kuriose yra paslaugą, kuriai yra paklausa, teikiančių objektų.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Nurodo, kaip paklausa taikoma kiekvienai vietai. Jei paklausos dydis yra toks pats visose vietose, rinkitės  <b>Reik&scaron;mė</b>. Jei paklausos dydis priklauso nuo vietos, rinkitės <b>Laukas</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Nurodo, kaip paklausa taikoma kiekvienai vietai. Jei paklausos dydis yra toks pats visose vietose, rinkitės  <b>Reik&scaron;mė</b>. Jei paklausos dydis priklauso nuo vietos, rinkitės <b>Laukas</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Nurodo, kaip paklausa taikoma kiekvienai vietai. Jei paklausos dydis yra toks pats visose vietose, rinkitės  <b>Reik&scaron;mė</b>. Jei paklausos dydis priklauso nuo vietos, rinkitės <b>Laukas</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Nurodo, kaip paklausa taikoma kiekvienai vietai. Jei paklausos dydis yra toks pats visose vietose, rinkitės  <b>Reik&scaron;mė</b>. Jei paklausos dydis priklauso nuo vietos, rinkitės <b>Laukas</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Nurodo, kaip paklausa taikoma kiekvienai vietai. Jei paklausos dydis yra toks pats visose vietose, rinkitės  <b>Reik&scaron;mė</b>. Jei paklausos dydis priklauso nuo vietos, rinkitės <b>Laukas</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>Paklausos dydis kiekvienoje pageidaujamoje vietoje. Kiekvienai vietai bus taikomas vienodas paklausos dydis.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>Paklausos dydis kiekvienoje pageidaujamoje vietoje. Kiekvienai vietai bus taikomas vienodas paklausos dydis.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>Paklausos dydis kiekvienoje pageidaujamoje vietoje. Kiekvienai vietai bus taikomas vienodas paklausos dydis.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>Paklausos dydis kiekvienoje pageidaujamoje vietoje. Kiekvienai vietai bus taikomas vienodas paklausos dydis.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>Paklausos dydis kiekvienoje pageidaujamoje vietoje. Kiekvienai vietai bus taikomas vienodas paklausos dydis.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>Laukas i&scaron; paklausos sluoksnio, nurodantis paklausos dydį kiekvienai vietai.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>Laukas i&scaron; paklausos sluoksnio, nurodantis paklausos dydį kiekvienai vietai.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>Laukas i&scaron; paklausos sluoksnio, nurodantis paklausos dydį kiekvienai vietai.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>Laukas i&scaron; paklausos sluoksnio, nurodantis paklausos dydį kiekvienai vietai.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>Laukas i&scaron; paklausos sluoksnio, nurodantis paklausos dydį kiekvienai vietai.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Nurodo, ar didžiausias kelionės atstumas arba laikas, leistinas tarp poreikio vietos ir priskirto objekto nustatomas naudonant konstantą (<b>Reik&scaron;mė</b>), lauko reik&scaron;mę (<b>Laukas</b>) arba jei maksimali reik&scaron;mė netaikoma (<b>Neribota</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Nurodo, ar didžiausias kelionės atstumas arba laikas, leistinas tarp poreikio vietos ir priskirto objekto nustatomas naudonant konstantą (<b>Reik&scaron;mė</b>), lauko reik&scaron;mę (<b>Laukas</b>) arba jei maksimali reik&scaron;mė netaikoma (<b>Neribota</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Nurodo, ar didžiausias kelionės atstumas aba leistinas laikas tarp poreikio vietos ir priskirto objekto nustatomas naudojant konstantą (<b>Reik&scaron;mė</b>) arba lauko reik&scaron;mę (<b>Laukas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Nurodo, ar didžiausias kelionės atstumas arba laikas, leistinas tarp poreikio vietos ir priskirto objekto nustatomas naudonant konstantą (<b>Reik&scaron;mė</b>), lauko reik&scaron;mę (<b>Laukas</b>) arba jei maksimali reik&scaron;mė netaikoma (<b>Neribota</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Nurodo, ar didžiausias kelionės atstumas arba laikas, leistinas tarp poreikio vietos ir priskirto objekto nustatomas naudonant konstantą (<b>Reik&scaron;mė</b>), lauko reik&scaron;mę (<b>Laukas</b>) arba jei maksimali reik&scaron;mė netaikoma (<b>Neribota</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>Kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta. Kiekvienai vietai bus taikomas vienodas didžiausias kelionės intervalas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>Kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta. Kiekvienai vietai bus taikomas vienodas didžiausias kelionės intervalas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>Kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta. Kiekvienai vietai bus taikomas vienodas didžiausias kelionės intervalas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>Kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta. Kiekvienai vietai bus taikomas vienodas didžiausias kelionės intervalas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>Kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta. Kiekvienai vietai bus taikomas vienodas didžiausias kelionės intervalas.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>Laukas, kuriame yra kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>Laukas, kuriame yra kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>Laukas, kuriame yra kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>Laukas, kuriame yra kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>Laukas, kuriame yra kelionės atstumas arba laikas, kurį vir&scaron;ijus paklausa nebus priskirta.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>Vienetai, naudojami didžiausiam kelionės atstumui arba laikui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>Vienetai, naudojami didžiausiam kelionės atstumui arba laikui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>Vienetai, naudojami didžiausiam kelionės atstumui arba laikui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>Vienetai, naudojami didžiausiam kelionės atstumui arba laikui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>Vienetai, naudojami didžiausiam kelionės atstumui arba laikui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>Mažiausia procentinė poreikio reik&scaron;mė, kurią objektas turi užfiksuoti.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip kandidatų objektai. Kandidatų objektai paprastai nurodo vietas, kuriose bus kuriami arba steigiami nauji objektai.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip kandidatų objektai. Kandidatų objektai paprastai nurodo vietas, kuriose bus kuriami arba steigiami nauji objektai.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip kandidatų objektai. Kandidatų objektai paprastai nurodo vietas, kuriose bus kuriami arba steigiami nauji objektai.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip kandidatų objektai. Kandidatų objektai paprastai nurodo vietas, kuriose bus kuriami arba steigiami nauji objektai.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Nurodo, ar kiekvieno kandidato objekto apimtis yra nustatoma naudojant konstantą (<b>Reik&scaron;mė</b>) arba lauko reik&scaron;mę (<b>Laukas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>Kiekvieno kandidato objekto apimtis. Tokia pati apimtis bus taikoma kiekvienam kandidatui objektui.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>Laukas, kuriame yra kiekvieno kandidato objekto apimtis.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>Kandidatų objektų skaičius, kurį galite pasirinti i&scaron; kandidatų rinkinio. Jeigu nurodote tiek pageidaujamus, tiek potencialius objektus, reikiamo objektų sluoksnio objektai bus naudojami prie&scaron; pradedant naudoti bet kokį kandidatų objektų sluoksnį.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>Kandidatų objektų skaičius, kurį galite pasirinti i&scaron; kandidatų rinkinio. Jeigu nurodote tiek pageidaujamus, tiek potencialius objektus, reikiamo objektų sluoksnio objektai bus naudojami prie&scaron; pradedant naudoti bet kokį kandidatų objektų sluoksnį.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>Kandidatų objektų skaičius, kurį galite pasirinti i&scaron; kandidatų rinkinio. Jeigu nurodote tiek pageidaujamus, tiek potencialius objektus, reikiamo objektų sluoksnio objektai bus naudojami prie&scaron; pradedant naudoti bet kokį kandidatų objektų sluoksnį.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Nurodo, ar kandidatų objektai naudojami kaip įvestys (neįgalinta) arba ar reikia kelių objektų (įgalinta).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Nurodo, ar kandidatų objektai naudojami kaip įvestys (neįgalinta) arba ar reikia kelių objektų (įgalinta).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Nurodo, ar kandidatų objektai naudojami kaip įvestys (neįgalinta) arba ar reikia kelių objektų (įgalinta).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Nurodo, ar kandidatų objektai naudojami kaip įvestys (neįgalinta) arba ar reikia kelių objektų (įgalinta).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip objektai. &Scaron;ie objektai paprastai nurodo esamas vietas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip objektai. &Scaron;ie objektai paprastai nurodo esamas vietas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip objektai. &Scaron;ie objektai paprastai nurodo esamas vietas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip objektai. &Scaron;ie objektai paprastai nurodo esamas vietas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>Ta&scaron;kais pažymėtos vietos, kurios veikia kaip objektai. &Scaron;ie objektai paprastai nurodo esamas vietas.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Nurodo, ar kiekvieno objekto apimtis yra nustatoma naudojant konstantą (<b>Reik&scaron;mė</b>) arba lauko reik&scaron;mę (<b>Laukas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Nurodo, ar kiekvieno objekto apimtis yra nustatoma naudojant konstantą (<b>Reik&scaron;mė</b>) arba lauko reik&scaron;mę (<b>Laukas</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>Kiekvieno privalomo objekto apimtis. Tokia pati apimtis bus taikoma kiekvienam privalomam objektui.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>Kiekvieno privalomo objekto apimtis. Tokia pati apimtis bus taikoma kiekvienam privalomam objektui.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>Laukas, kuriame yra kiekvieno objekto apimtis.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>Laukas, kuriame yra kiekvieno objekto apimtis.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

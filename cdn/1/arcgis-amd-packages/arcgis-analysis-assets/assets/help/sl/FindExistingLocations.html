@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje Poi&scaron;či glede na atribute in lokacijo ustvari nov sloj geoobjektov ali delov geoobjektov, ki izpolnjujejo navedena prostorska in atributna merila.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Točkovni, linijski ali poligonski sloj za katerega bodo najdeni geoobjektni na podlagi kombinacije atributnih in prostorskih poizvedb.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Prostorska in atributna merila, ki bodo uporabljena za iskanje geoobjektov. Kliknite gumb  <b>Izdelaj novo poizvedbo</b>, da opredelite enega ali več prostorskih ali atributnih meril. Tisti geoobjekti, ali deli geoobjektov, ki izpolnjujejo vsa merila bodo zapisani v sloj z rezultati.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Prostorska in atributna merila, ki bodo uporabljena za iskanje geoobjektov. Kliknite gumb <b>Izdelaj novo poizvedbo</b>, da opredelite enega ali več prostorskih ali atributnih meril. Tisti geoobjekti, ali deli geoobjektov, ki izpolnjujejo vsa merila bodo zapisani v sloj z rezultati.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Kadar samo del geoobjekta izpolnjuje merila, določi ali bodo rezultati vključevali celotni geoobjekt ali samo del geoobjekta, ki izpolnjuje vsa merila. Če je možnost obkljukana, bodo vrnjeni samo deli geoobjektov, ki izpolnjujejo vsa merila. Če pa je možnost odkljukana, bo vrnjen celotni geoobjekt, v kolikor vsaj del geoobjekta izpolnjuje merila.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bo shranjen rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

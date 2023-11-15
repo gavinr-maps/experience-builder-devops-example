@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Et&auml;isyyskertym&auml;-ty&ouml;kalu laskee kumuloituneen et&auml;isyyden jokaisesta solusta l&auml;ht&ouml;aineiston l&auml;hteisiin. Se k&auml;ytt&auml;&auml; suoraa et&auml;isyytt&auml;, kustannuset&auml;isyytt&auml;, todellista pintaet&auml;isyytt&auml; sek&auml; pysty- ja vaakasuoria kustannustekij&ouml;it&auml;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>L&auml;ht&ouml;aineiston rasteri tai kohdekarttataso, joka tunnistaa l&auml;hteet, joihin et&auml;isyydet lasketaan.
+            </p>
+            <p>Jos l&auml;ht&ouml;aineisto on rasteri, sen on koostuttava soluista, joilla on kelvolliset kokonaislukuarvot (nolla on kelvollinen arvo) l&auml;hteiss&auml;, ja muiden solujen arvoksi on m&auml;&auml;ritett&auml;v&auml; NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Esteet, jotka m&auml;&auml;ritt&auml;v&auml;t kierrett&auml;v&auml;t esteet.
+            </p>
+            <p>Soluja, joilla on arvo (mukaan lukien nolla), k&auml;sitell&auml;&auml;n estein&auml; rasterikarttatasoissa.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Rasteri, joka m&auml;&auml;ritt&auml;&auml; korkeusarvot kussakin solusijainnissa.
+            </p>
+            <p>Arvojen avulla lasketaan todellinen pinnan et&auml;isyys kuljettujen solujen v&auml;lill&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Rasteri, joka m&auml;&auml;ritt&auml;&auml; vastuksen tai kustannuksen, jotta se voi liikkua jokaisen solun l&auml;pi.
+            </p>
+            <p>Kunkin solusijainnin arvo edustaa yksikk&ouml;kohtaisen kustannuksen v&auml;limatkaa solun kautta siirtymiseksi. Arvo ei voi olla negatiivinen tai nolla.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>M&auml;&auml;ritt&auml;&auml;, lasketaanko et&auml;isyys planaarisella (litte&auml; maa) vai geodeettisella (ellipsoidi) menetelm&auml;ll&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Rasteri, joka m&auml;&auml;ritt&auml;&auml; z-arvot kullekin solusijainnille.
+            </p>
+            <p>Arvojen avulla lasketaan kaltevuus, jota k&auml;ytet&auml;&auml;n sen pystysuoran tekij&auml;n m&auml;&auml;ritt&auml;miseen, joka esiintyy liikuttaessa solusta toiseen.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Tekij&auml;, joka m&auml;&auml;ritt&auml;&auml; pystysuoran kustannustekij&auml;n ja suhteellisesti liikkuvan kulman v&auml;lisen suhteen.
+            </p>
+            <p>Voit valita useista eri tekij&ouml;ist&auml; ja muokkaajista, jotka m&auml;&auml;ritt&auml;v&auml;t annettua pystysuoran tekij&auml;n kaaviota. Kaavioiden avulla m&auml;&auml;ritet&auml;&auml;n pystysuora tekij&auml;, jota k&auml;ytet&auml;&auml;n naapurisoluun liikkuvien kokonaiskustannusten laskemiseen.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Rasteri, joka m&auml;&auml;ritt&auml;&auml; vaakasuunnan kussakin solussa.
+            </p>
+            <p>Kunkin sijainnin arvoja k&auml;ytet&auml;&auml;n yhdess&auml;  <b>Vaakasuora tekij&auml;</b>&nbsp;-parametrin kanssa sen vaakasuuntaisen kustannuksen m&auml;&auml;ritt&auml;miseksi, joka syntyy liikuttaessa solusta sen naapureihin.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Tekij&auml;, joka m&auml;&auml;ritt&auml;&auml; vaakasuoran kustannustekij&auml;n ja suhteellisesti liikkuvan kulman v&auml;lisen suhteen.
+            </p>
+            <p>Voit valita useista eri tekij&ouml;ist&auml; ja muokkaajista, jotka m&auml;&auml;ritt&auml;v&auml;t annettua vaakasuoran tekij&auml;n kaaviota. Kaavioiden avulla m&auml;&auml;ritet&auml;&auml;n vaakasuora tekij&auml;, jota k&auml;ytet&auml;&auml;n naapurisoluun liikkuvien kokonaiskustannusten laskemiseen.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Alkuper&auml;inen kumulatiivinen kustannus, jolla aloitetaan kustannuslaskenta.
+            </p>
+            <p>Oletusarvo on 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Matkustajan kumulatiivinen enimm&auml;iskustannus l&auml;hteelle.
+            </p>
+            <p>Oletuskertym&auml; on tulosaineiston rasterin reunaan.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>Kustannusarvoihin k&auml;ytett&auml;v&auml; kerroin.
+            </p>
+            <p>Oletusarvo on 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Matkustajan suunta, kun k&auml;ytet&auml;&auml;n vaaka- ja pystysuoria tekij&ouml;it&auml;.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n kumuloidun et&auml;isyysrasterikarttatason nimi. Karttataso sis&auml;lt&auml;&auml; kumuloidun et&auml;isyyden kullekin solulle pienimm&auml;st&auml; kustannusl&auml;hteest&auml; tai siihen.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n paluusuunnan rasterikarttatason nimi. Karttataso sis&auml;lt&auml;&auml; suunnan asteina.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n l&auml;hdesuunnan rasterikarttatason nimi. Karttataso sis&auml;lt&auml;&auml; v&auml;hiten kertyv&auml;n kustannusl&auml;hdesolun kompassisuunnan asteina.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Karttaan luotavan ja lis&auml;tt&auml;v&auml;n l&auml;hdesijainnin monikaistaisen rasterikarttatason nimi. Karttataso sis&auml;lt&auml;&auml; l&auml;hdesijainteja, joissa ensimm&auml;inen kaista sis&auml;lt&auml;&auml; rivi-indeksin ja toinen kaista sis&auml;lt&auml;&auml; sarakeindeksin.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Luotavan tulosaineiston tyyppi. Tulosaineistot voivat olla tiilitettyj&auml; kuva-aineistokarttatasoja tai dynaamisia kuvakarttatasoja.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nimi  <b>Oma sis&auml;lt&ouml;</b> -kansiossa, jonne tulokset tallennetaan.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

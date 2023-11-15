@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Sujungti elementus perkelia atributus i&scaron; vieno sluoksnio ar lentelės į kitą pagal erdvinius ir atributų ry&scaron;ius. Pasirinktinai statistinius duomenis galima apskaičiuoti, kai yra keli sutampantys įra&scaron;ai.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Sluoksnis arba lentelė, kuri turės atributus i&scaron; jungtinio sluoksnio, pridėto prie jo atributų lentelės.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Sluoksnis arba lentelė su atributais, kurie bus pridėti prie paskirties sluoksnio.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Nurodykite, ar sujungti sluoksnius remiantis erdviniu ry&scaron;iu. Reikalauja, kad abu sluoksniai turėtų geometrinių savybių.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Nurodykite erdvinį ry&scaron;į, kuris nustato, kurie elementai sujungiami. Bus sujungti jungiamojo sluoksnio elementai, turintys nurodytą ry&scaron;į su tiksliniu sluoksniu. Galimi ry&scaron;iai priklauso nuo įvesties geometrijos tipo.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Atstumas iki tikslinio sluoksnio elementų, kuris bus naudojamas nustatant, ar elementai turėtų būti sujungti.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Vienetai, kurie bus naudojami atstumui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Nurodykite, ar sluoksnius sujungti pagal sutampančias laukų reik&scaron;mes. Tai vienintelė parinktis, jei viena ar kelios įvestys yra lentelė.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Nurodykite atributo ry&scaron;į, kuris nustato, kurie elementai sujungiami. Elementai atitinka, kai lauko reik&scaron;mės jungtiniame sluoksnyje yra lygios lauko reik&scaron;mėms tiksliniame sluoksnyje.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Nurodykite, kaip bus elgiamasi su sujungimais, jei sujungimo kriterijus atitinka keli įra&scaron;ai i&scaron; sujungimo sluoksnio. Pasirinkite i&scaron; toliau nurodytų parinkčių:
+                <ul>
+                    <li> <b>Sujungti vieną su vienu</b> &ndash; prijungia vieną įra&scaron;ą jungiamajame sluoksnyje prie kiekvieno tikslinio sluoksnio elemento.
+                    </li>
+                    <li> <b>Sujungti vieną su daugeliu</b> &ndash; prijungia visus atitinkančius jungtinio sluoksnio elementus prie tikslinio sluoksnio. Rezultatų sluoksnyje bus keli tikslinio elemento įra&scaron;ai.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Kai keli jungiamojo sluoksnio elementai atitinka tikslinį elementą, nurodykite, ar jungti vieną įra&scaron;ą i&scaron; jungiamojo sluoksnio, ar apskaičiuoti visų jungiamojo sluoksnio įra&scaron;ų suvestinę statistiką.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Kai keli jungiamieji elementai atitinka tikslinį elementą, bus apskaičiuojama visų atitinkančių įra&scaron;ų suvestinė statistika. Nurodykite jungiamojo sluoksnio skaičių arba datos laukus ir statistinius duomenis, kurie bus apskaičiuojami kiekvienam laukui.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Jei yra keli jungiamojo sluoksnio elementai, atitinkantys tikslinį elementą, į i&scaron;vestį bus įtrauktas pirmasis įra&scaron;as i&scaron; jungiamojo sluoksnio atributų lentelės. Pasirinktinai pasirinkite skaičių arba datos lauką ir rū&scaron;iavimo tvarką, kuri lems atributų lentelės eili&scaron;kumą.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Nustato, ar į i&scaron;vestį bus įtraukti nesutampantys tiksliniai elementai.  <b>Vidinis sujungimas</b> grąžina tik sutampančius tikslinius įra&scaron;us, o <b>Kairysis sujungimas</b> grąžina visus tikslinius įra&scaron;us, net jei tikslinis elementas neturi atitikmens jungiamajame sluoksnyje.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio arba lentelės, kuri bus sukurta ir pridėta į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Сумиране в близост изчислява статистически данни за обекти в рамките на определено разстояние от други обекти. Разстоянието може да се изчисли с помощта на разстояние по права линия или режим на пътуване.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Слоят за обобщаване на разстояние от близкия слой.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Слоят с точка, линия или полигон, използван като начални местоположения, около които ще бъдат създадени ограничаващи зони за обобщаване на близки обекти.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Методът, с който ще бъдат създадени ограничаващите зони. Методът може да бъде разстояние по права линия или режим на пътуване.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Разстоянието или времето, което ще се използва за създаване на ограничаващи зони. Ако се добавят няколко стойности, всяка стойност ще се използва за изчисляване на граничните площи за всички входни обекти.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Мерните единици, които ще се използват за определяне на разстоянието или времето.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Посочете дали резултатният слой трябва да бъде ограничаващите области (маркирано) или същата геометрия като входния близък слой (немаркирано).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Изчислете общия размер на обектите, обобщени във всяка ограничаваща област. За линиите се изчислява общата дължина. За полигони се изчислява общата площ.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Единиците, които ще се използват за изчисляване на общия размер на обобщените обекти.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Полетата за число или дата от входния слой за обобщаване и статистическите данни, които ще бъдат изчислени за всяко поле.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Полето от входния слой, използвано за разделяне на данните в отделни групи за статистически изчисления.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Изчислете малцинствените (най-малко доминиращите) и мнозинствените (най-доминиращите) групи във всяка обобщена област.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Изчислете процента на обобщените обекти, които принадлежат към всяка група в рамките на всяка граница.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Името на папката в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

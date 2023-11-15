@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat procjenjuje trend za svaki piksel po dimenziji za jednu ili vi&scaron;e varijabli u vi&scaron;edimenzionalnom sloju slike.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Vi&scaron;edimenzionalni sloj slike koji će se koristiti za generiranje trenda.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzija uz koju će se izvući trend za varijable ili varijable odabrane u analizi.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Varijabla ili varijable za koje će se izračunati trendovi.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>Vremenska jedinica koja će se koristiti za duljinu sezonskog razdoblja kada se koristi vrsta linije Seasonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>Vrsta analize trenda koja će se izvr&scaron;iti na vrijednostima piksela duž dimenzije.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>Frekvencija ili redoslijed polinoma koji će se koristiti za prilagođavanje trenda.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Određuje hoće li Bez podataka ili vrijednosti koje nedostaju biti zanemarene u analizi.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>Duljina periodičke varijacije koja će se modelirati za harmonijski ciklus.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>Vremenska jedinica koja će se koristiti za duljinu harmonijskog ciklusa.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>Određuje hoće li se izračunati korijen srednje kvadratne pogre&scaron;ke (RMSE) linije prilagodbe trenda.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>Određuje hoće li se izračunati R-kvadrat statistike dobrog prilagođavanja za liniju prilagođavanja trenda.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>Određuje hoće li se izračunati statistika p-vrijednosti za koeficijent nagiba linije prilagodbe trenda.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Naziv sloja koji će se stvoriti i dodati karti.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Vrsta izlaza koji će se stvoriti. Izlaz može biti sloj s pločastom slikom ili sloj s dinamičnom slikom.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Naziv mape u  <b>Moj sadržaj</b> gdje će se spremiti rezultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Interpolazione punti prevede i valori in nuove posizioni in base alle misurazioni dei punti. Lo strumento crea output di feature.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Scegliere il layer punto delle posizioni che verranno interpolate.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Scegliere il campo contenente i valori misurati che verranno interpolati.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateOption">
+        <div>
+            <p>Scegliere se privilegiare la velocit&agrave; di calcolo o l'accuratezza e la precisione. Le predizioni pi&ugrave; accurate e precise richiedono pi&ugrave; tempo per essere calcolate.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Scegliere se un layer di errori standard per le predizioni di interpolazione sar&agrave; incluso nell'output.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Scegliere come verranno calcolati i valori delle interruzioni di classe.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Specifica il numero di classi (intervalli di valori previsti) che verranno incluse nel layer dei risultati. Ogni classe definisce il confine di un poligono e rappresenta i contorni dei valori previsti. I valori di interruzione della classe vengono determinati dal tipo di classificazione.
+            </p>
+        </div>
+    </div>
+    <div id="classBreaks">
+        <div>
+            <p>Fornire i valori di interruzione della classe che verranno utilizzati.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Scegliere un layer poligono che verr&agrave; utilizzato per definire un'area di studio. I risultati verranno ritagliati per essere visualizzati solo all'interno dell'area di studio.
+            </p>
+        </div>
+    </div>
+    <div id="predictAtPointLayer">
+        <div>
+            <p>Scegliere un layer punto che rappresenti le posizioni utilizzate per prevedere i valori. Se fornito, verr&agrave; creato un layer punto contenente i valori previsti nelle posizioni specificate.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella in  <b>I miei contenuti</b> in cui saranno salvati i risultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

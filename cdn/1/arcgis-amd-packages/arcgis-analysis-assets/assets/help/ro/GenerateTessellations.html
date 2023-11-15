@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Instrumentul Generare teselări creează o grilă de poligoane pe baza unei anumite extinderi, forme și dimensiuni.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="binType">
+        <div>
+            <p>Forma teselărilor care vor fi create.
+            </p>
+        </div>
+    </div>
+    <div id="sizeType">
+        <div>
+            <p>Specifică dacă dimensiunea teselării va fi definită de suprafața sa (<b>Suprafață</b>) sau de o valoare a distanței (<b>Distanță</b>).
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>Dimensiunea (suprafața sau distanța) teselărilor generate. Pentru pătrate, hexagoane, triunghiuri și romburi, distanța determină &icirc;nălțimea teselărilor. Pentru hexagoane transversale, distanța determină lățime teselărilor.
+            </p>
+        </div>
+    </div>
+    <div id="binResolution">
+        <div>
+            <p>Rezoluția H3 a teselărilor Intervale de rezoluție de la 0 la 15. Cu fiecare dimensiune de rezoluție crescută, zona poligoanelor va scădea la o șeptime din dimensiunea la cea mai scăzută rezoluție.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>Specifică unitățile care vor fi utilizate pentru dimensiunea teselării.
+            </p>
+        </div>
+    </div>
+    <div id="extentLayer">
+        <div>
+            <p>Extinderea pe care o vor acoperi teselările.
+            </p>
+        </div>
+    </div>
+    <div id="intersectStudyArea">
+        <div>
+            <p>Pentru straturi tematice de obiecte spațiale, specifică dacă teselările vor acoperi &icirc;ntreaga extindere sau vor acoperi doar suprafețele &icirc;n care teselările se intersectează cu obiectele spațiale.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Numele stratului tematic care va fi creat și adăugat pe hartă.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Numele folderului din  <b>Resursele mele</b> &icirc;n care va fi salvat rezultatul.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

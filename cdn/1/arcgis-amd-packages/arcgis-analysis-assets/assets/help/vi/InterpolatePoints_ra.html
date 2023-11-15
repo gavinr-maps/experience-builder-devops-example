@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Nội suy Điểm dự đo&aacute;n c&aacute;c gi&aacute; trị tại c&aacute;c vị tr&iacute; mới dựa tr&ecirc;n c&aacute;c ph&eacute;p đo điểm. C&ocirc;ng cụ tạo đầu ra raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>Lớp điểm c&oacute; chứa c&aacute;c điểm đo gi&aacute; trị.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Trường số chứa c&aacute;c gi&aacute; trị sẽ được nội suy.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Chỉ định xem tốc độ hoặc độ ch&iacute;nh x&aacute;c c&oacute; được tối ưu h&oacute;a hay kh&ocirc;ng. Thời gian t&iacute;nh to&aacute;n sẽ l&acirc;u hơn khi tăng độ ch&iacute;nh x&aacute;c.
+            </p>
+            <p>Th&ocirc;ng số n&agrave;y l&agrave;m thay đổi c&aacute;c gi&aacute; trị mặc định của một v&agrave;i th&ocirc;ng số kh&aacute;c.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>K&iacute;ch thước cell v&agrave; đơn vị cho c&aacute;c raster đầu ra.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Chỉ định xem dữ liệu c&oacute; được chuyển đổi hay kh&ocirc;ng. Nội suy l&agrave; ch&iacute;nh x&aacute;c nhất cho dữ liệu thực hiện ph&acirc;n phối th&ocirc;ng thường (c&oacute; h&igrave;nh chu&ocirc;ng).
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>K&iacute;ch thước của c&aacute;c m&ocirc; h&igrave;nh nội suy cục bộ sẽ được kết hợp để tạo bản đồ dự đo&aacute;n cuối c&ugrave;ng.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Số lượng v&ugrave;ng l&acirc;n cận sẽ được sử dụng. Số lượng v&ugrave;ng l&acirc;n cận lớn hơn thường cho ra kết quả ch&iacute;nh x&aacute;c hơn, nhưng mất thời gian l&acirc;u hơn để t&iacute;nh kết quả.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp raster nội suy sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Chọn xem bạn c&oacute; muốn tạo raster t&ugrave;y chọn chứa th&ocirc;ng tin sai số ti&ecirc;u chuẩn cho c&aacute;c gi&aacute; trị dự đo&aacute;n kh&ocirc;ng.
+            </p>
+            <p>Nếu được chọn, raster sai số ti&ecirc;u chuẩn đầu ra sẽ c&oacute; c&ugrave;ng t&ecirc;n với  <b>T&ecirc;n raster đầu ra</b>, nhưng c&oacute; th&ecirc;m từ Sai số. Lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

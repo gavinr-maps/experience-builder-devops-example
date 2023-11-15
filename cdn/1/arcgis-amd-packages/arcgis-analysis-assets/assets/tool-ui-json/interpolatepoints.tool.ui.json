@@ -1,0 +1,171 @@
+{
+  "toolName": "InterpolatePoints",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "value": "$[Component].inputLayer.selectedLayers",
+      "destination": "field",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].classificationType",
+      "valueB": "Manual",
+      "destination": "numClasses",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].classificationType IN ('EqualArea','EqualInterval','GeometricInterval')",
+      "destination": "classBreaks",
+      "effectParams": {
+        "visible": false
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": []
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayersGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$inputLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputPointsLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature_point", "feature_multiPoint"],
+          "required": true,
+          "hideSketch": false
+        },
+        {
+          "name": "field",
+          "label": "$interpolateFieldLabel",
+          "componentName": "analysis-field-input",
+          "required": true,
+          "useDefaultValue": true,
+          "selectionMode": "single",
+          "fieldTypes": ["double", "integer", "small-integer", "single"]
+        },
+        {
+          "label": "$optionalLayersSectionLabel",
+          "componentName": "analysis-section",
+          "open": false,
+          "UIparameters": [
+            {
+              "name": "boundingPolygonLayer",
+              "label": "$clippingPolygonsLabel",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": "feature_polygon",
+              "required": false,
+              "hideSketch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "$inputInterpolationSettingGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$inputInterpolationSettingGroupText",
+      "UIparameters": [
+        {
+          "name": "interpolateOption",
+          "label": "$calculationPrecisionLabel",
+          "componentName": "analysis-string-input",
+          "required": true,
+          "showAsRadioGroup": true,
+          "choiceList": ["1", "5", "9"],
+          "choiceListLabels": {
+            "1": "$speed",
+            "5": "$balance",
+            "9": "$accuracy"
+          }
+        },
+        {
+          "name": "classificationType",
+          "label": "$classificationTypeLabel",
+          "componentName": "analysis-string-input",
+          "choiceListLabels": {
+            "EqualArea": "$equalArea",
+            "EqualInterval": "$equalInterval",
+            "GeometricInterval": "$geometricInterval",
+            "Manual": "$manual"
+          },
+          "choiceList": ["EqualArea", "EqualInterval", "GeometricInterval", "Manual"],
+          "required": true,
+          "placeholderText": "$classificationTypeText"
+        },
+        {
+          "name": "numClasses",
+          "label": "$numberofClassesLabel",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "min": 2,
+          "max": 32,
+          "numberType": "integer",
+          "defaultValue": 10,
+          "visible": true
+        },
+        {
+          "name": "classBreaks",
+          "label": "$classBreakValuesLabel",
+          "componentName": "analysis-number-input",
+          "required": false,
+          "numberType": "float",
+          "selectionMode": "multi",
+          "minValues": 2,
+          "maxValues": 32,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "label": "$resultLayersGroupLabel",
+      "layout": "vertical",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayersGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputFeaturesNameLabel",
+          "componentName": "analysis-string-input",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true
+        },
+        {
+          "label": "$optionalLayersSectionLabel",
+          "componentName": "analysis-section",
+          "open": false,
+          "UIparameters": [
+            {
+              "name": "outputPredictionError",
+              "label": "$outputPredictionErrorsLabel",
+              "componentName": "analysis-boolean-input",
+              "required": true
+            },
+            {
+              "name": "predictAtPointLayer",
+              "label": "$pointPredictionLocationsLabel",
+              "componentName": "analysis-layer-input",
+              "layerFilterType": "feature_point",
+              "required": false,
+              "hideSketch": false
+            }
+          ]
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

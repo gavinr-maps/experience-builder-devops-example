@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Champ de vision g&eacute;od&eacute;sique identifie les emplacements sur une surface raster qui sont visibles depuis les emplacements de point d&rsquo;observation en entr&eacute;e.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Raster d'altitude sur lequel le champ de vision doit &ecirc;tre calcul&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Localisations des observateurs pour lesquelles le champ de vision doit &ecirc;tre calcul&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimise le calcul du champ de vision en fonction de la vitesse ou de l'exactitude.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Sp&eacute;cifie la distance d'affichage maximale pour le calcul du champ de vision.
+            </p>
+            <p>La distance peut &ecirc;tre d&eacute;finie par une valeur et ses unit&eacute;s ou &agrave; partir d'un champ du param&egrave;tre  <b>Input observer point or line features (Entit&eacute;s lin&eacute;aires ou de points d&rsquo;observation en entr&eacute;e)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Sp&eacute;cifie la distance d'affichage minimale pour le calcul du champ de vision.
+            </p>
+            <p>La distance peut &ecirc;tre d&eacute;finie par une valeur et ses unit&eacute;s ou &agrave; partir d'un champ du param&egrave;tre  <b>Input observer point or line features (Entit&eacute;s lin&eacute;aires ou de points d&rsquo;observation en entr&eacute;e)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Sp&eacute;cifie le type des distances d'affichage maximale et minimale.
+            </p>
+            <p>Si ce param&egrave;tre n'est pas s&eacute;lectionn&eacute;, les distances d'affichage sont trait&eacute;es comme des distances euclidiennes bidimensionnelles. Si ce param&egrave;tre est s&eacute;lectionn&eacute;, les distances d'affichage sont trait&eacute;es comme des distances tridimensionnelles.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Sp&eacute;cifie l'altitude de surface des localisations des observateurs.
+            </p>
+            <p>L'altitude peut &ecirc;tre d&eacute;finie par une valeur et ses unit&eacute;s ou &agrave; partir d'un champ du param&egrave;tre  <b>Input observer point or line features (Entit&eacute;s lin&eacute;aires ou de points d&rsquo;observation en entr&eacute;e)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Sp&eacute;cifie la hauteur des observateurs au-dessus du sol.
+            </p>
+            <p>La hauteur peut &ecirc;tre d&eacute;finie par une valeur et ses unit&eacute;s ou &agrave; partir d'un champ du param&egrave;tre  <b>Input observer point or line features (Entit&eacute;s lin&eacute;aires ou de points d&rsquo;observation en entr&eacute;e)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Sp&eacute;cifie la hauteur des cibles au sol.
+            </p>
+            <p>La hauteur peut &ecirc;tre d&eacute;finie par une valeur et ses unit&eacute;s ou &agrave; partir d'un champ du param&egrave;tre  <b>Input observer point or line features (Entit&eacute;s lin&eacute;aires ou de points d&rsquo;observation en entr&eacute;e)</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche raster de champs de vision &agrave; cr&eacute;er et ajouter &agrave; la carte. Cette couche contient les zones visibles dans lesquelles les observateurs peuvent observer et les valeurs de cellule repr&eacute;sentent le nombre d'observateurs qui peuvent voir les cellules.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Nom de la couche raster au-dessus du niveau du sol (AGL) &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Type de sortie &agrave; cr&eacute;er. La sortie peut correspondre &agrave; une couche d&rsquo;imagerie tuil&eacute;e ou une couche d&rsquo;imagerie dynamique.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

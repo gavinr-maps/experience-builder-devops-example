@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Flow Distance eszk&ouml;z kisz&aacute;m&iacute;tja az egyes cell&aacute;k v&iacute;zszintes vagy f&uuml;ggőleges lejtőir&aacute;ny&uacute; t&aacute;vols&aacute;g&aacute;t att&oacute;l a c&eacute;lpontt&oacute;l, ahov&aacute; a lefoly&aacute;s &aacute;ramlik.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputStreamRaster">
+        <div>
+            <p>Egy line&aacute;ris &aacute;raml&aacute;si h&aacute;l&oacute;zatot meghat&aacute;roz&oacute; raszter.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>A sz&aacute;m&iacute;t&aacute;shoz haszn&aacute;lt magass&aacute;gi raszter.
+            </p>
+        </div>
+    </div>
+    <div id="inputFlowDirectionRaster">
+        <div>
+            <p>A raszter, amely az &aacute;raml&aacute;s ir&aacute;ny&aacute;t hat&aacute;rozza meg az egyes cell&aacute;kb&oacute;l.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Megadja, hogy az &aacute;raml&aacute;si t&aacute;vols&aacute;g f&uuml;ggőleges vagy v&iacute;zszintes komponense legyen kisz&aacute;m&iacute;tva.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Megadja a bemeneti &aacute;raml&aacute;si ir&aacute;ny rasztert&iacute;pus&aacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Meghat&aacute;rozza az &aacute;raml&aacute;si t&aacute;vols&aacute;g t&ouml;bb &aacute;raml&aacute;si &uacute;tvonalon t&ouml;rt&eacute;nő kisz&aacute;m&iacute;t&aacute;s&aacute;hoz haszn&aacute;lt statisztika t&iacute;pus&aacute;t.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt &aacute;raml&aacute;si t&aacute;vols&aacute;g raszteres r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>A l&eacute;trej&ouml;vő kimenet t&iacute;pusa. A kimenet csemp&eacute;zett t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;teg vagy pedig dinamikus t&aacute;v&eacute;rz&eacute;kel&eacute;si r&eacute;teg lehet.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

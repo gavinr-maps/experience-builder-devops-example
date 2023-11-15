@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Th&agrave;nh phần Ch&iacute;nh Đa chiều hỗ trợ chuyển đổi c&aacute;c lớp h&igrave;nh ảnh đa chiều th&agrave;nh số lượng th&agrave;nh phần thấp hơn tạo ra phương sai dữ liệu, do đ&oacute; bạn c&oacute; thể dễ d&agrave;ng x&aacute;c định c&aacute;c m&ocirc; h&igrave;nh kh&ocirc;ng gian v&agrave; thời gian.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Lớp h&igrave;nh ảnh đa chiều sẽ được ph&acirc;n t&iacute;ch.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Phương ph&aacute;p sẽ được sử dụng để thực hiện ph&acirc;n t&iacute;ch th&agrave;nh phần ch&iacute;nh. C&aacute;c t&ugrave;y chọn bao gồm  <b>Giảm k&iacute;ch thước</b> v&agrave; <b>Giảm kh&ocirc;ng gian</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>K&iacute;ch thước của lớp h&igrave;nh ảnh đa chiều m&agrave; biến sẽ được ph&acirc;n t&iacute;ch theo đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>T&ecirc;n của lớp h&igrave;nh ảnh đầu ra hoặc lớp bảng sẽ hiển thị c&aacute;c th&agrave;nh phần ch&iacute;nh được t&igrave;m thấy t&ugrave;y thuộc v&agrave;o c&aacute;c lựa chọn chế độ sau:
+                <ul>
+                    <li>Đầu ra của phương ph&aacute;p Giảm k&iacute;ch thước sẽ l&agrave; lớp h&igrave;nh ảnh đa dải.
+                    </li>
+                    <li>Đầu ra của phương ph&aacute;p Giảm kh&ocirc;ng gian sẽ l&agrave; lớp bảng.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>T&ecirc;n của lớp h&igrave;nh ảnh đầu ra hoặc lớp bảng sẽ hiển thị dữ liệu hỗ trợ trong lựa chọn th&agrave;nh phần ch&iacute;nh t&ugrave;y thuộc v&agrave;o c&aacute;c lựa chọn chế độ sau:
+                <ul>
+                    <li>Đầu ra của phương ph&aacute;p Giảm k&iacute;ch thước sẽ l&agrave; lớp bảng.
+                    </li>
+                    <li>Đầu ra của phương ph&aacute;p Giảm kh&ocirc;ng gian sẽ l&agrave; lớp h&igrave;nh ảnh.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>T&ecirc;n của bảng Gi&aacute; trị ri&ecirc;ng cho biết tỷ lệ phần trăm phương sai của từng th&agrave;nh phần.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>T&ecirc;n biến của lớp h&igrave;nh ảnh đa chiều đầu v&agrave;o được sử dụng trong ph&eacute;p t&iacute;nh to&aacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>Số lượng th&agrave;nh phần ch&iacute;nh cần t&iacute;nh to&aacute;n, thường &iacute;t hơn số lượng raster đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

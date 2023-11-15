@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Geodeetiline vaatev&auml;li&quot; tuvastab rasterpinnal asukohad, mis on sisendi vaatluspunktides n&auml;htavad.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>K&otilde;rgusraster, millelt arvutatakse vaatev&auml;li.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Vaatluspunktid, mille jaoks arvutatakse vaatev&auml;li.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Kiiruse v&otilde;i t&auml;psuse alusel optimeeritud vaatev&auml;lja arvutus.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>M&auml;&auml;rab vaatev&auml;lja arvutamiseks kasutatava suurima vaatamiskauguse.
+            </p>
+            <p>Kauguse saab m&auml;&auml;ratleda v&auml;&auml;rtusega ja selle &uuml;hikutega v&otilde;i v&auml;ljal jaotises  <b>Sisendvaatluspunkti v&otilde;i jooneobjektid</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>M&auml;&auml;rab vaatev&auml;lja arvutamiseks kasutatava v&auml;ikseima vaatamiskauguse.
+            </p>
+            <p>Kauguse saab m&auml;&auml;ratleda v&auml;&auml;rtusega ja selle &uuml;hikutega v&otilde;i v&auml;ljal jaotises  <b>Sisendvaatluspunkti v&otilde;i jooneobjektid</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>M&auml;&auml;rab suurima ja v&auml;ikseima vaatamiskauguse t&uuml;&uuml;bi.
+            </p>
+            <p>Kui see on m&auml;rkimata, k&auml;sitletakse vaatamiskaugust kahem&otilde;&otilde;tmeliste Eukleidiliste vahemaadena. Kui see on m&auml;rgitud, k&auml;sitletakse vaatamiskaugust kolmem&otilde;&otilde;tmeliste vahemaadena.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>M&auml;&auml;rab vaatluspunktide k&otilde;rguspinna.
+            </p>
+            <p>K&otilde;rguspinna saab m&auml;&auml;ratleda v&auml;&auml;rtusega ja selle &uuml;hikutega v&otilde;i v&auml;ljal jaotises  <b>Sisendvaatluspunkti v&otilde;i jooneobjektid</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>M&auml;&auml;rab vaatleja k&otilde;rguse maapinnast.
+            </p>
+            <p>K&otilde;rguse saab m&auml;&auml;ratleda v&auml;&auml;rtusega ja selle &uuml;hikutega v&otilde;i v&auml;ljal jaotises  <b>Sisendvaatluspunkti v&otilde;i jooneobjektid</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>M&auml;&auml;rab sihtm&auml;rgi k&otilde;rguse maapinnast.
+            </p>
+            <p>K&otilde;rguse saab m&auml;&auml;ratleda v&auml;&auml;rtusega ja selle &uuml;hikutega v&otilde;i v&auml;ljal jaotises  <b>Sisendvaatluspunkti v&otilde;i jooneobjektid</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle vaatev&auml;lja rasterkihi nimi, mis luuakse jaotises ja lisatakse kaardile. See kiht sisaldab n&auml;htavaid alasid, mis on vaatlejale n&auml;htavad ja piksliv&auml;&auml;rtused n&auml;itavad vaatlejate arvu, kellele pikslid on n&auml;htavad.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Maapinnast k&otilde;rgemal oleva (AGL) rasterkihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljund v&otilde;ib olla paanitud pildikiht v&otilde;i d&uuml;naamiline pildikiht.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L'outil Join Features (Joindre les entit&eacute;s) ajoute les attributs d'une couche ou d&rsquo;une table &agrave; une autre en fonction de relations spatiales et attributaires sp&eacute;cifi&eacute;es. Des statistiques peuvent &eacute;ventuellement &ecirc;tre calcul&eacute;es si plusieurs enregistrements sont appari&eacute;s.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Couche ou table pour laquelle les attributs de la couche de jointure sont ajout&eacute;e &agrave; sa table attributaire.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Couche ou table dont les attributs sont ajout&eacute;s &agrave; la couche cible.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Indiquez si les couches doivent &ecirc;tre jointes en fonction d'une relation spatiale. Dans ce cas, les deux couches doivent poss&eacute;der une g&eacute;om&eacute;trie.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Sp&eacute;cifiez la relation spatiale qui d&eacute;termine les entit&eacute;s &agrave; joindre. Les entit&eacute;s de la couche de jointure qui poss&egrave;dent la relation sp&eacute;cifi&eacute;e &agrave; la couche cible sont jointes. Les relations disponibles d&eacute;pendent du type de g&eacute;om&eacute;trie des entr&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Distance depuis les entit&eacute;s de la couche cible &agrave; utiliser pour d&eacute;terminer si les entit&eacute;s doivent &ecirc;tre jointes.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Unit&eacute;s &agrave; utiliser pour sp&eacute;cifier la distance.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Indiquez si les couches doivent &ecirc;tre jointes en fonction des valeurs de champ appari&eacute;es. Il s'agit de la seule option disponible si une ou plusieurs des entr&eacute;es correspondent &agrave; une table.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Sp&eacute;cifiez la relation attributaire qui d&eacute;termine les entit&eacute;s &agrave; joindre. Les entit&eacute;s sont appari&eacute;es lorsque les valeurs de champ de la couche de jointure sont identiques &agrave; celles de la couche cible.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Sp&eacute;cifiez le mode de traitement des jointures si plusieurs enregistrements de la couche de jointure remplisent le crit&egrave;re de jointure. Choisissez l&rsquo;une des options suivantes&nbsp;:
+                <ul>
+                    <li> <b>Join one to one (Joindre un vers un)</b>&nbsp;: joint un seul enregistrement de la couche de jointure &agrave; chaque entit&eacute; de la couche cible.
+                    </li>
+                    <li> <b>Join one to many (Joindre un vers plusieurs)</b>&nbsp;: joint toutes les entit&eacute;s appari&eacute;es de la couche de jointure &agrave; la couche cible. La couche de r&eacute;sultat contiendra plusieurs enregistrements de l&rsquo;entit&eacute; cible.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Si plusieurs entit&eacute;s de la couche de jointure sont appari&eacute;es &agrave; une entit&eacute; cible, indiquez si un seul enregistrement de la couche de jointure doit &ecirc;tre joint ou si les r&eacute;sum&eacute;s statistiques de tous les enregistrements appari&eacute;s de la couche de jointure doivent &ecirc;tre calcul&eacute;s.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Si plusieurs entit&eacute;s de jointure sont appari&eacute;es &agrave; une entit&eacute; cible, les r&eacute;sum&eacute;s statistiques de tous les enregistrements appari&eacute;s sont calcul&eacute;s. Sp&eacute;cifiez les champs num&eacute;riques ou de date de la couche de jointure et les statistiques &agrave; calculer pour chaque champ.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Si plusieurs entit&eacute;s de jointure sont appari&eacute;es &agrave; une entit&eacute; cible, le premier enregistrement de la table attributaire de la couche de jointure est inclus dans la sortie. Choisissez &eacute;ventuellement un champ num&eacute;rique ou de date et l'ordre de tri d&eacute;terminant le classement de la table attributaire.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>D&eacute;termine si les entit&eacute;s cible non appari&eacute;es sont incluses dans la sortie. Une  <b>Inner join (Jointure int&eacute;rieure)</b> ne renvoie que les enregistrements cible appari&eacute;s, tandis qu'une <b>Left join (Jointure gauche)</b> renvoie tous les enregistrements cible, m&ecirc;me si l'entit&eacute; cible n'a pas de d&rsquo;appariement dans la couche de jointure.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche ou table &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Zl&uacute;čiť hranice n&aacute;jde polyg&oacute;ny, ktor&eacute; sa prekr&yacute;vaj&uacute; alebo maj&uacute; spoločn&uacute; hranicu, a spoj&iacute; ich do jedn&eacute;ho polyg&oacute;nu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Vrstva obsahuj&uacute;ca polyg&oacute;nov&eacute; prvky, ktor&eacute; bud&uacute; zl&uacute;čen&eacute;.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>Určuje, či n&aacute;stroj zl&uacute;či iba polyg&oacute;ny, ktor&eacute; sa prekr&yacute;vaj&uacute; alebo maj&uacute; spoločn&uacute; hranicu a maj&uacute; rovnak&uacute; hodnotu poľa (povolen&eacute;), alebo v&scaron;etky polyg&oacute;ny, ktor&eacute; sa prekr&yacute;vaj&uacute; alebo maj&uacute; spoločn&uacute; hranicu (zak&aacute;zan&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>Určuje pole použit&eacute; na zl&uacute;čenie polyg&oacute;nov na z&aacute;klade zhodn&yacute;ch hodn&ocirc;t.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>Určuje, či v&yacute;stup m&ocirc;že obsahovať viacn&aacute;sobn&eacute; polyg&oacute;nov&eacute; prvky, teda viac polyg&oacute;nov reprezentovan&yacute;ch ako jeden prvok (povolen&eacute;), alebo m&ocirc;že obsahovať len individu&aacute;lne prvky (zak&aacute;zan&eacute;).
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>Určuje, či sa pre zl&uacute;čen&eacute; polyg&oacute;ny vypoč&iacute;taj&uacute; sumarizačn&eacute; &scaron;tatistiky.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Č&iacute;seln&eacute; alebo d&aacute;tumov&eacute; polia zo vstupnej vrstvy, ktor&eacute; bud&uacute; sumarizovan&eacute;, a &scaron;tatistiky, ktor&eacute; bud&uacute; vypoč&iacute;tan&eacute; pre každ&eacute; pole.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

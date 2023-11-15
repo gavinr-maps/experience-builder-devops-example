@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Procurar por Atributos e Localiza&ccedil;&atilde;o cria uma nova camada das elementos ou partes de elementos que cumprem os crit&eacute;rios espaciais ou de atributos especificados.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>A camada de pontos, linhas ou pol&iacute;gonos para a qual ser&atilde;o encontrados elementos, com base numa combina&ccedil;&atilde;o de atributos e consultas espaciais.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Os crit&eacute;rios espaciais ou de atributos que ser&atilde;o utilizados para encontrar elementos. Clique no bot&atilde;o  <b>Criar nova consulta</b> para definir um ou mais crit&eacute;rios espaciais ou de atributos. Esses elementos, ou partes de elementos, que cumprem todos os crit&eacute;rios ser&atilde;o escritos na camada de resultados.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Os crit&eacute;rios espaciais ou de atributos que ser&atilde;o utilizados para encontrar elementos. Clique no bot&atilde;o <b>Criar nova consulta</b> para definir um ou mais crit&eacute;rios espaciais ou de atributos. Esses elementos, ou partes de elementos, que cumprem todos os crit&eacute;rios ser&atilde;o escritos na camada de resultados.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Quando apenas uma parte de um elemento cumpre os crit&eacute;rios, especifica se o resultado inclui a totalidade do elemento ou apenas a parte do elemento gr&aacute;fico que cumpre todos os crit&eacute;rios. Quando selecionada, apenas as partes do elemento que cumprem todos os crit&eacute;rios ser&atilde;o devolvidas. Quando est&aacute; desselecionada, todo o elemento ser&aacute; devolvido desde que pelo menos uma parte do elemento cumpra todos os crit&eacute;rios.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>O Meu Conte&uacute;do</b> onde o resultado ser&aacute; guardado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

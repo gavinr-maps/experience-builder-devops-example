@@ -1,0 +1,222 @@
+{
+  "toolName": "MergeLayers",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "destination": "mergingAttributes.UIparameterInfos[0]",
+      "value": "$[Component].mergeLayer.selectedLayers",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "set",
+      "destination": "mergingAttributes.UIparameterInfos[3]",
+      "value": "$[Component].inputLayer.selectedLayers",
+      "property": "mapLayer"
+    },
+    {
+      "ruleType": "equals",
+      "destination": "mergeLayer",
+      "effectParams": {
+        "visible": false
+      },
+      "valueA": "$[Component].inputLayer.selectedLayers",
+      "valueB": null
+    },
+    {
+      "ruleType": "expression",
+      "destination": "mergeLayer",
+      "effectParams": {
+        "visible": true,
+        "layerFilterType": ["feature_point", "feature_multiPoint"]
+      },
+      "expression": "(($[Component].inputLayer.selectedLayers.geometryType = 'point') OR ($[Component].inputLayer.selectedLayers.geometryType = 'multipoint'))"
+    },
+    {
+      "ruleType": "expression",
+      "destination": "mergeLayer",
+      "effectParams": {
+        "visible": true,
+        "layerFilterType": ["feature_line"]
+      },
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polyline'"
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Component].inputLayer.selectedLayers.geometryType = 'polygon'",
+      "destination": "mergeLayer",
+      "effectParams": {
+        "visible": true,
+        "layerFilterType": ["feature_polygon"]
+      }
+    }
+  ],
+  "UIparameters": [
+    {
+      "label": "$inputFeatures",
+      "componentName": "analysis-block",
+      "summaryText": "$inputFeaturesSectionText",
+      "UIparameters": [
+        {
+          "name": "inputLayer",
+          "label": "$inputLayerGroupLabel",
+          "componentName": "analysis-layer-input",
+          "layerFilterType": ["feature"],
+          "required": true,
+          "hideSketch": true
+        },
+        {
+          "label": "$mergeLayer",
+          "componentName": "analysis-layer-input",
+          "name": "mergeLayer",
+          "required": true,
+          "layerFilterType": ["feature"],
+          "hideSketch": true
+        }
+      ]
+    },
+    {
+      "label": "$mergeSettingsSectionLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "label": "$mergingAttributes",
+          "name": "mergingAttributes",
+          "componentName": "analysis-value-table",
+          "serializationType": "sequentialValueArray",
+          "serializationParameterName": "mergingAttributes",
+          "serializationKeys": ["mergingAttributesField", "operationType", "mergedRenameField", "toBeMergedField"],
+          "UIparameterInfosRules": [
+            {
+              "ruleType": "expression",
+              "expression": "$[Data].mergingAttributesField NOT null",
+              "destination": "operationType",
+              "effectParams": {
+                "visible": true,
+                "required": true
+              }
+            },
+            {
+              "ruleType": "expression",
+              "expression": "$[Data].operationType = 'RENAME'",
+              "destination": "mergedRenameField",
+              "effectParams": {
+                "visible": true,
+                "required": true
+              }
+            },
+            {
+              "ruleType": "expression",
+              "expression": "$[Data].operationType NOT 'RENAME'",
+              "destination": "mergedRenameField",
+              "effectParams": {
+                "visible": false,
+                "required": false
+              }
+            },
+            {
+              "ruleType": "expression",
+              "expression": "$[Data].operationType = 'MATCH'",
+              "destination": "toBeMergedField",
+              "effectParams": {
+                "visible": true,
+                "required": true
+              }
+            },
+            {
+              "ruleType": "expression",
+              "expression": "$[Data].operationType NOT 'MATCH'",
+              "destination": "toBeMergedField",
+              "effectParams": {
+                "visible": false,
+                "required": false
+              }
+            },
+            {
+              "ruleType": "expression",
+              "expression": "$[Data].operationType NOT null",
+              "destination": "mergingAttributesField",
+              "effectParams": {
+                "visible": true,
+                "required": true
+              }
+            }
+          ],
+          "UIparameterInfos": [
+            {
+              "name": "mergingAttributesField",
+              "label": "$mergingAttributesField",
+              "componentName": "analysis-field-input",
+              "selectionMode": "single",
+              "fieldTypes": ["double", "integer", "small-integer", "single", "string", "date", "long"],
+              "required": false
+            },
+            {
+              "name": "operationType",
+              "label": "$outputType",
+              "componentName": "analysis-string-input",
+              "choiceList": ["RENAME", "REMOVE", "MATCH"],
+              "choiceListLabels": {
+                "RENAME": "$rename",
+                "REMOVE": "$remove",
+                "MATCH": "$match"
+              },
+              "choiceListIcons": {
+                "RENAME": "pencil-square",
+                "REMOVE": "x-circle",
+                "MATCH": "arrow-right-left"
+              },
+              "required": false
+            },
+            {
+              "name": "mergedRenameField",
+              "label": "$mergedRenameField",
+              "componentName": "analysis-string-input",
+              "visible": false,
+              "required": false,
+              "invalidCharactersRegex": "/[^_\\p{L}\\p{N}]+/u"
+            },
+            {
+              "name": "toBeMergedField",
+              "label": "$matchField",
+              "componentName": "analysis-field-input",
+              "selectionMode": "single",
+              "visible": false,
+              "required": false,
+              "fieldTypes": ["double", "integer", "small-integer", "single", "string", "date", "long"]
+            }
+          ]
+        }
+      ],
+      "summaryText": "$mergeSettingsSectionText"
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$outputSectionText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ],
+  "validationRules": [
+    {
+      "expression": "($[Component].inputLayer.selectedLayers.geometryType not null AND $[Component].mergeLayer.selectedLayers.geometryType not null) AND ($[Component].inputLayer.selectedLayers.geometryType not $[Component].mergeLayer.selectedLayers.geometryType)",
+      "errorKey": "mergeLayers_1"
+    },
+    {
+      "expression": "($[Data].inputLayer.url not null AND $[Data].mergeLayer.url not null) AND ($[Data].inputLayer.url = $[Data].mergeLayer.url)",
+      "errorKey": "mergeLayers_2"
+    }
+  ]
+}

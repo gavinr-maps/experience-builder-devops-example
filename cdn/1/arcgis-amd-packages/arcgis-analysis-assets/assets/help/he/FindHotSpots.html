@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>הכלי 'מציאת נקודות חמות' מזהה קיבוץ באשכולות מובהק סטטיסטית ביישויות קלט.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>שכבת הנקודות או הפליגון שעליה יבוצע ניתוח נקודות חמות.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>מציין האם נקודות חמות וקרות ישקפו מיקומי ישויות (<b>ספירות נקודה</b>) או ערכי שדה ישות (<b>שדה</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>השדה שלגביו יתבצע ניתוח לזיהוי אשכולות ערכים גבוהים ונמוכים.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>סוג ישויות האיחוד שבתוכן תתבצע צבירה של קלט ישויות נקודה. זה יכול להיות שכבת פוליגון (<b>שכבת פוליגון</b>) או גריד שיבוץ בפסיפס של ריבועים (<b>תאי רשת דיג</b>) או משושים (<b>תאים משושים</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>השכבה שמכילה את ישויות הפוליגון שבתוכן תתבצע צבירה של קלט ישויות נקודה.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>שכבת הפוליגון שתגדיר את גבול הניתוח. ישויות נקודה בתוך הפוליגון ייכללו בניתוח הנקודות החמות.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>מציין כיצד לחלק את ערכי  <b>שדה הניתוח</b> או את ספירות הנקודות המצטברות. האפשרות <b>שדה</b> תחלק את ערכי <b>שדה הניתוח</b> בערכים של שדה שצוין בפרמטר <b>שכבת קלט</b>. האפשרות <b>נתוני העשרה</b> תעשיר את הישויות או את צורות הצבירה בנתוני אוכלוסיה ותחלק את ערכי <b>שדה הניתוח</b> או ספירות הנקודות המצטברות בכמות האוכלוסיה. פעולה זו תנצל נקודות קרדיט נוספות.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>אורך צלע של תאי ריבוע או משושה שבהם יעשה שימוש לצבירת ישויות הקלט.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>מציין את היחידות אשר ישמשו עבור גודל התא.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>רצועת המרחק אשר תשמש להגדרת שכונה. ישויות שכנות בתוך רצועת מרחק של ישות יעד ייכללו בשכונה של ישות היעד במהלך ניתוח נקודות חמות.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>מציין את היחידות אשר ישמשו עבור רצועת המרחק.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>שם השכבה שתיווצר ותתווסף למפה.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>שם התיקייה  <b>בתוכן שלי</b> שבה התוצאה תישמר.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

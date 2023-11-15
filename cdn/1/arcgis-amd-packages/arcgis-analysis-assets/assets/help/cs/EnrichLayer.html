@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Obohatit vrstvu (Enrich Layer) roz&scaron;iřuje vstupn&iacute; prvky o demografick&eacute; &uacute;daje a &uacute;daje o životn&iacute;m stylu.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&eacute;, liniov&eacute; nebo polygonov&eacute; prvky, kter&eacute; budou obohaceny o dal&scaron;&iacute; data.
+            </p>
+        </div>
+    </div>
+    <div id="analysisVariables">
+        <div>
+            <p>Proměnn&eacute;, kter&eacute; budou přid&aacute;ny jako atributy ke vstupn&iacute;m prvkům.
+            </p>
+        </div>
+    </div>
+    <div id="bufferType">
+        <div>
+            <p>Určuje, jak bude definov&aacute;na oblast kolem vstupn&iacute;ho bodu nebo liniov&yacute;ch prvků. Cel&aacute; oblast kolem každ&eacute;ho prvku bude obohacena.
+            </p>
+        </div>
+    </div>
+    <div id="distance">
+        <div>
+            <p>Č&iacute;seln&aacute; hodnota, kter&aacute; určuje vzd&aacute;lenost nebo čas kolem každ&eacute;ho vstupn&iacute;ho prvku, do kter&eacute;ho se oblast roz&scaron;&iacute;ř&iacute;.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Jednotky, kter&eacute; se použij&iacute; k určen&iacute; vzd&aacute;lenosti nebo času, po kter&yacute; se bude obohacen&aacute; oblast rozprost&iacute;rat kolem každ&eacute;ho vstupn&iacute;ho prvku.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Určuje, zda v&yacute;stupn&iacute; vrstva bude obsahovat polygonov&eacute; prvky definovan&eacute; v nastaven&iacute;  <b>Obohacen&eacute; oblasti</b> (za&scaron;krtnuto) nebo vstupn&iacute; prvky (neza&scaron;krtnuto).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zev vrstvy, kter&aacute; bude vytvořena a přid&aacute;na do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zev složky v č&aacute;sti  <b>Můj obsah</b>, do kter&eacute; bude v&yacute;sledek uložen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

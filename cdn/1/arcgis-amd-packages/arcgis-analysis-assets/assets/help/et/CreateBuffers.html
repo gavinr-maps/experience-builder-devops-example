@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riistaga &quot;Loo puhvrid&quot; saab luua pol&uuml;goonid, mis katavad m&auml;&auml;ratud vahemaa sisendobjektidest.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Puhverdatavad punkt-, joon- v&otilde;i pol&uuml;goonobjektid.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>M&auml;&auml;rab, kas puhvri vahemaa m&auml;&auml;ratakse konstandiga (<b>V&auml;&auml;rtus</b>) v&otilde;i numbriv&auml;ljaga (<b>V&auml;li</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Puhvri loomiseks kasutatav vahemaa. Kui lisatakse mitu v&auml;&auml;rtust, kasutatakse igat v&auml;&auml;rtust iga sisendobjekti puhvri loomiseks.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>V&auml;li, mis sisaldab iga objekti puhvri vahemaad.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>&Uuml;hikud, mida kasutatakse puhvri vahemaa m&auml;&auml;ramiseks.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>M&auml;&auml;rab, kuidas k&auml;sitletakse eri sisendobjektide puhvreid, kui need kattuvad.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>M&auml;&auml;rab, kas mitme vahemaa puhvrid on kattuvad kontsentrilised puhvrid (<b>Kattuvad kettad</b>) v&otilde;i mittekattuvad kettad (<b>Erinevad ringid</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>M&auml;&auml;rab joonobjektide puhul, kas puhver luuakse joone m&otilde;lemal k&uuml;ljel (<b>&Uuml;mber</b>), ainult vasakul k&uuml;ljel (<b>Vasakul</b>) v&otilde;i ainult paremal k&uuml;ljel (<b>Paremal</b>).
+            </p>
+            <p>M&auml;&auml;rab pol&uuml;goonobjektide puhul, kas sisendpol&uuml;goonobjektid kaasatakse puhvrisse (<b>Kaasa</b>) v&otilde;i v&auml;listatakse puhvrist (<b>V&auml;lista</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>M&auml;&auml;rab, kas joonobjekti otsas on puhvri kuju &uuml;mar (<b>&Uuml;mar</b>) v&otilde;i lame (<b>Lame</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تحسب أداة &quot;التلخيص ضمن&quot; الإحصائيات للمعالم ضمن سلال أو مضلعات محددة.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>الطبقة المراد تلخيصها.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>نوع معلم الإحاطة الذي سيتم تلخيص المعالم المدخلة داخله. يمكن أن تكون هذه طبقة مضلع أو شبكة فسيفساء من سلال مربعة أو سداسية يتم إنشاؤها عند تشغيل الأداة.
+            </p>
+        </div>
+    </div>
+    <div id="sumWithinLayer">
+        <div>
+            <p>طبقة المضلع التي سيتم تلخيص المعالم المدخلة داخلها.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>حجم السلال التي تم إنشاؤها. بالنسبة لسلال المربعات، يحدد العدد والوحدات المحددة ارتفاع المربع وطوله. بالنسبة للسلال السداسية، يحدد العدد والوحدات المحددة المسافة بين الجوانب المتوازية.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>الوحدات التي ستُستخدم لتحديد حجم السلة.
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>احسب الحجم الإجمالي للمعالم التي تم تلخيصها في كل مضلع إحاطة. بالنسبة إلى الخطوط، يتم حساب الطول الإجمالي. بالنسبة إلى المضلعات، يتم حساب المساحة الإجمالية.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>الوحدات التي ستُستخدم لحساب الحجم الإجمالي للمعالم التي تم تلخيصها.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>حقول العدد أو التاريخ من طبقة الإدخال التي سيتم تلخيصها، والإحصائيات التي سيتم حسابها لكل حقل.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>الحقل من طبقة الإدخال الذي سيتم استخدامه لفصل البيانات إلى مجموعات مميزة للحسابات الإحصائية.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>حساب مجموعات الأقلية (أقل هيمنة) والأغلبية (الأكثر هيمنة) داخل كل منطقة ملخص.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>احسب النسبة المئوية للمعالم التي تم تلخيصها والتي تنتمي إلى كل مجموعة داخل كل منطقة ملخص.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

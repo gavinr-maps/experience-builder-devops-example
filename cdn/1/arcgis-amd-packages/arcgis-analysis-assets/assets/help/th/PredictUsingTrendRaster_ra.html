@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือพยากรณ์โดยใช้แรสเตอร์แนวโน้ม จะคำนวณชั้นข้อมูลภาพหลายมิติที่พยากรณ์ไว้โดยใช้ชั้นข้อมูลภาพแนวโน้มเอาท์พุท ซึ่งสร้างขึ้นโดยเครื่องมือ สร้างแรสเตอร์แนวโน้ม
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>ชั้นข้อมูลภาพแนวโน้มหลายมิติอินพุท ซึ่งจะใช้สำหรับการพยากรณ์
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>ตัวแปรของชั้นข้อมูลภาพแนวโน้มหลายมิติที่จะใช้สำหรับการพยากรณ์
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>วิธีการที่จะใช้สำหรับการระบุค่ามิติการพยากรณ์
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>กำหนดวันที่เริ่ม ความสูง หรือความลึกของช่วงมิติที่จะใช้ในการพยากรณ์
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>วันที่เริ่ม ความสูง หรือความลึกของช่วงมิติที่จะใช้ในการพยากรณ์
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>วันที่สิ้นสุด ความสูง หรือความลึกของช่วงมิติที่จะใช้ในการพยากรณ์
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>จำนวนขั้นตอนระหว่างค่าสองมิติที่จะรวมไว้ในการพยากรณ์
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>หน่วยที่จะใช้สำหรับค่าช่วงเวลา
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>ประเภทของเอาท์พุทที่จะสร้างขึ้น เอาท์พุทสามารถเป็นชั้นข้อมูลภาพแบบไทล์หรือชั้นข้อมูลภาพแบบไดนามิก
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

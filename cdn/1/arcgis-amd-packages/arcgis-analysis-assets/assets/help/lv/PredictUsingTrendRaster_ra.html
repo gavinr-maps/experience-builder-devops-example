@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rīks Prognozēt, izmantojot tendenču rastru, aprēķina prognozēto daudzdimensiju attēlu slāni, izmantojot izvades tendences attēlu slāni, kas izveidots ar rīku Prognozēt, izmantojot tendenču rastru.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Ievades daudzdimensiju tendences attēlu slānis, kas tiks izmantots prognozē&scaron;anai.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Daudzdimensiju tendences attēlu slāņa mainīgais, kas tiks izmantots prognozē&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Metode, kas tiks izmantota, lai nodro&scaron;inātu prognozējamās dimensiju vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionValues">
+        <div>
+            <p>Norādiet dimensijas intervāla sākuma un beigu datumu, augstumu vai dziļumu, kas jāizmanto prognozē.
+            </p>
+        </div>
+    </div>
+    <div id="start">
+        <div>
+            <p>Dimensijas intervāla sākuma datums, augstums vai dziļums, kas tiks izmantots prognozē&scaron;anā.
+            </p>
+        </div>
+    </div>
+    <div id="end">
+        <div>
+            <p>Dimensijas intervāla beigu datums, augstums vai dziļums, kas tiks izmantots prognozē&scaron;anā.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Darbību skaits starp divām dimensijas vērtībām, kas tiks iekļauts prognozē&scaron;anā.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Vienība, kas tiks izmantota intervāla vērtībai.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Izveidotās izvades veids. Izvade var būt mozaīkas attēlu slānis vai dinamisks attēlu slānis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

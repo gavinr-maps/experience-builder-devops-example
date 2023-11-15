@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Temukan Statistik Argumen mengekstrak nilai dimensi atau indeks band di mana statistik yang ditentukan diperoleh untuk setiap piksel dalam layer citra multidimensi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Layer citra multidimensi yang akan dievaluasi.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimensi layer citra multidimensi dari variabel yang akan dievaluasi.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Variabel layer citra multidimensi yang akan dievaluasi bersamaan dengan interval yang ditentukan.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Jenis statistik yang akan diekstrak dari satu atau lebih variabel bersamaan dengan dimensi yang ditentukan.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Nilai minimum yang akan digunakan untuk durasi argumen.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Nilai maksimum yang akan digunakan untuk durasi argumen.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Nilai yang menunjukkan bahwa statistik argumen tertentu telah tercapai lebih dari satu kali. Standarnya adalah pertama kali statistik argumen tercapai.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Menentukan apakah nilai dimensi akan dikembalikan saat argumen pertama atau terakhir tercapai. Standarnya adalah kemunculan pertama.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Nilai dimensi di mana nilai variabel tertentu yang tercapai akan diekstraksi.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Menentukan jenis perbandingan yang akan digunakan untuk mengekstrak nilai dimensi.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Menentukan cara statistik akan diekstrak dari dimensi.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Unit waktu untuk tiap statistik yang akan diekstrak.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Menunjukkan apakah nilai NoData akan diabaikan dalam ekstraksi.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Jenis output yang akan dibuat. Output dapat berupa layer citra Ubin atau layer citra Dinamis.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

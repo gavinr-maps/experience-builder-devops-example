@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Piirkonna optimaalsed &uuml;hendused&quot; arvutab optimaalne &uuml;hendusv&otilde;rgu kahe v&otilde;i enama sisendpiirkonna vahel.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>Raster- v&otilde;i objektikiht, mis tuvastab optimaalse v&otilde;rguga &uuml;hendatavad piirkonnad.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Raster- v&otilde;i objektikiht, mis tuvastab takistused, mille &uuml;mber tuleb marsruutida.
+            </p>
+            <p>Rasterkihi puhul k&auml;sitletakse v&auml;&auml;rtusega (sealhulgas nulliga) piksleid t&otilde;kkena.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Rasterkiht, mis m&auml;&auml;ratleb takistuse v&otilde;i kulu liikumisel l&auml;bi iga piksli.
+            </p>
+            <p>Piksli iga asukoha v&auml;&auml;rtus v&auml;ljendab vahemaa &uuml;hiku maksumuse liikumisel l&auml;bi piksli. See ei saa olla negatiivne ega null.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>M&auml;&auml;rab, kas kaugus arvutatakse tasapinnalise (lapiku maa) v&otilde;i geodeetilise (ellipsoid) meetodi abil.
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>M&auml;&auml;rab, kas teed j&auml;tkuvad ja &uuml;henduvad sisendpiirkondade sees.
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>Igat sisendpiirkonda &uuml;hendava optimaalse teedev&otilde;rgu kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>Selle naaber&uuml;henduste joonkihi nimi, mis luuakse ja lisatakse kaardile. See kiht tuvastab k&otilde;ik teed, mis viivad igast piirkonnast selle piirkonna l&auml;himate v&otilde;i v&auml;hima kuluga naabriteni.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Afstandsakkumulering-v&aelig;rkt&oslash;jet beregner den akkumulerede afstand fra hver celle til inputkilden, hvilket tager h&oslash;jde for fugleflugtsafstand, omkostningsafstand, virkelig overfladeafstand samt vandrette og lodrette omkostningsfaktorer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Inputraster- eller vektorlaget, der definerer de kilder, som afstanden beregnes til.
+            </p>
+            <p>Hvis inputtet er en raster, skal det best&aring; af celler, der har gyldige heltalsv&aelig;rdier (nul er en gyldig v&aelig;rdi) for kilderne, og de resterende celler skal tildeles NoData.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>De barrierer, der definerer forhindringer, der skal findes en vej omkring.
+            </p>
+            <p>For et lasterlag vil celler, der har en v&aelig;rdi (inkl. nul), blive behandlet som en barriere.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Den raster, der definerer h&oslash;jdev&aelig;rdierne ved hver cellelokation.
+            </p>
+            <p>V&aelig;rdierne bruges til at beregne den faktiske overfladedistance, der tilbagel&aelig;gges, n&aring;r man flytter mellem cellerne.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Den raster, der definerer impedans eller omkostning ved at bev&aelig;ge sig gennem hver celle.
+            </p>
+            <p>V&aelig;rdien ved hver cellelokation repr&aelig;senterer omkostning pr. enhed-afstanden ved at bev&aelig;ge sig gennem cellen. V&aelig;rdien kan ikke v&aelig;re negativ eller nul.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Angiv, om afstanden skal beregnes ved brug af en planmetode (flad jord) eller en geod&aelig;tisk metode (ellipsoid).
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Den raster, der definerer z-v&aelig;rdierne for hver celleplacering.
+            </p>
+            <p>V&aelig;rdierne anvendes til at beregne den h&aelig;ldning, der bruges til at identificere den lodrette faktor, n&aring;r man bev&aelig;ger sig fra en celle til en anden.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Den faktor, der definerer forholdet mellem den lodrette omkostningsfaktor og den lodrette relative bev&aelig;gelsesvinkel (vertical relative moving angle (VRMA)).
+            </p>
+            <p>Der er flere valgmuligheder for faktorer med modifikatorer, der identificerer en defineret lodret faktorgraf. Graferne bruges til at identificere den lodrette faktor, der bruges til at beregne den samlede omkostning ved at bev&aelig;ge sig over i en nabocelle.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Den raster, der definerer den vandrette retning i hver celle.
+            </p>
+            <p>V&aelig;rdierne p&aring; hvert sted bliver brugt i forbindelse med parameteren  <b>Vandret faktor</b> til at bestemme den vandrette omkostning ved at flytte sig fra &eacute;n celle til en nabocelle.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Den faktor, der definerer forholdet mellem den vandrette omkostningsfaktor og den vandrette relative bev&aelig;gelsesvinkel (horizontal relative moving angle (HRMA)).
+            </p>
+            <p>Der er flere valgmuligheder for faktorer med modifikatorer, der identificerer en defineret vandret faktorgraf. Graferne bruges til at identificere den vandrette faktor, der anvendes til at beregne den samlede omkostning ved at bev&aelig;ge sig over i en nabocelle.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>De oprindelige akkumulerede omkostninger, der bruges til at starte omkostningsberegningen.
+            </p>
+            <p>Standard er 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Den maksimale akkumulerede omkostning for den rejsende til en kilde.
+            </p>
+            <p>Standardakkumuleringen er til kanten af output-rasteren.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>En multiplikator, der anvendes p&aring; omkostningsv&aelig;rdierne.
+            </p>
+            <p>Standard er 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Retningen for den rejsende, n&aring;r der anvendes vandrette og lodrette faktorer.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for den akkumulative afstand, der oprettes og f&oslash;jes til kortet. Laget indeholder den akkumulerende afstand for hver celle fra eller til kilden med de laveste omkostninger.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for tilbageretningen, der oprettes og f&oslash;jes til kortet. Laget indeholder retningen i grader.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for kilderetningen, der oprettes og f&oslash;jes til kortet. Laget indeholder azimuth-retningen for kildecellen med de laveste akkumulerede omkostninger i grader.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>Navnet p&aring; rasterlaget for kildeplaceringsmultib&aring;ndet, der oprettes og f&oslash;jes til kortet. Laget indeholder kildeplaceringer, hvor det f&oslash;rste b&aring;nd indeholder et r&aelig;kkeindeks, og det andet b&aring;nd indeholder et kolonneindeks.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Den type output, der oprettes. Outputtene kan v&aelig;re tile-billedlag eller dynamiske billedlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

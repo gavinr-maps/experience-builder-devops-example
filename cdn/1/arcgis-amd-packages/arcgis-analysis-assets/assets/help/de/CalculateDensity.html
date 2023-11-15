@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Mit dem Werkzeug &quot;Dichte berechnen&quot; wird eine Sch&auml;tzung der Dichte aus Punkt- und Linien-Features berechnet. Das Werkzeug erstellt eine Feature-Ausgabe.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Der Punkt- oder Linien-Layer, f&uuml;r den die Dichte berechnet wird.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Das Feld, das die Anzahl der Ereignisse an jeder Position angibt.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Der Polygon-Feature-Layer, der definiert, wo die Dichten berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="radius">
+        <div>
+            <p>Gibt die Entfernung f&uuml;r die Suche nach Punkten oder Linien bei der Berechnung der Dichte an.
+            </p>
+        </div>
+    </div>
+    <div id="radiusUnits">
+        <div>
+            <p>Die Einheiten, die f&uuml;r den Wert des Parameters  <b>Suchentfernung</b> verwendet werden.
+            </p>
+        </div>
+    </div>
+    <div id="classificationType">
+        <div>
+            <p>Geben Sie an, wie Dichtewerte in Fl&auml;chen klassifiziert werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="numClasses">
+        <div>
+            <p>Die Anzahl der Klassen (Bereich vorhergesagter Werte) im Ergebnis-Layer.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Die Einheiten, die f&uuml;r die Ausgabefl&auml;che verwendet werden.
+            </p>
+            <p>Dichte ist die Anzahl geteilt durch die Fl&auml;che, und dieser Parameter gibt die Einheit der Fl&auml;che in der Dichteberechnung an.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

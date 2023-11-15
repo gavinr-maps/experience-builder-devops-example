@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Tổng kết trong Phạm vi t&iacute;nh to&aacute;n số liệu thống k&ecirc; cho c&aacute;c đối tượng trong bin hoặc v&ugrave;ng được chỉ định.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Lớp sẽ được tổng kết.
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>Loại đối tượng giới hạn trong đ&oacute; c&aacute;c đối tượng đầu v&agrave;o sẽ được tổng kết. Đ&acirc;y c&oacute; thể l&agrave; một lớp v&ugrave;ng hoặc một lưới tổ ong gồm c&aacute;c bin h&igrave;nh vu&ocirc;ng hoặc h&igrave;nh lục gi&aacute;c được tạo ra khi c&ocirc;ng cụ chạy.
+            </p>
+        </div>
+    </div>
+    <div id="sumWithinLayer">
+        <div>
+            <p>Lớp v&ugrave;ng trong đ&oacute; c&aacute;c đối tượng đầu v&agrave;o sẽ được tổng kết.
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>K&iacute;ch cỡ bin được tạo. Đối với bin h&igrave;nh vu&ocirc;ng, số lượng v&agrave; đơn vị được chỉ định sẽ x&aacute;c định chiều cao v&agrave; chiều d&agrave;i của h&igrave;nh vu&ocirc;ng. Đối với bin h&igrave;nh lục gi&aacute;c, số lượng v&agrave; đơn vị được chỉ định sẽ x&aacute;c định khoảng c&aacute;ch giữa c&aacute;c cạnh song song.
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>C&aacute;c đơn vị sẽ được sử dụng để chỉ định k&iacute;ch thước bin.
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>T&iacute;nh tổng k&iacute;ch thước của c&aacute;c đối tượng được tổng kết trong từng v&ugrave;ng bao quanh. Đối với c&aacute;c đường, t&iacute;nh tổng chiều d&agrave;i. Đối với c&aacute;c v&ugrave;ng, t&iacute;nh tổng diện t&iacute;ch.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>C&aacute;c đơn vị sẽ được sử dụng để t&iacute;nh tổng k&iacute;ch thước của c&aacute;c đối tượng được tổng kết.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>C&aacute;c trường dạng số hoặc dạng ng&agrave;y từ lớp đầu v&agrave;o sẽ được t&oacute;m tắt v&agrave; số liệu thống k&ecirc; sẽ được t&iacute;nh cho từng trường.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Trường từ lớp đầu v&agrave;o được sử dụng để t&aacute;ch dữ liệu th&agrave;nh c&aacute;c nh&oacute;m ri&ecirc;ng biệt để t&iacute;nh to&aacute;n thống k&ecirc;.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>T&iacute;nh c&aacute;c nh&oacute;m thiểu số (chiếm &iacute;t ưu thế nhất) v&agrave; đa số (chiếm nhiều ưu thế nhất) trong mỗi khu vực t&oacute;m tắt.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>T&iacute;nh tỷ lệ phần trăm của c&aacute;c đối tượng được tổng kết thuộc về từng nh&oacute;m trong mỗi khu vực tổng kết.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

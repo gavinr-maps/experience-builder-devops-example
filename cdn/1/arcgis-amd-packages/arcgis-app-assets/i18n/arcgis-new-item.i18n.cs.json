@@ -1,0 +1,2007 @@
+{
+  "newItem": "Nová položka",
+  "addLayer": "Přidat vrstvu",
+  "createFeatureLayer": "Vytvořit vrstvu prvků",
+  "createTileLayer": "Vytvořit vrstvu dlaždic",
+  "createSceneLayer": "Vytvořit vrstvu scény",
+  "createRasterFunctionTemplate": "Vytvořit novou šablonu rastrové funkce",
+  "addDataStore": "Přidat připojení k úložišti dat",
+  "next": "Další",
+  "publish": "Publikovat",
+  "save": "Uložit",
+  "cancel": "Storno",
+  "back": "Zpět",
+  "error": "Chyba",
+  "update": "Aktualizovat",
+  "moreInfo": "Více informací",
+  "loadingData": "Nahrávání…",
+  "creatingLayer": "Vytváření vrstvy...",
+  "common": {
+    "add": "Přidat",
+    "url": "Adresa URL",
+    "addToMap": "Přidat do mapy",
+    "createAndAddToMap": "Vytvořit a přidat do mapy",
+    "register": "Registrovat",
+    "supportServices": "Podporované služby jsou ${typeList}",
+    "supportLayerTypes": "Podporované typy vrstev jsou ${typeList}",
+    "supportFileTypes": "Podporované typy souborů jsou ${typeList}",
+    "learnMore": "Další informace",
+    "updateAndComplete": "Aktualizovat a dokončit",
+    "proceed": "Pokračovat",
+    "createConnection": "Vytvořit připojení",
+    "addAndComplete": "Přidat a dokončit",
+    "signInAndOverwrite": "Přihlásit se a přepsat",
+    "overwriteAndComplete": "Přepsat a dokončit"
+  },
+  "application": {
+    "web": "Webové mapování",
+    "desktop": "Desktop",
+    "mobile": "Mobilní",
+    "otherApplication": "Jiná aplikace",
+    "applicationType": "Typ aplikace",
+    "application": "Aplikace",
+    "manifestUrl": "URL manifest",
+    "appExtension": "Rozšíření aplikace (AppBuilder)",
+    "experienceBuilderWidget": "Experience Builder widget",
+    "appExtensionError": "Adresa URL neodkazuje na rozšíření pro AppBuilder.",
+    "enterManifestUrl": "Zadejte URL adresu manifestu vašeho rozšíření",
+    "File": "Soubor",
+    "selectZip": "Vyberte soubor .zip",
+    "fileRequired": "Soubor vyžadovaný pro desktopové aplikace",
+    "enterUrl": "Zadejte url vaší aplikace",
+    "enterValidUrl": "Zadejte platnou adresu url vaší aplikace",
+    "URL": "Adresa URL"
+  },
+  "auth": {
+    "username": "Uživatelské jméno",
+    "enterUsername": "Zadejte uživatelské jméno",
+    "password": "Heslo",
+    "enterPassword": "Zadejte heslo",
+    "invalid": "Neplatné uživatelské jméno nebo heslo.",
+    "requiresCredentials": "Je třeba zadat jak uživatelské jméno, tak heslo."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Vybrat vrstvy, které chcete přidat",
+    "noLayersFound": "Nebyly nalezeny žádné vrstvy, které splňují vaše kritéria. Zkuste změnit vyhledávaný výraz, aby se zobrazilo více vrstev.",
+    "of": "z",
+    "layers": "vrstvy",
+    "usePro": "Tento datový soubor má více než 1000 vrstev. Zadejte vyhledávací výraz, abyste našli konkrétní vrstvu.",
+    "errorTitle": "Žádné vrstvy nejsou vybrány",
+    "noLayersSelected": "Pro pokračování vyberte jednu nebo více vrstev",
+    "selectAll": "Vybrat vše",
+    "deselectAll": "Zrušit výběr"
+  },
+  "csvFields": {
+    "searchFields": "Vyhledat pole",
+    "fieldType": "Typ pole",
+    "fieldTitle": "Pole",
+    "fieldDescription": "Vyberte pole, která budou zahrnuta do hostované vrstvy prvků. Volitelně můžete aktualizovat název zobrazení a typ pole.",
+    "fieldNoHostedDescription": "Volitelně můžete aktualizovat názvy zobrazení a typy polí, které se použijí ve vrstvě.",
+    "fieldName": "Název pole",
+    "displayName": "Zobrazovaný název",
+    "displayNameLabel": "Zobrazovaný název ${name}",
+    "type": "Typ",
+    "typeLabel": "Typ ${name}",
+    "allTypes": "Všechny typy",
+    "noFields": "Nebyla nalezena žádná pole, která by odpovídala vašim kritériím. Zkuste změnit vyhledávací výraz nebo rozšiřte možnosti filtru.",
+    "selected": "vybrané",
+    "clearSelection": "Zrušit výběr",
+    "fieldTypes": {
+      "esriFieldTypeString": "Řetězec",
+      "esriFieldTypeInteger": "Celé číslo",
+      "esriFieldTypeSmallInteger": "Celočíselné - krátké",
+      "esriFieldTypeSingle": "Desetinné číslo (s jednoduchou přesností)",
+      "esriFieldTypeDouble": "Desetinné číslo (s dvojitou přesností)",
+      "esriFieldTypeDate": "Datum",
+      "esriFieldTypeDateOnly": "Pouze datum",
+      "esriFieldTypeTimeOnly": "Pouze čas",
+      "esriFieldTypeBigInteger": "Celé číslo - velké",
+      "esriFieldTypeTimestampOffset": "Časový údaj s posunem"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "Probíhá analýza...",
+    "locationSettings": "Nastavení umístění",
+    "locationSettingsDescription": "Specifikujte typ informací o umístění, který soubor obsahuje.",
+    "advancedSettings": "Pokročilá nastavení umístění",
+    "locator": "Lokátor",
+    "region": "Region",
+    "enrich": "Obohaťte vrstvu informacemi adres",
+    "enrichLayer": "Obohaťte výstupní pole vrstvy lokátoru",
+    "enrichLayerDescription": "Připojte pole, která obsahují informace o geokódovacím procesu, například jak moc se informace o umístění ve vaší složce shodují s lokátorem.",
+    "enrichLayerLink": "Více informací o připojených polích.",
+    "consumesCredits": "Spotřebovává kredity",
+    "locationFields": "Pole umístění",
+    "locationFieldSingle": "Informace o umístění jsou v jednom poli.",
+    "locationFieldMultiple": "Informace o umístění jsou ve více polích.",
+    "locationFieldsDescription": "Zadejte pole, která obsahují informace o umístění.",
+    "locationTypes": {
+      "address": {
+        "title": "Adresy nebo názvy míst",
+        "description": "Data umístění jsou adresy, názvy míst, PSČ a státy. Může spotřebovat kredity.",
+        "descriptionDeveloper": "Data umístění jsou adresy, názvy míst, PSČ a státy."
+      },
+      "coordinates": {
+        "title": "Zeměpisná šířka a zeměpisná délka",
+        "description": "Data umístění jsou zeměpisná šířka a zeměpisná délka."
+      },
+      "mgrs": {
+        "title": "Souřadnice MGRS",
+        "description": "Data umístění jsou v systému MGRS."
+      },
+      "usng": {
+        "title": "Souřadnice USNG",
+        "description": "Data umístění jsou v systému USNG."
+      },
+      "none": {
+        "title": "Žádná",
+        "description": "Tento ${type} neobsahuje data umístění a bude přidán do tabulky."
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Žádná pole",
+        "description": "Lokalizujte adresy, ale nezahrnujte žádná další pole."
+      },
+      "Minimal": {
+        "title": "Nějaká pole",
+        "description": "Připojte čtyři pole, která zobrazují, jak moc se adresy shodují."
+      },
+      "AllFields": {
+        "title": "Všechna pole",
+        "description": "Připojte 50 polí pro veškeré informace o umístění."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Nebylo vybráno žádné pole umístění",
+        "description": "Vyberte pole, které obsahuje data souřadnic."
+      },
+      "coordinate": {
+        "title": "Vybrat pole souřadnic",
+        "description": "Vyberte, která pole chcete používat pro zeměpisnou šířku a zeměpisnou délku."
+      },
+      "insufficientCredits": {
+        "title": "Nedostatečný počet kreditů",
+        "description": "Na provedení této akce nemáte dostatek kreditů. Chcete-li získat další kredity, obraťte se na svého správce."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Tabulky musí obsahovat informace o umístění",
+        "description": "Nelze přidávat prvky do vrstvy, která neobsahuje informace o poloze."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Nedostatečný počet kreditů organizace – akce nemusí být dokončena",
+      "description": "Vaše organizace nemusí mít dostatek kreditů na dokončení této akce. Pokud se pracovní postup nedokončí, obraťte se na správce a vyžádejte si další kredity."
+    },
+    "recordCount": "Odhadované záznamy ke geokódování: ${num}",
+    "locationType": "Typ umístění",
+    "field": "Pole",
+    "unknown": "Typ umístění nebyl použit",
+    "longitude": "Zeměpisná délka",
+    "latitude": "Zeměpisná šířka",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Svět",
+      "EU": "Evropa",
+      "AD": "Andorra",
+      "AE": "Spojené arabské emiráty (SAE)",
+      "AF": "Afghánistán",
+      "AG": "Antigua a Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albánie",
+      "AM": "Arménie",
+      "AO": "Angola",
+      "AQ": "Antarktida",
+      "AR": "Argentina",
+      "AS": "Americká Samoa",
+      "AT": "Rakousko",
+      "AU": "Austrálie",
+      "AW": "Aruba",
+      "AZ": "Ázerbájdžán",
+      "BA": "Bosna a Hercegovina",
+      "BB": "Barbados",
+      "BD": "Bangladéš",
+      "BE": "Belgie",
+      "BF": "Burkina Faso",
+      "BG": "Bulharsko",
+      "BH": "Bahrajn",
+      "BI": "Burundi",
+      "BJ": "Benin",
+      "BL": "Svatý Bartoloměj",
+      "BM": "Bermudy",
+      "BN": "Brunej",
+      "BO": "Bolivijský mnohonárodnostní stát",
+      "BQ": "Bonaire, Svatý Eustach a Saba",
+      "BR": "Brazílie",
+      "BS": "Bahamy",
+      "BT": "Bhútán",
+      "BV": "Bouvetův ostrov",
+      "BW": "Botswana",
+      "BY": "Bělorusko",
+      "BZ": "Belize",
+      "CA": "Kanada",
+      "CD": "Demokratická republika Kongo",
+      "CF": "Středoafrická republika",
+      "CG": "Kongo",
+      "CH": "Švýcarsko",
+      "CI": "Pobřeží slonoviny",
+      "CK": "Cookovy ostrovy",
+      "CL": "Chile",
+      "CM": "Kamerun",
+      "CN": "Čína",
+      "CO": "Kolumbie",
+      "CR": "Kostarika",
+      "CU": "Kuba",
+      "CV": "Kapverdy",
+      "CW": "Curaçao",
+      "CY": "Kypr",
+      "CZ": "Česká republika",
+      "DE": "Německo",
+      "DJ": "Džibutsko",
+      "DK": "Dánsko",
+      "DM": "Dominika",
+      "DO": "Dominikánská republika",
+      "DZ": "Alžírsko",
+      "EC": "Ekvádor",
+      "EE": "Estonsko",
+      "EG": "Egypt",
+      "EH": "Západní Sahara",
+      "ER": "Eritrea",
+      "ES": "Španělsko",
+      "ET": "Etiopie",
+      "FI": "Finsko",
+      "FJ": "Fidži",
+      "FK": "Falklandy (Malvíny)",
+      "FM": "Federativní státy Mikronésie",
+      "FO": "Faerské ostrovy",
+      "FR": "Francie",
+      "GA": "Gabon",
+      "GB": "Velká Británie",
+      "GD": "Grenada",
+      "GE": "Gruzie",
+      "GF": "Francouzská Guyana",
+      "GG": "Guernsey",
+      "GH": "Ghana",
+      "GI": "Gibraltar",
+      "GL": "Grónsko",
+      "GM": "Gambie",
+      "GN": "Guinea",
+      "GP": "Guadeloupe",
+      "GQ": "Rovníková Guinea",
+      "GR": "Řecko",
+      "GS": "Jižní Georgie a Jižní Sandwichovy ostrovy",
+      "GT": "Guatemala",
+      "GW": "Guinea-Bissau",
+      "GY": "Guyana",
+      "HK": "Hongkong",
+      "HM": "Heardův ostrov a McDonaldovy ostrovy",
+      "HN": "Honduras",
+      "HR": "Chorvatsko",
+      "HT": "Haiti",
+      "HU": "Maďarsko",
+      "ID": "Indonésie",
+      "IE": "Irsko",
+      "IL": "Izrael",
+      "IM": "Ostrov Man",
+      "IN": "Indie",
+      "IO": "Britské indickooceánské území",
+      "IQ": "Irák",
+      "IR": "Íránská islámská republika",
+      "IS": "Island",
+      "IT": "Itálie",
+      "JE": "Jersey",
+      "JM": "Jamajka",
+      "JO": "Jordánsko",
+      "JP": "Japonsko",
+      "KE": "Keňa",
+      "KG": "Kyrgyzstán",
+      "KH": "Kambodža",
+      "KI": "Kiribati",
+      "KM": "Komory",
+      "KN": "Svatý Kryštof a Nevis",
+      "KP": "Korejská lidově demokratická republika",
+      "KR": "Jižní Korea",
+      "KW": "Kuvajt",
+      "KY": "Kajmanské ostrovy",
+      "KZ": "Kazachstán",
+      "LA": "Laoská lidově demokratická republika",
+      "LB": "Libanon",
+      "LC": "Svatá Lucie",
+      "LI": "Lichtenštejnsko",
+      "LK": "Šrí Lanka",
+      "LR": "Libérie",
+      "LS": "Lesotho",
+      "LT": "Litva",
+      "LU": "Lucembursko",
+      "LV": "Lotyšsko",
+      "LY": "Libye",
+      "MA": "Maroko",
+      "MC": "Monako",
+      "MD": "Moldávie",
+      "ME": "Černá Hora",
+      "MF": "Svatý Martin (francouzská část)",
+      "MG": "Madagaskar",
+      "MH": "Marshallovy ostrovy",
+      "MK": "Makedonie",
+      "ML": "Mali",
+      "MM": "Svazová republika Myanmar",
+      "MN": "Mongolsko",
+      "MO": "Macao",
+      "MP": "Severní Mariany",
+      "MQ": "Martinik",
+      "MR": "Mauretánie",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Mauricius",
+      "MV": "Maledivy",
+      "MW": "Malawi",
+      "MX": "Mexiko",
+      "MY": "Malajsie",
+      "MZ": "Mosambik",
+      "NA": "Namibie",
+      "NC": "Nová Kaledonie",
+      "NE": "Niger",
+      "NG": "Nigérie",
+      "NI": "Nikaragua",
+      "NL": "Nizozemí",
+      "NO": "Norsko",
+      "NP": "Nepál",
+      "NR": "naurština",
+      "NU": "Niue",
+      "NZ": "Nový Zéland",
+      "OM": "Omán",
+      "PA": "Panama",
+      "PE": "Peru",
+      "PF": "Francouzská Polynésie",
+      "PG": "Papua-Nová Guinea",
+      "PH": "Filipíny",
+      "PK": "Pákistán",
+      "PL": "Polsko",
+      "PM": "Saint Pierre a Miquelon",
+      "PN": "Pitcairnovy ostrovy",
+      "PS": "Stát Palestina",
+      "PT": "Portugalsko",
+      "PW": "Palau",
+      "PY": "Paraguay",
+      "QA": "Katar",
+      "RE": "Réunion",
+      "RO": "Rumunsko",
+      "RS": "Srbsko",
+      "RU": "Rusko",
+      "RW": "Rwanda",
+      "SA": "Saúdská Arábie",
+      "SB": "Šalamounovy ostrovy",
+      "SC": "Seychely",
+      "SD": "Súdán",
+      "SE": "Švédsko",
+      "SG": "Singapur",
+      "SH": "Svatá Helena, Ascension a Tristan da Cunha",
+      "SI": "Slovinsko",
+      "SJ": "Špicberky a Jan Mayen",
+      "SK": "Slovensko",
+      "SL": "Sierra Leone",
+      "SM": "San Marino",
+      "SN": "Senegal",
+      "SO": "Somálsko",
+      "SR": "Surinam",
+      "SS": "Jižní Súdán",
+      "ST": "Svatý Tomáš a Princův ostrov",
+      "SV": "Salvador",
+      "SX": "Svatý Martin (nizozemská část)",
+      "SY": "Syrská arabská republika",
+      "SZ": "Svazijsko",
+      "TC": "Turks a Caicos",
+      "TD": "Čad",
+      "TF": "Francouzská jižní a antarktická území",
+      "TG": "Togo",
+      "TH": "Thajsko",
+      "TJ": "Tádžikistán",
+      "TK": "tokelau",
+      "TL": "Východní Timor",
+      "TM": "Turkmenistán",
+      "TN": "Tunisko",
+      "TO": "Tonga",
+      "TR": "Turecko",
+      "TT": "Trinidad a Tobago",
+      "TV": "tuvalština",
+      "TW": "Tchaj-wan",
+      "TZ": "Sjednocená tanzanská republika",
+      "UA": "Ukrajina",
+      "UG": "Uganda",
+      "UM": "Menší odlehlé ostrovy USA",
+      "US": "Spojené státy",
+      "UY": "Uruguay",
+      "UZ": "Uzbekistán",
+      "VA": "Vatikán",
+      "VC": "Svatý Vincenc a Grenadiny",
+      "VE": "Venezuela",
+      "VG": "Britské Panenské ostrovy",
+      "VN": "Vietnam",
+      "VU": "Vanuatu",
+      "WF": "Wallis a Futuna",
+      "WS": "Samoa",
+      "XK": "Kosovská republika",
+      "YE": "Jemen",
+      "YT": "Mayotte",
+      "ZA": "Jihoafrická republika",
+      "ZM": "Zambie",
+      "ZW": "Zimbabwe"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Logická hodnota",
+    "string": "Řetězec",
+    "double": "Desetinné číslo (s dvojitou přesností)",
+    "number": "Číslo",
+    "date": "Datum"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Bodová vrstva",
+      "line": "Liniová vrstva",
+      "polygon": "Polygonová vrstva",
+      "table": "Tabulka",
+      "multipoint": "Vícebodová vrstva",
+      "multipatch": "Vrstva multipatch"
+    },
+    "placeholders": {
+      "point": "Název bodové vrstvy",
+      "line": "Název liniové vrstvy",
+      "polygon": "Název polygonové vrstvy",
+      "table": "Název tabulky",
+      "multipoint": "Název vícebodové vrstvy"
+    },
+    "creationType": {
+      "template": "Šablona",
+      "existing": "Stávající feature služba",
+      "link": "Adresa URL",
+      "build": "Sestavit od začátku",
+      "generic": "Přidejte potřebné vrstvy nebo tabulky, které chcete zahrnout do vrstvy prvků."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Nebyla vybrána žádná vrstva",
+      "description": "Chcete-li pokračovat, vyberte vrstvu prvků."
+    },
+    "invalidUrl": {
+      "title": "Neplatná vrstva",
+      "description": "Tato vrstva odkazuje na typ služby, který není podporován."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Určete název a typ",
+    "layerPreferences": "Možnosti",
+    "captureGPS": "Přidat pole GPS metadat",
+    "captureGPSDescription": "Přidá pole do vrstev, které podporují záznam informací o přijímači GPS.",
+    "enableZDefaults": "Povolit hodnoty Z",
+    "enableZDefaultsDescription": "Umožňuje modelovat bodové, liniové a polygonové prvky ve 3D.",
+    "enableZDefaultsDefaultValue": "Výchozí hodnota Z:",
+    "enableMDefaults": "Povolit hodnoty M",
+    "enableMDefaultsDescription": "Umožňuje ukládat měření nebo hodnotu v každém lomovém bodě geometrie.",
+    "layer": "Vrstva",
+    "table": "Tabulka",
+    "add": "Přidat",
+    "error": {
+      "emptyName": {
+        "title": "Chybějící název vrstvy",
+        "description": "Nelze používat prázdné názvy vrstev"
+      },
+      "duplicateTitle": {
+        "title": "Názvy vrstev musí být jedinečné",
+        "description": "Nelze mít vrstvy se stejným názvem"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Není vybrána žádná šablona",
+    "errorDescription": "Pro pokračování vyberte šablonu."
+  },
+  "featureLayerFromUrl": {
+    "description": "Zadejte adresu URL feature služby",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "Prázdná adresa URL",
+        "description": "Zadejte platnou adresu URL"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "Nepodporovaná URL",
+        "description": "Zadejte adresu URL vrstvy prvků. Tato vrstva musí v adrese URL obsahovat slovo FeatureServer."
+      },
+      "serviceNotExist": {
+        "title": "Služba neexistuje",
+        "description": "Služba neexistuje nebo není k dispozici."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Podrobnosti vrstvy",
+    "deselectAnyLayers": "Zrušte výběr všech vrstev, které chcete odebrat.",
+    "deselectAll": "Zrušit výběr",
+    "selectAll": "Vybrat vše",
+    "error": {
+      "noLayer": {
+        "title": "Žádná vybraná vrstva",
+        "description": "Zvolte alespoň 1 vrstvu"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Vyberte možnost pro vytvoření prázdné vrstvy prvků.",
+    "subheading": "SEZNAM ÚKOLŮ: zde uvést popis.",
+    "options": {
+      "build": {
+        "title": "Definovat vlastní vrstvu",
+        "description": "Zadejte vrstvy a tabulky."
+      },
+      "template": {
+        "title": "Použít šablonu",
+        "description": "Použijte vrstvy a pole ze šablony."
+      },
+      "existing": {
+        "title": "Zvolte existující vrstvu prvků",
+        "description": "Použijte vrstvy a pole ze stávající vrstvy prvků ve vaší organizaci."
+      },
+      "link": {
+        "title": "Zadejte adresu URL vrstvy ArcGIS Serveru",
+        "description": "Použijte vrstvy a pole z vrstvy prvků ArcGIS Server."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Typ přihlašovacích údajů",
+    "redirectUrlsTitle": "URL přesměrování",
+    "redirectUrlsDescription": "Přidejte povolené adresy URL na webovou stránku nebo koncový bod serveru, na které budou uživatelé přesměrováni po dokončení ověření.",
+    "refererrUrlsTitle": "Odkazující servery",
+    "refererrUrlsDescription": "Povolit přístup z určitých domén HTTP/HTTPS. Hodnota hlavičky odkazujícího serveru HTTP, se kterou se má porovnávat. Jako zástupný znak můžete použít *. Např.: http://*.your-app.com. Další podrobnosti naleznete v části Zabezpečení a ověření.",
+    "oauth2Hint": "OAuth 2.0 lze použít k ověření uživatelů ArcGIS pro přístup k obsahu a službám založeným na určení polohy jménem ověřeného uživatele. Více informací najdete v ${apiLinkStart}průvodci zabezpečením a ověřením.${endLink}",
+    "oauth2HintNoLink": "OAuth 2.0 lze použít k ověření uživatelů ArcGIS pro přístup k obsahu a službám založeným na určení polohy jménem ověřeného uživatele.",
+    "applicationEnvTitle": "Prostředí aplikace",
+    "applicationEnvDescription": "Prostředí aplikace ovlivní, kdy se položka zobrazí ve filtrovaných výsledcích vyhledávání.",
+    "registering": "Probíhá registrace aplikace…",
+    "applicationEnvOptions": {
+      "multiple": "Vícenásobný",
+      "browser": "Prohlížeč",
+      "native": "Nativní",
+      "server": "Server"
+    },
+    "options": {
+      "apiKey": {
+        "title": "Klíč API",
+        "description": "Používejte klíče API pro přístup k ArcGIS službám určování polohy a prémiovému obsahu ve svých aplikacích."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "Definice aplikace OAuth 2.0 slouží k ověření uživatelů ArcGIS, práci s uživatelským obsahem a přístupu k polohovým službám jménem ověřeného uživatele."
+      }
+    },
+    "onboard": {
+      "title": "Typy přihlašovacích údajů",
+      "apiKey": {
+        "title": "Klíče API",
+        "description": "Používejte klíče API pro přístup ke službám určování polohy a prémiovému obsahu ve svých aplikacích. Další informace o používání klíčů API pro přístup ke službám získáte v příručce Mapovací API a polohové služby."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 lze použít k ověření uživatelů ArcGIS pro přístup k obsahu a službám založeným na určení polohy jménem ověřeného uživatele. Více informací najdete v průvodci zabezpečením a ověřením."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "Adresy URL přesměrování nesmí být prázdné",
+        "description": "Přidejte alespoň jednu adresu URL přesměrování."
+      },
+      "referrerEmpty": {
+        "title": "Adresy URL odkazujícího serveru nesmí být prázdné",
+        "description": "Přidejte alespoň jednu adresu URL odkazujícího serveru."
+      },
+      "registerError": {
+        "title": "Chyba při registraci aplikace",
+        "description": "Nelze vytvořit registrovanou aplikaci pro položku."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Neplatný znak(y) v URL adrese přesměrování",
+        "description": "Následující znaky nelze použít: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Neplatný znak(y) v URL adrese přesměrování",
+        "description": "Speciální znaky nejsou povoleny."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Polohové služby",
+    "description": "Nastavte rozsahy pro udělení přístupu ke konkrétním polohovým službám ArcGIS. Více informací najdete v části Zabezpečení a ověření.",
+    "requiredService": "Vyžadovaná služba",
+    "availableServices": "Dostupné služby",
+    "services": {
+      "basemap": {
+        "heading": "Podkladové mapy"
+      },
+      "geocodingStored": {
+        "heading": "Geokódování (uloženo)",
+        "description": "Pomocí služby geokódování provádějte dopředné a zpětné geokódování včetně podpory návrhů a vyhledávání míst. Výsledky smíte ukládat."
+      },
+      "geocodingNotStored": {
+        "heading": "Geokódování (neuloženo)",
+        "description": "Pomocí služby geokódování provádějte dopředné a zpětné geokódování včetně podpory návrhů a vyhledávání míst. Výsledky nesmíte ukládat."
+      },
+      "optimizedRouting": {
+        "heading": "Optimalizované trasování",
+        "description": "Pomocí služby Trasování zjistíte nejlepší pořadí, v jakém lze místa navštívit."
+      },
+      "closestFacility": {
+        "heading": "Nejbližší zařízení",
+        "description": "Pomocí služby Nejbližší zařízení můžete vyhledat jedno nebo více zařízení, která jsou nejblíže události na základě doby trvání nebo vzdálenosti cesty."
+      },
+      "locationAllocation": {
+        "heading": "Přidělení umístění",
+        "description": "Pomocí služby Přidělení umístění vyberte, která zařízení ze sady zařízení mají být provozována na základě jejich potenciální interakce s body poptávky."
+      },
+      "multiVehicleRouting": {
+        "heading": "Trasy pro více vozidel (VRP)",
+        "description": "Pomocí služby Problém trasování vozidel určete, které zastávky a v jakém pořadí by měly být obslouženy jednotlivými trasami."
+      },
+      "costMatrix": {
+        "heading": "Matice nákladů počátek/cíl",
+        "description": "Pomocí služby Matice nákladů počátek/cíl vytvořte matici nákladů počátek/cíl z více výchozích míst do více cílových míst."
+      },
+      "geoEnrichment": {
+        "heading": "GeoEnrichment",
+        "description": "Pomocí služby GeoEnrichment získejte atributy, zprávy a infografiky řízené daty, které popisují demografické, obchodní a další charakteristiky na základě polohy zájmových oblastí a lokalit."
+      },
+      "routing": {
+        "heading": "Vyhledání trasy",
+        "description": "Pomocí služby Trasování můžete najít nejlepší způsob, jak se dostat z jednoho místa na druhé nebo navštívit několik míst."
+      },
+      "serviceArea": {
+        "heading": "Obslužná oblast",
+        "description": "Pomocí služby Obslužná oblast můžete vygenerovat plochu, která představuje vzdálenost, kam lze dojet při jízdě po uliční síti."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Vyberte možnost vytvoření lokátoru",
+    "options": {
+      "locator": {
+        "title": "Vytvoření lokátoru ze služby geokódování",
+        "description": "Zadejte adresu URL existující geokódovací služby ArcGIS Serveru."
+      },
+      "locator-view": {
+        "title": "Vytvořit zobrazení lokátoru ze služby ArcGIS World Geocoding Service",
+        "description": "Nakonfigurujte zobrazení tak, aby odpovídalo konkrétním typům míst v konkrétních zemích nebo oblastech."
+      }
+    },
+    "url": {
+      "heading": "Adresa URL",
+      "description": "Zadejte adresu URL služby geokódování"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Jaký typ vrstvy dlaždic chcete vytvořit?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Vrstva vektorových dlaždic",
+        "description": "Rychlá vizualizace mapy s využitím kolekce předem vykreslených vektorových dlaždic, které se přizpůsobí rozlišení obrazovky zařízení a je možné změnit jejich styl pro více uživatelů."
+      },
+      "raster": {
+        "title": "Vrstva rastrových dlaždic",
+        "description": "Rychlá vizualizace mapy s využitím kolekce předem vykreslených mapových obrázků a dlaždic."
+      },
+      "3dTiles": {
+        "title": "Vrstva 3D dlaždic",
+        "description": "Rychlá 3D vizualizace pomocí datové sady 3D dlaždic se sítí."
+      }
+    },
+    "sourceHeading": "Vyberte metodu pro vytvoření vrstvy dlaždic",
+    "sourceOptions": {
+      "existing": {
+        "title": "Procházet existující vrstvu prvků",
+        "description": "Vybrat ve vašem obsahu hostovanou vrstvu prvků jako zdroj pro rychle se vykreslující vrstvu dlaždic."
+      },
+      "upload": {
+        "title": "Nahrát balíček dlaždic",
+        "titleRaster": "Nahrát balíček dlaždic nebo definici služby",
+        "description": "Nahrajte balíček ze svého lokálního zařízení.",
+        "rasterDescription": "Nahrajte balíček nebo definiční soubor služby ze svého lokálního zařízení."
+      },
+      "store": {
+        "title": "Vybrat datovou sadu v datovém úložišti",
+        "description": "Vyhledejte obsah dlaždice umístěný v registrovaném datovém úložišti."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Nadpis",
+    "titlePlaceholder": "Název vrstvy dlaždic",
+    "attribution": "Určení zdroje",
+    "subdomain": "Subdoména",
+    "subDomainPlaceholder": "Například: a, b, c nebo dlaždice1, dlaždice2, dlaždice3",
+    "setTileExtent": "Nastavit rozsah dlaždice na aktuální rozsah mapy",
+    "setTileExtentTooltip": "Adresa URL může také obsahovat zástupný symbol pro subdomény obsahující mapové dlaždice.",
+    "error": {
+      "title": "Uveďte název",
+      "attribution": "Uveďte zdroj"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Nepodařilo se vytvořit vrstvu dlaždic",
+        "description": "Vrstva dlaždic už pro vybranou vrstvu prvků existuje. Vybrat jinou."
+      },
+      "badRenderer": {
+        "title": "Nepodařilo se vytvořit vrstvu dlaždic",
+        "description": "Vybraná vrstva dlaždic má styl kresby, který nelze vykreslit jako dlaždice. Vybrat jiný."
+      },
+      "noLayerSelected": {
+        "title": "Nebyla vybrána žádná vrstva",
+        "description": "Chcete-li pokračovat, vyberte vrstvu prvků."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Vyberte možnost pro vytvoření vrstvy scény",
+    "options": {
+      "store": {
+        "title": "Vyberte datovou sadu v datovém úložišti",
+        "description": "Procházejte obsah scény v souboru nebo cloudovém datovém úložišti registrovaném v ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Nahrát balíček scény",
+        "description": "Nahrát balíček z lokálního zařízení"
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Vybrat balíček z lokálního zařízení"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Jaký typ vrstvy dlaždic chcete vytvořit?",
+    "options": {
+      "vectorTiles": {
+        "title": "Vrstva vektorových dlaždic",
+        "description": "Rychlá vizualizace mapy s využitím kolekce předem vykreslených vektorových dlaždic, které se přizpůsobí rozlišení obrazovky zařízení a je možné změnit jejich styl pro více uživatelů."
+      },
+      "tiles": {
+        "title": "Vrstva rastrových dlaždic",
+        "description": "Rychlá vizualizace mapy s využitím kolekce předem vykreslených mapových obrázků a dlaždic."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Zkontrolujte a použijte možnosti na vrstvu dlaždic.",
+    "visibilityRange": "Rozsah viditelnosti",
+    "visibilityRangeDescription": "Tento rozsah ovlivní to, jak vizualizujete dlaždice v mapě. Toto je možné aktualizovat.",
+    "basemapOption": "Schéma dělení dlaždic",
+    "autoCreateOption": {
+      "title": "Vytvářet dlaždice automaticky",
+      "description": "Dlaždice se vytvářejí podle potřeby a ukládají se pro pozdější použití."
+    },
+    "onlineBasemapOption": {
+      "title": "Podkladové mapy ArcGIS Online",
+      "description": "Použijte schéma dělení dlaždic podkladových map ArcGIS Online. Umožňuje zobrazení vaší vrstvy s podkladovými mapami ArcGIS Online."
+    },
+    "customBasemap": {
+      "title": "Vlastní",
+      "description": "Použijte stejné schéma dělení dlaždic jako existující vrstva dlaždic nebo vrstva obrazu mapy. Umožňuje zobrazení vaší vrstvy s vybranou vrstvou."
+    },
+    "customBasemapUrl": "Odkaz na existující vrstvu dlaždic",
+    "ranges": {
+      "world": "Svět (1:100 000 000)",
+      "continent": "Kontinent (1:50 000 000)",
+      "countries": "Země - velké (1:25 000 000)",
+      "countriesSmall": "Země - malé (1:12 000 000)",
+      "states": "Státy/provincie (1:6 000 000)",
+      "state": "Stát/provincie (1:3 000 000)",
+      "counties": "Kraje (1:1 500 000)",
+      "county": "Kraj (1:750 000)",
+      "metropolitan": "Metropolitní oblast (1:320 000)",
+      "cities": "Města (1:160 000)",
+      "city": "Město (1:80 000)",
+      "town": "Obec (1:40 000)",
+      "neighborhood": "Čtvrť (1:20 000)",
+      "streets": "Více ulic (1:10 000)",
+      "street": "Ulice (1:5 000)",
+      "buildings": "Budovy (1:2 500)",
+      "building": "Budova (1:1 250)",
+      "small": "Malá budova (1:800)",
+      "rooms": "Místnosti (1:400)",
+      "room": "Místnost (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Chyba vrstvy dlaždic",
+      "mapServiceError": "Nebylo možné dokončit požadavek na získání schématu dlaždic. Ujistěte se, že je aktivní vrstva dlaždic ArcGIS a odpovídá na požadavky.",
+      "noTilingSchemeFound": "Vrstva dlaždic ArcGIS nemá definováno schéma dlaždic.",
+      "noMatchSpatialRef": "Souřadnicový systém schématu dlaždic se musí shodovat se souřadnicovým systémem vrstvy prvků.",
+      "noFileSelected": "Musíte zadat soubor se schématem dlaždic."
+    }
+  },
+  "dataStore": {
+    "header": "Vybrat datovou sadu",
+    "fileName": "Název souboru",
+    "fileType": "Typ souboru",
+    "paginationRange": "${start} - ${end} z ${total}",
+    "processing": "Výpis obsahu...",
+    "emptyFolder": "Tato složka je prázdná.",
+    "error": {
+      "noDatasetErrorHeading": "Nebyla vybrána žádná datová sada",
+      "noDatasetErrorDescription": "Chcete-li pokračovat, vyberte datovou sadu",
+      "listing": {
+        "heading": "Nelze vypsat obsah úložiště dat",
+        "description": "Při výpisu obsahu datového úložiště došlo k chybě."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Vyberte typ datového úložiště, které chcete přidat.",
+    "description": "Využít agilní rámce k vytvoření robustního přehledu",
+    "subOptionsHeading": "Přidat připojení k úložišti dat",
+    "subOptionsCloudDescription": "Vyberte typ umístění cloudového úložiště, které chcete přidat",
+    "subOptionsDatabaseDescription": "Vyberte typ databáze, kterou chcete přidat",
+    "databaseDescriptionForOnline": "Připojení ke cloudovému datovému skladu",
+    "options": {
+      "folder": {
+        "title": "Složka",
+        "description": "Připojit se ke složce souborového systému nebo sdílené složce"
+      },
+      "database": {
+        "title": "Databáze",
+        "description": "Připojit se k relační databázi nebo ke cloudovému datovému skladu",
+        "descriptionNoSql": "Připojit se k relační databázi, databázi NoSQL nebo ke cloudovému datovému skladu"
+      },
+      "cloud": {
+        "title": "Cloudové úložiště",
+        "description": "Připojit se ke cloudovému úložišti"
+      },
+      "bdfs": {
+        "title": "Sdílená složka Big Data",
+        "description": "Připojení k místu, které je k dispozici webu serveru GeoAnalytics Server"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Připojení k databázi NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Zadejte informace o připojení nebo umístění, aby mohly stránky ArcGIS Serveru přistupovat k datům.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MyFileServer\\GlobalData",
+      "heading": "Cesta ke složce vydavatele",
+      "hostname": "Jméno hostitele složky vydavatele",
+      "hostnameInfo": "Toto je povinné, když cesta ke složce vydavatele je zadána jako písmeno jednotky"
+    },
+    "serverFolderPath": {
+      "heading": "Cesta ke složce serveru",
+      "sameAsPublisher": "Stejné jako cesta ke složce vydavatele",
+      "newPath": "Nová cesta",
+      "nfsHostAndPath": {
+        "description": "Cesta a hostitel NFS",
+        "hostname": "Jméno hostitele NFS:",
+        "sharePath": "Sdílená cesta NFS:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData nebo /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Chybí cesta ke složce vydavatele",
+        "description": "Musíte zadat cestu ke složce vydavatele pro své datové úložiště"
+      },
+      "invalidPublisherHostName": {
+        "heading": "Chybí název hostitele vydavatele",
+        "description": "Musíte zadat název hostitele vydavatele pro své datové úložiště"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Chybí cesta ke složce serveru vydavatele",
+        "description": "Musíte zadat cestu ke složce serveru pro své datové úložiště."
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "Chybí název hostitele NFS a sdílená cesta NFS",
+        "description": "Musíte zadat název hostitele NFS a sdílenou cestu NFS pro své datové úložiště."
+      },
+      "invalidNfsHostName": {
+        "heading": "Chybí název hostitele NFS",
+        "description": "Musíte zadat název hostitele NFS pro své datové úložiště"
+      },
+      "invalidNfsPath": {
+        "heading": "Chybí sdílená cesta NFS",
+        "description": "Musíte zadat sdílenou cestu NFS pro své datové úložiště"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Vybrat typ databáze.",
+    "options": {
+      "relational": {
+        "title": "Relační databáze",
+        "description": "Připojit k relační databázi"
+      },
+      "cloudDataWarehouse": {
+        "title": "Cloudový datový sklad",
+        "description": "Připojení ke cloudovému datovému skladu"
+      },
+      "nosql": {
+        "title": "Databáze NoSQL",
+        "description": "Připojit k databázi NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Zadejte informace o připojení nebo umístění, aby mohly stránky ArcGIS Serveru přistupovat k datům.",
+    "publisherDatabaseConnection": "Databázové připojení vydavatele",
+    "serverDatabaseConnection": "Databázové připojení serveru",
+    "sameAsPublisher": "Stejné jako databázové připojení vydavatele",
+    "newConnection": "Nové připojení",
+    "sdeFile": "(soubor .sde)",
+    "dragAndDropOrSelectFile": "Přetáhněte nebo vyberte svůj soubor .sde",
+    "selectFile": "Vybrat soubor",
+    "chooseDifferentFile": "Vybrat jiný soubor",
+    "importingConnectionFile": "Import souboru připojení…",
+    "fileChosen": "Vybraný soubor",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Připojit ke Google BigQuery"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Připojit k Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Připojit k Amazon S3"
+      },
+      "azure": {
+        "title": "Úložiště Microsoft Azure",
+        "description": "Připojit k Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "Váš portál není nakonfigurován s hostitelským serverem, což je nutné k dokončení vytváření datového úložiště. Zkontrolujte konfiguraci hostitelského serveru a zkuste to znova.",
+      "invalidPublisherConnectionFile": {
+        "heading": "Chybí soubor připojení vydavatele",
+        "description": "Musíte zadat soubor připojení vydavatele pro své datové úložiště."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "Chybí soubor připojení k serveru",
+        "description": "Musíte zadat soubor připojení k serveru pro své datové úložiště."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Server",
+    "authenticationType": "Typ ověření",
+    "userAuthentication": "Ověření uživatele",
+    "serviceAuthentication": "Ověření služby",
+    "refreshToken": "Obnovovací token",
+    "keyFile": "Soubor klíče",
+    "projectId": "ID projektu",
+    "defaultDataset": "Výchozí datová sada",
+    "username": "Uživatelské jméno",
+    "password": "Heslo",
+    "role": "Role",
+    "database": "Databáze",
+    "schema": "Schéma",
+    "warehouse": "Sklad",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Použít soubor .json",
+    "notJson": "Jediný typ soubor, který je přijímán je .json.",
+    "dataStoreConnection": "Připojení úložiště dat",
+    "validating": "Ověřování připojení...",
+    "selectKeyFile": "Vyberte soubor klíče",
+    "errors": {
+      "validationFailedTitle": "Ověření se nezdařilo",
+      "validationFailedDescription": "Ověření pověření se nezdařilo. Zkontrolujte, zda jste zadali správné údaje, a zkuste to znovu.",
+      "incorrectLogin": "Vámi zadané pověření je nesprávné nebo neplatné.",
+      "noKeyFile": "Soubor klíče je povinné pole.",
+      "noProjectId": "ID projektu je povinné pole.",
+      "noServer": "Server je povinné pole.",
+      "noDatabase": "Databáze je povinné pole.",
+      "noSchema": "Schéma je povinné pole.",
+      "noWarehouse": "Sklad je povinné pole.",
+      "noRole": "Role je povinné pole."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Zadejte typ sdílené složky Big Data, která bude přidána na server GeoAnalytics Server.",
+    "locationInfo": "Zadejte informace o umístění, abyste GeoAnalytics Serveru umožnili přístup k datům.",
+    "username": "Uživatelské jméno",
+    "useKerberos": "Použít Kerberos",
+    "keytabLocations": "Umístění keytab",
+    "principalUser": "Hlavní uživatel",
+    "principalRealm": "Hlavní oblast",
+    "cloudSelectType": "Vyberte typ datového úložiště, které chcete přidat.",
+    "cloudSelectProvider": "Vyberte poskytovatele cloudového úložiště.",
+    "cloudTypes": {
+      "new": "Nový",
+      "existing": "Existující"
+    },
+    "cloudSearch": "Vyberte existující cloudové datové úložiště:",
+    "cloudSearchPlaceholder": "Zadejte vyhledávání v datových úložištích",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Úložiště Microsoft Azure",
+      "azuredatalakegen2store": "Úložiště Microsoft Azure Data Lake Gen2"
+    },
+    "database": {
+      "heading": "Databáze",
+      "nonDefault": {
+        "description": "Použijte jinou než výchozí databázi (název výchozí databáze).",
+        "placeholder": "výchozí"
+      }
+    },
+    "metastoreUri": {
+      "heading": "URI metaúložiště",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Cesta",
+      "filesharePlaceholder": "\\\\MyFileServer\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Sdílená složka",
+        "description": "Adresář datových sad na místním disku nebo ve sdílené síťové složce"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Datové sady adresáře Hadoop Distributed File System (HDFS)"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Datový sklad Apache Hive"
+      },
+      "cloud": {
+        "title": "Cloudové úložiště",
+        "description": "Připojit se ke cloudovému úložišti"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Není vybrán žádný typ sdílené složky Big Data",
+        "description": "Chcete-li pokračovat, vyberte typ sdílené složky Big Data."
+      },
+      "noPathSelected": {
+        "heading": "Chybí cesta",
+        "description": "Musíte zadat cestu pro své datové úložiště."
+      },
+      "noMetastoreUri": {
+        "heading": "Chybí URI metaúložiště",
+        "description": "Musíte zadat alespoň jeden identifikátor URI metaúložiště."
+      },
+      "noDataStoreSelected": {
+        "heading": "Nebylo vybráno žádné úložiště dat",
+        "description": "Chcete-li pokračovat, vyberte datové úložiště."
+      },
+      "noCloudSelected": {
+        "heading": "Nebyl vybrán žádný poskytovatel cloudového úložiště",
+        "description": "Chcete-li pokračovat, vyberte poskytovatele cloudového úložiště"
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Vyberte poskytovatele cloudového úložiště.",
+    "connectionInfoEnterprise": "Zadejte informace o připojení nebo umístění, aby mohly stránky ArcGIS Serveru přistupovat k datům.",
+    "connectionInfoOnline": "Zadejte informace o připojení",
+    "provider": "Poskytovatel cloudového úložiště",
+    "authenticationType": "Typ ověření",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Sdílený klíč",
+      "sasToken": "Sdílený přístupový klíč",
+      "anonymous": "Anonymní"
+    },
+    "identityType": "Typ identity",
+    "identityTypes": {
+      "servicePrincipal": "Zadavatel služby",
+      "userAssignedIdentity": "Spravovaná identita přiřazená uživateli"
+    },
+    "token": "Token",
+    "tenantId": "Tenant ID",
+    "clientId": "ID klienta",
+    "optionalClientId": "ID klienta (nepovinné)",
+    "clientSecret": "Tajný klíč klienta",
+    "accountName": "Název účtu",
+    "accountKey": "Klíč k účtu",
+    "environment": "Životní prostředí",
+    "storageDomain": "Doména úložiště",
+    "other": "Jiné",
+    "endpoint": "Koncový bod",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net nebo DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Název zásobníku",
+    "credentialType": "Typ přihlašovacích údajů",
+    "accessKey": "Přístupový klíč",
+    "secretKey": "Tajný klíč",
+    "sharedKey": "Sdílený klíč",
+    "region": "Region",
+    "bucketName": "Název bucketu",
+    "cloudFolder": "Složka (volitelné)",
+    "validating": "Ověřování připojení...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Cloudové úložiště Google",
+      "azure": "Úložiště Microsoft Azure",
+      "azuredatalakegen2store": "Úložiště Microsoft Azure Data Lake Gen2",
+      "alibaba": "Cloudové úložiště Alibaba"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Nebyl vybrán žádný poskytovatel cloudového úložiště",
+        "description": "Chcete-li pokračovat, vyberte poskytovatele cloudového úložiště"
+      },
+      "onlineValidationFailed": {
+        "heading": "Chyba připojení",
+        "description": "Připojení se nepodařilo ověřit, zkontrolujte, zda jsou informace správné."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Přístupový klíč",
+      "privateKey": "Soukromý klíč",
+      "IAMRole": "Role IAM"
+    },
+    "custom": "Vlastní",
+    "storageURL": "Soukromá adresa URL",
+    "cloudFolderPlaceHolder": "cloud/arcgis",
+    "errorInfo": "${missingField} je požadováno",
+    "invalidEndpoint": "Koncový bod musí používat protokol https",
+    "and": "a"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Vyberte poskytovatele úložiště NoSQL.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Poskytovatel",
+    "errorMessage": "Následující pole obsahují chyby: ${missingFields}",
+    "connectionUri": "URI připojení",
+    "username": "Uživatelské jméno",
+    "password": "Heslo",
+    "database": "Databáze",
+    "credentialDescription": "Zadejte informace o připojení NoSQL, které umožní ArcGIS Server sites přístup k datům.",
+    "connectionUriExample": "Příklad: protocol://hostname:port",
+    "fallBackServers": "Záložní servery (volitelné)",
+    "fallBackServersExample": "Příklad: hostname1:port1,hostname2:port2",
+    "and": "a",
+    "error": "Chyba",
+    "hosts": "Hostitel(é)",
+    "useSsl": "Použít SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Konfigurace serverů",
+      "subHeading": "Vyberte ArcGIS Server site, na který chcete publikovat vrstvu."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Vyberte stránky ArcGIS Serveru, ke kterým chcete přidat své datové úložiště.",
+      "bdfsHeading": "Vaše sdílené soubory s velkými daty budou přidány na web serveru ArcGIS GeoAnalytics Server.",
+      "subHeading": "Stránky musí mít přístup k připojení nebo umístění, které jste zadali v předchozím kroku.",
+      "noServerSelected": {
+        "heading": "Nebyl vybrán žádný server",
+        "description": "Vyberte alespoň jeden server, abyste mohli pokračovat."
+      }
+    },
+    "list": {
+      "title": "Server",
+      "status": "Stav"
+    },
+    "status": {
+      "success": "Normální",
+      "failure": "Není k dispozici",
+      "error": "Chyba",
+      "validating": "Vyhodnocování"
+    },
+    "loader": {
+      "validating": "Ověřování serverů..."
+    },
+    "error": {
+      "noServerSelectedHeading": "Nebyl vybrán žádný server",
+      "noServerSelectedDescription": "Chcete-li pokračovat, vyberte server."
+    },
+    "types": {
+      "hostedSetting": "Hostingový server",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "Geoanalýza",
+      "rasterAnalysisSetting": "Rastrová analýza",
+      "imageHostingSetting": "Hosting snímků",
+      "missionServerSetting": "Mission Server"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Hledat úložiště dat",
+    "heading": "Vybrat úložiště dat",
+    "subHeading": "Procházejte soubor nebo cloudové datové úložiště registrované v ArcGIS Enterprise.",
+    "cloud": "Cloud",
+    "folder": "Složka",
+    "processing": "Načítání datového úložiště...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Nebylo vybráno žádné úložiště dat",
+        "description": "Musíte vybrat alespoň jedno úložiště dat"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Žádné registrované servery pro úložiště dat",
+        "description": "Vybrané úložiště dat není registrováno v ArcGIS Server site. Zaregistruje ji a pokračujte."
+      },
+      "noContentInDataStore": {
+        "heading": "V datovém úložišti nejsou žádné platné datové sady",
+        "description": "Vybrané datové úložiště neobsahuje platné datové sady k publikování."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Chyba",
+    "errorDescription": "Během přidávání této položky došlo k chybě.",
+    "alreadyExists": {
+      "title": "Existující soubor",
+      "description": "Soubor pojmenovaný \"${fileName}\" již v této složce existuje. Změňte složku nebo přejmenujte soubor a zkuste to znovu.",
+      "linkText": "Zobrazit existující položku"
+    },
+    "arcgisServerUpload": {
+      "title": "Položku nelze publikovat",
+      "description": "Tento soubor definice služby byl vytvořen pro stránku ArcGIS Server a musí být nahrán na ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Neplatný shapefile",
+      "description": "Nahraný soubor neobsahuje shapefile."
+    },
+    "invalidGeodatabase": {
+      "title": "Neplatná geodatabáze",
+      "description": "Nahraný soubor neobsahuje souborovou geodatabázi."
+    },
+    "serviceNameExists": {
+      "title": "Název služby není dostupný",
+      "description": "Publikovaná služba s tímto názvem již v rámci organizace existuje. Názvy služeb musí být v rámci celé organizace jedinečné. Použijte jiný název."
+    },
+    "invalidGeoJSON": {
+      "title": "Neplatný GeoJSON",
+      "description": "Soubor JSON, který nahráváte, není platný GeoJSON (chybí \"typ\")."
+    },
+    "invalidJSON": {
+      "title": "Neplatný JSON",
+      "description": "Soubor JSON, který nahráváte, není platný JSON."
+    },
+    "failDatastorePublish": {
+      "title": "Nelze publikovat z datového úložiště",
+      "description": "Nepodařilo se publikovat ${type}, více informací najdete v protokolech serveru.",
+      "tileLayer": "vrstva dlaždic",
+      "sceneLayer": "vrstva scény"
+    },
+    "invalidSpatialRef": {
+      "title": "Neplatný souřadnicový systém",
+      "description": "Tato služba má nekompatibilní souřadnicový systém"
+    },
+    "uploading": "Nahrávání ${type}...",
+    "adding": "Přidávám ${type}...",
+    "addDataStore": "Přidávám datové úložiště ${type}...",
+    "creating": "Vytvářím ${type}...",
+    "publishing": "Probíhá publikování ${type}...",
+    "checkingStatus": "Kontrola stavu…",
+    "publishingService": "Publikování služby…",
+    "appendingPhotos": "Nahrávání fotek...",
+    "errorPublishing": "Během publikování této služby došlo k chybě.",
+    "howWillAdd": "Jak bude soubor ${fileName} přidán?",
+    "howWillAddService": "Jak bude služba přidána?",
+    "howWillAddDescription": "Tento soubor se použije pro vytvoření ${type} položky.",
+    "howWillAddSecuredServiceDescription": "Tato služba bude použita k vytvoření proxy položky ArcGIS, která předá uživatelské požadavky s připojeným tokenem.",
+    "howWillAddHostedDescription": "Tento soubor se použije k vytvoření hostované vrstvy prvků nebo tabulky.",
+    "item": "Položka",
+    "folder": "Složka",
+    "database": "Databáze",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Úložiště Microsoft Azure Data Lake Gen2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Zobrazit tipy pro přidávání obsahu",
+    "title": "Tipy pro přidávání obsahu",
+    "addDocumentTitle": "Přidejte dokumenty, obrázky a další soubory",
+    "addDocumentContent": "Přetáhněte soubor PDF, snímek, Office dokument a další.",
+    "publishLayerTitle": "Publikujte vrstvy ze souborů shapefile, CSV a tabulek",
+    "publishLayerContent": "Proměňte soubory ve vašem zařízení nebo v cloudových úložištích na vrstvy, které můžete přidat do map.",
+    "publishLayerEnterprise": "Přeměnit soubory na vrstvy, které můžete přidat do svých map.",
+    "linkLayerTitle": "Odkazy na vrstvy na webu",
+    "linkLayerContent": "Vytvořte vrstvy z adres URL, které odkazují na ArcGIS Server, služby OGC a KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "balíček dlaždic",
+      "Vector Tile Package": "vektorový balíček dlaždic",
+      "Service Definition": "definice služby",
+      "Scene Package": "balíček vrstev scén",
+      "Desktop Application Template": "šablona desktopové aplikace",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefile",
+      "File Geodatabase": "souborová geodatabáze",
+      "Map Template": "šablona mapy",
+      "Geoprocessing Sample": "vzorek geoprocessingu",
+      "Code Sample": "vzorek kódu",
+      "ArcPad Package": "Balíček ArcPad",
+      "CAD Drawing": "CAD výkres",
+      "CSV Collection": "Sbírka souborů CSV",
+      "KML Collection": "Sbírka souborů KML",
+      "AppBuilder Widget Package": "Balíček widgetů nástroje AppBuilder",
+      "Photos with Locations": "fotografie s umístěním",
+      "Image Collection": "kolekce obrázků",
+      "iWork Pages": "iWork Pages",
+      "iWork Numbers": "iWork Numbers",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "balíček Deep Learning",
+      "GML": "GML",
+      "Application": "aplikace",
+      "Google Sheets": "Tabulky Google",
+      "GeoPackage": "balíček GeoPackage",
+      "Tile Layer": "vrstva dlaždic",
+      "OGCFeatureServer": "Vrstva prvků OGC",
+      "FeatureServer": "feature služba",
+      "3DTiles Package": "Balíček 3D dlaždic"
+    },
+    "mvText": {
+      "WMTS": "Webová služba WMTS OGC",
+      "WMS": "Webová služba WMS OGC",
+      "WFS": "Webová služba WFS OGC",
+      "AGS": "Webová služba ArcGIS Serveru",
+      "OGCFeatureServer": "Prvky OGC API"
+    },
+    "howToAdd": "Jak byste chtěli přidat tento soubor?",
+    "nonHostedTitle": "Přidat pouze ${fileName}",
+    "nonHostedDescription": "Přidejte ${type} bez publikování. Soubor může být sdílen a stažen ostatními nebo publikován později."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Chyba při analyzování souboru",
+      "description": "Při pokusu o analyzování vašeho souboru došlo k chybě. Zkontrolujte, zda je váš soubor správně naformátován.",
+      "alreadyExists": {
+        "title": "Existující soubor",
+        "desciption": "Soubor pojmenovaný \"${fileName}\" již v této složce existuje. Soubor přejmenujte a zkuste to znovu.",
+        "linkText": "Zobrazit existující položku"
+      },
+      "duplicateFields": {
+        "title": "Duplicitní názvy polí",
+        "description": "Duplicitní názvy polí nejsou povoleny."
+      },
+      "emptyFile": "Nahraný soubor neobsahuje žádná data.",
+      "missingGeocoder": {
+        "title": "Lokátor není k dispozici",
+        "descriptionn": "Výchozí lokátor není k dispozici. Kontaktujte správce a zkontrolujte nastavení geokódování ve vaší organizaci."
+      }
+    },
+    "publishThisSheet": "Publikujte tento list:",
+    "largeGeoJsonTitle": "Velký GeoJSON",
+    "largeGeoJsonDescription": "Tento GeoJSON obsahuje velké množství dat, pro dosažení nejlepších výsledků zvažte jeho publikování jako hostované vrstvy prvků.",
+    "largeGeoJsonConditionDescription": "Pokud tento GeoJSON obsahuje velké množství dat, vytvořte hostovanou vrstvu prvků, abyste dosáhli nejlepších výsledků.",
+    "bigGeoJsonHint": "Pro dosažení nejlepšího výkonu lze tato data do mapy přidat pouze jako hostovanou vrstvu prvků.",
+    "bigGeoJsonHintNoPrivilege": "Tato data jsou příliš velká na to, aby mohla být přidána do mapy. Místo toho by měla být publikována jako hostovaná vrstva prvků.",
+    "bigGeoJsonHintPublicAccount": "Tato data jsou příliš velká na to, aby mohla být přidána do mapy. Místo toho by měla být publikována jako hostovaná vrstva prvků. Upgradujte předplatné ArcGIS Online a můžete publikovat rozsáhlejší data jako hostované vrstvy.",
+    "uploading": "Nahrávání ${item}...",
+    "analyze": "Analyzování ${fileName}...",
+    "checkingStatus": "Kontrola stavu…",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Přidat data a vytvořit hostovanou vrstvu prvků",
+        "description": "Publikovat soubor GeoJSON jako hostovanou vrstvu prvků"
+      },
+      "nonHosted": {
+        "title": "Přidat pouze data",
+        "description": "Importujte soubor GeoJSON bez publikování. Soubor mohou ostatní sdílet, stahovat nebo později publikovat."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Typ vrstvy"
+    },
+    "hostedTitle": {
+      "CSV": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků nebo tabulku",
+      "CSVNoTable": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků",
+      "GeoPackage": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků",
+      "GeoJson": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků",
+      "JSON": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků",
+      "Tile Package": "Přidejte ${fileName} a vytvořte hostovanou vrstvu",
+      "Vector Tile Package": "Přidejte ${fileName} a vytvořte hostovanou vrstvu dlaždic",
+      "Service Definition": "Přidejte ${fileName} a vytvořte hostovanou vrstvu",
+      "Scene Package": "Přidejte ${fileName} a vytvořte hostovanou vrstvu scény",
+      "Image Collection": "Přidejte ${fileName} a vytvořte hostovanou vrstvu obrazových dat",
+      "Desktop Application Template": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků",
+      "Microsoft Excel": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků nebo tabulku",
+      "Google Sheets": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků nebo tabulku",
+      "3DTiles Package": "Přidat ${fileName} a vytvořit hostovanou vrstvu 3D dlaždic"
+    },
+    "hostedDescription": {
+      "CSV": "Soubor CSV s informacemi o umístění je zdrojem dat pro hostovanou vrstvu prvků, která zobrazuje body na mapě. Soubor CSV bez informací o umístění zobrazuje tabulku, která může být prohlížena, zobrazena jako graf a připojena k dalším vrstvám.",
+      "GeoPackage": "Balíček GeoPackage s informací o umístění je zdrojem pro hostovanou vrstvu, která je zobrazena jako body na mapě. Balíček GeoPackage bez informací o umístění je zobrazena jako tabulka, která může být prohlížena, zobrazena jako graf a připojena k dalším vrstvám.",
+      "GeoJson": "Publikujte svůj soubor GeoJSON jako hostovanou vrstvu prvků. Prvky jsou publikovány v souřadnicovém sytému WGS 1984 Web Mercator.",
+      "JSON": "Publikujte svůj soubor JSON jako hostovanou vrstvu prvků. Prvky jsou publikovány v souřadnicovém sytému WGS 1984 Web Mercator.",
+      "tile package": "Publikujte svůj balíček rastrových dlaždic jako hostovanou vrstvu.",
+      "vector tile package": "Publikujte svůj balíček vektorových dlaždic jako hostovanou vrstvu dlaždic.",
+      "Service Definition": "Publikujte svůj soubor definice služby jako hostovanou vrstvu. Publikovaný typ vrstvy závisí na obsahu vašeho souboru SD.",
+      "Scene Package": "Publikujte svou vrstvu scény jako hostovanou vrstvu scény.",
+      "Image Collection": "Publikujte soubor ZIP s kolekcí snímků jako hostovanou vrstvu obrazových dat.",
+      "Desktop Application Template": "Publikujte svou šablonu desktopové aplikace (ZIP) jako hostovanou vrstvu prvků. Šablona desktopové aplikace, která obsahuje informace o umístění, je zdrojem dat pro hostovanou vrstvu prvků, která zobrazuje body na mapě. Šablona desktopové aplikace bez informace o umístění zobrazuje tabulku, která může být prohlížena, zobrazena jako graf a připojena k dalším vrstvám.",
+      "Microsoft Excel": "Publikujte hostovanou vrstvu prvků založenou na vaší tabulce. Tabulky bez informace o umístění se zobrazí jako tabulka, která může být prohlížena, zobrazena jako graf a připojena k dalším vrstvám.",
+      "Google Sheets": "Publikujte hostovanou vrstvu prvků založenou na vaší tabulce. Tabulky bez informace o umístění se zobrazí jako tabulka, která může být prohlížena, zobrazena jako graf a připojena k dalším vrstvám.",
+      "3DTiles Package": "Publikujte svůj balíček 3D dlaždic jako hostovanou vrstvu 3D dlaždic."
+    },
+    "addDirectlyTitle": "Nahrajte soubor jako položku a přidejte jej do mapy",
+    "addDirectlyUrlTitle": "Zadejte soubor z adresy URL a přidejte jej do mapy",
+    "addDirectlyDescription": "Přidejte data bez vytvoření hostované vrstvy prvků. To je ideální pro menší, externě spravované datové sady, které nevyžadují funkce, jako je editace.",
+    "addDirectlyUrlDescription": "Přidejte data bez vytvoření hostované vrstvy prvků. To je ideální pro menší datové sady, které nevyžadují funkce, jako je editace. Data se načítají při každém otevření mapy.",
+    "hostedMVTitle": "Vytvořte hostovanou vrstvu prvků a přidejte ji do mapy.",
+    "hostedMVDescription": "Využívejte všechny možnosti, které vrstva prvků poskytuje, včetně editace. Spravujte data zcela v ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "Soubor",
+    "itemType": "Typ souboru",
+    "language": "Jazyk",
+    "other": "Jiné",
+    "hosted": {
+      "heading": "Přidejte ${fileName} a vytvořte hostovanou vrstvu prvků",
+      "description": "Přidejte ${type} a publikujte jako hostovanou vrstvu prvků, kterou lze přidat do mapy."
+    },
+    "type": "Typ",
+    "ArcPad": {
+      "project": "Projekt ArcPad",
+      "template": "Šablona ArcPad"
+    },
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Formát vektorového datového úložiště pro ukládání umístění, tvaru a atributů geografických prvků. Formát shapefile je uložen v sadě souvisejících souborů a obsahuje jednu třídu prvků."
+    },
+    "File Geodatabase": {
+      "title": "Souborová geodatabáze",
+      "description": "Kolekce souborů ve složce užívané k ukládání, dotazování a správě jak prostorových, tak neprostorových dat."
+    },
+    "Desktop Application Template": {
+      "title": "Šablona desktopové aplikace",
+      "description": "Soubory, data a kódy aplikace, které se nasazují na desktopu pro použití s ArcGIS."
+    },
+    "Map Template": {
+      "title": "Šablona mapy",
+      "description": "Šablona mapy je mapový dokument (.mxd), ze kterého mohou být vytvořeny nové dokumenty v ArcMap."
+    },
+    "Geoprocessing Sample": {
+      "title": "Vzorek geoprocessingu",
+      "description": "Sbírka nástrojů, skriptů, modelů, dat a doplňkových souborů, které slouží ke spouštění nástrojů pro geoprocessing v ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Vzorek kódu",
+      "description": "Ukázka sdíleného kódu v různých jazycích, například v jazyce Java nebo C++."
+    },
+    "ArcPad Package": {
+      "title": "Balíček ArcPad",
+      "description": "Balíček souborů ArcPad vytvořený pomocí ArcPad Data Manager."
+    },
+    "CAD Drawing": {
+      "title": "CAD výkres",
+      "description": "Soubory CAD vytvořené pomocí AutoCAD nebo platforem MicroStation."
+    },
+    "CSV Collection": {
+      "title": "Sbírka souborů CSV",
+      "description": "Sbírku souborů CSV představuje archiv .zip, který obsahuje jeden soubor CSV pro každou vrstvu."
+    },
+    "KML Collection": {
+      "title": "Sbírka souborů KML",
+      "description": "Sbírka KML je soubor .zip, který obsahuje jeden soubor KML pro každou vrstvu."
+    },
+    "AppBuilder Widget Package": {
+      "title": "Balíček widgetů nástroje AppBuilder",
+      "description": "Vlastní widget nebo motiv rozšiřující možnosti ArcGIS Web AppBuilder"
+    },
+    "Photos with Locations": {
+      "title": "Fotografie s umístěním",
+      "description": "Soubor ZIP, který obsahuje fotky s informacemi o umístění (geograficky označené fotografie s informacemi o umístění EXIF)"
+    },
+    "Image Collection": {
+      "title": "Kolekce obrázků",
+      "description": "Kolekce rastrových datových sad, které lze stáhnout."
+    },
+    "iWork Pages": {
+      "title": "iWork Pages",
+      "description": "Formát dokumentu Apple"
+    },
+    "iWork Numbers": {
+      "title": "iWork Numbers",
+      "description": "Formát tabulky Apple"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Formát prezentace Apple"
+    },
+    "Deep Learning Package": {
+      "title": "Balíček Deep Learning",
+      "description": "Soubory a data potřebná ke spuštění nástrojů pro inferenci hlubokého učení, které se používají jako vstup pro nástroje analýzy rastrů hlubokého učení."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geohraphy Markup Language) je standard XML OGC, který reprezentuje informace o prostorových elementech"
+    },
+    "Application": {
+      "title": "Aplikace",
+      "description": "Desktopová aplikace vytvořená na platformě desktopu, jako například Java nebo .NET (Microsoft Windows Desktop)."
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Zvolte vrstvu, kterou chcete přidat",
+    "selectTile": "Dlaždice matice",
+    "featureType": "Typ prvku, který chcete zobrazit",
+    "matrixNotSelected": "Zvolte matici dlaždice pro danou službu.",
+    "selectGeometry": "Zvolte typ",
+    "selectGeometryError": "Zvolte typ prvku, který chcete zobrazit.",
+    "points": "bodů",
+    "lines": "Linie",
+    "polygons": "Polygony",
+    "default": "výchozí",
+    "maxFeature": "Maximální limit prvků",
+    "layers": "vrstvy",
+    "usePro": "Tento datový soubor má více než 1000 vrstev. Zadejte vyhledávací výraz, abyste našli konkrétní vrstvu.",
+    "noLayersFound": "Nebyly nalezeny žádné vrstvy, které splňují vaše kritéria. Zkuste změnit vyhledávaný výraz, aby se zobrazilo více vrstev."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Aplikace",
+      "description": "Přidejte odkaz URL na existující aplikaci, abyste mohli sdílet svou práci se členy vaší organizace a širokou veřejností."
+    },
+    "AGS": {
+      "title": "Webová služba ArcGIS Serveru",
+      "description": "Webová služba ArcGIS Serveru představuje zdroj GIS, například mapu nebo obrázek, který je umístěn na serveru ArcGIS Server a je zpřístupněn klientským aplikacím, například prohlížeči Map Viewer."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "Textový soubor s hodnotami oddělenými čárkou."
+    },
+    "Document Link": {
+      "title": "Dokument",
+      "description": "Vytvořte odkaz na online dokument, na který odkazuje URL."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Otevřený standardní výměnný formát geoprostorových dat, který reprezentuje jednoduché geografické prvky."
+    },
+    "Tile Layer": {
+      "title": "Vrstva dlaždic",
+      "description": "Sada dlaždic obrazu mapy, kde formátovaná adresa URL obsahuje zástupné znaky úrovně, sloupce a řádku a volitelnou subdoménu: https://domain.com/<path>/{z}{x}{y}.png a https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML je formát souboru založený na XML, který je používán k reprezentaci geografických prvků v aplikacích jako například ArcGIS Earth a Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "Vrstva prvků OGC",
+      "description": "Vrstva prvků OGC je služba prvků, která se řídí OGC API - specifikací prvků."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "OGC Web Feature Service (WFS) je dynamická feature služba, která splňuje specifikace OGC."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "OGC Web Map Service (WMS) je dynamická mapová služba, která splňuje specifikace OGC."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "OGC Web Map Tile Service (WMTS) je sada dlaždic snímků uložených v mezipaměti (cache), která splňuje specifikace OGC. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Živý webový zdroj, který zahrnuje geografické prvky a místa."
+    },
+    "useAsBaseMap": "Použít jako podkladovou mapu",
+    "undetected": "Vyberte typ vrstvy",
+    "label": "Typ",
+    "storeAuth": "Uložte přihlašovací údaje s položkou služby. Nezobrazovat výzvu pro ověření.",
+    "storeAuthMV": "Uložit přihlašovací údaje s vrstvou. Nezobrazovat výzvu pro ověření.",
+    "learnMore": "Více informací o ověření.",
+    "isSecure": "Detekována zabezpečená služba",
+    "serviceNotExist": "Služba neexistuje nebo není k dispozici.",
+    "getServiceInfo": "Získávání informací o službě...",
+    "unknownAGSType": "Tento typ služby není podporován.",
+    "errorMessage": "Chyba připojování ke službě.",
+    "serviceNotGIS": "Zadané URL neodkazuje na službu GIS.",
+    "unsupportedWFSVersion": "Tato verze WFS není podporována.",
+    "unsupportedWFSGeoJSONOutputFormat": "Služba WFS nepodporuje výstupní formát GeoJSON.",
+    "invalidWMTS": "Tato WMTS není podporována",
+    "flowAborted": "Chyba připojování ke službě. Tato služba je zabezpečená a vyžaduje ověření.",
+    "invalidSpatialRef": "Tato služba má nekompatibilní souřadnicový systém",
+    "emptyFeatureLayer": "Služba je prázdná"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Mezinárodní datová hranice, západ",
+      "110": "(UTC-11:00) Koordinovaný univerzální čas -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Havaj",
+      "300": "(UTC-09:00) Aljaška",
+      "400": "(UTC-08:00) Pacifický čas (Spojené státy a Kanada)",
+      "410": "(UTC-08:00) Baja California",
+      "500": "(UTC-07:00) Horský čas (Spojené státy a Kanada)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlán",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) Střední Amerika",
+      "620": "(UTC-06:00) Centrální čas (Spojené státy a Kanada)",
+      "630": "(UTC-06:00) Guadalajara, Mexiko, Monterrey",
+      "700": "(UTC-05:00) Východní čas (Spojené státy a Kanada)",
+      "710": "(UTC-05:00) Bogotá, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (východ)",
+      "730": "(UTC-04:30) Caracas",
+      "800": "(UTC-04:00) Atlantický čas (Kanada)",
+      "810": "(UTC-04:00) Cuiabá",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Asunción",
+      "900": "(UTC-03:30) Newfoundland",
+      "910": "(UTC-03:00) Brasília",
+      "920": "(UTC-03:00) Grónsko",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Cayenne, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Středoatlantická oblast",
+      "1010": "(UTC-02:00) Koordinovaný univerzální čas -02",
+      "1100": "(UTC-01:00) Azory",
+      "1110": "(UTC-01:00) Kapverdy",
+      "1200": "(UTC) Dublin, Edinburgh, Lisabon, Londýn",
+      "1210": "(UTC) Monrovia, Reykjavík",
+      "1220": "(UTC) Casablanca",
+      "1230": "(UTC) Koordinovaný univerzální čas",
+      "1300": "(UTC+01:00) Bělehrad, Bratislava, Budapešť, Lublaň, Praha",
+      "1310": "(UTC+01:00) Sarajevo, Skopje, Varšava, Záhřeb",
+      "1320": "(UTC+01:00) Brusel, Kodaň, Madrid, Paříž",
+      "1330": "(UTC+01:00) Západní Střední Afrika",
+      "1340": "(UTC+01:00) Amsterdam, Berlín, Bern, Řím, Stockholm, Vídeň",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) Káhira",
+      "1420": "(UTC+02:00) Helsinky, Kyjev, Riga, Sofie, Tallinn, Vilnius",
+      "1430": "(UTC+02:00) Athény, Bukurešť",
+      "1440": "(UTC+02:00) Jeruzalém",
+      "1450": "(UTC+02:00) Ammán",
+      "1460": "(UTC+02:00) Bejrút",
+      "1470": "(UTC+02:00) Harare, Pretoria",
+      "1480": "(UTC+02:00) Damašek",
+      "1490": "(UTC+02:00) Istanbul",
+      "1500": "(UTC+03:00) Kuvajt, Rijád",
+      "1510": "(UTC+03:00) Bagdád",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaliningrad",
+      "1535": "(UTC+03:30) Teherán",
+      "1540": "(UTC+04:00) Moskva, Petrohrad, Volgograd",
+      "1600": "(UTC+04:00) Abú Dhabí, Maskat",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Jerevan",
+      "1640": "(UTC+04:00) Tbilisi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Kábul",
+      "1710": "(UTC+05:00) Taškent",
+      "1715": "(UTC+05:00) Islámábád, Karáčí",
+      "1720": "(UTC+05:30) Čennaí, Kalkata, Bombaj, Nové Dillí",
+      "1730": "(UTC+05:30) Šrí Džajavardanapura",
+      "1740": "(UTC+05:45) Káthmándú",
+      "1755": "(UTC+06:00) Jekatěrinburg",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Dháka",
+      "1820": "(UTC+06:30) Rangún",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Bangkok, Hanoj, Jakarta",
+      "1910": "(UTC+08:00) Krasnojarsk",
+      "2000": "(UTC+08:00) Peking, Čchung-čching, Hongkong, Urumči",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapur",
+      "2030": "(UTC+08:00) Tchaj-pej",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulánbátar",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Soul",
+      "2110": "(UTC+09:00) Ósaka, Sapporo, Tokio",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaide",
+      "2150": "(UTC+10:00) Jakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC+11:00) Šalamounovy ostrovy, Nová Kaledonie",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fidži",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Koordinovaný univerzální čas +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Zadat časové pásmo",
+    "title": "Časové pásmo",
+    "subTitle": "Vyberte časové pásmo, ve kterém se nachází vaše data."
+  },
+  "hybridImageSelect": {
+    "heading": "Který typ vrstvy chcete přidat?",
+    "ImageServer": {
+      "title": "Dynamická obrazová vrstva",
+      "description": "Přidat jako dynamickou vrstvu snímků, která podporuje zpracování a vykreslování na straně serveru."
+    },
+    "TiledImageServer": {
+      "title": "Vrstva dlaždicových obrazových dat",
+      "description": "Přidat jako vrstvu dlaždicových snímků, která podporuje projekci a vykreslování ze statických dlaždic na straně klienta."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Vytvořit vrstvy a další",
+    "developerCredentialsHeading": "Přihlašovací údaje vývojáře",
+    "developerCredentialsDescription": "Vytvořte klíč API nebo přihlašovací údaje OAuth 2.0 pro vytváření vlastních aplikací.",
+    "developerCredentialsNoAPIDescription": "Vytvořte přihlašovací údaje OAuth 2.0 pro vytváření vlastních aplikací.",
+    "featureLayerHeading": "Vrstva prvků",
+    "featureLayerDescription": "Vytvořit editovatelnou vrstvu s poli zkopírovanými ze šablony nebo vrstvy prvků.",
+    "tileLayerHeading": "Vrstva dlaždic",
+    "tileLayerDescription": "Vytvořit rychle se vykreslující vrstvu vektorových nebo rastrových dlaždic.",
+    "sceneLayerHeading": "Vrstva scény",
+    "sceneLayerDescription": "Vytvořit rychle se vykreslující vrstvu scény s 3D obsahem.",
+    "imageLayerHeading": "Vrstva obrazových dat",
+    "imageLayerDescription": "Vytvořte vrstvu obrazových dat pomocí obrázků z vašeho počítače.",
+    "locatorHeading": "Lokátor",
+    "locatorViewHeading": "Lokátor (náhled)",
+    "locatorDescription": "Vyhledávání míst a adres pomocí služby ArcGIS World Geocoding Service nebo vlastní geokódovací služby.",
+    "locatorOnlyDescription": "Vyhledávání míst a adres pomocí vlastní služby geokódování.",
+    "urbanModelHeading": "Model města",
+    "urbanModelDescription": "Vytvořit model rozvoje města pomocí interaktivních nástrojů pro plánování a navrhování.",
+    "urbanModelPermissionError": "Abyste mohli vytvořit urban model, musíte mít oprávnění publikovat vrstvu hostovaných prvků. Pokud potřebujte pomoc, obraťte se na svého administrátora ArcGIS Online.",
+    "applicationHeading": "Aplikace",
+    "applicationDescription": "Odkaz na webovou aplikaci nebo vytvořte novou registrovanou aplikaci.",
+    "urlHeading": "Adresa URL",
+    "urlDescription": "Odkaz na webovou službu ArcGIS Serveru, CSV, webovou službu OGC, KML, GeoJSON nebo dokument.",
+    "urlDescriptionEnterprise": "Odkaz na webovou službu ArcGIS Serveru, CSV, webovou službu OGC, KML, GeoJSON nebo dokument.",
+    "dataStoreHeading": "Úložiště dat",
+    "dataStoreConnectionDescription": "Přidat připojení k vašemu úložišti dat.",
+    "dataStoreDescription": "Přidat připojení k úložišti dat, které spravujete.",
+    "rasterFunctionTemplateHeading": "Šablona rastrové funkce",
+    "rasterFunctionTemplateDescription": "Vytvořte šablony rastrové funkce, kterou lze použít s vrstvami snímků a při analýze rastrů.",
+    "getSubscriptionInfo": "Získávání informací o předplatném..."
+  },
+  "url": {
+    "linkExisting": "Odkaz na existující vrstvy nebo data na webu",
+    "url": "Adresa URL",
+    "addUrl": "Přidat url",
+    "httpWarning": "Použití HTTP URL není povoleno. Použijte HTTPS",
+    "serviceNotExist": "Služba neexistuje nebo není k dispozici.",
+    "invalidUrl": "Zadejte platnou adresu URL",
+    "invalidUrlWithType": "Zadejte platnou adresu URL Podporované služby jsou ${typeList}",
+    "unknownAGSType": "Tento typ služby není podporován.",
+    "errorMessage": "Chyba připojování ke službě."
+  },
+  "cloud": {
+    "google": "Připojování na Google Drive...",
+    "dropbox": "Připojování na Dropbox...",
+    "onedrive": "Připojování na OneDrive...",
+    "file": "Soubor",
+    "zip": "Soubor ve formátu ZIP",
+    "filterFileType": "Filtrovat podle typu souboru",
+    "selectAFile": "Vyberte soubor",
+    "noResults": "Nebyly nalezeny žádné soubory. Změňte své vyhledávání nebo vyberte jiný typ položky.",
+    "viewMore": "Zobrazit více",
+    "errorTitle": "Nebyl vybrán žádný soubor",
+    "errorMessage": "Pro pokračování zvolte soubor.",
+    "loadingFiles": "Načítání souborů...",
+    "searchFiles": "Hledat soubory",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "Soubor ve formátu ZIP",
+      "geojson": "GeoJSON",
+      "googlesheets": "Tabulky Google"
+    },
+    "error": {
+      "generic": {
+        "title": "Chyba",
+        "message": "Došlo k chybě."
+      },
+      "popup": {
+        "title": "Vyskakovací okna blokována",
+        "message": "Nelze se připojit k vašemu účtu Cloud Drive. Ujistěte se, že jste na této webové stránce deaktivovali blokování automatického otevírání oken."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Vlastní parametry",
+    "parameter": "Parametr",
+    "value": "Hodnota",
+    "addParameter": "Přidat parametr",
+    "addValue": "Přidat hodnotu",
+    "newCustomParameter": "Přidat vlastní parametr",
+    "description": "Přidejte parametry, které musí být připojeny k žádostem o přístup k této službě.",
+    "append": "Připojte pouze k žádostem, které vykreslují nebo se dotazují na vrstvu",
+    "remove": "Odstraňte vlastní parametr",
+    "helpText": "Pokud webová služba, na kterou se odkazujete, vyžaduje, aby byly k požadavkům odesílaným službě připojeny další parametry, můžete je uvést jako vlastní parametry. Názvy a hodnoty parametrů jsou definovány ve službě a jsou pro ni specifické."
+  },
+  "inputReadonly": {
+    "file": "Soubor",
+    "url": "Adresa URL",
+    "dataStore": "Připojení úložiště dat"
+  },
+  "layerSearch": {
+    "search": "Hledat"
+  },
+  "appendSelect": {
+    "updateLayer": "Aktualizovat vrstvu",
+    "updateData": "Aktualizovat data",
+    "chooseUpdate": "Vyberte, jaký typ aktualizace chcete provést",
+    "insertOnlyEnabled": "Tato služba prvků podporuje pouze přidávání nových funkcí",
+    "options": {
+      "add": {
+        "title": "Přidat prvky",
+        "description": "Přidejte nové prvky do existující vrstvy."
+      },
+      "update": {
+        "title": "Aktualizovat prvky",
+        "description": "Aktualizujte stávajících prvky ve vrstvě."
+      },
+      "upsert": {
+        "title": "Přidat a aktualizovat prvky",
+        "description": "Přidejte nové prvky do vrstvy a současně aktualizujte stávajících prvky."
+      },
+      "overwrite": {
+        "title": "Přepsat celou vrstvu prvků",
+        "description": "Přepsat celou vrstvu aktualizovanými zdroji dat."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "Probíhá nahrávání ${fileName}",
+      "updating": "Probíhá aktualizace…",
+      "overwriting": "Probíhá přepis...",
+      "fetchingInfo": "Načítání informací...",
+      "publishing": "Probíhá publikování…",
+      "appendCloseNotice": "Nechte otevřené okno prohlížeče a sledujte stav úlohy připojování. V případě nesprávné konfigurace můžete zkusit konfiguraci zopakovat, aniž byste museli znovu nahrávat zdrojový soubor."
+    },
+    "appendErrorMessages": {
+      "appendError": "Při připojování položky došlo k chybě."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Vybrat data",
+    "editStyle": "Nahraďte soubor stylu vrstvy aktualizovanou verzí ze svého počítače.",
+    "file": "Soubor",
+    "updateItem": "Aktualizovat položku",
+    "overwriteFile": "Přepsat soubor",
+    "analyzing": "Probíhá analýza...",
+    "sameFileNameDescription": "Nahrávaný soubor musí mít stejný název a názvy polí jako původní soubor ${fileName}",
+    "itemType": "Typ souboru",
+    "learnMore": "Více informací o podporovaných typech souborů",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Formát vektorového datového úložiště pro ukládání umístění, tvaru a atributů geografických prvků. Formát shapefile je uložen v sadě souvisejících souborů a obsahuje jednu třídu prvků."
+    },
+    "File Geodatabase": {
+      "title": "Souborová geodatabáze",
+      "description": "Kolekce souborů ve složce užívané k ukládání, dotazování a správě jak prostorových, tak neprostorových dat."
+    },
+    "errors": {
+      "providePath": "Musíte zadat cestu k položce.",
+      "sameFileName": "Chcete-li tuto položku aktualizovat, musíte nahrát soubor s názvem ${x}.",
+      "invalidStyleFileExtension": "Neplatná přípona souboru. Nahraný styl musí mít příponu .json.",
+      "invalidStyleFile": "Neplatný soubor stylu. Nahrané soubory stylů musí být správně naformátovány.",
+      "errorWhileUpload": "Při nahrávání položky došlo k chybě.",
+      "errorExceedFileSize": "Soubor se nepodařilo nahrát. Jeho velikost přesahuje maximální povolenou hodnotu 1 GB.",
+      "errorUpdate": "Při přepisování položky došlo k chybě.",
+      "multiPatchErrorDescription": "Vrstva, ke které se snažíte připojit, obsahuje geometrii Multipatch. Zkuste to znovu se souborem se stejným typem geometrie."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Zvolte, jak chcete aktualizovat stávající funkce",
+    "itemPropertiesHeader": "Vyberte, které vlastnosti položky chcete použít",
+    "appendOptions": {
+      "attribute": {
+        "title": "Pouze atributy",
+        "description": "Aktualizujte stávající atributy."
+      },
+      "attributeAndGeometry": {
+        "title": "Geometrie a atributy",
+        "description": "Aktualizujte stávající atributy i geometrie."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Vlastnosti nahrané položky",
+        "description": "Použijte vlastnosti položky z nahraného souboru. Změnou vlastností položky se data nezmění."
+      },
+      "existing": {
+        "title": "Existující vlastnosti položek",
+        "description": "Zachovejte stávající vlastnosti položky pro balíček vrstev. Použitím stávajících vlastností se data nezmění."
+      }
+    },
+    "noGeometryMatchTitle": "Nelze aktualizovat geometrii",
+    "noGeometryMatchMessage": "Možnost aktualizace geometrie není k dispozici pro různé typy geometrie.",
+    "noGeometryTableMessage": "Možnost aktualizovat atributy a geometrie není pro tabulku k dispozici."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Vyberte aktualizovaná data pro ${featureLayerName} z listu ${uploadedFile}",
+    "chooseLayer": "Vyberte aktualizovaná data pro ${featureLayerName} z vrstvy ${uploadedFile}",
+    "chooseServiceLayer": "Vyberte vrstvu k aktualizaci",
+    "paginationHeader": "${start} - ${end} z ${total}",
+    "noResults": "Nebyly nalezeny žádné položky, které splňují vaše kritéria. Zkuste změnit vyhledávaný výraz nebo zrušit některé filtry, aby se zobrazilo více položek.",
+    "sameGeometryWarningTitle": "Vrstvy musí mít stejný typ geometrie",
+    "sameGeometryWarningDescription": "Váš soubor obsahuje různé typy geometrií vrstev. Zkuste to znovu s vrstvami se stejným typem geometrie.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Nebyly nalezeny žádné vrstvy",
+      "noMatchingLayerTypeError": "Nebyla nalezena žádná kompatibilní vrstva v souboru, který jste nahráli. Zkontrolujte svůj soubor a zkuste to znovu.",
+      "noSourceLayerSelected": "Chcete-li připojit data, vyberte vrstvu prvků, kterou chcete aktualizovat.",
+      "noDataLayerSelected": "Chcete-li připojit data, vyberte vrstvu, která obsahuje aktualizovaná data."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Přepsat soubor",
+    "header": "Vybrat data k přepsání",
+    "description": "Nahrávaný soubor by měl mít stejný název jako původní soubor ${insert file name}",
+    "proceed": "Pokračovat",
+    "errors": {
+      "errorWhileUpdate": "Při aktualizaci položky došlo k chybě.",
+      "exceedFileSizeLimit": "Soubor se nepodařilo nahrát. Jeho velikost přesahuje maximální povolenou hodnotu 1 GB.",
+      "errorPublishing": "Během publikování této služby došlo k chybě."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Typ souboru",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Formát vektorového datového úložiště pro ukládání umístění, tvaru a atributů geografických prvků. Formát shapefile je uložen v sadě souvisejících souborů a obsahuje jednu třídu prvků."
+    },
+    "File Geodatabase": {
+      "title": "Souborová geodatabáze",
+      "description": "Kolekce souborů ve složce užívané k ukládání, dotazování a správě jak prostorových, tak neprostorových dat."
+    },
+    "errors": {
+      "errorWhileUpload": "Při nahrávání položky došlo k chybě.",
+      "errorShpFile": "Neplatný shapefile.",
+      "errorFgdbFile": "Neplatná souborová geodatabáze.",
+      "errorExceedFileSize": "Soubor se nepodařilo nahrát. Jeho velikost přesahuje maximální povolenou hodnotu 1 GB."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Vybrat spárovaná pole",
+    "description": "Vyberte pole z ${uploadedFileName}, které odpovídají polím v ${featureLayerName}. Pole, která jsou nespárovaná, nebudou v hostované vrstvě prvků aktualizována.",
+    "nonNullable": "Nulové hodnoty nejsou povoleny",
+    "originalField": {
+      "header": "Původní pole",
+      "moreInfo": "Tato pole se nacházejí ve vrstvě prvků ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Nahrané pole",
+      "moreInfo": "Tato pole se nacházejí v nahraném souboru ${uploadedFileName} a jsou filtrována podle kompatibilních typů polí."
+    },
+    "errors": {
+      "noFields": "Nebyla nalezena žádná pole.",
+      "noKeyPairs": "Nebyly nalezeny žádné klíčové páry.",
+      "noMatchedFields": "Chcete-li připojit data, zadejte jedno nebo více odpovídajících polí.",
+      "nonNullableErrorTitle": "Prázdné hodnoty nejsou povoleny",
+      "nonNullableErrorTitleSingular": "Pole, ve které není povolena prázdná hodnota null, je prázdné",
+      "nonNullableErrorDescription": "Pole, která nepovolují nulové hodnoty, nemohou být prázdná. Nejprve přiřaďte pole a poté pokračujte."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Vybrat jedinečný identifikátor",
+    "selectUniqueIdentifierDescription": "Vyberte jedinečné pole z původní vrstvy, které odpovídá poli z nahraného souboru.",
+    "originalField": {
+      "header": "Původní pole",
+      "moreInfo": "Tato jedinečná pole se nacházejí ve vrstvě prvků ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Nahrané pole",
+      "moreInfo": "Tato pole se nacházejí v nahraném souboru ${uploadedFileName} a jsou filtrována podle kompatibilních typů polí."
+    },
+    "title": "Identifikace klíčového páru",
+    "description": "Vyberte pole použitá k přiřazení jedinečného identifikátoru vrstvy nahraným datům.",
+    "noKeyPair": "K aktualizaci stávajících prvků je potřeba spárovat pole s vaším jedinečným identifikátorem.",
+    "timezoneHeader": "Výběr časového pásma",
+    "timezoneDescription": "Hostovaná vrstva prvků, ${featureLayerName}, obsahuje údaje o časovém pásmu uložené v ${featureLayerTimezone}. Pokud nahraný soubor, ${uploadedFileName}, obsahuje data v časovém pásmu jiném než UTC, upravte jej odpovídajícím způsobem."
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ T&igrave;m Vị tr&iacute; Tương tự đ&aacute;nh gi&aacute; sự tương tự giữa c&aacute;c vị tr&iacute; ứng vi&ecirc;n v&agrave; vị tr&iacute; tham chiếu dựa tr&ecirc;n một tập hợp c&aacute;c ti&ecirc;u ch&iacute; v&agrave; xếp hạng c&aacute;c vị tr&iacute; ứng vi&ecirc;n từ tương đồng nhiều nhất đến &iacute;t nhất.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Lớp điểm, đường hoặc v&ugrave;ng c&oacute; chứa vị tr&iacute; tham chiếu sẽ được khớp nối. Nếu lớp bao gồm nhiều vị tr&iacute;, tất cả c&aacute;c vị tr&iacute; đ&oacute; sẽ được t&iacute;nh trung b&igrave;nh để tạo th&agrave;nh một vị tr&iacute; tham chiếu duy nhất.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Lớp điểm, đường hoặc v&ugrave;ng c&oacute; chứa vị tr&iacute; ứng vi&ecirc;n t&igrave;m kiếm. Mỗi vị tr&iacute; ứng vi&ecirc;n t&igrave;m kiếm sẽ được so s&aacute;nh với vị tr&iacute; tham chiếu bằng gi&aacute; trị  <b>Lựa chọn ti&ecirc;u ch&iacute;</b> cụ thể v&agrave; được xếp hạng từ tương đồng nhiều nhất đến &iacute;t nhất.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>C&aacute;c trường dạng số sẽ được sử dụng để đ&aacute;nh gi&aacute; sự tương tự giữa vị tr&iacute; tham chiếu v&agrave; mỗi vị tr&iacute; ứng vi&ecirc;n t&igrave;m kiếm. Mỗi gi&aacute; trị  <b>Lựa chọn ti&ecirc;u ch&iacute;</b> sẽ c&oacute; một gi&aacute; trị <b>Trường từ lớp tham chiếu</b> v&agrave; một gi&aacute; trị <b>Trường từ lớp ứng vi&ecirc;n</b>. C&aacute;c gi&aacute; trị <b>Trường từ lớp tham chiếu</b> v&agrave; <b>Trường từ lớp ứng vi&ecirc;n</b> l&agrave; c&aacute;c trường tr&ugrave;ng khớp trong c&aacute;c gi&aacute; trị <b>Lớp vị tr&iacute; tham chiếu</b> v&agrave; <b>Lớp ứng vi&ecirc;n t&igrave;m kiếm</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Trường  <b>Lớp vị tr&iacute; tham chiếu</b> tương ứng với trường <b>Lớp ứng vi&ecirc;n t&igrave;m kiếm</b> được x&aacute;c định bởi gi&aacute; trị <b>Trường từ lớp ứng vi&ecirc;n</b>. C&aacute;c gi&aacute; trị trong những trường tr&ugrave;ng khớp n&agrave;y sẽ được so s&aacute;nh để đ&aacute;nh gi&aacute; sự tương tự giữa vị tr&iacute; tham chiếu v&agrave; mỗi vị tr&iacute; ứng vi&ecirc;n t&igrave;m kiếm.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Trường  <b>Lớp ứng vi&ecirc;n t&igrave;m kiếm</b> tương ứng với trường <b>Lớp vị tr&iacute; tham chiếu</b> được x&aacute;c định bởi gi&aacute; trị <b>Trường từ lớp ứng vi&ecirc;n</b>. C&aacute;c gi&aacute; trị trong những trường tr&ugrave;ng khớp n&agrave;y sẽ được so s&aacute;nh để đ&aacute;nh gi&aacute; sự tương tự giữa vị tr&iacute; tham chiếu v&agrave; mỗi vị tr&iacute; ứng vi&ecirc;n t&igrave;m kiếm.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>X&aacute;c định xem tất cả c&aacute;c vị tr&iacute; trong gi&aacute; trị  <b>Lớp ứng vi&ecirc;n t&igrave;m kiếm</b> c&oacute; được đưa v&agrave;o lớp đầu ra n&agrave;y hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Số lượng c&aacute;c vị tr&iacute; tương đồng nhiều nhất trong gi&aacute; trị  <b>Lớp ứng vi&ecirc;n t&igrave;m kiếm</b> sẽ được đưa v&agrave;o lớp đầu ra n&agrave;y.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

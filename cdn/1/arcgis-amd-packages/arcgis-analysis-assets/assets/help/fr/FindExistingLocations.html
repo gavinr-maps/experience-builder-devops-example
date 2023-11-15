@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Rechercher selon les attributs et la localisation cr&eacute;e une couche des entit&eacute;s ou des parties d&rsquo;entit&eacute;s r&eacute;pondant aux crit&egrave;res spatiaux ou attributaires sp&eacute;cifi&eacute;s.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayers">
+        <div>
+            <p>Couche ponctuelle, lin&eacute;aire ou de polygones pour laquelle les entit&eacute;s, en fonction d&rsquo;une combinaison de requ&ecirc;tes attributaires et spatiales, sont recherch&eacute;es.
+            </p>
+        </div>
+    </div>
+    <div id="queryBuilder">
+        <div>
+            <p>Les crit&egrave;res spatiaux ou attributaires &agrave; utiliser pour rechercher les entit&eacute;s. Cliquez sur le bouton  <b>Build new query (Cr&eacute;er une requ&ecirc;te)</b> pour d&eacute;finir un ou plusieurs crit&egrave;res spatiaux ou attributaires. Les entit&eacute;s ou portions d&rsquo;entit&eacute;s qui respectent tous les crit&egrave;res sont &eacute;crites dans la couche r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+    <div id="expressions">
+        <div>
+            <p> Les crit&egrave;res spatiaux ou attributaires &agrave; utiliser pour rechercher les entit&eacute;s. Cliquez sur le bouton <b>Build new query (Cr&eacute;er une requ&ecirc;te)</b> pour d&eacute;finir un ou plusieurs crit&egrave;res spatiaux ou attributaires. Les entit&eacute;s ou portions d&rsquo;entit&eacute;s qui respectent tous les crit&egrave;res sont &eacute;crites dans la couche r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+    <div id="clipFeatures">
+        <div>
+            <p>Lorsque seule une portion d&rsquo;une entit&eacute; respecte les crit&egrave;res, indique si le r&eacute;sultat inclut l&rsquo;entit&eacute; enti&egrave;re ou uniquement la portion de l&rsquo;entit&eacute; r&eacute;pondant &agrave; tous les crit&egrave;res. Lorsque cette option est s&eacute;lectionn&eacute;e, seules les portions de l&rsquo;entit&eacute; qui r&eacute;pondent &agrave; tous les crit&egrave;res sont renvoy&eacute;es. Lorsqu&rsquo;elle n&rsquo;est pas s&eacute;lectionn&eacute;e, l&rsquo;entit&eacute; enti&egrave;re est renvoy&eacute;e &agrave; condition qu&rsquo;au moins une portion de l&rsquo;entit&eacute; r&eacute;ponde &agrave; tous les crit&egrave;res.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

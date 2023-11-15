@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;Argumentstatistiken suchen&quot; extrahiert den Dimensionswert oder Bandindex, bei dem eine bestimmte Statistik f&uuml;r jedes Pixel in einem multidimensionalen Bilddaten-Layer erreicht wird.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Der multidimensionale Bilddaten-Layer, der evaluiert wird.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Die Dimension des multidimensionalen Bilddaten-Layers, aus der die Variable evaluiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Die Variable des multidimensionalen Bilddaten-Layers, die entlang des definierten Intervalls evaluiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Der Typ der Statistik, die aus der oder den Variablen entlang einer gegebenen Dimension extrahiert werden soll.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Der Mindestwert, der f&uuml;r die Dauer des Arguments verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Der Maximalwert, der f&uuml;r die Dauer des Arguments verwendet wird.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>Der Wert, der angibt, dass eine bestimmte Argumentstatistik mehr als einmal erreicht wurde. Der Standardwert ist der Wert beim ersten Erreichen der Argumentstatistik.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>Gibt an, ob der Wert der Dimension beim ersten oder letzten Erreichen des Arguments zur&uuml;ckgegeben wird. Die Standardeinstellung ist das erste Vorkommen bzw. Erreichen.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Der Dimensionswert, bei dem der angegebene Variablenwert erreicht wird, wird extrahiert.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>Gibt den Vergleichstyp f&uuml;r die Extraktion des Dimensionswertes an.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>Gibt an, wie die Statistik aus der Dimension extrahiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Die Zeiteinheit, f&uuml;r die jede Statistik extrahiert wird.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Gibt an, ob NoData-Werte bei der Extraktion ignoriert werden sollen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Die Art der Ausgabe, die erstellt wird. Die Ausgabe kann ein gekachelter Bilddaten-Layer oder ein dynamischer Bilddaten-Layer sein.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

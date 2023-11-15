@@ -1,0 +1,313 @@
+{
+  "name": "ChooseBestFacilities",
+  "displayName": "ChooseBestFacilities",
+  "description": "This tool chooses the best locations for facilities by allocating locations that have demand for these facilities in a way that satisfies a given goal.",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/ChooseBestFacilities.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "goal",
+      "dataType": "GPString",
+      "displayName": "goal",
+      "description": "Specify the goal that must be satisfied when allocating demand locations to facilities.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Allocate",
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": "",
+      "choiceList": [
+        "Allocate",
+        "MinimizeImpedance",
+        "MaximizeCoverage",
+        "MaximizeCapacitatedCoverage",
+        "PercentCoverage"
+      ]
+    },
+    {
+      "name": "demandLocationsLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "demandLocationsLayer",
+      "description": "A point layer specifying the locations that have demand for facilities ",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": "Demand Locations"
+    },
+    {
+      "name": "demand",
+      "dataType": "GPDouble",
+      "displayName": "demand",
+      "description": "The amount of demand available at every demand locations. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 1,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Demand Locations"
+    },
+    {
+      "name": "demandField",
+      "dataType": "GPString",
+      "displayName": "demandField",
+      "description": "The field on the demandLocationsLayer representing the amount of demand available at each demand location.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Demand Locations"
+    },
+    {
+      "name": "maxTravelRange",
+      "dataType": "GPDouble",
+      "displayName": "maxTravelRange",
+      "description": "Specify the maximum travel time or distance allowed between a demand location and the facility it is allocated to",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 2147483647,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Demand Locations"
+    },
+    {
+      "name": "maxTravelRangeField",
+      "dataType": "GPString",
+      "displayName": "maxTravelRangeField",
+      "description": "The field on the demandLocationsLayer specifying the maximum travel time or distance allowed between a demand location and the facility it is allocated to. This parameter takes precedence when maxTravelRange parameter is also specified",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Demand Locations"
+    },
+    {
+      "name": "maxTravelRangeUnits",
+      "dataType": "GPString",
+      "displayName": "maxTravelRangeUnits",
+      "description": "The units for the maximum travel time or distance allowed between a demand location and the facility it is allocated to. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Minutes",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Demand Locations",
+      "choiceList": ["Seconds", "Minutes", "Hours", "Days", "Meters", "Kilometers", "Feet", "Yards", "Miles"]
+    },
+    {
+      "name": "travelMode",
+      "dataType": "GPString",
+      "displayName": "travelMode",
+      "description": "Specify the mode of transportation for the analysis",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Measure"
+    },
+    {
+      "name": "timeOfDay",
+      "dataType": "GPDate",
+      "displayName": "timeOfDay",
+      "description": "Specify whether travel times should consider traffic conditions",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Measure"
+    },
+    {
+      "name": "timeZoneForTimeOfDay",
+      "dataType": "GPString",
+      "displayName": "timeZoneForTimeOfDay",
+      "description": "Specify the time zone or zones for the timeOfDay parameter.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "GeoLocal",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Measure",
+      "choiceList": ["GeoLocal", "UTC"]
+    },
+    {
+      "name": "travelDirection",
+      "dataType": "GPString",
+      "displayName": "travelDirection",
+      "description": "Specify whether to measure travel times or distances from facilities to demand locations or from demand locations to facilities.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "FacilityToDemand",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Measure",
+      "choiceList": ["FacilityToDemand", "DemandToFacility"]
+    },
+    {
+      "name": "requiredFacilitiesLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "requiredFacilitiesLayer",
+      "description": "A point layer specifying one or more locations that act as facilities by providing some kind of service. Facilities specified by this parameter are required to be part of the output solution and will be used before any facilities from the candidatesFacilitiesLayer when allocating demand locations.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "requiredFacilitiesCapacity",
+      "dataType": "GPDouble",
+      "displayName": "requiredFacilitiesCapacity",
+      "description": "Specify how much demand every facility in the requiredFacilitiesLayer is capable of supplying.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 2147483647,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "requiredFacilitiesCapacityField",
+      "dataType": "GPString",
+      "displayName": "requiredFacilitiesCapacityField",
+      "description": "A field on the requiredFacilitiesLayer representing how much demand each facility in the requiredFacilitiesLayer is capable of supplying. This parameter takes precedence when requiredFacilitiesCapacity parameter is also specified.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "candidateFacilitiesLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "candidateFacilitiesLayer",
+      "description": "A point layer specifying one or more locations that act as facilities by providing some kind of service. Facilities specified by this parameter are not required to be part of the output solution and will be used only after all the facilities from the candidatesFacilitiesLayer have been used when allocating demand locations.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "candidateCount",
+      "dataType": "GPLong",
+      "displayName": "candidateCount",
+      "description": "Specify the number of facilities to choose when allocating demand locations. If requiredFacilitiesLayer is specified, the number of facilities to choose should be equal to or greater than the count of locations in the requiredFacilitiesLayer. ",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 1,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "candidateFacilitiesCapacity",
+      "dataType": "GPDouble",
+      "displayName": "candidateFacilitiesCapacity",
+      "description": "Specify how much demand every facility in the candidateFacilitiesLayer is capable of supplying.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 2147483647,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "candidateFacilitiesCapacityField",
+      "dataType": "GPString",
+      "displayName": "candidateFacilitiesCapacityField",
+      "description": "A field on the candidateFacilitiesLayer representing how much demand each facility in the candidatesFacilitiesLayer is capable of supplying. This parameter takes precedence when candidateFacilitiesCapacity parameter is also specified.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "percentDemandCoverage",
+      "dataType": "GPDouble",
+      "displayName": "percentDemandCoverage",
+      "description": "Specify the percentage of the total demand that you want the chosen and required facilities to capture.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": 100,
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Facilities"
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "If provided, the task will create a feature service of the results. You define the name of the service. If outputName is not supplied, the task will return a feature collection.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Result"
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "Context contains additional settings that affect task execution such as the extent of inputs.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "Result"
+    },
+    {
+      "name": "pointBarrierLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "pointBarrierLayer",
+      "description": "Specify one or more points to act as temporary restrictions or represent additional time or distance that may be required to travel on the underlying streets.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "lineBarrierLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "lineBarrierLayer",
+      "description": "Specify one or more lines that prohibit travel anywhere the lines intersect the streets.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "polygonBarrierLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "polygonBarrierLayer",
+      "description": "Specify polygons that either completely restrict travel or proportionately scale the time or distance required to travel on the streets intersected by the polygons.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPolygon"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "allocatedDemandLocationsLayer",
+      "dataType": "GPString",
+      "displayName": "allocatedDemandLocationsLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "allocationLinesLayer",
+      "dataType": "GPString",
+      "displayName": "allocationLinesLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    },
+    {
+      "name": "assignedFacilitiesLayer",
+      "dataType": "GPString",
+      "displayName": "assignedFacilitiesLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Buffer l&eacute;trehoz&aacute;sa eszk&ouml;z &ndash; A bemeneti vektoros elemektől adott t&aacute;vols&aacute;got lefedő polygonok l&eacute;trehoz&aacute;sa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>A bufferelni k&iacute;v&aacute;nt pont, vonal vagy polygon vektoros elemek.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Megadja, hogy a puffer t&aacute;vols&aacute;got egy konstans (<b>&Eacute;rt&eacute;k</b>) vagy egy numerikus mező (<b>Mező</b>) hat&aacute;rozza meg.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>A puffer l&eacute;trehoz&aacute;s&aacute;hoz haszn&aacute;lt t&aacute;vols&aacute;g. Ha t&ouml;bb &eacute;rt&eacute;ket adunk hozz&aacute;, akkor minden egyes &eacute;rt&eacute;ket minden bemeneti vektoros elemn&eacute;l egy puffer l&eacute;trehoz&aacute;s&aacute;ra haszn&aacute;lunk.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Az egyes mezők buffert&aacute;vols&aacute;g&aacute;t tartalmaz&oacute; mező.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>A buffert&aacute;vols&aacute;g megad&aacute;s&aacute;hoz haszn&aacute;lt m&eacute;rt&eacute;kegys&eacute;gek.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Megadja, hogy a k&uuml;l&ouml;nb&ouml;ző bemeneti vektoros elemekből sz&aacute;rmaz&oacute; puffereket hogyan kezelj&eacute;k, ha azok &aacute;tfedik egym&aacute;st.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Meghat&aacute;rozza, hogy a t&ouml;bbsz&ouml;r&ouml;s t&aacute;vols&aacute;g&uacute; pufferek &aacute;tfedő koncentrikus pufferek (<b>&Aacute;tfedő lemezek</b>) vagy &aacute;t nem fedő gyűrűk (<b>K&uuml;l&ouml;n&aacute;ll&oacute; gyűrűk</b>) legyenek.
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Vonalas vektor elemek eset&eacute;n megadja, hogy a puffer a vonal mindk&eacute;t oldal&aacute;n (<b>K&ouml;rbe</b>), csak a bal oldalon (<b>Bal</b>) vagy csak a jobb oldalon (<b>Jobb</b>) legyen l&eacute;trehozva.
+            </p>
+            <p>A polygon t&iacute;pus&uacute; vektoros elemek eset&eacute;ben megadja, hogy a bemeneti elemek szerepeljenek-e a pufferben (<b>Tartalmaz</b>) vagy ne szerepeljenek a pufferben (<b>Kiz&aacute;r</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a puffer alakja egy vonalas vektor elem v&eacute;g&eacute;n kerek (<b>Kerek</b>) vagy lapos (<b>Lapos</b>) legyen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

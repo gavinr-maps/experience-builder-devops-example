@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ L&ecirc;n kế hoạch Định tuyến tạo c&aacute;c tuyến đường di chuyển với nhiều điểm dừng cho một đội phương tiện.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>C&aacute;c đối tượng điểm chỉ định nơi c&aacute;c phương tiện bắt đầu tuyến đường.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>C&aacute;c đối tượng điểm m&agrave; c&aacute;c phương tiện phải gh&eacute; qua tr&ecirc;n truyến đường. C&aacute;c điểm n&agrave;y trở th&agrave;nh c&aacute;c điểm dừng được chỉ định hoặc bỏ chỉ định trong đầu ra.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>X&aacute;c định xem c&aacute;c phương tiện phải quay lại vị tr&iacute; xuất ph&aacute;t (bật) hay kết th&uacute;c tại c&aacute;c vị tr&iacute; được chỉ định (tắt).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>C&aacute;c đối tượng điểm chỉ định nơi c&aacute;c phương tiện kết th&uacute;c tuyến đường. Nếu lớp chỉ bao gồm một điểm, tất cả c&aacute;c phương tiện sẽ được định tuyến đến một điểm kết th&uacute;c chung. Nếu lớp bao gồm nhiều điểm, mỗi phương tiện sẽ được định tuyến đến một vị tr&iacute; kết th&uacute;c duy nhất.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>Trường trong lớp bắt đầu x&aacute;c định duy nhất c&aacute;c tuyến đường, phương tiện hoặc người l&aacute;i xe ri&ecirc;ng lẻ. Nếu c&aacute;c phương tiện bắt đầu tại nhiều địa điểm v&agrave; kết th&uacute;c tại nhiều địa điểm, ID tuyến đường được chọn cho lớp bắt đầu v&agrave; lớp kết th&uacute;c phải tr&ugrave;ng khớp.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>Trường trong lớp kết th&uacute;c x&aacute;c định duy nhất c&aacute;c tuyến đường, phương tiện hoặc người l&aacute;i xe ri&ecirc;ng lẻ. Nếu c&aacute;c phương tiện bắt đầu tại nhiều địa điểm v&agrave; kết th&uacute;c tại nhiều địa điểm, ID tuyến đường được chọn cho lớp bắt đầu v&agrave; lớp kết th&uacute;c phải tr&ugrave;ng khớp.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng điểm hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. Di chuyển được cho ph&eacute;p tr&ecirc;n đường nhưng kh&ocirc;ng được đi qua r&agrave;o cản.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng đường hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng đường ngăn cản di chuyển ở bất cứ nơi n&agrave;o r&agrave;o cản giao cắt đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Một hoặc nhiều đối tượng dạng v&ugrave;ng hoạt động như c&aacute;c vị tr&iacute; hạn chế tạm thời (r&agrave;o cản) khi di chuyển tr&ecirc;n c&aacute;c đường phố b&ecirc;n dưới. C&aacute;c r&agrave;o cản dạng v&ugrave;ng cấm di chuyển ở bất cứ nơi n&agrave;o m&agrave; v&ugrave;ng giao cắt với đường phố.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Phương ph&aacute;p di chuyển để tạo c&aacute;c tuyến đường. Phương thức di chuyển c&oacute; thể dựa tr&ecirc;n khoảng c&aacute;ch hoặc thời gian.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>Ng&agrave;y v&agrave; thời gian khởi h&agrave;nh cho c&aacute;c phương tiện.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>Số lượng phương tiện tối đa khả dụng đến c&aacute;c điểm dừng. Nếu mỗi  <b>Lớp bắt đầu</b> v&agrave; <b>Lớp kết th&uacute;c</b> đều chứa một đối tượng, bạn c&oacute; thể chỉ định tối đa 100 phương tiện. Nếu một trong hai lớp chứa nhiều hơn một đối tượng th&igrave; kh&ocirc;ng thể chỉnh sửa gi&aacute; trị mặc định. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>Số lượng điểm dừng tối đa m&agrave; mỗi phương tiện c&oacute; thể gh&eacute; qua tr&ecirc;n một tuyến đường. Bạn c&oacute; thể chỉ định một gi&aacute; trị từ 1 đến  200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Chỉ định thời gian dịch vụ trung b&igrave;nh dự kiến ti&ecirc;u tốn tại mỗi điểm dừng.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>X&aacute;c định xem thời gian định tuyến tối đa c&oacute; được &aacute;p dụng cho phương tiện hay kh&ocirc;ng. Thời gian định tuyến n&agrave;y bao gồm thời gian đi lại dự kiến v&agrave; thời gian dịch vụ ti&ecirc;u tốn tại c&aacute;c điểm dừng dọc theo tuyến đường.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>Chỉ định số lượng thời gian tối đa một tuyến đường cần c&oacute; từ khi bắt đầu đến khi kết th&uacute;c.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>X&aacute;c định xem c&oacute; lưu từng tuyến đường kết quả dưới dạng lớp tuyến đường hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>T&ecirc;n của thư mục trong mục  <b>Nội dung của t&ocirc;i</b> nơi sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

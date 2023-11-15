@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Parauga rīks izveido tabulu vai punktu elementu klasi, lai parādītu pikseļu vērtības no rastra vai rastru kopas noteiktās vietās.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>Attēlu slāņi, kuros ir vērtības, no kurām tiks ņemti paraugi, pamatojoties uz ievades vietas datiem.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Slānis, kurā ir katra parauga atra&scaron;anās vietas.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>Atkārtotas paraugu atlases algoritms, ko izmantos paraugu atlases procesā.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Lauks slānī, kas satur at&scaron;ķirīgu vērtību katram novietojumam vai ievades elementam.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Norāda, vai ievades attēlu slāņos ir iekļauti daudzdimensiju dati.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Norāda laiku, dziļumu vai citus ieguves datus, kas saistīti ar novietojuma elementiem.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Daudzdimensiju ievades slāņa dimensija.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Lauks, kas tiks izmantots daudzdimensiju ievades slāņa laika diapazona startē&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Lauks, kas tiks izmantots, lai beigtu daudzdimensiju ievades slāņa laika diapazonu.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Nenegatīvs skaitlis, kas tiks pievienots parametram  <b>Dimensija</b>, vai vērtība, kas definēs dimensijas vērtību diapazona sākumu.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Nenegatīvs skaitlis, kas tiks pievienots parametram  <b>Dimensija</b>, vai vērtība, kas definēs dimensijas vērtību diapazona beigas.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Statistika, kas tiks ģenerēta, apstrādājot daudzdimensiju attēlu slāņus.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Procentu vērtība, kas tiks izmantota procentiles statistikas veidam.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>Buferzonas attālums, kas tiks piemērots ievades novietojumiem.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Norāda, vai izvades veids būs elements vai tabula.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Norāda, vai izvade būs kā rinda vai kā kolonna.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

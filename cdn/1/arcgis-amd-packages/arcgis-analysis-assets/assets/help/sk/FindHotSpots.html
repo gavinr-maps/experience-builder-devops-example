@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj N&aacute;jsť hot spoty identifikuje &scaron;tatisticky v&yacute;znamn&eacute; zoskupenia vo vstupn&yacute;ch prvkoch.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Vstupn&yacute; bod alebo polyg&oacute;nov&aacute; vrstva, na ktorej sa vykon&aacute; hot spot anal&yacute;za.
+            </p>
+        </div>
+    </div>
+    <div id="countType">
+        <div>
+            <p>Určuje, či hor&uacute;ce a studen&eacute; miesta bud&uacute; reflektovať lokality prvkov (<b>Počty bodov</b>) alebo hodnoty v poliach prvkov (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="analysisField">
+        <div>
+            <p>Pole, ktor&eacute; sa bude analyzovať pre klastery s vysokou a n&iacute;zkou hodnotou.
+            </p>
+        </div>
+    </div>
+    <div id="shapeType">
+        <div>
+            <p>Typ ohraničuj&uacute;cich prvkov, v r&aacute;mci ktor&yacute;ch bud&uacute; vstupn&eacute; bodov&eacute; prvky agregovan&eacute;. M&ocirc;že to byť polyg&oacute;nov&aacute; vrstva (<b>Polyg&oacute;nov&aacute; vrstva</b>) alebo teselačn&aacute; mriežka pozost&aacute;vaj&uacute;ca buď zo &scaron;tvorcov (<b>Sieťov&eacute; bunky</b>) alebo hexag&oacute;nov (<b>Hexag&oacute;nov&eacute; bunky</b>).
+            </p>
+        </div>
+    </div>
+    <div id="aggregationPolygonLayer">
+        <div>
+            <p>Vrstva obsahuj&uacute;ca polyg&oacute;nov&eacute; prvky, v r&aacute;mci ktor&yacute;ch bud&uacute; agregovan&eacute; vstupn&eacute; bodov&eacute; prvky.
+            </p>
+        </div>
+    </div>
+    <div id="boundingPolygonLayer">
+        <div>
+            <p>Polyg&oacute;nov&aacute; vrstva, ktor&aacute; bude definovať hranicu anal&yacute;zy. Bodov&eacute; prvky v r&aacute;mci polyg&oacute;nu bud&uacute; zahrnut&eacute; do hot spot anal&yacute;zy.
+            </p>
+        </div>
+    </div>
+    <div id="dividedByField">
+        <div>
+            <p>Určuje, ako sa maj&uacute; vydeliť hodnoty&nbsp; <b>Analytick&eacute;ho poľa</b> alebo agregovan&eacute; počty bodov. Možnosť <b>Pole</b> vydel&iacute; hodnoty <b>Analytick&eacute;ho poľa</b> hodnotami zadan&eacute;ho poľa v parametri <b>Vstupn&aacute; vrstva</b>. Možnosť <b>Obohatenie d&aacute;t</b> obohat&iacute; prvky alebo agregačn&eacute; &uacute;tvary o populačn&eacute; d&aacute;ta a vydel&iacute; hodnoty <b>Analytick&eacute;ho poľa</b> alebo agregovan&eacute; počty bodov podľa popul&aacute;cie. T&aacute;to možnosť spotrebuje ďal&scaron;ie kredity.
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>Dĺžka strany &scaron;tvorca alebo hexag&oacute;nu, ktor&yacute; sa použije na agreg&aacute;ciu vstupn&yacute;ch prvkov.
+            </p>
+        </div>
+    </div>
+    <div id="cellSizeUnits">
+        <div>
+            <p>Určuje jednotky, ktor&eacute; sa použij&uacute; pre veľkosť bunky.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBand">
+        <div>
+            <p>P&aacute;smo vzdialenosti, ktor&eacute; sa použije na definovanie okolia. Susedn&eacute; prvky v p&aacute;sme vzdialenosti cieľov&eacute;ho prvku bud&uacute; počas hot spot anal&yacute;zy zahrnut&eacute; do okolia cieľov&eacute;ho prvku.
+            </p>
+        </div>
+    </div>
+    <div id="distanceBandUnits">
+        <div>
+            <p>Určuje jednotky, ktor&eacute; sa použij&uacute; pre p&aacute;smo vzdialenosti.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>เครื่องมือเชื่อมต่อภูมิภาคที่เหมาะสมที่สุด จะคำนวณเครือข่ายการเชื่อมต่อที่เหมาะสมที่สุดระหว่างอย่างน้อยสองภูมิภาคอินพุท
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRegionRasterOrFeatures">
+        <div>
+            <p>ชั้นข้อมูลแรสเตอร์หรือฟีเจอร์ที่ระบุภูมิภาคซึ่งจะเชื่อมต่อโดยเครือข่ายที่เหมาะสมที่สุด
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>ชั้นข้อมูลแรสเตอร์หรือฟีเจอร์ที่ระบุอุปสรรคซึ่งต้องกำหนดเส้นทางอ้อมผ่านไป
+            </p>
+            <p>สำหรับชั้นข้อมูลแรสเตอร์ เซลล์ที่มีค่า (รวมถึงศูนย์) จะถือว่าเป็นอุปสรรค
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>ชั้นข้อมูลแรสเตอร์ที่กำหนดอิมพีแดนซ์ หรือต้นทุน ในการเคลื่อนที่ผ่านแต่ละเซลล์
+            </p>
+            <p>ค่า ณ ตำแหน่งแต่ละเซลล์แทนระยะทางต้นทุนต่อหน่วยในการเคลื่อนผ่านเซลล์ ต้องไม่ติดลบหรือเป็นศูนย์
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>ระบุว่าจะคำนวณระยะทางโดยใช้วิธีการแบบระนาบ (โลกแบน) หรือจีโอเดสิค (ทรงรี)
+            </p>
+        </div>
+    </div>
+    <div id="connectionsWithinRegions">
+        <div>
+            <p>ระบุว่าเส้นทางจะมีความต่อเนื่อง และเชื่อมต่อภายในอินพุทภูมิภาคหรือไม่
+            </p>
+        </div>
+    </div>
+    <div id="outputOptimalLinesName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลเครือข่ายเส้นทางที่เหมาะสมที่สุด ซึ่งเชื่อมโยงแต่ละภูมิภาคอินพุทที่จะสร้างและเพิ่มลงในแผนที่
+            </p>
+        </div>
+    </div>
+    <div id="outputNeighborConnectionsName">
+        <div>
+            <p>ชื่อของชั้นข้อมูลเส้นการเชื่อมต่อพื้นที่ใกล้เคียง ที่จะสร้างและเพิ่มลงในแผนที่ ชั้นข้อมูลจะระบุเส้นทางทั้งหมดจากแต่ละภูมิภาคถึงแต่ละพื้นที่ใกล้เคียงที่อยู่ใกล้ที่สุดหรือต้นทุนน้อยที่สุด
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>ชื่อของโฟลเดอร์ใน  <b>เนื้อหาของฉัน</b> ซึ่งจะทำการบันทึกผลลัพธ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

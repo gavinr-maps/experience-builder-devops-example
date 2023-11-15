@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>多維主要元件工具可將多維影像圖層轉換為數量減少的元件以解釋資料的方差，從而輕鬆識別空間和時態模式。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>將分析的多維影像圖層。
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>將用於執行主要元件分析的方法。 選項包括  <b>維度縮減</b>和 <b>空間縮減</b>。
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>沿其分析變數之多維影像圖層的維度。
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>輸出影像圖層或表格圖層的名稱，顯示根據以下模式選項找到的主要元件：
+                <ul>
+                    <li>降維輸出將是多頻段影像圖層。
+                    </li>
+                    <li>空間縮減輸出將是一個表格圖層。
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>輸出影像圖層或表格圖層的名稱，顯示主要元件選項中的支援資料，取決於以下模式選項:
+                <ul>
+                    <li>降維輸出將是一個表格圖層。
+                    </li>
+                    <li>空間縮減輸出將是一個影像圖層。
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>特徵值表的名稱，表示每個元件的方差百分比。
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>計算中使用的輸入多維影像圖層的變數名稱。
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>要計算的主要元件的數量，通常少於輸入點陣的數量。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>將建立之輸出的類型。 輸出可以是圖磚影像圖層或動態影像圖層。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

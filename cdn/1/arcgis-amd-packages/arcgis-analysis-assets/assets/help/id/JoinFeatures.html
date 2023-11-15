@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Alat Gabungkan Fitur menambahkan atribut dari satu layer atau tabel ke layer atau tabel yang lain berdasarkan hubungan spasial dan atribut yang ditentukan. Secara opsional, statistik dapat dihitung saat ada beberapa catatan yang cocok.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Layer atau tabel yang akan memiliki atribut dari layer gabungan yang ditambahkan pada tabel atributnya.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Layer atau tabel dengan atribut yang akan ditambahkan ke layer target.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Tentukan apakah akan menggabungkan layer berdasarkan hubungan spasial. Ini mengharuskan kedua layer memiliki geometri.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Tentukan hubungan spasial yang menentukan fitur mana yang digabungkan. Fitur-fitur dalam layer gabungan yang memiliki hubungan tertentu dengan layer target akan digabungkan. Hubungan yang tersedia bergantung pada jenis geometri input.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Jarak dari fitur di layer target yang akan digunakan untuk menentukan apakah fitur akan digabungkan.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>Satuan yang akan digunakan untuk menentukan jarak.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Tentukan apakah akan menggabungkan layer berdasarkan nilai kolom yang cocok. Ini adalah satu-satunya opsi jika satu atau beberapa input berupa tabel.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Tentukan hubungan atribut yang menentukan fitur mana yang akan digabungkan. Fitur cocok jika nilai kolom pada layer gabungan sama dengan nilai kolom pada layer target.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Tentukan bagaimana gabungan akan ditangani jika beberapa cacatan dari layer gabungan memenuhi kriteria gabungan. Pilih dari opsi berikut:
+                <ul>
+                    <li> <b>Gabungkan satu ke satu</b>&mdash; Gabungkan satu catatan di layer gabungan ke setiap fitur di layer target.
+                    </li>
+                    <li> <b>Gabungkan satu ke banyak</b>&mdash;Gabungkan seluruh fitur yang cocok di layer gabungan ke layer target. Layer hasil akan berisi beberapa rekaman fitur target.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Saat beberapa fitur di layer gabungan cocok dengan fitur target, tentukan apakah akan menggabungkan satu catatan dari layer gabungan atau untuk menghitung statistik ringkasan semua catatan yang cocok dari layer gabungan.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Saat ada beberapa fitur gabungan yang cocok dengan fitur target, statistik ringkasan untuk semua catatan yang cocok akan dihitung. Tentukan kolom nomor atau tanggal dari layer gabungan, dan statistik yang akan dihitung untuk setiap kolom.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Saat ada beberapa fitur gabungan yang cocok dengan fitur target, catatan pertama dari tabel atribut layer gabungan akan disertakan dalam output. Secara opsional, pilih kolom nomor atau tanggal dan urutan yang akan menentukan urutan tabel atribut.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>Menentukan apakah fitur target yang tidak cocok akan disertakan dalam output.  <b>Gabungkan Dalam</b> hanya mengembalikan catatan target, sedangkan <b>gabungkan Keluar</b> mengembalikan semua catatan target, meskipun fitur target tidak memiliki kecocokan di layer gabungan.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nama layer atau tabel yang akan dibuat dan ditambahkan ke peta.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nama folder di  <b>Konten Saya</b> tempat penyimpanan hasil.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

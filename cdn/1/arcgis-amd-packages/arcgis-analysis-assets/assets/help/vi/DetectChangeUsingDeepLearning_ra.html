@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Ph&aacute;t hiện Thay đổi bằng Deep Learning sử dụng m&ocirc; h&igrave;nh deep learning để ph&aacute;t hiện thay đổi giữa hai lớp raster.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="fromRaster">
+        <div>
+            <p>Lớp h&igrave;nh ảnh đầu v&agrave;o trước khi thay đổi sẽ được d&ugrave;ng l&agrave;m cơ sở để so s&aacute;nh.
+            </p>
+        </div>
+    </div>
+    <div id="toRaster">
+        <div>
+            <p>Lớp h&igrave;nh ảnh đầu v&agrave;o sau khi thay đổi sẽ được d&ugrave;ng để so s&aacute;nh với lớp gốc.
+            </p>
+        </div>
+    </div>
+    <div id="outputClassifiedRasterName">
+        <div>
+            <p>Lớp h&igrave;nh ảnh đ&atilde; ph&acirc;n loại đầu ra hiển thị thay đổi.
+            </p>
+        </div>
+    </div>
+    <div id="modelArguments">
+        <div>
+            <p>C&aacute;c đối số m&ocirc; h&igrave;nh c&oacute; trong m&ocirc; h&igrave;nh deep learning c&ugrave;ng với gi&aacute; trị mặc định của c&aacute;c đối số đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="modelDefinition">
+        <div>
+            <p>G&oacute;i deep learning chứa m&ocirc; h&igrave;nh sẽ được sử dụng để ph&aacute;t hiện thay đổi giữa c&aacute;c lớp h&igrave;nh ảnh.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loại đầu ra sẽ được tạo. Đầu ra c&oacute; thể l&agrave; Lớp h&igrave;nh ảnh dạng tile hoặc Lớp h&igrave;nh ảnh động.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

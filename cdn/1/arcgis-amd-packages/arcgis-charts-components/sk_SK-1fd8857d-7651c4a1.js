@@ -1,0 +1,2 @@
+/*! For license information please see sk_SK-1fd8857d-7651c4a1.js.LICENSE.txt */
+define(["exports"],(function(o){"use strict";o.default={"Zoom Out":"Oddialiť","From %1 to %2":"Z %1 do %2","From %1":"Z %1","To %1":"Do %1"}}));

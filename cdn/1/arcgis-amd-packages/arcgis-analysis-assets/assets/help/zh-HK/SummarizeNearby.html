@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「鄰近摘要」工具可計算與其他圖徵在指定距離內之圖徵的統計資料。 可使用直線距離或行進模式來計算距離。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>要在鄰近圖層一段距離內摘要的圖層。
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>作為起始位置的點、線或多邊形圖層，將在其周圍建立邊界區域以摘要鄰近圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>將用於建立邊界區域的方法。 方法可為直線距離或行進模式。
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>將用於建立邊界區域的距離或時間。 如果新增多個值，則每個值都將用於計算所有輸入圖徵的邊界區域。
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>將用於指定距離或時間的單位。
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>指定結果圖層是邊界區域 (已勾選)，還是與輸入鄰近圖層相同的幾何 (未勾選)。
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>計算每個邊界區域中摘要的圖徵總大小。 會針對線條計算總長度。 會針對多邊形計算總面積。
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>將用於計算摘要圖徵總大小的單位。
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>將摘要的輸入圖層的數字或日期欄位，以及將為每個欄位計算的統計資料。
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>使用輸入圖層的欄位，可用於將資料分成不同的群組以進行統計計算。
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>計算每個摘要區域內的少數 (所佔比例最小) 和多數 (所佔比例最大) 群組。
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>計算屬於每個邊界內每個群組的摘要圖徵的百分比。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

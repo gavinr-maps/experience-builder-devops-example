@@ -1,0 +1,2007 @@
+{
+  "newItem": "Element nou",
+  "addLayer": "Afegeix una capa",
+  "createFeatureLayer": "Crea una capa d'entitats",
+  "createTileLayer": "Crea una capa de tessel·les",
+  "createSceneLayer": "Crea una capa d'escenes",
+  "createRasterFunctionTemplate": "Crea una plantilla de funció de ràster nova",
+  "addDataStore": "Afegeix una connexió a un magatzem de dades",
+  "next": "Següent",
+  "publish": "Publica",
+  "save": "Desa",
+  "cancel": "Cancel·la",
+  "back": "Enrere",
+  "error": "Error",
+  "update": "Actualitza",
+  "moreInfo": "Més informació",
+  "loadingData": "S'està carregant...",
+  "creatingLayer": "S'està creant la capa...",
+  "common": {
+    "add": "Afegeix",
+    "url": "URL",
+    "addToMap": "Afegeix-ho al mapa",
+    "createAndAddToMap": "Crea i afegeix al mapa",
+    "register": "Registra",
+    "supportServices": "Els serveis admesos són ${typeList}",
+    "supportLayerTypes": "Els tipus de capa admesos són ${typeList}",
+    "supportFileTypes": "Els tipus de fitxers compatibles són ${typeList}",
+    "learnMore": "Més informació",
+    "updateAndComplete": "Actualitza i completa",
+    "proceed": "Continua",
+    "createConnection": "Crea una connexió",
+    "addAndComplete": "Afegeix i completa",
+    "signInAndOverwrite": "Inicia sessió i sobreescriu",
+    "overwriteAndComplete": "Sobreescriu i completa"
+  },
+  "application": {
+    "web": "Cartografia web",
+    "desktop": "Escriptori",
+    "mobile": "Mòbil",
+    "otherApplication": "Una altra aplicació",
+    "applicationType": "Tipus d'aplicació",
+    "application": "Aplicació",
+    "manifestUrl": "URL del manifest",
+    "appExtension": "Extensió de l'aplicació (AppBuilder)",
+    "experienceBuilderWidget": "Widget de l'Experience Builder",
+    "appExtensionError": "La URL no fa referència a una extensió de l'AppBuilder.",
+    "enterManifestUrl": "Introduïu l'URL del manifest de l'extensió",
+    "File": "Fitxer",
+    "selectZip": "Seleccioneu un fitxer .zip",
+    "fileRequired": "Fitxer obligatori per a aplicacions d'escriptori",
+    "enterUrl": "Introduïu l'URL de l'aplicació",
+    "enterValidUrl": "Introduïu un URL de l'aplicació vàlid",
+    "URL": "URL"
+  },
+  "auth": {
+    "username": "Nom d'usuari",
+    "enterUsername": "Introduïu el nom d'usuari",
+    "password": "Contrasenya",
+    "enterPassword": "Introduïu la contrasenya",
+    "invalid": "El nom d'usuari o la contrasenya no són vàlids.",
+    "requiresCredentials": "S'ha de proporcionar un nom d'usuari i una contrasenya."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Seleccioneu les capes que vulgueu afegir",
+    "noLayersFound": "No s'ha trobat cap capa que compleixi els vostres criteris. Proveu de canviar el terme de cerca perquè es mostrin més capes.",
+    "of": "de",
+    "layers": "capes",
+    "usePro": "Aquest dataset té més de 1.000 capes. Introduïu un terme de cerca per trobar una capa concreta.",
+    "errorTitle": "No s'ha seleccionat cap capa",
+    "noLayersSelected": "Seleccioneu una o diverses capes per continuar",
+    "selectAll": "Selecciona-ho tot",
+    "deselectAll": "Anul·la la selecció de tot"
+  },
+  "csvFields": {
+    "searchFields": "Cerca un camp",
+    "fieldType": "Tipus de camp",
+    "fieldTitle": "Camps",
+    "fieldDescription": "Seleccioneu els camps que s'inclouran a la capa d'entitats allotjada. També podeu canviar el nom de visualització i el tipus de camp.",
+    "fieldNoHostedDescription": "Podeu canviar els noms de visualització i els tipus de camp que s'utilitzaran a la capa.",
+    "fieldName": "Nom del camp",
+    "displayName": "Nom de visualització",
+    "displayNameLabel": "Nom de visualització ${name}",
+    "type": "Tipus",
+    "typeLabel": "Tipus ${name}",
+    "allTypes": "Todos los tipos",
+    "noFields": "No s'ha trobat cap camp que compleixi els vostres criteris de cerca. Proveu de canviar el terme de cerca o amplieu les opcions de filtre.",
+    "selected": "seleccionat",
+    "clearSelection": "Esborra la selecció",
+    "fieldTypes": {
+      "esriFieldTypeString": "Cadena",
+      "esriFieldTypeInteger": "Enter",
+      "esriFieldTypeSmallInteger": "Enter petit",
+      "esriFieldTypeSingle": "Simple",
+      "esriFieldTypeDouble": "Valor doble",
+      "esriFieldTypeDate": "Data",
+      "esriFieldTypeDateOnly": "Només la data",
+      "esriFieldTypeTimeOnly": "Només l'hora",
+      "esriFieldTypeBigInteger": "Enter gran",
+      "esriFieldTypeTimestampOffset": "Desplaçament de la marca d'hora"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "S'està analitzant...",
+    "locationSettings": "Configuració d'ubicació",
+    "locationSettingsDescription": "Especifiqueu el tipus d'informació d'ubicació que conté el fitxer.",
+    "advancedSettings": "Configuració avançada d'ubicació",
+    "locator": "Localitzador",
+    "region": "Regió",
+    "enrich": "Enriqueix la capa amb informació d'adreces",
+    "enrichLayer": "Enriqueix els camps de sortida del localitzador de la capa",
+    "enrichLayerDescription": "Afegiu camps que proporcionin informació sobre el procés de geocodificació, com ara el grau de concordança de la informació d'ubicació del fitxer amb el localitzador.",
+    "enrichLayerLink": "Obteniu més informació sobre aquests camps afegits.",
+    "consumesCredits": "Consumeix crèdits",
+    "locationFields": "Camps d'ubicació",
+    "locationFieldSingle": "La informació d'ubicació es troba en un sol camp.",
+    "locationFieldMultiple": "La informació d'ubicació es troba en diversos camps.",
+    "locationFieldsDescription": "Especifiqueu els camps que contenen informació d'ubicació.",
+    "locationTypes": {
+      "address": {
+        "title": "Adreces o noms de llocs",
+        "description": "Les dades d'ubicació són adreces, noms de llocs, codis postals i països. És possible que consumeixi crèdits.",
+        "descriptionDeveloper": "Les dades d'ubicació són adreces, noms de llocs, codis postals i països."
+      },
+      "coordinates": {
+        "title": "Latitud i longitud",
+        "description": "Les dades d'ubicació són la latitud i la longitud."
+      },
+      "mgrs": {
+        "title": "Coordenades MGRS",
+        "description": "Les dades d'ubicació es troben en el sistema de referència de quadrícula militar."
+      },
+      "usng": {
+        "title": "Coordenadas en USNG",
+        "description": "Les dades d'ubicació es troben en la quadrícula nacional dels EUA."
+      },
+      "none": {
+        "title": "Cap",
+        "description": "Aquest fitxer de tipus ${type} no conté dades d'ubicació i s'afegirà com a taula"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Cap camp",
+        "description": "Localitzeu les adreces, però sense incloure cap camp addicional."
+      },
+      "Minimal": {
+        "title": "Alguns camps",
+        "description": "Afegiu quatre camps en què es mostri el grau de concordança de les adreces."
+      },
+      "AllFields": {
+        "title": "Tots els camps",
+        "description": "Afegiu 50 camps per proporcionar informació d'ubicació completa."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "No s'ha seleccionat cap camp d'ubicació",
+        "description": "Seleccioneu un camp que contingui les dades d'ubicació."
+      },
+      "coordinate": {
+        "title": "Seleccioneu els camps de coordenades",
+        "description": "Seleccioneu el camp que s'utilitzarà per a la latitud i la longitud."
+      },
+      "insufficientCredits": {
+        "title": "Crèdits insuficients",
+        "description": "No teniu prou crèdits per dur a terme aquesta acció.‎ Poseu-vos en contacte amb el vostre administrador per obtenir més crèdits."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Les taules han de contenir informació de la ubicació",
+        "description": "No podeu afegir entitats a una capa que no contingui informació d'ubicació."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Crèdits d'organització insuficients - Pot ser que l'acció no es completi",
+      "description": "La vostra organització no té prou crèdits per completar aquesta acció. Si el flux de treball no es completa, poseu-vos en contacte amb el vostre administrador per obtenir més crèdits."
+    },
+    "recordCount": "Registres estimats per geocodificar: ${num}",
+    "locationType": "Tipus d'ubicació",
+    "field": "Camp",
+    "unknown": "No s'utilitza el tipus d'ubicació",
+    "longitude": "Longitud",
+    "latitude": "Latitud",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Món",
+      "EU": "Europa",
+      "AD": "Andorra",
+      "AE": "Emirats Àrabs Units",
+      "AF": "Afganistan",
+      "AG": "Antigua i Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albània",
+      "AM": "Armènia",
+      "AO": "Angola",
+      "AQ": "Antàrtida",
+      "AR": "Argentina",
+      "AS": "Samoa Nord-americana",
+      "AT": "Àustria",
+      "AU": "Austràlia",
+      "AW": "Aruba",
+      "AZ": "Azerbaidjan",
+      "BA": "Bòsnia i Hercegovina",
+      "BB": "Barbados",
+      "BD": "Bangla Desh",
+      "BE": "Bèlgica",
+      "BF": "Burkina Faso",
+      "BG": "Bulgària",
+      "BH": "Bahrain",
+      "BI": "Burundi",
+      "BJ": "Benín",
+      "BL": "Saint Barthelemy",
+      "BM": "Bermudes",
+      "BN": "Estat de Brunei Darussalam",
+      "BO": "Estat Plurinacional de Bolívia",
+      "BQ": "Bonaire, Sint Eustatius i Saba",
+      "BR": "Brasil",
+      "BS": "Bahames",
+      "BT": "Bhutan",
+      "BV": "Illa Bouvet",
+      "BW": "Botswana",
+      "BY": "Belarús",
+      "BZ": "Belize",
+      "CA": "Canadà",
+      "CD": "República Democràtica del Congo",
+      "CF": "República Centreafricana",
+      "CG": "Congo",
+      "CH": "Suïssa",
+      "CI": "Costa d'Ivori",
+      "CK": "Illes Cook",
+      "CL": "Xile",
+      "CM": "Camerun",
+      "CN": "Xina",
+      "CO": "Colòmbia",
+      "CR": "Costa Rica",
+      "CU": "Cuba",
+      "CV": "Cap Verd",
+      "CW": "Curaçao",
+      "CY": "Xipre",
+      "CZ": "República Txeca",
+      "DE": "Alemanya",
+      "DJ": "Djibouti",
+      "DK": "Dinamarca",
+      "DM": "Dominica",
+      "DO": "República Dominicana",
+      "DZ": "Algèria",
+      "EC": "Equador",
+      "EE": "Estònia",
+      "EG": "Egipte",
+      "EH": "Sàhara Occidental",
+      "ER": "Eritrea",
+      "ES": "Espanya",
+      "ET": "Etiòpia",
+      "FI": "Finlàndia",
+      "FJ": "Fiji",
+      "FK": "Illes Malvines",
+      "FM": "Estats Federats de Micronèsia",
+      "FO": "Illes Fèroe",
+      "FR": "França",
+      "GA": "Gabon",
+      "GB": "Regne Unit",
+      "GD": "Grenada",
+      "GE": "Geòrgia",
+      "GF": "Guaiana Francesa",
+      "GG": "Guernsey",
+      "GH": "Ghana",
+      "GI": "Gibraltar",
+      "GL": "Grenlàndia",
+      "GM": "Gàmbia",
+      "GN": "Guinea",
+      "GP": "Guadeloupe",
+      "GQ": "Guinea Equatorial",
+      "GR": "Grècia",
+      "GS": "Geòrgia del Sud i Illes Sandwich del Sud",
+      "GT": "Guatemala",
+      "GW": "Guinea Bissau",
+      "GY": "Guyana",
+      "HK": "Hong Kong",
+      "HM": "Illes Heard i McDonald",
+      "HN": "Hondures",
+      "HR": "Croàcia",
+      "HT": "Haití",
+      "HU": "Hongria",
+      "ID": "Indonèsia",
+      "IE": "Irlanda",
+      "IL": "Israel",
+      "IM": "Illa de Man",
+      "IN": "Índia",
+      "IO": "Territori Britànic de l'Oceà Índic",
+      "IQ": "Iraq",
+      "IR": "República Islàmica de l'Iran",
+      "IS": "Islàndia",
+      "IT": "Itàlia",
+      "JE": "Jersey",
+      "JM": "Jamaica",
+      "JO": "Jordània",
+      "JP": "Japó",
+      "KE": "Kenya",
+      "KG": "Kirguizistan",
+      "KH": "Cambodja",
+      "KI": "Kiribati",
+      "KM": "Comores",
+      "KN": "Saint Christopher i Nevis",
+      "KP": "República Democràtica Popular de Corea",
+      "KR": "República de Corea",
+      "KW": "Kuwait",
+      "KY": "Illes Caiman",
+      "KZ": "Kazakhstan",
+      "LA": "República Democràtica Popular de Laos",
+      "LB": "Líban",
+      "LC": "Saint Lucia",
+      "LI": "Liechtenstein",
+      "LK": "Sri Lanka",
+      "LR": "Libèria",
+      "LS": "Lesotho",
+      "LT": "Lituània",
+      "LU": "Luxemburg",
+      "LV": "Letònia",
+      "LY": "Líbia",
+      "MA": "Marroc",
+      "MC": "Mònaco",
+      "MD": "República de Moldàvia",
+      "ME": "Montenegro",
+      "MF": "Saint-Martin (part francesa)",
+      "MG": "Madagascar",
+      "MH": "Illes Marshall",
+      "MK": "Antiga República Iugoslava de Macedònia",
+      "ML": "Mali",
+      "MM": "Myanmar",
+      "MN": "Mongòlia",
+      "MO": "Macau",
+      "MP": "Illes Mariannes del Nord",
+      "MQ": "Martinica",
+      "MR": "Mauritània",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Maurici",
+      "MV": "Maldives",
+      "MW": "Malawi",
+      "MX": "Mèxic",
+      "MY": "Malàisia",
+      "MZ": "Moçambic",
+      "NA": "Namíbia",
+      "NC": "Nova Caledònia",
+      "NE": "Níger",
+      "NG": "Nigèria",
+      "NI": "Nicaragua",
+      "NL": "Països Baixos",
+      "NO": "Noruega",
+      "NP": "Nepal",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "Nova Zelanda",
+      "OM": "Oman",
+      "PA": "Panamà",
+      "PE": "Perú",
+      "PF": "Polinèsia Francesa",
+      "PG": "Papua Nova Guinea",
+      "PH": "Filipines",
+      "PK": "Pakistan",
+      "PL": "Polònia",
+      "PM": "Saint-Pierre-et-Miquelon",
+      "PN": "Pitcairn",
+      "PS": "Estat de Palestina",
+      "PT": "Portugal",
+      "PW": "Palau",
+      "PY": "Paraguai",
+      "QA": "Qatar",
+      "RE": "Reunió",
+      "RO": "Romania",
+      "RS": "Sèrbia",
+      "RU": "Federació Russa",
+      "RW": "Ruanda",
+      "SA": "Aràbia Saudita",
+      "SB": "Illes Salomó",
+      "SC": "Seychelles",
+      "SD": "Sudan",
+      "SE": "Suècia",
+      "SG": "Singapur",
+      "SH": "Saint Helena, Ascensió i Tristão da Cunha",
+      "SI": "Eslovènia",
+      "SJ": "Svalbard i Jan Mayen",
+      "SK": "Eslovàquia",
+      "SL": "Sierra Leone",
+      "SM": "San Marino",
+      "SN": "Senegal",
+      "SO": "Somàlia",
+      "SR": "Surinam",
+      "SS": "Sudan del Sud",
+      "ST": "São Tomé i Príncipe",
+      "SV": "El Salvador",
+      "SX": "Sint Maarten (part neerlandesa)",
+      "SY": "República Àrab Siriana",
+      "SZ": "Swazilàndia",
+      "TC": "Illes Turks i Caicos",
+      "TD": "Txad",
+      "TF": "Territoris Australs Francesos",
+      "TG": "Togo",
+      "TH": "Tailàndia",
+      "TJ": "Tadjikistan",
+      "TK": "Tokelau",
+      "TL": "Timor-Leste",
+      "TM": "Turkmenistan",
+      "TN": "Tunísia",
+      "TO": "Tonga",
+      "TR": "Turquia",
+      "TT": "Trinitat i Tobago",
+      "TV": "Tuvalu",
+      "TW": "Taiwan, província de la Xina",
+      "TZ": "República Unida de Tanzània",
+      "UA": "Ucraïna",
+      "UG": "Uganda",
+      "UM": "Illes perifèriques menors dels EUA",
+      "US": "Estats Units",
+      "UY": "Uruguai",
+      "UZ": "Uzbekistan",
+      "VA": "Santa Seu (Ciutat del Vaticà)",
+      "VC": "Saint Vincent i les Grenadines",
+      "VE": "República Bolivariana de Veneçuela",
+      "VG": "Illes Verges Britàniques",
+      "VN": "Vietnam",
+      "VU": "Vanuatu",
+      "WF": "Wallis i Futuna",
+      "WS": "Samoa",
+      "XK": "República de Kosovo",
+      "YE": "Iemen",
+      "YT": "Mayotte",
+      "ZA": "Sud-àfrica",
+      "ZM": "Zàmbia",
+      "ZW": "Zimbàbue"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Booleà",
+    "string": "Cadena",
+    "double": "Valor doble",
+    "number": "Nombre",
+    "date": "Data"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Capa de punts",
+      "line": "Capa de línies",
+      "polygon": "Capa de polígono",
+      "table": "Taula",
+      "multipoint": "Capa de multipunt",
+      "multipatch": "Capa multiparche"
+    },
+    "placeholders": {
+      "point": "Nom de capa de punts",
+      "line": "Nom de capa de línies",
+      "polygon": "Nom de capa de polígon",
+      "table": "Nom de la taula",
+      "multipoint": "Nom de la capa de multipunt"
+    },
+    "creationType": {
+      "template": "Plantilla",
+      "existing": "Servei d'entitats existents",
+      "link": "URL",
+      "build": "Crea des de zero",
+      "generic": "Incloeu les capes o etiquetes necessàries que vulgueu incloure a la vostra capa d'entitats."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "No ni ha cap capa seleccionada",
+      "description": "Per continuar, seleccioneu una capa d'entitats."
+    },
+    "invalidUrl": {
+      "title": "Capa no vàlida",
+      "description": "Aquesta capa fa referència a un tipus de servei que no s'admet."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Especifiqueu el nom i el tipus",
+    "layerPreferences": "Opcions",
+    "captureGPS": "Afegiu camps de metadades de GPS",
+    "captureGPSDescription": "Afegiu camps a capes que admetin la captura d'informació del receptor de GPS.",
+    "enableZDefaults": "Activa valors Z",
+    "enableZDefaultsDescription": "Permet entitats de punts de modelatge, polilínies i polígons en 3D.",
+    "enableZDefaultsDefaultValue": "Valor Z per defecte:",
+    "enableMDefaults": "Habilita els valors M",
+    "enableMDefaultsDescription": "Permet emmagatzemar una mesura o un valor a cada vèrtex per a una geometria:",
+    "layer": "Capa",
+    "table": "Taula",
+    "add": "Afegeix",
+    "error": {
+      "emptyName": {
+        "title": "Falta el nom de capa",
+        "description": "No hi pot haver noms de capa buits"
+      },
+      "duplicateTitle": {
+        "title": "Els noms de capa han de ser únics",
+        "description": "No podeu tenir dues capes amb el mateix nom"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "No hi ha cap plantilla seleccionada",
+    "errorDescription": "Per continuar, seleccioneu una plantilla."
+  },
+  "featureLayerFromUrl": {
+    "description": "Especifiqueu un URL a un servei d'entitats",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "URL buida",
+        "description": "Introduïu un URL vàlid"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "URL no compatible",
+        "description": "Especifiqueu un URL a una capa d'entitats. La capa ha d'incloure FeatureServer a l'URL."
+      },
+      "serviceNotExist": {
+        "title": "Aquest servei no existeix",
+        "description": "Aquest servei no existeix o no s'hi pot accedir."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Detalls de la capa",
+    "deselectAnyLayers": "Desseleccioneu les capes que vulgueu eliminar.",
+    "deselectAll": "Anul·la la selecció de tot",
+    "selectAll": "Selecciona-ho tot",
+    "error": {
+      "noLayer": {
+        "title": "No hi ha cap capa seleccionada",
+        "description": "Seleccioneu com a mínim 1 capa"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Seleccioneu una opció per crear una capa d'entitats buida.",
+    "subheading": "TASCA PENDENT: especifiqueu aquí la descripció.",
+    "options": {
+      "build": {
+        "title": "Definiu la vostra pròpia capa",
+        "description": "Especifiqueu les capes i les taules."
+      },
+      "template": {
+        "title": "Utilitza una plantilla",
+        "description": "Feu servir les capes i els camps d'una plantilla."
+      },
+      "existing": {
+        "title": "Seleccioneu una capa d'entitats existent",
+        "description": "Feu servir les capes i els camps d'una capa d'entitats existent de la vostra organització."
+      },
+      "link": {
+        "title": "Especifiqueu una URL de capa de l'ArcGIS Server",
+        "description": "Feu servir la capa i els camps d'una capa d'entitats de l'ArcGIS Server."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Tipus de credencial",
+    "redirectUrlsTitle": "URI de redireccionament",
+    "redirectUrlsDescription": "Afegiu URL permeses a una pàgina web o a un punt final de servidor per redirigir-hi els usuaris després de l'autenticació.",
+    "refererrUrlsTitle": "Referències",
+    "refererrUrlsDescription": "Permeteu l'accés des de dominis HTTP/HTTPS específics. Valor de l'encapçalament de referència HTTP amb el qual es compararà. Podeu fer servir un * com a comodí. Exemple: http://*.your-app.com. Vegeu Seguretat i autenticació per obtenir-ne més detalls.",
+    "oauth2Hint": "OAuth 2.0 es pot fer servir per autenticar usuaris de l'ArcGIS perquè puguin accedir a contingut i serveis basats en la ubicació en nom de l'usuari autenticat. Trobareu més informació a la ${apiLinkStart}guia sobre la seguretat i l'autenticació${endLink}.",
+    "oauth2HintNoLink": "OAuth 2.0 es pot fer servir per autenticar usuaris de l'ArcGIS perquè puguin accedir a contingut i serveis basats en la ubicació en nom de l'usuari autenticat.",
+    "applicationEnvTitle": "Entorn de l'aplicació",
+    "applicationEnvDescription": "L'entorn de l'aplicació afectarà quan l'element aparegui als resultats d'una cerca filtrada.",
+    "registering": "S'està registrant l'aplicació...",
+    "applicationEnvOptions": {
+      "multiple": "Múltiple",
+      "browser": "Navegador",
+      "native": "Natiu",
+      "server": "Servidor"
+    },
+    "options": {
+      "apiKey": {
+        "title": "Clau d'API",
+        "description": "Feu servir claus d'API per accedir a serveis d'ubicació de l'ArcGIS i a contingut prèmium a les vostres aplicacions."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "Les definicions de l'aplicació OAuth 2.0 s'utilitzen per autenticar els usuaris de l'ArcGIS, treballar amb contingut d'usuari i accedir a serveis d'ubicació en om dels usuaris autenticats."
+      }
+    },
+    "onboard": {
+      "title": "Tipus de credencial",
+      "apiKey": {
+        "title": "Claus d'API",
+        "description": "Feu servir claus d'API per accedir a serveis d'ubicació i a contingut prèmium a les vostres aplicacions. Consulteu la guia d'assignació d'API i serveis d'ubicació per obtenir més informació sobre l'ús de claus d'API per accedir a serveis."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 es pot fer servir per autenticar usuaris de l'ArcGIS perquè puguin accedir a contingut i serveis basats en la ubicació en nom de l'usuari autenticat. Trobareu més informació a la guia sobre la seguretat i l'autenticació."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "L'opció URL de redireccionament no potser buida",
+        "description": "Afegiu com a mínim un URL de redirecció."
+      },
+      "referrerEmpty": {
+        "title": "L'opció URL de referència no potser buida",
+        "description": "Afegiu com a mínim un URL de referència."
+      },
+      "registerError": {
+        "title": "Error en registrar l'aplicació",
+        "description": "No es pot crear l'aplicació registrada per a l'element."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Caràcters no vàlids a l'URL de redireccionament",
+        "description": "No es poden fer servir els caràcters següents: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Caràcters no vàlids a l'URL de redireccionament",
+        "description": "No es permeten caràcters especials."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Serveis d'ubicació",
+    "description": "Definiu àmbits per concedir accés a serveis d'ubicació d'ArcGIS específics. Obteniu més informació sobre la seguretat i l'autenticació.",
+    "requiredService": "Servei necessari",
+    "availableServices": "Serveis disponibles",
+    "services": {
+      "basemap": {
+        "heading": "Mapes base"
+      },
+      "geocodingStored": {
+        "heading": "Geocodificació (emmagatzemat)",
+        "description": "Accediu al servei de geocodificació per fer geocodificacions cap endavant i cap enrere, amb suport per a suggeriments i cerca de llocs. Els resultats es poden emmagatzemar."
+      },
+      "geocodingNotStored": {
+        "heading": "Geocodificació (no emmagatzemat)",
+        "description": "Accediu al servei de geocodificació per fer geocodificacions cap endavant i cap enrere, amb suport per a suggeriments i cerca de llocs. Els resultats no es poden emmagatzemar."
+      },
+      "optimizedRouting": {
+        "heading": "Assignació de rutes optimitzada",
+        "description": "Accediu al servei d'assignació de rutes per cercar la seqüència òptima per visitar les ubicacions."
+      },
+      "closestFacility": {
+        "heading": "Instal·lació més propera",
+        "description": "Accediu al servei d'instal·lació més proper per els trobar centres que estiguin més a prop d'un incident en funció del temps o la distància del trajecte."
+      },
+      "locationAllocation": {
+        "heading": "Assignació d'ubicació",
+        "description": "Accediu al servei d'assignació d'ubicacions per triar quines instal·lacions d'un conjunt d'instal·lacions han d'oferir serveis en funció de la seva interacció potencial amb els punts de demanda."
+      },
+      "multiVehicleRouting": {
+        "heading": "Assignació de rutes amb diversos vehicles",
+        "description": "Accediu al servei de problemes d'assignació de rutes per determinar quines parades ha d'atendre cada ruta i en quina seqüència cal visitar les parades."
+      },
+      "costMatrix": {
+        "heading": "Matriu de costs d'origen-destinació",
+        "description": "Accediu al servei de matriu d'origen-destinació (OD) per crear una matriu de costs OD des de diversos orígens a diverses destinacions."
+      },
+      "geoEnrichment": {
+        "heading": "Geoenriquiment",
+        "description": "Accediu al servei GeoEnrichment per obtenir atributs, informes i infografies basades en dades que descriuen característiques demogràfiques, empresarials i altres característiques basades en dades per a àrees i ubicacions d'estudi."
+      },
+      "routing": {
+        "heading": "Assignació de rutes",
+        "description": "Accediu al servei d'assignació de rutes per cercar la millor manera d'anar d'una ubicació a una altra o visitar diverses ubicacions."
+      },
+      "serviceArea": {
+        "heading": "Àrea de servei",
+        "description": "Accediu al servei d'àrees de servei per generar una àrea que representi la distància que es pot assolir en el desplaçament per una xarxa de carrers."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Seleccioneu una opció per crear un localitzador",
+    "options": {
+      "locator": {
+        "title": "Crear un localitzador a partir d'un servei de geocodi",
+        "description": "Especifiqueu l'URL a un servei de geocodi de l'ArcGIS Server."
+      },
+      "locator-view": {
+        "title": "Creeu una visualització de localitzador des de l'ArcGIS World Geocoding Service.",
+        "description": "Configureu la vostra visualització perquè coincideixi amb tipus específics d'ubicacions dins de països o àrees concretes."
+      }
+    },
+    "url": {
+      "heading": "URL",
+      "description": "Especifiqueu un URL a un servei de geocodi"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Quin tipus de capa de tessel·les voleu crear?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Capa de tessel·les vectorials",
+        "description": "Visualització de mapes ràpida mitjançant un conjunt de tessel·les vectorials predissenyades que s'adapten a la resolució del dispositiu de visualització i l'estil de les quals es pot modificar per a diferents usos."
+      },
+      "raster": {
+        "title": "Capa de tessel·les de ràster",
+        "description": "Visualització de mapes ràpida mitjançant un conjunt d'imatges o tessel·les de mapa ja dibuixades."
+      },
+      "3dTiles": {
+        "title": "Capa de tessel·les 3D",
+        "description": "Visualització ràpida de 3D mitjançant un dataset de tessel·les 3D de malla."
+      }
+    },
+    "sourceHeading": "Seleccioneu un mètode per crar una capa de tessel·les",
+    "sourceOptions": {
+      "existing": {
+        "title": "Cerca una capa d'entitats existent",
+        "description": "Seleccioneu una capa d'entitats allotjada al vostre contingut com a font per a la capa de tessel·les de dibuix ràpid."
+      },
+      "upload": {
+        "title": "Puja un paquet de tessel·les",
+        "titleRaster": "Puja un paquet de tessel·les o una definició de servei",
+        "description": "Pugeu un paquet des del vostre dispositiu local.",
+        "rasterDescription": "Pugeu un paquet o un fitxer de definició de servei des del vostre dispositiu local."
+      },
+      "store": {
+        "title": "Seleccioneu un dataset al magatzem de dades",
+        "description": "Cerqueu el contingut localitzat en un magatzem de dades registrat."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Títol",
+    "titlePlaceholder": "Títol de la capa de tessel·les",
+    "attribution": "Atribució",
+    "subdomain": "Subdomini",
+    "subDomainPlaceholder": "Per exemple: a, b, c, o tessel·la1, tessel·la2, tessel·la3",
+    "setTileExtent": "Defineix l'extensió de la tessel·la en l'extensió actual del mapa",
+    "setTileExtentTooltip": "L'URL també pot contenir un marcador de posició per als subdominis on estan emmagatzemades les tessel·les del mapa.",
+    "error": {
+      "title": "Especifiqueu un títol",
+      "attribution": "Especifiqueu una atribució"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "No es pot crear la capa de tessel·les",
+        "description": "Ja existeix una capa de tessel·les per a la capa d'entitats seleccionada. Seleccioneu-ne una altra."
+      },
+      "badRenderer": {
+        "title": "No es pot crear la capa de tessel·les",
+        "description": "La capa d'entitats seleccionada té un estil de dibuix que no es pot dibuixar com a tessel·les. Seleccioneu-ne una altra."
+      },
+      "noLayerSelected": {
+        "title": "No ni ha cap capa seleccionada",
+        "description": "Per continuar, seleccioneu una capa d'entitats."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Seleccioneu una opció per crear una capa d'escena.",
+    "options": {
+      "store": {
+        "title": "Seleccioneu un dataset al magatzem de dades",
+        "description": "Cerqueu contingut d'escena en un fitxer o en un magatzem de dades del núvol registrat a l'ArcGIS Enterprise"
+      },
+      "upload": {
+        "title": "Puja un paquet d'escena",
+        "description": "Pugueu un paquet d'un dispositiu local."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Seleccioneu un paquet d'un dispositiu local"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Quin tipus de capa de tessel·les voleu crear?",
+    "options": {
+      "vectorTiles": {
+        "title": "Capa de tessel·les vectorials",
+        "description": "Visualització de mapes ràpida mitjançant un conjunt de tessel·les vectorials predissenyades que s'adapten a la resolució del dispositiu de visualització i l'estil de les quals es pot modificar per a diferents usos."
+      },
+      "tiles": {
+        "title": "Capa de tessel·les de ràster",
+        "description": "Visualització de mapes ràpida mitjançant un conjunt d'imatges o tessel·les de mapa ja dibuixades."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Reviseu i apliqueu opcions a la capa de tessel·les.",
+    "visibilityRange": "Interval de visibilitat",
+    "visibilityRangeDescription": "Aquest interval influirà en la manera de visualitzar les tessel·les en un mapa. Es pot actualitzar.",
+    "basemapOption": "Esquema de tessel·lació",
+    "autoCreateOption": {
+      "title": "Crea tessel·les automàticament",
+      "description": "Les tessel·les es crearan segons la demanda segons sigui necessari i s'emmagatzemaran per a un ús posterior."
+    },
+    "onlineBasemapOption": {
+      "title": "Mapes base de l'ArcGIS Online",
+      "description": "Feu servir l'esquema de tessel·lació dels mapes de base de l'ArcGIS Online. Permet que la capa es mostri amb els mapes de base de l'ArcGIS Online."
+    },
+    "customBasemap": {
+      "title": "Personalitzat",
+      "description": "Feu servir el mateix esquema de tessel·lació que una capa de tessel·les o una capa d'imatges de mapa existents. Permet que la capa es mostri amb la capa seleccionada."
+    },
+    "customBasemapUrl": "Enllaç a una capa de tessel·les existent",
+    "ranges": {
+      "world": "Món (1:100.000.000)",
+      "continent": "Continent (1:50.000.000)",
+      "countries": "Països grans (1:25.000.000)",
+      "countriesSmall": "Països petits (1:12.000.000)",
+      "states": "Estats/províncies (1:6.000.000)",
+      "state": "Estat/província (1:3.000.000)",
+      "counties": "Comtats (1:1.500.000)",
+      "county": "Comptat (1:750.000)",
+      "metropolitan": "Àrea metropolitana (1:320.000)",
+      "cities": "Ciutats (1:160.000)",
+      "city": "Ciutat (1:80.000)",
+      "town": "Poble (1:40.000)",
+      "neighborhood": "Barri (1:20.000)",
+      "streets": "Carrers (1:10.000)",
+      "street": "Carrer (1:5.000)",
+      "buildings": "Edificis (1:2.500)",
+      "building": "Edifici (1:1.250)",
+      "small": "Edifici petit (1:800)",
+      "rooms": "Habitacions (1:400)",
+      "room": "Habitació (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Error de capa de tessel·les",
+      "mapServiceError": "La sol·licitud per recuperar l'esquema d'ordenament en tessel·les no s'ha pogut completar. Assegureu-vos que la capa de tessel·les de l'ArcGIS estigui activa i respongui a les sol·licituds.",
+      "noTilingSchemeFound": "La capa de tessel·les de l'ArcGIS no té cap esquema d'ordenament en tessel·les definit.",
+      "noMatchSpatialRef": "La referència espacial de l'esquema d'ordenament en tessel·les ha de coincidir amb la referència espacial de la capa d'entitats.",
+      "noFileSelected": "Heu de proporcionar un fitxer d'esquema d'ordenament en tessel·les."
+    }
+  },
+  "dataStore": {
+    "header": "Seleccioneu un dataset",
+    "fileName": "Nom del fitxer",
+    "fileType": "Tipus de fitxer",
+    "paginationRange": "${start} - ${end} de ${total}",
+    "processing": "L'està creant una llista del contingut...",
+    "emptyFolder": "Aquesta carpeta és buida.",
+    "error": {
+      "noDatasetErrorHeading": "No hi ha cap dataset seleccionat",
+      "noDatasetErrorDescription": "Per continuar, seleccioneu un dataset",
+      "listing": {
+        "heading": "No es pot crear una llista del contingut del magatzem de dades",
+        "description": "S'ha produït un error en crear la llista del contingut del data store."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Seleccioneu el tipus de magatzem de dades que voleu afegir.",
+    "description": "Feu servir marcs de treball àgils per proporcionar un resum sòlid",
+    "subOptionsHeading": "Afegeix una connexió a un magatzem de dades",
+    "subOptionsCloudDescription": "Seleccioneu el tipus d'ubicació d'emmagatzematge al núvol que voleu afegir",
+    "subOptionsDatabaseDescription": "Seleccioneu el tipus de base de dades que voleu afegir",
+    "databaseDescriptionForOnline": "Connecteu-vos a un magatzem de dades al núvol",
+    "options": {
+      "folder": {
+        "title": "Carpeta",
+        "description": "Connecteu-vos a una carpeta del sistema de fitxers o un recurs compartit de fitxers"
+      },
+      "database": {
+        "title": "Base de dades",
+        "description": "Connecteu-vos a una base de dades relacional o a un magatzem de dades al núvol",
+        "descriptionNoSql": "Connecteu-vos a una base de dades relacional, a una base de dades NoSQL o a un magatzem de dades al núvol"
+      },
+      "cloud": {
+        "title": "Emmagatzematge al núvol",
+        "description": "Connecteu-vos a una ubicació d'emmagatzematge al núvol"
+      },
+      "bdfs": {
+        "title": "Recurs compartit de fitxers de dades massives",
+        "description": "Connecteu-vos a una ubicació disponible per al lloc del GeoAnalytics Server"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Connexió a una base de dades NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Especifiqueu la informació de connexió o ubicació per permetre que els llocs de l'ArcGIS Server accedeixin a les dades.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MyFileServer\\GlobalData",
+      "heading": "Ruta de la carpeta de l'editor",
+      "hostname": "Nom del host de la carpeta de l'editor",
+      "hostnameInfo": "És obligatori quan la ruta de la carpeta de l'editor és una ubicació de lletra d'unitat"
+    },
+    "serverFolderPath": {
+      "heading": "Ruta de la carpeta del servidor",
+      "sameAsPublisher": "La mateixa ruta que la carpeta de l'editor",
+      "newPath": "Ruta nova",
+      "nfsHostAndPath": {
+        "description": "Amfitrió i ruta de l'NFS",
+        "hostname": "Nom d'usuari de l'NFS:",
+        "sharePath": "Ruta d'ús compartit de l'NFS:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData o /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Falta la ruta de la carpeta de l'editor",
+        "description": "Heu de proporcionar la ruta d'una carpeta de l'editor per al magatzem de dades"
+      },
+      "invalidPublisherHostName": {
+        "heading": "Falta el nom del host de l'editor",
+        "description": "Heu de proporcionar el nom del host d'un editor per al magatzem de dades"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Falta la ruta de la carpeta del servidor de l'editor",
+        "description": "Heu de proporcionar la ruta d'una carpeta del servidor per al magatzem de dades"
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "Falten el nom del host i la ruta d'ús compartit de l'NFS",
+        "description": "Heu de proporcionar el nom del host i la ruta d'ús compartit d'un NFS per al magatzem de dades"
+      },
+      "invalidNfsHostName": {
+        "heading": "Falta el nom del host de l'NFS",
+        "description": "Heu de proporcionar el nom del host d'un NFS per al magatzem de dades"
+      },
+      "invalidNfsPath": {
+        "heading": "Falta la ruta d'ús compartit de l'NFS",
+        "description": "Heu de proporcionar la ruta d'ús compartit d'un NFS per al magatzem de dades"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Seleccioneu el tipus de base de dades.",
+    "options": {
+      "relational": {
+        "title": "Base de dades relacional",
+        "description": "Connecteu-vos a una base de dades relacional"
+      },
+      "cloudDataWarehouse": {
+        "title": "Magatzem de dades al núvol",
+        "description": "Connecteu-vos a un magatzem de dades al núvol"
+      },
+      "nosql": {
+        "title": "Base de dades NoSQL",
+        "description": "Connecteu-vos a una base de dades NoSQL"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Especifiqueu la informació de connexió o ubicació per permetre que els llocs de l'ArcGIS Server accedeixin a les dades.",
+    "publisherDatabaseConnection": "Connexió de base de dades de l'editor",
+    "serverDatabaseConnection": "Connexió de base de dades del servidor",
+    "sameAsPublisher": "Igual que la connexió de base de dades de l'editor",
+    "newConnection": "Connexió nova",
+    "sdeFile": "(fitxer .sde)",
+    "dragAndDropOrSelectFile": "Arrossegueu i deixeu anar o seleccioneu el fitxer .sde",
+    "selectFile": "Seleccioneu el fitxer",
+    "chooseDifferentFile": "Trieu un altre fitxer",
+    "importingConnectionFile": "S'està important el fitxer de connexió...",
+    "fileChosen": "Fitxer triat",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Connecteu-vos al BigQuery de Google"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Connecteu-vos a l'Snowflake"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Connecteu-vos a l'Amazon S3"
+      },
+      "azure": {
+        "title": "Emmagatzematge del Microsoft Azure",
+        "description": "Connecteu-vos al Microsoft Azure"
+      }
+    },
+    "errors": {
+      "hostingServerError": "El portal no està configurat amb un servidor d'allotjament, que és necessari per finalitzar la creació del magatzem de dades. Comproveu la configuració del servidor d'allotjament i torneu-ho a provar.",
+      "invalidPublisherConnectionFile": {
+        "heading": "Falta el fitxer de connexió de l'editor",
+        "description": "Heu de proporcionar un fitxer de connexió de l'editor per al magatzem de dades."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "Falta el fitxer de connexió del servidor",
+        "description": "Heu de proporcionar un fitxer de connexió del servidor per al magatzem de dades."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Servidor",
+    "authenticationType": "Tipus d'autenticació",
+    "userAuthentication": "Autenticació de l'usuari",
+    "serviceAuthentication": "Autenticació del servei",
+    "refreshToken": "Testimoni d'actualització",
+    "keyFile": "Fitxer de clau",
+    "projectId": "ID del projecte",
+    "defaultDataset": "Dataset per defecte",
+    "username": "Nom d'usuari",
+    "password": "Contrasenya",
+    "role": "Rol",
+    "database": "Base de dades",
+    "schema": "Esquema",
+    "warehouse": "Magatzem",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Utilitza un fitxer .json",
+    "notJson": "L'únic tipus de fitxer acceptat és un fitxer .json",
+    "dataStoreConnection": "Connexió de data store",
+    "validating": "S'està validant la connexió...",
+    "selectKeyFile": "Seleccioneu el fitxer de clau",
+    "errors": {
+      "validationFailedTitle": "No s'ha pogut validar",
+      "validationFailedDescription": "No s'han pogut validar les credencials. Comproveu que hàgiu proporcionat la informació correcta i torneu-ho a provar.",
+      "incorrectLogin": "Les credencials que heu proporcionat són incorrectes o no són vàlides.",
+      "noKeyFile": "El camp Fitxer clau és obligatori.",
+      "noProjectId": "El camp Id. del projecte és obligatori.",
+      "noServer": "El camp Servidor és obligatori.",
+      "noDatabase": "El camp Base de dades és obligatori.",
+      "noSchema": "El camp Esquema és obligatori.",
+      "noWarehouse": "El camp Magatem és obligatori.",
+      "noRole": "El camp Rol és obligatori."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Especifiqueu el tipus de recurs compartit de fitxers Big Data que afegireu al GeoAnalytics Server.",
+    "locationInfo": "Especifiqueu informació d'ubicació per permetre que GeoAnalytics Server accedeixi a les dades.",
+    "username": "Nom d'usuari",
+    "useKerberos": "Utilitza Kerberos",
+    "keytabLocations": "Ubicacions Keytab",
+    "principalUser": "Usuari principal",
+    "principalRealm": "Domini principal",
+    "cloudSelectType": "Seleccioneu el tipus de magatzem de dades que voleu afegir.",
+    "cloudSelectProvider": "Seleccioneu un proveïdor d'emmagatzematge al núvol.",
+    "cloudTypes": {
+      "new": "Nou",
+      "existing": "Existent"
+    },
+    "cloudSearch": "Seleccioneu un magatzem de dades en núvol existent:",
+    "cloudSearchPlaceholder": "Escriviu per cercar magatzems de dades",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Emmagatzematge del Microsoft Azure",
+      "azuredatalakegen2store": "Emmagatzematge del Microsoft Azure Data Lake Gen2"
+    },
+    "database": {
+      "heading": "Base de dades",
+      "nonDefault": {
+        "description": "Feu servir una base de dades que no sigui la base de dades per defecte (nom de la base de dades per defecte)",
+        "placeholder": "default"
+      }
+    },
+    "metastoreUri": {
+      "heading": "URI de metastores",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Ruta",
+      "filesharePlaceholder": "\\\\MyFileServer\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Recurs compartit de fitxers",
+        "description": "Un directori de datasets d'un disc local o d'un recurs compartit de xarxa"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Directori de datasets HDFS (Hadoop Distributed File System)"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Magatzem de dades Apache Hive"
+      },
+      "cloud": {
+        "title": "Emmagatzematge al núvol",
+        "description": "Connecteu-vos a una ubicació d'emmagatzematge al núvol"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "No s'ha seleccionat cap tipus d'ús compartit de fitxer de dades massives",
+        "description": "Per continuar, seleccioneu un tipus d'ús compartit de fitxer de dades massives."
+      },
+      "noPathSelected": {
+        "heading": "Falta la ruta",
+        "description": "Heu de proporcionar una ruta per al magatzem de dades."
+      },
+      "noMetastoreUri": {
+        "heading": "Falta l'URI de metastore",
+        "description": "Heu de proporcionar almenys un URI de metastore."
+      },
+      "noDataStoreSelected": {
+        "heading": "No hi ha cap magatzem de dades seleccionat",
+        "description": "Per continuar, seleccioneu un magatzem de dades."
+      },
+      "noCloudSelected": {
+        "heading": "No s'ha seleccionat cap proveïdor de núvol",
+        "description": "Per continuar, seleccioneu un proveïdor de núvol."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Seleccioneu un proveïdor d'emmagatzematge al núvol.",
+    "connectionInfoEnterprise": "Especifiqueu la informació de connexió o ubicació per permetre que els llocs de l'ArcGIS Server accedeixin a les dades.",
+    "connectionInfoOnline": "Especifiqueu la informació de connexió",
+    "provider": "Proveïdor d'emmagatzematge al núvol",
+    "authenticationType": "Tipus d'autenticació",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Clau compartida",
+      "sasToken": "Signatura d'accés compartit",
+      "anonymous": "Anònim"
+    },
+    "identityType": "Tipus d'identitat",
+    "identityTypes": {
+      "servicePrincipal": "Principal del servei",
+      "userAssignedIdentity": "Identitat administrada assignada per l'usuari"
+    },
+    "token": "Testimoni",
+    "tenantId": "ID d'inquilí",
+    "clientId": "ID de client",
+    "optionalClientId": "ID de client (opcional)",
+    "clientSecret": "Secret de client",
+    "accountName": "Nom del compte",
+    "accountKey": "Clau del compte",
+    "environment": "Entorn",
+    "storageDomain": "Domini de l'emmagatzematge",
+    "other": "Altres",
+    "endpoint": "Extrem",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net o DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Nom del contenidor",
+    "credentialType": "Tipus de credencial",
+    "accessKey": "Clau d'accés",
+    "secretKey": "Clau secreta",
+    "sharedKey": "Clau compartida",
+    "region": "Regió",
+    "bucketName": "Nom del bucket",
+    "cloudFolder": "Carpeta (opcional)",
+    "validating": "S'està validant la connexió...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Google Cloud Storage",
+      "azure": "Emmagatzematge del Microsoft Azure",
+      "azuredatalakegen2store": "Emmagatzematge del Microsoft Azure Data Lake Gen2",
+      "alibaba": "Emmagatzematge de l'Alibaba Cloud"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "No s'ha seleccionat cap proveïdor de núvol",
+        "description": "Per continuar, seleccioneu un proveïdor de núvol."
+      },
+      "onlineValidationFailed": {
+        "heading": "Error de connexió",
+        "description": "No s'ha pogut validar la connexió, comproveu que la informació sigui precisa."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Clau d'accés",
+      "privateKey": "Clau privada",
+      "IAMRole": "Rol d'IAM"
+    },
+    "custom": "Personalitzat",
+    "storageURL": "URL privat",
+    "cloudFolderPlaceHolder": "cloud/arcgis",
+    "errorInfo": "${missingField} és un camp obligatori",
+    "invalidEndpoint": "L'extrem ha de fer servir https",
+    "and": "i"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Seleccioneu un proveïdor d'emmagatzematge NoSQL.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Proveïdor",
+    "errorMessage": "Els camps següents contenen errors: ${missingFields}",
+    "connectionUri": "URI de connexió",
+    "username": "Nom d'usuari",
+    "password": "Contrasenya",
+    "database": "Base de dades",
+    "credentialDescription": "Especifiqueu la informació de connexió de l'emmagatzematge NoSQL per permetre que els llocs de l'ArcGIS Server accedeixin a les dades.",
+    "connectionUriExample": "Exemple: protocol://nomdelhost:port",
+    "fallBackServers": "Servidors de reserva (opcional)",
+    "fallBackServersExample": "Exemple: nomdelhost1:port1,nomdelhost2:port2",
+    "and": "i",
+    "error": "Error",
+    "hosts": "Amfitrions",
+    "useSsl": "Utilitza la SSL:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Configura els servidors",
+      "subHeading": "Seleccioneu el lloc de l'ArcGIS Server al qual voleu publicar la capa."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Seleccioneu els llocs de l'ArcGIS Server als quals voleu afegir el magatzem de dades.",
+      "bdfsHeading": "El vostre recurs compartit de fitxers de dades massives s'afegirà al lloc de l'ArcGIS GeoAnalytics Server.",
+      "subHeading": "El lloc ha de tenir accés a la connexió o la ubicació que heu especificat al pas anterior.",
+      "noServerSelected": {
+        "heading": "No hi ha cap servidor seleccionat",
+        "description": "Per continuar, seleccioneu almenys un servidor."
+      }
+    },
+    "list": {
+      "title": "Servidor",
+      "status": "Estat"
+    },
+    "status": {
+      "success": "Normal",
+      "failure": "No disponible",
+      "error": "Error",
+      "validating": "S'està validant"
+    },
+    "loader": {
+      "validating": "S'estan validant els servidors..."
+    },
+    "error": {
+      "noServerSelectedHeading": "No hi ha cap servidor seleccionat",
+      "noServerSelectedDescription": "Per continuar, seleccioneu un servidor."
+    },
+    "types": {
+      "hostedSetting": "Servidor d'allotjament",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Anàlisi del ràster",
+      "imageHostingSetting": "Allotjament d'imatges",
+      "missionServerSetting": "Mission Server"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Cerca un magatzem de dades",
+    "heading": "Seleccioneu un magatzem de dades",
+    "subHeading": "Cerqueu un fitxer o en un magatzem de dades del núvol registrat a l'ArcGIS Enterprise.",
+    "cloud": "Núvol",
+    "folder": "Carpeta",
+    "processing": "S'està recuperant un magatzem de dades...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "No hi ha cap magatzem de dades seleccionat",
+        "description": "Heu de seleccionar com a mínim un magatzem de dades"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "No hi ha cap servidor registrat per al magatzem de dades",
+        "description": "El magatzem de dades seleccionat no està registrat en un lloc de l'ArcGIS Server. Registreu-lo en un lloc per continuar."
+      },
+      "noContentInDataStore": {
+        "heading": "No hi ha cap dataset vàlid al magatzem de dades",
+        "description": "El magatzem de dades seleccionat no té cap dataset vàlid per publicar."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Error",
+    "errorDescription": "S'ha produït un error en afegir aquest element.",
+    "alreadyExists": {
+      "title": "Fitxer existent",
+      "description": "Ja existeix un fitxer anomenat \"${fileName}\" en aquesta carpeta. Canvieu la carpeta o canvieu el nom del fitxer i torneu-ho a provar.",
+      "linkText": "Mostra l'element existent"
+    },
+    "arcgisServerUpload": {
+      "title": "No es pot publicar l'element",
+      "description": "Aquest fitxer de definició del servei es va crear per a un lloc de l'ArcGIS Server i s'ha de pujar a l'ArcGIS Server."
+    },
+    "invalidShapefile": {
+      "title": "Shapefile no vàlid",
+      "description": "El fitxer que s'ha pujat no conté cap shapefile."
+    },
+    "invalidGeodatabase": {
+      "title": "Geodatabase no válida",
+      "description": "El fitxer que s'ha pujat no conté cap geobase de dades de fitxers."
+    },
+    "serviceNameExists": {
+      "title": "Nom del servei no disponible",
+      "description": "Ja existeix un servei publicat amb aquest nom a l'organització. Els noms dels serveis han de ser únics a l'organització. Utilitzeu un altre nom."
+    },
+    "invalidGeoJSON": {
+      "title": "GeoJSON no vàlid",
+      "description": "El fitxer JSON que esteu pujant no és un GeoJSON vàlid (falta el tipus)."
+    },
+    "invalidJSON": {
+      "title": "Fitxer JSON no vàlid",
+      "description": "El fitxer JSON que esteu pujant no és un JSON vàlid."
+    },
+    "failDatastorePublish": {
+      "title": "No es pot publicar des del magatzem de dades",
+      "description": "No s'ha pogut publicar ${type}, consulteu els registres del servidor per obtenir-ne més informació.",
+      "tileLayer": "capa de tessel·les",
+      "sceneLayer": "capa d'escena"
+    },
+    "invalidSpatialRef": {
+      "title": "Referència espacial no vàlida",
+      "description": "Aquest servei té una referència espacial incompatible"
+    },
+    "uploading": "S'està pujant ${type}...",
+    "adding": "S'està afegint ${type}...",
+    "addDataStore": "S'està afegint un magatzem de dades ${type}...",
+    "creating": "S'està creant ${type}...",
+    "publishing": "S'està publicant ${type}...",
+    "checkingStatus": "S'està comprovant l'estat...",
+    "publishingService": "S'està publicant el servei...",
+    "appendingPhotos": "S'estan pujant fotos...",
+    "errorPublishing": "S'ha produït un error en publicar aquest servei.",
+    "howWillAdd": "Com s'afegirà ${fileName}?",
+    "howWillAddService": "Com s'afegirà el servei?",
+    "howWillAddDescription": "Aquest fitxer es farà servir per crear un element ${type}.",
+    "howWillAddSecuredServiceDescription": "Aquest servei s'utilitzarà per crear un servidor intermediari d'elements de l'ArcGIS, que reenvia les sol·licituds d'usuari a un testimoni afegit.",
+    "howWillAddHostedDescription": "Aquest fitxer es farà servir per crear una taula o una capa d'entitats allotjada.",
+    "item": "Element",
+    "folder": "Carpeta",
+    "database": "Base de dades",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Emmagatzematge del Microsoft Azure Data Lake Gen2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Consells de visualització per afegir contingut",
+    "title": "Consells per afegir contingut",
+    "addDocumentTitle": "Afegir documents, imatges i altres fitxers",
+    "addDocumentContent": "Arrossega i deixa anar un fitxer PDF, una imatge, un document de l'Office, etc.",
+    "publishLayerTitle": "Publicar capes a partir de shapefiles, CSV i fulls de càlcul",
+    "publishLayerContent": "Convertiu fitxers del vostre dispositiu o d'unitats en núvol en capes que podeu afegir a mapes.",
+    "publishLayerEnterprise": "Convertiu fitxers en capes que podeu afegir als mapes",
+    "linkLayerTitle": "Enllaçar a capes de la web",
+    "linkLayerContent": "Creeu capes a partir d'URL que facin referència a l'ArcGIS Server, serveis de l'OGC i KML."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "paquet de tessel·les",
+      "Vector Tile Package": "paquet de tessel·les vectorials",
+      "Service Definition": "definició del servei",
+      "Scene Package": "paquete de capas de escena",
+      "Desktop Application Template": "plantilla d'aplicació d'escriptori",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefile",
+      "File Geodatabase": "geobase de dades de fitxers",
+      "Map Template": "plantilla de mapa",
+      "Geoprocessing Sample": "mostra de geoprocessament",
+      "Code Sample": "mostra de codi",
+      "ArcPad Package": "paquet de l'ArcPad",
+      "CAD Drawing": "dibuix de CAD",
+      "CSV Collection": "recopilació en CSV",
+      "KML Collection": "recopilació en KML",
+      "AppBuilder Widget Package": "paquet de widgets de l'AppBuilder",
+      "Photos with Locations": "fotos amb ubicacions",
+      "Image Collection": "colección de imágenes",
+      "iWork Pages": "iWork Pages",
+      "iWork Numbers": "iWork Numbers",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "paquet d'aprenentatge profund",
+      "GML": "GML",
+      "Application": "aplicació",
+      "Google Sheets": "Google Sheets",
+      "GeoPackage": "GeoPackage",
+      "Tile Layer": "capa de tessel·les",
+      "OGCFeatureServer": "Capa d'entitats de l'OGC",
+      "FeatureServer": "servei d'entitats",
+      "3DTiles Package": "Paquet de tessel·les 3D"
+    },
+    "mvText": {
+      "WMTS": "Servei web del WMTS OGC",
+      "WMS": "Servei web del WMS OGC",
+      "WFS": "Servei web del WFS OGC",
+      "AGS": "Servei web de l'ArcGIS Server",
+      "OGCFeatureServer": "Entitats OGC API"
+    },
+    "howToAdd": "Com voleu afegir aquest fitxer?",
+    "nonHostedTitle": "Afegeix només ${fileName}",
+    "nonHostedDescription": "Afegiu ${type} sense publicar-ho. El fitxer es pot compartir i altres persones el podran baixar, o bé es pot publicar més endavant."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Error durant l'anàlisi del fitxer",
+      "description": "S'ha produït un error en intentar analitzar el fitxer. Comproveu que el format del fitxer sigui correcte.",
+      "alreadyExists": {
+        "title": "Fitxer existent",
+        "desciption": "Ja existeix un fitxer anomenat \"${fileName}\" en aquesta carpeta. Canvieu el nom del fitxer i torneu-ho a provar.",
+        "linkText": "Mostra l'element existent"
+      },
+      "duplicateFields": {
+        "title": "Noms de camps duplicats",
+        "description": "No es permeten noms de camps duplicats."
+      },
+      "emptyFile": "El fitxer pujat no conté dades.",
+      "missingGeocoder": {
+        "title": "Localitzador no disponible",
+        "descriptionn": "El localitzador per defecte no està disponible. Poseu-vos en contacte amb el vostre administrador per revisar la configuració de geocodificació de l'organització."
+      }
+    },
+    "publishThisSheet": "Publica aquest full:",
+    "largeGeoJsonTitle": "GeoJSON gran",
+    "largeGeoJsonDescription": "Aquest GeoJSON inclou moltes dades. Podeu publicar-lo com a capa d'entitats allotjada per obtenir millors resultats.",
+    "largeGeoJsonConditionDescription": "Si aquest GeoJSON inclou moltes dades, creeu una capa d'entitats allotjada per obtenir millors resultats.",
+    "bigGeoJsonHint": "Perquè el rendiment sigui òptim, aquestes dades només es poden afegir al mapa com una capa d'entitats allotjada.",
+    "bigGeoJsonHintNoPrivilege": "Aquestes dades són massa grans per afegir-les al mapa. S'han de publicar com una capa d'entitats allotjada.",
+    "bigGeoJsonHintPublicAccount": "Aquestes dades són massa grans per afegir-les al mapa. S'han de publicar com una capa d'entitats allotjada. Actualitzeu a una subscripció a l'ArcGIS Online per publicar dades més grans com a capes allotjades.",
+    "uploading": "S'està pujant ${item}...",
+    "analyze": "S'està analitzant ${fileName}...",
+    "checkingStatus": "S'està comprovant l'estat...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Afegeix dades i crea una capa d'entitats allotjada",
+        "description": "Publica el fitxer GeoJSON com a capa d'entitats allotjada"
+      },
+      "nonHosted": {
+        "title": "Afegeix només dades",
+        "description": "Importeu el fitxer GeoJSON sense publicar-lo. El fitxer es pot compartir o altres persones el podran baixar, o bé es pot publicar més endavant."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Tipus de capa"
+    },
+    "hostedTitle": {
+      "CSV": "Afegiu ${fileName} i creeu una capa o taula d'entitats allotjada",
+      "CSVNoTable": "Afegiu ${fileName} i creeu una capa d'entitats allotjada",
+      "GeoPackage": "Afegiu ${fileName} i creeu una capa d'entitats allotjada",
+      "GeoJson": "Afegiu ${fileName} i creeu una capa d'entitats allotjada",
+      "JSON": "Afegiu ${fileName} i creeu una capa d'entitats allotjada",
+      "Tile Package": "Afegiu ${fileName} i creeu una capa allotjada",
+      "Vector Tile Package": "Afegiu ${fileName} i creeu una capa de tessel·les allotjada",
+      "Service Definition": "Afegiu ${fileName} i creeu una capa allotjada",
+      "Scene Package": "Afegiu ${fileName} i creeu una capa d'escenes allotjada",
+      "Image Collection": "Afegiu ${fileName} i creeu una capa d'imatges allotjada",
+      "Desktop Application Template": "Afegiu ${fileName} i creeu una capa d'entitats allotjada",
+      "Microsoft Excel": "Afegiu ${fileName} i creeu una capa o taula d'entitats allotjada",
+      "Google Sheets": "Afegiu ${fileName} i creeu una capa o taula d'entitats allotjada",
+      "3DTiles Package": "Afegiu ${fileName} i creeu una capa de tessel·les 3D allotjades"
+    },
+    "hostedDescription": {
+      "CSV": "Un fitxer CSV amb informació d'ubicació és la font de dades d'una capa d'entitats allotjada que es mostra com a punts en un mapa. Un fitxer CSV sense informació d'ubicació mostra una taula que es pot visualitzar, representar i unir a altres capes.",
+      "GeoPackage": "Un GeoPackage amb informació d'ubicació és la font d'una capa allotjada que es mostra com a punts en un mapa. Un GeoPackage sense informació d'ubicació es mostra com una taula que es pot visualitzar, representar i unir a altres capes.",
+      "GeoJson": "Publiqueu un fitxer GeoJSON com a capa d'entitats allotjada. Les entitats es publiquen en el sistema de coordenades WGS 1984 Web Mercator.",
+      "JSON": "Publiqueu un fitxer JSON com a capa d'entitats allotjada. Les entitats es publiquen en el sistema de coordenades WGS 1984 Web Mercator.",
+      "tile package": "Publiqueu un paquet de tessel·les ràster com a capa allotjada.",
+      "vector tile package": "Publiqueu un paquet de tessel·les vectorials com a capa de tessel·les allotjada.",
+      "Service Definition": "Publiqueu el fitxer de definició de servei com a capa allotjada. El tipus de capa publicada depèn del contingut del fitxer SD.",
+      "Scene Package": "Publiqueu el paquet de capa d'escena com a capa d'escena allotjada.",
+      "Image Collection": "Publiqueu el fitxer ZIP de la col·lecció d'imatges com a capa d'imatges allotjada.",
+      "Desktop Application Template": "Publiqueu la plantilla d'aplicació d'escriptori (ZIP) com a capa d'entitats allotjada. Una plantilla d'aplicació d'escriptori que conté informació d'ubicació és la font de dades de la capa d'entitats allotjada que mostra punts en un mapa. Una plantilla d'aplicació d'escriptori sense informació d'ubicació mostra una taula que es pot visualitzar, representar i unir a altres capes.",
+      "Microsoft Excel": "Publica una capa d'entitats allotjada basada en el full de càlcul. Un full de càlcul sense informació d'ubicació es mostrarà com una taula que es pot visualitzar, representar i unir a altres capes.",
+      "Google Sheets": "Publica una capa d'entitats allotjada basada en el full de càlcul. Un full de càlcul sense informació d'ubicació es mostrarà com una taula que es pot visualitzar, representar i unir a altres capes.",
+      "3DTiles Package": "Publiqueu el vostre paquet de tessel·les 3D com a capa de tessel·les 3D allotjades."
+    },
+    "addDirectlyTitle": "Pugeu el fitxer com un element i afegiu-lo al mapa",
+    "addDirectlyUrlTitle": "Feu referència al fitxer des de l'URL i afegiu-lo al mapa",
+    "addDirectlyDescription": "Afegiu dades sense crear una capa d'entitats allotjada. Ideal per a datasets més petits administrats externament que no requereixen característiques com ara l'edició.",
+    "addDirectlyUrlDescription": "Afegiu dades sense crear una capa d'entitats allotjada. Ideal per a datasets més petits que no requereixen característiques com ara l'edició. Les dades es carreguen cada vegada que s'obre el mapa.",
+    "hostedMVTitle": "Creeu una capa d'entitats allotjada i afegiu-la al mapa",
+    "hostedMVDescription": "Utilitzeu totes les funcions que proporciona una capa d'entitats, com ara l'edició. Administreu les dades totalment des de l'ArcGIS Online."
+  },
+  "zipSelect": {
+    "file": "Fitxer",
+    "itemType": "Tipus de fitxer",
+    "language": "Llengua",
+    "other": "Altres",
+    "hosted": {
+      "heading": "Afegiu ${fileName} i creeu una capa d'entitats allotjada",
+      "description": "Afegiu el tipus ${type} i publiqueu-lo com a capa de tessel·les allotjada que es pot afegir al mapa."
+    },
+    "type": "Tipus",
+    "ArcPad": {
+      "project": "Projecte de l'ArcPad",
+      "template": "Plantilla de l'ArcPad"
+    },
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Format d'emmagatzematge de dades vectorials per emmagatzemar la ubicació, la forma i els atributs d'entitats geogràfiques. Un shapefile s'emmagatzema en un conjunt de fitxers relacionats i conté una classe d'entitat."
+    },
+    "File Geodatabase": {
+      "title": "Geobase de dades de fitxers",
+      "description": "Una col·lecció de fitxers en una carpeta que s'utilitza per emmagatzemar, fer consultes i administrar dades espacials i no espacials."
+    },
+    "Desktop Application Template": {
+      "title": "Plantilla d'aplicació d'escriptori",
+      "description": "Fitxers, dades i codi d'aplicació per implementar-ho a l'ordinador per fer-ho servir amb l'ArcGIS."
+    },
+    "Map Template": {
+      "title": "Plantilla de mapa",
+      "description": "Una plantilla de mapa és un document de mapa (.mxd) a partir del qual es poden crear documents a l'ArcMap."
+    },
+    "Geoprocessing Sample": {
+      "title": "Mostra de geoprocessament",
+      "description": "Una col·lecció de caixes d'eines, scripts, models, dades i fitxers complementaris que s'utilitzen per executar eines de geoprocessament a l'ArcGIS."
+    },
+    "Code Sample": {
+      "title": "Muestra de código",
+      "description": "Mostra de codi que es pot compartir en diversos llenguatges, com ara Java o C++."
+    },
+    "ArcPad Package": {
+      "title": "Paquet de l'ArcPad",
+      "description": "Fitxers de paquet de l'ArcPad generats mitjançant l'ArcPad Data Manager."
+    },
+    "CAD Drawing": {
+      "title": "dibuix de CAD",
+      "description": "Fitxers de disseny assistit per ordinador generats amb les plataformes AutoCAD o MicroStation."
+    },
+    "CSV Collection": {
+      "title": "Recopilació en CSV",
+      "description": "La recopilació en CSV és un fitxer .zip que conté un fitxer CSV per capa."
+    },
+    "KML Collection": {
+      "title": "Recopilació en KML",
+      "description": "La recopilació en KML és un fitxer .zip que conté un fitxer KML per capa."
+    },
+    "AppBuilder Widget Package": {
+      "title": "Paquet de widgets de l'AppBuilder",
+      "description": "Widget o tema personalitzat que amplia les funcions de l'ArcGIS Web AppBuilder"
+    },
+    "Photos with Locations": {
+      "title": "Fotos amb ubicacions",
+      "description": "Fitxer ZIP que conté fotos amb informació d'ubicació (fotos geoetiquetades amb informació d'ubicació EXIF)"
+    },
+    "Image Collection": {
+      "title": "Recopilació d'imatges",
+      "description": "Una col·lecció de datasets ràster que es poden baixar."
+    },
+    "iWork Pages": {
+      "title": "iWork Pages",
+      "description": "Format de document d'Apple"
+    },
+    "iWork Numbers": {
+      "title": "iWork Numbers",
+      "description": "Format de full de càlcul d'Apple"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Format de presentació d'Apple"
+    },
+    "Deep Learning Package": {
+      "title": "Paquet d'aprenentatge profund",
+      "description": "Els fitxers i les dades que es necessiten per executar eines d'inferència d'aprenentatge profund i que s'utilitzen com a entrada per a eines d'anàlisi ràster d'aprenentatge profund."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geography Markup Language) és l'estàndard XML de l'OGC per representar la informació dels elements espacials"
+    },
+    "Application": {
+      "title": "Aplicació",
+      "description": "Una aplicació d'escriptori creada en una plataforma d'escriptori, com ara Java o .NET (Microsoft Windows Desktop)."
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Seleccioneu una capa per afegir-la",
+    "selectTile": "Tessel·la de matriu",
+    "featureType": "Tipus d'entitat que es mostrarà",
+    "matrixNotSelected": "Seleccioneu una matriu de tessel·les per al servei.",
+    "selectGeometry": "Trieu un tipus",
+    "selectGeometryError": "Seleccioneu un tipus d'entitat per mostrar-lo.",
+    "points": "Punts",
+    "lines": "Línies",
+    "polygons": "Polígons",
+    "default": "per defecte",
+    "maxFeature": "Límit màxim d'entitats",
+    "layers": "capes",
+    "usePro": "Aquest dataset té més de 1.000 capes. Introduïu un terme de cerca per trobar una capa concreta.",
+    "noLayersFound": "No s'ha trobat cap capa que compleixi els vostres criteris. Proveu de canviar el terme de cerca perquè es mostrin més capes."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Aplicació",
+      "description": "Afegiu una referència URL a una aplicació per compartir la vostra feina amb membres de la vostra organització i el públic general."
+    },
+    "AGS": {
+      "title": "Servei web de l'ArcGIS Server",
+      "description": "Un servei web de l'ArcGIS Server representa un recurs de SIG, com ara un mapa o una imatge, que es troba en un lloc de l'ArcGIS Server i que està disponible en aplicacions de client com ara el Map Viewer."
+    },
+    "CSV": {
+      "title": "Fitxer CSV",
+      "description": "Un fitxer de text de valors separats per comes."
+    },
+    "Document Link": {
+      "title": "Document",
+      "description": "Creeu un enllaç a un document en línia a què es fa una referència amb un URL."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Un format estàndard obert d'intercanvi de dades geoespacials que representen entitats geogràfiques simples."
+    },
+    "Tile Layer": {
+      "title": "Capa de tessel·les",
+      "description": "Un conjunt de tessel·les d'imatge de mapa, en què l'URL formatat proporciona els marcadors de nivell, columna i fila i un subdomini opcional: https://domain.com/<path>/{z}{x}{y}.png i https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML és un format de fitxer basat en XML que es fa servir per representar entitats geogràfiques en aplicacions com ara l'ArcGIS Earth i el Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "Capa d'entitats de l'OGC",
+      "description": "Una capa d'entitats de l'OGC és un servei d'entitats que segueix l'especificació de les entitats de l'API de l'OGC."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "El servei d'entitats web (WFS) de l'OGC és un servei d'entitats dinàmic que segueix les especificacions de l'OGC."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "El servei de mapes web (WMS) de l'OGC és un servei de mapes dinàmic que segueix les especificacions de l'OGC."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "El servei de tessel·les de mapes web (WMTS) de l'OGC és un conjunt de tessel·les d'imatges a la memòria cau que segueix les especificacions de l'OGC. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Un canal de continguts web en directe que inclou ubicacions i entitats geogràfiques."
+    },
+    "useAsBaseMap": "Utilitza com a mapa base",
+    "undetected": "Seleccioneu el tipus de capa",
+    "label": "Tipus",
+    "storeAuth": "Emmagatzemeu les credencials amb l'element de servei. No sol·liciteu autenticació.",
+    "storeAuthMV": "Emmagatzemeu credencials amb la capa. No sol·liciteu autenticació.",
+    "learnMore": "Obteniu més informació sobre l'autenticació.",
+    "isSecure": "S'ha detectat un servei segur",
+    "serviceNotExist": "Aquest servei no existeix o no s'hi pot accedir.",
+    "getServiceInfo": "S'està recuperant la informació del servei...",
+    "unknownAGSType": "Aquest tipus de servei no és compatible.",
+    "errorMessage": "S'ha produït un error en establir la connexió amb el servei.",
+    "serviceNotGIS": "L'URL introduït no assenyala cap servei de SIG.",
+    "unsupportedWFSVersion": "Aquesta versió de WFS no és compatible.",
+    "unsupportedWFSGeoJSONOutputFormat": "El servei WFS no admet el format de sortida GeoSON.",
+    "invalidWMTS": "Aquest WMTS no és compatible",
+    "flowAborted": "S'ha produït un error en establir la connexió amb el servei. Aquest servei està protegit i requereix autenticació.",
+    "invalidSpatialRef": "Aquest servei té una referència espacial incompatible",
+    "emptyFeatureLayer": "El servei és buit"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Línia internacional de canvi de data de l'oest",
+      "110": "(UTC-11:00) Temps universal coordinat -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Hawaii",
+      "300": "(UTC-09:00) Alaska",
+      "400": "(UTC-08:00) Hora del Pacífic (EUA i Canadà)",
+      "410": "(UTC-08:00) Baixa Califòrnia",
+      "500": "(UTC-07:00) Hora de la Muntanya (EUA i Canadà)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) Amèrica Central",
+      "620": "(UTC-06:00) Hora Central (EUA i Canadà)",
+      "630": "(UTC-06:00) Guadalajara, Ciutat de Mèxic, Monterrey",
+      "700": "(UTC-05:00) Hora de l'Est (EUA i Canadà)",
+      "710": "(UTC-05:00) Bogotà, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (Est)",
+      "730": "(UTC-04:30) Caracas",
+      "800": "(UTC-04:00) Hora de l'Atlàntic (Canadà)",
+      "810": "(UTC-04:00) Cuiabá",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Asunción",
+      "900": "(UTC-03:30) Terranova",
+      "910": "(UTC-03:00) Brasília",
+      "920": "(UTC-03:00) Grenlàndia",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Caiena, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Atlàntic central",
+      "1010": "(UTC-02:00) Temps universal coordinat -02",
+      "1100": "(UTC-01:00) Açores",
+      "1110": "(UTC-01:00) Illes Cap Verd",
+      "1200": "(UTC) Dublín, Edimburg, Lisboa, Londres",
+      "1210": "(UTC) Monròvia, Reykjavík",
+      "1220": "(UTC) Casablanca",
+      "1230": "(UTC) Temps universal coordinat",
+      "1300": "(UTC+01:00) Belgrad, Bratislava, Budapest, Ljubljana, Praga",
+      "1310": "(UTC+01:00) Sarajevo, Skopje, Varsòvia, Zagreb",
+      "1320": "(UTC+01:00) Brussel·les, Copenhaguen, Madrid, París",
+      "1330": "(UTC+01:00) Àfrica Central Occidental",
+      "1340": "(UTC+01:00) Amsterdam, Berlín, Berna, Roma, Estocolm, Viena",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) El Caire",
+      "1420": "(UTC+02:00) Hèlsinki, Kíev, Riga, Sofia, Tallinn, Vílnius",
+      "1430": "(UTC+02:00) Atenes, Bucarest",
+      "1440": "(UTC+02:00) Jerusalem",
+      "1450": "(UTC+02:00) Amman",
+      "1460": "(UTC+02:00) Beirut",
+      "1470": "(UTC+02:00) Harare, Pretòria",
+      "1480": "(UTC+02:00) Damasc",
+      "1490": "(UTC+02:00) Istanbul",
+      "1500": "(UTC+03:00) Kuwait, Riad",
+      "1510": "(UTC+03:00) Bagdad",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaliningrad",
+      "1535": "(UTC+03:30) Teheran",
+      "1540": "(UTC+04:00) Moscou, Sant Petersburg, Volgograd",
+      "1600": "(UTC+04:00) Abu Dhabi, Muscat",
+      "1610": "(UTC+04:00) Bakú",
+      "1620": "(UTC+04:00) Erevan",
+      "1640": "(UTC+04:00) Tbilissi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Kabul",
+      "1710": "(UTC+05:00) Taixkent",
+      "1715": "(UTC+05:00) Islamabad, Karachi",
+      "1720": "(UTC+05:30) Chennai, Calcuta, Bombai, Nova Delhi",
+      "1730": "(UTC+05:30) Sri Jayawardenepura",
+      "1740": "(UTC+05:45) Katmandú",
+      "1755": "(UTC+06:00) Ekaterinburg",
+      "1800": "(UTC+06:00) Astanà",
+      "1810": "(UTC+06:00) Dacca",
+      "1820": "(UTC+06:30) Yangon (Rangun)",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
+      "1910": "(UTC+08:00) Krasnoyarsk",
+      "2000": "(UTC+08:00) Pequín, Chongqing, Hong Kong, Urumqi",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapur",
+      "2030": "(UTC+08:00) Taipei",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulan Bator",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Seül",
+      "2110": "(UTC+09:00) Osaka, Sapporo, Tòquio",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaida",
+      "2150": "(UTC+10:00) Yakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC+11:00) Illes Salomó, Nova Caledònia",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fiji",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Temps universal coordinat +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Definiu la zona horària",
+    "title": "Zona horària",
+    "subTitle": "Seleccioneu la zona horària en què es troben les vostres dades."
+  },
+  "hybridImageSelect": {
+    "heading": "Quin tipus de capa voleu afegir?",
+    "ImageServer": {
+      "title": "Capa d'imatges dinàmica",
+      "description": "Afegiu una capa d'imatges dinàmica, que admeti processament i renderització del servidor segons la demanda."
+    },
+    "TiledImageServer": {
+      "title": "Capa d'imatges en mosaic",
+      "description": "Afegiu una imatge de capes d'imatge en mosaic, que admeti processament i renderització del servidor del mosaic estàtic segons la demanda."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Crea capes i altres elements",
+    "developerCredentialsHeading": "Credencials del desenvolupador",
+    "developerCredentialsDescription": "Creeu una clau d'API o credencials de l'aplicació OAuth 2.0 per crear aplicacions personalitzades.",
+    "developerCredentialsNoAPIDescription": "Creeu credencials de l'aplicació OAuth 2.0 per crear aplicacions personalitzades.",
+    "featureLayerHeading": "Capa d'entitats",
+    "featureLayerDescription": "Creeu una capa editable amb camps copiats d'una plantilla o una capa d'entitats.",
+    "tileLayerHeading": "Capa de tessel·les",
+    "tileLayerDescription": "Creeu una capa de tessel·les vectorials de dibuix ràpid o una capa de tessel·les ràster.",
+    "sceneLayerHeading": "Capa d'escena",
+    "sceneLayerDescription": "Creeu una capa d'escena de dibuix ràpid mitjançant contingut 3D.",
+    "imageLayerHeading": "Capa de imágenes",
+    "imageLayerDescription": "Creeu una capa d'imatges utilitzant imatges del vostre ordinador.",
+    "locatorHeading": "Localitzador",
+    "locatorViewHeading": "Localitzador (visualització)",
+    "locatorDescription": "Trobeu llocs i adreces utilitzant l'ArcGIS World Geocoding Service o el vostre propi servei de geocodificació.",
+    "locatorOnlyDescription": "Trobeu llocs i adreces utilitzant el vostre propi servei de geocodi.",
+    "urbanModelHeading": "Model urbà",
+    "urbanModelDescription": "Creeu un model de desenvolupament urbà amb eines de planificació i disseny interactives.",
+    "urbanModelPermissionError": "Per crear un model urbà, heu de tenir permís per publicar una capa d'entitats allotjada. Poseu-vos en contacte amb l'administrador de l'ArcGIS Online per obtenir ajuda.",
+    "applicationHeading": "Aplicació",
+    "applicationDescription": "Enllaceu a una aplicació de la web o creeu una aplicació registrada nova.",
+    "urlHeading": "URL",
+    "urlDescription": "Enllaceu a un servei web de l'ArcGIS Server, CSV, a un servei web OGC, KML, GeoJSON o a un document.",
+    "urlDescriptionEnterprise": "Enllaceu a un servei web de l'ArcGIS Server, CSV, a un servei web OGC, KML, GeoJSON o a un document.",
+    "dataStoreHeading": "Magatzem de dades",
+    "dataStoreConnectionDescription": "Afegiu una connexió a un magatzem de dades de la vostra propietat.",
+    "dataStoreDescription": "Afegiu una connexió a un magatzem de dades que administreu",
+    "rasterFunctionTemplateHeading": "Plantilla de funció de ràster",
+    "rasterFunctionTemplateDescription": "Creeu una plantilla de funció de ràster que es pugui fer servir amb capes d'imatges i en anàlisis de ràster.",
+    "getSubscriptionInfo": "S'està recuperant informació sobre la subscripció..."
+  },
+  "url": {
+    "linkExisting": "Enllaça a capes o dades existents de la web",
+    "url": "URL",
+    "addUrl": "Afegeix un URL",
+    "httpWarning": "No s'admet l'ús d'URL HTTP. Utilitzeu HTTPS",
+    "serviceNotExist": "Aquest servei no existeix o no s'hi pot accedir.",
+    "invalidUrl": "Introduïu un URL vàlid.",
+    "invalidUrlWithType": "Introduïu un URL vàlid. Els serveis admesos són ${typeList}",
+    "unknownAGSType": "Aquest tipus de servei no és compatible.",
+    "errorMessage": "S'ha produït un error en establir la connexió amb el servei."
+  },
+  "cloud": {
+    "google": "S'està establint la connexió amb el Google Drive...",
+    "dropbox": "S'està establint la connexió amb el Dropbox...",
+    "onedrive": "S'està establint la connexió amb el OneDrive...",
+    "file": "Fitxer",
+    "zip": "Fitxer ZIP",
+    "filterFileType": "Filtra per tipus de fitxer",
+    "selectAFile": "Selecciona un fitxer",
+    "noResults": "No s'ha trobat cap fitxer. Canvieu la cerca o seleccioneu un altre tipus d'element.",
+    "viewMore": "Mostra'n més",
+    "errorTitle": "No hi ha cap fitxer seleccionat",
+    "errorMessage": "Per continuar, seleccioneu un fitxer.",
+    "loadingFiles": "S'estan carregant els fitxers...",
+    "searchFiles": "Cerca fitxers",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "Fitxer ZIP",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Sheets"
+    },
+    "error": {
+      "generic": {
+        "title": "Error",
+        "message": "S'ha produït un error."
+      },
+      "popup": {
+        "title": "Element emergent bloquejat",
+        "message": "No us podeu connectar al vostre compte de Cloud Drive. Assegureu-vos de tenir el bloquejador de finestres emergents desactivat per a aquest lloc web."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Paràmetres personalitzats",
+    "parameter": "Paràmetre",
+    "value": "Valor",
+    "addParameter": "Afegeix un paràmetre",
+    "addValue": "Afegeix el valor",
+    "newCustomParameter": "Afegeix un paràmetre personalitzat",
+    "description": "Afegiu paràmetres que s'hagin d'afegir a les sol·licituds per accedir a aquest servei.",
+    "append": "Afegeix-ho només a les sol·licituds de dibuix o consulta de capes",
+    "remove": "Elimina un paràmetre personalitzat",
+    "helpText": "Si el servei web a què feu referència requereix afegir paràmetres addicionals a les sol·licituds enviades al servei, podeu incloure'ls com a paràmetres personalitzats. Els noms i els valors dels paràmetres es defineixen al servei i són específics d'aquell servei."
+  },
+  "inputReadonly": {
+    "file": "Fitxer",
+    "url": "URL",
+    "dataStore": "Connexió de data store"
+  },
+  "layerSearch": {
+    "search": "Cerca"
+  },
+  "appendSelect": {
+    "updateLayer": "Actualitza la capa",
+    "updateData": "Actualitza les dades",
+    "chooseUpdate": "Trieu el tipus d'actualització que voleu dur a terme",
+    "insertOnlyEnabled": "Aquest servei d'entitats només permet afegir entitats noves",
+    "options": {
+      "add": {
+        "title": "Afegeix entitats",
+        "description": "Afegiu entitats noves a una capa existent."
+      },
+      "update": {
+        "title": "Actualitza les entitats",
+        "description": "Actualitzeu les entitats existents d'una capa."
+      },
+      "upsert": {
+        "title": "Afegeix i actualitza les entitats",
+        "description": "Afegiu entitats noves a una capa i, alhora, actualitzeu les entitats existents."
+      },
+      "overwrite": {
+        "title": "Sobreescriu tota la capa d'entitats",
+        "description": "Sobreescriviu tota la capa d'entitats amb les dades font actualitzades."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "S'està pujant ${fileName}",
+      "updating": "S'està actualitzant...",
+      "overwriting": "S'està sobreescrivint...",
+      "fetchingInfo": "S'està recuperant la informació...",
+      "publishing": "S'està publicant...",
+      "appendCloseNotice": "Manteniu oberta la finestra del navegador per controlar l'estat del treball d'annexió. En cas que la configuració no sigui correcta, ho podeu tornar a provar sense haver de tornar a pujar el fitxer font."
+    },
+    "appendErrorMessages": {
+      "appendError": "S'ha produït un error en annexar l'element."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Selecciona dades",
+    "editStyle": "Substituïu el fitxer d'estil de la capa per una versió actualitzada del vostre ordinador.",
+    "file": "Fitxer",
+    "updateItem": "Actualitza l'element",
+    "overwriteFile": "Sobreescriu el fitxer",
+    "analyzing": "S'està analitzant...",
+    "sameFileNameDescription": "El fitxer que s'està pujant ha de tenir el mateix nom i els mateixos noms de camp que el fitxer original ${fileName}",
+    "itemType": "Tipus de fitxer",
+    "learnMore": "Més informació sobre els tipus de fitxers compatibles",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Format d'emmagatzematge de dades vectorials per emmagatzemar la ubicació, la forma i els atributs d'entitats geogràfiques. Un shapefile s'emmagatzema en un conjunt de fitxers relacionats i conté una classe d'entitat."
+    },
+    "File Geodatabase": {
+      "title": "Geobase de dades de fitxers",
+      "description": "Una col·lecció de fitxers en una carpeta que s'utilitza per emmagatzemar, fer consultes i administrar dades espacials i no espacials."
+    },
+    "errors": {
+      "providePath": "Heu de proporcionar una ruta a l'element.",
+      "sameFileName": "Per actualitzar aquest element, heu de pujar un fitxer anomenat ${x}.",
+      "invalidStyleFileExtension": "L'extensió del fitxer no és vàlida. L'estil pujat ha de tenir l'extensió de fitxer .json.",
+      "invalidStyleFile": "L'estil del fitxer no és vàlid. Els fitxers d'estil pujats han de tenir el format correcte.",
+      "errorWhileUpload": "S'ha produït un error en pujar l'element.",
+      "errorExceedFileSize": "No s'ha pogut pujar el fitxer. Supera la mida permesa d'1 GB.",
+      "errorUpdate": "S'ha produït un error en sobreescriure l'element.",
+      "multiPatchErrorDescription": "La capa a la qual proveu d'afegir dades conté geometria multifaceta. Torneu-ho a provar amb un fitxer que tingui el mateix tipus de geometria."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Trieu com voleu actualitzar les entitats existents",
+    "itemPropertiesHeader": "Trieu les propietats de l'element que voleu fer servir",
+    "appendOptions": {
+      "attribute": {
+        "title": "Només atributs",
+        "description": "Actualitzeu els atributs existents."
+      },
+      "attributeAndGeometry": {
+        "title": "Geometries i atributs",
+        "description": "Actualitzeu tant els atributs com les geometries existents."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Propietats de l'element pujat",
+        "description": "Feu servir les propietats de l'element del fitxer pujat. Canviar les propietats de l'element no modificarà les dades."
+      },
+      "existing": {
+        "title": "Propietats de l'element existent",
+        "description": "Mantén les propietats de l'element existent del paquet de capes. Fer servir les propietats existents no modificarà les dades."
+      }
+    },
+    "noGeometryMatchTitle": "No es pot actualitzar la geometria",
+    "noGeometryMatchMessage": "La capacitat d'actualitzar la geometria no està disponible per a tipus de geometria diferents.",
+    "noGeometryTableMessage": "La capacitat d'actualitzar atributs i geometries no està disponible per a una taula."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Trieu les dades actualitzades per a ${featureLayerName} del full ${uploadedFile}",
+    "chooseLayer": "Trieu les dades actualitzades per a ${featureLayerName} de la capa ${uploadedFile}",
+    "chooseServiceLayer": "Trieu la capa que vulgueu actualitzar",
+    "paginationHeader": "${start} - ${end} de ${total}",
+    "noResults": "No s'ha trobat cap element que compleixi els vostres criteris. Proveu de canviar el terme de cerca o d'esborrar alguns filtres perquè es mostrin més elements.",
+    "sameGeometryWarningTitle": "Les capes han de tenir el mateix tipus de geometria",
+    "sameGeometryWarningDescription": "El vostre fitxer conté tipus diferents de geometries de capa. Torneu-ho a provar amb capes que tinguin el mateix tipus de geometria.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "No s'ha trobat cap capa",
+      "noMatchingLayerTypeError": "No s'ha trobat cap capa compatible al fitxer pujat. Comproveu el fitxer i torneu-ho a provar.",
+      "noSourceLayerSelected": "Per afegir dades, seleccioneu la capa d'entitats que vulgueu actualitzar.",
+      "noDataLayerSelected": "Per afegir dades, seleccioneu la capa que contingui les dades actualitzades."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Sobreescriu el fitxer",
+    "header": "Seleccioneu les dades que voleu sobreescriure",
+    "description": "El fitxer que s'està pujant ha de tenir el mateix nom que el fitxer original ${insert file name}",
+    "proceed": "Continua",
+    "errors": {
+      "errorWhileUpdate": "S'ha produït un error en actualitzar l'element.",
+      "exceedFileSizeLimit": "No s'ha pogut pujar el fitxer. Supera la mida permesa d'1 GB.",
+      "errorPublishing": "S'ha produït un error en publicar aquest servei."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Tipus de fitxer",
+    "Shapefile": {
+      "title": "Shapefile",
+      "description": "Format d'emmagatzematge de dades vectorials per emmagatzemar la ubicació, la forma i els atributs d'entitats geogràfiques. Un shapefile s'emmagatzema en un conjunt de fitxers relacionats i conté una classe d'entitat."
+    },
+    "File Geodatabase": {
+      "title": "Geobase de dades de fitxers",
+      "description": "Una col·lecció de fitxers en una carpeta que s'utilitza per emmagatzemar, fer consultes i administrar dades espacials i no espacials."
+    },
+    "errors": {
+      "errorWhileUpload": "S'ha produït un error en pujar l'element.",
+      "errorShpFile": "Shapefile no vàlid.",
+      "errorFgdbFile": "Geobase de dades de fitxers no vàlida",
+      "errorExceedFileSize": "No s'ha pogut pujar el fitxer. Supera la mida permesa d'1 GB."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Seleccioneu camps coincidents",
+    "description": "Seleccioneu els camps de ${uploadedFileName} que coincideixen amb els camps de ${featureLayerName}. Els camps sense coincidències no s'actualitzaran a la capa d'entitats allotjada.",
+    "nonNullable": "Valors nuls no permesos",
+    "originalField": {
+      "header": "Camp original",
+      "moreInfo": "Aquests camps es troben a la capa d'entitats ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Camp pujat",
+      "moreInfo": "Aquests camps es troben al fitxer pujat ${uploadedFileName} i es filtren en funció dels tipus de camp compatibles."
+    },
+    "errors": {
+      "noFields": "No s'ha trobat cap camp.",
+      "noKeyPairs": "No s'ha trobat cap parell de claus.",
+      "noMatchedFields": "Per afegir dades, proporcioneu un o diversos camps coincidents.",
+      "nonNullableErrorTitle": "No es permeten valors buits",
+      "nonNullableErrorTitleSingular": "Hi ha un camp que no accepta valors nuls buit",
+      "nonNullableErrorDescription": "Els camps que no permeten valors nuls no poden estar buits. Feu coincidir els camps abans de continuar."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Seleccioneu l'identificador únic",
+    "selectUniqueIdentifierDescription": "Seleccioneu el camp únic de la capa original que coincideix amb el camp del fitxer pujat.",
+    "originalField": {
+      "header": "Camp original",
+      "moreInfo": "Aquests camps únics es troben a la capa d'entitats ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Camp pujat",
+      "moreInfo": "Aquests camps es troben al fitxer pujat ${uploadedFileName} i es filtren en funció dels tipus de camp compatibles."
+    },
+    "title": "Identifica el parell de clau",
+    "description": "Seleccioneu els camps utilitzats per relacionar l'identificador únic de la capa amb les dades pujades.",
+    "noKeyPair": "Per actualitzar les entitats existents, feu coincidir els camps del vostre identificador únic.",
+    "timezoneHeader": "Selecció de zona horària",
+    "timezoneDescription": "La capa d'entitats allotjades, ${featureLayerName}, conté les dades de zona horària emmagatzemades a ${featureLayerTimezone}. Si el fitxer pujat, ${uploadedFileName}, conté dades de zona horària que no siguin en UTC, ajusteu-les segons correspongui."
+  }
+}

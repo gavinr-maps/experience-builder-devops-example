@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Continue stroom afleiden genereert een raster van geaccumuleerde stroming in elke cel vanuit een ingevoerd oppervlakraster zonder voorafgaande vulling van basin of depressie.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Het hoogteraster dat zal worden gebruikt voor de berekening.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>De laag die echte depressies of putten definieert, waar water wel in maar niet uit kan stromen.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>De rasterlaag die de fractie van de stroom bepaalt die bijdraagt tot de accumulatie van de stroom in elke cel.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>Specificeert het type stroommethode dat wordt gebruikt bij het berekenen van de stroomrichting.
+            </p>
+            <p>De D8-methode wijst de stroomrichting toe aan de aangrenzende steilste helling naar beneden. De MFD-methode verdeelt de stroomrichting over de buren op de helling volgens een adaptieve verdelingsfactor.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>Geeft aan of de stroom bij randcellen de normale stroomregels volgt of altijd naar buiten stroomt.
+            </p>
+            <p>Indien niet aangevinkt, gaat de stroom naar de binnenste cel met de steilste daling van de z-waarde. Als de daling echter kleiner of gelijk is aan nul, zal de cel naar buiten stromen vanaf het oppervlakteraster. Indien aangevinkt, zal de stroomrichting altijd naar buiten zijn vanaf het oppervlakteraster.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>De naam van de rasterlaag stroomaccumulatie die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>De naam van de rasterlaag stroomrichting die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Het type uitvoer dat wordt gemaakt. De uitvoer kan bestaan uit getegelde beeldlagen of dynamische beeldlagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar de resultaten worden opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

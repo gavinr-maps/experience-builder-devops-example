@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riist &quot;Argumendi statistika otsimine&quot; ekstraktib m&otilde;&otilde;tme v&auml;&auml;rtuse v&otilde;i riba indeksi, mille juures antud statistika on iga piksli jaoks mitmem&otilde;&otilde;tmelises pildikihis saadud.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Hinnatav mitmem&otilde;&otilde;tmeline pildikiht.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Mitmem&otilde;&otilde;tmelise pildikihi m&otilde;&otilde;de, millest muutujat hinnatakse.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Mitmem&otilde;&otilde;tmelise pildikihi m&otilde;&otilde;de, mida hinnatakse m&ouml;&ouml;da m&auml;&auml;ratud intervalli.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Statistika t&uuml;&uuml;p, mis ekstraktitakse muutujast v&otilde;i muutujatest antud m&otilde;&otilde;tme raames.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Minimaalne v&auml;&auml;rtus, mida kasutatakse argumendi kestvuse jaoks.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Maksimaalne v&auml;&auml;rtus, mida kasutatakse argumendi kestvuse jaoks.
+            </p>
+        </div>
+    </div>
+    <div id="multipleOccurrenceValue">
+        <div>
+            <p>V&auml;&auml;rtus, mis n&auml;itab, et antud argumendi statistika saavutati rohkem kui &uuml;ks kord. Vaikev&auml;&auml;rtus on argumendi statistika esmakordne saavutamine.
+            </p>
+        </div>
+    </div>
+    <div id="occurrence">
+        <div>
+            <p>M&auml;&auml;rab, kas dimensiooni v&auml;&auml;rtus tagastatakse argumendi saavutamise esimesel v&otilde;i viimasel korral. Vaikev&auml;&auml;rtus on esimene esinemiskord.
+            </p>
+        </div>
+    </div>
+    <div id="argumentValue">
+        <div>
+            <p>Dimensiooniv&auml;&auml;rtus, mille juures muutuja m&auml;&auml;ratud v&auml;&auml;rtus saavutatakse, ekstraktitakse.
+            </p>
+        </div>
+    </div>
+    <div id="comparison">
+        <div>
+            <p>M&auml;&auml;rab v&otilde;rdlust&uuml;&uuml;bi, mida kasutatakse dimensiooniv&auml;&auml;rtuse ekstraktimiseks.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionDefinition">
+        <div>
+            <p>M&auml;&auml;rab, kuidas statistika dimensioonist ekstraktitakse.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Aja&uuml;hik, mille jaoks iga statistika ekstraktitakse.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>N&auml;itab, kas NoData v&auml;&auml;rtusi ignoreeritakse ekstraktimisel.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Selle kihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljund v&otilde;ib olla paanitud pildikiht v&otilde;i d&uuml;naamiline pildikiht.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemus salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Sumuoti &scaron;alia apskaičiuoja elementų, esančių nurodytu atstumu nuo kitų elementų, statistinius duomenis. Atstumas gali būti apskaičiuojamas naudojant tiesiaeigį atstumą arba kelionės režimą.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="summaryLayer">
+        <div>
+            <p>Sluoksnis, kurį reikia apibendrinti per atstumą nuo gretimo sluoksnio.
+            </p>
+        </div>
+    </div>
+    <div id="sumNearbyLayer">
+        <div>
+            <p>Ta&scaron;kų, linijų arba poligonų sluoksnis, naudojamas kaip pradinės vietos, aplink kurias bus kuriamos ribinės sritys, apibendrinančios netoliese esančius elementus.
+            </p>
+        </div>
+    </div>
+    <div id="nearType">
+        <div>
+            <p>Metodas, kuriuo bus kuriamos ribinės sritys. Metodas gali būti tiesiaeigis atstumas arba kelionės režimas.
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Atstumas arba laikas, kuris bus naudojamas ribinėms sritims sukurti. Jei pridedamos kelios reik&scaron;mės, kiekviena reik&scaron;mė bus naudojama visų įvesties elementų ribinėms sritims apskaičiuoti.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Vienetai, kurie bus naudojami atstumui arba laikui nurodyti.
+            </p>
+        </div>
+    </div>
+    <div id="returnBoundaries">
+        <div>
+            <p>Nurodykite, ar rezultatų sluoksnis turėtų būti ribinės sritys (pažymėta), ar ta pati geometrija, kaip ir įvesties sluoksnis (nepažymėta).
+            </p>
+        </div>
+    </div>
+    <div id="sumShape">
+        <div>
+            <p>Apskaičiuokite bendrą elementų, apibendrintų kiekvienoje ribinėje srityje, dydį. Apskaičiuojamas bendras linijų ilgis. Apskaičiuojamas bendras daugiakampių plotas.
+            </p>
+        </div>
+    </div>
+    <div id="shapeUnits">
+        <div>
+            <p>Vienetai, kurie bus naudojami bendram apibendrintų elementų dydžiui apskaičiuoti.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Įvesties sluoksnio skaičių arba datų laukai, kurie bus apibendrinti, ir kiekvienam laukui apskaičiuojama statistika.
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>Laukas i&scaron; įvesties sluoksnio, kuris bus naudojamas duomenims suskirstyti į atskiras grupes statistiniams skaičiavimams atlikti.
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>Apskaičiuokite mažumos (mažiausiai dominuojančios) ir daugumos (labiausiai dominuojančios) grupes kiekvienoje apibendrinimo srityje.
+            </p>
+        </div>
+    </div>
+    <div id="percentShape">
+        <div>
+            <p>Apskaičiuokite apibendrintų elementų, priklausančių kiekvienai grupei, procentinę dalį kiekvienoje riboje.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Mit dem Werkzeug &quot;Reisekosten berechnen&quot; wird die Fahrzeit oder Entfernung zwischen Punktepaaren gemessen.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="originsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Der Punkt-Layer, der die Startpositionen darstellt, ab denen die Reisekosten berechnet werden. Es werden Layer mit bis zu  5.000 Features unterst&uuml;tzt. </p> 
+            <p class="PortalOnly">Der Punkt-Layer, der die Startpositionen darstellt, ab denen die Reisekosten berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayer">
+        <div>
+            
+            <p class="OnlineOnly">Der Punkt-Layer, der die Zielpositionen darstellt, zu denen die Reisekosten berechnet werden. Es werden Layer mit bis zu  5.000 Features unterst&uuml;tzt. </p> 
+            <p class="PortalOnly">Der Punkt-Layer, der die Zielpositionen darstellt, zu denen die Reisekosten berechnet werden.
+            </p>
+        </div>
+    </div>
+    <div id="originsLayerRouteIDField">
+        <div>
+            <p>Das Feld im  <b>Von-Layer</b>, das das vorab zugeordnete Start-Ziel-Paar definiert. Wenn es mehrere Start- und Zielpositionen gibt, muss diese ID mit einem Wert im <b>Routen-ID-Feld des Bis-Layers</b> &uuml;bereinstimmen.
+            </p>
+        </div>
+    </div>
+    <div id="destinationsLayerRouteIDField">
+        <div>
+            <p>Das Feld im  <b>Bis-Layer</b>, das das vorab zugeordnete Start-Ziel-Paar definiert. Wenn es mehrere Start- und Zielpositionen gibt, muss diese ID mit einem Wert im <b>Routen-ID-Feld des Von-Layers</b> &uuml;bereinstimmen.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Mindestens ein Punkt-Feature, das als vor&uuml;bergehende Einschr&auml;nkung (Barriere) bei der Fahrt auf den zugrunde liegenden Stra&szlig;en fungiert. Die Fahrt auf der Stra&szlig;e ist zul&auml;ssig, jedoch nicht die Fahrt durch die Barriere.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Mindestens ein Linien-Feature, das als vor&uuml;bergehende Einschr&auml;nkung (Barriere) bei der Fahrt auf den zugrunde liegenden Stra&szlig;en fungiert. Die Linien-Barrieren unterbinden den Verkehr an allen Punkten, an denen die Barrieren die Stra&szlig;en schneiden.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Mindestens ein Polygon-Feature, das als vor&uuml;bergehende Einschr&auml;nkung (Barriere) bei der Fahrt auf den zugrunde liegenden Stra&szlig;en fungiert. Die Polygon-Barrieren unterbinden den Verkehr an allen Punkten, an denen die Polygone die Stra&szlig;en schneiden.
+            </p>
+        </div>
+    </div>
+    <div id="measurementType">
+        <div>
+            <p>Die Methode, mit der die Entfernung oder die Zeit gemessen wird. Die Methode kann Linienentfernung oder ein Reisemodus sein.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Das Datum und die Uhrzeit der Abfahrt von den Startpositionen im  <b>Von-Layer</b>.
+            </p>
+        </div>
+    </div>
+    <div id="routeShape">
+        <div>
+            <p>Bestimmt, ob die Start- und Zielpositionen mit Desire-Lines (<b>Gerade Linie</b>) oder die Stra&szlig;en auf dem zugrunde liegenden Stra&szlig;ennetzwerk (<b>Entlang von Stra&szlig;en</b>) verbunden werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Gibt an, ob jede Ergebnis-Route als Routen-Layer gespeichert wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem die Ergebnisse gespeichert werden sollen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تقدر أداة &quot;إنشاء البيانات النقطية الخاصة بالاتجاه&quot; اتجاه كل وحدة بكسل على طول بُعد واحد أو أكثر من المتغيرات في طبقة الصور المتعددة الأبعاد.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>طبقة الصور المتعددة الأبعاد التي ستُستخدم لإنشاء الاتجاه.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>البُعد الذي سيتم استخراج اتجاه للمتغير أو المتغيرات المحددة على طوله في التحليل.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>المتغير أو المتغيرات التي سيتم حساب الاتجاهات لها.
+            </p>
+        </div>
+    </div>
+    <div id="seasonalPeriod">
+        <div>
+            <p>الوحدة الزمنية المراد استخدامها لطول الفترة الموسمية عند استخدام نوع خط Seasonal-Kendall.
+            </p>
+        </div>
+    </div>
+    <div id="trendLineType">
+        <div>
+            <p>نوع تحليل الاتجاه المراد إجراؤه على قيم وحدات البكسل على طول البُعد.
+            </p>
+        </div>
+    </div>
+    <div id="frequency">
+        <div>
+            <p>التردد أو رقم الترتيب المتعدد الحدود المراد استخدامه لملاءمة الاتجاه.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>يحدد ما إذا كان يتم تجاهل قيم NoData أو القيم المفقودة في التحليل.
+            </p>
+        </div>
+    </div>
+    <div id="cycleLength">
+        <div>
+            <p>طول التباين الدوري المراد نمذجته للدائرة التوافقية.
+            </p>
+        </div>
+    </div>
+    <div id="cycleUnit">
+        <div>
+            <p>الوحدة الزمنية المراد استخدامها لطول الدائرة التوافقية.
+            </p>
+        </div>
+    </div>
+    <div id="RMSE">
+        <div>
+            <p>تحديد ما إذا كان سيُحتسب خطأ مربع متوسط الجذر (RMSE) الخاص بخط ملاءمة الاتجاه.
+            </p>
+        </div>
+    </div>
+    <div id="R2">
+        <div>
+            
+            <p>تحديد ما إذا كان سيُحتسب إحصاء جودة الملائمة لمعامل تحديد R مربع الخاص بخط ملاءمة الاتجاه.
+            </p>
+        </div>
+    </div>
+    <div id="slopePValue">
+        <div>
+            <p>تحديد ما إذا كان سيُحتسب إحصاء قيمة-p لمعامل الانحدار الخاص بخط ملاءمة الاتجاه.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>اسم الطبقة التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقة صور متجانبة أو طبقة صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

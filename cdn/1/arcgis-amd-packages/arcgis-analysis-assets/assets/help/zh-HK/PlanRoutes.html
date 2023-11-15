@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「計劃路線」工具可針對車隊建立包含多個停靠點的行進路線。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>指定車輛路線開頭的點圖徵。
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>車輛必須在其路線上造訪的點圖徵。 這些點在輸出中將變成已分配或未分配的停靠點。
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>決定車輛是否必須返回其起始位置 (啟用)，或在指定位置結束 (停用)。
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>指定車輛路線結尾的點圖徵。 如果圖層僅包含一點，則所有車輛都將路由到一個公共端點。 如果圖層包含多點，則每輛車都將路由到唯一的終點位置。
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>起始圖層中唯一識別各個路線、車輛或司機的欄位。 如果車輛起始於多個位置且在多個位置結束，則為起始和結束圖層所選的路線 ID 必須相符。
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>結束圖層中唯一識別各個路線、車輛或司機的欄位。 如果車輛起始於多個位置且在多個位置結束，則為起始和結束圖層所選的路線 ID 必須相符。
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>在基礎街道行進時要作為臨時限制 (屏障) 的一或多個點圖徵。 允許在街道行進，但無法通過屏障。
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>在基礎街道行進時要作為臨時限制 (屏障) 的一或多個線圖徵。 線屏障禁止在屏障與街道相交的任何地方行進。
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>在基礎街道行進時要作為臨時限制 (屏障) 的一或多個多邊形圖徵。 多邊形屏障禁止在多邊形與街道的任何相交處行進。
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>將用於建立路線的行進方法。 行進模式可根據距離或時間。
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>車輛出發的日期和時間。
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>可造訪停靠點的車輛數上限。 如果 <b>起始圖層</b>和 <b>結束圖層</b>各包含一個圖徵，則您最多可以指定 100 部車輛。 如果任一圖層包含多個圖徵，則無法編輯預設值。 </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>每輛車在一條路線上可以停靠的停靠點數上限。 您可以指定一個介於 1 和  200 之間的值。 </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>指定每個停靠點所需的預期平均服務時間。
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>決定是否將最大路線規劃時間套用於車輛。 路線規劃時間包括預期行進時間，及花費在該路線沿線停靠點的服務時間。
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>指定某路路徑開始到結束應持續的最長時間。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>指定是否將每條結果路線儲存為路線圖層。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

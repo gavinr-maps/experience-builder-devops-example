@@ -1,0 +1,165 @@
+{
+  "name": "JoinFeatures",
+  "displayName": "JoinFeatures",
+  "description": "",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/JoinFeatures.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "targetLayer",
+      "dataType": "GPRecordSet",
+      "displayName": "targetLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "joinLayer",
+      "dataType": "GPRecordSet",
+      "displayName": "joinLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "spatialRelationship",
+      "dataType": "GPString",
+      "displayName": "spatialRelationship",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": [
+        "intersects",
+        "withindistance",
+        "completelycontains",
+        "completelywithin",
+        "within",
+        "contains",
+        "identicalto"
+      ]
+    },
+    {
+      "name": "spatialRelationshipDistance",
+      "dataType": "GPDouble",
+      "displayName": "spatialRelationshipDistance",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "spatialRelationshipDistanceUnits",
+      "dataType": "GPString",
+      "displayName": "spatialRelationshipDistanceUnits",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Meters", "Kilometers", "Feet", "Yards", "Miles", "NauticalMiles"]
+    },
+    {
+      "name": "attributeRelationship",
+      "dataType": "GPMultiValue:GPString",
+      "displayName": "attributeRelationship",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "String",
+          "dataType": "GPString",
+          "displayName": "String"
+        }
+      ]
+    },
+    {
+      "name": "joinOperation",
+      "dataType": "GPString",
+      "displayName": "joinOperation",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "JoinOneToOne",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["JoinOneToOne", "JoinOneToMany"]
+    },
+    {
+      "name": "summaryFields",
+      "dataType": "GPMultiValue:GPString",
+      "displayName": "summaryFields",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "String",
+          "dataType": "GPString",
+          "displayName": "String"
+        }
+      ]
+    },
+    {
+      "name": "recordsToMatch",
+      "dataType": "GPString",
+      "displayName": "recordsToMatch",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "joinType",
+      "dataType": "GPString",
+      "displayName": "joinType",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "INNER",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["INNER", "LEFT"]
+    },
+    {
+      "name": "outputLayer",
+      "dataType": "GPString",
+      "displayName": "outputLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

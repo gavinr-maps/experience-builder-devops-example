@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Planl&aelig;g ruter-v&aelig;rkt&oslash;jet opretter rejseruter med flere stop for en fl&aring;de af k&oslash;ret&oslash;jer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="startLayer">
+        <div>
+            <p>De punktobjekter, der angiver, hvor k&oslash;ret&oslash;jerne p&aring;begynder deres ruter.
+            </p>
+        </div>
+    </div>
+    <div id="stopsLayer">
+        <div>
+            <p>De punktobjekter, som k&oslash;ret&oslash;jerne skal bes&oslash;ge undervejs p&aring; deres ruter. Disse punkter bliver tildelte eller ikke-tildelte stop i outputtet.
+            </p>
+        </div>
+    </div>
+    <div id="returnToStart">
+        <div>
+            <p>Bestemmer, om k&oslash;ret&oslash;jer skal returnere til deres startposition (aktiveret) eller slutte ved angivne positioner (deaktiveret).
+            </p>
+        </div>
+    </div>
+    <div id="endLayer">
+        <div>
+            <p>De punktobjekter, der angiver, hvor k&oslash;ret&oslash;jerne afslutter deres ruter. Hvis laget kun indeholder &eacute;t punkt, sendes alle k&oslash;ret&oslash;jer til et f&aelig;lles slutpunkt. Hvis laget inkluderer flere punkter, sendes hvert k&oslash;ret&oslash;j til en unik slutposition.
+            </p>
+        </div>
+    </div>
+    <div id="startLayerRouteIDField">
+        <div>
+            <p>Feltet i startlaget, der entydigt identificerer de individuelle ruter, k&oslash;ret&oslash;jer eller chauff&oslash;rer. Hvis k&oslash;ret&oslash;jerne starter forskellige steder og slutter flere steder, skal de rute-ID'er, der er valgt for start- og slutlaget, matche.
+            </p>
+        </div>
+    </div>
+    <div id="endLayerRouteIDField">
+        <div>
+            <p>Feltet i slutlaget, der entydigt identificerer de individuelle ruter, k&oslash;ret&oslash;jer eller chauff&oslash;rer. Hvis k&oslash;ret&oslash;jerne starter forskellige steder og slutter flere steder, skal de rute-ID'er, der er valgt for start- og slutlaget, matche.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Et eller flere punktobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Transport er tilladt p&aring; gaden, men ikke gennem gr&aelig;nsen (barrieren).
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Et eller flere linjeobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Linjebarriererne forhindrer rejse, hvor som helst barriererne gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Et eller flere polygonobjekter, der fungerer som midlertidige begr&aelig;nsninger (barrierer) under transport p&aring; de underliggende gader. Polygonbarriererne forhindrer transport alle steder, hvor polygonen gennemsk&aelig;rer gaderne.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Den rejsemetode, med hvilke ruterne oprettes. Rejsemetoden er baseret p&aring; afstand eller tid.
+            </p>
+        </div>
+    </div>
+    <div id="routeStartTime">
+        <div>
+            <p>Dato og klokkesl&aelig;t for afgang for k&oslash;ret&oslash;jer.
+            </p>
+        </div>
+    </div>
+    <div id="routeCount">
+        <div>
+            <p>Det maksimale antal k&oslash;ret&oslash;jer, der er tilg&aelig;ngelige for at bes&oslash;ge stoppene. Hvis  <b>Startlag</b> og <b>Slutlag</b> hvert indeholder et objekt, kan du angive op til 100 k&oslash;ret&oslash;jer. Hvis et af lagene indeholder mere end &eacute;t objekt, kan standardv&aelig;rdien ikke redigeres. </p>
+        </div>
+    </div>
+    <div id="maxStopsPerRoute">
+        <div>
+            <p>Det maksimale antal stop, som hvert k&oslash;ret&oslash;j kan foretage p&aring; en rute. Du kan angive en v&aelig;rdi mellem 1 og  200. </p>
+        </div>
+    </div>
+    <div id="stopServiceTime">
+        <div>
+            <p>Angiv det forventede gennemsnitlige tidsforbrug ved hvert stop.
+            </p>
+        </div>
+    </div>
+    <div id="limitMaxRouteTimeCheckbox">
+        <div>
+            <p>Bestemmer, om den maksimale k&oslash;retid anvendes p&aring; k&oslash;ret&oslash;jer. Rutetiden omfatter forventet rejsetid og tidsforbrug ved stop langs ruten.
+            </p>
+        </div>
+    </div>
+    <div id="maxRouteTime">
+        <div>
+            <p>Angiv det maksimale tidsforbrug for en rute fra start til slut.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det lag, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="includeRouteLayers">
+        <div>
+            <p>Angiver, om hvert enkel resulterende rute gemmes som et rutelag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

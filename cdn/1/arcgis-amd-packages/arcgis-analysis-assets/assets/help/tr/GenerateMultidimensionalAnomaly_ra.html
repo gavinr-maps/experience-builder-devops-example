@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>&Ccedil;ok Boyutlu Anormallik Oluştur, &ccedil;ok boyutlu bir g&ouml;r&uuml;nt&uuml; katmanı oluşturmak i&ccedil;in her dilime ait anormalliği &ccedil;ok boyutlu bir g&ouml;r&uuml;nt&uuml; katmanında hesaplar.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Analiz edilecek &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Anormallikleri tespit etmek i&ccedil;in kullanılacak &ccedil;ok boyutlu g&ouml;r&uuml;nt&uuml; katmanının değişkeni.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>G&ouml;r&uuml;nt&uuml; katmanındaki anormallikleri hesaplamak i&ccedil;in kullanılacak y&ouml;ntem.
+            </p>
+        </div>
+    </div>
+    <div id="calculationInterval">
+        <div>
+            <p>Ortalamayı hesaplamak i&ccedil;in kullanılacak zaman aralığı.
+            </p>
+        </div>
+    </div>
+    <div id="referenceMeanRaster">
+        <div>
+            <p>Her piksel i&ccedil;in hesaplanan ortalamaları i&ccedil;eren referans g&ouml;r&uuml;nt&uuml; katmanı.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Analizde NoData veya eksik değerlerin yok sayılıp sayılmayacağını belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Oluşturulacak &ccedil;ıktının t&uuml;r&uuml;. &Ccedil;ıktı, bir D&ouml;şemeli g&ouml;r&uuml;nt&uuml; katmanı veya bir Dinamik g&ouml;r&uuml;nt&uuml; katmanı olabilir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

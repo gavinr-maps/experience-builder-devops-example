@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Інструмент &laquo;Геодезична обопільна видимість&raquo; визначає місця розташування на поверхні растра, видимі вхідним місцям розташування спостерігачів.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>Растр висот, на основі якого буде розраховано обопільну видимість.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Місця розташування спостерігача, для якого обчислюватиметься обопільна видимість.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Оптимізує розрахунок обопільної видимості на основі швидкості або точності.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Визначає максимальну відстань огляду для обчислення обопільної видимості.
+            </p>
+            <p>Відстань може бути визначена значенням і його одиницями або з поля у  <b>Вхідні точкові або лінійні об'єкти спостерігача</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Визначає мінімальну відстань огляду для обчислення обопільної видимості.
+            </p>
+            <p>Відстань може бути визначена значенням і його одиницями або з поля у  <b>Вхідні точкові або лінійні об'єкти спостерігача</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Визначає тип максимальної та мінімальної відстані огляду.
+            </p>
+            <p>Якщо не вибрано, відстані огляду оброблятимуться як двовимірні евклідові відстані. Якщо вибрано, відстані огляду оброблятимуться як тривимірні відстані.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Визначає висоту над поверхнею місця розташування спостерігача.
+            </p>
+            <p>Висота може бути визначена значенням і його одиницями <b>або з поля у Вхідні точкові або лінійні об'єкти спостерігача</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Визначає висоту спостерігачів над землею.
+            </p>
+            <p>Висота може бути визначена значенням і його одиницями або з поля у  <b>Вхідні точкові або лінійні об'єкти спостерігача</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Визначає висоту цілей на землі.
+            </p>
+            <p>Висота може бути визначена значенням і його одиницями або з поля у  <b>Вхідні точкові або лінійні об'єкти спостерігача</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ім'я растрового шару зони обопільної видимості, який буде створено та додано до карти. Цей шар містить видимі області, які можуть бачити спостерігачі, а значення осередків представляють кількість спостерігачів, які можуть бачити осередки.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>Ім'я растрового шару над рівнем землі (AGL), який буде створено та додано до карти.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Тип вихідних даних, які буде створено. Вихідними даними може бути шар зображень з тайлами або динамічний шар зображень.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Назва папки в  <b>Моєму вмісті</b>, де буде збережено результат.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

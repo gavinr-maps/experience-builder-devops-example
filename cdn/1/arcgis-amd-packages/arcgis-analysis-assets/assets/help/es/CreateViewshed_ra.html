@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>La herramienta Cuenca visual geod&eacute;sica identifica las ubicaciones de una superficie de r&aacute;ster que son visibles para las ubicaciones del observador de entrada.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputElevationSurface">
+        <div>
+            <p>El r&aacute;ster de elevaci&oacute;n en el que se calcular&aacute; la cuenca visual.
+            </p>
+        </div>
+    </div>
+    <div id="inputObserverFeatures">
+        <div>
+            <p>Las ubicaciones del observador para las que se calcular&aacute; la cuenca visual.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Optimiza el c&aacute;lculo de la cuenca visual en funci&oacute;n de la velocidad o la precisi&oacute;n.
+            </p>
+        </div>
+    </div>
+    <div id="maximumViewingDistanceType">
+        <div>
+            <p>Especifica la distancia de visualizaci&oacute;n m&aacute;xima para el c&aacute;lculo de la cuenca visual.
+            </p>
+            <p>La distancia se puede definir mediante un valor y sus unidades, o desde un campo en las  <b>Entidades de puntos o l&iacute;neas del observador de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumViewingDistanceType">
+        <div>
+            <p>Especifica la distancia de visualizaci&oacute;n m&iacute;nima para el c&aacute;lculo de la cuenca visual.
+            </p>
+            <p>La distancia se puede definir mediante un valor y sus unidades, o desde un campo en las  <b>Entidades de puntos o l&iacute;neas del observador de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="viewingDistanceIs3D">
+        <div>
+            <p>Especifica el tipo de distancia de visualizaci&oacute;n m&aacute;xima y m&iacute;nima.
+            </p>
+            <p>Si est&aacute; desactivado, las distancias de visualizaci&oacute;n se tratar&aacute;n como distancias euclidianas bidimensionales. Si est&aacute; activado, las distancias de visualizaci&oacute;n se tratar&aacute;n como distancias tridimensionales.
+            </p>
+        </div>
+    </div>
+    <div id="observersElevationType">
+        <div>
+            <p>Especifica la elevaci&oacute;n de la superficie en las ubicaciones del observador.
+            </p>
+            <p>La elevaci&oacute;n se puede definir mediante un valor y sus unidades, o desde un campo en las  <b>Entidades de puntos o l&iacute;neas del observador de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="observersHeightType">
+        <div>
+            <p>Especifica la altura de los observadores por encima del suelo.
+            </p>
+            <p>La altura se puede definir mediante un valor y sus unidades, o desde un campo en las  <b>Entidades de puntos o l&iacute;neas del observador de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightType">
+        <div>
+            <p>Especifica la altura de los objetivos en el suelo.
+            </p>
+            <p>La altura se puede definir mediante un valor y sus unidades, o desde un campo en las  <b>Entidades de puntos o l&iacute;neas del observador de entrada</b>.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>El nombre de la capa r&aacute;ster de cuenca visual que se crear&aacute; y se agregar&aacute; al mapa. Esta capa contiene las &aacute;reas visibles donde los observadores pueden ver y los valores de celda representan el n&uacute;mero de observadores que pueden ver las celdas.
+            </p>
+        </div>
+    </div>
+    <div id="aboveGroundLevelOutputName">
+        <div>
+            <p>El nombre de la capa r&aacute;ster sobre el nivel del suelo (AGL) que se crear&aacute; y se agregar&aacute; al mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>El tipo de salida que se crear&aacute;. La salida puede ser una capa de im&aacute;genes en teselas o una capa de im&aacute;genes din&aacute;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>El nombre de la carpeta de  <b>Mi contenido</b> en la que se guardar&aacute; el resultado.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

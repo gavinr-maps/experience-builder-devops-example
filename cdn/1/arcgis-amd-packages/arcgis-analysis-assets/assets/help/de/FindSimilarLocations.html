@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Das Werkzeug &quot;&Auml;hnliche Positionen suchen&quot; wertet basierend auf einer Reihe von Kriterien die &Auml;hnlichkeit zwischen geeigneten Positionen und einer Referenzposition aus. Dann werden die geeigneten Positionen von gr&ouml;&szlig;ter nach geringster &Auml;hnlichkeit geordnet.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Der Punkt-, Linien- oder Polygon-Layer, der die Referenzpositionen enth&auml;lt, die abgeglichen werden. Wenn der Layer mehrere Positionen enth&auml;lt, werden alle Positionen gemittelt, um eine einzige Referenzposition zu erstellen.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Der Punkt-, Linien- oder Polygon-Layer, der die Positionen f&uuml;r die Kandidatensuche enth&auml;lt. Jede Position f&uuml;r die Kandidatensuche wird anhand des angegebenen Wertes  <b>Kriterienauswahl</b> mit der Referenzposition verglichen und von gr&ouml;&szlig;ter nach geringster &Auml;hnlichkeit geordnet.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Die numerischen Felder, die zum Auswerten der &Auml;hnlichkeit zwischen der Referenzposition und jeder Position f&uuml;r die Kandidatensuche verwendet werden. Jeder Wert  <b>Kriterienauswahl</b> weist einen Wert <b>Feld aus Referenz-Layer</b> und einen Wert <b>Feld aus Kandidaten-Layer</b> auf. Die Werte <b>Feld aus Referenz-Layer</b> und <b>Feld aus Kandidaten-Layer</b> gleichen Felder in den Werten <b>Bezugspositions-Layer</b> und <b>Kandidaten-Layer suchen</b> ab.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Das Feld  <b>Bezugspositions-Layer</b>, das dem Feld <b>Kandidaten-Layer suchen</b> entspricht, das mit dem Wert <b>Feld aus Kandidaten-Layer</b> angegeben wird. Die Werte in diesen abgeglichenen Feldern werden verglichen, um die &Auml;hnlichkeit zwischen der Referenzposition und jeder Position f&uuml;r die Kandidatensuche zu bewerten.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Das Feld  <b>Kandidaten-Layer suchen</b>, das dem Feld <b>Bezugspositions-Layer</b> entspricht, das im Wert <b>Feld aus Referenz-Layer</b> angegeben wurde. Die Werte in diesen abgeglichenen Feldern werden verglichen, um die &Auml;hnlichkeit zwischen der Referenzposition und jeder Position f&uuml;r die Kandidatensuche zu bewerten.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Gibt an, ob alle Positionen im Wert  <b>Kandidaten-Layer suchen</b> in den Ausgabe-Layer aufgenommen werden.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Die Anzahl der &auml;hnlichsten Positionen im Wert  <b>Kandidaten-Layer suchen</b>, die in den Ausgabe-Layer aufgenommen werden.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Der Name des Layers, der erstellt und der Karte hinzugef&uuml;gt wird.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Der Name des Ordners in  <b>Eigene Inhalte</b>, in dem das Ergebnis gespeichert werden soll.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

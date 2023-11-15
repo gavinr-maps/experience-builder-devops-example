@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Alok&aacute;cia vzdialenosti vypoč&iacute;ta alok&aacute;ciu z každej bunky smerom k vstupn&eacute;mu zdroju na z&aacute;klade priamočiarej vzdialenosti, n&aacute;kladovej vzdialenosti a skutočnej povrchovej vzdialenosti, ako aj vertik&aacute;lnych a horizont&aacute;lnych n&aacute;kladov&yacute;ch faktorov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSourceRasterOrFeatures">
+        <div>
+            <p>Vstupn&yacute; zdrojov&yacute; raster alebo prvkov&aacute; vrstva, ktor&aacute; identifikuje zdroje, pre ktor&eacute; sa vypoč&iacute;ta alok&aacute;cia.
+            </p>
+            <p>Ak je vstupom raster, mus&iacute; pozost&aacute;vať z buniek, ktor&eacute; obsahuj&uacute; platn&eacute; celoč&iacute;seln&eacute; hodnoty (nula je platn&aacute; hodnota) pre zdroje, a zvy&scaron;n&yacute;m bunk&aacute;m mus&iacute; byť priraden&eacute; NoData.
+            </p>
+        </div>
+    </div>
+    <div id="sourceField">
+        <div>
+            <p>Pole použit&eacute; na pridelenie hodn&ocirc;t k lokalit&aacute;m zdrojov. Mus&iacute; byť celoč&iacute;seln&yacute; typ.
+            </p>
+        </div>
+    </div>
+    <div id="inputBarrierRasterOrFeatures">
+        <div>
+            <p>Bari&eacute;ry definuj&uacute;ce prek&aacute;žky, ktor&eacute; je potrebn&eacute; ob&iacute;sť.
+            </p>
+            <p>V pr&iacute;pade rastrovej vrstvy sa bunky, ktor&eacute; maj&uacute; hodnotu (vr&aacute;tane nuly), považuj&uacute; za bari&eacute;ru.
+            </p>
+        </div>
+    </div>
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Raster, ktor&yacute; definuje hodnoty nadmorskej v&yacute;&scaron;ky pre každ&uacute; lokalitu buniek.
+            </p>
+            <p>Hodnoty sa použ&iacute;vaj&uacute; na v&yacute;počet skutočnej prekonanej povrchovej vzdialenosti pri prechode medzi bunkami.
+            </p>
+        </div>
+    </div>
+    <div id="inputCostRaster">
+        <div>
+            <p>Raster, ktor&yacute; definuje impedanciu alebo n&aacute;klady na prechod cez každ&uacute; bunku.
+            </p>
+            <p>Hodnota v každej lokalite bunky predstavuje n&aacute;klady za jednotku vzdialenosti pri jej prechode. Hodnota nem&ocirc;že byť z&aacute;porn&aacute; alebo nulov&aacute;.
+            </p>
+        </div>
+    </div>
+    <div id="distanceMethod">
+        <div>
+            <p>Určuje, či sa vzdialenosť vypoč&iacute;ta pomocou plan&aacute;rnej met&oacute;dy (ploch&aacute; zem) alebo geodetickej (elipsoidnej) met&oacute;dy.
+            </p>
+        </div>
+    </div>
+    <div id="inputVerticalRaster">
+        <div>
+            <p>Raster, ktor&yacute; definuje z-hodnoty pre každ&uacute; lokalitu bunky.
+            </p>
+            <p>Hodnoty s&uacute; použit&eacute; na v&yacute;počet sklonu použit&eacute;ho na identifik&aacute;ciu vertik&aacute;lneho faktoru vzniknut&eacute;ho pri presune z jednej bunky do druhej.
+            </p>
+        </div>
+    </div>
+    <div id="verticalFactor">
+        <div>
+            <p>Faktor, ktor&yacute; definuje vzťah medzi vertik&aacute;lnym n&aacute;kladov&yacute;m faktorom a vertik&aacute;lnym relat&iacute;vnym uhlom pohybu.
+            </p>
+            <p>Existuje niekoľko možnost&iacute; pre faktory s modifik&aacute;tormi, ktor&eacute; identifikuj&uacute; definovan&yacute; graf vertik&aacute;lnych faktorov. Grafy sa využ&iacute;vaj&uacute; na identifik&aacute;ciu vertik&aacute;lneho faktora použit&eacute;ho vo v&yacute;počte celkov&yacute;ch n&aacute;kladov na presun do susednej bunky.
+            </p>
+        </div>
+    </div>
+    <div id="inputHorizontalRaster">
+        <div>
+            <p>Raster, ktor&yacute; definuje horizont&aacute;lny smer v každej bunke.
+            </p>
+            <p>Hodnoty v každej lokalite sa použij&uacute; v spojen&iacute; s parametrom  <b>Horizont&aacute;lny faktor</b> na určenie horizont&aacute;lnych n&aacute;kladov, ktor&eacute; vznikaj&uacute; pri presune z bunky k jej susedom.
+            </p>
+        </div>
+    </div>
+    <div id="horizontalFactor">
+        <div>
+            <p>Faktor, ktor&yacute; definuje vzťah medzi horizont&aacute;lnym n&aacute;kladov&yacute;m faktorom a horizont&aacute;lnym relat&iacute;vnym uhlom pohybu.
+            </p>
+            <p>Existuje niekoľko možnost&iacute; pre faktory s modifik&aacute;tormi, ktor&eacute; identifikuj&uacute; definovan&yacute; graf horizont&aacute;lnych faktorov. Grafy sa využ&iacute;vaj&uacute; na identifik&aacute;ciu horizont&aacute;lneho faktora použit&eacute;ho vo v&yacute;počte celkov&yacute;ch n&aacute;kladov na presun do susednej bunky.
+            </p>
+        </div>
+    </div>
+    <div id="sourceInitialAccumulation">
+        <div>
+            <p>Počiatočn&eacute; kumulat&iacute;vne n&aacute;klady, od ktor&yacute;ch sa zač&iacute;na v&yacute;počet n&aacute;kladov.
+            </p>
+            <p>Predvolen&aacute; hodnota je 0.
+            </p>
+        </div>
+    </div>
+    <div id="sourceMaximumAccumulation">
+        <div>
+            <p>Maxim&aacute;lna akumul&aacute;cia cestuj&uacute;ceho smerom k zdroju.
+            </p>
+            <p>Predvolen&aacute; akumul&aacute;cia siaha po okraj v&yacute;stupn&eacute;ho rastra.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCostMultiplier">
+        <div>
+            <p>N&aacute;sobiteľ, ktor&yacute; sa použije na hodnoty n&aacute;kladov.
+            </p>
+            <p>Predvolen&aacute; hodnota je 1.
+            </p>
+        </div>
+    </div>
+    <div id="sourceDirection">
+        <div>
+            <p>Smer cestuj&uacute;ceho pri použit&iacute; horizont&aacute;lnych a vertik&aacute;lnych faktorov.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAllocationRasterName">
+        <div>
+            <p>N&aacute;zov rastrovej vrstvy hodn&ocirc;t alok&aacute;cie vzdialenosti, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="outputDistanceAccumulationRasterName">
+        <div>
+            <p>N&aacute;zov rastrovej vrstvy kumulat&iacute;vnej vzdialenosti, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy. Vrstva obsahuje kumulat&iacute;vnu vzdialenosť každej bunky od zdroja alebo k zdroju s najniž&scaron;&iacute;mi n&aacute;kladmi.
+            </p>
+        </div>
+    </div>
+    <div id="outputBackDirectionRasterName">
+        <div>
+            <p>N&aacute;zov rastrovej vrstvy sp&auml;tn&eacute;ho smeru, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy. Vrstva obsahuje smer v stupňoch.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceDirectionRasterName">
+        <div>
+            <p>N&aacute;zov zdrojovej smerovej rastrovej vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy. Vrstva obsahuje azimut&aacute;lny smer zdrojovej bunky s najmen&scaron;&iacute;mi kumulovan&yacute;mi n&aacute;kladmi v stupňoch.
+            </p>
+        </div>
+    </div>
+    <div id="outputSourceLocationRasterName">
+        <div>
+            <p>N&aacute;zov viacp&aacute;smovej rastrovej vrstvy zdrojov&yacute;ch lokal&iacute;t, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy. Vrstva obsahuje zdrojov&eacute; lokality, pričom prv&eacute; p&aacute;smo obsahuje riadkov&yacute; index a druh&eacute; p&aacute;smo obsahuje stĺpcov&yacute; index.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ v&yacute;stupu, ktor&yacute; bude vytvoren&yacute;. V&yacute;stupom m&ocirc;že byť dlaždicov&aacute; sn&iacute;mkov&aacute; vrstva alebo dynamick&aacute; sn&iacute;mkov&aacute; vrstva.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

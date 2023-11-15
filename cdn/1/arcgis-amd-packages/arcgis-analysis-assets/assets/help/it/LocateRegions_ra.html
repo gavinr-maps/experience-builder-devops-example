@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Individua regioni identifica le regioni migliori nel raster di input che soddisfano i requisiti dimensionali e i vincoli spaziali specificati.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>Il raster utilit&agrave; di input dal quale verranno derivate le regioni.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>La quantit&agrave; totale di area per tutte le regioni.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p>Specifica le unit&agrave; di area utilizzate per i parametri  <b>Area totale</b>, <b>Area minima regione</b> e <b>Area massima regione</b>.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p>Specifica su quante regioni verr&agrave; distribuita l' <b>Area totale</b>.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>Specifica il compromesso tra il contributo di una cella al mantenimento della forma della regione rispetto al contributo di utilit&agrave; del valore dell'attributo della cella.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>Il criterio di valutazione per determinare quali regioni candidate sono pi&ugrave; preferite.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>Specifica le caratteristiche della forma delle regioni di output.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>Specifica l'orientamento della forma definita.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>Specifica l'area minima consentita per ciascuna regione. Verranno utilizzate le unit&agrave; specificate dal parametro  <b>Unit&agrave; area</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>Specifica l'area massima consentita per ciascuna regione. Verranno utilizzate le unit&agrave; specificate dal parametro  <b>Unit&agrave; area</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>Specifica la distanza minima consentita tra le regioni.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>Specifica la distanza massima consentita tra le regioni.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p>Specifica le unit&agrave; di distanza che verranno utilizzate per i parametri  <b>Distanza minima tra le regioni</b> e <b>Distanza massima tra le regioni</b>.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>Il layer di input che identifica dove le regioni esistono gi&agrave;.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Specifica quali celle vicine utilizzare nella crescita delle regioni.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>Specifica se le isole saranno consentite o meno all'interno delle regioni potenziali.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>Specifica il numero di semi da cui far crescere le regioni potenziali.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>Specifica la risoluzione con la quale si verifica la crescita della regione.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>Specifica il modo in cui le regioni verranno selezionate.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer raster Localizza regioni che verr&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Il tipo di output che sar&agrave; creato. Gli output possono essere layer immagini di tile o layer immagini dinamici.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De tool Punten interpoleren voorspelt waarden op nieuwe locaties op basis van puntmetingen. De tool cre&euml;ert een rasteruitvoer.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointFeatures">
+        <div>
+            <p>De puntenlaag die de punten bevat waar de waarden zijn gemeten.
+            </p>
+        </div>
+    </div>
+    <div id="interpolateField">
+        <div>
+            <p>Het numerieke veld met de waarden die worden ge&iuml;nterpoleerd.
+            </p>
+        </div>
+    </div>
+    <div id="optimizeFor">
+        <div>
+            <p>Geeft aan of snelheid of nauwkeurigheid wordt geoptimaliseerd. Het berekenen van nauwkeurigere voorspellingen duurt langer.
+            </p>
+            <p>Deze parameter wijzigt de standaardwaarden van verschillende andere parameters.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>De celgrootte en de eenheid voor de uitvoerrasters.
+            </p>
+        </div>
+    </div>
+    <div id="transformData">
+        <div>
+            <p>Geeft aan of de gegevens al dan niet worden getransformeerd. Interpolatie is het meest nauwkeurig voor gegevens die een normale (klokvormige) verdeling volgen.
+            </p> 
+        </div>
+    </div>
+    <div id="sizeOfLocalModels">
+        <div>
+            <p>De grootte van de lokale interpolatiemodellen die zullen worden gecombineerd tot de uiteindelijke voorspellingskaart.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>Het aantal buren dat zal worden gebruikt. Een groter aantal buren levert over het algemeen nauwkeurigere resultaten op, maar het duurt langer om de resultaten te berekenen.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>De naam van de ge&iuml;nterpoleerde rasterlaag die wordt aangemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="outputPredictionError">
+        <div>
+            <p>Kies of u ook een optioneel raster van standaardfouten voor de voorspelde waarden wilt maken.
+            </p>
+            <p>Indien aangevinkt, zal het standaardfoutenraster dezelfde naam hebben als het  <b>uitvoerraster</b>, maar met het woord Fouten eraan toegevoegd. De laag wordt gemaakt en toegevoegd aan de kaart.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Het type uitvoer dat wordt gemaakt. De uitvoer kan bestaan uit getegelde beeldlagen of dynamische beeldlagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar de resultaten worden opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

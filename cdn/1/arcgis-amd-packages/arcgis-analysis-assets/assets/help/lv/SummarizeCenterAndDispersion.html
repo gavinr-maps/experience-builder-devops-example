@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Centrālās vērtības un izkliedes aprēķinā&scaron;anas rīks atrod elementu kopas centrālo elementu, centrālo tendenci un standarta novirzes elipsi.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Punkta, līnijas vai laukuma elementi, kuriem tiks aprēķināts centrālais elements, centrālā tendence un standarta novirzes elipse.
+            </p>
+        </div>
+    </div>
+    <div id="summarizeType">
+        <div>
+            <p>Norāda metodes, kas apkopo elementu centru un izkliedi.
+            </p>
+        </div>
+    </div>
+    <div id="ellipseSize">
+        <div>
+            <p>Norāda eliptiskā laukuma izmēru standarta novirzēs. Ja attālums starp vidējo centru un objektu novietojumu seko Reilija sadalījumam, opcijas  <b>1 standartnovirze</b>, <b>2 standartnovirzes</b> un <b>3 standartnovirzes</b> izvadīs eliptisku laukumu, kas aptvers attiecīgi 63 procentus, 89 procentus un 99,9 procentus elementu.
+            </p>
+        </div>
+    </div>
+    <div id="weightField">
+        <div>
+            <p>Lauks, kas tiks izmantots, lai noteiktu elementa nozīmīgumu.
+            </p>
+        </div>
+    </div>
+    <div id="groupField">
+        <div>
+            <p>Lauks, kas tiks izmantots, lai sagrupētu elementus kopā. Izvēlētie  <b>kopsavilkuma veidi</b> tiks aprēķināti katrai grupai.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

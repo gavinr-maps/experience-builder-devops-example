@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Lo strumento Campione crea una tabella o una classe di feature punto per mostrare i valori dei pixel di un raster o di un insieme di raster in posizioni definite.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inRasters">
+        <div>
+            <p>I layer di immagini contenenti i valori che saranno campionati in base ai dati di posizione inseriti.
+            </p> 
+        </div>
+    </div>
+    <div id="inLocationData">
+        <div>
+            <p>Il layer contenente le posizioni di ciascun campione.
+            </p>
+        </div>
+    </div>
+    <div id="resamplingType">
+        <div>
+            <p>L'algoritmo di ricampionamento che verr&agrave; utilizzato durante il processo di campionamento.
+            </p>
+        </div>
+    </div>
+    <div id="uniqueIdField">
+        <div>
+            <p>Un campo del layer che contiene un valore diverso per ogni posizione o feature di input.
+            </p>
+        </div>
+    </div>
+    <div id="processMultidimension">
+        <div>
+            <p>Indica se i layer di immagini in ingresso includono dati multidimensionali.
+            </p>
+        </div>
+    </div>
+    <div id="acquisitionDefinition">
+        <div>
+            <p>Specifica l'ora, la profondit&agrave; o altri dati di acquisizione associati alle feature di posizione.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>La dimensione del layer di ingresso multidimensionale.
+            </p>
+        </div>
+    </div>
+    <div id="startFieldOrVal">
+        <div>
+            <p>Il campo che verr&agrave; utilizzato per avviare l'intervallo di tempo per il layer di ingresso multidimensionale.
+            </p>
+        </div>
+    </div>
+    <div id="endFieldOrVal">
+        <div>
+            <p>Il campo che verr&agrave; utilizzato per terminare l'intervallo di tempo per il layer di ingresso multidimensionale.
+            </p>
+        </div>
+    </div>
+    <div id="before">
+        <div>
+            <p>Un numero non negativo che verr&agrave; aggiunto al parametro  <b>Dimensione</b> o un valore che definir&agrave; l'inizio di un intervallo di valori di dimensione.
+            </p>
+        </div>
+    </div>
+    <div id="after">
+        <div>
+            <p>Un numero non negativo che verr&agrave; aggiunto al parametro  <b>Dimensione</b> o un valore che definir&agrave; la fine di un intervallo di valori di dimensione.
+            </p>
+        </div>
+    </div>
+    <div id="statisticsType">
+        <div>
+            <p>Le statistiche che verranno generate durante l'elaborazione dei layer di immagini multidimensionali.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Il valore percentuale che verr&agrave; utilizzato per il tipo di statistiche percentili.
+            </p>
+        </div>
+    </div>
+    <div id="bufferDistance">
+        <div>
+            <p>La distanza del buffer che verr&agrave; applicata alle posizioni di ingresso.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Il nome del layer che sar&agrave; creato e aggiunto alla mappa.
+            </p>
+        </div>
+    </div>
+    <div id="generateFeatureClass">
+        <div>
+            <p>Specifica se il tipo di output sar&agrave; una feature o una tabella.
+            </p>
+        </div>
+    </div>
+    <div id="layout">
+        <div>
+            <p>Specifica se l'output sar&agrave; in ordine di riga o di colonna.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Il nome della cartella  <b>I miei contenuti</b> in cui sar&agrave; salvato il risultato.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

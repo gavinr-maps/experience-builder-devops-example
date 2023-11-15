@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструментът Параметри на повърхността изчислява параметри на растерна повърхност, като аспект, наклон и кривина, като използвате геодезични методи.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Растер за височина, който ще се използва за изчисления.
+            </p>
+            <p>Ако единица z е налична във вертикалната координатна система на входния растер, тя ще бъде приложена автоматично.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Типът параметър на повърхността, който ще бъде измерен.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>Мерните единици на растера на изходния наклон.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Указва дали ще се проектират геодезически азимути.
+            </p>
+            <p>Ако е маркирано, геодезическите азимути ще бъдат проектирани, за да коригират ъгловото изкривяване, причинено от изходната проекция. Ако не е маркирано, геодезическите азимути няма да бъдат проектирани.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Указва дали аспектът ще се измерва от точка на Екватора или от северния полюс.
+            </p>
+            <p>Ако е маркирано, аспектът ще се измерва от точка на Екватора. Ако не е маркирано, аспектът ще се измерва от северния полюс.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Типът повърхностна функция, която ще бъде монтирана около целевата клетка.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Разстоянието от центъра на целевата клетка, от което ще се изчисляват изходните данни. Определя размер на квартала, използван за изчисление.
+            </p>
+            <p>Стойността по подразбиране е размерът на клетката на растера, посочен в параметъра  <b>Входен растер на повърхността</b>. Ако е зададена стойност, тя трябва да е по-голяма от зададената по подразбиране.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Указва дали разстоянието до квартала ще варира в зависимост от промените в ландшафта.
+            </p>
+            <p>Ако е маркирано, разстоянието до квартала ще варира в зависимост от промените в ландшафта. Ако не е маркирано, ще се използва фиксирано съседно разстояние на всички места.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Линейната единица за вертикални z-стойности.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на растерния слой на повърхността, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Типът резултат, който ще бъде създаден. Резултатът може да бъде слой с плочкови изображения или слой с динамични изображения.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Името на папка в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

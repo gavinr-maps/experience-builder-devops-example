@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Инструмента Генерирайте зони за пътуване създава райони, до които може да се стигне за определено време или на определено разстояние.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Точковите обекти, около които ще се изчисляват областите.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Един или повече точкови обекти, които действат като временни ограничения (бариери) при движение по основните улици. Движението по улицата е разрешено, но не и през бариерата.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Един или повече линейни обекти, които действат като временни ограничения (бариери) при движение по основните улици. Линейните бариери забраняват движението навсякъде, където бариерите пресичат улиците.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Един или повече полигонови обекти, които действат като временни ограничения (бариери) при движение по основните улици. Полигоновите бариери забраняват движението навсякъде, където полигоните пресичат улиците.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Режимът на пътуване, който ще се използва за създаване на зоните за пътуване. Режимът на пътуване може да се основава на разстояние или време.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Разстоянието за пътуване или ограничението във времето за всяка входна точка. Ако се добавят множество стойности, всяка стойност ще се използва за изчисляване на площите на пътуване за всички входни точки.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Мерните единици, които се използват за определяне на разстоянието или времето за пътуване.  <b>Граничната</b> стойност се интерпретира в тези единици.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Определя дали се създават зони за пътуване за пътуване далеч от входните точки или към входните точки.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Указва датата и часа, от които пътникът тръгва или пристига на входните места.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Определя как да се обработват споделените области от различни входни точки, когато достигнат една до друга.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Указва дали всяка изходна област ще бъде един непрекъснат полигон (без отметка) или включва дупки на улици, които не са достъпни, но са напълно заобиколени от достъпни улици (отметнато).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Името на слоя, който ще бъде създаден и добавен към картата.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Указва дали улиците, използвани за създаване на зони за пътуване, ще бъдат включени като изходен слой.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Името на папката в  <b>Моето съдържание</b>, където резултатите ще бъдат запазени.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

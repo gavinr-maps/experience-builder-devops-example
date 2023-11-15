@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Narzędzie Oblicz zagęszczenie umożliwia obliczenie szacunkowego zagęszczenia na podstawie obiekt&oacute;w punktowych i liniowych. Narzędzie tworzy rastrowe dane wynikowe.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputPointOrLineFeatures">
+        <div>
+            <p>Warstwa punktowa lub liniowa, na podstawie kt&oacute;rej ma zostać obliczone zagęszczenie.
+            </p>
+        </div>
+    </div>
+    <div id="countField">
+        <div>
+            <p>Pole określające liczbę zdarzeń w każdej lokalizacji.
+            </p>
+        </div>
+    </div>
+    <div id="inBarriers">
+        <div>
+            <p>Warstwa definiująca bariery. Barierami może być warstwa obiektowa zawierająca obiekty poliliniowe lub poligonowe.
+            </p>
+        </div>
+    </div>
+    <div id="outputCellSize">
+        <div>
+            <p>Rozmiar kom&oacute;rki i jednostka, kt&oacute;re zostaną użyte w rastrze wynikowym.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Określa odległość wyszukiwania punkt&oacute;w lub linii podczas obliczania zagęszczenia z użyciem wartości i jej jednostek.
+            </p>
+        </div>
+    </div>
+    <div id="outputAreaUnits">
+        <div>
+            <p>Jednostki powierzchni danych wynikowych.
+            </p>
+            <p>Zagęszczenie to wartość liczbowa podzielona przez wielkość powierzchni, a&nbsp;parametr ten określa jednostkę powierzchni używaną w&nbsp;obliczeniach wartości zagęszczenia.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nazwa warstwy rastrowej zagęszczenia, kt&oacute;ra zostanie utworzona i dodana do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Typ wynikowy, kt&oacute;ry zostanie utworzony. Danymi wynikowymi mogą być warstwy zobrazowań kafelkowych lub dynamiczne warstwy zobrazowań.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nazwa folderu na stronie  <b>Moje zasoby</b>, w kt&oacute;rym zostaną zapisane wyniki.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

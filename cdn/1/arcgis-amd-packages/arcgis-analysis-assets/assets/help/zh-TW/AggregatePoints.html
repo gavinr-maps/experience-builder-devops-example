@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>「匯聚點」工具可計算指定的容器或多邊形內的點計數和其他統計資料。
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="pointLayer">
+        <div>
+            <p>將被匯聚爲摘要區域的點圖層。
+            </p>
+        </div>
+    </div>
+    <div id="polygonLayer">
+        <div>
+            <p>將用於匯聚點的多邊形圖層。
+            </p>
+        </div>
+    </div>
+    <div id="binType">
+        <div>
+            <p>將在其中匯聚輸入點的邊界圖徵的類型。 這可以是工具執行時所產生的多邊形圖層，或方形或六邊形容器的鑲嵌網格。
+            </p>
+        </div>
+    </div>
+    <div id="binSize">
+        <div>
+            <p>產生之容器的大小。 對於方形容器，指定的數字和單位可決定方形的高度和長度。 對於六邊形容器，指定的數字和單位可決定平行邊之間的距離。
+            </p>
+        </div>
+    </div>
+    <div id="binSizeUnit">
+        <div>
+            <p>將用於指定容器大小的單位。
+            </p>
+        </div>
+    </div>
+    <div id="keepBoundariesWithNoPoints">
+        <div>
+            <p>決定是否將不含點的圖徵顯示在結果圖層中。 如果未勾選，則不含點的圖徵不會出現在結果中。 如果勾選，則不含點的圖徵將出現在結果中。
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>將摘要的輸入圖層的數字或日期欄位，以及將為每個欄位計算的統計資料。
+            </p>
+        </div>
+    </div>
+    <div id="groupByField">
+        <div>
+            <p>使用輸入圖層的欄位，可用於將資料分成不同的群組以進行統計計算。
+            </p>
+        </div>
+    </div>
+    <div id="minorityMajority">
+        <div>
+            <p>計算每個摘要區域內的少數 (所佔比例最小) 和多數 (所佔比例最大) 群組。
+            </p>
+        </div>
+    </div>
+    <div id="percentPoints">
+        <div>
+            <p>計算每個摘要區域內屬於每個群組之點的百分比。
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>將建立並新增到地圖之圖層的名稱。
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>我的內容</b>中將儲存結果的資料夾名稱。
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>지역 찾기는 입력 래스터에서 지정된 크기 요구 사항 및 공간 제약 조건을 충족하는 최적의 지역을 식별하는 도구입니다.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>지역이 파생될 입력 유틸리티 래스터입니다.
+            </p>
+        </div>
+    </div>
+    <div id="totalArea">
+        <div>
+            <p>모든 지역의 총 면적입니다.
+            </p>
+        </div>
+    </div>
+    <div id="areaUnits">
+        <div>
+            <p> <b>총 면적</b>, <b>지역 최소 면적</b>, <b>지역 최대 면적</b> 매개변수에 사용되는 면적 단위를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfRegions">
+        <div>
+            <p> <b>총 면적</b>을 얼마나 많은 지역에 분산할지를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="shapeTradeoff">
+        <div>
+            <p>지역 쉐이프를 유지하는 데 대한 셀의 기여와 셀 속성 값의 유틸리티 기여 간 맞교환을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="evaluationMethod">
+        <div>
+            <p>후보 지역 중 어떤 지역이 가장 선호되는지 판단하는 평가 기준입니다.
+            </p>
+        </div>
+    </div>
+    <div id="regionShape">
+        <div>
+            <p>결과 지역의 쉐이프 특성을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="regionOrientation">
+        <div>
+            <p>정의된 쉐이프의 방향을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="minimumArea">
+        <div>
+            <p>각 지역에 허용되는 최소 면적을 지정합니다.  <b>면적 단위</b> 매개변수가 지정한 단위가 사용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="maximumArea">
+        <div>
+            <p>각 지역에 허용되는 최대 면적을 지정합니다.  <b>면적 단위</b> 매개변수가 지정한 단위가 사용됩니다.
+            </p>
+        </div>
+    </div>
+    <div id="minimumDistance">
+        <div>
+            <p>지역 간에 허용되는 최소 거리를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>지역 간에 허용되는 최대 거리를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="distanceUnits">
+        <div>
+            <p> <b>지역 간의 최소 거리</b> 및 <b>지역 간의 최대 거리</b> 매개변수에 사용될 거리 단위를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="inExistingRegions">
+        <div>
+            <p>지역이 이미 있는 곳을 식별하는 입력 레이어입니다.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfNeighbors">
+        <div>
+            <p>지역 성장에 사용할 인접 셀을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="noIslands">
+        <div>
+            <p>잠재 지역 내에서 섬의 허용 여부를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="regionSeeds">
+        <div>
+            <p>잠재 지역을 성장시킬 시드 수를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="regionResolution">
+        <div>
+            <p>지역 성장이 발생하는 해상도를 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="selectionMethod">
+        <div>
+            <p>지역을 선택할 방법을 지정합니다.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>생성되어 맵에 추가될 위치 찾기 래스터 레이어의 이름입니다.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>생성될 결과 유형입니다. 결과는 타일 영상 레이어 또는 동적 영상 레이어일 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>결과를 저장할  <b>내 콘텐츠</b>의 폴더 이름입니다.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

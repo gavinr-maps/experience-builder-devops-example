@@ -1,0 +1,136 @@
+{
+  "name": "CreateBuffers",
+  "displayName": "CreateBuffers",
+  "description": "Creates buffer polygon(s) around input features.",
+  "category": "",
+  "helpUrl": "http://ArcGISInternal:8443/arcgis/rest/directories/arcgisoutput/tasks_GPServer/tasks/CreateBuffers.htm",
+  "executionType": "esriExecutionTypeAsynchronous",
+  "parameters": [
+    {
+      "name": "inputLayer",
+      "dataType": "GPFeatureRecordSetLayer",
+      "displayName": "inputLayer",
+      "description": "The input to be buffered.",
+      "direction": "esriGPParameterDirectionInput",
+      "filter": {
+        "type": "featureClass",
+        "list": ["esriGeometryPoint", "esriGeometryMultipoint", "esriGeometryPolygon", "esriGeometryPolyline"]
+      },
+      "defaultValue": {},
+      "parameterType": "esriGPParameterTypeRequired",
+      "category": ""
+    },
+    {
+      "name": "distances",
+      "dataType": "GPMultiValue:GPDouble",
+      "displayName": "distances",
+      "description": "The distance(s) that will be buffered.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": [],
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "parameterInfos": [
+        {
+          "name": "Double",
+          "dataType": "GPDouble",
+          "displayName": "Double"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "dataType": "GPString",
+      "displayName": "field",
+      "description": "Buffers will be created using field values.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "units",
+      "dataType": "GPString",
+      "displayName": "units",
+      "description": "The linear unit to be used with the distance value(s).",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Meters",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Feet", "Kilometers", "Meters", "Miles", "NauticalMiles", "Yards"]
+    },
+    {
+      "name": "dissolveType",
+      "dataType": "GPString",
+      "displayName": "dissolveType",
+      "description": "Specifies the dissolve to be performed to remove buffer overlap.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "None",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["None", "Dissolve", "Split"]
+    },
+    {
+      "name": "ringType",
+      "dataType": "GPString",
+      "displayName": "ringType",
+      "description": "The ring type.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Disks",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Disks", "Rings"]
+    },
+    {
+      "name": "sideType",
+      "dataType": "GPString",
+      "displayName": "sideType",
+      "description": "The side(s) of the input that will be buffered.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Full",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Full", "Left", "Right", "Outside"]
+    },
+    {
+      "name": "endType",
+      "dataType": "GPString",
+      "displayName": "endType",
+      "description": "The shape of the buffer at the end of buffered line features.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "Round",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": "",
+      "choiceList": ["Round", "Flat"]
+    },
+    {
+      "name": "outputName",
+      "dataType": "GPString",
+      "displayName": "outputName",
+      "description": "Additional properties such as output feature service name.",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "context",
+      "dataType": "GPString",
+      "displayName": "context",
+      "description": "",
+      "direction": "esriGPParameterDirectionInput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeOptional",
+      "category": ""
+    },
+    {
+      "name": "bufferLayer",
+      "dataType": "GPString",
+      "displayName": "bufferLayer",
+      "description": "",
+      "direction": "esriGPParameterDirectionOutput",
+      "defaultValue": "",
+      "parameterType": "esriGPParameterTypeDerived",
+      "category": ""
+    }
+  ]
+}

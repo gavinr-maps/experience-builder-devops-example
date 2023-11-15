@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Extrair por Partes substitui as c&eacute;lulas de um raster correspondendo &agrave; m&aacute;scara com os valores dos vizinhos mais pr&oacute;ximos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputRaster">
+        <div>
+            <p>O raster de entrada com os locais mascarados que ser&atilde;o substitu&iacute;dos (cortados) pelo valor do vizinho mais pr&oacute;ximo.
+            </p>
+        </div>
+    </div>
+    <div id="inputMaskRaster">
+        <div>
+            <p>O raster de m&aacute;scara que identifica os locais no raster de entrada que ser&atilde;o substitu&iacute;dos. C&eacute;lulas com valor de NoData s&atilde;o consideradas dentro da &aacute;rea mascarada.
+            </p>
+        </div>
+    </div>
+    <div id="inputZoneRaster">
+        <div>
+            <p>O raster de zona de entrada. Para cada zona, as c&eacute;lulas de entrada que est&atilde;o dentro da m&aacute;scara ser&atilde;o substitu&iacute;das apenas pelos valores das c&eacute;lulas mais pr&oacute;ximas dentro da mesma zona.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleValues">
+        <div>
+            <p>Especifica se as c&eacute;lulas NoData no raster de entrada podem substituir (mordiscar) c&eacute;lulas nas &aacute;reas mascaradas se forem o vizinho mais pr&oacute;ximo.
+            </p>
+            <p>Se marcada, as c&eacute;lulas NoData no raster de entrada podem entrar na &aacute;rea mascarada. Se desmarcada, apenas c&eacute;lulas v&aacute;lidas no raster de entrada poder&atilde;o entrar na &aacute;rea mascarada.
+            </p>
+        </div>
+    </div>
+    <div id="nibbleNodata">
+        <div>
+            <p>Especifica se as c&eacute;lulas NoData na &aacute;rea mascarada ser&atilde;o preservadas ou substitu&iacute;das.
+            </p>
+            <p>Se desmarcada, quaisquer c&eacute;lulas NoData dentro da &aacute;rea mascarada ser&atilde;o preservadas na sa&iacute;da. Se marcada, as c&eacute;lulas NoData dentro da &aacute;rea mascarada ser&atilde;o substitu&iacute;das (extra&iacute;das) pelo valor do vizinho mais pr&oacute;ximo que est&aacute; fora da &aacute;rea mascarada.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada raster extra&iacute;da que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>O tipo de sa&iacute;da que ser&aacute; criado. As sa&iacute;das podem ser camadas de imagens mosaicadas ou camadas de imagens din&acirc;micas.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

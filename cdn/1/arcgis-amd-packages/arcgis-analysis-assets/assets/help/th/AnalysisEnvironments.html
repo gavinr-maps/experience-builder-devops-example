@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>การตั้งค่าสภาพแวดล้อมสำหรับการวิเคราะห์ใน  Map Viewer </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="outSR">
+        <div>
+            <p>ระบุระบบพิกัดสำหรับการวิเคราะห์ และชั้นข้อมูลผลลัพธ์
+            </p>
+        </div>
+    </div>
+    <div id="extent">
+        <div>
+            <p>ระบุพื้นที่ซึ่งจะใช้สำหรับการวิเคราะห์
+            </p>
+        </div>
+    </div>
+    <div id="snapRaster">
+        <div>
+            <p>ปรับขอบเขตของเอาท์พุท เพื่อให้ตรงกับการจัดแนวเซลล์ของชั้นข้อมูลสแน็ปราสเตอร์ที่กำหนด
+            </p>
+        </div>
+    </div>
+    <div id="cellSize">
+        <div>
+            <p>ระบุขนาดของเซลล์หรือความละเอียดที่จะนำมาใช้เพื่อสร้างชั้นข้อมูลแรสเตอร์เอาท์พุท
+            </p>
+        </div>
+    </div>
+    <div id="mask">
+        <div>
+            <p>ระบุชั้นข้อมูลมมาสก์ ซึ่งมีเฉพาะเซลล์ที่อยู่ภายในพื้นที่มาสก์เท่านั้น ที่จะใช้สำหรับการวิเคราะห์
+            </p>
+        </div>
+    </div>
+    <div id="resamplingMethod">
+        <div>
+            <p>ระบุว่าจะประมาณค่าพิกเซลในช่วงอย่างไร เมื่อแรสเตอร์อินพุทและเอาท์พุทไม่อยู่ในแนวเดียวกัน
+            </p>
+        </div>
+    </div>
+    <div id="processorType">
+        <div>
+            <p>ระบุประเภทของโปรเซสเซอร์ที่จะใช้ ตัวเลือกได้แก่  <b>CPU</b>, <b>GPU</b> และ <b>อัตโนมัติ</b> หากระบุ <b>อัตโนมัติ</b> ไว้ เครื่องมือจะเป็นตัวกำหนดประเภทโปรเซสเซอร์
+            </p>
+        </div>
+    </div>
+    <div id="parallelProcessingFactor">
+        <div>
+            <p>ระบุจำนวนของอินสแตนซ์บริการประมวลผลแรสเตอร์ที่ใช้ในระหว่างการรันเครื่องมือ ค่าที่รองรับได้แก่ สตริงเปล่า (เครื่องมือจะกำหนดจำนวนของอินสแตนซ์บริการประมวลผลแรสเตอร์ที่จะใช้) จำนวนเต็ม (0 หรือจำนวนเต็มบวก) และเปอร์เซ็นต์ เปอร์เซ็นต์จะต้องมีเครื่องหมายเปอร์เซ็นต์ (%) ตามหลังค่าเปอร์เซ็นต์
+            </p>
+        </div>
+    </div>
+    <div id="askConfirmation">
+        <div>
+            <p>กำหนดว่าข้อความเตือนจะปรากฎขึ้นหรือไม่ หากจำนวนเครดิตโดยประมาณเกินค่าเกณฑ์ที่กำหนดไว้ (เมื่อเปิดใช้งาน) หรือจะรันการวิเคราะห์โดยไม่แสดงข้อความ และไม่สนใจการใช้เครดิตโดยประมาณ (เมื่อไม่เปิดใช้งาน) การวิเคราะห์จะยังคงทำงานตามการตั้งค่างบประมาณเครดิตสำหรับองค์กร
+            </p>
+        </div>
+    </div>
+    <div id="creditThreshold">
+        <div>
+            <p>ระบุค่าเกณฑ์ที่จะแสดงข้อความคำเตือน อิงตามการใช้เครดิตโดยประมาณจากการรันการวิเคราะห์ จะยังคงสามารถรันการวิเคราะห์ได้ แม้การประมาณการจะเกินค่าเกณฑ์
+            </p>
+        </div>
+    </div>
+</div>
+</html>

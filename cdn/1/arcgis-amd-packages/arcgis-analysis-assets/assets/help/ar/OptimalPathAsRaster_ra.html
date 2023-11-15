@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>تحدد أداة &quot;المسار الأمثل كبيانات نقطية&quot; مسار البيانات النقطية الأمثل من الوجهات إلى المصادر.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputDestinationRasterOrFeatures">
+        <div>
+            <p>طبقة تحدد الوجهات التي سيتم احتساب المسافة منها إلى المصدر الأقل تكلفة.
+            </p>
+            <p>إذا كان الإدخال بيانات نقطية، يجب أن يتكون من خلايا تحتوي على قيم صالحة (الصفر قيمة صالحة) للوجهات، ويجب تعيين الخلايا المتبقية على NoData.
+            </p>
+        </div>
+    </div>
+    <div id="destinationField">
+        <div>
+            <p>الحقل الذي سوف يُستخدم للحصول على القيم لمواقع الوجهة.
+            </p>
+        </div>
+    </div>
+    <div id="inputDistanceAccumulationRaster">
+        <div>
+            <p>بيانات نقطية تحدد المسار الأمثل من الوجهات إلى المصادر.
+            </p>
+            <p>عادةً ما يتم إنشاء البيانات النقطية لتراكم المسافات باستخدام أداتي تراكم المسافة أو تخصيص المسافة.
+            </p>
+        </div>
+    </div>
+    <div id="inputBackDirectionRaster">
+        <div>
+            <p>بيانات نقطية تحتوي على اتجاهات محسوبة بالدرجات.
+            </p>
+            <p>عادة ما يتم إنشاء البيانات النقطية للاتجاه الخلفي باستخدام أداة تراكم المسافة أو تخصيص المسافة.
+            </p>
+        </div>
+    </div>
+    <div id="pathType">
+        <div>
+            <p>تحدد كيفية تفسير القيم والمناطق في بيانات وجهة الإدخال في حسابات المسار الأمثل.
+            </p>
+        </div>
+    </div>
+    <div id="outputRasterName">
+        <div>
+            <p>اسم طبقة المسار الأمثل كطبقة بيانات نقطية التي سيتم إنشاؤها وإضافتها إلى الخريطة.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>نوع المخرجات التي سيتم إنشاؤها. يمكن أن تكون المخرجات عبارة عن طبقة صور متجانبة أو طبقة صور ديناميكية.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>اسم المجلد الموجود في  <b>المحتوى الخاص بي</b> حيث سيتم حفظ النتيجة.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

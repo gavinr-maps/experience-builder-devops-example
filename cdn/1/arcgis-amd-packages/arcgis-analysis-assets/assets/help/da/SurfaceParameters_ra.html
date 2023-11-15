@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Overfladeparametre-v&aelig;rkt&oslash;jet beregner parametre for en rasteroverflade s&aring;som aspekt, stigning og krumning ved brug af geod&aelig;tiske metoder.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>H&oslash;jderasteren, der bruges til beregninger.
+            </p>
+            <p>Hvis en z-enhed er tilg&aelig;ngelig i det lodrette koordinatsystem for inputrasteren, anvendes den automatisk.
+            </p>
+        </div>
+    </div>
+    <div id="parameterType">
+        <div>
+            <p>Parameteren for den overfladetype, der m&aring;les.
+            </p> 
+        </div>
+    </div>
+    <div id="outputSlopeMeasurement">
+        <div>
+            <p>M&aring;leenheder for output-h&aelig;ldningsrasteren.
+            </p>
+        </div>
+    </div>
+    <div id="projectGeodesicAzimuths">
+        <div>
+            <p>Angiver, om geod&aelig;tiske azimutter projiceres.
+            </p>
+            <p>Hvis indstillingen er markeret, vil de geod&aelig;tiske azimutter blive projiceret for at rette vinkelforvr&aelig;ngningen, der skyldes den output-spatiale reference. Hvis indstillingen ikke er markeret, projiceres geod&aelig;tiske azimutter ikke.
+            </p>
+        </div>
+    </div>
+    <div id="useEquatorialAspect">
+        <div>
+            <p>Angiver, om aspekt m&aring;les fra et punkt p&aring; &aelig;kvator eller fra nordpolen.
+            </p>
+            <p>Hvis indstillingen er markeret, m&aring;les aspekt fra et punkt p&aring; &aelig;kvator. Hvis indstillingen ikke er markeret, m&aring;les aspektet fra nordpolen.
+            </p>
+        </div>
+    </div>
+    <div id="localSurfaceType">
+        <div>
+            <p>Den type overfladefunktion, der tilpasses omkring m&aring;lcellen.
+            </p> 
+        </div>
+    </div>
+    <div id="neighborhoodDistance">
+        <div>
+            <p>Afstanden fra midten af m&aring;lcellen, hvorfra outputtet beregnes. Den bestemmer nabolagets st&oslash;rrelse, der bruges til beregning.
+            </p>
+            <p>Standardv&aelig;rdien er cellest&oslash;rrelsen p&aring; den raster, der er angivet i parameteren  <b>Input-overfladeraster</b>. Hvis der er angivet en v&aelig;rdi, skal den v&aelig;re st&oslash;rre end standardv&aelig;rdien.
+            </p> 
+        </div>
+    </div>
+    <div id="useAdaptiveNeighborhood">
+        <div>
+            <p>Angiver, om afstanden til nabolaget varierer i takt med landskabsforandringer.
+            </p>
+            <p>Hvis indstillingen er angivet, vil afstanden til nabolaget variere i takt med landskabsforandringer. Hvis indstillingen ikke er markeret, bruges der en fast naboafstand p&aring; alle positioner.
+            </p>
+        </div>
+    </div>
+    <div id="zUnit">
+        <div>
+            <p>Den line&aelig;re enhed p&aring; lodrette z-v&aelig;rdier.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Navnet p&aring; det overflade-rasterlag for t&aelig;thed, der oprettes og f&oslash;jes til kortet.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Den type output, der oprettes. Outputtet kan v&aelig;re et tile-billedlag eller et dynamisk billedlag.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Navnet p&aring; mappen  <b>Mit indhold</b>, hvor resultatet gemmes.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,454 @@
+{
+  "toolName": "AggregateMultidimensionalRaster",
+  "version": "0.1.0",
+  "rules": [
+    {
+      "ruleType": "set",
+      "destination": ["intervalRanges.UIparameterInfos[0]", "intervalRanges.UIparameterInfos[1]"],
+      "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensions",
+      "property": "choiceList"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdTime",
+      "destination": "intervalRanges.UIparameterInfos[0]",
+      "effectParams": {
+        "choiceList": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMinValues.StdTime",
+        "choiceListLabels": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMinValuesWithLabels.StdTime"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdTime",
+      "destination": "intervalRanges.UIparameterInfos[1]",
+      "effectParams": {
+        "choiceList": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMaxValues.StdTime",
+        "choiceListLabels": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMaxValuesWithLabels.StdTime"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdZ",
+      "destination": "intervalRanges.UIparameterInfos[0]",
+      "effectParams": {
+        "choiceList": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMinValues.StdZ",
+        "choiceListLabels": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMinValuesWithLabels.StdZ"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdZ",
+      "destination": "intervalRanges.UIparameterInfos[1]",
+      "effectParams": {
+        "choiceList": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMaxValues.StdZ",
+        "choiceListLabels": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionMaxValuesWithLabels.StdZ"
+      }
+    },
+    {
+      "ruleType": "set",
+      "destination": "dimension",
+      "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensions",
+      "property": "choiceList"
+    },
+    {
+      "ruleType": "expression",
+      "destination": "dimension",
+      "expression": "$[Data].dimension = null",
+      "effectParams": {
+        "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensions[0]"
+      }
+    },
+    {
+      "ruleType": "set",
+      "destination": "variables",
+      "value": "$[Component].inputMultidimensionalRaster.processedLayerProperties.variablesDataset",
+      "property": "analysisDataset"
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].dimension",
+      "valueB": "StdZ",
+      "destination": "variables",
+      "effectParams": {
+        "analysisDataset": "$[Component].inputMultidimensionalRaster.processedLayerProperties.dimensionVariableDatasets.StdZ"
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationDefinition",
+      "valueB": "INTERVAL_VALUE",
+      "destination": ["intervalValue", "intervalUnit"],
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationDefinition",
+      "valueB": "INTERVAL_KEYWORD",
+      "destination": "intervalKeyword",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationDefinition",
+      "valueB": "INTERVAL_RANGES",
+      "destination": "intervalRanges",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationMethod",
+      "valueB": "CUSTOM",
+      "destination": "aggregationFunction",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationMethod",
+      "valueB": "PERCENTILE",
+      "destination": "percentileValue",
+      "effectParams": {
+        "visible": true,
+        "required": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationMethod",
+      "valueB": "PERCENTILE",
+      "destination": "percentileInterpolationType",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "equals",
+      "valueA": "$[Data].aggregationMethod",
+      "valueB": "CUSTOM",
+      "destination": "ignoreNodata",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].dimension = 'StdZ'",
+      "destination": "intervalUnit",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].dimension = 'StdZ'",
+      "destination": "intervalKeyword",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].dimension = 'StdZ'",
+      "destination": "aggregationDefinition",
+      "effectParams": {
+        "choiceList": ["ALL", "INTERVAL_VALUE", "INTERVAL_RANGES"],
+        "choiceListLabels": {
+          "ALL": "$all",
+          "INTERVAL_VALUE": "$intervalValue",
+          "INTERVAL_RANGES": "$intervalRanges"
+        },
+        "defaultValue": "ALL"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "$[Data].inputMultidimensionalRaster NOT null ",
+      "destination": "dimensionless",
+      "effectParams": {
+        "visible": true
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputMultidimensionalRaster.processedLayerProperties.dimensions.length > 1) OR ($[Data].variables.length > 1))",
+      "destination": "dimensionless",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "((($[Data].aggregationDefinition = 'INTERVAL_KEYWORD') OR ($[Data].aggregationDefinition = 'INTERVAL_VALUE')) OR ($[Data].aggregationDefinition = 'INTERVAL_RANGES'))",
+      "destination": "dimensionless",
+      "effectParams": {
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(($[Component].inputMultidimensionalRaster.user.portal NOT undefined) AND ($[Component].inputMultidimensionalRaster.user.portal.isPortal = true))",
+      "destination": "resultType",
+      "effectParams": {
+        "value": "DYNAMIC_IMAGERY_LAYER",
+        "visible": false
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' IN $[Component].inputMultidimensionalRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' NOT IN $[Component].inputMultidimensionalRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceList": ["DYNAMIC_IMAGERY_LAYER"],
+        "choiceListIcons": {
+          "DYNAMIC_IMAGERY_LAYER": "image-layer"
+        },
+        "choiceListLabels": {
+          "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+        },
+        "value": "DYNAMIC_IMAGERY_LAYER"
+      }
+    },
+    {
+      "ruleType": "expression",
+      "expression": "(('portal:publisher:publishDynamicImagery' NOT IN $[Component].inputMultidimensionalRaster.user.privileges) AND ('portal:publisher:publishTiledImagery' IN $[Component].inputMultidimensionalRaster.user.privileges))",
+      "destination": "resultType",
+      "effectParams": {
+        "choiceListIcons": {
+          "TILED_IMAGERY_LAYER": "tiled-imagery-layer"
+        },
+        "choiceListLabels": {
+          "TILED_IMAGERY_LAYER": "$tiledImageryLayer"
+        },
+        "value": "TILED_IMAGERY_LAYER"
+      }
+    }
+  ],
+  "environmentSettings": {
+    "raster": ["cellSize", "snapRaster", "resamplingMethod", "parallelProcessingFactor"]
+  },
+  "UIparameters": [
+    {
+      "label": "$inputLayerGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "inputMultidimensionalRaster",
+          "label": "$inputMultidimensionalRaster",
+          "componentName": "analysis-layer-input",
+          "required": true,
+          "hideSketch": true,
+          "layerFilterType": "imagery_multidimension"
+        },
+        {
+          "name": "dimension",
+          "label": "$dimension",
+          "placeholderText": "$dimensionLabel",
+          "componentName": "analysis-string-input"
+        },
+        {
+          "name": "variables",
+          "label": "$variables",
+          "placeholderText": "$variableLabel",
+          "componentName": "analysis-field-input",
+          "selectionMode": "multi",
+          "useDefaultValue": true,
+          "showSort": false,
+          "heading": "$selectVariables",
+          "filterPlaceholderText": "$selectVariables"
+        }
+      ]
+    },
+    {
+      "label": "$settingsGroupLabel",
+      "componentName": "analysis-block",
+      "UIparameters": [
+        {
+          "name": "aggregationMethod",
+          "label": "$aggregationMethod",
+          "choiceListLabels": {
+            "MEAN": "$mean",
+            "MAXIMUM": "$maximum",
+            "MAJORITY": "$majority",
+            "MINIMUM": "$minimum",
+            "MINORITY": "$minority",
+            "MEDIAN": "$median",
+            "PERCENTILE": "$percentile",
+            "RANGE": "$range",
+            "STD": "$std",
+            "SUM": "$sum",
+            "VARIETY": "$variety",
+            "CUSTOM": "$custom"
+          }
+        },
+        {
+          "name": "percentileValue",
+          "label": "$percentileValue",
+          "defaultValue": 90,
+          "visible": false,
+          "componentName": "analysis-number-input",
+          "min": 0,
+          "max": 100
+        },
+        {
+          "name": "percentileInterpolationType",
+          "label": "$percentileInterpolationType",
+          "visible": false,
+          "choiceListLabels": {
+            "NEAREST": "$nearest",
+            "LINEAR": "$linear"
+          }
+        },
+        {
+          "name": "aggregationFunction",
+          "label": "$aggregationFunction",
+          "visible": false,
+          "componentName": "analysis-item-input",
+          "hidePreview": true,
+          "itemTypes": ["Raster Function Template"],
+          "selectButtonLabel": "$modelLabel"
+        },
+        {
+          "name": "aggregationDefinition",
+          "label": "$aggregationDefinition",
+          "choiceListLabels": {
+            "ALL": "$all",
+            "INTERVAL_KEYWORD": "$intervalKeyword",
+            "INTERVAL_VALUE": "$intervalValue",
+            "INTERVAL_RANGES": "$intervalRanges"
+          },
+          "defaultValue": "ALL",
+          "useDefaultOnReset": true
+        },
+        {
+          "name": "intervalKeyword",
+          "label": "$intervalKeyword",
+          "visible": false,
+          "choiceListLabels": {
+            "HOURLY": "$hourly",
+            "DAILY": "$daily",
+            "WEEKLY": "$weekly",
+            "DEKADLY": "$dekadly",
+            "PENTADLY": "$pentadly",
+            "MONTHLY": "$monthly",
+            "QUARTERLY": "$quarterly",
+            "YEARLY": "$yearly",
+            "RECURRING_DAILY": "$recurringDaily",
+            "RECURRING_WEEKLY": "$recurringWeekly",
+            "RECURRING_MONTHLY": "$recurringMonthly",
+            "RECURRING_QUARTERLY": "$recurringQuarterly"
+          },
+          "defaultValue": "HOURLY"
+        },
+        {
+          "layout": "horizontal",
+          "name": "intervalUnitGroup",
+          "UIparameters": [
+            {
+              "name": "intervalValue",
+              "label": "$intervalValue",
+              "placeholderText": "$intervalValuePlaceholder",
+              "defaultValue": 1,
+              "min": 0,
+              "excludeMinValue": true,
+              "componentName": "analysis-number-input",
+              "visible": false
+            },
+            {
+              "name": "intervalUnit",
+              "label": "$intervalUnit",
+              "componentName": "analysis-string-input",
+              "choiceList": ["Hours", "Days", "Weeks", "Months", "Years"],
+              "choiceListLabels": {
+                "Hours": "$hours",
+                "Days": "$days",
+                "Weeks": "$weeks",
+                "Months": "$months",
+                "Years": "$years"
+              },
+              "defaultValue": "Hours",
+              "visible": false
+            }
+          ]
+        },
+        {
+          "name": "intervalRanges",
+          "label": "$intervalRanges",
+          "componentName": "analysis-value-table",
+          "visible": false,
+          "UIparameterInfos": [
+            {
+              "name": "minValue",
+              "label": "$minValue",
+              "required": true,
+              "placeholderText": "$minValuePlaceholder",
+              "componentName": "analysis-string-input"
+            },
+            {
+              "name": "maxValue",
+              "label": "$maxValue",
+              "required": true,
+              "placeholderText": "$maxValuePlaceholder",
+              "componentName": "analysis-string-input"
+            }
+          ]
+        },
+        {
+          "name": "ignoreNodata",
+          "label": "$ignoreNodata",
+          "componentName": "analysis-boolean-input"
+        },
+        {
+          "name": "dimensionless",
+          "label": "$dimensionless",
+          "componentName": "analysis-boolean-input",
+          "visible": false
+        }
+      ]
+    },
+    {
+      "label": "$resultLayerGroupLabel",
+      "componentName": "analysis-block",
+      "summaryText": "$resultLayerGroupText",
+      "UIparameters": [
+        {
+          "name": "outputName",
+          "label": "$outputName",
+          "placeholderText": "$outputNamePlaceholderText",
+          "required": true,
+          "componentName": "analysis-string-input"
+        },
+        {
+          "name": "resultType",
+          "label": "$resultType",
+          "componentName": "analysis-string-input",
+          "choiceList": ["TILED_IMAGERY_LAYER", "DYNAMIC_IMAGERY_LAYER"],
+          "choiceListIcons": {
+            "TILED_IMAGERY_LAYER": "tiled-imagery-layer",
+            "DYNAMIC_IMAGERY_LAYER": "image-layer"
+          },
+          "choiceListLabels": {
+            "TILED_IMAGERY_LAYER": "$tiledImageryLayer",
+            "DYNAMIC_IMAGERY_LAYER": "$dynamicImageryLayer"
+          },
+          "value": "TILED_IMAGERY_LAYER"
+        },
+        {
+          "name": "saveResultIn",
+          "label": "$saveResultIn",
+          "componentName": "analysis-folder-input"
+        }
+      ]
+    }
+  ]
+}

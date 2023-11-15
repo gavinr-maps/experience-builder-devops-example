@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A r&eacute;tegek &ouml;sszeilleszt&eacute;se eszk&ouml;z k&eacute;t r&eacute;teg vektoros elemeit egy &uacute;j r&eacute;tegbe m&aacute;solja. Lehetős&eacute;g van annak szab&aacute;lyoz&aacute;s&aacute;ra, mik&eacute;nt t&ouml;rt&eacute;njen a bemenő r&eacute;tegek mezőinek &ouml;sszekapcsol&aacute;sa &eacute;s m&aacute;sol&aacute;sa.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>A pont-t&iacute;pus&uacute;, vonalas vagy polygon vektoros elemek, amelyek egyes&iacute;tve lesznek az egyes&iacute;tett r&eacute;teggel.
+            </p>
+        </div>
+    </div>
+    <div id="mergeLayer">
+        <div>
+            <p>Az a r&eacute;teg, amely egyes&iacute;tve lesz a bemenő r&eacute;teggel.
+            </p>
+        </div>
+    </div>
+    <div id="mergingAttributes">
+        <div>
+            <p>Megadja, hogyan lesznek egyes&iacute;tve a mezők.
+            </p>
+            <p>Ha mindk&eacute;t mező azonos n&eacute;vvel &eacute;s adatt&iacute;pussal tartalmaz egy mezőt, akkor a rendszer mindk&eacute;t mező tartalm&aacute;t egyetlen, az adott nevű mezőben egyes&iacute;ti. Ez nem vonatkozik azokra a mezőkre, amelyekn&eacute;l a rendszer az  <b>Egyez&eacute;s</b> felt&eacute;telt haszn&aacute;lja az <b>&Ouml;sszeilleszt&eacute;si művelet</b> param&eacute;ter&eacute;rt&eacute;kek&eacute;nt. 
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;ny ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

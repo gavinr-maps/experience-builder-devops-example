@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>T&ouml;&ouml;riistaga &quot;Tuleta pidev vool&quot; saab luua sisendpinnarastri p&otilde;hjal igasse pikslisse suunduva akumuleeritud voolu rastri, ilma et varasem neelu v&otilde;i madaliku t&auml;itmine oleks n&otilde;utav.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputSurfaceRaster">
+        <div>
+            <p>Arvutamiseks kasutatav k&otilde;rgusraster.
+            </p> 
+        </div>
+    </div>
+    <div id="inputDepressionsData">
+        <div>
+            <p>Kiht, mis m&auml;&auml;ratleb reaalsed madalikud v&otilde;i neelud, kuhu vesi saab sisse voolata, aga mitte v&auml;lja.
+            </p> 
+        </div>
+    </div>
+    <div id="inputWeightRaster">
+        <div>
+            <p>Rasterkiht, mis m&auml;&auml;ratleb voolu osa, mis panustab voolu akumulatsiooni igas pikslis.
+            </p>
+        </div>
+    </div>
+    <div id="flowDirectionType">
+        <div>
+            <p>M&auml;&auml;rab voolumeetodi t&uuml;&uuml;bi, mida kasutatakse voolusuuna arvutamiseks.
+            </p>
+            <p>Meetod D8 m&auml;&auml;rab voolusuuna k&otilde;ige j&auml;rsema allasuunakaldega naabrile. Meetod MFD jaotab voolusuuna &uuml;le allasuunakaldega naabrite kohanduva jaotuse eksponendi alusel.
+            </p>
+        </div>
+    </div>
+    <div id="forceFlow">
+        <div>
+            <p>M&auml;&auml;rab, kas vool j&auml;rgib servapikslite juures normaalseid voolureegleid v&otilde;i voolab alati v&auml;ljapoole.
+            </p>
+            <p>Kui see pole m&auml;rgitud, on voolusuund k&otilde;ige j&auml;rsema z-v&auml;&auml;rtuse langusega sisemise piksli suunas. Pange t&auml;hele, et kui langus on null v&otilde;i sellest v&auml;iksem, voolab piksel pinnarastrist v&auml;ljapoole. Kui see on m&auml;rgitud, on voolusuund alati pinnarastrist v&auml;ljapoole.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowAccumulationRasterName">
+        <div>
+            <p>Voolu akumulatsiooni rasterkihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="outputFlowDirectionRasterName">
+        <div>
+            <p>Voolusuuna rasterkihi nimi, mis luuakse ja lisatakse kaardile.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            <p>Loodava v&auml;ljundi t&uuml;&uuml;p. V&auml;ljundid v&otilde;ivad olla paanitud pildikihid v&otilde;i d&uuml;naamilised pildikihid.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Selle kausta nimi jaotises  <b>Minu sisu</b>, kuhu tulemused salvestatakse.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

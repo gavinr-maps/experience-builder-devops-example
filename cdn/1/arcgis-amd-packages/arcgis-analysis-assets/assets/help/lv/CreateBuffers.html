@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Buferzonu izveides rīks izveido laukumus, kas nosedz noteiktu attālumu no ievades elementiem.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Punkta, līnijas vai daudzstūra elementi, kam tiks izveidota buferzona.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Norāda, vai buferzonas attālums tiks definēts, izmantojot konstanti (<b>Vērtība</b>) vai skaitlisku lauku (<b>Lauks</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Attālums, kas tiks izmantots buferzonas izveidei. Ja tiek pievienotas vairākas vērtības, katra vērtība tiks izmantota, lai izveidotu buferzonu pie katra ievades elementa.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Lauks, kur katram elementam būs buferzonas attālums.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Vienības, kas tiks izmantotas, lai norādītu buferzonas attālumu.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Norāda, kā tiek apstrādātas dažādu ievades elementu buferzonas, ja tās pārklājas.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Norāda, vai vairāku attālumu buferzonas būs koncentriskas buferzonas, kas pārklājas (<b>Diski, kas pārklājas</b>), vai gredzeni, kas nepārklājas (<b>Atsevi&scaron;ķi gredzeni</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Līniju elementiem norāda, vai buferzona tiks izveidota līnijas abās pusēs (<b>Apkārt</b>), tikai kreisajā pusē (<b>Pa kreisi</b>) vai tikai labajā pusē (<b>Pa labi</b>).
+            </p>
+            <p>Laukumu elementiem norāda, vai ievades laukuma elementi tiks iekļauti buferzonā (<b>Iekļaut</b>) vai izslēgti no buferzonas (<b>Izslēgt</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Norāda, vai buferzonas forma līnijas elementa beigās būs apaļa (<b>Apaļa</b>) vai plakana (<b>Plakana</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

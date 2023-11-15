@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>L&rsquo;outil Find Point Clusters (Rechercher des agr&eacute;gats de points) identifie les agr&eacute;gats d&rsquo;entit&eacute;s ponctuelles dans le bruit environnant en fonction de leur distribution spatiale.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="analysisLayer">
+        <div>
+            <p>Couche ponctuelle en entr&eacute;e &agrave; regrouper en agr&eacute;gats en fonction de la distribution spatiale des entit&eacute;s ponctuelles.
+            </p>
+        </div>
+    </div>
+    <div id="method">
+        <div>
+            <p>M&eacute;thode utilis&eacute;e pour identifier les agr&eacute;gats.
+            </p>
+        </div>
+    </div>
+    <div id="minFeaturesCluster">
+        <div>
+            <p>Nombre minimal d&rsquo;entit&eacute;s ponctuelles consid&eacute;r&eacute; comme un agr&eacute;gat.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistance">
+        <div>
+            <p>Sp&eacute;cifie la distance maximale autour de chaque entit&eacute; ponctuelle jusqu&rsquo;&agrave; laquelle les points pouvant &ecirc;tre inclus dans l&rsquo;agr&eacute;gat doivent &ecirc;tre recherch&eacute;s. Si elle n&rsquo;est pas indiqu&eacute;e, la valeur  <b>Search distance (Distance de recherche)</b> correspond &agrave; la distance principale la plus &eacute;lev&eacute;e trouv&eacute;e dans la couche, &agrave; l&rsquo;exclusion des meilleures 1&nbsp;% de distances principales.
+            </p>
+        </div>
+    </div>
+    <div id="searchDistanceUnit">
+        <div>
+            <p>Sp&eacute;cifie les unit&eacute;s &agrave; utiliser pour la distance de recherche.
+            </p>
+        </div>
+    </div>
+    <div id="sensitivity">
+        <div>
+            <p>Entier compris entre 0 et 100 d&eacute;terminant la densit&eacute; des agr&eacute;gats. Si elle n&rsquo;est pas indiqu&eacute;e, la valeur  <b>Cluster sensitivity (Sensibilit&eacute; d&rsquo;agr&eacute;gat)</b> est calcul&eacute;e &agrave; l&rsquo;aide de la divergence de Kullback-Leibler.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Nom de la couche &agrave; cr&eacute;er et ajouter &agrave; la carte.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>Nom du dossier de  <b>My Content (Mon contenu)</b> dans lequel sera enregistr&eacute; le r&eacute;sultat.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

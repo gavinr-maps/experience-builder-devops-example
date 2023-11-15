@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>C&ocirc;ng cụ Li&ecirc;n kết Đối tượng th&ecirc;m c&aacute;c thuộc t&iacute;nh từ một lớp hoặc bảng sang một lớp hoặc bảng kh&aacute;c dựa tr&ecirc;n mối quan hệ kh&ocirc;ng gian v&agrave; thuộc t&iacute;nh được chỉ định. Bạn c&oacute; thể t&ugrave;y &yacute; t&iacute;nh to&aacute;n số liệu thống k&ecirc; khi c&oacute; nhiều bản ghi tr&ugrave;ng khớp.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="targetLayer">
+        <div>
+            <p>Lớp hoặc bảng sẽ c&oacute; c&aacute;c thuộc t&iacute;nh từ lớp li&ecirc;n kết được th&ecirc;m v&agrave;o bảng thuộc t&iacute;nh của lớp hoặc bảng đ&oacute;.
+            </p>
+        </div>
+    </div>
+    <div id="joinLayer">
+        <div>
+            <p>Lớp hoặc bảng c&oacute; c&aacute;c thuộc t&iacute;nh sẽ được th&ecirc;m v&agrave;o lớp mục ti&ecirc;u.
+            </p>
+        </div>
+    </div>
+    <div id="useSpatialRelationship">
+        <div>
+            <p>Chỉ định xem c&oacute; li&ecirc;n kết c&aacute;c lớp dựa tr&ecirc;n mối quan hệ kh&ocirc;ng gian hay kh&ocirc;ng. Điều n&agrave;y y&ecirc;u cầu cả hai lớp phải c&oacute; th&ocirc;ng tin h&igrave;nh học.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationship">
+        <div>
+            <p>Chỉ định mối quan hệ kh&ocirc;ng gian x&aacute;c định c&aacute;c đối tượng được li&ecirc;n kết. C&aacute;c đối tượng trong lớp li&ecirc;n kết c&oacute; mối quan hệ được chỉ định với lớp mục ti&ecirc;u sẽ được li&ecirc;n kết. C&aacute;c mối quan hệ c&oacute; sẵn phụ thuộc v&agrave;o loại h&igrave;nh học của đầu v&agrave;o.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistance">
+        <div>
+            <p>Khoảng c&aacute;ch từ c&aacute;c đối tượng trong lớp mục ti&ecirc;u sẽ được sử dụng để x&aacute;c định xem c&oacute; n&ecirc;n li&ecirc;n kết c&aacute;c đối tượng hay kh&ocirc;ng.
+            </p>
+        </div>
+    </div>
+    <div id="spatialRelationshipDistanceUnits">
+        <div>
+            <p>C&aacute;c đơn vị sẽ được sử dụng để chỉ định khoảng c&aacute;ch.
+            </p>
+        </div>
+    </div>
+    <div id="useAttributeRelationship">
+        <div>
+            <p>Chỉ định xem c&oacute; li&ecirc;n kết c&aacute;c lớp dựa tr&ecirc;n gi&aacute; trị trường tr&ugrave;ng khớp hay kh&ocirc;ng. Đ&acirc;y l&agrave; t&ugrave;y chọn duy nhất nếu một hoặc nhiều đầu v&agrave;o l&agrave; bảng.
+            </p>
+        </div>
+    </div>
+    <div id="attributeRelationship">
+        <div>
+            <p>Chỉ định mối quan hệ thuộc t&iacute;nh x&aacute;c định c&aacute;c đối tượng được li&ecirc;n kết. C&aacute;c đối tượng được kết nối khi gi&aacute; trị trường trong lớp kết nối giống với gi&aacute; trị trường trong lớp mục ti&ecirc;u.
+            </p>
+        </div>
+    </div>
+    <div id="joinOperation">
+        <div>
+            <p>Chỉ định c&aacute;ch xử l&yacute; c&aacute;c li&ecirc;n kết khi nhiều bản ghi từ lớp li&ecirc;n kết đ&aacute;p ứng ti&ecirc;u ch&iacute; li&ecirc;n kết. Chọn từ c&aacute;c t&ugrave;y chọn sau:
+                <ul>
+                    <li> <b>Li&ecirc;n kết một một</b>&mdash; Li&ecirc;n kết một bản ghi trong lớp li&ecirc;n kết với từng đối tượng trong lớp mục ti&ecirc;u.
+                    </li>
+                    <li> <b>Li&ecirc;n kết một - nhiều</b>&mdash;Li&ecirc;n kết tất cả c&aacute;c đối tượng tr&ugrave;ng khớp trong lớp li&ecirc;n kết với lớp mục ti&ecirc;u. Lớp kết quả sẽ chứa nhiều bản ghi của đối tượng mục ti&ecirc;u.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="handleMatchingRecords">
+        <div>
+            <p>Khi nhiều đối tượng trong lớp li&ecirc;n kết tr&ugrave;ng khớp với đối tượng mục ti&ecirc;u, chỉ định xem sẽ li&ecirc;n kết một bản ghi duy nhất từ lớp li&ecirc;n kết hay sẽ t&iacute;nh to&aacute;n số liệu thống k&ecirc; tổng kết của tất cả c&aacute;c bản ghi tr&ugrave;ng khớp từ lớp li&ecirc;n kết.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>Khi c&oacute; nhiều đối tượng li&ecirc;n kết tr&ugrave;ng khớp với đối tượng mục ti&ecirc;u, số liệu thống k&ecirc; tổng kết cho tất cả c&aacute;c bản ghi tr&ugrave;ng khớp sẽ được t&iacute;nh to&aacute;n. Chỉ định c&aacute;c trường số hoặc ng&agrave;y từ lớp li&ecirc;n kết v&agrave; số liệu thống k&ecirc; sẽ được t&iacute;nh to&aacute;n cho từng trường.
+            </p>
+        </div>
+    </div>
+    <div id="recordsToMatch">
+        <div>
+            <p>Khi c&oacute; nhiều đối tượng ki&ecirc;n kết tr&ugrave;ng khớp với một đối tượng mục ti&ecirc;u, bản ghi đầu ti&ecirc;n từ bảng thuộc t&iacute;nh của lớp li&ecirc;n kết sẽ được đưa v&agrave;o đầu ra. T&ugrave;y &yacute; chọn một trường số hoặc ng&agrave;y v&agrave; thứ tự sắp xếp sẽ x&aacute;c định thứ tự của bảng thuộc t&iacute;nh.
+            </p>
+        </div>
+    </div>
+    <div id="joinType">
+        <div>
+            <p>X&aacute;c định xem c&aacute;c đối tượng mục ti&ecirc;u kh&ocirc;ng khớp c&oacute; được đưa v&agrave;o đầu ra hay kh&ocirc;ng.  <b>Li&ecirc;n kết b&ecirc;n trong</b> chỉ trả về c&aacute;c bản ghi mục ti&ecirc;u tr&ugrave;ng khớp, trong khi <b>Li&ecirc;n kết b&ecirc;n tr&aacute;i</b> trả về tất cả c&aacute;c bản ghi mục ti&ecirc;u, ngay cả khi đối tượng mục ti&ecirc;u kh&ocirc;ng c&oacute; bản ghi tr&ugrave;ng khớp trong lớp li&ecirc;n kết.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>T&ecirc;n của lớp hoặc bảng sẽ được tạo v&agrave; th&ecirc;m v&agrave;o bản đồ.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>T&ecirc;n của thư mục trong  <b>Nội dung của t&ocirc;i</b> sẽ lưu trữ kết quả.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

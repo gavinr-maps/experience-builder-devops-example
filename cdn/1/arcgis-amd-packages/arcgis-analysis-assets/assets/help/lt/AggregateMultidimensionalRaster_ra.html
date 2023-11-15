@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Įrankis Agreguoti daugiamatį rastrą sukuria daugiamačių vaizdų sluoksnį, sujungdamas esamus daugiamačių vaizdų sluoksnio kintamuosius i&scaron;ilgai dimensijos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Daugiamačių vaizdų sluoksnis, kuris bus agreguojamas.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Daugiamačių vaizdų sluoksnio matmuo, pagal kurį bus agreguojamas kintamasis.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Nurodo, ar sluoksnis turi matmenų reik&scaron;mių.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Daugiamačių vaizdų sluoksnio kintamasis, kuris bus apibendrintas pagal apibrėžtą matmenį.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Matematinis metodas, kuris bus naudojamas daugiamačių vaizdų sluoksnio skiltims agreguoti.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Procentilės reik&scaron;mė, kuri bus naudojama skaičiavimams, kai bus nurodytas agregavimo metodas.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Procentilės interpoliacijos metodas, kuris bus naudojamas, kai įvesties vaizdų sluoksnyje yra lyginis verčių skaičius.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Adaptuota rastrų funkcija, kuris bus naudojama skaičiuojant agreguotų vaizdų sluoksnių reik&scaron;mes.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Matmenų intervalas, kuris bus naudojamas daugiamačiams duomenims agreguoti.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Kiekvienas raktinis žodis nurodo laiko vienetą, už kurį bus agreguota kiekviena statistika. Į raktažodžių sąra&scaron;ą įtraukti valandiniai, kasdieniai, savaitiniai, mėnesiniai, ketvirtiniai ir metiniai.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Intervalo, kuris bus naudojamas agreguojant pagal matmenį, dydis.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Intervalo vertės matavimo vienetai.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Vertės lentelė, kuri bus naudojama agreguojant pagal nurodytą matmenį. Mažiausia ir didžiausia reik&scaron;mės nurodo, koks intervalas turi būti įtrauktas.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Mažiausia intervalo reik&scaron;mė.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Didžiausia intervalo reik&scaron;mė.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Nurodo, ar agreguojant bus ignoruojamos NoData reik&scaron;mės.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Sluoksnio, kuris bus sukurtas ir pridėtas į žemėlapį, pavadinimas.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Sukuriamos i&scaron;vesties tipas. I&scaron;vestys gali būti i&scaron;klotinių vaizdų sluoksniai arba dinaminiai vaizdų sluoksniai.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Puslapyje  <b>Turinys</b> esančio aplanko, kur bus įra&scaron;yti rezultatai, pavadinimas.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

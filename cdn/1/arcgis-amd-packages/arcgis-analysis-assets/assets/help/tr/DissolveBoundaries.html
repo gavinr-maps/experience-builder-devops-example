@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Sınırları B&uuml;t&uuml;nleştir aracı, ortak bir sınırda &ccedil;akışan veya ortak bir sınırı paylaşan &ccedil;okgenleri bulur ve bunları tek bir &ccedil;okgen oluşturacak şekilde birleştirir.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>B&uuml;t&uuml;nleştirilecek &ccedil;okgen detaylarını i&ccedil;eren katman.
+            </p>
+        </div>
+    </div>
+    <div id="useDissolveFields">
+        <div>
+            <p>Aracın sadece ortak bir sınırı paylaşan veya b&ouml;yle bir sınırda &ccedil;akışan ve aynı alan değerine sahip (etkinleştirilmiş) &ccedil;okgenleri mi, yoksa ortak bir sınırı paylaşan veya b&ouml;yle bir sınırda &ccedil;akışan t&uuml;m &ccedil;okgenleri mi (devre dışı) b&uuml;t&uuml;nleştireceğini belirler.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveFields">
+        <div>
+            <p>Eşleşen değerlere dayanarak &ccedil;okgenleri b&uuml;t&uuml;nleştirmek i&ccedil;in kullanılan alanı belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="multiPartFeatures">
+        <div>
+            <p>&Ccedil;ıktının &ccedil;ok par&ccedil;alı &ccedil;okgen detayları, yani tek bir detay olarak tanımlanmış &ccedil;oklu &ccedil;okgenleri mi (etkinleştirilmiş), yoksa sadece tek tek detayları mı (devre dışı) i&ccedil;ereceğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="useSummaryFields">
+        <div>
+            <p>&Ouml;zet istatistiklerinin b&uuml;t&uuml;nleştirilmiş &ccedil;okgenler i&ccedil;in hesaplanıp hesaplanmayacağını belirler.
+            </p>
+        </div>
+    </div>
+    <div id="summaryFields">
+        <div>
+            <p>&Ouml;zetlenecek girdi katmanından gelen sayı veya tarih alanları ve her alan i&ccedil;in hesaplanacak istatistikler.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek katmanın adı.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

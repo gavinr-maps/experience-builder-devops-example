@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Rīks Apkopot daudzdimensiju rastru ģenerē daudzdimensiju attēlu slāni, apvienojot dimensijā eso&scaron;os daudzdimensiju attēlu slāņa mainīgos.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Daudzdimensiju attēlu slānis, kas tiks apkopots.
+            </p> 
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Daudzdimensiju attēlu slāņa dimensija, kurā tiek apkopots mainīgais.
+            </p>
+        </div>
+    </div>
+    <div id="dimensionless">
+        <div>
+            <p>Norāda, vai slānim ir dimensiju vērtības.
+            </p> 
+        </div>
+    </div>
+    <div id="variables">
+        <div>
+            <p>Daudzdimensiju attēlu slāņa mainīgais, kas tiks apkopots definētajā dimensijā.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationMethod">
+        <div>
+            <p>Matemātiskā metode, kas tiks izmantota daudzdimensiju attēlu slāņa sektoru apkopo&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="percentileValue">
+        <div>
+            <p>Procentiles vērtība, kas tiks izmantota aprēķiniem, kad būs norādīta apkopo&scaron;anas metode.
+            </p>
+        </div>
+    </div>
+    <div id="percentileInterpolationType">
+        <div>
+            <p>Procentiles interpolācijas metode, kas tiks izmantota, ja ievades attēlu slānī būs pāra vērtību skaits.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationFunction">
+        <div>
+            <p>Pielāgota rastra funkcija, kas tiks izmantota apkopoto attēlu slāņa pikseļu vērtību aprēķinā&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="aggregationDefinition">
+        <div>
+            <p>Dimensiju intervāls, kas tiks izmantots daudzdimensiju datu apkopo&scaron;anai.
+            </p>
+        </div>
+    </div>
+    <div id="intervalKeyword">
+        <div>
+            <p>Katrs atslēgvārds norāda laika vienību, kurā tiks apkopota katra statistika. Atslēgvārdu sarakstā ir iekļauts reizi stundā, reizi dienā, reizi nedēļā, reizi mēnesī, reizi ceturksnī, reizi gadā.
+            </p>
+        </div>
+    </div>
+    <div id="intervalValue">
+        <div>
+            <p>Intervāla lielums, kas tiks izmantots, veicot apkopo&scaron;anu dimensijā.
+            </p>
+        </div>
+    </div>
+    <div id="intervalUnit">
+        <div>
+            <p>Intervāla vērtības mērvienības.
+            </p>
+        </div>
+    </div>
+    <div id="intervalRanges">
+        <div>
+            <p>Vērtību tabula, kas tiks izmantota, apkopojot norādīto dimensiju. Minimālās un maksimālās vērtības norāda iekļaujamo diapazonu.
+            </p>
+        </div>
+    </div>
+    <div id="minValue">
+        <div>
+            <p>Intervāla diapazona minimālā vērtība.
+            </p>
+        </div>
+    </div>
+    <div id="maxValue">
+        <div>
+            <p>Intervāla diapazona maksimālā vērtība.
+            </p>
+        </div>
+    </div>
+    <div id="ignoreNodata">
+        <div>
+            <p>Norāda, vai apkopojumā tiks ignorētas NoData vērtības.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Tā slāņa nosaukums, kas tiks izveidots un pievienots kartei.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Izveidotās izvades veids. Izvades var būt mozaīkas attēlu slāņi vai dinamiski attēlu slāņi.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Mapes nosaukums sadaļā  <b>Mans saturs</b>, kurā tiks saglabāts rezultāts.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

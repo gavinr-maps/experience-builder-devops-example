@@ -1,0 +1,2007 @@
+{
+  "newItem": "Uusi kohde",
+  "addLayer": "Lisää karttataso",
+  "createFeatureLayer": "Luo kohdekarttataso",
+  "createTileLayer": "Luo tiilikarttataso",
+  "createSceneLayer": "Luo maisemakarttataso",
+  "createRasterFunctionTemplate": "Luo uusi rasteritoimintomalli",
+  "addDataStore": "Lisää yhteys aineistosäilöön",
+  "next": "Seuraava",
+  "publish": "Julkaise",
+  "save": "Tallenna",
+  "cancel": "Peruuta",
+  "back": "Takaisin",
+  "error": "Virhe",
+  "update": "Päivitä",
+  "moreInfo": "Lisätietoja",
+  "loadingData": "Ladataan...",
+  "creatingLayer": "Luodaan karttatasoa...",
+  "common": {
+    "add": "Lisää",
+    "url": "URL-osoite",
+    "addToMap": "Lisää karttaan",
+    "createAndAddToMap": "Luo ja lisää karttaan",
+    "register": "Rekisteröidy",
+    "supportServices": "Tuettuja palveluja ovat ${typeList}",
+    "supportLayerTypes": "Tuettuja karttatasotyyppejä ovat ${typeList}",
+    "supportFileTypes": "Tuettuja tiedostotyyppejä ovat ${typeList}",
+    "learnMore": "Lisätietoja",
+    "updateAndComplete": "Päivitä ja suorita loppuun",
+    "proceed": "Jatka",
+    "createConnection": "Luo yhteys",
+    "addAndComplete": "Lisää ja suorita loppuun",
+    "signInAndOverwrite": "Kirjaudu ja korvaa",
+    "overwriteAndComplete": "Korvaa ja suorita loppuun"
+  },
+  "application": {
+    "web": "Web-kartoitus",
+    "desktop": "Työpöytä",
+    "mobile": "Mobile",
+    "otherApplication": "Muu sovellus",
+    "applicationType": "Sovellustyyppi",
+    "application": "Sovellus",
+    "manifestUrl": "Manifest-tiedoston URL-osoite",
+    "appExtension": "Sovelluslaajennus (AppBuilder)",
+    "experienceBuilderWidget": "Experience Builder -pienoisohjelma",
+    "appExtensionError": "URL-osoite ei viittaa AppBuilder-laajennukseen.",
+    "enterManifestUrl": "Anna laajennuksen Manifest-tiedoston URL-osoite",
+    "File": "Tiedosto",
+    "selectZip": "Valitse .zip-tiedosto",
+    "fileRequired": "Pöytätietokonesovelluksissa tarvitaan tiedosto",
+    "enterUrl": "Anna sovelluksen URL-osoite",
+    "enterValidUrl": "Anna sovelluksen kelvollinen URL-osoite",
+    "URL": "URL-osoite"
+  },
+  "auth": {
+    "username": "Käyttäjätunnus",
+    "enterUsername": "Anna käyttäjänimi",
+    "password": "Salasana",
+    "enterPassword": "Anna salasana",
+    "invalid": "Virheellinen käyttäjänimi tai salasana.",
+    "requiresCredentials": "Sekä käyttäjätunnus että salasana on määritettävä."
+  },
+  "bulkLayerSelect": {
+    "selectLayers": "Valitse lisättävät karttatasot",
+    "noLayersFound": "Yhtään ehdot täyttävää karttatasoa ei löytynyt. Näytä lisää karttatasoja muuttamalla hakutermiä.",
+    "of": "/",
+    "layers": "karttatasot",
+    "usePro": "Tässä aineistoryhmässä on yli 1 000 karttatasoa. Etsi tietty karttataso kirjoittamalla hakusana.",
+    "errorTitle": "Karttataso(j)a ei ole valittu",
+    "noLayersSelected": "Valitse vähintään yksi karttataso ennen jatkamista",
+    "selectAll": "Valitse kaikki",
+    "deselectAll": "Poista kaikkien valinta"
+  },
+  "csvFields": {
+    "searchFields": "Hae kenttää",
+    "fieldType": "Kenttätyyppi",
+    "fieldTitle": "Kentät",
+    "fieldDescription": "Valitse isännöityyn kohdekarttatasoon sisällytettävät kentät. Päivitä valinnaisesti näyttönimi ja kentän tyyppi.",
+    "fieldNoHostedDescription": "Päivitä valinnaisesti näyttönimet ja kentän tyypit, joita käytetään karttatasossa.",
+    "fieldName": "Kentän nimi",
+    "displayName": "Näyttönimi",
+    "displayNameLabel": "${name} näyttönimi",
+    "type": "Tapahtui virhe",
+    "typeLabel": "${name} tyyppi",
+    "allTypes": "Kaikki tyypit",
+    "noFields": "Ei löytynyt yhtään hakuehtojasi vastaavaa kenttää. Kokeile muuttaa hakuehtoja tai laajenna suodatinvaihtoehtoja.",
+    "selected": "valittu",
+    "clearSelection": "Tyhjennä valinnat",
+    "fieldTypes": {
+      "esriFieldTypeString": "Merkkijono",
+      "esriFieldTypeInteger": "Kokonaisluku",
+      "esriFieldTypeSmallInteger": "Pieni kokonaisluku",
+      "esriFieldTypeSingle": "Yksittäinen",
+      "esriFieldTypeDouble": "Liukuluku",
+      "esriFieldTypeDate": "Päivämäärä",
+      "esriFieldTypeDateOnly": "Vain päivämäärä",
+      "esriFieldTypeTimeOnly": "Vain aika",
+      "esriFieldTypeBigInteger": "Suuri kokonaisluku",
+      "esriFieldTypeTimestampOffset": "Aikaleiman siirtymä"
+    }
+  },
+  "csvLocationFields": {
+    "analyzing": "Analysoidaan...",
+    "locationSettings": "Sijaintiasetukset",
+    "locationSettingsDescription": "Määritä tiedoston sisältämien sijaintitietojen tyyppi.",
+    "advancedSettings": "Edistyneet sijaintilisäasetukset",
+    "locator": "Paikannin",
+    "region": "Alue",
+    "enrich": "Rikasta karttatasoa osoitetiedoilla",
+    "enrichLayer": "Rikasta kartattason paikantimen tuloskenttiä",
+    "enrichLayerDescription": "Liitä kentät, joissa on tietoja geokoodausprosessista, esim. siitä, miten tarkasti tiedoston sijaintitiedot vastaavat paikanninta.",
+    "enrichLayerLink": "Lue lisätietoja näistä liitetyistä kentistä.",
+    "consumesCredits": "Kuluttaa krediittejä",
+    "locationFields": "Sijaintikentät",
+    "locationFieldSingle": "Sijaintitiedot ovat yhdessä kentässä.",
+    "locationFieldMultiple": "Sijaintitiedot ovat useissa kentissä.",
+    "locationFieldsDescription": "Määritä sijaintitietoja sisältävät kentät.",
+    "locationTypes": {
+      "address": {
+        "title": "Osoitteet tai paikannimet",
+        "description": "Sijaintitiedot ovat osoitteita, paikannimiä, postinumeroja ja maita. Voi kuluttaa krediittejä.",
+        "descriptionDeveloper": "Sijaintitiedot ovat osoitteita, paikannimiä, postinumeroja ja maita."
+      },
+      "coordinates": {
+        "title": "Leveysaste ja pituusaste",
+        "description": "Sijaintitiedot ovat leveysasteet ja pituusasteet."
+      },
+      "mgrs": {
+        "title": "MGRS-koordinaatit",
+        "description": "Sijaintitiedot ovat MGRS (Military Grid Reference System) -järjestelmässä."
+      },
+      "usng": {
+        "title": "USNG-koordinaatit.",
+        "description": "Sijaintitiedot ovat US National Grid -sijaintijärjestelmässä."
+      },
+      "none": {
+        "title": "Ei mitään",
+        "description": "Tämä ${type} ei sisällä sijaintitietoja, ja se lisätään tauluna"
+      }
+    },
+    "candidateFieldsTypes": {
+      "GeometryOnly": {
+        "title": "Ei kenttiä",
+        "description": "Paikanna osoitteet, mutta älä sisällytä mitään lisäkenttiä."
+      },
+      "Minimal": {
+        "title": "Joitain kenttiä",
+        "description": "Liitä neljä kenttää, jotka osoittavat, miten hyvin osoite täsmäsi."
+      },
+      "AllFields": {
+        "title": "Kaikki kentät",
+        "description": "Liitä 50 kenttää, jotta saat täydet sijaintitiedot."
+      }
+    },
+    "errors": {
+      "noFieldSelected": {
+        "title": "Sijaintikenttää ei ole valittu",
+        "description": "Valitse sijaintitietoja sisältävä kenttä."
+      },
+      "coordinate": {
+        "title": "Valitse koordinaattikentät",
+        "description": "Valitse, mitä kenttää käytetään sekä leveys- että pituusasteille."
+      },
+      "insufficientCredits": {
+        "title": "Krediitit eivät riitä",
+        "description": "Sinulla ei ole riittävästi krediittejä tämän toiminnon toteuttamiseen. Ota yhteyttä pääkäyttäjään lisäkrediittien saamiseksi."
+      },
+      "noLocationTypeForAppend": {
+        "title": "Taulujen on sisällettävä sijaintitiedot",
+        "description": "Et voi lisätä kohteita karttatasoon, joka ei sisällä sijaintitietoja."
+      }
+    },
+    "unrestrictedOrgCredits": {
+      "title": "Organisaation krediitit eivät riitä – toimintoa ei voi suorittaa loppuun",
+      "description": "Organisaatiosi krediitit eivät ehkä riitä tämän toiminnon suorittamiseen. Jos työnkulkua ei voi suorittaa loppuun, pyydä lisäkrediittejä pääkäyttäjältä."
+    },
+    "recordCount": "Arvioidut geokoodattavat tietueet: ${num}",
+    "locationType": "Sijaintityyppi",
+    "field": "Kenttä",
+    "unknown": "Sijaintityyppiä ei käytetä",
+    "longitude": "Pituusaste",
+    "latitude": "Leveysaste",
+    "mgrs": "MGRS",
+    "usng": "USNG",
+    "countryCodes": {
+      "WORLD": "Maailma",
+      "EU": "Eurooppa",
+      "AD": "Andorra",
+      "AE": "Yhdistyneet arabiemiirikunnat",
+      "AF": "Afganistan",
+      "AG": "Antigua ja Barbuda",
+      "AI": "Anguilla",
+      "AL": "Albania",
+      "AM": "Armenia",
+      "AO": "Angola",
+      "AQ": "Etelämanner",
+      "AR": "Argentiina",
+      "AS": "Amerikan Samoa",
+      "AT": "Austria",
+      "AU": "Australia",
+      "AW": "Aruba",
+      "AZ": "Azerbaidžan",
+      "BA": "Bosnia ja Herzegovina",
+      "BB": "Barbados",
+      "BD": "Bangladesh",
+      "BE": "Belgia",
+      "BF": "Burkina Faso",
+      "BG": "Bulgaria",
+      "BH": "Bahrain",
+      "BI": "Burundi",
+      "BJ": "Benin",
+      "BL": "Saint-Barthélemy",
+      "BM": "Bermuda",
+      "BN": "Brunei Darussalam",
+      "BO": "Bolivia",
+      "BQ": "Bonaire, Sint Eustatius ja Saba",
+      "BR": "Brasilia",
+      "BS": "Bahama",
+      "BT": "Bhutan",
+      "BV": "Bouvet'nsaari",
+      "BW": "Botswana",
+      "BY": "Valko-Venäjä",
+      "BZ": "Belize",
+      "CA": "Kanada",
+      "CD": "Kongon demokraattinen tasavalta",
+      "CF": "Keski-Afrikan Tasavalta",
+      "CG": "Kongo",
+      "CH": "Switzerland",
+      "CI": "Norsunluurannikko",
+      "CK": "Cookinsaaret",
+      "CL": "Chile",
+      "CM": "Kamerun",
+      "CN": "Kiina",
+      "CO": "Kolumbia",
+      "CR": "Costa Rica",
+      "CU": "Kuuba",
+      "CV": "Kap Verde",
+      "CW": "Curaçao",
+      "CY": "Kypros",
+      "CZ": "Tšekki",
+      "DE": "Germany",
+      "DJ": "Djibouti",
+      "DK": "Denmark",
+      "DM": "Dominica",
+      "DO": "Dominikaaninen tasavalta",
+      "DZ": "Algeria",
+      "EC": "Ecuador",
+      "EE": "Viro",
+      "EG": "Egypti",
+      "EH": "Länsi-Sahara",
+      "ER": "Eritrea",
+      "ES": "Espanja",
+      "ET": "Etiopia",
+      "FI": "Suomi",
+      "FJ": "Fidzi",
+      "FK": "Falklandsaaret",
+      "FM": "Mikronesia",
+      "FO": "Färsaaret",
+      "FR": "France",
+      "GA": "Gabon",
+      "GB": "United Kingdom",
+      "GD": "Grenada",
+      "GE": "Georgia",
+      "GF": "Ranskan Guayana",
+      "GG": "Guernsey",
+      "GH": "Ghana",
+      "GI": "Gibraltar",
+      "GL": "Grönlanti",
+      "GM": "Gambia",
+      "GN": "Guinea",
+      "GP": "Guadeloupe",
+      "GQ": "Päiväntasaajan Guinea",
+      "GR": "Kreikka",
+      "GS": "Etelä-Georgia ja Eteläiset Sandwichsaaret",
+      "GT": "Guatemala",
+      "GW": "Guinea-Bissau",
+      "GY": "Guyana",
+      "HK": "Hongkong",
+      "HM": "Heard ja McDonaldinsaaret",
+      "HN": "Honduras",
+      "HR": "Kroatia",
+      "HT": "Haiti",
+      "HU": "Unkari",
+      "ID": "Indonesia",
+      "IE": "Irlanti",
+      "IL": "Israel",
+      "IM": "Mansaari",
+      "IN": "Intia",
+      "IO": "Brittiläinen Intian valtameren alue",
+      "IQ": "Irak",
+      "IR": "Iran",
+      "IS": "Islanti",
+      "IT": "Italia",
+      "JE": "Jersey",
+      "JM": "Jamaika",
+      "JO": "Jordan",
+      "JP": "Japani",
+      "KE": "Kenia",
+      "KG": "Kirgisia",
+      "KH": "Kambodža",
+      "KI": "Kiribati",
+      "KM": "Komorit",
+      "KN": "Saint Kitts ja Nevis",
+      "KP": "Korean demokraattinen kansantasavalta",
+      "KR": "Korea, Republic of",
+      "KW": "Kuwait",
+      "KY": "Caymansaaret",
+      "KZ": "Kazakstan",
+      "LA": "Laos",
+      "LB": "Libanon",
+      "LC": "Saint Lucia",
+      "LI": "Liechtenstein",
+      "LK": "Sri Lanka",
+      "LR": "Liberia",
+      "LS": "Lesotho",
+      "LT": "Liettua",
+      "LU": "Luxemburg",
+      "LV": "Latvia",
+      "LY": "Libya",
+      "MA": "Marokko",
+      "MC": "Monaco",
+      "MD": "Moldova, Republic of",
+      "ME": "Montenegro",
+      "MF": "Saint-Martin (Ranska)",
+      "MG": "Madagaskar",
+      "MH": "Marshallinsaaret",
+      "MK": "Makedonia",
+      "ML": "Mali",
+      "MM": "Myanmar",
+      "MN": "Mongolia",
+      "MO": "Macao",
+      "MP": "Pohjois-Mariaanit",
+      "MQ": "Martinique",
+      "MR": "Mauritania",
+      "MS": "Montserrat",
+      "MT": "Malta",
+      "MU": "Mauritius",
+      "MV": "Malediivit",
+      "MW": "Malawi",
+      "MX": "Meksiko",
+      "MY": "Malesia",
+      "MZ": "Mosambik",
+      "NA": "Namibia",
+      "NC": "Uusi-Kaledonia",
+      "NE": "Niger",
+      "NG": "Nigeria",
+      "NI": "Nicaragua",
+      "NL": "Alankomaat",
+      "NO": "Norja",
+      "NP": "Nepal",
+      "NR": "Nauru",
+      "NU": "Niue",
+      "NZ": "Uusi-Seelanti",
+      "OM": "Oman",
+      "PA": "Panama",
+      "PE": "Peru",
+      "PF": "Ranskan Polynesia",
+      "PG": "Papua-Uusi-Guinea",
+      "PH": "Filippiinit",
+      "PK": "Pakistan",
+      "PL": "Puola",
+      "PM": "Saint-Pierre ja Miquelon",
+      "PN": "Pitcairn",
+      "PS": "Palestiina (alue)",
+      "PT": "Portugal",
+      "PW": "Palau",
+      "PY": "Paraguay",
+      "QA": "Qatar",
+      "RE": "Réunion",
+      "RO": "Romania",
+      "RS": "Serbia",
+      "RU": "Venäjä",
+      "RW": "Ruanda",
+      "SA": "Saudi-Arabia",
+      "SB": "Salomonsaaret",
+      "SC": "Seychellit",
+      "SD": "Sudan",
+      "SE": "Sweden",
+      "SG": "Singapore",
+      "SH": "Saint Helena, Ascension ja Tristan da Cunha",
+      "SI": "Slovenia",
+      "SJ": "Svalbard ja Jan Mayen",
+      "SK": "Slovakia",
+      "SL": "Sierra Leone",
+      "SM": "San Marino",
+      "SN": "Senegal",
+      "SO": "Somalia",
+      "SR": "Suriname",
+      "SS": "Etelä-Sudan",
+      "ST": "São Tomé ja Príncipe",
+      "SV": "El Salvador",
+      "SX": "Sint Maarten (Alankomaat)",
+      "SY": "Syyrian arabitasavalta",
+      "SZ": "Swazimaa",
+      "TC": "Turks- ja Caicossaaret",
+      "TD": "Tšad",
+      "TF": "Ranskan eteläiset ja antarktiset alueet",
+      "TG": "Togo",
+      "TH": "Thaimaa",
+      "TJ": "Tadžikistan",
+      "TK": "Tokelau",
+      "TL": "Itä-Timor",
+      "TM": "Turkmenistan",
+      "TN": "Tunisia",
+      "TO": "Tonga",
+      "TR": "Turkki",
+      "TT": "Trinidad ja Tobago",
+      "TV": "Tuvalu",
+      "TW": "Taiwan, Province of China",
+      "TZ": "Tansania",
+      "UA": "Ukraina",
+      "UG": "Uganda",
+      "UM": "Yhdysvaltain pienet erillissaaret",
+      "US": "Yhdysvallat",
+      "UY": "Uruguay",
+      "UZ": "Uzbekistan",
+      "VA": "Pyhä istuin",
+      "VC": "Saint Vincent ja Grenadiinit",
+      "VE": "Venezuela, Bolivarian Republic of",
+      "VG": "Brittiläiset neitsytsaaret",
+      "VN": "Vietnam",
+      "VU": "Vanuatu",
+      "WF": "Wallis ja Futuna",
+      "WS": "Samoa",
+      "XK": "Kosovon tasavalta",
+      "YE": "Jemen",
+      "YT": "Mayotte",
+      "ZA": "Etelä-Afrikka",
+      "ZM": "Sambia",
+      "ZW": "Zimbabwe"
+    }
+  },
+  "fieldType": {
+    "oid": "OID",
+    "boolean": "Totuusarvo",
+    "string": "Merkkijono",
+    "double": "Liukuluku",
+    "number": "Numero",
+    "date": "Päivämäärä"
+  },
+  "featureLayer": {
+    "type": {
+      "point": "Pistekarttataso",
+      "line": "Viivakarttataso",
+      "polygon": "Aluekarttataso",
+      "table": "Taulu",
+      "multipoint": "Monipistekarttataso",
+      "multipatch": "MultiPatch-karttataso"
+    },
+    "placeholders": {
+      "point": "Pistekarttatason nimi",
+      "line": "Viivakarttatason nimi",
+      "polygon": "Aluekarttatason nimi",
+      "table": "Taulun nimi",
+      "multipoint": "Monipistekarttatason nimi"
+    },
+    "creationType": {
+      "template": "Malli",
+      "existing": "Aiemmin luotu kohdepalvelu",
+      "link": "URL-osoite",
+      "build": "Luo tyhjästä",
+      "generic": "Sisällytä karttatasot tai taulut, jotka haluat sisällyttää kohdekarttatasoon."
+    }
+  },
+  "featureLayerFromExisting": {
+    "noLayerError": {
+      "title": "Karttatasoa ei ole valittu",
+      "description": "Jatka valitsemalla kohdekarttataso."
+    },
+    "invalidUrl": {
+      "title": "Virheellinen karttataso",
+      "description": "Tämä karttataso viittaa palvelutyyppiin, jota ei tueta."
+    }
+  },
+  "featureLayerFromScratch": {
+    "header": "Määritä nimi ja tyyppi",
+    "layerPreferences": "Asetukset",
+    "captureGPS": "Lisää GPS-metatietojen kentät",
+    "captureGPSDescription": "Lisää kentät karttatasoihin, jotka tukevat GPS-vastaanottimen tietojen tallentamista.",
+    "enableZDefaults": "Ota käyttöön Z-arvot",
+    "enableZDefaultsDescription": "Mahdollistaa piste-, taiteviiva- ja aluekohteiden 3D-mallinnuksen.",
+    "enableZDefaultsDefaultValue": "Z-arvon oletus:",
+    "enableMDefaults": "Ota käyttöön M-arvot",
+    "enableMDefaultsDescription": "Sallii mitan tai arvon tallentamisen jokaiseen geometrian taitepisteeseen.",
+    "layer": "Karttataso",
+    "table": "Taulu",
+    "add": "Lisää",
+    "error": {
+      "emptyName": {
+        "title": "Karttatason nimi puuttuu",
+        "description": "Karttatason nimet eivät voi olla tyhjiä"
+      },
+      "duplicateTitle": {
+        "title": "Karttatasojen nimien on oltava yksilöllisiä",
+        "description": "Samannimisiä karttatasoja ei sallita"
+      }
+    }
+  },
+  "featureLayerFromTemplate": {
+    "errorHeading": "Mallia ei ole valittu",
+    "errorDescription": "Jatka valitsemalla malli."
+  },
+  "featureLayerFromUrl": {
+    "description": "Määritä kohdepalvelun URL-osoite",
+    "placeholder": "https://catalog-url/serviceName/FeatureServer",
+    "error": {
+      "missingUrl": {
+        "title": "Tyhjä URL-osoite",
+        "description": "Anna kelvollinen URL-osoite"
+      },
+      "invalidFeatureLayerUrl": {
+        "title": "URL-osoitetta ei tueta",
+        "description": "Määritä kohdekarttatason URL-osoite. Karttatason URL-osoitteessa on oltava FeatureServer (kohdepalvelin)."
+      },
+      "serviceNotExist": {
+        "title": "Palvelua ei ole",
+        "description": "Palvelua ei ole, tai se ei ole käytettävissä."
+      }
+    }
+  },
+  "featureLayerSummary": {
+    "layerDetails": "Karttatason tiedot",
+    "deselectAnyLayers": "Poista kaikkien poistettavien karttatasojen valinta.",
+    "deselectAll": "Poista kaikkien valinta",
+    "selectAll": "Valitse kaikki",
+    "error": {
+      "noLayer": {
+        "title": "Yhtään karttatasoa ei ole valittu",
+        "description": "Valitse vähintään yksi karttataso"
+      }
+    }
+  },
+  "featureLayerSelect": {
+    "heading": "Luo tyhjä kohdekarttataso valitsemalla vaihtoehto.",
+    "subheading": "TEHTÄVÄT: kirjoita kuvaus tähän.",
+    "options": {
+      "build": {
+        "title": "Määritä oma karttataso",
+        "description": "Määritä karttatasot ja taulut."
+      },
+      "template": {
+        "title": "Käytä mallia",
+        "description": "Käytä karttatasoja ja kenttiä mallista."
+      },
+      "existing": {
+        "title": "Valitse olemassa oleva kohdekarttataso",
+        "description": "Käytä karttatasoja ja kenttiä organisaation aiemmasta kohdekarttatasosta."
+      },
+      "link": {
+        "title": "Anna ArcGIS Serverin karttatason URL-osoite",
+        "description": "Käytä karttatasoja ja kenttiä ArcGIS Server -kohdekarttatasosta."
+      }
+    }
+  },
+  "developerCredentialsSelect": {
+    "title": "Tunnistetietotyypit",
+    "redirectUrlsTitle": "Uudelleenohjauksen URL-osoitteet",
+    "redirectUrlsDescription": "Lisää sallitut URL-osoitteet verkkosivuun tai palvelimen päätepisteeseen, jotta voit ohjata käyttäjiä uudelleen, kun todennus on valmis.",
+    "refererrUrlsTitle": "Viittaajat",
+    "refererrUrlsDescription": "Salli käyttö tietyiltä HTTP-/HTTPS-toimialueilta. HTTP-viittaajan otsikon arvo, johon kohdistus tehdään. Voit käyttää merkkiä * yleismerkkinä. Esim. http://*.your-app.com. Lisätietoja on tietoturva- ja todennuskohdassa.",
+    "oauth2Hint": "OAuth 2.0:aa voidaan käyttää ArcGIS-käyttäjien todentamiseen, jos he haluavat käyttää sisältöä ja paikannukseen perustuvia palveluja todennetun käyttäjän puolesta. Lisätietoja on ${apiLinkStart}tietoturva- ja todennusoppaassa.${endLink}",
+    "oauth2HintNoLink": "OAuth 2.0:aa voidaan käyttää ArcGIS-käyttäjien todentamiseen, jos he haluavat käyttää sisältöä ja paikannukseen perustuvia palveluja todennetun käyttäjän puolesta.",
+    "applicationEnvTitle": "Sovellusympäristö",
+    "applicationEnvDescription": "Sovellusympäristön vaikutukset näkyvät, kun kohde näkyy suodatetuissa hakutuloksissa.",
+    "registering": "Rekisteröidään sovellusta...",
+    "applicationEnvOptions": {
+      "multiple": "Useita",
+      "browser": "Selain",
+      "native": "Alkuperäinen",
+      "server": "Palvelin"
+    },
+    "options": {
+      "apiKey": {
+        "title": "API-avain",
+        "description": "API-avaimilla voidaan käyttää ArcGIS-sijaintipalveluja ja Premium-sisältöä sovelluksissa."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0 -sovellusmäärityksiä käytetään ArcGIS-käyttäjien todentamiseen, käyttäjäsisällön työstämiseen ja sijaintipalvelujen käyttämiseen todennettujen käyttäjien puolesta."
+      }
+    },
+    "onboard": {
+      "title": "Tunnistetietotyypit",
+      "apiKey": {
+        "title": "API-avaimet",
+        "description": "API-avaimilla voidaan käyttää sijaintipalveluja ja Premium-sisältöä sovelluksissa. Lisätietoja palvelujen käyttämisestä API-avaimilla on API:n kartoituksen ja sijaintipalvelujen oppaassa."
+      },
+      "oauth": {
+        "title": "OAuth 2.0",
+        "description": "OAuth 2.0:aa voidaan käyttää ArcGIS-käyttäjien todentamiseen, jos he haluavat käyttää sisältöä ja paikannukseen perustuvia palveluja todennetun käyttäjän puolesta. Lisätietoja on tietoturva- ja todennusoppaassa."
+      }
+    },
+    "error": {
+      "redirectEmpty": {
+        "title": "Uudelleenohjauksen URL-osoitteet eivät voi olla tyhjiä",
+        "description": "Lisää vähintään yksi uudelleenohjauksen URL-osoite."
+      },
+      "referrerEmpty": {
+        "title": "Viittaajan URL-osoitteet eivät voi olla tyhjiä",
+        "description": "Lisää vähintään yksi viittaajan URL-osoite."
+      },
+      "registerError": {
+        "title": "Virhe sovelluksen rekisteröinnissä",
+        "description": "Kohteen rekisteröityä sovellusta ei voi luoda."
+      },
+      "invalidCharactersInRedirect": {
+        "title": "Virheellisiä merkkejä uudelleenohjauksen URL-osoitteessa",
+        "description": "Seuraavia merkkejä ei voi käyttää: ${invalid}"
+      },
+      "noSpecialCharactersInRedirect": {
+        "title": "Virheellisiä merkkejä uudelleenohjauksen URL-osoitteessa",
+        "description": "Erikoismerkkejä ei sallita."
+      }
+    }
+  },
+  "serviceScope": {
+    "title": "Sijaintipalvelut",
+    "description": "Määritä laajuudet käyttöoikeuden myöntämistä varten tiettyihin ArcGIS-sijaintipalveluihin. Lisätietoja on tietoturva- ja todennuskohdassa.",
+    "requiredService": "Pakollinen palvelu",
+    "availableServices": "Käytettävissä olevat palvelut",
+    "services": {
+      "basemap": {
+        "heading": "Taustakartat"
+      },
+      "geocodingStored": {
+        "heading": "Geokoodaus (tallennettu)",
+        "description": "Käyttämällä geokoodauspalvelua voit tehdä eteenpäin suuntautuvaa ja käänteistä geokoodausta, ja se sisältää tuen ehdotuksille ja paikkahaulle. Voit tallentaa tulokset"
+      },
+      "geocodingNotStored": {
+        "heading": "Geokoodaus (ei tallennettu)",
+        "description": "Käyttämällä geokoodauspalvelua voit tehdä eteenpäin suuntautuvaa ja käänteistä geokoodausta, ja se sisältää tuen ehdotuksille ja paikkahaulle. Et voi tallentaa tuloksia."
+      },
+      "optimizedRouting": {
+        "heading": "Optimoitu reititys",
+        "description": "Käyttämällä reitityspalvelua voit löytää parhaan sijaintien vierailujärjestyksen."
+      },
+      "closestFacility": {
+        "heading": "Lähin palvelu",
+        "description": "Käyttämällä Lähin palvelu -palvelua voit löytää yhden tai useamman palvelun, jotka ovat lähimpänä tapahtumaa matkustusajan tai matkustusetäisyyden perusteella."
+      },
+      "locationAllocation": {
+        "heading": "Sijainnin allokointi",
+        "description": "Käyttämällä sijainnin allokointipalvelua voit valita palveluja palveluryhmästä ja hyödyntää niiden mahdollista vuorovaikutusta kysyntäpisteiden kanssa."
+      },
+      "multiVehicleRouting": {
+        "heading": "Usean ajoneuvon reititys",
+        "description": "Käyttämällä ajoneuvon reititysongelmapalvelua voit määrittää pysähdykset ja niiden palvelut kullakin reitillä ja järjestyksen, jossa pysähdykset tehdään."
+      },
+      "costMatrix": {
+        "heading": "Lähtöpiste-määränpääkustannusmatriisi",
+        "description": "Käyttämällä OD-matriisipalvelua voi luoda lähtöpiste-määränpää (OD) -kustannusmatriisin useista lähtöpisteistä useisiin määränpäihin."
+      },
+      "geoEnrichment": {
+        "heading": "GeoEnrichment",
+        "description": "Käyttämällä GeoEnrichment-palvelua saat käyttöösi ominaisuustietoja, raportteja ja aineistokäyttöistä infografiikkaa, jolla kuvataan tutkimusalueiden ja sijaintien demografisia, liiketoimintaan liittyviä ja muita sijaintiin perustuvia ominaisuuksia."
+      },
+      "routing": {
+        "heading": "Reititys",
+        "description": "Käyttämällä reitityspalvelua voit löytää parhaan tavan siirtyä sijainnista toiseen tai vierailla useissa sijainneissa."
+      },
+      "serviceArea": {
+        "heading": "Palvelualue",
+        "description": "Käyttämällä palvelualuepalvelua voit luoda alueen, joka edustaa katuverkostossa matkustettaessa saavutettavissa olevaa etäisyyttä."
+      }
+    }
+  },
+  "locatorSelect": {
+    "heading": "Valitse vaihtoehto, jotta voit luoda paikantimen",
+    "options": {
+      "locator": {
+        "title": "Luo paikannin geokoodipalvelusta",
+        "description": "Määritä URL-osoite olemassa olevaan ArcGis Server -geokoodipalveluun."
+      },
+      "locator-view": {
+        "title": "Luo paikantimen näkymä ArcGIS World Geocoding Servicesta.",
+        "description": "Määritä näkymä, joka vastaa tiettyjen maiden tai alueiden tiettyjä sijaintityyppejä."
+      }
+    },
+    "url": {
+      "heading": "URL-osoite",
+      "description": "Määritä geokoodipalvelun URL-osoite"
+    }
+  },
+  "tileLayerSelect": {
+    "layerTypeHeading": "Minkätyyppisen tiilikarttatason haluat luoda?",
+    "layerTypeOptions": {
+      "vector": {
+        "title": "Vektoritiilikarttataso",
+        "description": "Nopea karttojen visualisointi käyttämällä etukäteen piirrettyjä vektoritiiliä, jotka mukautuvat näyttölaitteen tarkkuuteen ja joiden tyyliä voidaan muuttaa uudelleen useita käyttötarkoituksia varten."
+      },
+      "raster": {
+        "title": "Rasteritiilikarttataso",
+        "description": "Nopea karttojen visualisointi etukäteen piirrettyjen karttakuvien tai tiilien kokoelman avulla."
+      },
+      "3dTiles": {
+        "title": "3D-tiilikarttataso",
+        "description": "Nopea 3D-visualisointi käyttämällä 3D-verkkotiiliaineistoryhmää."
+      }
+    },
+    "sourceHeading": "Valitse menetelmä tiilikarttatason luomiseen",
+    "sourceOptions": {
+      "existing": {
+        "title": "Etsi aiemmin luotua kohdekarttatasoa",
+        "description": "Valitse sisällössäsi isännöity kohdekarttataso lähteeksi nopeasti piirtyvää tiilikarttatasoa varten."
+      },
+      "upload": {
+        "title": "Lataa tiilipaketti palveluun",
+        "titleRaster": "Lataa tiilipaketti tai palvelumääritys palveluun",
+        "description": "Lataa paketti paikallisesta laitteestasi.",
+        "rasterDescription": "Lataa paketti tai palvelumääritystiedosto paikallisesta laitteestasi."
+      },
+      "store": {
+        "title": "Valitse aineistoryhmä aineistosäilössä",
+        "description": "Selaa tiilen sisältöön, joka sijaitsee rekisteröidyssä aineistosäilössä."
+      }
+    }
+  },
+  "tileLayerFromUrl": {
+    "title": "Otsikko",
+    "titlePlaceholder": "Tiilikarttatason otsikko",
+    "attribution": "Ominaisuustiedon määritys",
+    "subdomain": "Ala-alue",
+    "subDomainPlaceholder": "Esimerkki: a, b, c tai tiili1, tiili2, tiili3",
+    "setTileExtent": "Aseta tiililaajuus kartan nykyiseen laajuuteen.",
+    "setTileExtentTooltip": "URL-osoite voi myös sisältää paikkamerkin, joka edustaa niitä alitoimialuita, joihin kartan tiilet on tallennettu.",
+    "error": {
+      "title": "Määritä otsikko",
+      "attribution": "Määritä ominaisuustiedon määritys"
+    }
+  },
+  "tileLayerFromExisting": {
+    "error": {
+      "tileLayerAlreadyExist": {
+        "title": "Tiilikarttatasoa ei voi luoda",
+        "description": "Tiilikarttataso on jo olemassa valitulle kohdekarttatasolle. Valitse jokin muu."
+      },
+      "badRenderer": {
+        "title": "Tiilikarttatasoa ei voi luoda",
+        "description": "Valitun kohdekarttatason piirtotyyliä ei voi piirtää tiilinä. Valitse jokin muu."
+      },
+      "noLayerSelected": {
+        "title": "Karttatasoa ei ole valittu",
+        "description": "Jatka valitsemalla kohdekarttataso."
+      }
+    }
+  },
+  "sceneLayerSelect": {
+    "heading": "Luo maisemakarttataso valitsemalla vaihtoehto",
+    "options": {
+      "store": {
+        "title": "Valitse aineistoryhmä aineistosäilössä",
+        "description": "Selaa maisemasisältöön tiedostossa tai ArcGIS Enterpriselle rekisteröidyssä pilviaineistosäilössä"
+      },
+      "upload": {
+        "title": "Lataa maisemapaketti palveluun",
+        "description": "Lataa paketti paikallisesta laitteesta."
+      }
+    }
+  },
+  "tileLayerUpload": {
+    "header": "Valitse paketti paikallisesta laitteesta"
+  },
+  "tileLayerTypeSelect": {
+    "heading": "Minkätyyppisen tiilikarttatason haluat luoda?",
+    "options": {
+      "vectorTiles": {
+        "title": "Vektoritiilikarttataso",
+        "description": "Nopea karttojen visualisointi käyttämällä etukäteen piirrettyjä vektoritiiliä, jotka mukautuvat näyttölaitteen tarkkuuteen ja joiden tyyliä voidaan muuttaa uudelleen useita käyttötarkoituksia varten."
+      },
+      "tiles": {
+        "title": "Rasteritiilikarttataso",
+        "description": "Nopea karttojen visualisointi etukäteen piirrettyjen karttakuvien tai tiilien kokoelman avulla."
+      }
+    }
+  },
+  "tileLayerSettings": {
+    "title": "Tarkista ja käytä tiilikarttatason asetuksia.",
+    "visibilityRange": "Näkyvyysalue",
+    "visibilityRangeDescription": "Tämä alue vaikuttaa siihen, miten tiilet visualisoidaan kartalla. Tämä voidaan päivittää.",
+    "basemapOption": "Tiilirakenne",
+    "autoCreateOption": {
+      "title": "Luo tiilet automaattisesti",
+      "description": "Tiilet luodaan tarvittaessa ja ne tallennetaan myöhempää käyttöä varten."
+    },
+    "onlineBasemapOption": {
+      "title": "ArcGIS Online -taustakartat",
+      "description": "Käytä ArcGIS Online -taustakarttojen tiilirakennetta. Sallii karttatason näyttämisen ArcGIS Online -taustakarttojen kanssa."
+    },
+    "customBasemap": {
+      "title": "Mukautettu",
+      "description": "Käytä samaa tiilirakennetta kuin aiemmin luotu tiilikarttataso tai kartan kuvakarttataso. Sallii karttatason näyttämisen valitun karttatason kanssa."
+    },
+    "customBasemapUrl": "Linkki aiemmin luotuun tiilikarttatasoon",
+    "ranges": {
+      "world": "Maailma (1:100 000 000)",
+      "continent": "Maanosa (1:50 000 000)",
+      "countries": "Maat – suuret (1:25 000 000)",
+      "countriesSmall": "Maat – pienet (1:12 000 000)",
+      "states": "Osavaltiot/provinssit (1:6 000 000)",
+      "state": "Osavaltio/provinssi (1:3 000 000)",
+      "counties": "Maakunnat (1:1 500 000)",
+      "county": "Maakunta (1:750 000)",
+      "metropolitan": "Suurkaupunkialue (1:320 000)",
+      "cities": "Paikkakunnat (1:160 000)",
+      "city": "Paikkakunta (1:80 000)",
+      "town": "Kaupunki (1:40 000)",
+      "neighborhood": "Naapurusto (1:20 000)",
+      "streets": "Kadut (1:10 000)",
+      "street": "Katu (1:5 000)",
+      "buildings": "Rakennukset (1:2 500)",
+      "building": "Rakennus (1:1 250)",
+      "small": "Pieni rakennus (1:800)",
+      "rooms": "Huoneet (1:400)",
+      "room": "Huone (1:100)"
+    },
+    "error": {
+      "urlErrorTitle": "Tiilikarttatasovirhe",
+      "mapServiceError": "Tiilirakenteen noutamiseen liittyvää pyyntöä ei voitu suorittaa. Varmista, että ArcGIS-tiilikarttataso on aktiivinen ja vastaa pyyntöihin.",
+      "noTilingSchemeFound": "ArcGIS-tiilikarttatasolle ei ole määritetty tiilirakennetta.",
+      "noMatchSpatialRef": "Tiilirakenteen koordinaatistotiedon on vastattava kohdekarttatason koordinaatistotietoa.",
+      "noFileSelected": "Sinun on annettava tiilirakenteen tiedosto."
+    }
+  },
+  "dataStore": {
+    "header": "Valitse aineistoryhmä",
+    "fileName": "Tiedostonimi",
+    "fileType": "Tiedostotyyppi",
+    "paginationRange": "${start} – ${end}/${total}",
+    "processing": "Luetellaan sisältöjä...",
+    "emptyFolder": "Tämä kansio on tyhjä.",
+    "error": {
+      "noDatasetErrorHeading": "Aineistoryhmää ei ole valittu",
+      "noDatasetErrorDescription": "Jatka valitsemalla aineistoryhmä",
+      "listing": {
+        "heading": "Aineistosäilön sisältöä ei voida luetteloida",
+        "description": "Virhe luetteloitaessa aineistosäilön sisältöä."
+      }
+    }
+  },
+  "dataStoreSelect": {
+    "heading": "Valitse lisättävän aineistosäilön tyyppi.",
+    "description": "Hyödyntämällä ketteriä kehyksiä saat laadukkaan tiivistelmän",
+    "subOptionsHeading": "Lisää yhteys aineistosäilöön",
+    "subOptionsCloudDescription": "Valitse lisättävän pilvitallennustilan sijannin tyyppi",
+    "subOptionsDatabaseDescription": "Valitse lisättävän tietokannan tyyppi",
+    "databaseDescriptionForOnline": "Muodosta yhteys pilviaineistovarastoon",
+    "options": {
+      "folder": {
+        "title": "Kansio",
+        "description": "Muodosta yhteys tiedostojärjestelmän kansioon tai tiedostojakoon"
+      },
+      "database": {
+        "title": "Tietokanta",
+        "description": "Muodosta yhteys relaatiotietokantaan tai pilviaineistovarastoon",
+        "descriptionNoSql": "Muodosta yhteys relaatiotietokantaan, NoSQL-tietokantaan tai pilviaineistovarastoon"
+      },
+      "cloud": {
+        "title": "Pilvitallennustila",
+        "description": "Muodosta yhteys pilvitallennustilan sijaintiin"
+      },
+      "bdfs": {
+        "title": "Big data -tiedostojako",
+        "description": "Muotosta yhteys sijaintiin, joka on GeoAnalytics Server -sivuston käytettävissä"
+      },
+      "nosql": {
+        "title": "NoSQL",
+        "description": "Yhteys NoSQL-tietokantaan"
+      }
+    }
+  },
+  "dataStoreSelectFolder": {
+    "heading": "Määritä yhteys tai sijaintitiedot, jotta ArcGIS Server -sivustot voivat käyttää aineistoa.",
+    "publisherFolderPath": {
+      "placeholder": "\\\\MyFileServer\\GlobalData",
+      "heading": "Julkaisijan kansiopolku",
+      "hostname": "Julkaisijan kansion isäntänimi",
+      "hostnameInfo": "Tämä on pakollinen tieto, kun julkaisijan kansiopolku on kirjaimella nimetty asema"
+    },
+    "serverFolderPath": {
+      "heading": "Palvelimen kansiopolku",
+      "sameAsPublisher": "Sama kuin julkaisijan kansiopolku",
+      "newPath": "Uusi polku",
+      "nfsHostAndPath": {
+        "description": "NFS-isäntä ja -polku",
+        "hostname": "NFS-isäntänimi:",
+        "sharePath": "Jaettu NFS-polku:"
+      },
+      "placeholder": "\\\\RemoteFileServer\\GlobalData tai /net/GlobalData"
+    },
+    "errors": {
+      "invalidPublisherFolderPath": {
+        "heading": "Julkaisijan kansiopolku puuttuu",
+        "description": "Anna aineistosäilölle julkaisijan kansiopolku"
+      },
+      "invalidPublisherHostName": {
+        "heading": "Julkaisijan isäntänimi puuttuu",
+        "description": "Anna aineistosäilölle julkaisijan isäntänimi"
+      },
+      "invalidServerFolderPath": {
+        "heading": "Julkaisijan palvelimen kansiopolku puuttuu",
+        "description": "Anna aineistosäilölle palvelimen kansiopolku"
+      },
+      "invalidNfsHostAndPath": {
+        "heading": "NFS-isäntänimi ja jaettu NFS-polku puuttuvat",
+        "description": "Sinun on annettava aineistosäilölle NFS-isäntänimi ja jaettu NFS-polku"
+      },
+      "invalidNfsHostName": {
+        "heading": "NFS-isäntänimi puuttuu",
+        "description": "Sinun on annettava aineistosäilölle NFS-isäntänimi"
+      },
+      "invalidNfsPath": {
+        "heading": "Jaettu NFS-polku puuttuu",
+        "description": "Sinun on annettava aineistosäilölle jaettu NFS-polku"
+      }
+    }
+  },
+  "dataStoreSelectDatabaseType": {
+    "heading": "Valitse tietokannan tyyppi.",
+    "options": {
+      "relational": {
+        "title": "Relaatiotietokanta",
+        "description": "Muodosta yhteys relaatiotietokantaan"
+      },
+      "cloudDataWarehouse": {
+        "title": "Pilviaineistovarasto",
+        "description": "Muodosta yhteys pilviaineistovarastoon"
+      },
+      "nosql": {
+        "title": "NoSQL-tietokanta",
+        "description": "Muodosta yhteys NoSQL-tietokantaan"
+      }
+    }
+  },
+  "dataStoreSelectDatabase": {
+    "heading": "Määritä yhteys tai sijaintitiedot, jotta ArcGIS Server -sivustot voivat käyttää aineistoa.",
+    "publisherDatabaseConnection": "Julkaisijan tietokantayhteys",
+    "serverDatabaseConnection": "Palvelimen tietokantayhteys",
+    "sameAsPublisher": "Sama kuin julkaisijan tietokantayhteys",
+    "newConnection": "Uusi yhteys",
+    "sdeFile": "(.sde-tiedosto)",
+    "dragAndDropOrSelectFile": "Vedä ja pudota tai valitse oma .sde-tiedostosi",
+    "selectFile": "Valitse tiedosto",
+    "chooseDifferentFile": "Valitse toinen tiedosto",
+    "importingConnectionFile": "Tuodaan yhteystiedostoa...",
+    "fileChosen": "Tiedosto on valittu",
+    "pipelineProviders": {
+      "bigQuery": {
+        "title": "BigQuery",
+        "description": "Muodosta yhteys Google BigQueryyn"
+      },
+      "snowflake": {
+        "title": "Snowflake",
+        "description": "Muodosta yhteys Snowflakeen"
+      },
+      "amazon": {
+        "title": "Amazon S3",
+        "description": "Muodosta yhteys Amazon S3:een"
+      },
+      "azure": {
+        "title": "Microsoft Azure -tallennustila",
+        "description": "Muodosta yhteys Microsoft Azureen"
+      }
+    },
+    "errors": {
+      "hostingServerError": "Portaaliasi ei ole määritetty isäntäpalvelimen kanssa, mitä aineistosäilön luonnin viimeistely edellyttää. Tarkista isäntäpalvelimesi kokoonpano ja yritä uudelleen.",
+      "invalidPublisherConnectionFile": {
+        "heading": "Julkaisijan yhteystiedosto puuttuu",
+        "description": "Anna aineistosäilölle julkaisijan yhteystiedosto."
+      },
+      "invalidServerConnectionFile": {
+        "heading": "Palvelimen yhteystiedosto puuttuu",
+        "description": "Anna aineistosäilölle palvelimen yhteystiedosto."
+      }
+    }
+  },
+  "dataStoreDatabaseCredentials": {
+    "server": "Palvelin",
+    "authenticationType": "Todennustyyppi",
+    "userAuthentication": "Käyttäjän todennus",
+    "serviceAuthentication": "Palvelun todennus",
+    "refreshToken": "Päivitystunnus",
+    "keyFile": "Avaintiedosto",
+    "projectId": "Projektin tunnus",
+    "defaultDataset": "Oletusaineistoryhmä",
+    "username": "Käyttäjätunnus",
+    "password": "Salasana",
+    "role": "Rooli",
+    "database": "Tietokanta",
+    "schema": "Rakenne",
+    "warehouse": "Varasto",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake",
+    "jsonOnly": "Käytä .json-tiedostoa",
+    "notJson": "Ainoa hyväksyttävä tiedostotyyppi on .json-tiedosto",
+    "dataStoreConnection": "Data Store -yhteys",
+    "validating": "Validoidaan yhteyttä...",
+    "selectKeyFile": "Valitse avaintiedosto",
+    "errors": {
+      "validationFailedTitle": "Validointi epäonnistui",
+      "validationFailedDescription": "Tunnistetietojen validointi epäonnistui. Tarkista, että antamasi tiedot ovat oikein, ja yritä uudelleen.",
+      "incorrectLogin": "Antamasi tunnistetiedot ovat väärät tai virheelliset.",
+      "noKeyFile": "Avaintiedosto on pakollinen kenttä.",
+      "noProjectId": "Projektin tunnus on pakollinen kenttä.",
+      "noServer": "Palvelin on pakollinen kenttä.",
+      "noDatabase": "Tietokanta on pakollinen kenttä.",
+      "noSchema": "Rakenne on pakollinen kenttä.",
+      "noWarehouse": "Varasto on pakollinen kenttä.",
+      "noRole": "Rooli on pakollinen kenttä."
+    }
+  },
+  "dataStoreSelectBdfs": {
+    "selectBdfs": "Määritä GeoAnalytics Serveriin lisättävän big data -tiedostojaon tyyppi.",
+    "locationInfo": "Määritä sijaintitiedot, jotta GeoAnalytics Server voi käyttää aineistoa.",
+    "username": "Käyttäjätunnus",
+    "useKerberos": "Käytä Kerberosia",
+    "keytabLocations": "Keytab-sijainnit",
+    "principalUser": "Ensisijainen käyttäjä",
+    "principalRealm": "Ensisijainen alue",
+    "cloudSelectType": "Valitse lisättävän aineistosäilön tyyppi.",
+    "cloudSelectProvider": "Valitse pilvitallennuspalvelun tarjoaja.",
+    "cloudTypes": {
+      "new": "Uusi",
+      "existing": "Aiemmin luodut"
+    },
+    "cloudSearch": "Valitse nykyinen pilviaineistosäilö:",
+    "cloudSearchPlaceholder": "Etsi aineistosäilöistä kirjoittamalla jotain",
+    "bdfsCloudProviders": {
+      "amazon": "Amazon S3",
+      "azure": "Microsoft Azure -tallennustila",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake -tallennustila Gen2"
+    },
+    "database": {
+      "heading": "Tietokanta",
+      "nonDefault": {
+        "description": "Käytä muuta kuin oletustietokantaa (oletustietokannan nimi)",
+        "placeholder": "oletus"
+      }
+    },
+    "metastoreUri": {
+      "heading": "Metasäilön URI-osoitteet",
+      "placeholder": "thrift://domainname:port,thrift://domainname2:port"
+    },
+    "path": {
+      "heading": "Polku",
+      "filesharePlaceholder": "\\\\MyFileServer\\GlobalData",
+      "hdfsPlaceholder": "hdfs://domainname:port/folder"
+    },
+    "options": {
+      "fileshare": {
+        "title": "Tiedostojako",
+        "description": "Paikallisella levyllä tai verkkoresurssissa sijaitsevien aineistoryhmien hakemisto"
+      },
+      "hdfs": {
+        "title": "HDFS",
+        "description": "Aineistoryhmien HDFS (Hadoop Distributed File System) -tiedostojärjestelmän hakemisto"
+      },
+      "hive": {
+        "title": "Hive",
+        "description": "Apache Hive -tietovarasto"
+      },
+      "cloud": {
+        "title": "Pilvitallennustila",
+        "description": "Muodosta yhteys pilvitallennustilan sijaintiin"
+      }
+    },
+    "errors": {
+      "noBdfsSelected": {
+        "heading": "Big data -aineistotiedoston jakotyyppiä ei ole valittu",
+        "description": "Jatka valitsemalla Big data -aineistotiedoston jakotyyppi."
+      },
+      "noPathSelected": {
+        "heading": "Polku puuttuu",
+        "description": "Sinun on annettava aineistosäilölle polku."
+      },
+      "noMetastoreUri": {
+        "heading": "Metasäilön URI-osoite puuttuu",
+        "description": "Sinun on määritettävä vähintään yksi metasäilön URI."
+      },
+      "noDataStoreSelected": {
+        "heading": "Aineistosäilöä ei ole valittu",
+        "description": "Jatka valitsemalla aineistosäilö."
+      },
+      "noCloudSelected": {
+        "heading": "Pilvipalvelun tarjoajaa ei ole valittu",
+        "description": "Jatka valitsemalla pilvipalvelun tarjoaja."
+      }
+    }
+  },
+  "dataStoreSelectCloud": {
+    "selectCloud": "Valitse pilvitallennuspalvelun tarjoaja.",
+    "connectionInfoEnterprise": "Määritä yhteys tai sijaintitiedot, jotta ArcGIS Server -sivustot voivat käyttää aineistoa.",
+    "connectionInfoOnline": "Määritä yhteyden tiedot",
+    "provider": "Pilvitallennustilan tarjoaja",
+    "authenticationType": "Todennustyyppi",
+    "authenticationTypes": {
+      "activeDirectory": "Azure Active Directory",
+      "sharedKey": "Jaettu avain",
+      "sasToken": "Jaetun käytön allekirjoitustunnus",
+      "anonymous": "Anonyymi"
+    },
+    "identityType": "Identiteettityyppi",
+    "identityTypes": {
+      "servicePrincipal": "Palvelun päänimi",
+      "userAssignedIdentity": "Käyttäjän määrittämät ja hallinnoimat käyttäjätiedot"
+    },
+    "token": "Tunnus",
+    "tenantId": "Tenanttitunnus",
+    "clientId": "Asiakkaan tunnus",
+    "optionalClientId": "Asiakkaan tunnus (valinnainen)",
+    "clientSecret": "Asiakkaan salasana",
+    "accountName": "Tilin nimi",
+    "accountKey": "Tilin avain",
+    "environment": "Ympäristö",
+    "storageDomain": "Säilön arvoalue",
+    "other": "Muu",
+    "endpoint": "Päätepiste",
+    "endpointPlaceholder": "StorageAccount.privatelink.blob.core.windows.net tai DNS",
+    "sasTokenPlaceholder": "?sv=2023-11-02&ss=example=co&sp=example&se=2023-08-04T03:57:26Z&st=2025-08-03T19:57:26Z&spr=https&sig=example",
+    "containerName": "Säilön nimi",
+    "credentialType": "Tunnistetietotyyppi",
+    "accessKey": "Käyttöoikeusavain",
+    "secretKey": "Salainen avain",
+    "sharedKey": "Jaettu avain",
+    "region": "Alue",
+    "bucketName": "Korin nimi",
+    "cloudFolder": "Kansio (valinnainen)",
+    "validating": "Validoidaan yhteyttä...",
+    "cloudProviders": {
+      "amazon": "Amazon S3",
+      "google": "Googlen pilvitallennustila",
+      "azure": "Microsoft Azure -tallennustila",
+      "azuredatalakegen2store": "Microsoft Azure Data Lake -tallennustila Gen2",
+      "alibaba": "Alibaban pilvitallennustila"
+    },
+    "errors": {
+      "noCloudSelected": {
+        "heading": "Pilvipalvelun tarjoajaa ei ole valittu",
+        "description": "Jatka valitsemalla pilvipalvelun tarjoaja."
+      },
+      "onlineValidationFailed": {
+        "heading": "Yhteysvirhe",
+        "description": "Yhteyttä ei voitu validoida. Tarkista, että tiedot ovat oikein."
+      }
+    },
+    "credentialTypes": {
+      "accessKey": "Käyttöoikeusavain",
+      "privateKey": "Yksityinen avain",
+      "IAMRole": "IAM-rooli"
+    },
+    "custom": "Mukautettu",
+    "storageURL": "Yksityinen URL-osoite",
+    "cloudFolderPlaceHolder": "cloud/arcgis",
+    "errorInfo": "${missingField} on pakollinen",
+    "invalidEndpoint": "Päätepisteessä on käytettävä https-protokollaa",
+    "and": "ja"
+  },
+  "dataStoreSelectNoSql": {
+    "noSqlDescription": "Valitse NoSQL-tallennuspalvelun tarjoaja.",
+    "Neo4j": "Neo4j",
+    "Arango": "ArangoDB",
+    "provider": "Tarjoaja",
+    "errorMessage": "Seuraavissa kentissä on virheitä: ${missingFields}",
+    "connectionUri": "Yhteyden URI",
+    "username": "Käyttäjätunnus",
+    "password": "Salasana",
+    "database": "Tietokanta",
+    "credentialDescription": "Määritä NoSQL-yhteyden tiedot, jotta ArcGIS Server -sivustot voivat käyttää aineistoa.",
+    "connectionUriExample": "Esimerkki: protocol://hostname:port",
+    "fallBackServers": "Varapalvelimet (valinnainen)",
+    "fallBackServersExample": "Esimerkki: hostname1:port1, hostname2:port2",
+    "and": "ja",
+    "error": "Virhe",
+    "hosts": "Isäntä/isännät",
+    "useSsl": "Käytä SSL:ää:"
+  },
+  "serverSelection": {
+    "layer": {
+      "heading": "Määritä palvelimet",
+      "subHeading": "Valitse ArcGIS Server -sivusto, johon haluat julkaista karttatason."
+    },
+    "dataStoreServerSelect": {
+      "heading": "Valitse ArcGIS Server -sivustot, jotka haluat lisätä aineistosäilöösi.",
+      "bdfsHeading": "Big data -tiedostojakosi lisätään ArcGIS GeoAnalytics Server -sivustoon.",
+      "subHeading": "Sivustolla on oltava pääsy yhteyteen tai sijaintiin, jonka määritit edellisessä vaiheessa.",
+      "noServerSelected": {
+        "heading": "Palvelinta ei ole valittu",
+        "description": "Jatka valitsemalla vähintään yksi palvelin."
+      }
+    },
+    "list": {
+      "title": "Palvelin",
+      "status": "Tila"
+    },
+    "status": {
+      "success": "Normaali",
+      "failure": "Ei käytettävissä",
+      "error": "Virhe",
+      "validating": "Validoidaan"
+    },
+    "loader": {
+      "validating": "Validoidaan palvelimia..."
+    },
+    "error": {
+      "noServerSelectedHeading": "Palvelinta ei ole valittu",
+      "noServerSelectedDescription": "Jatka valitsemalla palvelin."
+    },
+    "types": {
+      "hostedSetting": "Isäntäpalvelin",
+      "notebookServerSetting": "Notebook Server",
+      "geoAnalyticsServerSetting": "GeoAnalytics",
+      "rasterAnalysisSetting": "Rasterianalyysi",
+      "imageHostingSetting": "Kuva-aineiston isännöinti",
+      "missionServerSetting": "Mission Server"
+    }
+  },
+  "tileLayerFromStore": {
+    "search": "Etsi aineistosäilö",
+    "heading": "Valitse aineistosäilö",
+    "subHeading": "Selaa tiedostoon tai ArcGIS Enterpriselle rekisteröityyn pilviaineistosäilöön.",
+    "cloud": "Pilvi",
+    "folder": "Kansio",
+    "processing": "Noudetaan aineistosäilöä...",
+    "error": {
+      "noDataStoreSelected": {
+        "heading": "Aineistosäilöä ei ole valittu",
+        "description": "Sinun on valittava vähintään yksi aineistosäilö"
+      },
+      "noRegisteredServersForDataStore": {
+        "heading": "Aineistösäilölle ei ole rekisteröityjä palvelimia",
+        "description": "Valittua aineistosäilöä ei ole rekisteröity ArcGIS Server -sivustoon. Jatka rekisteröimällä se sivustoon."
+      },
+      "noContentInDataStore": {
+        "heading": "Aineistosäilössä ei ole kelvollisia aineistoryhmiä",
+        "description": "Valittu aineistosäilö ei sisällä kelvollisia aineistoryhmiä julkaisua varten."
+      }
+    }
+  },
+  "itemProperties": {
+    "errorTitle": "Virhe",
+    "errorDescription": "Tätä kohdetta lisättäessä tapahtui virhe.",
+    "alreadyExists": {
+      "title": "Nykyinen tiedosto",
+      "description": "Tiedosto nimeltä \"${fileName}\" on jo tässä kansiossa. Vaihda kansio tai nimeä tiedosto uudelleen ja yritä uudelleen.",
+      "linkText": "Näytä aiemmin luotu kohde"
+    },
+    "arcgisServerUpload": {
+      "title": "Kohdetta ei voi julkaista",
+      "description": "Tämä palvelun määritystiedosto luotiin ArcGIS Server -sivustolle, ja se on ladattava ArcGIS Serveriin."
+    },
+    "invalidShapefile": {
+      "title": "Virheellinen shapefile-tiedosto",
+      "description": "Palveluun ladattu tiedosto ei sisällä shapefile-tiedostoa."
+    },
+    "invalidGeodatabase": {
+      "title": "Virheellinen paikkatietokanta",
+      "description": "Ladattu tiedosto ei sisällä File Geodatabasea."
+    },
+    "serviceNameExists": {
+      "title": "Palvelun nimi ei ole käytettävissä",
+      "description": "Tämänniminen palvelu on jo julkaistu organisaatiossa. Palveluiden nimien on oltava yksilöllisiä koko organisaatiossa. Käytä toista nimeä."
+    },
+    "invalidGeoJSON": {
+      "title": "Virheellinen GeoJSON",
+      "description": "Palvelimelle lataamasi JSON-tiedosto ei ole kelvollinen (\"tyyppi\" puuttuu)."
+    },
+    "invalidJSON": {
+      "title": "Virheellinen JSON-objekti",
+      "description": "Palvelimelle lataamasi JSON-tiedosto ei ole kelvollinen JSON."
+    },
+    "failDatastorePublish": {
+      "title": "Aineistosäilöstä ei voi julkaista",
+      "description": "Kohteen ${type} julkaisu epäonnistui. Katso lisätietoja palvelinlokeista.",
+      "tileLayer": "tiilikarttataso",
+      "sceneLayer": "maisemakarttataso"
+    },
+    "invalidSpatialRef": {
+      "title": "Virheellinen koordinaatistotieto",
+      "description": "Tässä palvelussa on yhteensopimaton koordinaatistotieto"
+    },
+    "uploading": "Ladataan palvelimelle: ${type}...",
+    "adding": "Lisätään ${type}...",
+    "addDataStore": "Lisätään aineistosäilöä ${type}...",
+    "creating": "Luodaan ${type}...",
+    "publishing": "Julkaistaan ${type}...",
+    "checkingStatus": "Tarkistetaan tilaa...",
+    "publishingService": "Palvelua julkaistaan...",
+    "appendingPhotos": "Ladataan kuvia palvelimelle...",
+    "errorPublishing": "Tätä palvelua julkaistaessa ilmeni virhe.",
+    "howWillAdd": "Miten ${fileName} lisätään?",
+    "howWillAddService": "Miten palvelu lisätään?",
+    "howWillAddDescription": "Tätä tiedostoa käytetään kohteen ${type} luomiseen.",
+    "howWillAddSecuredServiceDescription": "Tällä palvelulla luodaan ArcGIS-kohteen välityspalvelin. Se lähettää eteenpäin käyttäjän pyynnöt, joihin on liitetty tunnus.",
+    "howWillAddHostedDescription": "Tätä tiedostoa käytetään isännöidyn kohdekarttatason tai taulun luomiseen.",
+    "item": "Kohde",
+    "folder": "Kansio",
+    "database": "Tietokanta",
+    "amazon": "Amazon S3",
+    "google": "Google Cloud",
+    "azure": "Microsoft Azure",
+    "azuredatalakegen2store": "Microsoft Azure Data Lake -tallennustila Gen2",
+    "alibaba": "Alibaba Cloud",
+    "bdfs": "BDFS",
+    "nosql": "NoSQL",
+    "bigQuery": "BigQuery",
+    "snowflake": "Snowflake"
+  },
+  "onboard": {
+    "tooltipLabel": "Katso sisällön lisäämisvinkkejä",
+    "title": "Sisällön lisäämisvinkkejä",
+    "addDocumentTitle": "Lisää asiakirjoja, kuvia ja muita tiedostoja",
+    "addDocumentContent": "Vedä ja pudota PDF-tiedosto, kuva, Office-asiakirja ja muuta sisältöä.",
+    "publishLayerTitle": "Julkaise karttatasoja shapefile-tiedostoista, CSV-tiedostoista, laskentataulukoista jne.",
+    "publishLayerContent": "Muuta laitteellasi tai pilvitallennusasemalla olevat tiedostosi karttatasoiksi, jotka voit lisätä karttoihin.",
+    "publishLayerEnterprise": "Muuta tiedostot karttatasoiksi, jotka voit lisätä karttoihin",
+    "linkLayerTitle": "Linkitä web-karttatasoihin",
+    "linkLayerContent": "Luo karttatasoja ArcGIS Serveriin, OGC-palveluihin ja KML:ään osoittavista URL-osoitteista."
+  },
+  "itemTypeInfo": {
+    "lowercaseDisplayName": {
+      "CSV": "CSV",
+      "GeoJson": "GeoJSON",
+      "JSON": "GeoJSON",
+      "Tile Package": "tiilipaketti",
+      "Vector Tile Package": "vektoritiilipaketti",
+      "Service Definition": "palvelumääritys",
+      "Scene Package": "maisemakarttatasopaketti",
+      "Desktop Application Template": "työasemasovellusmalli",
+      "Microsoft Excel": "Microsoft Excel",
+      "Shapefile": "shapefile-tiedosto",
+      "File Geodatabase": "File Geodatabase",
+      "Map Template": "karttamalli",
+      "Geoprocessing Sample": "geoprosessointinäyte",
+      "Code Sample": "koodinäyte",
+      "ArcPad Package": "ArcPad-paketti",
+      "CAD Drawing": "CAD-piirros",
+      "CSV Collection": "CSV-kokoelma",
+      "KML Collection": "KML-kokoelma",
+      "AppBuilder Widget Package": "AppBuilder-pienoisohjelman paketti",
+      "Photos with Locations": "sijaintietoja sisältävät valokuvat",
+      "Image Collection": "kuvakokoelma",
+      "iWork Pages": "iWork Pages",
+      "iWork Numbers": "iWork Numbers",
+      "iWork Keynote": "iWork Keynote",
+      "Deep Learning Package": "syväoppimisen paketti",
+      "GML": "GML",
+      "Application": "sovellus",
+      "Google Sheets": "Google Sheets",
+      "GeoPackage": "GeoPackage",
+      "Tile Layer": "tiilikarttataso",
+      "OGCFeatureServer": "OGC-kohdekarttataso",
+      "FeatureServer": "kohdepalvelu",
+      "3DTiles Package": "3D-tiilipaketti"
+    },
+    "mvText": {
+      "WMTS": "OGC WMTS -web-palvelu",
+      "WMS": "OGC WMS -web-palvelu",
+      "WFS": "OGC WFS -web-palvelu",
+      "AGS": "ArcGIS Server -web-palvelu",
+      "OGCFeatureServer": "OGC API – kohteet"
+    },
+    "howToAdd": "Miten haluaisit lisätä tämän tiedoston?",
+    "nonHostedTitle": "Lisää vain ${fileName}",
+    "nonHostedDescription": "Lisää ${type} julkaisematta. Muut voivat jakaa ja ladata tiedoston, tai se voidaan julkaista myöhemmin."
+  },
+  "publishSelect": {
+    "error": {
+      "title": "Virhe analysoitaessa tiedostoa",
+      "description": "Ilmeni virhe yritettäessä analysoida tiedostoasi. Tarkista, että tiedostosi on muotoiltu oikein.",
+      "alreadyExists": {
+        "title": "Nykyinen tiedosto",
+        "desciption": "Tiedosto nimeltä \"${fileName}\" on jo tässä kansiossa. Nimeä tiedosto uudelleen ja yritä uudelleen.",
+        "linkText": "Näytä aiemmin luotu kohde"
+      },
+      "duplicateFields": {
+        "title": "Duplikaatteja kentän nimiä",
+        "description": "Kaksinkertaisia kentän nimiä ei sallita."
+      },
+      "emptyFile": "Palvelimelle ladattu tiedosto ei sisällä tietoja.",
+      "missingGeocoder": {
+        "title": "Paikannin ei käytettävissä",
+        "descriptionn": "Oletuspaikannin ei ole käytettävissä. Tarkista organisaatiosi geokoodausasetus ottamalla yhteys pääkäyttäjään."
+      }
+    },
+    "publishThisSheet": "Julkaise tämä taulukko:",
+    "largeGeoJsonTitle": "Suuri geoJSON",
+    "largeGeoJsonDescription": "Tämä geoJSON sisältää suuren määrän tietoa. Harkitse sen julkaisemista isännöitynä kohdekarttatasona, jotta saat parhaan lopputuloksen.",
+    "largeGeoJsonConditionDescription": "Jos tämä GeoJSON sisältää runsaasti aineistoa, luo sen sijaan isännöity kohdekarttataso, jotta saat parhaan tuloksen.",
+    "bigGeoJsonHint": "Jotta suorituskyky olisi mahdollisimman hyvä, tämä aineisto voidaan lisätä karttaan vain isännöitynä kohdekarttatasona.",
+    "bigGeoJsonHintNoPrivilege": "Tämä aineisto on liian suuri, jotta se voitaisiin lisätä karttaan. Se pitäisi julkaista isännöitynä kohdekarttatasona sen sijaan.",
+    "bigGeoJsonHintPublicAccount": "Tämä aineisto on liian suuri, jotta se voitaisiin lisätä karttaan. Se pitäisi julkaista isännöitynä kohdekarttatasona sen sijaan. Päivitä ArcGIS Online -tilaukseen, jotta voit julkaista suurempia aineistoja isännöityinä karttatasoina.",
+    "uploading": "Ladataan palvelimelle: ${item}...",
+    "analyze": "Analysoidaan ${fileName}...",
+    "checkingStatus": "Tarkistetaan tilaa...",
+    "geoJSONFromURL": {
+      "hosted": {
+        "title": "Lisää aineisto ja luo isännöity kohdekarttataso",
+        "description": "Julkaise GeoJSON-tiedosto isännöitynä kohdekarttatasona"
+      },
+      "nonHosted": {
+        "title": "Lisää vain aineisto",
+        "description": "Tuo GeoJSON-tiedosto julkaisematta. Muut voivat jakaa tai ladata tiedoston, tai se voidaan julkaista myöhemmin."
+      }
+    },
+    "3dTiles": {
+      "layerType": "Karttatason tyyppi"
+    },
+    "hostedTitle": {
+      "CSV": "Lisää ${fileName} ja luo isännöity kohdekarttataso tai taulu",
+      "CSVNoTable": "Lisää ${fileName} ja luo isännöity kohdekarttataso",
+      "GeoPackage": "Lisää ${fileName} ja luo isännöity kohdekarttataso",
+      "GeoJson": "Lisää ${fileName} ja luo isännöity kohdekarttataso",
+      "JSON": "Lisää ${fileName} ja luo isännöity kohdekarttataso",
+      "Tile Package": "Lisää ${fileName} ja luo isännöity karttataso",
+      "Vector Tile Package": "Lisää ${fileName} ja luo isännöity tiilikarttataso",
+      "Service Definition": "Lisää ${fileName} ja luo isännöity karttataso",
+      "Scene Package": "Lisää ${fileName} ja luo isännöity maisemakarttataso",
+      "Image Collection": "Lisää ${fileName} ja luo isännöity kuva-aineistokarttataso",
+      "Desktop Application Template": "Lisää ${fileName} ja luo isännöity kohdekarttataso",
+      "Microsoft Excel": "Lisää ${fileName} ja luo isännöity kohdekarttataso tai taulu",
+      "Google Sheets": "Lisää ${fileName} ja luo isännöity kohdekarttataso tai taulu",
+      "3DTiles Package": "Lisää ${fileName} ja luo isännöity 3D-tiilikarttataso"
+    },
+    "hostedDescription": {
+      "CSV": "Sijaintitietoja sisältävä CSV-tiedosto on tietolähde isännöidylle kohdekarttatasolle, joka näyttää kartalla olevat pisteet. CSV-tiedosto, jossa ei ole sijaintitietoja, tuo näkyviin taulun, jota voidaan tarkastella muiden karttatasojen kanssa ja joka voidaan laatia kaavioksi tai voidaan liittää muiden karttatasojen kanssa.",
+      "GeoPackage": "Sijaintitietoja sisältävä GeoPackage on lähde isännöidylle karttatasolle, joka näyttää kartalla olevat pisteet. GeoPackage, jossa ei ole sijaintitietoja, tuo näkyviin taulun, jota voidaan tarkastella muiden karttatasojen kanssa ja joka voidaan laatia kaavioksi tai voidaan liittää muiden karttatasojen kanssa.",
+      "GeoJson": "Julkaise GeoJSON-tiedostosi isännöitynä kohdekarttatasona. Kohteet julkaistaan WGS 1984 Web Mercator -koordinaattijärjestelmässä.",
+      "JSON": "Julkaise JSON-tiedostosi isännöitynä kohdekarttatasona. Kohteet julkaistaan WGS 1984 Web Mercator -koordinaattijärjestelmässä.",
+      "tile package": "Julkaise rasteritiilipakettisi isännöitynä karttatasona.",
+      "vector tile package": "Julkaise vektoritiilipakettisi isännöitynä tiilikarttatasona.",
+      "Service Definition": "Julkaise palvelumääritystiedostosi isännöitynä karttatasona. Julkaistun karttatason tyyppi määräytyy SD-tiedoston sisällön mukaan.",
+      "Scene Package": "Julkaise maisemakarttatasopakettisi isännöitynä maisemakarttatasona.",
+      "Image Collection": "Julkaise kuvakokoelmasi ZIP-tiedosto isännöitynä kuva-aineistokarttatasona.",
+      "Desktop Application Template": "Julkaise pöytätietokoneen sovellusmallisi (ZIP) isännöitynä kohdekarttatasona. Sijaintitietoja sisältävä pöytätietokoneen sovellusmalli on tietolähde isännöidylle kohdekarttatasolle, joka näyttää kartalla olevat pisteet. Pöytätietokoneen sovellusmalli, jossa ei ole sijaintitietoja, tuo näkyviin taulun, jota voidaan tarkastella muiden karttatasojen kanssa ja joka voidaan laatia kaavioksi tai voidaan liittää muiden karttatasojen kanssa.",
+      "Microsoft Excel": "Julkaise isännöity kohdekarttataso laskentataulukkosi perusteella. Laskentataulukot, joissa ei ole sijaintitietoja, tuovat näkyviin taulun, jota voidaan tarkastella muiden karttatasojen kanssa ja joka voidaan laatia kaavioksi tai voidaan liittää muiden karttatasojen kanssa.",
+      "Google Sheets": "Julkaise isännöity kohdekarttataso laskentataulukkosi perusteella. Laskentataulukot, joissa ei ole sijaintitietoja, tuovat näkyviin taulun, jota voidaan tarkastella muiden karttatasojen kanssa ja joka voidaan laatia kaavioksi tai voidaan liittää muiden karttatasojen kanssa.",
+      "3DTiles Package": "Julkaise 3D-tiilipakettisi isännöitynä 3D-tiilikarttatasona."
+    },
+    "addDirectlyTitle": "Lataa tiedosto kohteena ja lisää se karttaan",
+    "addDirectlyUrlTitle": "Tee tiedostoviite URL-osoitteesta ja lisää se karttaan",
+    "addDirectlyDescription": "Lisää aineisto luomatta isännöityä kohdekarttatasoa. Ihanteellinen pienemmille ja ulkoisesti hallinnoiduille aineistoryhmille, joissa ei tarvita esimerkiksi muokkauksen kaltaisia ominaisuuksia.",
+    "addDirectlyUrlDescription": "Lisää aineisto luomatta isännöityä kohdekarttatasoa. Ihanteellinen pienemmille aineistoryhmille, joissa ei tarvita esimerkiksi muokkauksen kaltaisia ominaisuuksia. Aineisto ladataan aina, kun kartta avataan.",
+    "hostedMVTitle": "Luo isännöity kohdekarttataso ja lisää se karttaan",
+    "hostedMVDescription": "Käytä kaikkia kohdekarttatason tarjoamia ominaisuuksia, mukaan lukien muokkaamista. Hallitse aineistoa täysin ArcGIS Onlinessa."
+  },
+  "zipSelect": {
+    "file": "Tiedosto",
+    "itemType": "Tiedostotyyppi",
+    "language": "Kieli",
+    "other": "Muu",
+    "hosted": {
+      "heading": "Lisää ${fileName} ja luo isännöity kohdekarttataso",
+      "description": "Lisää ${type} ja julkaise isännöitynä kohdekarttatasona, joka voidaan lisätä karttaan."
+    },
+    "type": "Tapahtui virhe",
+    "ArcPad": {
+      "project": "ArcPad-projekti",
+      "template": "ArcPad-mallipohja"
+    },
+    "Shapefile": {
+      "title": "Shapefile-tiedosto",
+      "description": "Vektoriaineiston tallennusmuoto, joka on tarkoitettu maantieteellisten kohteiden sijainnin, muodon ja määreiden tallentamiseen. Shapefile tallennetaan liittyvien tiedostojen joukkoon, ja se sisältää yhden kohdeluokan."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Kokoelma kansiossa olevia tiedostoja, joita käytetään sekä paikkatietojen että muiden kuin paikkatietojen tallentamiseen, kyselyyn ja hallintaan."
+    },
+    "Desktop Application Template": {
+      "title": "Työasemasovellusmalli",
+      "description": "Tiedostot, aineisto ja sovelluskoodi, jota käytetään pöytätietokoneella yhdessä ArcGISin kanssa."
+    },
+    "Map Template": {
+      "title": "Karttamalli",
+      "description": "Karttamali on kartta-asiakirja (.mxd), josta voidaan luoda uusia asiakirjoja ArcMapissa."
+    },
+    "Geoprocessing Sample": {
+      "title": "Geoprosessointinäyte",
+      "description": "Kokoelma työkalulaatikoita, komentosarjoja, malleja, aineistoja ja lisätiedostoja, joilla ajetaan geoprosessointityökaluja ArcGISissa."
+    },
+    "Code Sample": {
+      "title": "Koodinäyte",
+      "description": "Jaettava koodinäyte useilla eri kielillä, joita ovat mm. Java- tai C++."
+    },
+    "ArcPad Package": {
+      "title": "ArcPad-paketti",
+      "description": "ArcPad-pakettitiedostot, jotka on luotu ArcPad Data Managerilla."
+    },
+    "CAD Drawing": {
+      "title": "CAD-piirros",
+      "description": "Tietokoneavusteiset suunnittelutiedostot, jotka on luotu AutoCAD- tai MicroStation-alustalla."
+    },
+    "CSV Collection": {
+      "title": "CSV-kokoelma",
+      "description": "CSV-kokoelma on .zip-tiedosto, joka sisältää yhden CSV-tiedoston karttatasoa kohti."
+    },
+    "KML Collection": {
+      "title": "KML-kokoelma",
+      "description": "KML-kokoelma on .zip-tiedosto, joka sisältää yhden KML-tiedoston karttatasoa kohti."
+    },
+    "AppBuilder Widget Package": {
+      "title": "AppBuilder-pienoisohjelman paketti",
+      "description": "Mukautettu pienoisohjelma tai teema, joka laajentaa ArcGIS Web AppBuilder -sovelluksen ominaisuuksia"
+    },
+    "Photos with Locations": {
+      "title": "Sijaintietoja sisältävät valokuvat",
+      "description": "Sijaintitiedoilla varustettuja valokuvia sisältävä ZIP-tiedosto (sisältää paikkamerkittyjä kuvia ja EXIF-sijaintitietoja)"
+    },
+    "Image Collection": {
+      "title": "Kuvakokoelma",
+      "description": "Kokoelma ladattavissa olevia rasteriaineistoryhmiä."
+    },
+    "iWork Pages": {
+      "title": "iWork Pages",
+      "description": "Apple-asiakirjamuoto"
+    },
+    "iWork Numbers": {
+      "title": "iWork Numbers",
+      "description": "Apple-laskentataulukkomuoto"
+    },
+    "iWork Keynote": {
+      "title": "iWork Keynote",
+      "description": "Apple-esitysmuoto"
+    },
+    "Deep Learning Package": {
+      "title": "Syväoppimisen paketti",
+      "description": "Tiedostot ja aineistot, joita tarvitaan syväoppimisen päättelytyökalujen suorittamiseen ja joita käytetään syväoppimisen rasterianalyysityökalujen lähtöaineistoina."
+    },
+    "GML": {
+      "title": "GML",
+      "description": "GML (Geography Markup Language) on OGC:n XML-standardi, joka edustaa sijaintielementtien tietoja"
+    },
+    "Application": {
+      "title": "Sovellus",
+      "description": "Pöytätietokoneille tarkoitettu, pöytätietokonealustalla, kuten Java- tai .NET-alustalla (Microsoft Windows -pöytätietokone), oleva sovellus."
+    }
+  },
+  "singleLayerSelect": {
+    "selectLayer": "Valitse lisättävä karttataso",
+    "selectTile": "Matriisin tiili",
+    "featureType": "Näytettävä kohdetyyppi",
+    "matrixNotSelected": "Valitse tiilimatriisi palvelua varten.",
+    "selectGeometry": "Valitse tyyppi",
+    "selectGeometryError": "Valitse näytettävä kohdetyyppi.",
+    "points": "Pisteet",
+    "lines": "Viivat",
+    "polygons": "Polygonit",
+    "default": "oletusarvo",
+    "maxFeature": "Kohteiden enimmäismäärä",
+    "layers": "karttatasot",
+    "usePro": "Tässä aineistoryhmässä on yli 1 000 karttatasoa. Etsi tietty karttataso kirjoittamalla hakusana.",
+    "noLayersFound": "Yhtään ehdot täyttävää karttatasoa ei löytynyt. Näytä lisää karttatasoja muuttamalla hakutermiä."
+  },
+  "urlType": {
+    "Application": {
+      "title": "Sovellus",
+      "description": "Lisää URL-viittaus olemassa olevaan sovellukseen, jotta voit jakaa työsi organisaatiosi jäsenten ja yleisön kanssa."
+    },
+    "AGS": {
+      "title": "ArcGIS Server -web-palvelu",
+      "description": "ArcGIS Server -web-palvelu edustaa sellaista GIS-resurssia, kuten karttaa tai kuvaa, joka sijaitsee ArcGIS Server -sivustossa ja joka on asiakassovellusten, kuten Map Viewerin, käytettävissä."
+    },
+    "CSV": {
+      "title": "CSV",
+      "description": "Pilkulla erotettujen arvojen tekstiedosto."
+    },
+    "Document Link": {
+      "title": "Dokumentti",
+      "description": "Luo linkki online-asiakirjaan, johon URL viittaa."
+    },
+    "GeoJson": {
+      "title": "GeoJSON",
+      "description": "Avoimen vakiomuodon paikkatietoaineiston siirtomuoto, joka edustaa yksinkertaisia maantieteellisiä kohteita."
+    },
+    "Tile Layer": {
+      "title": "Tiilikarttataso",
+      "description": "Karttakuvatiilien ryhmä, jossa muotoiltu URL-osoite sisältää tason, sarakkeen ja rivin paikkamerkin ja valinnaisen alitoimialueen: https://domain.com/<path>/{z}{x}{y}.png ja https://{subDomain}.domain.com/<path>/{level}/{col}/{row}.png."
+    },
+    "KML": {
+      "title": "KML (OGC)",
+      "description": "KML on XML-pohjainen tiedostomuoto, joka edustaa maantieteellisiä kohteita sellaisissa sovelluksissa, kuten ArcGIS Earth ja Google Earth."
+    },
+    "OGCFeatureServer": {
+      "title": "OGC-kohdekarttataso",
+      "description": "OGC-kohdekarttataso on OGC API -kohdemääritystä noudattava kohdepalvelu."
+    },
+    "WFS": {
+      "title": "WFS (OGC)",
+      "description": "OGC Web Feature Service (WFS) on dynaaminen kohdepalvelu, joka vastaa OGC-määrityksiä."
+    },
+    "WMS": {
+      "title": "WMS (OGC)",
+      "description": "OGC Web Map Service (WMS) on dynaaminen karttapalvelu, joka vastaa OGC-määrityksiä."
+    },
+    "WMTS": {
+      "title": "WMTS (OGC)",
+      "description": "OGC Web Tile Service (WTS) on joukko välimuistiin tallennettuja kuvatiiliä, jotka vastaavat OGC-määrityksiä. "
+    },
+    "GeoRSS": {
+      "title": "GeoRSS",
+      "description": "Reaaliaikainen verkkosyöte, joka sisältää maantieteellisiä kohteita ja sijainteja."
+    },
+    "useAsBaseMap": "Käytä taustakarttana",
+    "undetected": "Valitse karttatason tyyppi",
+    "label": "Tapahtui virhe",
+    "storeAuth": "Tallenna tunnistetiedot palvelukohteen yhteydessä. Älä näytä todennuskehotetta.",
+    "storeAuthMV": "Tallenna tunnistetiedot karttatason kanssa. Älä näytä todennuskehotetta.",
+    "learnMore": "Lue lisätietoja todentamisesta.",
+    "isSecure": "Havaittiin suojattu palvelu",
+    "serviceNotExist": "Palvelua ei ole, tai se ei ole käytettävissä.",
+    "getServiceInfo": "Haetaan palvelutietoja...",
+    "unknownAGSType": "Tätä palvelutyyppiä ei tueta.",
+    "errorMessage": "Virhe yhteyden muodostuksessa palveluun.",
+    "serviceNotGIS": "Annettu URL ei osoita GIS-palveluun.",
+    "unsupportedWFSVersion": "Tätä WFS-versiota ei tueta.",
+    "unsupportedWFSGeoJSONOutputFormat": "WFS-palvelu ei tue GeoJSON-tulosmuotoa.",
+    "invalidWMTS": "Tätä WMTS:ää ei tueta",
+    "flowAborted": "Virhe yhteyden muodostuksessa palveluun. Palvelu on turvallinen ja edellyttää todennusta.",
+    "invalidSpatialRef": "Tässä palvelussa on yhteensopimaton koordinaatistotieto",
+    "emptyFeatureLayer": "Palvelu on tyhjä"
+  },
+  "timezoneDropdown": {
+    "timezones": {
+      "0": "(UTC-12:00) Läntinen kansainvälinen päivämääräraja",
+      "110": "(UTC-11:00) Koordinoitu yleisaika -11",
+      "120": "(UTC-11:00) Samoa",
+      "200": "(UTC-10:00) Hawaii",
+      "300": "(UTC-09:00) Alaska",
+      "400": "(UTC-08:00) Tyynenmeren aika (Yhdysvallat ja Kanada)",
+      "410": "(UTC-08:00) Baja California",
+      "500": "(UTC-07:00) Kalliovuorten normaaliaika (Yhdysvallat ja Kanada)",
+      "510": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "520": "(UTC-07:00) Arizona",
+      "600": "(UTC-06:00) Saskatchewan",
+      "610": "(UTC-06:00) Keski-Amerikka",
+      "620": "(UTC-06:00) Keskinen normaaliaika (Yhdysvallat ja Kanada)",
+      "630": "(UTC-06:00) Guadalajara, Mexico City, Monterrey",
+      "700": "(UTC-05:00) Itäinen normaaliaika (Yhdysvallat ja Kanada)",
+      "710": "(UTC-05:00) Bogota, Lima, Quito",
+      "720": "(UTC-05:00) Indiana (itä)",
+      "730": "(UTC-04:30) Caracas",
+      "800": "(UTC-04:00) Atlantin normaaliaika (Kanada)",
+      "810": "(UTC-04:00) Cuiaba",
+      "820": "(UTC-04:00) Santiago",
+      "830": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "850": "(UTC-04:00) Asuncion",
+      "900": "(UTC-03:30) Newfoundland",
+      "910": "(UTC-03:00) Brasilia",
+      "920": "(UTC-03:00) Grönlanti",
+      "930": "(UTC-03:00) Montevideo",
+      "940": "(UTC-03:00) Cayenne, Fortaleza",
+      "950": "(UTC-03:00) Buenos Aires",
+      "1000": "(UTC-02:00) Keski-Atlantti",
+      "1010": "(UTC-02:00) Koordinoitu yleisaika -02",
+      "1100": "(UTC-01:00) Azorit",
+      "1110": "(UTC-01:00) Cabo Verde saaret",
+      "1200": "(UTC) Dublin, Edinburgh, Lissabon, Lontoo",
+      "1210": "(UTC) Monrovia, Reykjavik",
+      "1220": "(UTC) Casablanca",
+      "1230": "UTC-aika (Coordinated Universal Time)",
+      "1300": "(UTC+01:00) Belgrad, Bratislava, Budapest, Ljubljana, Praha",
+      "1310": "(UTC+01:00) Sarajevo, Skopje, Varsova, Zagreb",
+      "1320": "(UTC+01:00) Bryssel, Kööpenhamina, Madrid, Pariisi",
+      "1330": "(UTC+01:00) Läntinen Keski-Afrikka",
+      "1340": "(UTC+01:00) Amsterdam, Berliini, Bern, Rooma, Tukholma, Wien",
+      "1350": "(UTC+01:00) Windhoek",
+      "1400": "(UTC+02:00) Minsk",
+      "1410": "(UTC+02:00) Kairo",
+      "1420": "(UTC+02:00) Helsinki, Kiova, Riika, Sofia, Tallinna, Vilna",
+      "1430": "(UTC+02:00) Ateena, Bukarest",
+      "1440": "(UTC+02:00) Jerusalem",
+      "1450": "(UTC+02:00) Amman",
+      "1460": "(UTC+02:00) Beirut",
+      "1470": "(UTC+02:00) Harare, Pretoria",
+      "1480": "(UTC+02:00) Damascus",
+      "1490": "(UTC+02:00) Istanbul",
+      "1500": "(UTC+03:00) Kuwait, Riyadh",
+      "1510": "(UTC+03:00) Bagdad",
+      "1520": "(UTC+03:00) Nairobi",
+      "1530": "(UTC+03:00) Kaliningrad",
+      "1535": "(UTC+03:30) Teheran",
+      "1540": "(UTC+04:00) Moskova, Pietari, Volgograd",
+      "1600": "(UTC+04:00) Abu Dhabi, Muscat",
+      "1610": "(UTC+04:00) Baku",
+      "1620": "(UTC+04:00) Jerevan",
+      "1640": "(UTC+04:00) Tbilisi",
+      "1650": "(UTC+04:00) Port Louis",
+      "1660": "(UTC+04:30) Kabul",
+      "1710": "(UTC+05:00) Tashkent",
+      "1715": "(UTC+05:00) Islamabad, Karachi",
+      "1720": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+      "1730": "(UTC+05:30) Sri Jayawardenepura",
+      "1740": "(UTC+05:45) Kathmandu",
+      "1755": "(UTC+06:00) Ekaterinburg",
+      "1800": "(UTC+06:00) Astana",
+      "1810": "(UTC+06:00) Dhaka",
+      "1820": "(UTC+06:30) Yangon (Rangoon)",
+      "1830": "(UTC+07:00) Novosibirsk",
+      "1900": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
+      "1910": "(UTC+08:00) Krasnoyarsk",
+      "2000": "(UTC+08:00) Peking, Chongqing, Hongkong, Urumqi",
+      "2020": "(UTC+08:00) Kuala Lumpur, Singapore",
+      "2030": "(UTC+08:00) Taipei",
+      "2040": "(UTC+08:00) Perth",
+      "2050": "(UTC+08:00) Ulaanbaatar",
+      "2060": "(UTC+09:00) Irkutsk",
+      "2100": "(UTC+09:00) Soul",
+      "2110": "(UTC+09:00) Osaka, Sapporo, Tokio",
+      "2130": "(UTC+09:30) Darwin",
+      "2140": "(UTC+09:30) Adelaide",
+      "2150": "(UTC+10:00) Yakutsk",
+      "2200": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "2210": "(UTC+10:00) Brisbane",
+      "2220": "(UTC+10:00) Hobart",
+      "2240": "(UTC+10:00) Guam, Port Moresby",
+      "2250": "(UTC+11:00) Vladivostok",
+      "2300": "(UTC-11:00) Salomonsaaret Uusi-Kaledonia",
+      "2310": "(UTC+12:00) Magadan",
+      "2400": "(UTC+12:00) Fidži",
+      "2410": "(UTC+12:00) Auckland, Wellington",
+      "2430": "(UTC+12:00) Koordinoitu yleisaika +12",
+      "2500": "(UTC+13:00) Nuku'alofa"
+    },
+    "defineTimezone": "Määritä aikavyöhyke",
+    "title": "Aikavyöhyke",
+    "subTitle": "Valitse aikavyöhyke, jossa aineistosi sijaitsee."
+  },
+  "hybridImageSelect": {
+    "heading": "Minkä karttatasotyypin haluat lisätä?",
+    "ImageServer": {
+      "title": "Dynaaminen kuvakarttataso",
+      "description": "Lisää dynaamisena kuva-aineistokarttatasona, joka tukee tarvittaessa käytettävissä olevaa palvelinpuolen käsittelyä ja renderöintiä."
+    },
+    "TiledImageServer": {
+      "title": "Tiilitetty kuva-aineistokarttataso",
+      "description": "Lisää tiilitettynä kuva-aineistokarttatasona, joka tukee asiakaspuolen projektiota ja renderöintiä staattisista tiilistä."
+    }
+  },
+  "createLayersList": {
+    "createLayers": "Luo karttatasoja ja paljon muuta",
+    "developerCredentialsHeading": "Developer-tunnistetiedot",
+    "developerCredentialsDescription": "Luo API-avain tai OAuth 2.0 -tunnistetiedot, jotta voit luoda mukautettuja sovelluksia.",
+    "developerCredentialsNoAPIDescription": "Luo OAuth 2.0 -tunnistetiedot, jotta voit luoda mukautettuja sovelluksia.",
+    "featureLayerHeading": "Kohdekarttataso",
+    "featureLayerDescription": "Luo muokattava karttataso, jonka kentät on kopioitu mallista tai kohdekarttatasosta.",
+    "tileLayerHeading": "Tiilikarttataso",
+    "tileLayerDescription": "Luo nopeasti piirtyvä vektoritiilikarttataso tai rasteritiilikarttataso.",
+    "sceneLayerHeading": "Maisemakarttataso",
+    "sceneLayerDescription": "Luo nopeasti piirtyvä maisemakarttataso käyttämällä 3D-sisältöä.",
+    "imageLayerHeading": "Kuva-aineistokarttataso",
+    "imageLayerDescription": "Luo kuva-aineistokarttataso käyttämällä tietokoneesi kuvia.",
+    "locatorHeading": "Paikannin",
+    "locatorViewHeading": "Paikannin (näkymä)",
+    "locatorDescription": "Etsi paikkaa tai osoitetta ArcGIS World -geokoodauspalvelun tai oman geokoodipalvelusi avulla.",
+    "locatorOnlyDescription": "Etsi paikkaa tai osoitetta oman geokoodipalvelusi avulla.",
+    "urbanModelHeading": "Urban-malli",
+    "urbanModelDescription": "Luo malli kaupunkirakentamisprojektia varten, jossa on vuorovaikutteiset suunnittelu ja muotoilutyökalut.",
+    "urbanModelPermissionError": "Sinulla on oltava isännöidyn kohdekarttatason julkaisuoikeudet, jotta voit luoda Urban-mallin. Pyydä apua ArcGIS Online -pääkäyttäjältäsi.",
+    "applicationHeading": "Sovellus",
+    "applicationDescription": "Linkitä web-sovellukseen tai luo uusi rekisteröity sovellus.",
+    "urlHeading": "URL-osoite",
+    "urlDescription": "Linkitä ArcGIS Server -web-palveluun, CSV:hen, OGC-web-palveluun, KML:ään, GeoJSONiin tai dokumenttiin.",
+    "urlDescriptionEnterprise": "Linkitä ArcGIS Server -web-palveluun, CSV:hen, OGC-web-palveluun, KML:ään, GeoJSONiin tai dokumenttiin.",
+    "dataStoreHeading": "Aineistosäilö",
+    "dataStoreConnectionDescription": "Lisää yhteys omistamaasi aineistosäilöön.",
+    "dataStoreDescription": "Lisää yhteys hallinnoimaasi aineistosäilöön",
+    "rasterFunctionTemplateHeading": "Rasteritoimintomalli",
+    "rasterFunctionTemplateDescription": "Luo rasteritoimintomalli, jota voidaan käyttää kuva-aineistokarttatasojen kanssa ja rasterianalyysissa.",
+    "getSubscriptionInfo": "Haetaan tilaustietoja..."
+  },
+  "url": {
+    "linkExisting": "Linkitä olemassa oleviin karttatasoihin tai verkossa oleviin aineistoihin",
+    "url": "URL-osoite",
+    "addUrl": "Lisää URL",
+    "httpWarning": "HTTP-URL-osoitteiden käyttöä ei tueta. Käytä HTTPS-osoitteita",
+    "serviceNotExist": "Palvelua ei ole, tai se ei ole käytettävissä.",
+    "invalidUrl": "Anna kelvollinen URL-osoite.",
+    "invalidUrlWithType": "Anna kelvollinen URL-osoite. Tuettuja palveluja ovat ${typeList}",
+    "unknownAGSType": "Tätä palvelutyyppiä ei tueta.",
+    "errorMessage": "Virhe yhteyden muodostuksessa palveluun."
+  },
+  "cloud": {
+    "google": "Muodostetaan yhteyttä Google Driveen...",
+    "dropbox": "Muodostetaan yhteyttä Dropboxiin...",
+    "onedrive": "Muodostetaan yhteyttä OneDriveen...",
+    "file": "Tiedosto",
+    "zip": "Zip-tiedosto",
+    "filterFileType": "Suodata tiedostotyypin mukaan",
+    "selectAFile": "Valitse tiedosto",
+    "noResults": "Tiedostoja ei löydy. Muuta hakuasi tai valitse jokin muu kohdetyyppi.",
+    "viewMore": "Näytä lisää",
+    "errorTitle": "Yhtään tiedostoa ei ole valittu",
+    "errorMessage": "Jatka valitsemalla tiedosto.",
+    "loadingFiles": "Ladataan tiedostoja...",
+    "searchFiles": "Etsi tiedostoja",
+    "fileType": {
+      "csv": "CSV",
+      "excel": "Excel",
+      "zip": "Zip-tiedosto",
+      "geojson": "GeoJSON",
+      "googlesheets": "Google Sheets"
+    },
+    "error": {
+      "generic": {
+        "title": "Virhe",
+        "message": "Tapahtui virhe."
+      },
+      "popup": {
+        "title": "Ponnahdusikkuna estetty",
+        "message": "Yhteyttä ei voi muodostaa pilvitallennustilan tiliin. Varmista, ettei ponnahdusikkunoiden esto ole käytössä tässä sivustossa."
+      }
+    }
+  },
+  "customParameters": {
+    "customParameters": "Mukautetut parametrit",
+    "parameter": "Parametri",
+    "value": "Arvo",
+    "addParameter": "Lisää parametri",
+    "addValue": "Lisää arvo",
+    "newCustomParameter": "Lisää mukautettu parametri",
+    "description": "Lisää parametreja, jotka pitää liittää pyyntöihin, jotta tätä palvelua voi käyttää.",
+    "append": "Liitä vain pyyntöihin, jotka piirtävät karttatasoihin tai tekevät niistä kyselyjä",
+    "remove": "Poista mukautettu parametri",
+    "helpText": "Jos viittaamassasi web-palvelussa edellytetään, että paveluun lähetettävissä pyynnöissä käytetään lisäparametrejä, voit lisätä ne mukautettuina parametreinä. Parametrien nimet ja arvot on määritetty palvelussa ja liittyvät kyseiseen palveluun."
+  },
+  "inputReadonly": {
+    "file": "Tiedosto",
+    "url": "URL-osoite",
+    "dataStore": "Data Store -yhteys"
+  },
+  "layerSearch": {
+    "search": "Hae"
+  },
+  "appendSelect": {
+    "updateLayer": "Päivitä karttataso",
+    "updateData": "Päivitä aineisto",
+    "chooseUpdate": "Valitse suoritettavan päivityksen tyyppi",
+    "insertOnlyEnabled": "Tämä kohdepalvelu tukee vain uusien kohteiden lisäämistä",
+    "options": {
+      "add": {
+        "title": "Lisää kohteita",
+        "description": "Lisää uusia kohteita olemassa olevaan karttatasoon."
+      },
+      "update": {
+        "title": "Päivitä kohteet",
+        "description": "Päivitä aiemmin luodut kohteet karttatasossa."
+      },
+      "upsert": {
+        "title": "Lisää ja päivitä kohteita",
+        "description": "Lisää uusia kohteita karttatasoon ja päivitä aiemmin luodut kohteet samaan aikaan."
+      },
+      "overwrite": {
+        "title": "Korvaa koko kohdekarttataso",
+        "description": "Korvaa koko karttataso päivitetyllä lähdeaineistolla."
+      }
+    }
+  },
+  "append": {
+    "appendLoadingMessages": {
+      "uploading": "Ladataan kohdetta ${fileName} palveluun",
+      "updating": "Päivitetään...",
+      "overwriting": "Korvataan...",
+      "fetchingInfo": "Noudetaan tietoja...",
+      "publishing": "Julkaistaan...",
+      "appendCloseNotice": "Pidä selainikkuna avoinna, jotta voit seurata liitetyn tehtävän tilaa. Jos määritys on virheellinen, voit yrittää uudelleen, eikä lähdetiedostoa tarvitse ladata uudelleen palveluun."
+    },
+    "appendErrorMessages": {
+      "appendError": "Kohteen liittämisessä tapahtui virhe."
+    }
+  },
+  "appendUpload": {
+    "selectData": "Valitse aineisto",
+    "editStyle": "Korvaa karttatason tyylitiedosto tietokoneen päivitetyllä versiolla.",
+    "file": "Tiedosto",
+    "updateItem": "Päivitä kohde",
+    "overwriteFile": "Korvaa tiedosto",
+    "analyzing": "Analysoidaan...",
+    "sameFileNameDescription": "Palveluun ladattavalla tiedostolla on oltava sama nimi ja kenttänimet kuin alkuperäisellä tiedostolla ${fileName}",
+    "itemType": "Tiedostotyyppi",
+    "learnMore": "Lisätietoja tuetuista tiedostotyypeistä",
+    "Shapefile": {
+      "title": "Shapefile-tiedosto",
+      "description": "Vektoriaineiston tallennusmuoto, joka on tarkoitettu maantieteellisten kohteiden sijainnin, muodon ja määreiden tallentamiseen. Shapefile tallennetaan liittyvien tiedostojen joukkoon, ja se sisältää yhden kohdeluokan."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Kokoelma kansiossa olevia tiedostoja, joita käytetään sekä paikkatietojen että muiden kuin paikkatietojen tallentamiseen, kyselyyn ja hallintaan."
+    },
+    "errors": {
+      "providePath": "Määritä kohteelle polku.",
+      "sameFileName": "Jos haluat päivittää tämän kohteen, sinun on ladattava palveluun tiedosto, jonka nimi on ${x}.",
+      "invalidStyleFileExtension": "Virheellinen tiedostotunniste. Ladatussa tyylissä on oltava .json-tiedostotunniste.",
+      "invalidStyleFile": "Virheellinen tyylitiedosto. Ladattujen tyylitiedostojen on oltava oikein muotoiltuja.",
+      "errorWhileUpload": "Kohteen lataamisessa tapahtui virhe.",
+      "errorExceedFileSize": "Tiedoston lataus palveluun epäonnistui. Sen koko ylittää 1 Gt:n enimmäiskoon.",
+      "errorUpdate": "Kohteen korvaamisen aikana tapahtui virhe.",
+      "multiPatchErrorDescription": "Karttataso, jota yrität liittää, sisältää MultiPatch-geometriaa. Yritä uudelleen tiedostolla, jolla on sama geometriatyyppi."
+    }
+  },
+  "appendSelectUpdateType": {
+    "header": "Valitse aiemmin luotujen kohteiden päivitystapa",
+    "itemPropertiesHeader": "Valitse kohteen ominaisuudet, joita haluat käyttää",
+    "appendOptions": {
+      "attribute": {
+        "title": "Vain ominaisuustiedot",
+        "description": "Päivitä aiemmin luodut ominaisuustiedot."
+      },
+      "attributeAndGeometry": {
+        "title": "Geometriat ja ominaisuustiedot",
+        "description": "Päivitä aiemmin luodut ominaisuustiedot ja geometriat."
+      }
+    },
+    "updateOptions": {
+      "uploaded": {
+        "title": "Päivitetyt kohteen ominaisuudet",
+        "description": "Käytä kohteen ominaisuuksia päivitetystä tiedostosta. Kohteen ominaisuuksien muuttaminen ei muuta aineistoa."
+      },
+      "existing": {
+        "title": "Aiemmin luodut kohteen ominaisuudet",
+        "description": "Säilytä karttatasopaketin aiemmin luodut kohteen ominaisuudet. Aiemmin luotujen ominaisuuksien käyttäminen ei muuta aineistoa."
+      }
+    },
+    "noGeometryMatchTitle": "Geometriaa ei voi päivittää",
+    "noGeometryMatchMessage": "Geometrian päivitys ei ole mahdollista eri geometriatyypeille.",
+    "noGeometryTableMessage": "Ominaisuustietojen ja geometrioiden päivitys ei ole mahdollista taulukolle."
+  },
+  "appendSelectLayer": {
+    "chooseSheet": "Valitse päivitetty aineisto kohteelle ${featureLayerName} laskentataulukosta ${uploadedFile}",
+    "chooseLayer": "Valitse päivitetty aineisto kohteelle ${featureLayerName} karttatasosta ${uploadedFile}",
+    "chooseServiceLayer": "Valitse päivitettävä karttataso",
+    "paginationHeader": "${start} – ${end}/${total}",
+    "noResults": "Yhtäkään ehdot täyttävää kohdetta ei löytynyt. Näytä lisää kohteita muuttamalla hakutermiä tai poistamalla suodattimia.",
+    "sameGeometryWarningTitle": "Karttatasoilla on oltava sama geometriatyyppi",
+    "sameGeometryWarningDescription": "Tiedostosi sisältää erityyppisiä karttatason geometrioita. Yritä uudelleen karttatasoilla, joilla on sama geometriatyyppi.",
+    "errors": {
+      "noMatchingLayerTypeTitle": "Karttatasoja ei löytynyt",
+      "noMatchingLayerTypeError": "Ladatusta tiedostosta ei löytynyt yhteensopivaa karttatasoa. Tarkista tiedosto ja yritä uudelleen.",
+      "noSourceLayerSelected": "Jos haluat liittää aineistoa, valitse kohdekarttataso, jonka haluat päivittää.",
+      "noDataLayerSelected": "Jos haluat liittää aineistoa, valitse karttataso, joka sisältää päivitetyn aineiston."
+    }
+  },
+  "appendOverwrite": {
+    "overwriteFile": "Korvaa tiedosto",
+    "header": "Valitse korvattava aineisto",
+    "description": "Palveluun ladattavalla tiedostolla tulisi olla sama nimi kuin alkuperäisellä tiedostolla ${insert file name}",
+    "proceed": "Jatka",
+    "errors": {
+      "errorWhileUpdate": "Kohteen päivityksen aikana tapahtui virhe.",
+      "exceedFileSizeLimit": "Tiedoston lataus palveluun epäonnistui. Sen koko ylittää 1 Gt:n enimmäiskoon.",
+      "errorPublishing": "Tätä palvelua julkaistaessa ilmeni virhe."
+    }
+  },
+  "appendLoadData": {
+    "itemType": "Tiedostotyyppi",
+    "Shapefile": {
+      "title": "Shapefile-tiedosto",
+      "description": "Vektoriaineiston tallennusmuoto, joka on tarkoitettu maantieteellisten kohteiden sijainnin, muodon ja määreiden tallentamiseen. Shapefile tallennetaan liittyvien tiedostojen joukkoon, ja se sisältää yhden kohdeluokan."
+    },
+    "File Geodatabase": {
+      "title": "File geodatabase",
+      "description": "Kokoelma kansiossa olevia tiedostoja, joita käytetään sekä paikkatietojen että muiden kuin paikkatietojen tallentamiseen, kyselyyn ja hallintaan."
+    },
+    "errors": {
+      "errorWhileUpload": "Kohteen lataamisessa palveluun tapahtui virhe.",
+      "errorShpFile": "Virheellinen shapefile-tiedosto.",
+      "errorFgdbFile": "Virheellinen File Geodatabase.",
+      "errorExceedFileSize": "Tiedoston lataus palveluun epäonnistui. Sen koko ylittää 1 Gt:n enimmäiskoon."
+    }
+  },
+  "appendMatchFields": {
+    "header": "Valitse täsmäävät kentät",
+    "description": "Valitse kohteesta ${uploadedFileName} kentät, jotka vastaavat kohteen ${featureLayerName} kenttiä. Kenttiä, jotka eivät täsmää keskenään, ei päivitetä isännöidyssä kohdekarttatasossa.",
+    "nonNullable": "Tyhjäarvoja ei sallita",
+    "originalField": {
+      "header": "Alkuperäinen kenttä",
+      "moreInfo": "Nämä kentät ovat kohdekarttatasossa ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Palveluun ladattu kenttä",
+      "moreInfo": "Nämä kentät ovat palveluun ladatussa tiedostossa ${uploadedFileName}, ja ne suodatetaan yhteensopivien suodatintyyppien mukaan."
+    },
+    "errors": {
+      "noFields": "Kenttiä ei löytynyt.",
+      "noKeyPairs": "Avainpareja ei löytynyt.",
+      "noMatchedFields": "Jos haluat liittää aineiston, määritä vähintään yksi täsmäävä kenttä.",
+      "nonNullableErrorTitle": "Tyhjäarvoja ei sallita",
+      "nonNullableErrorTitleSingular": "Yksi kenttä, joka ei tue tyhjäarvoja, on tyhjä",
+      "nonNullableErrorDescription": "Kentät, jotka eivät salli tyhjäarvoja, eivät voi olla tyhjiä. Täsmäytä kentät ennen jatkamista."
+    }
+  },
+  "appendKeyValuePair": {
+    "noneField": "<None>",
+    "selectUniqueIdentifier": "Valitse yksilöllinen tunnus",
+    "selectUniqueIdentifierDescription": "Valitse alkuperäisestä karttatasosta yksilöllinen kenttä, joka vastaa palveluun ladatun tiedoston kenttää.",
+    "originalField": {
+      "header": "Alkuperäinen kenttä",
+      "moreInfo": "Nämä yksilölliset kentät ovat kohdekarttatasossa ${featureLayerName}."
+    },
+    "uploadedField": {
+      "header": "Palveluun ladattu kenttä",
+      "moreInfo": "Nämä kentät ovat palveluun ladatussa tiedostossa ${uploadedFileName}, ja ne suodatetaan yhteensopivien suodatintyyppien mukaan."
+    },
+    "title": "Tunnista avainpari",
+    "description": "Valitse kentät, joita käytetään karttatason yksilöllisen tunnisteen täsmäyttämisessä palvelimeen ladatun aineiston kanssa.",
+    "noKeyPair": "Jos haluat päivittää olemassa olevat kohteet, täsmäytä yksilöllisen tunnisteen sisältävät kentät.",
+    "timezoneHeader": "Aikavyöhykkeen valinta",
+    "timezoneDescription": "Isännöity kohdekarttataso ${featureLayerName} sisältää aikavyöhykeaineistoa, joka on tallennettu kohteeseen ${featureLayerTimezone}. Jos palveluun lataamasi tiedosto ${uploadedFileName} sisältää aikavyöhykeaineistoa, joka on jossain muussa kuin UTC-ajassa, säädä sitä asianmukaisesti."
+  }
+}

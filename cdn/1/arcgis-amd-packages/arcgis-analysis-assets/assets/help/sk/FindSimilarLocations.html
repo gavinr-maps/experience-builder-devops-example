@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj N&aacute;jsť podobn&eacute; lokality vyhodnocuje podobnosť medzi kandid&aacute;tskymi lokalitami a referenčnou lokalitou na z&aacute;klade s&uacute;boru krit&eacute;ri&iacute; a zoraďuje kandid&aacute;tske lokality od najpodobnej&scaron;&iacute;ch po najmenej podobn&eacute;.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Vrstva bodov, l&iacute;ni&iacute; alebo polyg&oacute;nov, ktor&aacute; obsahuje referenčn&eacute; lokality, ktor&eacute; sa bud&uacute; porovn&aacute;vať. Ak vrstva obsahuje viacero lokal&iacute;t, v&scaron;etky lokality bud&uacute; spriemerovan&eacute;, č&iacute;m sa vytvor&iacute; referenčn&aacute; lokalita.
+            </p>
+        </div>
+    </div>
+    <div id="searchLayer">
+        <div>
+            <p>Bodov&aacute;, l&iacute;niov&aacute; alebo polyg&oacute;nov&aacute; vrstva, ktor&aacute; obsahuje kandid&aacute;tske lokality na vyhľad&aacute;vanie. Každ&aacute; kandid&aacute;tska lokalita na vyhľad&aacute;vanie sa porovn&aacute; s referenčnou lokalitou podľa zadanej hodnoty&nbsp; <b>V&yacute;beru krit&eacute;ri&iacute;</b> a zorad&iacute; sa od najpodobnej&scaron;ej po najmenej podobn&uacute;.
+            </p>
+        </div>
+    </div>
+    <div id="criteriaFields">
+        <div>
+            <p>Č&iacute;seln&eacute; polia, ktor&eacute; sa použij&uacute; na vyhodnotenie podobnosti medzi referenčnou lokalitou a každou hľadanou lokalitou. Každ&aacute; hodnota&nbsp; <b>V&yacute;beru krit&eacute;ri&iacute;</b> bude mať hodnotu <b>Pole z referenčnej vrstvy</b> a hodnotu <b>Pole z kandid&aacute;tskej vrstvy</b>. Hodnoty <b>Pole z referenčnej vrstvy</b> a <b>Pole z kandid&aacute;tskej vrstvy</b> sa hodnotou zhoduj&uacute; s poľami vo <b>Vrstve referenčn&yacute;ch lokal&iacute;t</b> a <b>Vrstve vyhľad&aacute;vania kandid&aacute;tov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="referenceField">
+        <div>
+            <p>Pole&nbsp;z  <b>Vrstvy referenčn&yacute;ch lokal&iacute;t</b>, ktor&eacute; zodpoved&aacute; poľu vo <b>Vrstve vyhľad&aacute;vania kandid&aacute;tov</b> je &scaron;pecifikovan&eacute; hodnotou <b>Pole z vrstvy kandid&aacute;tov</b>. Hodnoty v t&yacute;chto zhodn&yacute;ch poliach sa porovnaj&uacute;, aby sa vyhodnotila podobnosť medzi referenčnou lokalitou a každou hľadanou lokalitou.
+            </p>
+        </div>
+    </div>
+    <div id="candidateField">
+        <div>
+            <p>Pole z&nbsp; <b>Vrstvy vyhľad&aacute;vania kandid&aacute;tov</b>, ktor&eacute; zodpoved&aacute; poľu&nbsp;z <b>Vrstvy referenčn&yacute;ch lokal&iacute;t</b> je &scaron;pecifikovan&eacute; hodnotou <b>Pole z referenčnej vrstvy</b>. Hodnoty v t&yacute;chto zhodn&yacute;ch poliach sa porovnaj&uacute;, aby sa vyhodnotila podobnosť medzi referenčnou lokalitou a každou hľadanou lokalitou.
+            </p>
+        </div>
+    </div>
+    <div id="returnAll">
+        <div>
+            <p>Určuje, či sa do v&yacute;stupnej vrstvy zahrn&uacute; v&scaron;etky lokality z&nbsp; <b>Vrstvy&nbsp;vyhľad&aacute;vania kandid&aacute;tov</b>.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfResults">
+        <div>
+            <p>Počet najpodobnej&scaron;&iacute;ch lokal&iacute;t vo&nbsp; <b>Vrstve vyhľad&aacute;vania kandid&aacute;tov</b>, ktor&eacute; bud&uacute; zahrnut&eacute; do v&yacute;stupnej vrstvy.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

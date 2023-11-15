@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A ferramenta Escolher Melhores Instala&ccedil;&otilde;es encontra o conjunto de instala&ccedil;&otilde;es que melhor atender&aacute; a demanda.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="goal">
+        <div>
+            <p>A meta que deve ser satisfeita ao alocar locais de demanda para instala&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="Allocate">
+        <div>
+            <p> Atribui a demanda para instalações baseada na capacidade da instalação e na quantidade de demanda de uma área delimitadora. </p>
+        </div>
+    </div>
+    <div id="MinimizeImpedance">
+        <div>
+            <p> Escolhe as instalações de forma que a distância ou o tempo de viagem global a partir de todos os locais de demanda até sua instalação atribuída seja minimizado. </p>
+        </div>
+    </div>
+    <div id="MaximizeCoverage">
+        <div>
+            <p> Escolhe as instalações de forma que a quantidade máxima de demanda seja alocada, com toda a demanda de cada local de demanda alocada para a única instalação mais próxima a ela. </p>
+        </div>
+    </div>
+    <div id="MaximizeCapacitatedCoverage">
+        <div>
+            <p> Escolhe as instalações de modo que a quantidade máxima de demanda seja alocada sem exceder a capacidade de qualquer instalação. </p>
+        </div>
+    </div>
+    <div id="PercentCoverage">
+        <div>
+            <p> Escolhe o número mínimo de instalações necessárias para alcançar a porcentagem de demanda especificada. </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>O m&eacute;todo de viagem que ser&aacute; usado para medir o tempo ou a dist&acirc;ncia entre as instala&ccedil;&otilde;es e os locais de demanda.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>A data e hora que o viajante sai das instala&ccedil;&otilde;es ou dos locais de demanda.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_travelDirection">
+        <div>
+            <p>Especifica se a viagem come&ccedil;a nas instala&ccedil;&otilde;es e se move para fora em dire&ccedil;&atilde;o aos locais de demanda ou come&ccedil;a nos locais de demanda e se move para dentro em dire&ccedil;&atilde;o &agrave;s instala&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_travelDirection">
+        <div>
+            <p>Especifica se a viagem come&ccedil;a nas instala&ccedil;&otilde;es e se move para fora em dire&ccedil;&atilde;o aos locais de demanda ou come&ccedil;a nos locais de demanda e se move para dentro em dire&ccedil;&atilde;o &agrave;s instala&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_travelDirection">
+        <div>
+            <p>Especifica se a viagem come&ccedil;a nas instala&ccedil;&otilde;es e se move para fora em dire&ccedil;&atilde;o aos locais de demanda ou come&ccedil;a nos locais de demanda e se move para dentro em dire&ccedil;&atilde;o &agrave;s instala&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_travelDirection">
+        <div>
+            <p>Especifica se a viagem come&ccedil;a nas instala&ccedil;&otilde;es e se move para fora em dire&ccedil;&atilde;o aos locais de demanda ou come&ccedil;a nos locais de demanda e se move para dentro em dire&ccedil;&atilde;o &agrave;s instala&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_travelDirection">
+        <div>
+            <p>Especifica se a viagem come&ccedil;a nas instala&ccedil;&otilde;es e se move para fora em dire&ccedil;&atilde;o aos locais de demanda ou come&ccedil;a nos locais de demanda e se move para dentro em dire&ccedil;&atilde;o &agrave;s instala&ccedil;&otilde;es.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_pointBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de ponto que agem como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao trafegar nas ruas subjacentes. A viagem &eacute; permitida na rua mas n&atilde;o pela barreira.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_lineBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de linha que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de linha pro&iacute;bem viagens em qualquer lugar que as barreiras interseccionam as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_polygonBarrierLayer">
+        <div>
+            <p>Uma ou mais fei&ccedil;&otilde;es de pol&iacute;gonos que atuam como restri&ccedil;&otilde;es tempor&aacute;rias (barreiras) ao viajar nas ruas subjacentes. As barreiras de pol&iacute;gonos pro&iacute;bem viagens em qualquer lugar onde os pol&iacute;gonos cruzem as ruas.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandLocationsLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que t&ecirc;m demanda por um servi&ccedil;o que as instala&ccedil;&otilde;es podem fornecer.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandLocationsLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que t&ecirc;m demanda por um servi&ccedil;o que as instala&ccedil;&otilde;es podem fornecer.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandLocationsLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que t&ecirc;m demanda por um servi&ccedil;o que as instala&ccedil;&otilde;es podem fornecer.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandLocationsLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que t&ecirc;m demanda por um servi&ccedil;o que as instala&ccedil;&otilde;es podem fornecer.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandLocationsLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que t&ecirc;m demanda por um servi&ccedil;o que as instala&ccedil;&otilde;es podem fornecer.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandChoice">
+        <div>
+            <p>Especifica como a demanda &eacute; aplicada a cada local. Se a quantidade de demanda for a mesma para todos os locais, selecione  <b>Valor</b>. Se a quantidade de demanda variar de acordo com o local, escolha <b>Campo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandChoice">
+        <div>
+            <p>Especifica como a demanda &eacute; aplicada a cada local. Se a quantidade de demanda for a mesma para todos os locais, selecione  <b>Valor</b>. Se a quantidade de demanda variar de acordo com o local, escolha <b>Campo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandChoice">
+        <div>
+            <p>Especifica como a demanda &eacute; aplicada a cada local. Se a quantidade de demanda for a mesma para todos os locais, selecione  <b>Valor</b>. Se a quantidade de demanda variar de acordo com o local, escolha <b>Campo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandChoice">
+        <div>
+            <p>Especifica como a demanda &eacute; aplicada a cada local. Se a quantidade de demanda for a mesma para todos os locais, selecione  <b>Valor</b>. Se a quantidade de demanda variar de acordo com o local, escolha <b>Campo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandChoice">
+        <div>
+            <p>Especifica como a demanda &eacute; aplicada a cada local. Se a quantidade de demanda for a mesma para todos os locais, selecione  <b>Valor</b>. Se a quantidade de demanda variar de acordo com o local, escolha <b>Campo</b>.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demand">
+        <div>
+            <p>A quantidade de demanda em cada local de demanda. A mesma quantidade de demanda ser&aacute; aplicada a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demand">
+        <div>
+            <p>A quantidade de demanda em cada local de demanda. A mesma quantidade de demanda ser&aacute; aplicada a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demand">
+        <div>
+            <p>A quantidade de demanda em cada local de demanda. A mesma quantidade de demanda ser&aacute; aplicada a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demand">
+        <div>
+            <p>A quantidade de demanda em cada local de demanda. A mesma quantidade de demanda ser&aacute; aplicada a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demand">
+        <div>
+            <p>A quantidade de demanda em cada local de demanda. A mesma quantidade de demanda ser&aacute; aplicada a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_demandField">
+        <div>
+            <p>O campo da camada de demanda que especifica a quantidade de demanda para cada local.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_demandField">
+        <div>
+            <p>O campo da camada de demanda que especifica a quantidade de demanda para cada local.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_demandField">
+        <div>
+            <p>O campo da camada de demanda que especifica a quantidade de demanda para cada local.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_demandField">
+        <div>
+            <p>O campo da camada de demanda que especifica a quantidade de demanda para cada local.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_demandField">
+        <div>
+            <p>O campo da camada de demanda que especifica a quantidade de demanda para cada local.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeChoice">
+        <div>
+            <p>Especifica se o tempo ou a dist&acirc;ncia m&aacute;xima de viagem permitido entre um local de demanda e a instala&ccedil;&atilde;o atribu&iacute;da &eacute; determinado por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>) ou nenhum m&aacute;ximo ser&aacute; aplicado (<b>Ilimitado</b>).
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeChoice">
+        <div>
+            <p>Especifica se o tempo ou a dist&acirc;ncia m&aacute;xima de viagem permitido entre um local de demanda e a instala&ccedil;&atilde;o atribu&iacute;da &eacute; determinado por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>) ou nenhum m&aacute;ximo ser&aacute; aplicado (<b>Ilimitado</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeChoice">
+        <div>
+            <p>Especifica se a dist&acirc;ncia m&aacute;xima de viagem ou o tempo permitido entre um local de demanda e a instala&ccedil;&atilde;o atribu&iacute;da &eacute; determinado por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeChoice">
+        <div>
+            <p>Especifica se o tempo ou a dist&acirc;ncia m&aacute;xima de viagem permitido entre um local de demanda e a instala&ccedil;&atilde;o atribu&iacute;da &eacute; determinado por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>) ou nenhum m&aacute;ximo ser&aacute; aplicado (<b>Ilimitado</b>).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeChoice">
+        <div>
+            <p>Especifica se o tempo ou a dist&acirc;ncia m&aacute;xima de viagem permitido entre um local de demanda e a instala&ccedil;&atilde;o atribu&iacute;da &eacute; determinado por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>) ou nenhum m&aacute;ximo ser&aacute; aplicado (<b>Ilimitado</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRange">
+        <div>
+            <p>A dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada. O mesmo alcance m&aacute;ximo de deslocamento ser&aacute; aplicado a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRange">
+        <div>
+            <p>A dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada. O mesmo alcance m&aacute;ximo de deslocamento ser&aacute; aplicado a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRange">
+        <div>
+            <p>A dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada. O mesmo alcance m&aacute;ximo de deslocamento ser&aacute; aplicado a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRange">
+        <div>
+            <p>A dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada. O mesmo alcance m&aacute;ximo de deslocamento ser&aacute; aplicado a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRange">
+        <div>
+            <p>A dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada. O mesmo alcance m&aacute;ximo de deslocamento ser&aacute; aplicado a todos os locais.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeField">
+        <div>
+            <p>O campo que cont&eacute;m a dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeField">
+        <div>
+            <p>O campo que cont&eacute;m a dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeField">
+        <div>
+            <p>O campo que cont&eacute;m a dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeField">
+        <div>
+            <p>O campo que cont&eacute;m a dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeField">
+        <div>
+            <p>O campo que cont&eacute;m a dist&acirc;ncia ou tempo de viagem al&eacute;m do qual a demanda n&atilde;o ser&aacute; alocada.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_maxTravelRangeUnits">
+        <div>
+            <p>As unidades usadas para especificar a dist&acirc;ncia ou tempo m&aacute;ximo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_maxTravelRangeUnits">
+        <div>
+            <p>As unidades usadas para especificar a dist&acirc;ncia ou tempo m&aacute;ximo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_maxTravelRangeUnits">
+        <div>
+            <p>As unidades usadas para especificar a dist&acirc;ncia ou tempo m&aacute;ximo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_maxTravelRangeUnits">
+        <div>
+            <p>As unidades usadas para especificar a dist&acirc;ncia ou tempo m&aacute;ximo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_maxTravelRangeUnits">
+        <div>
+            <p>As unidades usadas para especificar a dist&acirc;ncia ou tempo m&aacute;ximo de viagem.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_percentDemandCoverage">
+        <div>
+            <p>A porcentagem m&iacute;nima de demanda que as instala&ccedil;&otilde;es devem capturar.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es candidatas. As instala&ccedil;&otilde;es candidatas geralmente representam os locais nos quais as novas instala&ccedil;&otilde;es ser&atilde;o constru&iacute;das ou colocadas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es candidatas. As instala&ccedil;&otilde;es candidatas geralmente representam os locais nos quais as novas instala&ccedil;&otilde;es ser&atilde;o constru&iacute;das ou colocadas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es candidatas. As instala&ccedil;&otilde;es candidatas geralmente representam os locais nos quais as novas instala&ccedil;&otilde;es ser&atilde;o constru&iacute;das ou colocadas.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_candidateFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es candidatas. As instala&ccedil;&otilde;es candidatas geralmente representam os locais nos quais as novas instala&ccedil;&otilde;es ser&atilde;o constru&iacute;das ou colocadas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityChoice">
+        <div>
+            <p>Especifica se a capacidade de cada instala&ccedil;&atilde;o candidata &eacute; determinada por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacity">
+        <div>
+            <p>A capacidade de cada instala&ccedil;&atilde;o candidata. A mesma capacidade ser&aacute; aplicada a todas as instala&ccedil;&otilde;es candidatas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateFacilitiesCapacityField">
+        <div>
+            <p>O campo que cont&eacute;m a capacidade de cada instala&ccedil;&atilde;o candidata.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_candidateCount">
+        <div>
+            <p>O n&uacute;mero de instala&ccedil;&otilde;es candidatas a serem escolhidas no conjunto de candidatos. Se voc&ecirc; especificar instala&ccedil;&otilde;es obrigat&oacute;rias e candidatas, as instala&ccedil;&otilde;es na camada de instala&ccedil;&otilde;es necess&aacute;rias ser&atilde;o usadas antes de quaisquer instala&ccedil;&otilde;es da camada de instala&ccedil;&otilde;es candidatas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_candidateCount">
+        <div>
+            <p>O n&uacute;mero de instala&ccedil;&otilde;es candidatas a serem escolhidas no conjunto de candidatos. Se voc&ecirc; especificar instala&ccedil;&otilde;es obrigat&oacute;rias e candidatas, as instala&ccedil;&otilde;es na camada de instala&ccedil;&otilde;es necess&aacute;rias ser&atilde;o usadas antes de quaisquer instala&ccedil;&otilde;es da camada de instala&ccedil;&otilde;es candidatas.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_candidateCount">
+        <div>
+            <p>O n&uacute;mero de instala&ccedil;&otilde;es candidatas a serem escolhidas no conjunto de candidatos. Se voc&ecirc; especificar instala&ccedil;&otilde;es obrigat&oacute;rias e candidatas, as instala&ccedil;&otilde;es na camada de instala&ccedil;&otilde;es necess&aacute;rias ser&atilde;o usadas antes de quaisquer instala&ccedil;&otilde;es da camada de instala&ccedil;&otilde;es candidatas.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_hasRequiredFacilities">
+        <div>
+            <p>Especifica se apenas as instala&ccedil;&otilde;es candidatas s&atilde;o usadas como entradas (n&atilde;o ativadas) ou se algumas instala&ccedil;&otilde;es s&atilde;o necess&aacute;rias (ativadas).
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_hasRequiredFacilities">
+        <div>
+            <p>Especifica se apenas as instala&ccedil;&otilde;es candidatas s&atilde;o usadas como entradas (n&atilde;o ativadas) ou se algumas instala&ccedil;&otilde;es s&atilde;o necess&aacute;rias (ativadas).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_hasRequiredFacilities">
+        <div>
+            <p>Especifica se apenas as instala&ccedil;&otilde;es candidatas s&atilde;o usadas como entradas (n&atilde;o ativadas) ou se algumas instala&ccedil;&otilde;es s&atilde;o necess&aacute;rias (ativadas).
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_hasRequiredFacilities">
+        <div>
+            <p>Especifica se apenas as instala&ccedil;&otilde;es candidatas s&atilde;o usadas como entradas (n&atilde;o ativadas) ou se algumas instala&ccedil;&otilde;es s&atilde;o necess&aacute;rias (ativadas).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es. Essas instala&ccedil;&otilde;es geralmente representam locais existentes.
+            </p>
+        </div>
+    </div>
+    <div id="minTrv_requiredFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es. Essas instala&ccedil;&otilde;es geralmente representam locais existentes.
+            </p>
+        </div>
+    </div>
+    <div id="maxCov_requiredFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es. Essas instala&ccedil;&otilde;es geralmente representam locais existentes.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es. Essas instala&ccedil;&otilde;es geralmente representam locais existentes.
+            </p>
+        </div>
+    </div>
+    <div id="pctCov_requiredFacilitiesLayer">
+        <div>
+            <p>As fei&ccedil;&otilde;es de ponto que representam locais que atuam como instala&ccedil;&otilde;es. Essas instala&ccedil;&otilde;es geralmente representam locais existentes.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Especifica se a capacidade de cada instala&ccedil;&atilde;o &eacute; determinada por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>).
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityChoice">
+        <div>
+            <p>Especifica se a capacidade de cada instala&ccedil;&atilde;o &eacute; determinada por uma constante (<b>Valor</b>) ou um valor de campo (<b>Campo</b>).
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacity">
+        <div>
+            <p>A capacidade de cada instala&ccedil;&atilde;o necess&aacute;ria. A mesma capacidade ser&aacute; aplicada a todas as instala&ccedil;&otilde;es necess&aacute;rias.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacity">
+        <div>
+            <p>A capacidade de cada instala&ccedil;&atilde;o necess&aacute;ria. A mesma capacidade ser&aacute; aplicada a todas as instala&ccedil;&otilde;es necess&aacute;rias.
+            </p>
+        </div>
+    </div>
+    <div id="alloc_requiredFacilitiesCapacityField">
+        <div>
+            <p>O campo que cont&eacute;m a capacidade de cada instala&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="maxCapCov_requiredFacilitiesCapacityField">
+        <div>
+            <p>O campo que cont&eacute;m a capacidade de cada instala&ccedil;&atilde;o.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>O nome da camada que ser&aacute; criada e adicionada ao mapa.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>O nome da pasta em  <b>Meu conte&uacute;do</b> onde o resultado ser&aacute; salvo.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

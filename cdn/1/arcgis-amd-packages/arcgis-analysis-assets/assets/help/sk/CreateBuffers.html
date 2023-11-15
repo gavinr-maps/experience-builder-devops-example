@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>N&aacute;stroj Vytvoriť obalov&eacute; z&oacute;ny vytv&aacute;ra polyg&oacute;ny, ktor&eacute; pokr&yacute;vaj&uacute; zadan&uacute; vzdialenosť od vstupn&yacute;ch prvkov.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>Bodov&eacute;, l&iacute;niov&eacute; alebo polyg&oacute;nov&eacute; prvky, pre ktor&eacute; sa bud&uacute; vytv&aacute;rať obalov&eacute; z&oacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="distanceType">
+        <div>
+            <p>Určuje, či bude vzdialenosť obalovej z&oacute;ny definovan&aacute; kon&scaron;tantou (<b>Hodnota</b>) alebo č&iacute;seln&yacute;m poľom (<b>Pole</b>).
+            </p>
+        </div>
+    </div>
+    <div id="distances">
+        <div>
+            <p>Vzdialenosť, ktor&aacute; sa použije na vytvorenie obalovej z&oacute;ny. Ak je zadan&yacute;ch viac hodn&ocirc;t, každ&aacute; hodnota sa použije na vytvorenie obalovej z&oacute;ny pri každom vstupnom prvku.
+            </p>
+        </div>
+    </div>
+    <div id="field">
+        <div>
+            <p>Pole, ktor&eacute; bude obsahovať vzdialenosť obalovej z&oacute;ny pre každ&yacute; prvok.
+            </p>
+        </div>
+    </div>
+    <div id="units">
+        <div>
+            <p>Jednotky, ktor&eacute; sa použij&uacute; na určenie vzdialenosti obalovej z&oacute;ny.
+            </p>
+        </div>
+    </div>
+    <div id="dissolveType">
+        <div>
+            <p>Určuje, ako sa bud&uacute; spracov&aacute;vať obalov&eacute; z&oacute;ny pre r&ocirc;zne vstupn&eacute; prvky, keď sa prekr&yacute;vaj&uacute;.
+            </p>
+        </div>
+    </div>
+    <div id="ringType">
+        <div>
+            
+            <p>Určuje, či obalov&eacute; z&oacute;ny s viacn&aacute;sobnou vzdialenosťou bud&uacute; s&uacute;stredn&yacute;mi obalov&yacute;mi z&oacute;nami, ktor&eacute; sa prekr&yacute;vaj&uacute; (<b>Prekr&yacute;vaj&uacute;ce sa disky</b>), alebo prstencami, ktor&eacute; sa neprekr&yacute;vaj&uacute; (<b>Samostatn&eacute; prstence</b>).
+            </p>
+        </div>
+    </div>
+    <div id="sideType">
+        <div>
+            <p>Pre l&iacute;niov&eacute; prvky určuje, či sa obalov&aacute; z&oacute;na vytvor&iacute; na oboch stran&aacute;ch l&iacute;nie (<b>Okolo</b>), len na ľavej strane (<b>Vľavo</b>) alebo len na pravej strane (<b>Vpravo</b>).
+            </p>
+            <p>Pre polyg&oacute;nov&eacute; prvky určuje, či bud&uacute; vstupn&eacute; polyg&oacute;nov&eacute; prvky zahrnut&eacute; do obalovej z&oacute;ny (<b>Zahrn&uacute;ť</b>) alebo vyl&uacute;čen&eacute; z obalovej z&oacute;ny (<b>Vyl&uacute;čiť</b>).
+            </p>
+        </div>
+    </div>
+    <div id="endType">
+        <div>
+            <p>Určuje, či bude tvar obalovej z&oacute;ny na konci l&iacute;niov&eacute;ho prvku okr&uacute;hly (<b>Okr&uacute;hly</b>) alebo ploch&yacute; (<b>Ploch&yacute;</b>).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>N&aacute;zov vrstvy, ktor&aacute; sa vytvor&iacute; a prid&aacute; do mapy.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>N&aacute;zov priečinka v r&aacute;mci  <b>M&ocirc;j obsah</b> do ktor&eacute;ho sa ulož&iacute; v&yacute;sledok.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

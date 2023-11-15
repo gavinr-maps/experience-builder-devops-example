@@ -1,0 +1,75 @@
+{
+  "title": "Freigeben",
+  "titleGroup": "Gruppenfreigabe",
+  "save": "Speichern",
+  "apply": "Übernehmen",
+  "cancel": "Abbrechen",
+  "revert": "Zurücksetzen",
+  "update": "Aktualisieren",
+  "ok": "OK",
+  "retrievingInfo": "Freigabeinformationen werden abgerufen...",
+  "updatingInfo": "Freigabeinformationen werden aktualisiert...",
+  "shareCountLabel": "Anzahl der Freigaben",
+  "shareCountHint": "${numItem}/${totalItem} Elementen",
+  "sharedCountHint": "${numItem}/${totalItem} Elementen sind bereits freigegeben",
+  "willShareCountHint": "${numItem}/${totalItem} Elementen werden freigegeben",
+  "shareCountTooltip": "Elemente mit der Freigabeebene \"${shareLevel}\": ${numItem}/${totalItem}",
+  "noShareDisclaimer": "Ihre Berechtigungen sind zum Ändern der Freigabeebene unzureichend.",
+  "sharingLimitedItemDisclaimer": "Die Optionen für Freigabeebenen sind bei bestimmten Elementtypen nur eingeschränkt verfügbar.",
+  "sharingLimitedDisclaimer": "Einige der Optionen für Freigabeebenen sind aufgrund Ihrer Freigabeberechtigungen nur eingeschränkt verfügbar.",
+  "cannotShareToLevelDisclaimer": "Sie verfügen nicht über die Berechtigung, diese Freigabeebene für Elemente festzulegen.",
+  "shareLevel": {
+    "title": "Freigabeebene festlegen",
+    "noPermission": "Ihre Berechtigungen sind zum Ändern der Freigabeebene unzureichend.",
+    "level": {
+      "private": {
+        "title": "Besitzer",
+        "description": "Elementbesitzer hat Zugriff"
+      },
+      "org": {
+        "title": "Organisation",
+        "description": "Alle Mitglieder Ihrer Organisation haben Zugriff"
+      },
+      "public": {
+        "title": "Alle (öffentlich)",
+        "description": "Benutzer außerhalb Ihrer Organisation haben Zugriff",
+        "descriptionPublicUser": "Alle haben Zugriff"
+      }
+    }
+  },
+  "shareGroup": {
+    "title": "Gruppenfreigabe festlegen",
+    "noGroup": "Es sind noch keine Gruppen für die Freigabe vorhanden.",
+    "edit": "Gruppenfreigabe bearbeiten",
+    "noneYet": "Noch keine vorhanden",
+    "revert": "Zurücksetzen",
+    "remove": "Entfernen",
+    "mixedGroupSharing": "Für unterschiedliche Gruppen freigegebene Elemente"
+  },
+  "shareWarning": {
+    "publicAccountOpenGroupBrowser": {
+      "title": "Freigabeebene für Elemente ändern",
+      "description": "Elemente im Besitz eines öffentlichen Kontos müssen vor der Gruppenfreigabe für \"Alle\" freigegeben werden. Freigabeebenen auf \"Alle\" aktualisieren und zur Gruppenfreigabe wechseln?"
+    },
+    "publicAccountSetShareToPrivate": {
+      "title": "Freigabeebene für Element auf \"Privat\" festlegen",
+      "description": "Elemente im Besitz eines öffentlichen Kontos können nicht für eine Gruppe freigegeben werden, wenn sie den Status \"Privat\" haben. Gruppenfreigabe entfernen?"
+    },
+    "publicAccountRevertShareLevel": {
+      "title": "Freigabeebene für Element zurücksetzen",
+      "description": "Elemente im Besitz eines öffentlichen Kontos können nicht für eine Gruppe freigegeben werden, wenn sie den Status \"Privat\" haben. Gruppenfreigabe entfernen?"
+    },
+    "publicAccountRevertGroup": {
+      "title": "Gruppenfreigabe zurücksetzen",
+      "description": "Elemente im Besitz eines öffentlichen Kontos können nicht für eine Gruppe freigegeben werden, wenn sie den Status \"Privat\" haben. Freigabeebene für Elemente auf \"Öffentlich\" festlegen?"
+    },
+    "publicDataCollectionEnabled": {
+      "title": "Warnung: Editierbarer Layer wird öffentlich freigegeben",
+      "description": "Sie geben den editierbaren Layer öffentlich frei. Um eine optimale Performance zu erzielen und die Datenintegrität zu gewährleisten, sollten Sie die Bearbeitung deaktivieren oder eine nicht editierbare Sicht des Layers verwenden."
+    },
+    "publicDataCollectionDisabled": {
+      "title": "Editierbarer Layer kann nicht öffentlich freigegeben werden",
+      "description": "Aktivieren Sie für die öffentliche Freigabe zunächst die Option \"Öffentliche Datenerfassung\" auf der Registerkarte \"Einstellungen\", die Sie auf der Elementseite des Layers finden, und geben Sie den Layer erneut frei. Um eine optimale Performance zu erzielen und die Datenintegrität zu gewährleisten, sollten Sie die Bearbeitung deaktivieren oder eine nicht editierbare Sicht des Layers verwenden."
+    }
+  }
+}

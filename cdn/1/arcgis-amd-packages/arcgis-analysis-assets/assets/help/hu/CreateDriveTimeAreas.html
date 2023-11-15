@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>A Generate Travel Areas eszk&ouml;z adott &uacute;tidőn vagy &uacute;ti t&aacute;von bel&uuml;l el&eacute;rhető ter&uuml;leteket hoz l&eacute;tre.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>A pontszerű vektoros elemek, amelyek k&ouml;r&uuml;l a ter&uuml;letek sz&aacute;m&iacute;t&aacute;sa t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+    <div id="pointBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan pontszerű vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A k&ouml;zleked&eacute;s enged&eacute;lyezett az utc&aacute;n, de a hat&aacute;ron kereszt&uuml;l m&aacute;r nem.
+            </p>
+        </div>
+    </div>
+    <div id="lineBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan vonalas vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A vonalas hat&aacute;rok minden olyan helyen akad&aacute;lyozz&aacute;k a tov&aacute;bbhalad&aacute;st, ahol a hat&aacute;rok keresztezik az utc&aacute;kat.
+            </p>
+        </div>
+    </div>
+    <div id="polygonBarrierLayer">
+        <div>
+            <p>Egy vagy t&ouml;bb olyan polygon vektoros elem, amely ideiglenes korl&aacute;toz&aacute;sk&eacute;nt (hat&aacute;rk&eacute;nt) szolg&aacute;l az &eacute;rintett utc&aacute;kon val&oacute; halad&aacute;skor. A polygon hat&aacute;rok megakad&aacute;lyozz&aacute;k a halad&aacute;st minden&uuml;tt, ahol a polygonok utc&aacute;t kereszteznek.
+            </p>
+        </div>
+    </div>
+    <div id="travelMode">
+        <div>
+            <p>Az utaz&aacute;si m&oacute;d, amelyet az utaz&aacute;si ter&uuml;letek l&eacute;trehoz&aacute;s&aacute;hoz fog haszn&aacute;lni. Az utaz&aacute;si m&oacute;d t&aacute;vols&aacute;gon &eacute;s időn alapulhat.
+            </p>
+        </div>
+    </div>
+    <div id="breakValues">
+        <div>
+            <p>Az egyes bemeneti pontok &uacute;tit&aacute;v- vagy &uacute;tidőkorl&aacute;tja. T&ouml;bb &eacute;rt&eacute;k hozz&aacute;ad&aacute;sa eset&eacute;n az eszk&ouml;z minden egyes &eacute;rt&eacute;ket az &ouml;sszes bemeneti pont &uacute;ti ter&uuml;let&eacute;nek kisz&aacute;m&iacute;t&aacute;s&aacute;hoz haszn&aacute;l fel.
+            </p>
+        </div>
+    </div>
+    <div id="breakUnits">
+        <div>
+            <p>Az &uacute;ti t&aacute;v vagy az &uacute;tidő meghat&aacute;roz&aacute;s&aacute;ra szolg&aacute;l&oacute; m&eacute;rt&eacute;kegys&eacute;g. Ezekben a m&eacute;rt&eacute;kegys&eacute;gekben az eszk&ouml;z a <b>lev&aacute;g&aacute;si</b> &eacute;rt&eacute;ket &eacute;rtelmezi.
+            </p>
+        </div>
+    </div>
+    <div id="travelDirection">
+        <div>
+            <p>Meghat&aacute;rozza, hogy az &uacute;ti ter&uuml;letek a bemeneti pontokt&oacute;l t&aacute;volod&oacute; vagy a bemeneti pontok fel&eacute; tart&oacute; utaz&aacute;shoz j&ouml;nnek l&eacute;tre.
+            </p>
+        </div>
+    </div>
+    <div id="timeOfDay">
+        <div>
+            <p>Azt a d&aacute;tumot &eacute;s időpontot adja meg, amikor az utas elindul a megadott helyekről, illetve meg&eacute;rkezik a megadott helyekre.
+            </p>
+        </div>
+    </div>
+    <div id="overlapPolicy">
+        <div>
+            <p>Meghat&aacute;rozza, hogy a k&uuml;l&ouml;nb&ouml;ző bemenetekből sz&aacute;rmaz&oacute; megosztott ter&uuml;leteket hogyan kezeli a rendszer, amikor azok el&eacute;rik egym&aacute;st.
+            </p>
+        </div>
+    </div>
+    <div id="showHoles">
+        <div>
+            <p>Meghat&aacute;rozza, hogy az egyes kimeneti ter&uuml;letek egy folytonos polygont tartalmazzanak-e (nincs bejel&ouml;lve), vagy olyan utc&aacute;kon l&eacute;vő lyukakat tartalmazzanak, amelyek nem &eacute;rhetők el, de amelyeket el&eacute;rhető utc&aacute;k vesznek k&ouml;r&uuml;l (bejel&ouml;lve).
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>A l&eacute;trehozni &eacute;s a t&eacute;rk&eacute;phez hozz&aacute;adni k&iacute;v&aacute;nt r&eacute;teg neve.
+            </p>
+        </div>
+    </div>
+    <div id="includeReachableStreets">
+        <div>
+            <p>Megadja, hogy az utaz&aacute;si ter&uuml;letek l&eacute;trehoz&aacute;s&aacute;hoz haszn&aacute;lt utc&aacute;kat tartalmazza-e a kimeneti r&eacute;teg.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>A  <b>Saj&aacute;t tartalom</b> azon mapp&aacute;j&aacute;nak neve, ahov&aacute; az eredm&eacute;nyek ment&eacute;se t&ouml;rt&eacute;nik.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

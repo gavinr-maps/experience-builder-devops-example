@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>G&ouml;r&uuml;ş Alanı Oluştur aracı, belirtilen g&ouml;zlemci konumlarından g&ouml;r&uuml;n&uuml;r olan alanları tanımlamak i&ccedil;in Esri Y&uuml;kselti Analizi servisini kullanır.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputLayer">
+        <div>
+            <p>G&ouml;zlemci konumları olarak kullanılacak olan nokta detayları.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeight">
+        <div>
+            <p>Zemin &uuml;zerinde g&ouml;zlemcilerin y&uuml;ksekliğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="observerHeightUnits">
+        <div>
+            <p> <b>G&ouml;zlemci y&uuml;ksekliği</b> parametresi i&ccedil;in kullanılacak &ouml;l&ccedil;&uuml;m birimleri.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeight">
+        <div>
+            <p>Zemindeki hedeflerin y&uuml;ksekliğini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="targetHeightUnits">
+        <div>
+            <p> <b>Hedef y&uuml;ksekliği</b> parametresi i&ccedil;in kullanılacak &ouml;l&ccedil;&uuml;m birimleri.
+            </p>
+        </div>
+    </div>
+    <div id="maximumDistance">
+        <div>
+            <p>G&ouml;r&uuml;ş alanı hesaplaması i&ccedil;in maksimum g&ouml;r&uuml;nt&uuml;leme mesafesini belirtir.
+            </p>
+        </div>
+    </div>
+    <div id="maxDistanceUnits">
+        <div>
+            <p> <b>Maksimum g&ouml;r&uuml;nt&uuml;leme mesafesi</b> parametresi i&ccedil;in kullanılacak &ouml;l&ccedil;&uuml;m birimleri.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Oluşturulacak ve haritaya eklenecek g&ouml;r&uuml;ş alanı &ccedil;okgen katmanının adı. Bu katman, g&ouml;zlemcilerin g&ouml;rebileceği g&ouml;r&uuml;n&uuml;r alanları i&ccedil;erir ve g&ouml;zlemci sayısı sıklık alanına kaydedilir.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p> <b>İ&ccedil;eriğim</b> i&ccedil;inde sonucun kaydedileceği klas&ouml;r&uuml;n adı.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

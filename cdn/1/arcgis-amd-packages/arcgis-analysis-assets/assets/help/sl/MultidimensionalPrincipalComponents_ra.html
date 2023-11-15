@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>Orodje za večdimenzionalne glavne komponente preoblikuje večdimenzionalne slikovne sloje v zmanj&scaron;ano &scaron;tevilo komponent, ki upo&scaron;tevajo odstopanje podatkov, da je mogoče prostorske in časovne vzorce enostavno identificirati.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputMultidimensionalRaster">
+        <div>
+            <p>Večdimenzionalni slikovni sloj, ki bo analiziran.
+            </p> 
+        </div>
+    </div>
+    <div id="mode">
+        <div>
+            <p>Metoda, ki bo uporabljena za analizo glavnih komponent. Možnosti vključujejo  <b>Zmanj&scaron;anje dimenzije</b> in <b>Prostorsko zmanj&scaron;anje</b>.
+            </p>
+        </div>
+    </div>
+    <div id="dimension">
+        <div>
+            <p>Dimenzija večdimenzionalnega slikovnega sloja, vzdolž katerega bodo analizirane spremenljivke.
+            </p>
+        </div>
+    </div>
+    <div id="outputPrincipalComponentsName">
+        <div>
+            <p>Ime izhodnega slikovnega sloja ali sloja tabele, ki prikazuje glavne komponente, ki se najdejo glede na naslednje izbire načina:
+                <ul>
+                    <li>Izhod zmanj&scaron;anja dimenzije bo večpasovni slikovni sloj.
+                    </li>
+                    <li>Izhod prostorskega zmanj&scaron;anja bo sloj tabele.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputLoadingsName">
+        <div>
+            <p>Ime izhodnega slikovnega sloja ali sloja tabele, ki prikazuje podporne podatke pri izbiri glavnih komponent, odvisno od naslednjih izbir načina:
+                <ul>
+                    <li>Izhod zmanj&scaron;anja dimenzije bo sloj tabele.
+                    </li>
+                    <li>Izhod prostorskega zmanj&scaron;anja bo slikovni sloj.
+                    </li>
+                </ul>
+                
+            </p>
+        </div>
+    </div>
+    <div id="outputEigenValuesTableName">
+        <div>
+            <p>Ime tabele lastnih vrednosti, ki označuje odstotek odstopanja vsake komponente.
+            </p>
+        </div>
+    </div>
+    <div id="variable">
+        <div>
+            <p>Ime spremenljivke vhodnega večdimenzionalnega slikovnega sloja, uporabljene pri izračunu.
+            </p>
+        </div>
+    </div>
+    <div id="numberOfPrincipalComponents">
+        <div>
+            <p>&Scaron;tevilo glavnih komponent za izračun, običajno manj&scaron;e od &scaron;tevila vhodnih rastrov.
+            </p>
+        </div>
+    </div>
+    <div id="outputName">
+        <div>
+            <p>Ime sloja, ki bo ustvarjen in dodan na karto.
+            </p>
+        </div>
+    </div>
+    <div id="resultType">
+        <div>
+            
+            <p>Vrsta rezultata, ki bo ustvarjen. Rezultati so lahko plo&scaron;čični slikovni sloji ali dinamični slikovni sloji.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            
+            <p>Ime mape v  <b>Moja vsebina</b>, kjer bodo shranjeni rezultati.
+            </p>
+        </div>
+    </div>
+</div>
+</html>

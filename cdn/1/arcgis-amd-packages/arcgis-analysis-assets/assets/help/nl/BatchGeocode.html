@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="Stylesheet" href="../css/analysis.css" />
+    <script type="text/javascript">
+        function init() {
+            if (window.location.hash) {
+                var parentDiv, nodes, i, helpInfo, helpId, helpInfoArr, helpEnvFilter, envContent, hideEnvClass, hideNodes;
+                helpInfo = window.location.hash.substring(1);
+                    if(helpInfo.indexOf("-")) {
+                        helpInfoArr = helpInfo.split("-");
+                        helpId = helpInfoArr[0];
+                        helpEnvFilter = helpInfoArr[1];
+                    }
+                    else {
+                        helpId = helpInfo;
+                    }
+                parentDiv = document.getElementById("topics");
+                nodes = parentDiv.children;
+                    hideEnvClass = (helpEnvFilter === "OnlineOnly"? "PortalOnly": "OnlineOnly");
+                    if(document.getElementsByClassName) {
+                        hideNodes = document.getElementsByClassName(hideEnvClass);
+                    }
+                    else {
+                        hideNodes = document.querySelectorAll(hideEnvClass);
+                    }
+                for(i=0; i < nodes.length; i++) {
+                    if(nodes[i].id !== helpId) {
+                        nodes[i].style.display ="none";
+                    }
+                    }
+                    for(i=0; i < hideNodes.length; i++) {
+                        hideNodes[i].style.display ="none";
+                    }
+                }
+            }
+    </script>
+</head>
+<body onload="init()">
+<div id="topics">
+    <div id="toolDescription" class="smallsize">
+    <p>De Geocode-locaties uit de Tabel-tool zetten adressen of plaatsen uit een invoertabel om in co&ouml;rdinaten.
+    </p>
+    </div>
+    <!--Parameter divs for each param-->
+    <div id="inputTable">
+        <div>
+            <p>De invoertabel met de adressen of plaatsen die u wilt geocoderen. De invoertekst moet bestaan uit een tabel, een  <code>.csv</code>-bestand of een Excel-bestand. </p>
+        </div>
+    </div>
+    <div id="geocodeServiceURL">
+        <div>
+            <p>De locatorservice die voor geocoderen moet worden gebruikt. Als de locatorservice die u wilt gebruiken, niet in het vervolgkeuzemenu staat, moet u contact opnemen met de beheerder om de locatorservice te laten configureren voor batch-geocodering.
+            </p>
+        </div>
+    </div>
+    <div id="singleOrMultiFieldSwitch">
+        <div>
+            <p>Specificeert of de invoergegevens zich in &eacute;&eacute;n enkel veld of in meerdere velden bevinden.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeParameters">
+        <div>
+            <p>De velden die door de locator zullen worden gebruikt om de locaties van de gegevens te bepalen. Van bepaalde velden wordt aangenomen dat deze in de gegevens aanwezig zijn, zoals adres, plaats, staat/provincie en postcode.
+            </p>
+        </div>
+    </div>
+    <div id="sourceCountry">
+        <div>
+            <p>Het land waarin de gegevens zich bevinden. Als alle adressen uit &eacute;&eacute;n land komen, dient u dat land op te geven om de resultaten zo nauwkeurig mogelijk te maken. Laat deze parameter leeg als dit niet het geval is.
+            </p>
+        </div>
+    </div>
+    <div id="outputFields">
+        <div>
+            <p>Geeft de velden op die in de uitvoer-gegevensset zullen worden opgenomen. De opties zijn als volgt:
+            </p>
+            <ul>
+                <li> <b>Alle</b>&mdash;Alle beschikbare locator-uitvoervelden worden in de geocoderesultaten opgenomen.
+                </li>
+                <li> <b>Minimaal</b>&mdash;Een subset van de velden uit de locator wordt samen met de velden uit de invoertabel in de resultaten opgenomen.
+                </li>
+                <li> <b>Alleen locatie</b>&mdash;Het veld <i>Shape</i> uit de locator en de velden uit de invoertabel worden in de resultaten opgenomen.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+    <div id="outputType">
+        <div>
+            <p>Het type uitvoer dat wordt gemaakt. De uitvoer kan een feature service, een  <code>.csv</code>-bestand of een <code>.xls</code>-bestand zijn.
+            </p>
+        </div>
+    </div>
+    <div id="geocodeResult">
+        <div>
+            <p>De naam van het uitvoeritem waarin de gevonden gegevens zullen worden opgeslagen.
+            </p>
+        </div>
+    </div>
+    <div id="saveResultIn">
+        <div>
+            <p>De naam van de map in  <b>Mijn content</b> waar het resultaat wordt opgeslagen.
+            </p>
+        </div>
+    </div>
+</div>
+</html>
