@@ -76,7 +76,7 @@ export default class Widget extends React.PureComponent<
     // that we need - only once the "Add Layer" button is pressed.
     loadArcGISJSAPIModules([
       "esri/layers/FeatureLayer",
-      "esri/tasks/support/Query",
+      "esri/rest/support/Query",
       "esri/geometry/SpatialReference",
     ]).then((modules) => {
       [this.FeatureLayer, this.Query, this.SpatialReference] = modules;
