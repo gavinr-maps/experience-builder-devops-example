@@ -11,31 +11,28 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Download Experience Builder
-        run: npx arcgis-lib-downloader -p arcgis-experience-builder -v 1.13 -t Download
-        env:
-          ARCGIS_LIB_DOWNLOADER_USERNAME: ${{ secrets.ARCGIS_LIB_DOWNLOADER_USERNAME }}
-          ARCGIS_LIB_DOWNLOADER_PASSWORD: ${{ secrets.ARCGIS_LIB_DOWNLOADER_PASSWORD }}
+        run: url -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.13.zip?f=json&folder=software%2FExperienceBuilder%2F1.13' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
       - name: Unzip Experience Builder
-        run: unzip -q arcgis-experience-builder-1.13.zip -d arcgis-experience-builder-1.13
+        run: unzip -q exb.zip -d exb
       - name: Copy Custom Widgets
-        run: cp -r widgets/* arcgis-experience-builder-1.13/ArcGISExperienceBuilder/client/your-extensions/widgets
+        run: cp -r widgets/* exb/ArcGISExperienceBuilder/client/your-extensions/widgets
       - name: Create App directory
         run: mkdir public && cd public && mkdir apps && cd apps
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder/server
+        working-directory: exb/ArcGISExperienceBuilder/server
       - name: Copy apps
-        run: cp -r apps/* arcgis-experience-builder-1.13/ArcGISExperienceBuilder/server/public/apps
+        run: cp -r apps/* exb/ArcGISExperienceBuilder/server/public/apps
       - name: NPM install client folder
         run: npm ci
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder/client
+        working-directory: exb/ArcGISExperienceBuilder/client
       - name: NPM install in server folder
         run: npm ci
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder/server
+        working-directory: exb/ArcGISExperienceBuilder/server
       - name: Build widgets
         run: npm run build:prod
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder/client
+        working-directory: exb/ArcGISExperienceBuilder/client
       - name: Run download script
         run: node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder
+        working-directory: exb/ArcGISExperienceBuilder
         env:
           NODE_ENV: production
       - name: Unzip app zip
@@ -43,9 +40,9 @@ jobs:
         run: |
           unzip -q app.zip -d app
           chmod -R 777 app
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder
+        working-directory: exb/ArcGISExperienceBuilder
       - name: Generate screeenshot (optional)
-        working-directory: arcgis-experience-builder-1.13/ArcGISExperienceBuilder/app
+        working-directory: exb/ArcGISExperienceBuilder/app
         continue-on-error: true
         run: |
           npm install --global pageres-cli
@@ -57,4 +54,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: arcgis-experience-builder-1.13/ArcGISExperienceBuilder/app
+          folder: exb/ArcGISExperienceBuilder/app
