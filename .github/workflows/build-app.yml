@@ -11,7 +11,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Download Experience Builder
-        run: url -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.13.zip?f=json&folder=software%2FExperienceBuilder%2F1.13' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
+        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.13.zip?f=json&folder=software%2FExperienceBuilder%2F1.13' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
       - name: Unzip Experience Builder
         run: unzip -q exb.zip -d exb
       - name: Copy Custom Widgets
