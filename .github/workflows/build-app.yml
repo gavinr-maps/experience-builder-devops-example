@@ -34,6 +34,9 @@ jobs:
       - name: NPM install in server folder
         run: npm ci
         working-directory: exb/ArcGISExperienceBuilder/server
+      - name: Build widgets - dev
+        run: npm run build:dev
+        working-directory: exb/ArcGISExperienceBuilder/client
       - name: Build widgets
         run: npm run build:prod
         working-directory: exb/ArcGISExperienceBuilder/client
