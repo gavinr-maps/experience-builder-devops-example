@@ -51,15 +51,15 @@ jobs:
           unzip -q app.zip -d app
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
-      - name: Generate screeenshot (optional)
-        working-directory: exb/ArcGISExperienceBuilder/app
-        continue-on-error: true
-        run: |
-          npm install --global pageres-cli
-          npm install --global serve
-          echo "{\"trailingSlash\":true}" > serve.json
-          serve . -p 5000 &
-          pageres http://localhost:5000/index.html 1024x768 --filename=screenshot --delay=15
+      # - name: Generate screeenshot (optional)
+      #   working-directory: exb/ArcGISExperienceBuilder/app
+      #   continue-on-error: true
+      #   run: |
+      #     npm install --global pageres-cli
+      #     npm install --global serve
+      #     echo "{\"trailingSlash\":true}" > serve.json
+      #     serve . -p 5000 &
+      #     pageres http://localhost:5000/index.html 1024x768 --filename=screenshot --delay=15
       - name: Deploy app zip to GH Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
