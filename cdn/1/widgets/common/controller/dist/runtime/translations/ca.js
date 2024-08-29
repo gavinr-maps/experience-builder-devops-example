@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controlador de widget"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controlador de widget",_action_openWidget_label:"Obre el widget",resizerTooltip:"Personalitza la mida de la finestra arrossegant i deixant anar."})}}}));

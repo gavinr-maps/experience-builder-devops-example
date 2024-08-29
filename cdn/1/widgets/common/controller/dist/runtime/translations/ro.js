@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controler widget"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controler widget",_action_openWidget_label:"Deschidere widget",resizerTooltip:"Personaliza\u021bi dimensiunea ferestrei tr\u0103g\xe2nd \u0219i fix\xe2nd."})}}}));

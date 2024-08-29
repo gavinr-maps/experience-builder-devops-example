@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"פקד ווידג'ט"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\u05e4\u05e7\u05d3 \u05d5\u05d5\u05d9\u05d3\u05d2'\u05d8",_action_openWidget_label:"\u05e4\u05ea\u05d7 \u05d5\u05d9\u05d3\u05d2'\u05d8",resizerTooltip:"\u05d4\u05ea\u05d0\u05dd \u05d0\u05d9\u05e9\u05d9\u05ea \u05d0\u05ea \u05d2\u05d5\u05d3\u05dc \u05d4\u05d7\u05dc\u05d5\u05df \u05e2\u05dc \u05d9\u05d3\u05d9 \u05d2\u05e8\u05d9\u05e8\u05d4 \u05d5\u05e9\u05d7\u05e8\u05d5\u05e8."})}}}));

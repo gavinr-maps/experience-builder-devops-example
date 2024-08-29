@@ -6,7 +6,7 @@
   </head>
   <body>
     <script src="./request.umd.min.js"></script>
-    <script src="./auth.umd.min.js"></script>
+    <!-- <script src="./auth.umd.min.js"></script> -->
     <script src="./js.cookie.js"></script>
     <script>
       function processAuthentication() {
@@ -16,24 +16,20 @@
           console.log('onbeforeunload');
         }
         if(hash.error){
-          if (hash.error !== 'access_denied') {
-            // alert error message except for clicking cancel
-            alert(hash.error_description || hash.error);
-          }
-          const {portal, clientId, fromUrl, isDevEdition, mountPath} = query;
-          const redirectUri = `${window.location.origin}${window.location.pathname}?clientId=${clientId}&portal=${portal}&popup=${popup}&fromUrl=${fromUrl}`
+          const {portal, clientId, isDevEdition, mountPath} = query;
           if(popup) {
             // SessionManager.signIn listens for popup window closing.
-            window.close();
-            return;
+            completeOAuth2(query, popup)
           } else {
+            // sign-in canceld error is 'access_denied'
+            const errorCode = hash.messageCode || hash.error
             if (isDevEdition === 'true') {
-              // Redirect to set-portalUrl page
+              // Redirect to set-portalUrl page with 'oauth error code'
               const mountPathFinal = mountPath ? mountPath : '/'
-              window.location.href = `${location.protocol}//${location.host}${mountPathFinal}page/set-portalurl`;
+              window.location.href = `${location.protocol}//${location.host}${mountPathFinal}page/set-portalurl?oauth_error_code=${errorCode}&fromUrl=${encodeURIComponent(query.fromUrl)}`;
             } else {
-              // Redirect to landing page
-              window.location.href = `${location.protocol}//${location.host}/page/landing`;
+              // Redirect to landing page with 'oauth error code'
+              window.location.href = `${location.protocol}//${location.host}/page/landing?oauth_error_code=${errorCode}&fromUrl=${encodeURIComponent(query.fromUrl)}`;
             }
           }
         }
@@ -71,38 +67,41 @@
         }
 
         if(usePopupWindow){//popup window
-          //There is a bug when popup is true of arcgis-rest-js that will occur the error:
-          //o.opener.parent[("__ESRI_REST_AUTH_HANDLER_" + z)] is not a function
-          //see https://github.com/Esri/arcgis-rest-js/issues/580
-
-          try {
-            if(window.opener && window.opener.parent && !window.opener.parent[`__ESRI_REST_AUTH_HANDLER_${query.clientId}`]){
-              window.opener.parent[`__ESRI_REST_AUTH_HANDLER_${query.clientId}`] = window.opener[`__ESRI_REST_AUTH_HANDLER_${query.clientId}`]
+          if (isInIFrame()) {
+            // REST-JS 4.x has a problem with embedded OAuth login, oauth-callback window cannot get local storage items from its opener 
+            // original reason reference:
+            // https://developers.google.com/privacy-sandbox/3pcd/storage-partitioning
+            const stateStorageKey = `ARCGIS_REST_JS_AUTH_STATE_${query.clientId}`
+            const stateId = window.opener.localStorage.getItem(stateStorageKey)
+            const stateIdInCurrentWin = window.localStorage.getItem(stateStorageKey)
+            if (stateId && !stateIdInCurrentWin) {
+              window.localStorage.setItem(stateStorageKey, stateId);
             }
-          } catch (error) {
-            // error is thrown by accessing window.opener.parent[].
-            // means it is in the IFrame
-            // bug fixes for accessing window.opener.parent[] from completeOAuth2()
-            window.opener.parent = null;
           }
-          arcgisRest.UserSession.completeOAuth2({
-            portal: query.portal,
-            clientId: query.clientId,
-            popup: popup,
-          });
-          // completeOAuth2ForPopupWindow(query, hash);
-          // close();
-
+          completeOAuth2(query, popup)
           // For popup login, we dont writeAuthInfo here, it's written in SessionManager(for main portal only)
         }else {
-          const session = arcgisRest.UserSession.completeOAuth2({
-            portal: query.portal,
-            clientId: query.clientId,
-            popup: popup,
+          completeOAuth2(query, popup).then(session => {
+            writeAuthInfo(session, query, hash);
+            window.location.href = decodeURIComponent(query.fromUrl);
           });
-          writeAuthInfo(session, query, hash);
-          window.location.href = query.fromUrl;
         }
+      }
+
+      function isInIFrame () {
+        const openerWin = window.opener
+        return openerWin && openerWin.self !== openerWin.top && !openerWin.jimuConfig.isInBuilder
+      }
+
+      function completeOAuth2(query, popup) {
+        var redirectUri = `${query.redirectUri}&redirectUri=${encodeURIComponent(query.redirectUri)}`;
+        return arcgisRest.ArcGISIdentityManager.completeOAuth2({
+          portal: query.portal,
+          clientId: query.clientId,
+          redirectUri: redirectUri,
+          pkce: query.enablePkce === 'true',
+          popup: popup,
+        })
       }
 
       function getQueryAndHashObject(){
@@ -111,21 +110,11 @@
         if (query.indexOf('?') > -1) {
           query = query.substr(1);
         }
-        //Appoint fromUrl is located in the last of the query
-        const fromUrlIndex = query.indexOf('fromUrl');
-        if(fromUrlIndex > -1){
-          const fromUrlQuery = query.substr(fromUrlIndex);
-          const equalIndex = fromUrlQuery.indexOf('=');
-          queryObject[fromUrlQuery.substring(0, equalIndex)] = fromUrlQuery.substr(equalIndex + 1);
-
-          query = query.substring(0, fromUrlIndex - 1);
-        }
         if(!!query){
           var pairs = query.split('&');
           for(var i = 0; i < pairs.length; i++){
-            var splits = decodeURIComponent(pairs[i]).split('=');
-            var v = splits[1];
-            queryObject[splits[0]] = splits[1];
+            var splits = pairs[i].split('=');
+            queryObject[splits[0]] = decodeURIComponent(splits[1]);
           }
         }
         queryObject.clientId = queryObject.clientId || queryObject.clientID
@@ -221,8 +210,12 @@
           email: session.username,
           token: session.token,
           expires: session.tokenExpires,
+          refreshToken: session.refreshToken,
+          refreshTokenExpires: session.refreshTokenExpires,
+          redirectUri: session.redirectUri,
           urlKey: urlKey,
           customBaseUrl: customBaseUrl,
+          clientId: session.clientId,
           schema: schema
         }
         try{

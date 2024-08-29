@@ -4,6 +4,8 @@ export default {
   frameworkAction_ActionLayer: 'Action data',
   frameworkAction_Conditions: 'Conditions',
   frameworkAction_RelateMessage: 'Trigger / action connection',
+  frameworkAction_UseRelationship: 'Use layer\'s relationship',
+  frameworkAction_CustomFields: 'Set custom connection fields',
   frameworkAction_TriggerLayerField: 'Select a trigger field',
   frameworkAction_None: 'none',
   frameworkAction_Equals: 'equals',

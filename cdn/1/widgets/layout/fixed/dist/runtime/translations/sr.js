@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Fiksni panel",widgetProperties:"Svojstva vidžeta",widgetFunctions:"Funkcije vidžeta",widgetName:"naziv vidžeta:",widgetProps:"svojstva vidžeta:",tips:"Fiksni panel"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Fiksni panel",widgetProperties:"Svojstva vid\u017eeta",widgetFunctions:"Funkcije vid\u017eeta",widgetName:"naziv vid\u017eeta:",widgetProps:"svojstva vid\u017eeta:",tips:"Fiksni panel"})}}}));

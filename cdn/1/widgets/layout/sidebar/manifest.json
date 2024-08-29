@@ -3,8 +3,8 @@
   "label": "Sidebar",
   "type": "widget",
   "widgetType": "LAYOUT",
-  "version": "1.13.0",
-  "exbVersion": "1.13.0",
+  "version": "1.15.0",
+  "exbVersion": "1.15.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -14,6 +14,18 @@
     "supportAutoSize": false,
     "hasBuilderSupportModule": true
   },
+  "messageActions": [
+    {
+      "name": "toggleSidebar",
+      "label": "Toggle sidebar",
+      "uri": "message-actions/toggle-sidebar"
+    },
+    {
+      "name": "openSidebar",
+      "label": "Open sidebar",
+      "uri": "message-actions/open-sidebar"
+    }
+  ],
   "layouts": [
     {
       "name": "FIRST",

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontroler widżetów"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontroler wid\u017cet\xf3w",_action_openWidget_label:"Otw\xf3rz wid\u017cet",resizerTooltip:"Dostosuj rozmiar okna metod\u0105 przeci\u0105gania i upuszczania."})}}}));

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Fast panel",widgetProperties:"Miniprogramegenskaper",widgetFunctions:"Miniprogramfunksjoner",widgetName:"Navn på miniprogram:",widgetProps:"Miniprogramegenskaper:",tips:"Fast panel"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Fast panel",widgetProperties:"Miniprogramegenskaper",widgetFunctions:"Miniprogramfunksjoner",widgetName:"Navn p\xe5 miniprogram:",widgetProps:"Miniprogramegenskaper:",tips:"Fast panel"})}}}));

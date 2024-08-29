@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Jelmagyarázat"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Jelmagyar\xe1zat"})}}}));

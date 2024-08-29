@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Ten typ warstwy nie jest obsługiwany."})}}}));
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Ten typ warstwy nie jest obs\u0142ugiwany."})}}}));

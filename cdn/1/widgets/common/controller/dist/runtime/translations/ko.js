@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"위젯 컨트롤러"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\uc704\uc82f \ucee8\ud2b8\ub864\ub7ec",_action_openWidget_label:"\uc704\uc82f \uc5f4\uae30",resizerTooltip:"\ub4dc\ub798\uadf8 \uc564 \ub4dc\ub86d\ud558\uc5ec \ucc3d \ud06c\uae30\ub97c \uc0ac\uc6a9\uc790 \uc815\uc758\ud569\ub2c8\ub2e4."})}}}));

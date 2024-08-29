@@ -2,8 +2,8 @@
   "name": "arcgis-map",
   "label": "Map",
   "type": "widget",
-  "version": "1.13.0",
-  "exbVersion": "1.13.0",
+  "version": "1.15.0",
+  "exbVersion": "1.15.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -65,7 +65,10 @@
   },
   "excludeDataActions": [
     "setFilter",
-    "arcgis-map.addToMap"
+    "arcgis-map.addToMap",
+    "dataStatistics",
+    "table.addToTable",
+    "directions.PlanRoute"
   ],
   "dataActions": [
     {
@@ -99,6 +102,36 @@
       "name": "MapFixedLayout",
       "label": "Map FixedLayout",
       "type": "FIXED"
+    }
+  ],
+  "urlParameters": [
+    {
+      "name": "viewpoint",
+      "label": "Viewpoint",
+      "tooltip": "Viewpoint describes the point of view for a web map or web scene."
+    },
+    {
+      "name": "center",
+      "label": "Center"
+    },
+    {
+      "name": "scale",
+      "label": "Scale"
+    },
+    {
+      "name": "rotation",
+      "label": "Rotation"
+    },
+    {
+      "name": "layer_visibility",
+      "label": "Layer visibility"
+    }
+  ],
+  "extensions": [
+    {
+      "name": "appConfigOperations",
+      "point": "APP_CONFIG_OPERATIONS",
+      "uri": "tools/app-config-operations"
     }
   ],
   "translatedLocales": [

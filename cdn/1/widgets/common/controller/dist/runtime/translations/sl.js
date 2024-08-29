@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontrolnik pripomočka"})}}}));
+System.register([],(function(i){return{execute:function(){i({_widgetLabel:"Kontrolnik pripomo\u010dka",_action_openWidget_label:"Odpri pripomo\u010dek",resizerTooltip:"Prilagodite velikost okna s funkcijo povleci in spusti."})}}}));

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Легенда"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\u041b\u0435\u0433\u0435\u043d\u0434\u0430"})}}}));

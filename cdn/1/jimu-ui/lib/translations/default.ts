@@ -7,6 +7,7 @@ export default {
   gridCol: 'Grid column',
   iconSize: 'Icon size',
   showIcon: 'Show icon',
+  showText: 'Show text',
   vertical: 'Vertical',
   horizontal: 'Horizontal',
   foldable: 'Foldable',
@@ -49,6 +50,7 @@ export default {
   circle: 'Circle',
   rectangle: 'Rectangle',
   more: 'More',
+  moreInfo: 'More info',
   noContent: 'No content',
   copy: 'Copy',
   location: 'Location',
@@ -81,6 +83,8 @@ export default {
   below: 'Below',
   above: 'Above',
   render: 'Render',
+  newGroup: 'New group',
+  groupName: 'Group {num}',
   setFilters: 'Set filters',
   resetAllFilters: 'Reset all filters',
   resetFilters: 'Reset filters',
@@ -89,6 +93,7 @@ export default {
   selectMapHint: 'Select a map for further configurations.',
   openInNewWindow: 'Open in a new window',
   // chart
+  guide: 'Guide',
   guides: 'Guides',
   tools: 'Tools',
   series: 'Series',
@@ -118,6 +123,8 @@ export default {
   count: 'Count',
   mean: 'Mean',
   median: 'Median',
+  minimumValue: 'Minimum value',
+  maximumValue: 'Maximum value',
   noAgregation: 'No aggregation',
   sumOfField: 'Sum of {field}',
   meanOfField: 'Mean of {field}',
@@ -152,10 +159,14 @@ export default {
   valueDecimal: 'Value decimal',
   percentageDecimal: 'Percentage decimal',
   displayFormat: 'Display format',
+  displayValue: 'Display value',
   wrap: 'Wrap',
   dataLabel: 'Data label',
   alignDataLabel: 'Align data label',
   optimizeDataLabelOverlaps: 'Optimize data label overlaps',
+  options: 'Options',
+  shape: 'Shape',
+  valueFormat: 'Value format',
   // menu
   submenu: 'Submenu',
   menu: 'Menu',
@@ -170,7 +181,19 @@ export default {
   sqlExprIncomplete: 'SQL expression is incomplete. Please complete it first.',
   // predefinedValueInValidTip: 'Invalid or duplicate values will be removed.',
   predefinedValueInValidTip: 'Please remove invalid or duplicate values.',
-  builderName: 'SQL Expression Builder',
+  sqlExpressionBuilder: 'SQL Expression Builder',
+  sqlExpressionBuilderForGroup: 'Group SQL Expression Builder',
+  sqlExpr: 'SQL Expressions',
+  addSqlExprFirst: 'Please add your SQL expressions first.',
+  addSqlExprForFilter: 'Add SQL expressions to your filter.',
+  addSqlExprForGroup: 'Add SQL expressions for the group.',
+  addSqlExprForSelection: 'Add SQL expressions for selection.',
+  addFields: 'Add fields',
+  mainValue: 'Main: {value}',
+  mainField: 'Main field',
+  fieldList: 'All fields',
+  operatorAndValues: 'Operator & Values',
+  hostedDoesNotSupportCaseSensitiveQuery: 'Hosted service does not support case sensitive query.',
   and: 'AND',
   andLowerCase: 'and',
   or: 'OR',
@@ -192,6 +215,7 @@ export default {
   unique: 'Unique',
   single: 'Single',
   multiple: 'Multiple',
+  selectMode: 'Select mode',
   uniquePredefined: 'Unique (predefined)',
   multiplePredefined: 'Multiple (predefined)',
   // input editor
@@ -393,6 +417,8 @@ export default {
   mixed: 'Mixed',
   independent: 'Independent',
   unifiedNumericValue: 'Unified numeric value',
+  positionAndSize: 'Position & size',
+  margins: 'Margins',
   // rich-text-editor
   left: 'Left',
   top: 'Top',
@@ -463,6 +489,8 @@ export default {
   numberFormatting: 'Number formatting',
   decimalPlace: 'Decimal place',
   showThousandSeparator: 'Show thousand separator',
+  percentileValue: 'Percentile value',
+  orderBy: 'Order by',
 
   // expression-builder/expression-editor
   fields: 'Fields',
@@ -493,6 +521,7 @@ export default {
   pageTop: 'Page top',
   printPreview: 'Print preview',
   printCurrentPage: 'Print current page',
+  cookieBanner: 'Cookie Banner',
 
   // proxy-setting
   subscriberContents: 'Subscriber contents',
@@ -523,6 +552,7 @@ export default {
 
   // data-source-selector
   filter: 'Filter',
+  groupFilter: 'Group filter',
   records: 'Records',
   pageSize: 'Page size',
   maximum: 'Maximum',
@@ -539,7 +569,8 @@ export default {
   relatedWidgetsWithNum: 'Related widgets: {directlyNum} (Directly) / {totalNum} (In total)',
   relatedWidgetsWithDirectlyNum: 'Related widgets: {num}',
   containLayersWithNum: 'Layers: {layerNum}',
-  addDataByUrlHint: 'Only feature service, map service and scene service with HTTPS are supported.',
+  containUtilitiesWithNum: 'Utilities: {utilityNum}',
+  addDataByUrlHint: 'Feature service, map service, image service, and scene service with HTTPS are supported.',
   source: 'Source',
   settings: 'Settings',
   home: 'Home',
@@ -557,6 +588,9 @@ export default {
   removeSourceWidgetWarningTip: 'Deleting {widgetName} will also remove its output data.',
   removeSourceWidgetAffectedWidgets: 'Following widgets rely on above data and may be affected.',
   howToRemoveWidgetsTip: 'Select the widgets you want to delete alongside the data. Be aware they will be removed from all devices views. The unselected widgets will be kept and you can reconfigure them later.',
+  changeDataSource: 'Change data',
+  changeDataAffectedWidgets: 'Changing this {dataType} may break the widgets configured with it.',
+  howToRemoveWidgetsTip2: 'Select the widgets you want to delete. Be aware they will be removed from all devices views. The unselected widgets will be kept and you can reconfigure them later.',
   relatedWidgets: 'Related widgets',
   clickToHide: 'Click to hide',
   clickToShow: 'Click to show',
@@ -583,6 +617,7 @@ export default {
   all: 'All',
   selectDataPlaceholder: 'Click the "Select data" button to add data source to this widget.',
   outputDataIsNotGenerated: '{outputDsLabel} is not generated yet. Please run {sourceWidgetName} first.',
+  outputDatasAreNotGenerated: 'Some used output views have not been generated yet. Please run them first.',
 
   // data-source-selector/external-data-source-selector
   selectData: 'Select data',
@@ -603,8 +638,10 @@ export default {
   allMyGroupsContent: "All my groups' content",
   rootFolder: 'Root folder',
   addDataErrorInvalidSceneLayer: 'Scene layer without an associated feature layer is not supported.',
+  addDataErrorInvalidImageryLayer: 'Dynamic imagery layers without field information are currently not supported.',
   addDataErrorNotSupported: 'Data type is not supported yet.',
   addDataErrorUnsupportedMap: 'This Web Map version is not supported.',
+  addDataErrorInvalidBuildingSceneLayer: 'Building Scene layer without an associated feature layer is not supported.',
 
   creatProxyToPublishAppError: 'Publish failed. Cannot create proxy for subscriber contents. Try again later or modify the authorization.',
 
@@ -616,6 +653,7 @@ export default {
   title: 'Title',
   numViews: 'View numbers',
   esriDefault: 'Esri default',
+  esriDefault3d: 'Esri default (3D)',
   organizationDefault: 'Organization default',
   myContent: 'My content',
   myOrganization: 'My organization',
@@ -707,9 +745,13 @@ export default {
   variableColorInfo: 'Info',
   variableColorWarning: 'Warning',
   variableColorDanger: 'Danger',
+  variableColorError: 'Error',
   variableColorBlack: 'Black',
   variableColorWhite: 'White',
+  variableColorNeutral: 'Neutral',
   variableColorTransparent: 'Transparent',
+  variableColorCustom1: 'Custom1',
+  variableColorCustom2: 'Custom2',
   variableTypography: 'Typography',
   variableBg: 'Background',
   variableColor: 'Text',
@@ -812,6 +854,7 @@ export default {
   height: 'Height',
 
   // profile
+  avatar: 'Avatar',
   myProfile: 'My profile',
   accountHelp: 'Help',
   switchAccount: 'Switch accounts',
@@ -873,6 +916,7 @@ export default {
   LayersLabelLegend: 'Legend',
   LegendLabel: 'Legend',
   ExtentNavigateLabel: 'Extent navigate',
+  OverviewMapLabel: 'Overview map',
   prevExtent: 'Previous extent',
   nextExtent: 'Next extent',
   SelectLabel: 'Select',
@@ -905,6 +949,7 @@ export default {
   drawShape: 'Draw a shape',
   draw: 'Draw',
   selectingFeaturesTip: 'Selecting features now...Click to stop the selection progress.',
+  noWebMapWebSceneTip: 'The selected Map widget does not contain a web map or web scene.',
 
   // draw component
   drawToolPreview: 'Preview',
@@ -993,6 +1038,12 @@ export default {
   unitsUsng: 'USNG',
   feetAbbr: 'ft',
   kilometerAbbr: 'km',
+  // extra units in measurement
+  unitsLabelMetric: 'Metric',
+  unitsLabelImperial: 'Imperial',
+  unitsLabelFeetUS: 'Feet (US)',
+  unitsLabelSquareInches: 'Square inches',
+  unitsLabelSquareFeetUS: 'Square feet (US)',
 
   // status-bar
   fixedWindows: 'Fixed windows',
@@ -1009,8 +1060,8 @@ export default {
   basic: 'Basic',
 
   // tag-input component
-  noTagMatch: 'No existing {lableName} match.',
-  addTag: 'Add {lableName}',
+  noTagMatch: 'No existing {labelName} match.',
+  addTag: 'Add {labelName}',
   tag: 'tag',
 
   // guide tour component
@@ -1244,6 +1295,7 @@ export default {
   utility: 'Utility',
   visible: 'Visible',
   invisible: 'Invisible',
+  orgUtilityNotAvailable: 'The service you selected is no longer configured in the utility service settings of your organization.',
 
   // element selector, layout placeholder and some widgets
   enterpriseRequired: 'ArcGIS Enterprise subscription required',
@@ -1273,9 +1325,11 @@ export default {
   date: 'Date',
   season: 'Season',
 
-  saveAsAnItem: 'Save as an item',
-  itemNamePlaceholder: '<layername_date_time>',
-  saveItemTip: 'This will copy the data as a new layer item into your organization\'s content.',
+  // export to item
+  saveAsAnItem: 'Export to item',
+  exporting: 'Exporting...',
+  viewItem: 'View item',
+  utc: 'UTC',
 
   //coordinate-control
   inputPlaceHolder: 'Enter Coordinates/Address',
@@ -1316,11 +1370,13 @@ export default {
   itemDeleteRemind: 'Are you sure you want to delete this item?',
   unableDelete: 'Item could not be deleted since it is delete protected.',
   deleteError: 'There was a problem deleting this application.',
+  appTitle: 'App Title',
 
   //map-widget-selector
   currentWindow: 'Current window',
   selectMapWidget: 'Select a Map widget',
   confirmTitle: 'Do you want to continue?',
+  selectMapTip: 'Please select a map first.',
 
   //hover effects
   skew: 'Skew',
@@ -1337,9 +1393,11 @@ export default {
   forward: 'Forward',
   backward: 'Backward',
 
+  gridItem: 'Grid item',
   gridItems: 'Grid items',
   allowResize: 'Allow resize',
   allowExpansion: 'Allow expansion',
+  gridSettingOverrideTip: 'The expand option can be overridden in each widget\'s style settings.',
   maximize: 'Maximize',
   restore: 'Restore',
   distributeSpaceH: 'Distribute space horizontally',
@@ -1387,5 +1445,133 @@ export default {
   createApplicationError: 'There was a problem when create new application.',
 
   cannotDeleteItem: 'Cannot delete: {title}',
-  cannotDeleteItemMessage: 'Items that are deleted protected cannot be deleted.'
+  cannotDeleteItemMessage: 'Items that are deleted protected cannot be deleted.',
+
+  noItemsFound: 'No items found.',
+
+  reportTemplateRemind: 'Template report not configured.',
+  dataCount: 'Total: {total} | Selection: {selected}',
+  showRecordCount: 'Show record count',
+
+  remindCustomLayoutTitle: 'Are you sure you want to use custom layout?',
+  remindAutoLayoutTitle: 'Are you sure you want to use auto layout?',
+  remindCustomLayoutText: 'By using custom layout, you can manually arrange widgets for this state.',
+  remindCustomLayoutBottomText: 'However, widgets added in the default state will not be automatically added here. Alternatively, you can manually select the widget on the default state, click on the link button and apply that widget here.',
+  remindAutoLayoutText: 'By using auto layout, widgets wil be synced with those on the default state and arranged automatically.',
+
+  utilityNotAvailable: 'Utility not available.',
+  utilityNotAvailableWidthName: '({name}) not available.',
+  utilityInaccessible: 'Utility is inaccessible',
+
+  includeTables: 'Include tables',
+
+  // enable buffer
+  enableBuffer: 'Enable buffer',
+  defaultDistance: 'Default Distance',
+  defaultUnit: 'Default Unit',
+  theBufferDistance: 'Buffer distance',
+
+  // units
+  unit_Miles: 'Mile',
+  unit_Kilometers: 'Kilometer',
+  unit_Feet: 'Feet',
+  unit_Meters: 'Meter',
+  unit_Yards: 'Yard',
+  unit_NauticalMiles: 'Nautical mile',
+
+  // spatial relationship
+  relationship: 'Relationship',
+  spatialRelation_Intersect: 'Intersect',
+  spatialRelation_Contain: 'Contain',
+  spatialRelation_Cross: 'Cross',
+  spatialRelation_EnvelopeIntersect: 'Envelope Intersect',
+  spatialRelation_IndexIntersect: 'Index Intersect',
+  spatialRelation_Overlap: 'Overlap',
+  spatialRelation_Touch: 'Touch',
+  spatialRelation_Within: 'Within',
+
+  // select widget
+  attributeSelection: 'Attribute selection',
+  interactWithMap: 'Interact with a Map widget',
+  customizeLayers: 'Customize layers',
+
+  remindTextForReadonlyMode: 'ArcGIS Online backend system is currently running in the read-only mode.',
+
+  // swipe widget
+  visibility: 'Visibility',
+  refresh: 'Refresh',
+
+  // cookie-banner
+  cookieSettings: 'Cookie Settings',
+  essentialCookies: 'Essential Cookies',
+  performanceCookies: 'Performance Cookies',
+  essentialCookiesDesc: 'These cookies are essential for basic website functions and cannot be disabled.',
+  performanceCookiesDesc: 'These cookies collect information on how users interact with the website, which helps to optimize the user experience.',
+  saveChanges: 'Save changes',
+  acceptAll: 'Accept All',
+  declineAll: 'Decline All',
+  preferences: 'Preferences',
+  essentialBannerDefaultText: 'We have not implemented any cookies or tracking technologies. For more details on how we handle your data and ensure your privacy, please see our Privacy Policy.',
+  optionalBannerDefaultText: 'We use cookies to improve your experience. You can customize your preferences for optional cookies.',
+  largeScreenDevice: 'large screen device',
+  syncPlaceholderTip: 'Select a sync placeholder in the {sizeMode}',
+
+  // download app
+  download: 'Download',
+  selectRequiredLanguage: 'Please select the required languages.',
+  compilingCustomWidgets: 'Compiling the custom widgets...',
+  copingCode: 'Copying code...',
+  generateZipFile: 'Generating a zip file...',
+  failedToLoad: 'Failed to load',
+  indexNumber: 'Index number: {cdnNumber}',
+  en: 'English',
+  ar: 'Arabic',
+  bg: 'Bulgarian',
+  bs: 'Bosnian',
+  ca: 'Catalan',
+  cs: 'Czech',
+  da: 'Danish',
+  de: 'German',
+  el: 'Greek',
+  es: 'Spanish',
+  et: 'Estonian',
+  fi: 'Finnish',
+  fr: 'French',
+  he: 'Hebrew',
+  hr: 'Croatian',
+  hu: 'Hungarian',
+  id: 'Indonesian',
+  it: 'Italian',
+  ja: 'Japanese',
+  ko: 'Korean',
+  lt: 'Lithuanian',
+  lv: 'Latvian',
+  nb: 'Norwegian Bokmål',
+  nl: 'Dutch',
+  pl: 'Polish',
+  'pt-br': 'Portuguese (Brazil)',
+  'pt-pt': 'Portuguese (Portugal)',
+  ro: 'Romanian',
+  ru: 'Russian',
+  sk: 'Slovak',
+  sl: 'Slovenian',
+  sr: 'Serbian',
+  sv: 'Swedish',
+  th: 'Thai',
+  tr: 'Turkish',
+  'zh-cn': 'Chinese (Simplified)',
+  uk: 'Ukrainian',
+  vi: 'Vietnamese',
+  'zh-hk': 'Chinese (Hong Kong)',
+  'zh-tw': 'Chinese (Traditional)',
+  // icon-picker
+  generalAndArrows: 'General and arrows',
+  directional: 'Directional',
+  suggestion: 'Suggestion',
+  editor: 'Editor',
+  brand: 'Brand',
+  brandAndLogos: 'Brand and Logos',
+  application: 'Application',
+  gis: 'GIS',
+  showPrintArea: 'Show print area'
 }

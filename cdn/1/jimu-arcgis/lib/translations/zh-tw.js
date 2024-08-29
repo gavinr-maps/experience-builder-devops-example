@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"不支援此圖層類型。"})}}}));
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"\u4e0d\u652f\u63f4\u6b64\u5716\u5c64\u985e\u578b\u3002"})}}}));

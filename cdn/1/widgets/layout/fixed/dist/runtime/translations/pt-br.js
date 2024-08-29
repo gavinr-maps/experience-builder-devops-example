@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Painel Fixo",widgetProperties:"Propriedades do Widget",widgetFunctions:"Funções do Widget",widgetName:"nome do widget:",widgetProps:"propriedades do widget:",tips:"Painel Fixo"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Painel Fixo",widgetProperties:"Propriedades do Widget",widgetFunctions:"Fun\xe7\xf5es do Widget",widgetName:"nome do widget:",widgetProps:"propriedades do widget:",tips:"Painel Fixo"})}}}));

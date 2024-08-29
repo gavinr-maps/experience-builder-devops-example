@@ -1,2 +1,0 @@
-/*! For license information please see bg_BG-bce027bc-aaa95092.js.LICENSE.txt */
-define(["exports"],(function(o){"use strict";o.default={"Zoom Out":"Отдалечаване","From %1 to %2":"От %1 до %2","From %1":"От %1","To %1":"До %1"}}));

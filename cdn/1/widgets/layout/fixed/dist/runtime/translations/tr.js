@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Sabit Panel",widgetProperties:"Araç özellikleri",widgetFunctions:"Araç işlevleri",widgetName:"araç adı:",widgetProps:"araç özellikleri:",tips:"Sabit Panel"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Sabit Panel",widgetProperties:"Ara\xe7 \xf6zellikleri",widgetFunctions:"Ara\xe7 i\u015flevleri",widgetName:"ara\xe7 ad\u0131:",widgetProps:"ara\xe7 \xf6zellikleri:",tips:"Sabit Panel"})}}}));

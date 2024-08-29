@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"固定面板",widgetProperties:"Widget 屬性",widgetFunctions:"Widget 函數",widgetName:"widget 名稱:",widgetProps:"widget 屬性:",tips:"固定面板"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\u56fa\u5b9a\u9762\u677f",widgetProperties:"Widget \u5c6c\u6027",widgetFunctions:"Widget \u51fd\u6578",widgetName:"widget \u540d\u7a31:",widgetProps:"widget \u5c6c\u6027:",tips:"\u56fa\u5b9a\u9762\u677f"})}}}));

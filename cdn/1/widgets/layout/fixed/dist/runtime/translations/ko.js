@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"고정 패널",widgetProperties:"위젯 등록정보",widgetFunctions:"위젯 기능",widgetName:"위젯 이름:",widgetProps:"위젯 속성:",tips:"고정 패널"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\uace0\uc815 \ud328\ub110",widgetProperties:"\uc704\uc82f \ub4f1\ub85d\uc815\ubcf4",widgetFunctions:"\uc704\uc82f \uae30\ub2a5",widgetName:"\uc704\uc82f \uc774\ub984:",widgetProps:"\uc704\uc82f \uc18d\uc131:",tips:"\uace0\uc815 \ud328\ub110"})}}}));

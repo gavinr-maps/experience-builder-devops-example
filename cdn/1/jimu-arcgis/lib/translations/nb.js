@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Denne lagtypen støttes ikke."})}}}));
+System.register([],(function(e){return{execute:function(){e({layerIsNotSupported:"Denne lagtypen st\xf8ttes ikke."})}}}));

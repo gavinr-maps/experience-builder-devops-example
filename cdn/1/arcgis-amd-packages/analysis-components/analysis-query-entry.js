@@ -1,1 +1,0 @@
-define(["exports","./analysis-query-entry2-c95d7a4d","./index-86304dcd","./t9n-cc9a26c8"],(function(e,n,t,s){"use strict";const d=n.AnalysisQueryEntry,i=n.defineCustomElement;e.AnalysisQueryEntry=d,e.defineCustomElement=i,Object.defineProperty(e,"__esModule",{value:!0})}));

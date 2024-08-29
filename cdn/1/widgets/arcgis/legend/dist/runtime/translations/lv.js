@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Apzīmējumi"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Apz\u012bm\u0113jumi"})}}}));

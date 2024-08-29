@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Panou fix",widgetProperties:"Proprietăți widget",widgetFunctions:"Funcții widget",widgetName:"Nume widget:",widgetProps:"Proprietăți widget:",tips:"Panou fix"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Panou fix",widgetProperties:"Propriet\u0103\u021bi widget",widgetFunctions:"Func\u021bii widget",widgetName:"Nume widget:",widgetProps:"Propriet\u0103\u021bi widget:",tips:"Panou fix"})}}}));

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"텍스트",defaultPlaceholder:"텍스트를 편집하려면 더블 클릭"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\ud14d\uc2a4\ud2b8",defaultPlaceholder:"\ud14d\uc2a4\ud2b8\ub97c \ud3b8\uc9d1\ud558\ub824\uba74 \ub354\ube14 \ud074\ub9ad"})}}}));

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Riquadro fisso",widgetProperties:"Proprietà del widget",widgetFunctions:"Funzioni del widget",widgetName:"nome del widget:",widgetProps:"proprietà del widget:",tips:"Riquadro fisso"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Riquadro fisso",widgetProperties:"Propriet\xe0 del widget",widgetFunctions:"Funzioni del widget",widgetName:"nome del widget:",widgetProps:"propriet\xe0 del widget:",tips:"Riquadro fisso"})}}}));

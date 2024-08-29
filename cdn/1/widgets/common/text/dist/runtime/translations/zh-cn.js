@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"文本",defaultPlaceholder:"双击以编辑文本"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\u6587\u672c",defaultPlaceholder:"\u53cc\u51fb\u4ee5\u7f16\u8f91\u6587\u672c"})}}}));

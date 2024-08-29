@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({verticalAlignment:"垂直方向の配置"})}}}));
+System.register([],(function(e){return{execute:function(){e({verticalAlignment:"\u5782\u76f4\u65b9\u5411\u306e\u914d\u7f6e"})}}}));

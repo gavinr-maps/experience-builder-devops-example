@@ -14,5 +14,6 @@ export default {
   appearanceTip: 'Select the widgets inside the Widget Controller, and customize their icons, labels, or styles to change their appearances.',
   widgetPanelArrangment: 'Widget panel arrangement',
   panelFloating: 'Floating',
-  positionAndSize: 'Position & size'
+  indicator: 'Indicator',
+  messageAction_openWidget: 'Open widget'
 }

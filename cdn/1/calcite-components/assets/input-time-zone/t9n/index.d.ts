@@ -1,5 +1,7 @@
 export type InputTimeZoneMessages = {
   chooseTimeZone: string;
+  offsetPlaceholder: string;
+  namePlaceholder: string;
   timeZoneLabel: string;
   "Africa/Abidjan": string;
   "Africa/Accra": string;

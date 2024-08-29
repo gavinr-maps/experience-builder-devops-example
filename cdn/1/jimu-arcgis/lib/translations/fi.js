@@ -1,1 +1,1 @@
-System.register([],(function(t){return{execute:function(){t({layerIsNotSupported:"Tätä karttatason tyyppiä ei tueta."})}}}));
+System.register([],(function(t){return{execute:function(){t({layerIsNotSupported:"T\xe4t\xe4 karttatason tyyppi\xe4 ei tueta."})}}}));

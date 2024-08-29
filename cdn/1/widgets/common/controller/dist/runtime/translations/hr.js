@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontoler widgeta"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kontoler widgeta",_action_openWidget_label:"Otvori widget",resizerTooltip:"Prilagodite veli\u010dinu prozora povla\u010denjem i ispu\u0161tanjem."})}}}));
