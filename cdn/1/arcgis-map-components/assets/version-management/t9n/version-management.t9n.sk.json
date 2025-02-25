@@ -2,11 +2,12 @@
   "label": "Správa verzií",
   "actions": {
     "cancelSave": "Zrušiť",
-    "newVersion": "Nová verzia",
+    "deleteVersion": "Zmazať",
     "editVersion": "Nastavenie verzií",
+    "newVersion": "Nová verzia",
     "refreshVersions": "Obnoviť zoznam",
-    "searchVersions": "Hľadať v mojich verziách",
     "saveVersion": "Uložiť",
+    "searchVersions": "Vyhľadať podľa názvu alebo vlastníka",
     "switchToVersion": "Prepnúť na verziu"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Nebola nájdená žiadna služba VersionManagementService."
   },
   "headers": {
+    "currentVersion": "Používaná verzia",
     "manageVersions": "Spravovať verzie"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Vlastník"
   },
   "loadErrors": {
-    "noFeatureServices": "V \\'layers\\' neboli nájdené žiadne prvkové služby featureServices.",
-    "noLayersProperty": "Vlastnosť \\'layers\\' chýba v modeli VersionManagementViewModel."
+    "noFeatureServices": "V 'layers' neboli nájdené žiadne prvkové služby featureServices.",
+    "noViewProperty": "Vlastnosť \"pohľad\" chýba v VersionManagementViewModel."
   }
 }

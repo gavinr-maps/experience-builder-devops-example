@@ -2,11 +2,12 @@
   "label": "Versiyon yönetimi",
   "actions": {
     "cancelSave": "İptal",
-    "newVersion": "Yeni versiyon",
+    "deleteVersion": "Sil",
     "editVersion": "Versiyon ayarları",
+    "newVersion": "Yeni versiyon",
     "refreshVersions": "Listeyi yenile",
-    "searchVersions": "Versiyonlarımı ara",
     "saveVersion": "Kaydet",
+    "searchVersions": "Adı veya sahibiyle ara",
     "switchToVersion": "Versiyona geç"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "VersionManagementService bulunamadı."
   },
   "headers": {
+    "currentVersion": "Geçerli sürüm",
     "manageVersions": "Versiyonları yönet"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Sahip"
   },
   "loadErrors": {
-    "noFeatureServices": "\\\"Katmanlarda\\\" featureServices bulunamadı.",
-    "noLayersProperty": "VersionManagementViewModel üzerinde özellik \\\"katmanları\\\" eksik."
+    "noFeatureServices": "\"Katmanlarda\" featureServices bulunamadı.",
+    "noViewProperty": "VersionManagementViewModel üzerinde özellik \"görünümü\" eksik."
   }
 }

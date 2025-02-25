@@ -2,11 +2,12 @@
   "label": "버전 관리",
   "actions": {
     "cancelSave": "취소",
-    "newVersion": "새 버전",
+    "deleteVersion": "삭제",
     "editVersion": "버전 설정",
+    "newVersion": "새 버전",
     "refreshVersions": "목록 새로 고침",
-    "searchVersions": "내 버전 검색",
     "saveVersion": "저장",
+    "searchVersions": "이름 또는 소유자로 검색",
     "switchToVersion": "버전으로 전환"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "VersionManagementService를 찾을 수 없습니다."
   },
   "headers": {
+    "currentVersion": "현재 버전",
     "manageVersions": "버전 관리"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "소유자"
   },
   "loadErrors": {
-    "noFeatureServices": "\\'layers\\'에서 featureServices를 찾을 수 없습니다.",
-    "noLayersProperty": "VersionManagementViewModel에 \\'layers\\' 등록정보가 누락되어 있습니다."
+    "noFeatureServices": "'layers'에서 featureServices를 찾을 수 없습니다.",
+    "noViewProperty": "VersionManagementViewModel에 'view' 등록정보가 누락되어 있습니다."
   }
 }

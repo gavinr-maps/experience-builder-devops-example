@@ -2,11 +2,12 @@
   "label": "การจัดการเวอร์ชัน",
   "actions": {
     "cancelSave": "ยกเลิก",
-    "newVersion": "เวอร์ชันใหม่",
+    "deleteVersion": "ลบ",
     "editVersion": "การตั้งค่าเวอร์ชัน",
+    "newVersion": "เวอร์ชันใหม่",
     "refreshVersions": "รีเฟรชรายการ",
-    "searchVersions": "ค้นหาเวอร์ชันของฉัน",
     "saveVersion": "จัดเก็บ",
+    "searchVersions": "ค้นหาตามชื่อหรือเจ้าของ",
     "switchToVersion": "สลับเป็นเวอร์ชัน"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "ไม่พบ VersionManagementService"
   },
   "headers": {
+    "currentVersion": "เวอร์ชันปัจจุบัน",
     "manageVersions": "จัดการเวอร์ชัน"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "เจ้าของ"
   },
   "loadErrors": {
-    "noFeatureServices": "ไม่พบฟีเจอร์เซอร์วิสใน \\'layers\\'",
-    "noLayersProperty": "ไม่มีคุณสมบัติ \\'layers\\' ใน VersionManagementViewModel"
+    "noFeatureServices": "ไม่พบฟีเจอร์เซอร์วิสใน 'layers'",
+    "noViewProperty": "ไม่มีคุณสมบัติ 'view' ใน VersionManagementViewModel"
   }
 }

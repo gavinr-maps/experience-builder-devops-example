@@ -8,5 +8,8 @@ export default {
   decreaseTransparency: 'Decrease transparency',
   showLabels: 'Show labels',
   hideLabels: 'Hide labels',
-  emptyListTip: 'There are currently no items to display'
+  emptyListTip: 'There are currently no items to display',
+  enablePopup: 'Enable pop-up',
+  disablePopup: 'Disable pop-up',
+  tables: 'Tables'
 }

@@ -15,14 +15,15 @@
         window.onbeforeunload = () => {
           console.log('onbeforeunload');
         }
-        if(hash.error){
+        // since 2024.R3, online rest-api uses query error to instead of hash error
+        if(hash.error || query.error) {
           const {portal, clientId, isDevEdition, mountPath} = query;
           if(popup) {
             // SessionManager.signIn listens for popup window closing.
             completeOAuth2(query, popup)
           } else {
-            // sign-in canceld error is 'access_denied'
-            const errorCode = hash.messageCode || hash.error
+            // sign-in canceled error is 'access_denied'
+            const errorCode = hash.messageCode || hash.error || query.messageCode || query.error
             if (isDevEdition === 'true') {
               // Redirect to set-portalUrl page with 'oauth error code'
               const mountPathFinal = mountPath ? mountPath : '/'
@@ -45,7 +46,7 @@
           openerHref = '';
         }
         let usePopupWindow;
-        // Normall we only need to check 'opener' to know whether use popup window for sign-in, except for one situation:
+        // Normally, we only need to check 'opener' to know whether use popup window for sign-in, except for one situation:
         //   Launch Exb from appLauncher (or create button) of online/portal.
         //   1, Normal popup sign-in:
         //        'window.location.origin': 'experience_or_portal.arcgis.com'
@@ -77,13 +78,23 @@
             if (stateId && !stateIdInCurrentWin) {
               window.localStorage.setItem(stateStorageKey, stateId);
             }
+            const codeVerifierStorageKey = `ARCGIS_REST_JS_CODE_VERIFIER_${query.clientId}`;
+            const codeVerifier = window.opener.localStorage.getItem(codeVerifierStorageKey)
+            const codeVerifierInCurrentWin = window.localStorage.getItem(codeVerifierStorageKey)
+            if (codeVerifier && !codeVerifierInCurrentWin) {
+              window.localStorage.setItem(codeVerifierStorageKey, codeVerifier);
+            }
           }
           completeOAuth2(query, popup)
-          // For popup login, we dont writeAuthInfo here, it's written in SessionManager(for main portal only)
+          // For popup login, we don't writeAuthInfo here, it's written in SessionManager(for main portal only)
         }else {
           completeOAuth2(query, popup).then(session => {
             writeAuthInfo(session, query, hash);
-            window.location.href = decodeURIComponent(query.fromUrl);
+            window.location.href = query.fromUrl;
+            // window.location.href will not reload the page if there's an anchor (#) in the URL.
+            if (window.location.hash) {
+              window.location.reload()
+            }
           });
         }
       }
@@ -185,21 +196,6 @@
           customBaseUrl,
           schema
         }
-      }
-
-      function _isArcgisUrl(url, isHostname){
-        if(!url)return false;
-        let hostname = url;
-        if(!isHostname){
-          hostname = _getHostname(url);
-          if(!hostname)return false;
-        }
-        hostname = hostname.toLowerCase();
-        return (hostname.indexOf('.arcgis.com') > -1 || hostname === 'arcgis.com');
-      }
-
-      function _canWriteCookie(clientId){
-        return !_isArcgisUrl(window.location.hostname, true) || clientId !== 'experienceBuilder'
       }
 
       function writeAuthInfo(session, query, hash) {

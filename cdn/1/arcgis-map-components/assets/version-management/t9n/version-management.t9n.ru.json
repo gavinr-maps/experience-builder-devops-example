@@ -2,11 +2,12 @@
   "label": "Управление версиями",
   "actions": {
     "cancelSave": "Отмена",
-    "newVersion": "Новая версия",
+    "deleteVersion": "Удалить",
     "editVersion": "Настройки версии",
+    "newVersion": "Новая версия",
     "refreshVersions": "Обновить список",
-    "searchVersions": "Поиск в моих версиях",
     "saveVersion": "Сохранить",
+    "searchVersions": "Найти по имени или владельцу",
     "switchToVersion": "Переключиться на версию"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "VersionManagementService не найден."
   },
   "headers": {
+    "currentVersion": "Текущая версия",
     "manageVersions": "Управление версиями"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Владелец"
   },
   "loadErrors": {
-    "noFeatureServices": "FeatureServices не найдены в \\'layers\\'.",
-    "noLayersProperty": "Свойство \\'layers\\' отсутствует в VersionManagementViewModel."
+    "noFeatureServices": "FeatureServices не найдены в 'layers'.",
+    "noViewProperty": "Свойство 'view' отсутствует в VersionManagementViewModel."
   }
 }

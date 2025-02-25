@@ -2,11 +2,12 @@
   "label": "Administración de versiones",
   "actions": {
     "cancelSave": "Cancelar",
-    "newVersion": "Nueva versión",
+    "deleteVersion": "Eliminar",
     "editVersion": "Configuración de versión",
+    "newVersion": "Nueva versión",
     "refreshVersions": "Refrescar lista",
-    "searchVersions": "Buscar en mis versiones",
     "saveVersion": "Guardar",
+    "searchVersions": "Buscar por nombre o propietario",
     "switchToVersion": "Cambiar a versión"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "No se ha encontrado ningún VersionManagementService."
   },
   "headers": {
+    "currentVersion": "Versión actual",
     "manageVersions": "Administrar versiones"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Propietario"
   },
   "loadErrors": {
-    "noFeatureServices": "No se ha encontrado ningún featureServices en \\'capas\\'.",
-    "noLayersProperty": "Falta la propiedad \\'capas\\' en VersionManagementViewModel."
+    "noFeatureServices": "No se ha encontrado ningún featureServices en 'capas'.",
+    "noViewProperty": "Falta la propiedad 'vista' en VersionManagementViewModel."
   }
 }

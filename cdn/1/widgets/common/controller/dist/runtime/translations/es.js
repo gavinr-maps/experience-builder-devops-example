@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controlador de widget",_action_openWidget_label:"Abrir widget",resizerTooltip:"Personalice el tama\xf1o de la ventana arrastrando y soltando."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controlador de widget",_action_openWidget_label:"Abrir widget",resizerTooltip:"Personalice el tama\xf1o de la ventana arrastrando y soltando.",moreWidgets:"M\xe1s widgets"})}}}));

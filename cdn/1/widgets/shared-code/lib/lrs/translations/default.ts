@@ -22,6 +22,7 @@ export default {
   invalidString: 'Value exceeds maximum length of field',
   invalidDate: 'Invalid date.',
   invalidRange: 'Value exceeds min or max values of range.',
+  contingentValueError: 'Invalid contingent value in the field',
 
   // route-picker-popup
   selectRouteLabel: 'Select Route',
@@ -53,12 +54,18 @@ export default {
   hideNetwork: 'Hide Network',
   hideEvent: 'Hide Event',
   hideMethod: 'Hide Method',
+  hideRoute: 'Hide Route in Search by Line',
   hideType: 'Hide Type',
   hideAttributeSet: 'Hide Attribute Set',
   hideMeasures: 'Hide Measures',
   hideDates: 'Hide Dates',
   useRoutesStartEndDates: 'Use Routes Start and End Dates',
   useRoutesStartEndDatesTooltip: 'Routes start/end dates will be used for new events. If disabled, the current date will be used.',
+  selectMap: 'Select Map',
+  loadLayers: 'Load layers',
+  clearLayers: 'Clear layers',
+  removeLayer: 'Remove',
+  missingParentNetwork: 'Parent network is missing',
 
   // add events, split event, merge events
   inches: 'Inches (US Survey)',

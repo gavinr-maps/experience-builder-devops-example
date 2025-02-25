@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controlador de Widget",_action_openWidget_label:"Abrir widget",resizerTooltip:"Personalize o tamanho da janela arrastando e soltando."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Controlador de Widget",_action_openWidget_label:"Abrir widget",resizerTooltip:"Personalize o tamanho da janela arrastando e soltando.",moreWidgets:"Mais widgets"})}}}));

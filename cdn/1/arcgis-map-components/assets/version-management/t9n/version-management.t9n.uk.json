@@ -2,11 +2,12 @@
   "label": "Керування версіями",
   "actions": {
     "cancelSave": "Скасувати",
-    "newVersion": "Нова версія",
+    "deleteVersion": "Видалити",
     "editVersion": "Налаштування версії",
+    "newVersion": "Нова версія",
     "refreshVersions": "Оновити список",
-    "searchVersions": "Пошук у моїх версіях",
     "saveVersion": "Зберегти",
+    "searchVersions": "Пошук за назвою або власником",
     "switchToVersion": "Перейти на мою версію"
   },
   "accessLevels": {
@@ -15,13 +16,14 @@
     "public": "Публічний"
   },
   "executionErrors": {
-    "invalidVersionName": "Неприпустиме ім\\'я версії.",
+    "invalidVersionName": "Неприпустиме ім'я версії.",
     "noAdvancedEditingUserTypeExtension": "Обліковий запис, який увійшов до системи, не має ліцензії на додатковий модуль типу користувача розширеного редагування.",
     "noFeatureServiceFound": "FeatureService не знайдено.",
     "notValidEnterpriseVersion": "API керування версіями потребує ArcGIS Enterprise версії 11.2 або новішої.",
     "noVersionManagementServiceFound": "VersionManagementService не знайдено."
   },
   "headers": {
+    "currentVersion": "Поточна версія",
     "manageVersions": "Керування версіями"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "У «шарах» не знайдено FeatureServices.",
-    "noLayersProperty": "Властивість «шари» відсутня у VersionManagementViewModel."
+    "noViewProperty": "Властивість «вид» відсутня у VersionManagementViewModel."
   }
 }

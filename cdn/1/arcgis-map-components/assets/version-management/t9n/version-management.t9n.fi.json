@@ -2,11 +2,12 @@
   "label": "Versionhallinta",
   "actions": {
     "cancelSave": "Peruuta",
-    "newVersion": "Uusi versio",
+    "deleteVersion": "Poista",
     "editVersion": "Version asetukset",
+    "newVersion": "Uusi versio",
     "refreshVersions": "Päivitä luettelo",
-    "searchVersions": "Hae omista versioista",
     "saveVersion": "Tallenna",
+    "searchVersions": "Hae nimen tai omistajan mukaan",
     "switchToVersion": "Vaihda versioon"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "VersionManagementService-kohdetta ei löytynyt."
   },
   "headers": {
+    "currentVersion": "Nykyinen versio",
     "manageVersions": "Hallitse versioita"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "FeatureServices-kohteita ei löytynyt karttatasot-ominaisuudesta.",
-    "noLayersProperty": "Karttatasot-ominaisuus puuttuu kohteesta VersionManagementViewModel."
+    "noViewProperty": "Näkymä-ominaisuus puuttuu VersionManagementViewModel-kohteesta."
   }
 }

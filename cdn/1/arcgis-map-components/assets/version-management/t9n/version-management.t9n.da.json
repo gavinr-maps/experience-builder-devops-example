@@ -2,11 +2,12 @@
   "label": "Versionsstyring",
   "actions": {
     "cancelSave": "Annuller",
-    "newVersion": "Ny version",
+    "deleteVersion": "Slet",
     "editVersion": "Versionsindstillinger",
+    "newVersion": "Ny version",
     "refreshVersions": "Opdater liste",
-    "searchVersions": "Søg i mine versioner",
     "saveVersion": "Gem",
+    "searchVersions": "Søg efter navn eller ejer",
     "switchToVersion": "Skift til version"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Ingen VersionManagementService blev fundet."
   },
   "headers": {
+    "currentVersion": "Aktuel version",
     "manageVersions": "Administrér versioner"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Ejer"
   },
   "loadErrors": {
-    "noFeatureServices": "Ingen featureServices blev fundet i \\'lag\\'.",
-    "noLayersProperty": "Egenskaben \\'lag\\' mangler på VersionManagementViewModel."
+    "noFeatureServices": "Ingen featureServices blev fundet i 'lag'.",
+    "noViewProperty": "Egenskaben 'vis' mangler på VersionManagementViewModel."
   }
 }

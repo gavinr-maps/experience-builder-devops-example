@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget-Controller",_action_openWidget_label:"Widget \xf6ffnen",resizerTooltip:"Die Fenstergr\xf6\xdfe per Drag\xa0&\xa0Drop anpassen."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget-Controller",_action_openWidget_label:"Widget \xf6ffnen",resizerTooltip:"Die Fenstergr\xf6\xdfe per Drag\xa0&\xa0Drop anpassen.",moreWidgets:"Weitere Widgets"})}}}));

@@ -2,11 +2,12 @@
   "label": "バージョン管理",
   "actions": {
     "cancelSave": "キャンセル",
-    "newVersion": "新規バージョン",
+    "deleteVersion": "削除",
     "editVersion": "バージョン設定",
+    "newVersion": "新規バージョン",
     "refreshVersions": "リストの更新",
-    "searchVersions": "バージョンの検索",
     "saveVersion": "保存",
+    "searchVersions": "名前や所有者で検索",
     "switchToVersion": "バージョンに切り替える"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "VersionManagementService が見つかりませんでした。"
   },
   "headers": {
+    "currentVersion": "現在のバージョン",
     "manageVersions": "バージョンの管理"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "レイヤーに FeatureService が見つかりませんでした。",
-    "noLayersProperty": "VersionManagementViewModel にプロパティ レイヤーがありません。"
+    "noViewProperty": "VersionManagementViewModel にプロパティ「view」がありません。"
   }
 }

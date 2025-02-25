@@ -2,11 +2,12 @@
   "label": "Διαχείριση έκδοσης",
   "actions": {
     "cancelSave": "Ακύρωση",
-    "newVersion": "Νέα έκδοση",
+    "deleteVersion": "Διαγραφή",
     "editVersion": "Ρυθμίσεις έκδοσης",
+    "newVersion": "Νέα έκδοση",
     "refreshVersions": "Ανανέωση λίστας",
-    "searchVersions": "Αναζήτηση των εκδόσεών μου",
     "saveVersion": "Αποθήκευση",
+    "searchVersions": "Αναζήτηση ανά όνομα ή κάτοχο",
     "switchToVersion": "Εναλλαγή στην έκδοση"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Δεν βρέθηκε VersionManagementService."
   },
   "headers": {
+    "currentVersion": "Τρέχουσα έκδοση",
     "manageVersions": "Διαχείριση εκδόσεων"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "Δεν βρέθηκαν featureServices στα «θεματικά επίπεδα».",
-    "noLayersProperty": "Η ιδιότητα «θεματικά επίπεδα» λείπει στο VersionManagementViewModel."
+    "noViewProperty": "Η ιδιότητα «προβολή» λείπει στο VersionManagementViewModel."
   }
 }

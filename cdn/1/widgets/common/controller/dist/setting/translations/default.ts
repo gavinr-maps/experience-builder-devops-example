@@ -7,13 +7,16 @@ export default {
   showIconLabel: 'Label',
   iconSizeOverride: 'Size',
   iconInterval: 'Spacing',
-  textFormatOverride: 'Text',
-  iconBackgroundOverride: 'Icon',
+  advancedIconStyle: 'Icon style',
+  advancedIconColor: 'Icon color',
   openStart: 'Open widgets on loading',
   widgetsSelected: '{widgetNumber} widgets selected',
   appearanceTip: 'Select the widgets inside the Widget Controller, and customize their icons, labels, or styles to change their appearances.',
+  appearanceTipExpress: 'Customize widget icon styles within the Widget Controller to change their appearances.',
   widgetPanelArrangment: 'Widget panel arrangement',
   panelFloating: 'Floating',
   indicator: 'Indicator',
-  messageAction_openWidget: 'Open widget'
+  messageAction_openWidget: 'Open widget',
+  overflownStyle: 'Overflown style',
+  popupWindow: 'Popup window'
 }

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widgetkontroller",_action_openWidget_label:"\xd6ppna widget",resizerTooltip:"Anpassa f\xf6nsterstorleken genom att dra och sl\xe4ppa."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widgetkontroller",_action_openWidget_label:"\xd6ppna widget",resizerTooltip:"Anpassa f\xf6nsterstorleken genom att dra och sl\xe4ppa.",moreWidgets:"Fler widgetar"})}}}));

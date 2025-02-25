@@ -7,12 +7,14 @@ export default {
   setVisibility: 'Toggle layer visibility',
   showOrHideLabels: 'Show or hide labels',
   showLayerForMap: 'Show layers for map data only',
-  enableCustomizeLayers: 'Enable customize layers',
   customizeLayerDesc: 'Select the layers to display for users.',
   customizeLayerWarnings: 'The selected Map widget does not contain a web map or web scene.',
   enableLegend: 'Show legend',
   showAllLegend: 'Show legend for all visible layers by default',
   useTickBoxes: 'Use tick boxes to control layer visibility',
   reorderLayers: 'Reorder layers',
-  searchLayers: 'Search layers'
+  searchLayers: 'Search layers',
+  showTables: 'Show tables',
+  popup: 'Enable or disable pop-up',
+  customizeDescription: 'Specify which layers will be displayed for each map'
 }

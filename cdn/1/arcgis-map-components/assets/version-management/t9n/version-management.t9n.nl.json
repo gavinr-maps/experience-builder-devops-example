@@ -2,11 +2,12 @@
   "label": "Versiebeheer",
   "actions": {
     "cancelSave": "Annuleren",
-    "newVersion": "Nieuwe versie",
+    "deleteVersion": "Verwijderen",
     "editVersion": "Versie-instellingen",
+    "newVersion": "Nieuwe versie",
     "refreshVersions": "Lijst vernieuwen",
-    "searchVersions": "Mijn versies zoeken",
     "saveVersion": "Opslaan",
+    "searchVersions": "Zoeken op naam of eigenaar",
     "switchToVersion": "Overschakelen op versie"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Kan geen VersionsManagementService vinden."
   },
   "headers": {
+    "currentVersion": "Huidige versie",
     "manageVersions": "Versies beheren"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Eigenaar"
   },
   "loadErrors": {
-    "noFeatureServices": "Kan geen featureServices vinden in \\'lagen\\'.",
-    "noLayersProperty": "Eigenschap \\'lagen\\' ontbreekt in VersionManagementViewModel."
+    "noFeatureServices": "Kan geen featureServices vinden in 'lagen'.",
+    "noViewProperty": "Eigenschap 'view' ontbreekt in VersionManagementViewModel."
   }
 }

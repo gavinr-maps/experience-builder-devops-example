@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Logr\u012bka kontrolleris",_action_openWidget_label:"Atv\u0113rt logr\u012bku",resizerTooltip:"Piel\u0101gojiet loga lielumu, velkot un nometot."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Logr\u012bka kontrolleris",_action_openWidget_label:"Atv\u0113rt logr\u012bku",resizerTooltip:"Piel\u0101gojiet loga lielumu, velkot un nometot.",moreWidgets:"Vair\u0101k logr\u012bku"})}}}));

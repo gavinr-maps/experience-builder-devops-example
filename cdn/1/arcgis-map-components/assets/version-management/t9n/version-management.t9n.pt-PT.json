@@ -2,11 +2,12 @@
   "label": "Gestão de versões",
   "actions": {
     "cancelSave": "Cancelar",
-    "newVersion": "Nova versão",
+    "deleteVersion": "Eliminar",
     "editVersion": "Definições da versão",
+    "newVersion": "Nova versão",
     "refreshVersions": "Atualizar lista",
-    "searchVersions": "Pesquisar as minhas versões",
     "saveVersion": "Guardar",
+    "searchVersions": "Pesquisar por nome ou proprietário",
     "switchToVersion": "Mudar para versão"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Não foi encontrado nenhum VersionManagementService."
   },
   "headers": {
+    "currentVersion": "Versão atual",
     "manageVersions": "Gerir versões"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Proprietário"
   },
   "loadErrors": {
-    "noFeatureServices": "Não foram encontrados featureServices em \\'layers\\'.",
-    "noLayersProperty": "A propriedade \\'layers\\' está em falta no VersionManagementViewModel."
+    "noFeatureServices": "Não foram encontrados featureServices em 'layers'.",
+    "noViewProperty": "A propriedade 'view' está em falta no VersionManagementViewModel."
   }
 }

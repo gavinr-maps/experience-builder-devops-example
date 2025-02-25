@@ -2,11 +2,12 @@
   "label": "Управление на версия",
   "actions": {
     "cancelSave": "Отказ",
-    "newVersion": "Нова версия",
+    "deleteVersion": "Изтриване",
     "editVersion": "Настройки на версия",
+    "newVersion": "Нова версия",
     "refreshVersions": "Обновяване на списъка",
-    "searchVersions": "Търсене в моите версии",
     "saveVersion": "Запазване",
+    "searchVersions": "Търсене по име или собственик",
     "switchToVersion": "Превключване към версия"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Не е намерена VersionManagementService (Услуга за управление на версия)"
   },
   "headers": {
+    "currentVersion": "Текущата версия",
     "manageVersions": "Управление на версиите"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "В „слоеве“ не бяха открити featureServices (Услуги за обект).",
-    "noLayersProperty": "Свойството „слоеве“ липсва на VersionManagementViewModel (Модел на изглед за управление на версията)."
+    "noViewProperty": "Свойството „изглед“ липсва на VersionManagementViewModel."
   }
 }

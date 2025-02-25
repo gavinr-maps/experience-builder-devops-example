@@ -2,11 +2,12 @@
   "label": "版本管理",
   "actions": {
     "cancelSave": "取消",
-    "newVersion": "新建版本",
+    "deleteVersion": "删除",
     "editVersion": "版本设置",
+    "newVersion": "新建版本",
     "refreshVersions": "刷新列表",
-    "searchVersions": "搜索我的版本",
     "saveVersion": "保存",
+    "searchVersions": "按名称或所有者搜索",
     "switchToVersion": "切换到版本"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "未找到 VersionManagementService。"
   },
   "headers": {
+    "currentVersion": "目前版本",
     "manageVersions": "管理版本"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "在图层中未发现任何 featureServices。",
-    "noLayersProperty": "VersionManagementViewModel 上缺少属性“图层”。"
+    "noViewProperty": "VersionManagementViewModel 上缺少属性“view”。"
   }
 }

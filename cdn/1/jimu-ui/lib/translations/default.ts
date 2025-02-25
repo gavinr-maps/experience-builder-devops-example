@@ -91,6 +91,7 @@ export default {
   dragHandler: 'Drag handler',
   transparency: 'Transparency',
   selectMapHint: 'Select a map for further configurations.',
+  selectLayer: 'Select layer',
   openInNewWindow: 'Open in a new window',
   // chart
   guide: 'Guide',
@@ -105,7 +106,7 @@ export default {
   stacked: 'Stacked',
   stacked100: '100% Stacked',
   decimal: 'Decimal',
-  show1000Seperator: 'Show thousand seperator',
+  show1000Separator: 'Show thousand separator',
   notation: 'Notation',
   compact: 'Compact',
   scientific: 'Scientific',
@@ -117,6 +118,8 @@ export default {
   sumOfValue: 'Sum of value',
   selection: 'Selection',
   existing: 'Existing',
+  discrete: 'Discrete',
+  continuous: 'Continuous',
   min: 'Min',
   max: 'Max',
   sum: 'Sum',
@@ -125,7 +128,7 @@ export default {
   median: 'Median',
   minimumValue: 'Minimum value',
   maximumValue: 'Maximum value',
-  noAgregation: 'No aggregation',
+  noAggregation: 'No aggregation',
   sumOfField: 'Sum of {field}',
   meanOfField: 'Mean of {field}',
   minOfField: 'Minimum of {field}',
@@ -177,6 +180,9 @@ export default {
   sliderColor: 'Slider color',
   thumb: 'Thumb',
   thumbHandle: 'Thumb handle',
+  manageViews: 'Manage views',
+  manageViewsTips: 'To reorder views, drag and drop a view to a new position in the list. Grouping views is not supported.',
+  addAView: 'Add view',
 
   sqlExprIncomplete: 'SQL expression is incomplete. Please complete it first.',
   // predefinedValueInValidTip: 'Invalid or duplicate values will be removed.',
@@ -245,8 +251,9 @@ export default {
   displayLabel: 'Display label',
   askForValues: 'Ask for values',
   chooseStyle: 'Choose input style',
-  invalidStyleWarnning: 'Too many values for this style. Please choose another one.',
+  invalidStyleWarning: 'Too many values for this style. Please choose another one.',
   value: 'Value',
+  values: 'Values',
   percentage: 'Percentage',
   label: 'Label',
   inlineLabel: 'Label position: wrap in different line with input',
@@ -409,7 +416,7 @@ export default {
   unlock: 'Unlock',
   changeUnit: 'Change unit',
   cornerRadius: 'Corner radius',
-  indepedentCorners: 'Independent corners',
+  independentCorners: 'Independent corners',
   gap: 'Gap',
   unit: 'Unit',
   unified: 'Unified',
@@ -419,6 +426,8 @@ export default {
   unifiedNumericValue: 'Unified numeric value',
   positionAndSize: 'Position & size',
   margins: 'Margins',
+  slideForward: 'Slide forward',
+  slideBackward: 'Slide backward',
   // rich-text-editor
   left: 'Left',
   top: 'Top',
@@ -437,6 +446,7 @@ export default {
   italic: 'Italic',
   underline: 'Underline',
   strike: 'Strikethrough',
+  fontStyleIneffective: '{fontStyle}, ineffective.',
   highlight: 'Highlight color',
   fontColor: 'Font color',
   fontStyle: 'Font style',
@@ -451,12 +461,14 @@ export default {
   indentLeft: 'Decrease indent',
   indentRight: 'Increase indent',
   normal: 'Normal',
+  headingTitle: 'Heading',
   h1: 'Heading 1',
   h2: 'Heading 2',
   h3: 'Heading 3',
   h4: 'Heading 4',
   h5: 'Heading 5',
   h6: 'Heading 6',
+  paragraph: 'Paragraph',
   clearAllFormats: 'Clear all formatting',
   textFormat: 'Text format',
   dynamicContent: 'Dynamic content',
@@ -540,14 +552,14 @@ export default {
 
   // components/sort
   ascending: 'Ascending',
-  decending: 'Descending',
+  descending: 'Descending',
   optionNamePlaceholder: 'Please enter the option name.',
   addOption: 'Add an option',
   option: 'Option',
-  addSortBtntext: 'Add a sort field',
+  addSortField: 'Add a sort field',
   noOptionRemindText: 'There is no option.',
   noSortRemindText: 'There is no sort field.',
-  pleaceAddOne: 'Please add one.',
+  pleaseAddOne: 'Please add one.',
   deleteOption: 'Delete',
 
   // data-source-selector
@@ -572,6 +584,7 @@ export default {
   containUtilitiesWithNum: 'Utilities: {utilityNum}',
   addDataByUrlHint: 'Feature service, map service, image service, and scene service with HTTPS are supported.',
   source: 'Source',
+  mode: 'Mode',
   settings: 'Settings',
   home: 'Home',
   widgets: 'Widgets',
@@ -610,6 +623,8 @@ export default {
   added: 'Added',
   outputs: 'Outputs',
   noAddedDataSourceCanBeUsed: 'No added data can be used.',
+  noDataCanBeUsedPleaseSelectDataForMap: 'No data can be used.<br/>Please select data for Map first.',
+  noDataIsAvailableForWidgetPleaseEnsureCorrectData: 'No data is available, or the added data does not match the required type for this widget. Please ensure correct data is added.',
   noSelectedType: 'No selected type.',
   noDataTypeInTheApp: 'No {dataType} in the app.',
   noWidgetOutputOfDataType: 'No widget output of {dataType}.',
@@ -643,7 +658,7 @@ export default {
   addDataErrorUnsupportedMap: 'This Web Map version is not supported.',
   addDataErrorInvalidBuildingSceneLayer: 'Building Scene layer without an associated feature layer is not supported.',
 
-  creatProxyToPublishAppError: 'Publish failed. Cannot create proxy for subscriber contents. Try again later or modify the authorization.',
+  createProxyToPublishAppError: 'Publish failed. Cannot create proxy for subscriber contents. Try again later or modify the authorization.',
 
   // item-selector/item-selector
   sort: 'Sort',
@@ -702,40 +717,12 @@ export default {
   // theme-components
   padding: 'Padding',
   paddingColor: 'Padding color',
-  waitForThemeList: 'Getting themes list...',
-  themeSectionColor: 'Color',
-  themeSectionFont: 'Font',
   themeSettingThemeColors: 'Theme colors',
+  themeSettingThemeFont: 'Theme font',
   themeSettingThemeColorsDescription: 'Change the look of your app by customizing your theme colors. When you change these colors here, they will affect where they are used',
   themeSettingThemeColorAdvanced: 'Advanced color setting',
   themeSettingColorMode: 'Color mode',
-  themeSettingColoration: 'Coloration',
-  themeSettingAppElements: 'App elements',
-  themeSettingAppElementsDescription: 'Define the colors for: header, body, and footer specifically.',
-  themeSettingAppElementsDescription2: "These colors can be overridden in the Page's settings panel.",
-  themeSettingThemeFont: 'Theme font',
-  themeSettingThemeFontset: 'Theme font set',
-  themeSettingSize: 'Size',
-  themeLight: 'Light',
-  themeDark: 'Dark',
-  themeColorationMinimal: 'Minimal',
-  themeColorationDefault: 'Default',
-  themeColorLighter: 'lighter',
-  themeColorLightest: 'lightest',
-  themeColorDarker: 'darker',
-  themeColorDarkest: 'darkest',
-  ThemeBrandColors: 'Brand colors',
-  ThemeAlertColors: 'Alert colors',
-  ThemeNeutualColors: 'Neutual colors',
-  themeFontDummyHeading: 'Heading',
-  themeFontDummyParagraph: 'Lorem ipsum dolor sitamet, tur adipiscing elit...',
-  themeSettingShowShadows: 'Show shadows',
-  // theme-components/fontset-configurator
-  themeHeadingTitle: 'Heading',
-  themeBodyTitle: 'Body',
-  // theme-components/inputs/
-  useSharedTheme: 'Use organization shared theme',
-  sharedThemeOrgNamePrefix: 'Shared theme from:',
+
   saveAs: 'Save as',
   variableColorPrimary: 'Primary',
   variableColorSecondary: 'Secondary',
@@ -762,9 +749,7 @@ export default {
   variableFooter: 'Footer',
   variableLink: 'Link',
   variableButton: 'Button',
-  variablePrimaryButton: 'Primary Button',
-  variableDefaultButton: 'Default Button',
-  variableSuefaces: 'Surfaces',
+  variableSurfaces: 'Surfaces',
   variableCustomPalette: 'Customize palette colors',
   variableCustomFontset: 'Customize font set',
   variableDescriptionPrimary: 'used to present primary UI elements, active states, or interactive sections',
@@ -781,7 +766,7 @@ export default {
   variableDescriptionSurfaces: 'The surfaces, such as containers and panels, in your app.',
   variableAddCustomFont: 'Add custom font',
   variableChangeCustomFont: 'Change custom font',
-  variableAddCustomFontNote: 'Currrently only one custom font can be added.',
+  variableAddCustomFontNote: 'Currently only one custom font can be added.',
   variableHeaderBackground: 'Header background',
   variableHeaderText: 'Header text',
   variableButtonBackground: 'Button background',
@@ -832,7 +817,8 @@ export default {
 
   // color-picker
   themeColor: 'Theme colors',
-  customColor: 'Custom colors',
+  customColor: 'Custom color',
+  customColors: 'Custom colors',
   moreColor: 'More colors',
   customize: 'Custom',
   recentColor: 'Recent colors',
@@ -863,7 +849,7 @@ export default {
   arcgisBlog: 'ArcGIS Blog',
   mySettings: 'My settings',
   communityAndForums: 'Community and Forums',
-  myesri: 'My Esri',
+  myEsri: 'My Esri',
   training: 'Training',
   profileLeave: 'Leave',
   profileLeaveSite: 'Leave site?',
@@ -893,7 +879,7 @@ export default {
   clamped2Ground: 'Clamped to ground',
   relative2Ground: 'Relative to ground',
   absolute: 'Absolute',
-  extendPath2Gground: 'Extend path to ground',
+  extendPath2Ground: 'Extend path to ground',
   // progress
   progressPCT: 'Progress percentage',
 
@@ -930,7 +916,7 @@ export default {
   SelectionWithin: 'Partially or completely within',
   SelectionContain: 'Completely contained by',
   SelectionZoomTo: 'Zoom to',
-  SelectionSeleted: 'selected',
+  SelectionSelected: 'selected',
   SelectionActions: 'Actions',
   SelectionFeaturesSelected: 'Features selected',
   SelectionSelectedFeatures: 'Selected features',
@@ -955,6 +941,8 @@ export default {
   drawToolPreview: 'Preview',
   drawToolSource: 'Source',
   drawToolOpacity: 'Opacity',
+  drawToolContent: 'Content',
+  drawToolTextPlaceholder: 'Enter text',
   drawToolStyles: 'Drawing styles',
   drawToolDash: 'Dash',
   drawToolDashDot: 'Dash dot',
@@ -967,17 +955,25 @@ export default {
   drawToolShortDashDotDot: 'Short dash dot dot',
   drawToolShortDot: 'Short dot',
   drawToolSolid: 'Solid',
+  drawToolRotation: 'Rotation',
+  drawToolOutline: 'Outline',
   // modes in draw
   drawToolSelectDrawMode: 'Select draw mode',
   drawModePoint: 'Point',
+  drawModeStamp: 'Stamp',
   drawModeLine: 'Line',
   drawModePolygon: 'Polygon',
   drawModeRectangle: 'Rectangle',
   drawModeCircle: 'Circle',
+  // tips for draw
+  drawTipsText: 'Draw a text',
   // decimal places
   decimalPlaces: 'Decimal places',
   // additional button in draw
   drawToolClearBtn: 'Clear all',
+  drawLayerGroupTitle: 'Drawings',
+  drawCanvasLayerTitle: 'Shapes',
+  drawMeasurementsLayerTitle: 'Measurements',
   // measurements in draw component
   drawToolShowLocationMeasurement: 'Show location measurement',
   drawToolShowLengthMeasurement: 'Show length measurement',
@@ -1068,61 +1064,13 @@ export default {
   closeTour: 'Close',
   skipTour: 'Skip',
   startTour: 'Start the tour',
-  finishTour: 'Finish',
+  finishTour: 'Got it',
   openTour: 'Open the tour',
   actionRequired: 'Action required',
   errorCannotFindNextStep: 'Could not find the next step. Please follow the instruction and try again.',
 
   // _link-tip
   linkPreviewTip: 'This link will work in Preview.',
-
-  // guide related strings
-  // guide opening guide
-  openingGuideStep1Title: 'Getting started',
-  openingGuideStep1Content: 'This tour will show you how to navigate in Experience Builder',
-  openingGuideStep2Title: 'Canvas',
-  openingGuideStep2Content: 'You can interact with widgets in your experience visually on the canvas.',
-  openingGuideStep3Title: 'Sidebar',
-  openingGuideStep3Content: 'Allows you to open the widget, page, data, and theme panels.',
-  openingGuideStep4Title: 'Insert widget',
-  openingGuideStep4Content: 'Click on the Map widget and drag it onto the canvas.',
-  openingGuideStep5Title: 'Resize widget',
-  openingGuideStep5Content: 'You can change the size of widget on the canvas.',
-  openingGuideStep7Title: 'Style',
-  openingGuideStep7Content: 'Click the Style tab to switch to the style setting panel.',
-  openingGuideStep8Title: 'Size and position',
-  openingGuideStep8Content: 'Click the Full size button located at the top right hand corner.',
-  openingGuideStep8Title2: 'Style',
-  openingGuideStep8Content2: 'Allows you to customize properties such as size, position, background, animation, border, and transform.',
-  openingGuideStep9Title: 'Action',
-  openingGuideStep9Content: 'Click the Action tab to switch to the action setting panel.',
-  openingGuideStep10Title: 'Action',
-  openingGuideStep10Content: 'Interactions between widgets can be configured using triggers and actions. Widget actions are in response to linked trigger actions in other widgets.',
-  openingGuideStep11Title: 'Header',
-  openingGuideStep11Content: 'Click Live view to make your experience interactive inside the builder.',
-  openingGuideStep12Title: 'Page',
-  openingGuideStep12Content: 'Shows the structure of your experience. You can create and organize pages and folders and change page settings.',
-  openingGuideStep13Title: 'Data',
-  openingGuideStep13Content: 'Displays all the data listed in your experience and the widgets connected to the data.',
-  openingGuideStep14Title: 'Theme',
-  openingGuideStep14Content: 'Defines the color scheme for the appearance of your experience.',
-  openingGuideStep15Title: 'End of tour',
-  openingGuideStep15Content: 'You can always return if you need a refresher.',
-
-  // guide datasource selection
-  DSSelectionStep1Title: 'Widget content',
-  DSSelectionStep1Content: 'Click on Select map to add a new data source.',
-  DSSelectionStep2Title: 'Add new data',
-  DSSelectionStep2Content: 'Click add new data and select a web map for a data source.',
-  DSSelectionStep3Title: 'Select data',
-  DSSelectionStep3Content: 'Click the web map in the select data panel.',
-  DSSelectionStep4Title: 'Widget content',
-  DSSelectionStep4Content: 'Click on Select data to add a new data source.',
-  DSSelectionStep5Title: 'Select data',
-  DSSelectionStep5Content: 'Click the feature layer in the select data panel.',
-  // guide insert widget
-  insertWidgetStep1Title: 'Insert widget',
-  insertWidgetStep1Content: 'Click on the widget and drag it onto the canvas.',
 
   // animation
   animation: 'Animation',
@@ -1206,6 +1154,9 @@ export default {
   goToPage: 'Go to page',
 
   addWidget: 'Add widget',
+  manageWidgets: 'Manage widgets',
+  manageWidgetsTips: 'To reorder widgets, drag and drop a widget to a new position in the list. A group will be created if a widget is dropped onto another item or an existing group.',
+  groupLabel: 'Group',
 
   noCommaInLabel: 'Comma is not allowed in the label',
   duplicatedLabel: 'The label is duplicated',
@@ -1246,7 +1197,7 @@ export default {
   recentSearches: 'Recent searches',
   maximumNumber: 'Maximum number',
   generalSearchOption: 'General search options',
-  multySearchHint: 'Hint for multiple search sources',
+  multiSearchHint: 'Hint for multiple search sources',
   findAddressOrPlace: 'Find address or place',
   addSources: 'Add new search sources and customize options',
   newSearchSource: 'New search source',
@@ -1269,7 +1220,14 @@ export default {
 
   enableSearchFilter: 'Enable filtering for layer source search',
 
-  // utility service mananger
+  searchCountryCodeLabel: 'Search in specific countries or regions',
+  searchCountryCodeHint: 'e.g. USA, GB',
+  searchInCurrentExtentLabel: 'Only search in current map extent',
+  enableLocalSearch: 'Enable local search',
+  minScale: 'Min scale',
+  searchRadius: 'Search radius',
+
+  // utility service manager
   selectUtility: 'Select utility',
   addUtility: 'Add utility',
   organization: 'Organization',
@@ -1501,6 +1459,9 @@ export default {
   visibility: 'Visibility',
   refresh: 'Refresh',
 
+  // basemap gallery widget
+  thumbnail: 'Thumbnail',
+
   // cookie-banner
   cookieSettings: 'Cookie Settings',
   essentialCookies: 'Essential Cookies',
@@ -1514,7 +1475,7 @@ export default {
   essentialBannerDefaultText: 'We have not implemented any cookies or tracking technologies. For more details on how we handle your data and ensure your privacy, please see our Privacy Policy.',
   optionalBannerDefaultText: 'We use cookies to improve your experience. You can customize your preferences for optional cookies.',
   largeScreenDevice: 'large screen device',
-  syncPlaceholderTip: 'Select a sync placeholder in the {sizeMode}',
+  syncPlaceholderTip: 'Select a large screen placeholder to sync',
 
   // download app
   download: 'Download',
@@ -1573,5 +1534,14 @@ export default {
   brandAndLogos: 'Brand and Logos',
   application: 'Application',
   gis: 'GIS',
-  showPrintArea: 'Show print area'
+  showPrintArea: 'Show print area',
+
+  splitHorizontally: 'Insert after',
+  splitVertically: 'Insert below',
+  setMainGridItem: 'Set a main item for small screen devices',
+  setForEachSide: 'Click to set for each side',
+  setForAllSide: 'Click to set for all side',
+
+  showRuntimeLayers: 'Show runtime layers in layer lists',
+  defaultEnabled: 'Enable by default'
 }

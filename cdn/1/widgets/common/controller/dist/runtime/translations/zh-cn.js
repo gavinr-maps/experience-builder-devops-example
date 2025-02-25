@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\u5fae\u4ef6\u63a7\u5236\u5668",_action_openWidget_label:"\u6253\u5f00\u5fae\u4ef6",resizerTooltip:"\u901a\u8fc7\u62d6\u653e\u81ea\u5b9a\u4e49\u7a97\u53e3\u5927\u5c0f\u3002"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"\u5fae\u4ef6\u63a7\u5236\u5668",_action_openWidget_label:"\u6253\u5f00\u5fae\u4ef6",resizerTooltip:"\u901a\u8fc7\u62d6\u653e\u81ea\u5b9a\u4e49\u7a97\u53e3\u5927\u5c0f\u3002",moreWidgets:"\u66f4\u591a\u7684\u5fae\u4ef6"})}}}));

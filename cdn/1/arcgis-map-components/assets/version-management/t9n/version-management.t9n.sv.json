@@ -2,11 +2,12 @@
   "label": "Versionshantering",
   "actions": {
     "cancelSave": "Avbryt",
-    "newVersion": "Ny version",
+    "deleteVersion": "Ta bort",
     "editVersion": "Versionsinställningar",
+    "newVersion": "Ny version",
     "refreshVersions": "Uppdatera listan",
-    "searchVersions": "Sök mina versioner",
     "saveVersion": "Spara",
+    "searchVersions": "Sök efter namn eller ägare",
     "switchToVersion": "Växla till version"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Ingen VersionManagementService hittades."
   },
   "headers": {
+    "currentVersion": "Aktuell version",
     "manageVersions": "Hantera versioner"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Ägare"
   },
   "loadErrors": {
-    "noFeatureServices": "Inga featureServices hittades i \\'layers\\'.",
-    "noLayersProperty": "Egenskapen \\'layers\\' saknas för VersionManagementViewModel."
+    "noFeatureServices": "Inga featureServices hittades i 'layers'.",
+    "noViewProperty": "Egenskapen 'view' saknas för VersionManagementViewModel."
   }
 }

@@ -2,11 +2,12 @@
   "label": "Gerenciamento de versão",
   "actions": {
     "cancelSave": "Cancelar",
-    "newVersion": "Nova versão",
+    "deleteVersion": "Excluir",
     "editVersion": "Configurações da versão",
+    "newVersion": "Nova versão",
     "refreshVersions": "Atualizar lista",
-    "searchVersions": "Pesquisar minhas versões",
     "saveVersion": "Salvar",
+    "searchVersions": "Pesquise por nome ou proprietário",
     "switchToVersion": "Trocar para versão"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Nenhum VersionManagementService foi encontrado."
   },
   "headers": {
+    "currentVersion": "Versão atual",
     "manageVersions": "Gerenciar versões"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Proprietáeio"
   },
   "loadErrors": {
-    "noFeatureServices": "Nenhum featureServices foi encontrado em \\'camadas\\'.",
-    "noLayersProperty": "A propriedade \\'camadas\\' está ausente em VersionManagementViewModel."
+    "noFeatureServices": "Nenhum featureServices foi encontrado em 'camadas'.",
+    "noViewProperty": "A propriedade 'view' está ausente VersionManagementViewModel."
   }
 }

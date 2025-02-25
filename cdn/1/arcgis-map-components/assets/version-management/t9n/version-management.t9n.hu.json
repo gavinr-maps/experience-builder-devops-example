@@ -2,11 +2,12 @@
   "label": "Verziókezelés",
   "actions": {
     "cancelSave": "Mégse",
-    "newVersion": "Új verzió",
+    "deleteVersion": "Törlés",
     "editVersion": "Verzióbeállítások",
+    "newVersion": "Új verzió",
     "refreshVersions": "Lista frissítése",
-    "searchVersions": "Keresés a saját verziók között",
     "saveVersion": "Mentés",
+    "searchVersions": "Keresés név vagy tulajdonos szerint",
     "switchToVersion": "Váltás verzióra"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Nem található VersionManagementService szolgáltatás."
   },
   "headers": {
+    "currentVersion": "Aktuális verzió",
     "manageVersions": "Verziók kezelése"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "Nem található FeatureService szolgáltatás a „rétegekben”.",
-    "noLayersProperty": "A „rétegek” tulajdonság hiányzik a VersionManagementViewModel-ből."
+    "noViewProperty": "A „nézet” tulajdonság hiányzik a VersionManagementViewModel-ből."
   }
 }

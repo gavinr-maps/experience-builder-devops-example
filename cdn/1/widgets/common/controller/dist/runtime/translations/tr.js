@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget Controller (Ara\xe7 Denetleyicisi)",_action_openWidget_label:"Arac\u0131 a\xe7",resizerTooltip:"S\xfcr\xfckleyip b\u0131rakarak pencere boyutunu \xf6zelle\u015ftirin."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget Controller (Ara\xe7 Denetleyicisi)",_action_openWidget_label:"Arac\u0131 a\xe7",resizerTooltip:"S\xfcr\xfckleyip b\u0131rakarak pencere boyutunu \xf6zelle\u015ftirin.",moreWidgets:"Daha fazla ara\xe7"})}}}));

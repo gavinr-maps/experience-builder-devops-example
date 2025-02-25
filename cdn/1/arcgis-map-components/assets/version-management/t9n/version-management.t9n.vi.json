@@ -2,11 +2,12 @@
   "label": "Quản lý phiên bản",
   "actions": {
     "cancelSave": "Hủy",
-    "newVersion": "Phiên bản mới",
+    "deleteVersion": "Xóa",
     "editVersion": "Cài đặt phiên bản",
+    "newVersion": "Phiên bản mới",
     "refreshVersions": "Tải lại danh sách",
-    "searchVersions": "Tìm kiếm các phiên bản của tôi",
     "saveVersion": "Lưu",
+    "searchVersions": "Tìm kiếm theo tên hoặc chủ sở hữu",
     "switchToVersion": "Chuyển đổi sang phiên bản"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "Không tìm thấy VersionManagementService."
   },
   "headers": {
+    "currentVersion": "Phiên bản hiện tại",
     "manageVersions": "Quản lý phiên bản"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Chủ sở hữu"
   },
   "loadErrors": {
-    "noFeatureServices": "Không tìm thấy featureServices trong \\'lớp\\'.",
-    "noLayersProperty": "Thiếu thuộc tính \\'lớp\\' trên VersionManagementViewModel."
+    "noFeatureServices": "Không tìm thấy featureServices trong 'lớp'.",
+    "noViewProperty": "Thiếu thuộc tính 'xem' trên VersionManagementViewModel."
   }
 }

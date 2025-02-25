@@ -2,11 +2,12 @@
   "label": "ניהול גרסאות",
   "actions": {
     "cancelSave": "ביטול",
-    "newVersion": "גרסה חדשה",
+    "deleteVersion": "מחיקה",
     "editVersion": "הגדרות גרסה",
+    "newVersion": "גרסה חדשה",
     "refreshVersions": "רענן את הרשימה",
-    "searchVersions": "חיפוש בגרסאות שלי",
     "saveVersion": "שמור",
+    "searchVersions": "חפש לפי שם או יוצר",
     "switchToVersion": "עבור לגרסה"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "לא נמצא VersionManagementService."
   },
   "headers": {
+    "currentVersion": "גרסה נוכחית",
     "manageVersions": "נהל גרסאות"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "יוצר"
   },
   "loadErrors": {
-    "noFeatureServices": "לא נמצאו featureServices ב\\'שכבות\\'.",
-    "noLayersProperty": "מאפיין \\'שכבות\\' חסר ב-VersionManagementViewModel."
+    "noFeatureServices": "לא נמצאו featureServices ב'שכבות'.",
+    "noViewProperty": "המאפיין 'תצוגה' חסר ב-VersionManagementViewModel."
   }
 }

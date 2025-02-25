@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Pienoisohjelman s\xe4\xe4din",_action_openWidget_label:"Avaa pienoisohjelma",resizerTooltip:"Muokkaa ikkunan kokoa vet\xe4m\xe4ll\xe4 ja pudottamalla."})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Pienoisohjelman s\xe4\xe4din",_action_openWidget_label:"Avaa pienoisohjelma",resizerTooltip:"Muokkaa ikkunan kokoa vet\xe4m\xe4ll\xe4 ja pudottamalla.",moreWidgets:"Lis\xe4\xe4 pienoisohjelmia"})}}}));

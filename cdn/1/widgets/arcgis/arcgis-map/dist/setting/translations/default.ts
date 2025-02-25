@@ -35,8 +35,19 @@ export default {
   clientQueryDisabledTip: 'This web map has the client-side query already enabled in another map widget.',
   clientQueryHelpTip: 'Enable client-side queries to alleviate server demand and enhance application performance. Be advised that it may take longer before you can see the features since the map will query more fields. Web scenes are not yet supported. See {link}.',
   moreInformation: 'more information',
+  scaleRange: 'Scale range',
+  scaleRangeTip: 'Set scale limits for 2D maps',
+  noScaleRangeSliderTip: 'Only web maps can be used to set scale range.',
 
   mapAction_TriggerLayer: 'Trigger data',
+  mapAction_AllData: 'All data',
+  mapAction_CustomizeData: 'Customized data',
+
+  mapAction_TriggerActionConnectionMode: 'Connection mode',
+  mapAction_Customize: 'Customize',
+  mapFlashAction_AutomaticTriggerDataTip: 'In this mode, the selected data will flash if the data from the source widgets is in the Map widget. The trigger and action data are from the same layer and will be automatically bound.',
+  mapFilterAction_AutomaticTriggerDataTip: 'In this mode, the selected data will be filtered if the data from the source widgets is in the Map widget. The trigger and action data are from the same layer and will be automatically bound.',
+
   mapAction_SetData: 'Select data',
   mapAction_ActionLayer: 'Action data',
   mapAction_Conditions: 'Conditions',
@@ -55,6 +66,7 @@ export default {
   mapAction_Polygon: 'Polygon',
   mapAction_UseLayerDefinedSymbols: 'Use layer-defined symbols',
   mapAction_UseCustomSymbols: 'Use custom symbols',
+  mapAction_OperationalLayer: 'Set as operational layers',
   mapAction_ReturnToInitialMapExtent: 'Return to the initial map extent when selection is cleared',
   mapZoomToAction_ZoomScale: 'Zoom scale',
   mapZoomToAction_Automatic: 'Automatic',

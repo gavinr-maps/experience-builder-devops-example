@@ -2,11 +2,12 @@
   "label": "Version management",
   "actions": {
     "cancelSave": "Cancel",
-    "newVersion": "New version",
+    "deleteVersion": "Delete",
     "editVersion": "Version settings",
+    "newVersion": "New version",
     "refreshVersions": "Refresh list",
-    "searchVersions": "Search my versions",
     "saveVersion": "Save",
+    "searchVersions": "Search by name or owner",
     "switchToVersion": "Switch to version"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "No VersionManagementService was found."
   },
   "headers": {
+    "currentVersion": "Current version",
     "manageVersions": "Manage versions"
   },
   "input": {
@@ -32,6 +34,6 @@
   },
   "loadErrors": {
     "noFeatureServices": "No featureServices were found in 'layers'.",
-    "noLayersProperty": "Property 'layers' is missing on VersionManagementViewModel."
+    "noViewProperty": "Property 'view' is missing on VersionManagementViewModel."
   }
 }

@@ -2,11 +2,12 @@
   "label": "Upravljanje verzijom",
   "actions": {
     "cancelSave": "Odustani",
-    "newVersion": "Nova verzija",
+    "deleteVersion": "Izbriši",
     "editVersion": "Postavke verzije",
+    "newVersion": "Nova verzija",
     "refreshVersions": "Osvježi popis",
-    "searchVersions": "Pretraži moje verzije",
     "saveVersion": "Spremi",
+    "searchVersions": "Traži po imenu ili vlasniku",
     "switchToVersion": "Prebaci se na verziju"
   },
   "accessLevels": {
@@ -22,6 +23,7 @@
     "noVersionManagementServiceFound": "VersionManagementService nije pronađen."
   },
   "headers": {
+    "currentVersion": "Trenutna verzija",
     "manageVersions": "Upravljanje verzijama"
   },
   "input": {
@@ -31,7 +33,7 @@
     "versionOwner": "Vlasnik"
   },
   "loadErrors": {
-    "noFeatureServices": "Nisu pronađene usluge geoobjekata u \\'slojevima\\'.",
-    "noLayersProperty": "\\'Slojevi\\' vlasništva nedostaju na VersionManagementViewModelu."
+    "noFeatureServices": "Nisu pronađene usluge geoobjekata u 'slojevima'.",
+    "noViewProperty": "Svojstvo 'view' nedostaje na VersionManagementViewModel."
   }
 }
