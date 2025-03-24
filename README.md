@@ -13,4 +13,4 @@ The built app is deployed to GitHub Pages: https://gavinr-maps.github.io/experie
 
 More information on how the GitHub Action script generates the Experience Builder app export can be found [here](https://community.esri.com/t5/arcgis-experience-builder-blog/experience-builder-devops-generating-the-app/ba-p/1112247).
 
-[![](https://gavinr.github.io/experience-builder-devops-example/screenshot.png)](https://gavinr.github.io/experience-builder-devops-example/)
+This deployment strategy is not recommended for production apps, because the user may need to clear their browser cache in order to see web app changes. A workaround to required browser cache clearing is to add [these steps](https://developers.arcgis.com/experience-builder/guide/deployment-topics/#service-worker-cache) to your CI pipline (these steps are not covered in this repository's demo code).
