@@ -1,6 +1,5 @@
 export default {
   _widgetLabel: 'Widget Controller',
-  behavior: 'Behavior',
   openWidget: 'How many widgets can be opened',
   displayType: 'Display type',
   iconStyle: 'Icon',
@@ -17,6 +16,6 @@ export default {
   panelFloating: 'Floating',
   indicator: 'Indicator',
   messageAction_openWidget: 'Open widget',
-  overflownStyle: 'Overflown style',
+  overflownStyle: 'Overflow style',
   popupWindow: 'Popup window'
 }

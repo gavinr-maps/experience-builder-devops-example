@@ -2,8 +2,8 @@
   "name": "map-layers",
   "label": "Map Layers",
   "type": "widget",
-  "version": "1.16.0",
-  "exbVersion": "1.16.0",
+  "version": "1.17.0",
+  "exbVersion": "1.17.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -18,6 +18,13 @@
     "canConsumeDataAction": true,
     "coverLayoutBackground": true
   },
+  "extensions": [
+    {
+      "name": "appConfigOperations",
+      "point": "APP_CONFIG_OPERATIONS",
+      "uri": "tools/app-config-operations"
+    }
+  ],
   "dependency": "jimu-arcgis",
   "excludeDataActions": [
     "arcgis-map.*",

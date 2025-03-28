@@ -16,5 +16,9 @@ export default {
   searchLayers: 'Search layers',
   showTables: 'Show tables',
   popup: 'Enable or disable pop-up',
-  customizeDescription: 'Specify which layers will be displayed for each map'
+  customizeDescription: 'Specify which layers will be displayed for each map',
+  expandAllLayersByDefault: 'Expand all layers by default',
+  visibilityRange: 'Visibility range',
+  showRuntimeAddedLayers: 'Display layers generated at runtime',
+  layerBatchOptions: 'Enable layer batch options'
 }
