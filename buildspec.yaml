@@ -1,0 +1,37 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo "Installing dependencies"
+  build:
+    commands:
+      - echo "Downloading Experience Builder"
+      - curl -o exb.zip "https://downloads.arcgis.com/ems/rest/download/secured/arcgis-experience-builder-1.17.zip?f=json&folder=software%2FExperienceBuilder%2F1.17"
+      - unzip -q exb.zip -d exb
+      - chmod -R 777 exb
+      - echo "Copying widgets and themes"
+      - cp -r widgets/* exb/ArcGISExperienceBuilder/client/your-extensions/widgets/
+      - cp -r themes/* exb/ArcGISExperienceBuilder/client/your-extensions/themes/
+      - mkdir -p public && mkdir -p apps
+      - echo "Running npm install in client and server"
+      - cd exb/ArcGISExperienceBuilder/client && npm install
+      - cd ../server && npm install
+      - echo "Building widgets"
+      - cd ../client && npm run build:dev
+      - cd ../client && npm run build:prod
+      - echo "Running app-download script"
+      - node ./server/src/middlewares/dev/apps/app-download.js zipApp(".", "app.zip")
+      - echo "Unzipping app.zip"
+      - unzip -q app.zip -d app
+      - chmod -R 777 app
+ 
+artifacts:
+  files:
+    - '**/*'
+  base-directory: exb/ArcGISExperienceBuilder/app 
+
+
+      
