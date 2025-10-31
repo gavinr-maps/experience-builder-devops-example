@@ -688,7 +688,6 @@
       "label": "Text",
       "config": {
         "text": "<p><strong style=\"font-size: 20px; color: var(--light);\">﻿Construction Services Location to Job</strong></p>",
-        "placeholder": "<p><strong style=\"font-size: 20px; color: var(--light);\">Double click to edit text</strong></p>",
         "style": {
           "wrap": false
         }
@@ -1255,8 +1254,7 @@
       "version": "1.18.0",
       "label": "Text 2",
       "config": {
-        "text": "<p><exp data-uniqueid=\"1e5e946a_425f_3ba5_9e1f_d20636bcde7d\" data-dsid=\"dataSource_2-19a17981fd5-layer-2\" data-expression=\"%7B%22name%22%3A%22%7BName%7D%22%2C%22parts%22%3A%5B%7B%22type%22%3A%22FIELD%22%2C%22exp%22%3A%22%7BName%7D%22%2C%22dataSourceId%22%3A%22dataSource_2-19a17981fd5-layer-2%22%2C%22jimuFieldName%22%3A%22Name%22%2C%22isFromRepeatedDataSourceContext%22%3Atrue%7D%5D%7D\">﻿<span contenteditable=\"false\">{Name}</span>﻿</exp>&nbsp;</p>",
-        "placeholder": "<p><span style=\"font-size: 16px;\">Double click to edit text</span></p>"
+        "text": "<p><exp data-uniqueid=\"1e5e946a_425f_3ba5_9e1f_d20636bcde7d\" data-dsid=\"dataSource_2-19a17981fd5-layer-2\" data-expression=\"%7B%22name%22%3A%22%7BName%7D%22%2C%22parts%22%3A%5B%7B%22type%22%3A%22FIELD%22%2C%22exp%22%3A%22%7BName%7D%22%2C%22dataSourceId%22%3A%22dataSource_2-19a17981fd5-layer-2%22%2C%22jimuFieldName%22%3A%22Name%22%2C%22isFromRepeatedDataSourceContext%22%3Atrue%7D%5D%7D\">﻿<span contenteditable=\"false\">{Name}</span>﻿</exp>&nbsp;</p>"
       },
       "id": "widget_66",
       "useDataSources": [
@@ -1841,7 +1839,8 @@
     }
   },
   "attributes": {
-    "portalUrl": "https://trafficpd.maps.arcgis.com"
+    "portalUrl": "https://trafficpd.maps.arcgis.com",
+    "clientID":"1"
   },
   "timestamp": 1761914614563,
   "sharedThemeVariables": null,
@@ -2532,5 +2531,6 @@
       "widthMode": "CUSTOM",
       "heightMode": "CUSTOM"
     }
-  }
+  },
+  "publishTimestamp": 1761914741059
 }
