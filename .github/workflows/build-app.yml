@@ -16,33 +16,33 @@ jobs:
         # IN OTHER WORDS, IT COULD BREAK AT ANY TIME.
         # THERE IS NO WARRANTY OR GUARANTEE THAT THIS COMMAND WILL WORK IN THE FUTURE.
         # ONLY USE THIS COMMAND IF YOU UNDERSTAND HOW IT IS BEING USED AND ARE COMFORTABLE FIXING IT IF IT BREAKS:
-        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.17.zip?f=json&folder=software%2FExperienceBuilder%2F1.17' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
+        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.18.zip?f=json&folder=software%2FExperienceBuilder%2F1.18' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
       - name: Unzip Experience Builder
         run: unzip -q exb.zip -d exb
       - name: Copy Custom Widgets
-        run: cp -r widgets/* exb/ArcGISExperienceBuilder/client/your-extensions/widgets
+        run: cp -r widgets/* exb/client/your-extensions/widgets
       - name: Copy Custom Themes
-        run: cp -r themes/* exb/ArcGISExperienceBuilder/client/your-extensions/themes
+        run: cp -r themes/* exb/client/your-extensions/themes
       - name: Create App directory
         run: mkdir public && cd public && mkdir apps && cd apps
-        working-directory: exb/ArcGISExperienceBuilder/server
+        working-directory: exb/server
       - name: Copy apps
-        run: cp -r apps/* exb/ArcGISExperienceBuilder/server/public/apps
+        run: cp -r apps/* exb/server/public/apps
       - name: NPM install client folder
         run: npm ci
-        working-directory: exb/ArcGISExperienceBuilder/client
+        working-directory: exb/client
       - name: NPM install in server folder
         run: npm ci
-        working-directory: exb/ArcGISExperienceBuilder/server
+        working-directory: exb/server
       - name: Build widgets - dev
         run: npm run build:dev
-        working-directory: exb/ArcGISExperienceBuilder/client
+        working-directory: exb/client
       - name: Build widgets
         run: npm run build:prod
-        working-directory: exb/ArcGISExperienceBuilder/client
+        working-directory: exb/client
       - name: Run download script
         run: node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
-        working-directory: exb/ArcGISExperienceBuilder
+        working-directory: exb
         env:
           NODE_ENV: production
       - name: Unzip app zip
@@ -50,9 +50,9 @@ jobs:
         run: |
           unzip -q app.zip -d app
           chmod -R 777 app
-        working-directory: exb/ArcGISExperienceBuilder
+        working-directory: exb
       # - name: Generate screeenshot (optional)
-      #   working-directory: exb/ArcGISExperienceBuilder/app
+      #   working-directory: exb/app
       #   continue-on-error: true
       #   run: |
       #     npm install --global pageres-cli
@@ -64,4 +64,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: exb/ArcGISExperienceBuilder/app
+          folder: exb/app
