@@ -9,6 +9,7 @@ export default {
   _action_showOnMap_label: 'Show on map',
   _action_addToMap_label: 'Add to map',
   _action_showPopup_label: 'Show pop-up',
+  _action_addMarker_label: 'Add marker',
   showOnMapData: 'Show on map data',
   addedData: 'added data',
   failToAddTheDataOnMap: 'Fail to add the data.',
@@ -20,5 +21,6 @@ export default {
   _url_params_center_label: 'Center',
   _url_params_scale_label: 'Scale',
   _url_params_rotation_label: 'Rotation',
-  _url_params_layer_visibility_label: 'Layer visibility'
+  _url_params_layer_visibility_label: 'Layer visibility',
+  _url_params_marker_label: 'Marker'
 }

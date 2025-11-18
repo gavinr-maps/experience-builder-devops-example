@@ -16,6 +16,7 @@ export default {
   panelFloating: 'Floating',
   indicator: 'Indicator',
   messageAction_openWidget: 'Open widget',
+  messageAction_toggleWidget: 'Toggle widget',
   overflownStyle: 'Overflow style',
   popupWindow: 'Popup window'
 }

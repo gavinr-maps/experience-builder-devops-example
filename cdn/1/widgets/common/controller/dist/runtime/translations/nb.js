@@ -1,1 +1,0 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Miniprogramkontroller",_action_openWidget_label:"\xc5pne miniprogram",resizerTooltip:"Tilpass vinduets st\xf8rrelse ved \xe5 dra og slippe.",moreWidgets:"Flere miniprogrammer"})}}}));

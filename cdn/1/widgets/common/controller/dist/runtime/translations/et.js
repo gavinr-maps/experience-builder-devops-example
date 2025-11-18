@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Vidina kontroller",_action_openWidget_label:"Ava vidin",resizerTooltip:"Akna suurust saate kohandada lohistamise teel.",moreWidgets:"Veel vidinaid"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Vidina kontroller",_action_openWidget_label:"Ava vidin",_action_toggleWidget_label:"L\xfclita vidina vahetamine sisse/v\xe4lja",resizerTooltip:"Akna suurust saate kohandada lohistamise teel.",moreWidgets:"Veel vidinaid"})}}}));

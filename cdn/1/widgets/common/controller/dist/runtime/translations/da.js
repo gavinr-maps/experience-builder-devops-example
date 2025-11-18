@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget-controller",_action_openWidget_label:"\xc5bn widget",resizerTooltip:"Tilpas vinduesst\xf8rrelse ved at tr\xe6kke og slippe.",moreWidgets:"Flere widgets"})}}}));
+System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widget-controller",_action_openWidget_label:"\xc5bn widget",_action_toggleWidget_label:"Sl\xe5 widget til/fra",resizerTooltip:"Tilpas vinduesst\xf8rrelse ved at tr\xe6kke og slippe.",moreWidgets:"Flere widgets"})}}}));

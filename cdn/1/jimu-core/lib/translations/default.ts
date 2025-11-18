@@ -52,6 +52,9 @@ export default {
   dataAction_ExportCSV: 'Export to CSV',
   dataAction_ExportGeoJson: 'Export to GeoJSON',
   dataAction_ExportItem: 'Export to Item',
+  dataAction_ExportShp: 'Export to Shapefile',
+  dataAction_ExportGDB: 'Export to FGDB',
+  dataAction_ExportKML: 'Export to KML',
   dataAction_SetFilter: 'Set filter',
   dataAction_DataStatistics: 'Statistics',
   dataAction_RelatedData: 'Related data',
@@ -71,13 +74,16 @@ export default {
   messageAction_SelectDataRecord: 'Select data records',
   messageAction_FilterDataRecord: 'Filter data records',
   messageAction_TriggerData: 'Trigger data',
+  messageAction_ChangeView: 'Open view',
   action_addedData: 'Added: {label}',
 
   icon: 'Icon',
+  verySmall: 'Very small',
   small: 'Small',
   low: 'Low',
   high: 'High',
   large: 'Large',
+  varyLarge: 'Very large',
   short: 'Short',
   medium: 'Medium',
   long: 'Long',
@@ -139,6 +145,11 @@ export default {
   signInBannerListWarning: 'Sorry, you don’t have access to the resources from the following servers or organizations. Click Sign in to provide credentials. Click Ignore to avoid loading the resource until you refresh the app.',
   signInBannerIgnore: 'Ignore',
   signInBannerIgnoreAll: 'Ignore all',
+
+  // experience state
+  restoreState: 'Restore experience state',
+  restoreStateTips: 'Restore the state of page, view, window, map viewpoint, and layer visibility where you left off.',
+  restoreStateAccept: 'Accept',
 
   //in upgrade
   upgradedFrom: 'Upgraded from previous config',

@@ -1,1 +1,0 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Kartlag",goto:"Zoom til",information:"Detaljer",showLabels:"Vis etiketter",hideLabels:"Skjul etiketter",emptyListTip:"Det er for \xf8yeblikket ingen elementer \xe5 vise",enablePopup:"Aktiver popup",disablePopup:"Deaktiver popup",tables:"Tabeller",visibilityRange:"Synlighetsomr\xe5de"})}}}));

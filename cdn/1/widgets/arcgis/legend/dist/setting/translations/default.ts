@@ -6,5 +6,6 @@ export default {
   showWithinExtent: 'Show visible layers within current map extent',
   showVisible: 'Show visible layers',
   legendMode: 'Legend mode',
-  respectLayerDefinitionExp: 'Respect layer filter settings'
+  respectLayerDefinitionExp: 'Respect layer filter settings',
+  customizeDescription: 'Specify which layers will be displayed in the legend for each map'
 }

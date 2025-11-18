@@ -2,8 +2,8 @@
   "name": "arcgis-map",
   "label": "Map",
   "type": "widget",
-  "version": "1.17.0",
-  "exbVersion": "1.17.0",
+  "version": "1.18.0",
+  "exbVersion": "1.18.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -101,6 +101,13 @@
       "label": "Show pop-up",
       "uri": "data-actions/show-popup",
       "icon": "runtime/assets/icons/show-popup.svg"
+    },
+    {
+      "name": "addMarker",
+      "label": "Add marker",
+      "uri": "data-actions/add-marker",
+      "settingUri": "data-actions/add-marker-setting",
+      "icon": "runtime/assets/icons/pin-esri.svg"
     }
   ],
   "layouts": [
@@ -131,6 +138,10 @@
     {
       "name": "layer_visibility",
       "label": "Layer visibility"
+    },
+    {
+      "name": "marker",
+      "label": "Marker"
     }
   ],
   "extensions": [
@@ -163,7 +174,7 @@
     "ko",
     "lt",
     "lv",
-    "nb",
+    "no",
     "nl",
     "pl",
     "pt-br",

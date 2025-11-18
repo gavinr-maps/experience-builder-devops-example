@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Download</title>
+  </head>
+  <body>
+    <script>
+      window.addEventListener('message', event => {
+        if (event.origin !== window.location.origin) {
+          return;
+        }
+        const { fileName, blob } = event.data || {};
+        if (fileName && blob) {
+          const a = document.createElement('a')
+          a.href = window.URL.createObjectURL(blob)
+          a.download = fileName
+          a.click()
+        }
+      })
+    </script>
+  </body>
+</html>
+

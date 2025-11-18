@@ -74,5 +74,6 @@ export default {
 
   unlockGridItem: 'Unlock this widget to reorganize its internal widgets.',
   lockGridItem: 'Lock this widget.',
-  activeViewTip: 'Section. Active view {viewLabel}.'
+  activeViewTip: 'Section. Active view {viewLabel}.',
+  widgetLabel: 'Widget label'
 }
