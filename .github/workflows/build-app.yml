@@ -16,7 +16,7 @@ jobs:
         # IN OTHER WORDS, IT COULD BREAK AT ANY TIME.
         # THERE IS NO WARRANTY OR GUARANTEE THAT THIS COMMAND WILL WORK IN THE FUTURE.
         # ONLY USE THIS COMMAND IF YOU UNDERSTAND HOW IT IS BEING USED AND ARE COMFORTABLE FIXING IT IF IT BREAKS:
-        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.18.zip?f=json&folder=software%2FExperienceBuilder%2F1.18' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
+        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.19.zip?f=json&folder=software%2FExperienceBuilder%2F1.19' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
       - name: Unzip Experience Builder
         run: unzip -q exb.zip -d exb
       - name: Copy Custom Widgets
