@@ -8,7 +8,8 @@
  */
 export default {
   geobim_logInLink: 'Log in',
-  geobim_logInTip: '(All widgets requiring Autodesk authentication will also be logged in.)',
+  geobim_logInTip:
+    '(All widgets requiring Autodesk authentication will also be logged in.)',
   geobim_noFeatureServiceSettingsWarning:
     'One or more sources do not contain feature layers from a GeoBIM project.',
   geobim_multipleFeatureServicesSettingsWarning:
@@ -23,8 +24,8 @@ export default {
   multipleGeoBIMFeatureServicesError:
     'Multiple GeoBIM Feature Services were found in this View. Please use a Web Map or Web Scene that contains layers from only one GeoBIM Feature Service.',
   selectMapSetting: 'Select a Map Widget.',
-  geobimNoneSetting: '(None)',
+  geobimNoneSetting: 'None',
   geobim_userTypeNote:
     'A Contributor or higher ArcGIS user type is needed to use the {widget_name} widget. Reach out to your GIS administrator to confirm your license or request an upgrade.',
-  geobim_userTypeLink: 'Learn more about user types.'
+  geobim_userTypeLink: 'Learn more about user types.',
 }

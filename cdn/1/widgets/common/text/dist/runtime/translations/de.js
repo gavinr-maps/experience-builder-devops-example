@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Text",defaultPlaceholder:"Doppelklicken, um Text zu bearbeiten"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Text",defaultPlaceholder:"Doppelklicken, um Text zu bearbeiten"})}}});

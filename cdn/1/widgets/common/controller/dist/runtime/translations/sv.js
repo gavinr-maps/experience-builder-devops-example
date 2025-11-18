@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Widgetkontroller",_action_openWidget_label:"\xd6ppna widget",_action_toggleWidget_label:"V\xe4xelwidget",resizerTooltip:"Anpassa f\xf6nsterstorleken genom att dra och sl\xe4ppa.",moreWidgets:"Fler widgetar"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Widgetkontroller",_action_openWidget_label:"\xd6ppna widget",_action_toggleWidget_label:"V\xe4xelwidget",resizerTooltip:"Anpassa f\xf6nsterstorleken genom att dra och sl\xe4ppa.",moreWidgets:"Fler widgetar"})}}});

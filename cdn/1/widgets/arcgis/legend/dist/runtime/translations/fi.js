@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Selite"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Selite"})}}});

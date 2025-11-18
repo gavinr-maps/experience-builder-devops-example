@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Penyejajaran vertikal"})}}}));
+System.register([],function(e){return{execute:function(){e({verticalAlignment:"Penyejajaran vertikal"})}}});

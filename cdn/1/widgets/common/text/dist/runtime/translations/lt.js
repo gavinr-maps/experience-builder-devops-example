@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Tekstas",defaultPlaceholder:"Dukart spustel\u0117kite, nor\u0117dami redaguoti tekst\u0105"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Tekstas",defaultPlaceholder:"Dukart spustel\u0117kite, nor\u0117dami redaguoti tekst\u0105"})}}});

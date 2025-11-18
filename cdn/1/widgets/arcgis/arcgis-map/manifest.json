@@ -2,15 +2,16 @@
   "name": "arcgis-map",
   "label": "Map",
   "type": "widget",
-  "version": "1.18.0",
-  "exbVersion": "1.18.0",
+  "version": "1.19.0",
+  "exbVersion": "1.19.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
   "license": "http://www.apache.org/licenses/LICENSE-2.0",
   "publishMessages": [
     "EXTENT_CHANGE",
-    "DATA_RECORDS_SELECTION_CHANGE"
+    "DATA_RECORDS_SELECTION_CHANGE",
+    "LOCATION_CHANGE"
   ],
   "messageActions": [
     {
@@ -61,7 +62,8 @@
     "watchViewportVisibility": true,
     "supportAutoSize": false,
     "canConsumeDataAction": true,
-    "needActiveState": true
+    "needActiveState": true,
+    "handleA11yLabelInWidget": true
   },
   "excludeDataActions": [
     "setFilter",
@@ -130,6 +132,10 @@
     {
       "name": "scale",
       "label": "Scale"
+    },
+    {
+      "name": "level",
+      "label": "Level"
     },
     {
       "name": "rotation",

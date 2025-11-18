@@ -8,6 +8,7 @@ export default {
   iconInterval: 'Spacing',
   advancedIconStyle: 'Icon style',
   advancedIconColor: 'Icon color',
+  buttonSize: 'Button size',
   openStart: 'Open widgets on loading',
   widgetsSelected: '{widgetNumber} widgets selected',
   appearanceTip: 'Select the widgets inside the Widget Controller, and customize their icons, labels, or styles to change their appearances.',

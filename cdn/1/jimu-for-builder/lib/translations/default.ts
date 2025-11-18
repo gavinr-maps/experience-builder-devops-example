@@ -76,10 +76,6 @@ export default {
   // guide insert widget
   insertWidgetStep1Title: 'Insert widget',
   insertWidgetStep1Content: 'Click on the widget and drag it onto the canvas.',
-  // guide express mode
-  expressModeStep1Title: 'Express mode',
-  expressModeStep1Content: 'Use express mode to focus on essential functions and content when designing an experience. You can move an experience from express mode to full mode if you need more advanced features and layout settings.',
-  expressModeLearnMore: 'Learn more',
   // guide general express mode
   // welcome introduction guide
   welcomeStep1Content: 'This tour will show you how to navigate in Experience Builder express mode.',
@@ -130,10 +126,5 @@ export default {
   expressFullEditModeContent: 'You can switch to full mode which allows advanced experience design.',
   // end guide
   expressEndGuideTitle: 'Congratulations! You have completed the tour!',
-  expressEndGuideContent: 'Now start to build your experience. You can always return to the guide by clicking the Help button on the bottom left corner of the builder if you need a refresher.',
-
-  goToExpressMode: 'Go to express mode',
-  goToFullMode: 'Go to full mode',
-  switchedToExpressMode: 'Switched to express mode',
-  switchedToFullMode: 'Switched to full mode'
+  expressEndGuideContent: 'Now start to build your experience. You can always return to the guide by clicking the Help button on the bottom left corner of the builder if you need a refresher.'
 }

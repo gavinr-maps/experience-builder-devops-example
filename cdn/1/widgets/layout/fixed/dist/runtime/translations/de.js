@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Fixiertes Fenster",widgetProperties:"Widget-Eigenschaften",widgetFunctions:"Widget-Funktionen",widgetName:"Widget-Name:",widgetProps:"Widget-Eigenschaften:",tips:"Fixiertes Fenster"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Fixiertes Fenster",widgetProperties:"Widget-Eigenschaften",widgetFunctions:"Widget-Funktionen",widgetName:"Widget-Name:",widgetProps:"Widget-Eigenschaften:",tips:"Fixiertes Fenster"})}}});

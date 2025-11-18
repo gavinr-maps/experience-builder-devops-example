@@ -11,7 +11,10 @@
     <script>
       function processAuthentication() {
         const {query, hash} = getQueryAndHashObject();
-        const popup = query.popup === 'true';
+        const stateId = JSON.parse(query.state)?.id
+        const authState = getAuthState(stateId) || {}
+        removeAuthState(authState.id)
+        const popup = authState.popup;
         window.onbeforeunload = () => {
           console.log('onbeforeunload');
         }
@@ -20,7 +23,7 @@
           const {portal, clientId, isDevEdition, mountPath} = query;
           if(popup) {
             // SessionManager.signIn listens for popup window closing.
-            completeOAuth2(query, popup)
+            completeOAuth2(authState, popup)
           } else {
             // sign-in canceled error is 'access_denied'
             const errorCode = hash.messageCode || hash.error || query.messageCode || query.error
@@ -61,7 +64,7 @@
         //        'rootPath'              : 'portal.arcgis.com/arcgis/apps/experiencebuilder'
         //        'openerHref'            : 'portal.arcgis.com/arcgis/home/...'
         //      for this situation: has to further check 'openerHref.indexOf(rootPath) > -1', means is popup window.
-        if(query.isInPortal === 'true') {
+        if(authState.isInPortal) {
           usePopupWindow = opener && opener.parent && window.location.origin === openerOrigin && openerHref.indexOf(rootPath) > -1;
         } else {
           usePopupWindow = opener && opener.parent && window.location.origin === openerOrigin;
@@ -72,25 +75,32 @@
             // REST-JS 4.x has a problem with embedded OAuth login, oauth-callback window cannot get local storage items from its opener 
             // original reason reference:
             // https://developers.google.com/privacy-sandbox/3pcd/storage-partitioning
-            const stateStorageKey = `ARCGIS_REST_JS_AUTH_STATE_${query.clientId}`
+            const stateStorageKey = `ARCGIS_REST_JS_AUTH_STATE_${authState.clientId}`
             const stateId = window.opener.localStorage.getItem(stateStorageKey)
             const stateIdInCurrentWin = window.localStorage.getItem(stateStorageKey)
             if (stateId && !stateIdInCurrentWin) {
               window.localStorage.setItem(stateStorageKey, stateId);
             }
-            const codeVerifierStorageKey = `ARCGIS_REST_JS_CODE_VERIFIER_${query.clientId}`;
+            const codeVerifierStorageKey = `ARCGIS_REST_JS_CODE_VERIFIER_${authState.clientId}`;
             const codeVerifier = window.opener.localStorage.getItem(codeVerifierStorageKey)
             const codeVerifierInCurrentWin = window.localStorage.getItem(codeVerifierStorageKey)
             if (codeVerifier && !codeVerifierInCurrentWin) {
               window.localStorage.setItem(codeVerifierStorageKey, codeVerifier);
             }
           }
-          completeOAuth2(query, popup)
+          completeOAuth2(authState, popup)
           // For popup login, we don't writeAuthInfo here, it's written in SessionManager(for main portal only)
         }else {
-          completeOAuth2(query, popup).then(session => {
-            writeAuthInfo(session, query, hash);
-            window.location.href = query.fromUrl;
+          completeOAuth2(authState, popup).then(session => {
+            writeAuthInfo(session, authState, hash);
+            // redirect page
+            if (authState.redirectUrlInNewWindow) {
+              window.open(authState.redirectUrlInNewWindow)
+            }
+            if (authState.redirectUrlInTopWindow) {
+              window.top.location.href = authState.redirectUrlInTopWindow
+            }
+            window.location.href = authState.fromUrl;
             // window.location.href will not reload the page if there's an anchor (#) in the URL.
             if (window.location.hash) {
               window.location.reload()
@@ -104,13 +114,14 @@
         return openerWin && openerWin.self !== openerWin.top && !openerWin.jimuConfig.isInBuilder
       }
 
-      function completeOAuth2(query, popup) {
-        var redirectUri = `${query.redirectUri}&redirectUri=${encodeURIComponent(query.redirectUri)}`;
+      function completeOAuth2(authState, popup) {
+        const jimuCorePath = authState.jimuCorePath || ''
+        const redirectUri = `${window.location.origin}${jimuCorePath}/oauth-callback.html`
         return arcgisRest.ArcGISIdentityManager.completeOAuth2({
-          portal: query.portal,
-          clientId: query.clientId,
+          portal: authState.portal,
+          clientId: authState.clientId,
           redirectUri: redirectUri,
-          pkce: query.enablePkce === 'true',
+          pkce: authState.enablePkce,
           popup: popup,
         })
       }
@@ -205,7 +216,7 @@
       //    2, sign-in from old auth info: depends on old auth info
       //    3, sign-in from aopc cookie: always write to session storage
       //  note: after writing to session storage, when switching environments (such as from prod to devext), other new tabs my need to sign-in again
-      function writeAuthInfo(session, query, hash) {
+      function writeAuthInfo(session, authState, hash) {
         // write Auth info to local storage.
         const {urlKey, customBaseUrl, schema} = _getPortalUrlInfo(session.portal);
         let esriAuthJson = {
@@ -225,7 +236,7 @@
           // remove exb_auth info first
           sessionStorage.removeItem('exb_auth')
           localStorage.removeItem('exb_auth')
-          if(hash.persist || query.isDevEdition === 'true' || query.isOutOfExb === 'true') {
+          if(hash.persist || authState.isDevEdition === 'true' || authState.isOutOfExb === 'true') {
             localStorage.setItem('exb_auth', JSON.stringify(esriAuthJson));
           } else {
             sessionStorage.setItem('exb_auth', JSON.stringify(esriAuthJson));
@@ -234,6 +245,31 @@
           console.error('Read/Write sessionStorage/localStorage error.', e)
         }
       }
+
+      function getAuthState (authStateId) {
+        let authStates
+        authStates = JSON.parse(localStorage.getItem('exb_auth_states')) || []
+        if (authStates.length === 0 && isInIFrame()) {
+          // if app is embedded in an iFrame with different domain, oauth-callback window cannot get local storage items from its opener automatically
+          // try to getting auth states from it's opener's storage
+          authStates = JSON.parse(window.opener.localStorage.getItem('exb_auth_states')) || []
+        }
+        return authStates.find(authState => authState.id === authStateId)
+      }
+
+      function removeAuthState (authStateId) {
+        const authStates = JSON.parse(localStorage.getItem('exb_auth_states')) || []
+        const newAuthStates = authStates.filter(authState => authState.id !== authStateId)
+        localStorage.setItem('exb_auth_states', JSON.stringify(newAuthStates))
+        if (isInIFrame()) {
+          // if app is embedded in an iFrame with different domain, oauth-callback window get local storage items from its opener
+          // removing auth states from it's opener's storage
+          const openerAuthStates = JSON.parse(window.opener.localStorage.getItem('exb_auth_states')) || []
+          const newOpenerAuthStates = openerAuthStates.filter(authState => authState.id !== authStateId)
+          window.opener.localStorage.setItem('exb_auth_states', JSON.stringify(newAuthStates))
+        }
+      }
+      
       processAuthentication();
     </script>
   </body>

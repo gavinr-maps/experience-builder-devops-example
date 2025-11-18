@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({verticalAlignment:"\uc218\uc9c1 \uc815\ub82c"})}}}));
+System.register([],function(e){return{execute:function(){e({verticalAlignment:"\uc218\uc9c1 \uc815\ub82c"})}}});

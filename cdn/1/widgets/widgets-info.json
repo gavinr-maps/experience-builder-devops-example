@@ -5,8 +5,8 @@
       "name": "3d-toolbox",
       "label": "3D Toolbox",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "",
       "copyright": "",
@@ -151,7 +151,7 @@
     },
     "uri": "widgets/arcgis/3d-toolbox/",
     "icon": "widgets/arcgis/3d-toolbox/icon.svg",
-    "order": 24,
+    "order": 25,
     "group": 1
   },
   {
@@ -160,15 +160,16 @@
       "name": "arcgis-map",
       "label": "Map",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "publishMessages": [
         "EXTENT_CHANGE",
-        "DATA_RECORDS_SELECTION_CHANGE"
+        "DATA_RECORDS_SELECTION_CHANGE",
+        "LOCATION_CHANGE"
       ],
       "messageActions": [
         {
@@ -219,7 +220,8 @@
         "watchViewportVisibility": true,
         "supportAutoSize": false,
         "canConsumeDataAction": true,
-        "needActiveState": true
+        "needActiveState": true,
+        "handleA11yLabelInWidget": true
       },
       "excludeDataActions": [
         "setFilter",
@@ -288,6 +290,10 @@
         {
           "name": "scale",
           "label": "Scale"
+        },
+        {
+          "name": "level",
+          "label": "Level"
         },
         {
           "name": "rotation",
@@ -447,8 +453,8 @@
       "name": "basemap-gallery",
       "label": "Basemap Gallery",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "A basemap gallery widget.",
       "copyright": "",
@@ -466,6 +472,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -606,8 +617,8 @@
       "name": "bookmark",
       "label": "Bookmark",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "A bookmark widget.",
       "copyright": "",
@@ -626,6 +637,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -766,8 +782,8 @@
       "name": "branch-version-management",
       "label": "Branch Version Management",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "This widget supports geodatabase branch versioning management.",
       "copyright": "",
@@ -918,8 +934,8 @@
       "name": "building-explorer",
       "label": "Building Explorer",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "",
       "copyright": "",
@@ -1070,7 +1086,7 @@
     },
     "uri": "widgets/arcgis/building-explorer/",
     "icon": "widgets/arcgis/building-explorer/icon.svg",
-    "order": 26,
+    "order": 27,
     "group": 1
   },
   {
@@ -1081,10 +1097,10 @@
       "type": "widget",
       "dependency": [
         "jimu-arcgis",
-        "https://oi1.img.arcgis.com/api/v2.20/main.js"
+        "https://oi1.img.arcgis.com/api/v2.21/main.js"
       ],
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri",
       "description": "This is an Oriented Imagery Experience Builder widget",
       "copyright": "",
@@ -1230,7 +1246,7 @@
     },
     "uri": "widgets/arcgis/classic-oriented-imagery/",
     "icon": "widgets/arcgis/classic-oriented-imagery/icon.svg",
-    "order": 27,
+    "order": 28,
     "group": 1
   },
   {
@@ -1239,13 +1255,15 @@
       "name": "coordinate-conversion",
       "label": "Coordinate Conversion",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
-      "description": "This is the widget used in developer guide",
+      "description": "A widget to convert input coordinates from one coordinate system to multiple systems and notation formats.",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
-      "properties": {},
+      "properties": {
+        "showDescription": true
+      },
       "translatedLocales": [
         "en",
         "ar",
@@ -1337,46 +1355,46 @@
       "zh-tw": "座標轉換"
     },
     "i18nDescription": {
-      "en": null,
-      "ar": null,
-      "bg": null,
-      "bs": null,
-      "ca": null,
-      "cs": null,
-      "da": null,
-      "de": null,
-      "el": null,
-      "es": null,
-      "et": null,
-      "fi": null,
-      "fr": null,
-      "he": null,
-      "hr": null,
-      "hu": null,
-      "id": null,
-      "it": null,
-      "ja": null,
-      "ko": null,
-      "lt": null,
-      "lv": null,
-      "no": null,
-      "nl": null,
-      "pl": null,
-      "pt-br": null,
-      "pt-pt": null,
-      "ro": null,
-      "ru": null,
-      "sk": null,
-      "sl": null,
-      "sr": null,
-      "sv": null,
-      "th": null,
-      "tr": null,
-      "zh-cn": null,
-      "uk": null,
-      "vi": null,
-      "zh-hk": null,
-      "zh-tw": null
+      "en": "A widget to convert input coordinates from one coordinate system to multiple systems and notation formats.",
+      "ar": "عنصر واجهة استخدام لتحويل إحداثيات الإدخال من نظام إحداثيات واحد إلى أنظمة متعددة وتنسيقات تدوين.",
+      "bg": "Изпълним модул за преобразуване на координати между координатни системи, използвайки множество формати на записване.",
+      "bs": "Widget za pretvaranje ulaznih koordinata iz jednog koordinatnog sustava u više sustava i formata zapisa.",
+      "ca": "Widget per convertir les coordenades d'entrada d'un sistema de coordenades a diversos sistemes i formats de notació.",
+      "cs": "Widget, který umožňuje převádět vstupní souřadnice z jednoho souřadnicového systému do více různých systémů a formátů zápisu.",
+      "da": "En widget til at konvertere inputkoordinater fra ét koordinatsystem til flere systemer og notationsformater.",
+      "de": "Ein Widget zum Konvertieren der Eingabekoordinaten aus einem Koordinatensystem in mehrere Systeme und Schreibweisen.",
+      "el": "Ένα widget για τη μετατροπή συντεταγμένων από ένα συστημάτων συντεταγμένων σε πολλαπλά συστήματα και μορφές σημειογραφίας.",
+      "es": "Un widget para convertir coordenadas de entrada de un sistema de coordenadas a múltiples sistemas y formatos de notaciones.",
+      "et": "Vidin sisendkoordinaatide teisendamiseks ühest koordinaatsüsteemist mitmesse süsteemi ja tähistusvormingusse.",
+      "fi": "Widgetti, jolla muunnetaan lähtöaineiston koordinaatit yhdestä koordinaattijärjestelmästä useisiin järjestelmiin sekä muunnetaan esitystapojen muotoja.",
+      "fr": "Widget permettant de convertir des coordonnées en entrée d’un système de coordonnées vers plusieurs systèmes et formats de notation.",
+      "he": "וידג'ט להמרת קואורדינטות קלט ממערכת קואורדינטות אחת למספר מערכות ופורמטים של ביאורים.",
+      "hr": "Widget za pretvaranje ulaznih koordinata iz jednog koordinatnog sustava u više sustava i formata zapisa.",
+      "hu": "Egy widget, amellyel egy koordináta-rendszer bevitt koordinátái több különböző rendszerbe és jelölési formátumba alakíthatók át.",
+      "id": "Widget untuk mengonversi koordinat input dari satu sistem koordinat ke beberapa sistem dan format notasi.",
+      "it": "Un widget per convertire le coordinate di input da un sistema di coordinate a più sistemi e formati di notazione.",
+      "ja": "入力座標を 1 つの座標系から複数の座標系と表記形式に変換するウィジェット。",
+      "ko": "입력 좌표를 하나의 좌표계에서 여러 좌표계와 표기 형식으로 변환하는 위젯입니다.",
+      "lt": "Valdiklis, skirtas konvertuoti įvesties koordinates iš vienos koordinatų sistemos į kelias sistemas ir žymėjimo formatus.",
+      "lv": "Logrīks ievades koordinātu konvertēšanai no vienas koordinātu sistēmas uz vairākām sistēmām un notāciju formātiem.",
+      "no": "Et miniprogram for å konvertere oppgitte koordinater fra ett koordinatsystem til flere systemer og notasjonsformater.",
+      "nl": "Een widget voor het converteren van invoercoördinaten van een coördinatensysteem naar meerdere systemen en notatie-indelingen.",
+      "pl": "Widżet służący do konwersji współrzędnych wejściowych z jednego układu współrzędnych do wielu układów i formatów zapisu.",
+      "pt-br": "Um widget para converter coordenadas de entrada de um sistema de coordenadas para vários sistemas e formatos de notação.",
+      "pt-pt": "Um widget para converter coordenadas de entrada de um sistema de coordenadas em vários sistemas e formatos de notação.",
+      "ro": "Un widget pentru transformarea coordonatelor de intrare dintr-un sistem de coordonate în mai multe sisteme și formate de notație.",
+      "ru": "Виджет для конвертации входных координат из одной системы координат в несколько систем и форматов записи.",
+      "sk": "Widget na prevod vstupných súradníc z jedného súradnicového systému do viacerých systémov a formátov zápisu.",
+      "sl": "Pripomoček za pretvorbo vhodnih koordinat iz enega koordinatnega sistema v več sistemov in oblik zapisov.",
+      "sr": "Vidžet koji konvertuje ulazne koordinate iz jednog koordinatnog sistema u više sistema i formata oznaka.",
+      "sv": "En widget för att konvertera indatakoordinater från ett koordinatsystem till flera system och notationsformat.",
+      "th": "วิดเจ็ตที่จะแปลงพิกัดอินพุตจากหนึ่งระบบพิกัดเป็นหลายระบบและรูปแบบสัญกรณ์",
+      "tr": "Girdi koordinatlarını bir koordinat sisteminden birden fazla sisteme ve notasyon biçimine dönüştürmek için bir araç.",
+      "zh-cn": "此微件用于将输入坐标从一个坐标系转为多个坐标系和表示格式。",
+      "uk": "Віджет для перетворення вхідних координат з однієї системи координат у інші системи та формати умовних позначень.",
+      "vi": "Một tiện ích để chuyển đổi tọa độ đầu vào từ một hệ tọa độ sang nhiều hệ tọa độ và định dạng ký hiệu khác nhau.",
+      "zh-hk": "用於將輸入座標從一個座標系統轉換為多個系統和標記法格式的 widget。",
+      "zh-tw": "用於將輸入座標從一個座標系統轉換為多個系統和標記法格式的 widget。"
     },
     "uri": "widgets/arcgis/coordinate-conversion/",
     "icon": "widgets/arcgis/coordinate-conversion/icon.svg",
@@ -1389,8 +1407,8 @@
       "name": "coordinates",
       "label": "Coordinates",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to obtain coordinates from the map or scene.",
       "copyright": "",
@@ -1403,6 +1421,13 @@
         "hasSettingPage": true,
         "defaultOffPanel": true
       },
+      "extensions": [
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -1542,8 +1567,8 @@
       "name": "directions",
       "label": "Directions",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which can provide a way to build directions.",
       "copyright": "",
@@ -1573,10 +1598,16 @@
         }
       ],
       "properties": {
-        "canGenerateMultipleOutputDataSources": true,
-        "canCrossLayoutBoundary": true
+        "canGenerateMultipleOutputDataSources": true
       },
       "dependency": "jimu-arcgis",
+      "extensions": [
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -1715,8 +1746,8 @@
       "name": "draw",
       "label": "Draw",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -1871,16 +1902,17 @@
       "name": "elevation-profile",
       "label": "Elevation Profile",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
-      "description": "Use this widget to create elevation profiles from single- or multi-segment lines on a web map or scene.",
+      "description": "A widget for creating elevation profiles from single- or multi-segment lines on a web map or scene.",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "dependency": "jimu-arcgis",
       "properties": {
         "coverLayoutBackground": true,
-        "needHiddenState": true
+        "needHiddenState": true,
+        "showDescription": true
       },
       "messageActions": [
         {
@@ -1987,46 +2019,46 @@
       "zh-tw": "高程剖面"
     },
     "i18nDescription": {
-      "en": null,
-      "ar": null,
-      "bg": null,
-      "bs": null,
-      "ca": null,
-      "cs": null,
-      "da": null,
-      "de": null,
-      "el": null,
-      "es": null,
-      "et": null,
-      "fi": null,
-      "fr": null,
-      "he": null,
-      "hr": null,
-      "hu": null,
-      "id": null,
-      "it": null,
-      "ja": null,
-      "ko": null,
-      "lt": null,
-      "lv": null,
-      "no": null,
-      "nl": null,
-      "pl": null,
-      "pt-br": null,
-      "pt-pt": null,
-      "ro": null,
-      "ru": null,
-      "sk": null,
-      "sl": null,
-      "sr": null,
-      "sv": null,
-      "th": null,
-      "tr": null,
-      "zh-cn": null,
-      "uk": null,
-      "vi": null,
-      "zh-hk": null,
-      "zh-tw": null
+      "en": "A widget for creating elevation profiles from single- or multi-segment lines on a web map or scene.",
+      "ar": "عنصر واجهة استخدام لإنشاء ملفات تعريف الارتفاع من خطوط مكونة من مقطع واحد أو مقاطع متعددة على خريطة ويب أو مشهد.",
+      "bg": "Уиджет за създаване на височинни профили с една или много сегментни линии на уеб карта или сцена.",
+      "bs": "Widget za kreiranje profila visine terena iz linija s jednim ili više segmenata na web-karti ili sceni.",
+      "ca": "Widget per crear perfils d'elevació a partir de línies d'un segment o de diversos segments en un mapa web o en una escena web.",
+      "cs": "Widget k vytváření výškových profilů z jednoduchých nebo vícesegmentových linií na webové mapě nebo scéně.",
+      "da": "En widget til at oprette højdeprofiler fra linjer med et eller flere segmenter på et webkort eller en scene.",
+      "de": "Ein Widget zum Erstellen von Höhenprofilen aus Einzelsegment- oder Multisegment-Linien in einer Webkarte oder -szene.",
+      "el": "Ένα widget για τη δημιουργία υψομετρικών προφίλ από γραμμές ενός ή πολλαπλών τμημάτων σε έναν web χάρτη ή 3D προβολή.",
+      "es": "Un widget para crear perfiles de elevación a partir de líneas de uno o varios segmentos en una escena o mapa web.",
+      "et": "Vidin veebikaardil või stseenis ühe või mitme segmendiga joonte abil kõrgusprofiilide loomiseks.",
+      "fi": "Pienoisohjelma korkeusprofiilien luomiseen yksi- tai moniosaisista viivoista web-kartassa tai maisemassa.",
+      "fr": "Widget permettant de créer des profils d’élévation à partir de lignes à un ou plusieurs segments dans une carte ou scène Web.",
+      "he": "וידג'ט ליצירת פרופילי גבהים מקו סגמנט אחד או יותר במפת ווב או בסצנה:",
+      "hr": "Widget za kreiranje profila visine terena iz linija s jednim ili više segmenata na web-karti ili sceni.",
+      "hu": "Egy widget, amellyel egy- vagy többszegmenses vonalakból hozhat létre magasságprofilt webtérképen vagy 3D térképen.",
+      "id": "Widget untuk pembuatan profil elevasi dari satu atau beberapa baris segmen di web map atau scene.",
+      "it": "Un widget per creare profili di elevazione da linee a segmento singolo o multiplo su una mappa Web o una scena.",
+      "ja": "Web マップまたはシーン上で単一またはマルチセグメントのラインから標高断面を作成するためのウィジェット。",
+      "ko": "웹 맵이나 씬의 단일 세그먼트 라인 또는 다중 세그먼트 라인에서 고도 프로파일을 생성하는 위젯입니다.",
+      "lt": "Valdiklis, skirtas aukščio profiliams kurti iš vienos ar kelių segmentų linijų internetiniame žemėlapyje ar scenoje.",
+      "lv": "Logrīks augstuma profilu izveidei no viena vai vairāku segmentu līnijām tīmekļa kartē vai scēnā.",
+      "no": "Et miniprogram for å opprette høydeprofiler fra linjer med enkelt- eller flersegmenter på et webkart eller -scene.",
+      "nl": "Een widget voor het maken van hoogteprofielen van enkele lijnen of meersegmentslijnen op een web map of in een scene.",
+      "pl": "Widżet służący do tworzenia profili wysokościowych na podstawie jedno- lub wielosegmentowych linii na mapie bądź scenie internetowej.",
+      "pt-br": "Um widget para criar perfis de elevação a partir de linhas de segmento único ou múltiplo em um mapa da web ou cena.",
+      "pt-pt": "Um widget para criar perfis de elevação a partir de linhas de segmento único ou de múltiplos segmentos num mapa ou cena web.",
+      "ro": "Un widget pentru crearea de profiluri de elevație dintr-o linie cu un singur segment sau mai multe segmente pe o hartă sau o scenă web.",
+      "ru": "Виджет для создания профилей рельефа из линий, состоящих из одного или нескольких сегментов, на веб-карте или сцене.",
+      "sk": "Widget na vytváranie výškových profilov z jedno alebo viac-segmentových čiar vo webovej mape alebo scéne.",
+      "sl": "Pripomoček za ustvarjanje višinskih profilov iz enojnih ali večsegmentnih linij na spletni karti ali 3D-prizoru.",
+      "sr": "Vidžet za kreiranje profila elevacije iz linija sa jednim ili više segmenata na veb mapi ili sceni.",
+      "sv": "En widget för att skapa höjdprofiler från linjer med ett eller flera segment på en webbkarta eller i en scen.",
+      "th": "วิดเจ็ตสำหรับการสร้างโปรไฟล์ความสูงจากเส้นหลายส่วนย่อยบนเว็บแมปหรือซีน",
+      "tr": "Web haritası veya sahnede tek veya çok kesimli çizgilerden yükseklik profilleri oluşturmak için bir araç.",
+      "zh-cn": "此微件用于从 web 地图或场景上的单段线或多段线创建高程剖面。",
+      "uk": "Віджет для створення профілів висоти з одно- або багатосегментних ліній на вербкарті або сцені.",
+      "vi": "Tiện ích để tạo hồ sơ độ cao từ một hoặc nhiều phân đoạn đường trên bản đồ web hoặc scene.",
+      "zh-hk": "用於從 Web 地圖或場景上的單段或多段線建立高程剖面的 widget。",
+      "zh-tw": "用於從 Web 地圖或場景上的單段或多段線建立高程剖面的 widget。"
     },
     "uri": "widgets/arcgis/elevation-profile/",
     "icon": "widgets/arcgis/elevation-profile/icon.svg",
@@ -2039,8 +2071,8 @@
       "name": "feature-info",
       "label": "Feature Info",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -2208,8 +2240,8 @@
       "name": "floor-filter",
       "label": "Floor Filter",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri",
       "description": "",
       "copyright": "",
@@ -2366,8 +2398,8 @@
         "jimu-arcgis"
       ],
       "settingDependency": "jimu-arcgis",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -2518,7 +2550,7 @@
     },
     "uri": "widgets/arcgis/fly-controller/",
     "icon": "widgets/arcgis/fly-controller/icon.svg",
-    "order": 25,
+    "order": 26,
     "group": 1
   },
   {
@@ -2527,8 +2559,8 @@
       "name": "legend",
       "label": "Legend",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -2682,8 +2714,8 @@
       "name": "map-layers",
       "label": "Map Layers",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -2852,8 +2884,8 @@
       "name": "measurement",
       "label": "Measurement",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -3006,8 +3038,8 @@
       "name": "my-location",
       "label": "My Location",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which allows you to visualize and analyze the movement or trajectory of devices.",
       "copyright": "",
@@ -3170,17 +3202,18 @@
       "name": "near-me",
       "label": "Near Me",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
-      "description": "This is the widget used in developer guide",
+      "description": "A widget to locate and analyze features within a specified distance of a defined location or the current extent of the map.",
       "copyright": "",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "dependency": "jimu-arcgis",
       "properties": {
         "canConsumeDataAction": true,
         "canGenerateMultipleOutputDataSources": true,
-        "needHiddenState": true
+        "needHiddenState": true,
+        "showDescription": true
       },
       "publishMessages": [
         "DATA_RECORDS_SELECTION_CHANGE"
@@ -3300,46 +3333,46 @@
       "zh-tw": "靠近我"
     },
     "i18nDescription": {
-      "en": null,
-      "ar": null,
-      "bg": null,
-      "bs": null,
-      "ca": null,
-      "cs": null,
-      "da": null,
-      "de": null,
-      "el": null,
-      "es": null,
-      "et": null,
-      "fi": null,
-      "fr": null,
-      "he": null,
-      "hr": null,
-      "hu": null,
-      "id": null,
-      "it": null,
-      "ja": null,
-      "ko": null,
-      "lt": null,
-      "lv": null,
-      "no": null,
-      "nl": null,
-      "pl": null,
-      "pt-br": null,
-      "pt-pt": null,
-      "ro": null,
-      "ru": null,
-      "sk": null,
-      "sl": null,
-      "sr": null,
-      "sv": null,
-      "th": null,
-      "tr": null,
-      "zh-cn": null,
-      "uk": null,
-      "vi": null,
-      "zh-hk": null,
-      "zh-tw": null
+      "en": "A widget to locate and analyze features within a specified distance of a defined location or the current extent of the map.",
+      "ar": "عنصر واجهة مستخدم لتحديد وتحليل المعالم ضمن مسافة محددة من موقع محدد أو النطاق الحالي للخريطة.",
+      "bg": "Уиджет за локализиране и анализ на обекти в рамките на определено разстояние от определено местоположение или текущия обхват на картата.",
+      "bs": "Widget za lociranje i analizu geoobjekata unutar određene udaljenosti od definirane lokacije ili trenutnog obuhvata karte.",
+      "ca": "Widget per localitzar i analitzar entitats dins d'una distància determinada d'una ubicació definida o de l'extensió actual del mapa.",
+      "cs": "Widget, který umožňuje lokalizovat a analyzovat prvky v určené vzdálenosti definovaného umístění nebo aktuálního rozsahu mapy.",
+      "da": "En widget til at lokalisere og analysere objekter inden for en bestemt afstand fra en defineret placering eller kortets aktuelle udstrækning.",
+      "de": "Ein Widget zum Suchen und Analysieren von Features innerhalb einer angegebenen Entfernung von einer bestimmten Position oder innerhalb der aktuellen Ausdehnung der Karte.",
+      "el": "Ένα widget για τον εντοπισμό και την ανάλυση χαρακτηριστικών εντός καθορισμένης απόστασης από μια καθορισμένη τοποθεσία ή την τρέχουσα έκταση του χάρτη.",
+      "es": "Un widget para localizar y analizar entidades dentro de una distancia específica de una ubicación definida o la extensión actual del mapa.",
+      "et": "Vidin objektide leidmiseks ja analüüsimiseks kindla asukoha piires või kaardi praeguse ulatuse piires.",
+      "fi": "Widgetti, jolla paikannetaan ja analysoidaan kohteita, jotka ovat tietyllä etäisyydellä määritetystä sijainnista tai jotka ovat kartan nykyisessä laajuudessa.",
+      "fr": "Widget permettant de localiser et d’analyser les entités se trouvant dans l’étendue actuelle de la carte ou dans un rayon donné autour d’une localisation définie.",
+      "he": "וידג'ט לאתיר ולניתוח ישויות בתוך מרחק שצוין של מיקום מוגדר או התיחום הנוכחי במפה.",
+      "hr": "Widget za lociranje i analizu geoobjekata unutar određene udaljenosti od definirane lokacije ili trenutnog obuhvata karte.",
+      "hu": "Olyan widget, amellyel megkeresheti és elemezheti a vektoros elemeket egy megadott hely adott távolságán belül, vagy a térkép aktuális kiterjedésén belül.",
+      "id": "Widget untuk menemukan dan menganalisis fitur dalam jarak tertentu dari lokasi yang ditentukan atau jangkauan peta saat ini.",
+      "it": "Un widget per individuare e analizzare le feature entro una distanza specificata da una posizione definita o dall'estensione corrente della mappa.",
+      "ja": "指定した場所または現在のマップ範囲から所定の距離内にあるフィーチャを検索し、解析するウィジェット。",
+      "ko": "정의된 위치 또는 맵의 현재 범위로부터 지정 거리 내에 있는 피처를 찾고 분석하는 위젯입니다.",
+      "lt": "Valdiklis, skirtas ieškoti ir analizuoti objektus, esančius nurodytu atstumu nuo apibrėžtos vietos arba dabartinės žemėlapio aprėpties.",
+      "lv": "Rīks, kas ļauj atrast un analizēt objektus noteiktā attālumā no definētas vietas vai kartes pašreizējās pārklājuma zonas.",
+      "no": "Et miniprogram for å finne og analysere geoobjekter innenfor en gitt avstand fra en definert posisjon eller kartets gjeldende utstrekning.",
+      "nl": "Een widget voor het vinden en analyseren van objecten binnen een opgegeven afstand vanaf een gedefinieerde locatie of de huidige extent van de kaart.",
+      "pl": "Widżet służący do lokalizowania i analizowania obiektów w obrębie podanej odległości od zdefiniowanej lokalizacji lub w bieżącym zasięgu mapy.",
+      "pt-br": "Um widget para localizar e analisar feições dentro de uma distância especificada de um local definido ou da extensão atual do mapa.",
+      "pt-pt": "Um widget para localizar e analisar elementos dentro de uma distância especificada de uma localização definida ou da extensão atual do mapa.",
+      "ro": "Un widget pentru localizarea și analizarea obiectelor spațiale pe o distanță specificată față de o locație definită sau extinderea curentă a hărții.",
+      "ru": "Виджет для поиска и анализа объектов в пределах определенного расстояния от заданного местоположения или текущего экстента карты.",
+      "sk": "Widget na vyhľadávanie a analýzu prvkov v určitej vzdialenosti od definovanej lokality alebo v aktuálnom rozsahu mapy.",
+      "sl": "Pripomoček za lociranje in analizo geoobjektov znotraj določene razdalje od določene lokacije ali trenutnega obsega karte.",
+      "sr": "Vidžet za lociranje i analiziranje geoobjekata unutar određenog rastojanja od definisane lokacije ili trenutnog obuhvata mape.",
+      "sv": "En widget för att leta upp och analysera geoobjekt inom ett angivet avstånd från en definierad plats eller den aktuella kartutbredningen.",
+      "th": "วิดเจ็ตสำหรับการค้นหาและวิเคราะห์ฟีเจอร์ภายในระยะทางที่ระบุของตำแหน่งที่กำหนดไว้ หรือขอบเขตปัจจุบันของแผนที่",
+      "tr": "Tanımlanmış bir konumun veya haritanın mevcut yayılımının belirli bir mesafesi içindeki detayları bulmak ve analiz etmek için kullanılan bir araç.",
+      "zh-cn": "此微件用于在指定距离内定位并分析特定位置或地图当前范围内的要素。",
+      "uk": "Віджет для знаходження й аналізу функцій в межах встановленої відстані від заданого місця розташування або поточного екстенту карти.",
+      "vi": "Tiện ích để định vị và phân tích đối tượng trong khoảng cách chỉ định của vị trí xác định hoặc phạm vi hiện tại của bản đồ.",
+      "zh-hk": "用於定位和分析定義位置或地圖目前範圍內指定距離內之圖徵的 widget。",
+      "zh-tw": "用於定位和分析定義位置或地圖目前範圍內指定距離內之圖徵的 widget。"
     },
     "uri": "widgets/arcgis/near-me/",
     "icon": "widgets/arcgis/near-me/icon.svg",
@@ -3352,8 +3385,8 @@
       "name": "oriented-imagery-viewer",
       "label": "Oriented Imagery Viewer",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which helps you visualize oriented imagery layers.",
       "copyright": "",
@@ -3504,8 +3537,8 @@
       "name": "query",
       "label": "Query",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -3539,6 +3572,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -3679,8 +3717,8 @@
       "name": "suitability-modeler",
       "label": "Suitability Modeler",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri",
       "description": "",
       "copyright": "",
@@ -3831,8 +3869,8 @@
       "name": "swipe",
       "label": "Swipe",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which allows you to easily compare the content of layers, maps, or scenes.",
       "copyright": "",
@@ -3990,8 +4028,8 @@
       "name": "utility-network-trace",
       "label": "Utility Network Trace",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "A widget to trace the ArcGIS Utility Network",
       "copyright": "",
@@ -4146,8 +4184,8 @@
       "name": "add-data",
       "label": "Add Data",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget which allows you to add data by searching for layers in ArcGIS content, entering URLs, or uploading local files.",
       "copyright": "",
@@ -4161,6 +4199,8 @@
       ],
       "excludeDataActions": [
         "arcgis-map.showOnMap",
+        "arcgis-map.showPopup",
+        "arcgis-map.addMarker",
         "elevation-profile.*",
         "table.viewInTable",
         "directions.PlanRoute",
@@ -4170,6 +4210,13 @@
         "canConsumeDataAction": true,
         "coverLayoutBackground": true
       },
+      "extensions": [
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -4308,8 +4355,8 @@
       "name": "button",
       "label": "Button",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is a button widget, which is represented as a UI element, like an icon, text, or the composition.",
       "copyright": "",
@@ -4319,6 +4366,7 @@
         "supportRepeat": true,
         "canCrossLayoutBoundary": true,
         "coverLayoutBackground": true,
+        "useOwnBorder": true,
         "hasBuilderSupportModule": true
       },
       "extensions": [
@@ -4331,6 +4379,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "defaultSize": {
@@ -4478,8 +4531,8 @@
       "name": "card",
       "label": "Card",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to display data in a Card view.",
       "copyright": "",
@@ -4495,6 +4548,7 @@
         "coverLayoutBackground": true,
         "supportAutoSize": false,
         "useDragHandler": true,
+        "useOwnBorder": true,
         "hasBuilderSupportModule": true
       },
       "extensions": [
@@ -4654,8 +4708,8 @@
       "name": "chart",
       "label": "Chart",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -4826,8 +4880,8 @@
       "name": "controller",
       "label": "Widget Controller",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -4859,6 +4913,8 @@
         "supportAutoSize": true,
         "useDragHandler": true,
         "canCrossLayoutBoundary": true,
+        "needHiddenState": true,
+        "defaultOffPanel": true,
         "hasBuilderSupportModule": true
       },
       "layouts": [
@@ -5033,8 +5089,8 @@
       "name": "divider",
       "label": "Divider",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to display data in a Divider view.",
       "copyright": "",
@@ -5197,8 +5253,8 @@
       "dependency": [
         "jimu-arcgis"
       ],
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget ...",
       "copyright": "",
@@ -5209,7 +5265,8 @@
         "height": 400
       },
       "properties": {
-        "coverLayoutBackground": true
+        "coverLayoutBackground": true,
+        "needHiddenState": true
       },
       "dataActions": [
         {
@@ -5224,6 +5281,16 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
+        },
+        {
+          "name": "reduxActionInterceptor",
+          "point": "REDUX_ACTION_INTERCEPTOR",
+          "uri": "tools/redux-action-interceptor"
         }
       ],
       "translatedLocales": [
@@ -5364,8 +5431,8 @@
       "name": "embed",
       "label": "Embed",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is a iframe widget, which is represented as a UI element, like an icon, text, or the composition.",
       "copyright": "",
@@ -5373,7 +5440,8 @@
       "properties": {
         "hasSettingPage": true,
         "coverLayoutBackground": true,
-        "supportAutoSize": false
+        "supportAutoSize": false,
+        "handleA11yLabelInWidget": true
       },
       "defaultSize": {
         "width": 400,
@@ -5384,6 +5452,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -5524,8 +5597,8 @@
       "name": "filter",
       "label": "Filter",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -5536,11 +5609,22 @@
       "properties": {
         "notAutoLoadUsedFieldsData": true
       },
+      "urlParameters": [
+        {
+          "name": "filters",
+          "label": "Filters"
+        }
+      ],
       "extensions": [
         {
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "defaultSize": {
@@ -5686,8 +5770,8 @@
       "name": "image",
       "label": "Image",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget to display an image.",
       "copyright": "",
@@ -5716,6 +5800,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -5856,8 +5945,8 @@
       "name": "list",
       "label": "List",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "A widget to display data in a list view.",
       "copyright": "",
@@ -5889,6 +5978,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "layouts": [
@@ -6041,13 +6135,184 @@
     "group": 2
   },
   {
+    "name": "login",
+    "manifest": {
+      "name": "login",
+      "label": "Login",
+      "type": "widget",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
+      "author": "Esri R&D Center Beijing",
+      "description": "This is a sign-in widget.",
+      "copyright": "",
+      "license": "http://www.apache.org/licenses/LICENSE-2.0",
+      "properties": {
+        "hasSettingPage": true,
+        "defaultOffPanel": true,
+        "canCrossLayoutBoundary": true,
+        "useOwnBorder": true,
+        "coverLayoutBackground": true,
+        "hasBuilderSupportModule": true
+      },
+      "extensions": [
+        {
+          "name": "quick-style",
+          "point": "CONTEXT_TOOL",
+          "uri": "tools/quick-style"
+        },
+        {
+          "name": "mode-switch",
+          "point": "CONTEXT_TOOL",
+          "uri": "tools/mode-switch"
+        }
+      ],
+      "defaultSize": {
+        "width": 150,
+        "height": 50,
+        "autoWidth": true,
+        "autoHeight": true
+      },
+      "publishMessages": [],
+      "translatedLocales": [
+        "en",
+        "ar",
+        "bg",
+        "bs",
+        "ca",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "he",
+        "hr",
+        "hu",
+        "id",
+        "it",
+        "ja",
+        "ko",
+        "lt",
+        "lv",
+        "no",
+        "nl",
+        "pl",
+        "pt-br",
+        "pt-pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sr",
+        "sv",
+        "th",
+        "tr",
+        "zh-cn",
+        "uk",
+        "vi",
+        "zh-hk",
+        "zh-tw"
+      ]
+    },
+    "i18nLabel": {
+      "en": "Login",
+      "ar": "تسجيل الدخول",
+      "bg": "Вписване",
+      "bs": "Prijava",
+      "ca": "Inicia la sessió",
+      "cs": "Přihlásit",
+      "da": "Login",
+      "de": "Anmeldung",
+      "el": "Σύνδεση",
+      "es": "Inicio de sesión",
+      "et": "Sisselogimine",
+      "fi": "Kirjaudu sisään",
+      "fr": "Connexion",
+      "he": "כניסה",
+      "hr": "Prijava",
+      "hu": "Bejelentkezés",
+      "id": "Login",
+      "it": "Accedi",
+      "ja": "ログイン",
+      "ko": "로그인",
+      "lt": "Prisijungti",
+      "lv": "Pieteikšanās",
+      "no": "Pålogging",
+      "nl": "Aanmelden",
+      "pl": "Zaloguj się",
+      "pt-br": "Conectar",
+      "pt-pt": "Iniciar sessão",
+      "ro": "Autentificare",
+      "ru": "Авторизоваться",
+      "sk": "Prihlásenie",
+      "sl": "Prijava",
+      "sr": "Prijavljivanje",
+      "sv": "Logga in",
+      "th": "ล็อกอิน",
+      "tr": "Oturum aç",
+      "zh-cn": "登录",
+      "uk": "Увійти в систему",
+      "vi": "Đăng nhập",
+      "zh-hk": "登入",
+      "zh-tw": "登入"
+    },
+    "i18nDescription": {
+      "en": null,
+      "ar": null,
+      "bg": null,
+      "bs": null,
+      "ca": null,
+      "cs": null,
+      "da": null,
+      "de": null,
+      "el": null,
+      "es": null,
+      "et": null,
+      "fi": null,
+      "fr": null,
+      "he": null,
+      "hr": null,
+      "hu": null,
+      "id": null,
+      "it": null,
+      "ja": null,
+      "ko": null,
+      "lt": null,
+      "lv": null,
+      "no": null,
+      "nl": null,
+      "pl": null,
+      "pt-br": null,
+      "pt-pt": null,
+      "ro": null,
+      "ru": null,
+      "sk": null,
+      "sl": null,
+      "sr": null,
+      "sv": null,
+      "th": null,
+      "tr": null,
+      "zh-cn": null,
+      "uk": null,
+      "vi": null,
+      "zh-hk": null,
+      "zh-tw": null
+    },
+    "uri": "widgets/common/login/",
+    "icon": "widgets/common/login/icon.svg",
+    "order": 404,
+    "group": 4
+  },
+  {
     "name": "menu",
     "manifest": {
       "name": "menu",
       "label": "Menu",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6198,8 +6463,8 @@
       "name": "navigator",
       "label": "Views Navigation",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6379,8 +6644,8 @@
       "name": "print",
       "label": "Print",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6393,7 +6658,6 @@
         "hasSettingPage": true,
         "defaultOffPanel": false,
         "supportAutoSize": false,
-        "canCrossLayoutBoundary": true,
         "needHiddenState": true
       },
       "extensions": [
@@ -6401,6 +6665,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -6541,8 +6810,8 @@
       "name": "search",
       "label": "Search",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6583,6 +6852,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -6723,8 +6997,8 @@
       "name": "select",
       "label": "Select",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6753,6 +7027,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -6893,8 +7172,8 @@
       "name": "share",
       "label": "Share",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -6903,6 +7182,13 @@
         "hasSettingPage": true,
         "defaultOffPanel": true
       },
+      "extensions": [
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
+        }
+      ],
       "defaultSize": {
         "width": 24,
         "height": 24,
@@ -7047,8 +7333,8 @@
       "name": "table",
       "label": "Table",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget provides an interactive table",
       "copyright": "",
@@ -7093,6 +7379,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -7233,8 +7524,8 @@
       "name": "text",
       "label": "Text",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -7409,8 +7700,8 @@
       "name": "timeline",
       "label": "Timeline",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -7562,8 +7853,8 @@
       "name": "document-explorer",
       "label": "Document Explorer",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "GeoBIM Dev",
       "description": "A widget to display project documents and folders from Autodesk Construction Cloud.",
       "copyright": "",
@@ -7715,7 +8006,7 @@
     },
     "uri": "widgets/geobim/document-explorer/",
     "icon": "widgets/geobim/document-explorer/icon.svg",
-    "order": 28,
+    "order": 29,
     "group": 1
   },
   {
@@ -7724,8 +8015,8 @@
       "name": "document-viewer",
       "label": "Document Viewer",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "GeoBIM Dev",
       "description": "A widget to display and interact with 2D and 3D documents from Autodesk Construction Cloud.",
       "copyright": "",
@@ -7877,7 +8168,7 @@
     },
     "uri": "widgets/geobim/document-viewer/",
     "icon": "widgets/geobim/document-viewer/icon.svg",
-    "order": 29,
+    "order": 30,
     "group": 1
   },
   {
@@ -7886,8 +8177,8 @@
       "name": "link-explorer",
       "label": "Link Explorer",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "GeoBIM Dev",
       "description": "A widget to display linked Autodesk Construction Cloud documents of features in web maps and web scenes.",
       "copyright": "",
@@ -8039,7 +8330,7 @@
     },
     "uri": "widgets/geobim/link-explorer/",
     "icon": "widgets/geobim/link-explorer/icon.svg",
-    "order": 30,
+    "order": 31,
     "group": 1
   },
   {
@@ -8049,8 +8340,8 @@
       "label": "Accordion",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.15.0",
-      "exbVersion": "1.15.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -8072,6 +8363,11 @@
           "name": "quick-style",
           "point": "CONTEXT_TOOL",
           "uri": "tools/quick-style"
+        },
+        {
+          "name": "add-widget",
+          "point": "CONTEXT_TOOL",
+          "uri": "tools/add-widget"
         },
         {
           "name": "appConfigOperations",
@@ -8222,8 +8518,8 @@
       "label": "Column",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -8236,6 +8532,13 @@
           "name": "DEFAULT",
           "label": "Default",
           "type": "COLUMN"
+        }
+      ],
+      "extensions": [
+        {
+          "name": "add-widget",
+          "point": "CONTEXT_TOOL",
+          "uri": "tools/add-widget"
         }
       ],
       "defaultSize": {
@@ -8381,8 +8684,8 @@
       "label": "Fixed Panel",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -8543,8 +8846,8 @@
       "label": "Flow Row",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -8714,8 +9017,8 @@
       "label": "Grid",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -8874,8 +9177,8 @@
       "label": "Row",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -9033,8 +9336,8 @@
       "label": "Sidebar",
       "type": "widget",
       "widgetType": "LAYOUT",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -9218,8 +9521,8 @@
       "name": "add-line-event",
       "label": "Add Line Event",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -9251,6 +9554,13 @@
         "width": 350,
         "height": 400
       },
+      "extensions": [
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -9389,8 +9699,8 @@
       "name": "add-point-event",
       "label": "Add Point Event",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -9410,6 +9720,13 @@
         "width": 350,
         "height": 400
       },
+      "extensions": [
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -9548,8 +9865,8 @@
       "name": "dynamic-segmentation",
       "label": "Dynamic Segmentation",
       "type": "widget",
-      "version": "1.15.0",
-      "exbVersion": "1.15.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -9582,6 +9899,13 @@
         "width": 600,
         "height": 400
       },
+      "extensions": [
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -9720,8 +10044,8 @@
       "name": "identify",
       "label": "LRS Identify",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -9754,6 +10078,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
         }
       ],
       "translatedLocales": [
@@ -9894,8 +10223,8 @@
       "name": "merge-events",
       "label": "Merge Events",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -9915,6 +10244,13 @@
         "width": 350,
         "height": 400
       },
+      "extensions": [
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -10053,8 +10389,8 @@
       "name": "search-by-route",
       "label": "Search By Route",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -10086,6 +10422,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
         }
       ],
       "translatedLocales": [
@@ -10226,8 +10567,8 @@
       "name": "split-event",
       "label": "Split Event",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Solutions",
       "description": "",
       "copyright": "",
@@ -10247,6 +10588,13 @@
         "width": 350,
         "height": 400
       },
+      "extensions": [
+        {
+          "name": "LRS Store",
+          "point": "REDUX_STORE",
+          "uri": "extensions/lrs-store"
+        }
+      ],
       "translatedLocales": [
         "en",
         "ar",
@@ -10385,10 +10733,10 @@
       "name": "survey123",
       "label": "Survey",
       "type": "widget",
-      "version": "1.18.0",
+      "version": "1.19.0",
       "dependency": "jimu-arcgis",
       "settingDependency": "jimu-arcgis",
-      "exbVersion": "1.18.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -10545,8 +10893,8 @@
       "name": "analysis",
       "label": "Analysis",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -10569,9 +10917,12 @@
         "setFilter",
         "near-me.locate",
         "arcgis-map.showOnMap",
+        "arcgis-map.showPopup",
+        "arcgis-map.addMarker",
         "directions.*",
         "elevation-profile.*",
-        "table.viewInTable"
+        "table.viewInTable",
+        "relatedData"
       ],
       "dataActions": [
         {
@@ -10586,6 +10937,11 @@
           "name": "appConfigOperations",
           "point": "APP_CONFIG_OPERATIONS",
           "uri": "tools/app-config-operations"
+        },
+        {
+          "name": "builderOperations",
+          "point": "BUILDER_OPERATIONS",
+          "uri": "tools/builder-operations"
         }
       ],
       "translatedLocales": [
@@ -10724,10 +11080,10 @@
     "name": "display-order",
     "manifest": {
       "name": "display-order",
-      "label": "Display Order",
+      "label": "Image Display Order",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri",
       "description": "A widget to set the display order for overlapped images within an imagery layer.",
       "copyright": "",
@@ -10741,6 +11097,7 @@
         "arcgis-map.showOnMap",
         "arcgis-map.addToMap",
         "arcgis-map.showPopup",
+        "arcgis-map.addMarker",
         "dataStatistics",
         "directions.*",
         "edit.*",
@@ -10801,46 +11158,46 @@
       ]
     },
     "i18nLabel": {
-      "en": "Display Order",
-      "ar": "ترتيب العرض",
-      "bg": "Ред на показване",
-      "bs": "Redoslijed prikaza",
-      "ca": "Ordre de visualització",
-      "cs": "Pořadí zobrazení",
-      "da": "Visningsrækkefølge",
-      "de": "Anzeigereihenfolge",
-      "el": "Σειρά παρουσίασης στην οθόνη",
-      "es": "Orden de visualización",
-      "et": "Kuvamisjärjekord",
-      "fi": "Näyttöjärjestys",
-      "fr": "Ordre d’affichage",
-      "he": "סדר תצוגה",
-      "hr": "Redoslijed prikaza",
-      "hu": "Megjelenítési sorrend",
-      "id": "Tampilkan Urutan",
-      "it": "Ordine di visualizzazione",
-      "ja": "表示順序",
-      "ko": "표시 순서",
-      "lt": "Atvaizdavimo tvarka",
-      "lv": "Parādīšanas kārtība",
-      "no": "Visningsrekkefølge",
-      "nl": "Weergavevolgorde",
-      "pl": "Kolejność wyświetlania",
-      "pt-br": "Ordem de Exibição",
-      "pt-pt": "Ordem de exibição",
-      "ro": "Ordinea de afișare",
-      "ru": "Порядок отображения",
-      "sk": "Poradie zobrazenia",
-      "sl": "Vrstni red prikaza",
-      "sr": "Redosled prikaza",
-      "sv": "Visningsordning",
-      "th": "ลำดับการแสดงผล",
-      "tr": "Görüntüleme Sırası",
-      "zh-cn": "显示顺序",
-      "uk": "Порядок відображення",
-      "vi": "Thứ tự Hiển thị",
-      "zh-hk": "顯示順序",
-      "zh-tw": "顯示順序"
+      "en": "Image Display Order",
+      "ar": "ترتيب عرض الصورة",
+      "bg": "Ред на показване на изображения",
+      "bs": "Redoslijed prikaza slike",
+      "ca": "Ordre de visualització de les imatges",
+      "cs": "Pořadí zobrazení snímků",
+      "da": "Billedvisningsrækkefølge",
+      "de": "Bildanzeigereihenfolge",
+      "el": "Σειρά παρουσίασης της εικόνας στην οθόνη",
+      "es": "Orden de visualización de imágenes",
+      "et": "Piltide kuvamise järjekord",
+      "fi": "Kuvien näyttöjärjestys",
+      "fr": "Ordre d’affichage des images",
+      "he": "סדר הצגת תמונות",
+      "hr": "Redoslijed prikaza slike",
+      "hu": "Képmegjelenítési sorrend",
+      "id": "Urutan Tampilan Gambar",
+      "it": "Ordine di visualizzazione immagini",
+      "ja": "画像表示順序",
+      "ko": "이미지 표시 순서",
+      "lt": "Vaizdų rodymo tvarka",
+      "lv": "Attēlu parādīšanas secība",
+      "no": "Rekkefølge for bildevisning",
+      "nl": "Weergavevolgorde van afbeeldingen",
+      "pl": "Kolejność wyświetlania rastrów",
+      "pt-br": "Ordem de exibição da imagem",
+      "pt-pt": "Ordem de Visualização de Imagens",
+      "ro": "Ordine de afișare a imaginilor",
+      "ru": "Порядок отображения изображений",
+      "sk": "Poradie zobrazovania snímok",
+      "sl": "Vrstni red prikaza slike",
+      "sr": "Redosled prikaza snimka",
+      "sv": "Bildvisningsordning",
+      "th": "ลำดับการแสดงรูปภาพ",
+      "tr": "Görüntü Gösterme Sırası",
+      "zh-cn": "影像显示顺序",
+      "uk": "Порядок відображення зображень",
+      "vi": "Thứ tự Hiển thị Hình ảnh",
+      "zh-hk": "影像顯示順序",
+      "zh-tw": "影像顯示順序"
     },
     "i18nDescription": {
       "en": "A widget to set the display order for overlapped images within an imagery layer.",
@@ -10890,13 +11247,183 @@
     "group": 1
   },
   {
+    "name": "image-collection-explorer",
+    "manifest": {
+      "name": "image-collection-explorer",
+      "label": "Image Collection Explorer",
+      "type": "widget",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
+      "author": "Esri",
+      "description": "A widget to search and explore the image data collection within an imagery layer.",
+      "copyright": "",
+      "license": "http://www.apache.org/licenses/LICENSE-2.0",
+      "properties": {
+        "canConsumeDataAction": true,
+        "notShareDynamicModules": true,
+        "showDescription": true
+      },
+      "excludeDataActions": [
+        "arcgis-map.showOnMap",
+        "arcgis-map.addToMap",
+        "arcgis-map.showPopup",
+        "arcgis-map.addMarker",
+        "dataStatistics",
+        "directions.*",
+        "edit.*",
+        "elevation-profile.*",
+        "near-me.*",
+        "relatedData",
+        "setFilter",
+        "table.*"
+      ],
+      "translatedLocales": [
+        "en",
+        "ar",
+        "bg",
+        "bs",
+        "ca",
+        "cs",
+        "da",
+        "de",
+        "el",
+        "es",
+        "et",
+        "fi",
+        "fr",
+        "he",
+        "hr",
+        "hu",
+        "id",
+        "it",
+        "ja",
+        "ko",
+        "lt",
+        "lv",
+        "no",
+        "nl",
+        "pl",
+        "pt-br",
+        "pt-pt",
+        "ro",
+        "ru",
+        "sk",
+        "sl",
+        "sr",
+        "sv",
+        "th",
+        "tr",
+        "zh-cn",
+        "uk",
+        "vi",
+        "zh-hk",
+        "zh-tw"
+      ],
+      "defaultSize": {
+        "width": 400,
+        "height": 800
+      },
+      "dependency": [
+        "jimu-arcgis"
+      ]
+    },
+    "i18nLabel": {
+      "en": "Image Collection Explorer",
+      "ar": "مستكشف مجموعة الصور",
+      "bg": "Explorer на колекция от изображения",
+      "bs": "Istraživač zbirke slika",
+      "ca": "Explorador de la recopilació d'imatges",
+      "cs": "Průzkumník kolekce snímků",
+      "da": "Billedsamling-explorer",
+      "de": "Bildsammlungs-Explorer",
+      "el": "Εξερευνητής συλλογής εικόνων",
+      "es": "Explorador de colección de imágenes",
+      "et": "Pildikogu uurija",
+      "fi": "Kuvakokoelman tutkimustoiminto",
+      "fr": "Explorateur de collections d’images",
+      "he": "דפדפן אוסף תמונות",
+      "hr": "Istraživač zbirke slika",
+      "hu": "Képgyűjtemény-böngésző",
+      "id": "Penjelajah Koleksi Gambar",
+      "it": "Explorer della raccolta immagini",
+      "ja": "画像コレクション エクスプローラー",
+      "ko": "이미지 수집 탐색기",
+      "lt": "Vaizdų rinkinio naršyklė",
+      "lv": "Attēlu kolekcijas pārlūks",
+      "no": "Bildesamlingutforsker",
+      "nl": "Verkenner afbeeldingsverzamelingen",
+      "pl": "Eksplorator zbiorów obrazów",
+      "pt-br": "Explorador de coleção de imagens",
+      "pt-pt": "Explorador de coleções de imagens",
+      "ro": "Explorator colecție de imagini",
+      "ru": "Обозреватель коллекции изображений",
+      "sk": "Image collection explorer",
+      "sl": "Raziskovalec zbirke slik",
+      "sr": "Istraživač kolekcije snimaka",
+      "sv": "Image Collection Explorer",
+      "th": "Image Collection Explorer",
+      "tr": "Görüntü Koleksiyonu Gezgini",
+      "zh-cn": "影像集合资源管理器",
+      "uk": "Оглядач колекції зображень",
+      "vi": "Trình khám phá Bộ sưu tập Hình ảnh",
+      "zh-hk": "圖像集合 Explorer",
+      "zh-tw": "圖像集合 Explorer"
+    },
+    "i18nDescription": {
+      "en": "A widget to search and explore the image data collection within an imagery layer.",
+      "ar": "أداة للبحث واستكشاف مجموعة بيانات الصور داخل طبقة الصور.",
+      "bg": "Уиджет за търсене и изследване на колекцията от графични данни в рамките на слой с изображения.",
+      "bs": "Widget za pretraživanje i istraživanje zbirke slikovnih podataka unutar sloja slike.",
+      "ca": "Widget per cercar i explorar la recopilació de dades d'imatges en una capa d'imatges.",
+      "cs": "Widget k vyhledávání a zkoumání kolekcí dat snímků z vrstvy obrazových dat.",
+      "da": "En widget til at søge i og udforske billeddatasamlingen i et billedlag.",
+      "de": "Ein Widget zum Durchsuchen und Erkunden der Bilddaten-Sammlung in einem Bilddaten-Layer.",
+      "el": "Ένα widget για την αναζήτηση και εξερεύνηση της συλλογής δεδομένων εικόνας μέσα σε ένα θεματικό επίπεδο εικόνων.",
+      "es": "Un widget para buscar y explorar la colección de datos de imágenes dentro de una capa de imágenes.",
+      "et": "Vidin pildikihi pildiandmete kogu otsimiseks ja uurimiseks.",
+      "fi": "Pienoisohjelma, jolla haetaan ja tutkitaan kuva-aineistojen kokoelmaa kuva-aineistokarttatasossa.",
+      "fr": "Widget permettant de rechercher des collections de données d’image et de les explorer dans une couche d’imagerie.",
+      "he": "וידג'ט לחיפוש ולפדוף באוסף נתוני התמונות בשכבת תצלומים.",
+      "hr": "Widget za pretraživanje i istraživanje zbirke slikovnih podataka unutar sloja slike.",
+      "hu": "Egy widget, amely lehetőséget ad arra, hogy keresést végezzen a távérzékelési rétegen belül, és felfedezze a képadatgyűjteményt.",
+      "id": "Widget untuk mencari dan menjelajahi koleksi data gambar di dalam layer citra.",
+      "it": "Un widget per cercare ed esplorare la raccolta di dati immagine all'interno di un layer immagine.",
+      "ja": "イメージ レイヤー内の画像データ コレクションを検索および探索するウィジェット。",
+      "ko": "영상 레이어 내에서 이미지 데이터 수집을 검색하고 탐색하는 위젯입니다.",
+      "lt": "Valdiklis, skirtas ieškoti ir naršyti vaizdų duomenų rinkinį vaizdų sluoksnyje.",
+      "lv": "Logrīks, lai meklētu un izpētītu attēlu datu kolekciju attēlu slānī.",
+      "no": "Et miniprogram for å søke og utforske bildedatasamlingen innenfor et bildelag.",
+      "nl": "Een widget voor het zoeken en verkennen van de beeldgegevensverzameling binnen een imagery layer.",
+      "pl": "Widżet umożliwiający wyszukiwanie i eksplorowanie zbiorów danych obrazowych w warstwie zobrazowań.",
+      "pt-br": "Um widget para pesquisar e explorar a coleção de dados de imagens dentro de uma camada de imagens.",
+      "pt-pt": "Um widget para pesquisar e explorar a coleção de dados de imagens numa camada de imagens.",
+      "ro": "Un widget pentru căutarea și explorarea colecției de date de imagini într-un strat tematic de imagine.",
+      "ru": "Виджет для поиска и изучения коллекций данных изображений в слое изображений.",
+      "sk": "Widget na vyhľadávanie a prehliadanie zbierky snímkových dát v rámci snímkovej vrstvy.",
+      "sl": "Pripomoček za iskanje in raziskovanje zbirke podatkov o sliki znotraj slikovnega sloja.",
+      "sr": "Vidžet namenjen pretraživanju i istraživanju kolekcije podataka o snimcima unutar sloja snimaka.",
+      "sv": "En widget för att söka efter och utforska bilddatasamlingen i ett bildlager.",
+      "th": "วิดเจ็ตสำหรับค้นหาและสำรวจคอลเลกชันข้อมูลภาพภายในชั้นข้อมูลภาพ",
+      "tr": "Görüntü katmanı içindeki görüntü verilerini aramak ve keşfetmek için bir araç.",
+      "zh-cn": "此微件用于搜索、浏览影像图层中的影像数据集。",
+      "uk": "Віджет для пошуку й огляду колекції даних зображень в межах шару зображень.",
+      "vi": "Tiện ích để tìm kiếm và khám phá bộ sưu tập dữ liệu hình ảnh trong lớp hình ảnh.",
+      "zh-hk": "用於搜尋和探索影像圖層內的圖像資料集合的 widget。",
+      "zh-tw": "用於搜尋和探索影像圖層內的圖像資料集合的 widget。"
+    },
+    "uri": "widgets/arcgis/image-collection-explorer/",
+    "icon": "widgets/arcgis/image-collection-explorer/icon.svg",
+    "order": 24,
+    "group": 1
+  },
+  {
     "name": "processing-templates",
     "manifest": {
       "name": "processing-templates",
       "label": "Processing Templates",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri",
       "description": "A widget to apply a processing template to an imagery layer and perform on-the-fly raster processing.",
       "copyright": "",
@@ -10910,6 +11437,7 @@
         "arcgis-map.showOnMap",
         "arcgis-map.addToMap",
         "arcgis-map.showPopup",
+        "arcgis-map.addMarker",
         "dataStatistics",
         "directions.*",
         "edit.*",
@@ -10975,7 +11503,7 @@
       "bg": "Обработка на шаблони",
       "bs": "Predlošci obrade",
       "ca": "Plantilles de processament",
-      "cs": "Probíhá zpracování šablon",
+      "cs": "Šablony zpracování",
       "da": "Behandlingsskabeloner",
       "de": "Verarbeitungsvorlagen",
       "el": "Πρότυπα επεξεργασίας",
@@ -11064,16 +11592,16 @@
       "name": "ba-infographic",
       "label": "Business Analyst",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri Inc.",
       "description": "Display interactive Business Analyst infographic reports for a location.",
       "copyright": "Copyright 2022 Esri Inc.",
       "license": "http://www.apache.org/licenses/LICENSE-2.0",
       "properties": {
         "coverLayoutBackground": true,
-        "canCrossLayoutBoundary": true,
-        "notShareDynamicModules": true
+        "notShareDynamicModules": true,
+        "flipIcon": true
       },
       "messageActions": [
         {
@@ -11128,7 +11656,7 @@
       "settingDependency": "jimu-arcgis",
       "defaultSize": {
         "width": 550,
-        "height": 325
+        "height": 361
       }
     },
     "i18nLabel": {},
@@ -11144,10 +11672,10 @@
       "name": "feature-report",
       "label": "Feature Report",
       "type": "widget",
-      "version": "1.18.0",
+      "version": "1.19.0",
       "dependency": "jimu-arcgis",
       "settingDependency": "jimu-arcgis",
-      "exbVersion": "1.18.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is the widget used in developer guide",
       "copyright": "",
@@ -11331,8 +11859,8 @@
       "name": "simple",
       "label": "Simple",
       "type": "widget",
-      "version": "1.18.0",
-      "exbVersion": "1.18.0",
+      "version": "1.19.0",
+      "exbVersion": "1.19.0",
       "author": "Esri R&D Center Beijing",
       "description": "This is a barebones, simple widget. It includes an example of how to use the config file, and it includes a placeholder SVG icon. It intentionally does not include the following so you can use this to start from scratch: i18n translations, a Settings panel, unit tests. See the documentation for more information on how to implement these features.",
       "copyright": "",

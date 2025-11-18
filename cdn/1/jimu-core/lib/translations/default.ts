@@ -10,7 +10,7 @@ export default {
   close: 'Close',
   new: 'New',
   classic: 'Classic',
-  widgetLoadError: 'Fail to load',
+  widgetLoadError: 'The widget could not be loaded due to an unexpected error.',
   notPublishError: 'This item is not published. Please open this item in Experience Builder, then click <b>&nbsp;Publish&nbsp;</b> to publish it.',
   versionUpdateMsg: 'New updates are available. Click Reload to get the latest updates.',
   userLocaleChangeMsg: 'The user locale has changed. Click Reload to refresh the page.',
@@ -18,6 +18,8 @@ export default {
   search: 'Search',
   delete: 'Delete',
   about: 'About',
+  failed: 'Failed',
+  continue: 'Continue',
 
   neverUnsupportedBrowserTitle: 'Unsupported browser',
   neverUnsupportedBrowserOnlineContent: 'You are using a browser that is not supported by [ArcGIS Experience Builder]. Please use the latest version of <chrome-link>Google Chrome</chrome-link>, <firefox-link>Mozilla Firefox</firefox-link>, <safari-link>Apple Safari</safari-link>, or <edge-link>Microsoft Edge</edge-link>. Provide your feedback through <feedback-link>GeoNet, the Esri Community</feedback-link>.',
@@ -44,6 +46,9 @@ export default {
   export: 'Export',
   exportAll: 'Export all',
   exportSelected: 'Export selected',
+  exportingData: 'Exporting: {name}',
+  failedToExport: 'Failed to export {name}',
+  viewItem: 'View item:',
   largeWarningTitle: 'Are you sure you want to export all data records? ',
   largeWarningContent: 'Exporting this large dataset will take time.',
   tooLargeWarningTitle: 'You can only export the first {max} records.',
@@ -56,8 +61,8 @@ export default {
   dataAction_ExportGDB: 'Export to FGDB',
   dataAction_ExportKML: 'Export to KML',
   dataAction_SetFilter: 'Set filter',
-  dataAction_DataStatistics: 'Statistics',
-  dataAction_RelatedData: 'Related data',
+  dataAction_DataStatistics: 'Calculate statistics',
+  dataAction_RelatedData: 'View related data',
   selectionMode: 'Selection mode',
   selectionModeSingle: 'Single',
   selectionModeMultiple: 'Multiple',
@@ -84,6 +89,7 @@ export default {
   high: 'High',
   large: 'Large',
   varyLarge: 'Very large',
+  extraLarge: 'Extra large',
   short: 'Short',
   medium: 'Medium',
   long: 'Long',
@@ -114,6 +120,10 @@ export default {
   dialogConfirmationDefaultText: 'I agree to the above terms and conditions',
   dialogPreventDisplayAgainDefaultText: 'Don\'t show this again',
 
+  // app error
+  page404Error: '404 — Page not found{br}The page you’re looking for doesn’t exist or has been moved.',
+  goToHomePage: 'Go to home page',
+
   // privilege and license
   publicUserError: 'Public Account user cannot access this application.',
   noEditPrivilegesError: 'Your account does not have permission to create or modify data.',
@@ -135,6 +145,13 @@ export default {
   switchAccountBtn: 'Switch account',
   switch: 'Switch',
 
+  // restrictions
+  pageRestrictionError: 'Sorry, you do not have permissions to access this page.',
+  homepageRestrictionWarning: 'There is a visibility restriction set to this page. Please review it carefully in Privacy and security settings.',
+  administrator: 'Administrator',
+  publisher: 'Publisher',
+  user: 'User',
+
   // sign-in error
   signInErrorDefault: 'Sorry, you do not have permission to access this resource.',
   signInErrorsDefault: 'Sorry, you do not have permission to access ({names}).',
@@ -145,6 +162,7 @@ export default {
   signInBannerListWarning: 'Sorry, you don’t have access to the resources from the following servers or organizations. Click Sign in to provide credentials. Click Ignore to avoid loading the resource until you refresh the app.',
   signInBannerIgnore: 'Ignore',
   signInBannerIgnoreAll: 'Ignore all',
+  signInBannerTitle: 'Credential banner',
 
   // experience state
   restoreState: 'Restore experience state',
@@ -202,4 +220,9 @@ export default {
   buildingComponent: 'Building Component Sublayer',
   json: 'JSON',
   exportItem: 'Item',
+  import: 'Import',
+
+  // a11y
+  a11ySkipTo: 'Skip to',
+  a11ySkipToContent: 'Skip to {content}'
 }

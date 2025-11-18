@@ -1,1 +1,1 @@
-System.register([],(function(t){return{execute:function(){t({verticalAlignment:"Pystytasaus"})}}}));
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Pystytasaus"})}}});

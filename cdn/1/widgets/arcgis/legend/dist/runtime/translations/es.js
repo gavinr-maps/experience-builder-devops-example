@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Leyenda"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Leyenda"})}}});

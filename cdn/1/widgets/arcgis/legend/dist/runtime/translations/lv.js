@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Apz\u012bm\u0113jumi"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Apz\u012bm\u0113jumi"})}}});

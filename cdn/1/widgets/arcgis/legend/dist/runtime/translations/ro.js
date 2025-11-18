@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Legend\u0103"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Legend\u0103"})}}});

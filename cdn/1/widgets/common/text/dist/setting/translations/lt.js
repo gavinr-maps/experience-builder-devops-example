@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Vertikalus lygiavimas"})}}}));
+System.register([],function(e){return{execute:function(){e({verticalAlignment:"Vertikalus lygiavimas"})}}});

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Teksti",defaultPlaceholder:"Muokkaa teksti\xe4 kaksoisnapsauttamalla"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Teksti",defaultPlaceholder:"Muokkaa teksti\xe4 kaksoisnapsauttamalla"})}}});

@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Lejant"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Lejant"})}}});

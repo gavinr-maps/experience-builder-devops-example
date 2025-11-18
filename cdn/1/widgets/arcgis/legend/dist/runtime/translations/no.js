@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({_widgetLabel:"Tegnforklaring"})}}}));
+System.register([],function(e){return{execute:function(){e({_widgetLabel:"Tegnforklaring"})}}});

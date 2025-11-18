@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Wyr\xf3wnanie pionowe"})}}}));
+System.register([],function(e){return{execute:function(){e({verticalAlignment:"Wyr\xf3wnanie pionowe"})}}});

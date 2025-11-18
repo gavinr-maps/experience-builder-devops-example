@@ -1,1 +1,1 @@
-System.register([],(function(e){return{execute:function(){e({verticalAlignment:"Vertikalno poravnanje"})}}}));
+System.register([],function(e){return{execute:function(){e({verticalAlignment:"Vertikalno poravnanje"})}}});
