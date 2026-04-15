@@ -6,12 +6,21 @@ export default {
   selectedRouteMeasure: 'Selected Route Measure ({units})',
   selectedRouteFromMeasure: 'Selected Route From Measure ({units})',
   selectedRouteToMeasure: 'Selected Route To Measure ({units})',
+  concurrencyTable: 'Concurrency Table',
+
+  // inline editable-dropdown
+  editLabel: 'Edit {label}',
+  cancelLabel: 'Cancel editing {label}',
 
   // required fields
   eventRequiredLabel: 'Event *',
   networkRequiredLabel: 'Network *',
   routeIdRequiredLabel: 'Route ID *',
   routeNameRequiredLabel: 'Route Name *',
+  fromRouteNameRequiredLabel: 'From Route Name *',
+  fromRouteIdRequiredLabel: 'From Route ID *',
+  toRouteNameRequiredLabel: 'To Route Name *',
+  toRouteIdRequiredLabel: 'To Route ID *',
   startDateRequiredLabel: 'Start Date *',
 
   // attribute-table
@@ -33,6 +42,15 @@ export default {
   invalidRange: 'Value exceeds min or max values of range.',
   contingentValueError: 'Invalid contingent value in the field',
 
+  // route-picker
+  selectRouteOnMap: 'Select route on map',
+  selectMeasureOnMap: 'Select measure on map',
+  selectToRouteOnMap: 'Select to route on map',
+  selectToMeasureOnMap: 'Select to measure on map',
+
+  // referent-picker
+  selectReferentOnMap: 'Select referent on map',
+
   // route-picker-popup
   selectRouteLabel: 'Select Route',
   routePicker: 'Route Picker',
@@ -47,6 +65,13 @@ export default {
   measureLabel: 'Measure',
   fromMeasureLabel: 'From Measure',
   toMeasureLabel: 'To Measure',
+
+  // event-picker-popup
+  selectEventLabel: 'Select Event',
+  eventPicker: 'Event Picker',
+  objectIdLabel: 'Object ID',
+  eventIdLabel: 'Event ID',
+  intersectionNameLabel: 'Intersection Name',
 
   // intellisense
   noResult: 'No Results',
@@ -83,6 +108,10 @@ export default {
   clearLayers: 'Clear layers',
   removeLayer: 'Remove',
   missingParentNetwork: 'Parent network is missing',
+  searchMethods: 'Search Methods',
+  radiusWithUnits: 'Radius ({units})',
+  spatialReference: 'Spatial Reference',
+  lrs: 'LRS',
 
   // add events, split event, merge events
   inches: 'Inches (US Survey)',
@@ -159,4 +188,20 @@ export default {
   vmsVersionNotFound: 'Version {versionName} not found.',
   vmsVersionGuidMissing: 'Version GUID is missing.',
   vmsFailedToStartReading: 'Failed to start reading version {versionName}.',
+
+  // Search By Referent
+  offsetLabel: 'Offset ({unit})',
+  invalidOffset: 'Invalid Offset',
+  invalidReferent: 'Location is invalid or is not on the selected route.',
+  referentDisplayName: '{displayName} *',
+  referentRequired: 'Referent *',
+  locationOffsetLabel: 'Location Offset',
+  measureOutOfRange: 'Measure out of range.',
+  referentNotOnRoute: 'Location is not on the selected route.',
+  calibrationPointNetworkMismatch: 'Calibration point network does not belong to selected network.',
+  fromMeasureGreaterThanToMeasureError: 'From measure is greater than to measure',
+
+  // Referent Picker
+  selectReferentLabel: 'Select Referent',
+  referentPicker: 'Referent Picker'
 }

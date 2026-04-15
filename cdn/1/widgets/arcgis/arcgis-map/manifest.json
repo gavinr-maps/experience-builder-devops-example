@@ -2,8 +2,8 @@
   "name": "arcgis-map",
   "label": "Map",
   "type": "widget",
-  "version": "1.19.0",
-  "exbVersion": "1.19.0",
+  "version": "1.20.0",
+  "exbVersion": "1.20.0",
   "author": "Esri R&D Center Beijing",
   "description": "This is the widget used in developer guide",
   "copyright": "",
@@ -63,7 +63,8 @@
     "supportAutoSize": false,
     "canConsumeDataAction": true,
     "needActiveState": true,
-    "handleA11yLabelInWidget": true
+    "handleA11yLabelInWidget": true,
+    "hasBuilderSupportModule": true
   },
   "excludeDataActions": [
     "setFilter",
@@ -155,6 +156,11 @@
       "name": "appConfigOperations",
       "point": "APP_CONFIG_OPERATIONS",
       "uri": "tools/app-config-operations"
+    },
+    {
+      "name": "custom-layout",
+      "point": "CONTEXT_TOOL",
+      "uri": "tools/custom-layout"
     }
   ],
   "translatedLocales": [

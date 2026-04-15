@@ -1,5 +1,6 @@
 export default {
   loading: 'Loading',
+  loaded: 'Loaded',
   apply: 'Apply',
   ok: 'OK',
   publish: 'Publish',
@@ -159,7 +160,7 @@ export default {
   signInErrorCannotEnterCredential: 'Sorry, your current account does not have permission to access this resource.',
   signInErrorTryAgain: 'Sorry, you do not have permission to access this resource. Please try again.',
   signInErrorInvalidToken: 'Invalid credential. Please login again.',
-  signInBannerListWarning: 'Sorry, you don’t have access to the resources from the following servers or organizations. Click Sign in to provide credentials. Click Ignore to avoid loading the resource until you refresh the app.',
+  signInBannerListWarning: 'Sorry, you don\'t have access to the resources from the following servers or organizations. Click Sign in to provide credentials or click Switch to change another account that have access. Click Ignore to avoid loading the inaccessible resource until you refresh the app.',
   signInBannerIgnore: 'Ignore',
   signInBannerIgnoreAll: 'Ignore all',
   signInBannerTitle: 'Credential banner',
@@ -218,11 +219,19 @@ export default {
   buildingScene: 'Building Scene Layer',
   buildingGroup: 'Building Group Sublayer',
   buildingComponent: 'Building Component Sublayer',
+  knowledgeGraphService: 'Knowledge Graph Service',
+  knowledgeGraphLayer: 'Knowledge Graph Layer',
+  knowledgeGraphSublayer: 'Knowledge Graph Sublayer',
   json: 'JSON',
   exportItem: 'Item',
   import: 'Import',
 
   // a11y
   a11ySkipTo: 'Skip to',
-  a11ySkipToContent: 'Skip to {content}'
+  a11ySkipToContent: 'Skip to {content}',
+
+  //Copy app
+  copiedAppNotFound: 'The item {id} cannot be found. The item may have been deleted or you may have entered an incorrect URL.',
+  copiedAppNotExperienceItem: 'Could not create a web experience from the provided item.',
+  copiedAppCopyProtected: 'The item {id} is copy protected.'
 }

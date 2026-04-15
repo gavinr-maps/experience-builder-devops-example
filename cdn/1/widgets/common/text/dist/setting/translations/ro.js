@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Aliniere vertical\u0103"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Aliniere vertical\u0103",textContent:"Con\u021binut text"})}}});

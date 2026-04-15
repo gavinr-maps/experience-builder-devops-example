@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Alineaci\xf3 vertical"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Alineaci\xf3 vertical",textContent:"Contingut de text"})}}});

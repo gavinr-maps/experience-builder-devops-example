@@ -1,3 +1,31 @@
+/* istanbul ignore else -- @preserve */
+
+/* istanbul ignore else -- @preserve : we don't need to test NOT warning people */
+
+/* istanbul ignore file -- @preserve */
+
+/* istanbul ignore if --@preserve - window is always defined in a browser. Test case is covered by Jasmine in node test */
+
+/* istanbul ignore next -- @preserve */
+
+/* istanbul ignore next -- @preserve : blob responses are difficult to make cross platform we will just have to trust the isomorphic fetch will do its job */
+
+/* istanbul ignore next -- @preserve : coverage is based on browser code and we don't test for the absence of global fetch so we can skip the else here. */
+
+/* istanbul ignore next -- @preserve : must pass in a mockwindow for tests so we can't cover the other branch */
+
+/* istanbul ignore next -- @preserve: must pass in a mockwindow for tests so we can't cover the other branch */
+
+/* istanbul ignore next --@preserve */
+
+/* istanbul ignore next --@preserve : must pass in a mockwindow for tests so we can't cover the other branch */
+
+/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+
 /*! js-cookie v3.0.5 | MIT */
 
 /**
@@ -18,3 +46,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+// istanbul ignore else -- @preserve : We don't need to test that we do nothing here. This will be removed in a future release.
+
+// istanbul ignore next -- @preserve: We don't need to test that we do nothing here. This will be removed in a future release.

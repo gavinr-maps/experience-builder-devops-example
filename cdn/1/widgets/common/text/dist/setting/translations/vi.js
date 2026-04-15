@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"C\u0103n d\u1ecdc"})}}});
+System.register([],function(n){return{execute:function(){n({verticalAlignment:"C\u0103n d\u1ecdc",textContent:"N\u1ed9i dung v\u0103n b\u1ea3n"})}}});

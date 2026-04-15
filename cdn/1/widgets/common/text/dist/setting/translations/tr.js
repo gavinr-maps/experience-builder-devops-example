@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Dikey hizalama"})}}});
+System.register([],function(e){return{execute:function(){e({verticalAlignment:"Dikey hizalama",textContent:"Metin i\xe7eri\u011fi"})}}});

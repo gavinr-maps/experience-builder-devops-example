@@ -28,4 +28,7 @@ export default {
   geobim_userTypeNote:
     'A Contributor or higher ArcGIS user type is needed to use the {widget_name} widget. Reach out to your GIS administrator to confirm your license or request an upgrade.',
   geobim_userTypeLink: 'Learn more about user types.',
+  geobim_apsRateLimitSearch: "Results might be incomplete due to Autodesk rate limiting. Please wait a few minutes and try again. For better experience, consider searching a more specific term.",
+  geobim_apsRateLimitPartialResults: "Partial results displayed. Loading more documents...",
+  geobim_apsRateLimitGeneral: "Content might be incomplete due to Autodesk rate limiting. Please wait a few minutes and try again.",
 }

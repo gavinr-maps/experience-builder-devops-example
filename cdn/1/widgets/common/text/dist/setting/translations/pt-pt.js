@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Alinhamento vertical"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Alinhamento vertical",textContent:"Conte\xfado do texto"})}}});

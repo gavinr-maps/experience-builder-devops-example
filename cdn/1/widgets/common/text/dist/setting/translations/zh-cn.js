@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"\u5782\u76f4\u5bf9\u9f50"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"\u5782\u76f4\u5bf9\u9f50",textContent:"\u6587\u672c\u5185\u5bb9"})}}});

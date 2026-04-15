@@ -1,3 +1,4 @@
 export default {
-  verticalAlignment: 'Vertical alignment'
+  verticalAlignment: 'Vertical alignment',
+  textContent: 'Text content',
 }

@@ -9,6 +9,7 @@ export default {
   gridRow: 'Grid row',
   gridCol: 'Grid column',
   iconSize: 'Icon size',
+  iconColor: 'Icon color',
   showIcon: 'Show icon',
   showText: 'Show text',
   vertical: 'Vertical',
@@ -20,6 +21,7 @@ export default {
   collapseAll: 'Collapse all',
   toggleAll: 'Toggle all',
   selectAll: 'Select all',
+  deselectAll: 'Deselect all',
   unSelectAll: 'Unselect all',
   space: 'Spacing',
   appearance: 'Appearance',
@@ -61,6 +63,8 @@ export default {
   additionalInformation: 'Additional information',
   noContent: 'No content',
   copy: 'Copy',
+  paste: 'Paste',
+  copyPaste: 'Copy and paste',
   location: 'Location',
   advance: 'Advanced',
   advancedOptions: 'Advanced options',
@@ -101,6 +105,8 @@ export default {
   transparency: 'Transparency',
   selectMapHint: 'Select a map for further configurations.',
   selectLayer: 'Select layer',
+  selectLayersToAdd: 'Select layers to add',
+  selectType: 'Select type',
   openInNewWindow: 'Open in a new window',
   behavior: 'Behavior',
   pagingStyle: 'Paging style',
@@ -279,6 +285,7 @@ export default {
   askForValues: 'Ask for values',
   chooseStyle: 'Choose input style',
   invalidStyleWarning: 'Too many values for this style. Please choose another one.',
+  showAllOption: 'Show "- All -" option',
   value: 'Value',
   values: 'Values',
   percentage: 'Percentage',
@@ -716,6 +723,7 @@ export default {
   // data-source-selector/external-data-source-selector
   selectData: 'Select data',
   addData: 'Add data',
+  addLayer: 'Add layer',
   serviceType: 'Service type',
   url: 'URL',
   file: 'File',
@@ -751,6 +759,7 @@ export default {
   organizationDefault: 'Organization default',
   myContent: 'My content',
   myOrganization: 'My organization',
+  organizationContent: 'Organization content',
   myGroup: 'My groups',
   public: 'ArcGIS Online',
   livingAtlas: 'Living Atlas',
@@ -981,6 +990,7 @@ export default {
 
   // jimu-map
   mapFailure: 'Creating map failed.',
+  mapNotAvailable: 'The connected map is not available.',
   mapCrash: "This map doesn't appear because the number of maps opened in the app has reached the maximum imposed for performance.",
   mapRecover: 'Reload',
   ZoomLabel: 'Zoom',
@@ -1033,6 +1043,8 @@ export default {
   selectingFeaturesTip: 'Selecting features now...Click to stop the selection progress.',
   noWebMapWebSceneTip: 'The selected Map widget does not contain a web map or web scene.',
   moreSelectionTools: 'More selection tools',
+  navigateOverviewMap: 'Current active map area. Use arrow keys to navigate.',
+  adjustMapToolLayout: 'Adjust map tool layout',
 
   // draw component
   drawToolPreview: 'Preview',
@@ -1117,6 +1129,9 @@ export default {
   unitsLabelHectares: 'Hectares',
   unitsNameSquareFeet: 'square feet',
   unitsLabelSquareFeet: 'Square feet',
+  unitsLabelSquareMillimeters: 'Square millimeters',
+  unitsLabelSquareCentimeters: 'Square centimeters',
+  unitsLabelSquareDecimeters: 'Square decimeters',
   unitsNameSquareMeters: 'square meters',
   unitsLabelSquareMeters: 'Square meters',
   unitsNameSquareYards: 'square yards',
@@ -1156,6 +1171,19 @@ export default {
   tipsForGeometryGuides: 'Show visual aids to help identify perpendicular and parallel lines when creating or updating a feature or graphic.',
   tipsForFeatureToFeature: 'Snap vertices of a graphic or feature that is currently being drawn or reshaped to that of an existing feature\'s vertex, edge, or end point.',
   tipsForGrid: 'Interact with a network of columns and rows used to divide the map view into equal-area squares. ',
+  // draw import/export
+  drawImport: 'Append from file',
+  drawExport: 'Export drawings',
+  // draw import exception handling
+  drawExportTitle: 'Export drawings',
+  drawExportErrorDes: 'Failed to export drawings. Please check your data and try again.',
+  // draw export exception handling
+  drawImportTitle: 'Append from file',
+  drawImportEmptyFileDes: 'The uploaded file {fileName} is empty.',
+  drawImportNotJsonDes: '{fileName} is not a valid ArcGIS JSON file. Please check the file format and try again.',
+  drawImportParseErrorDes: 'Unable to read {fileName}. Please check the file contents and try again.',
+  drawImportSuccessDes: 'Drawings from {fileName} were added successfully.',
+  drawImportSrErrorDes:'Drawings from {fileName} use a different spatial reference than the current map. The locations may not be accurate.',
 
   // sketch
   segmentLabel: 'Segment label',
@@ -1342,6 +1370,12 @@ export default {
   arrange: 'Arrange',
   align: 'Align',
   print: 'Print',
+
+  //Print
+  includeElementOverride: 'Include {name}',
+  northArrow: 'North arrow',
+  includeNorthArrow: 'Include north arrow',
+  includeScaleBar: 'Include scale bar',
 
   enableSearchFilter: 'Enable filtering for layer source search',
 
@@ -1609,6 +1643,7 @@ export default {
   optionalBannerDefaultText: 'We use cookies to improve your experience. You can customize your preferences for optional cookies.',
   largeScreenDevice: 'large screen device',
   syncPlaceholderTip: 'Select a large screen placeholder to sync',
+  cookieNotice: 'Cookie notice',
 
   // dynamic style
   dynamicStyle: 'Dynamic style',
@@ -1642,6 +1677,10 @@ export default {
   unsupportedReturnType: 'Unsupported return type',
   closeArcadeEditorWarning: 'Are you sure you want to close the Arcade Editor?',
   loseUnsavedScript: 'You will lose the unsaved script.',
+  settingLabel: 'Setting',
+  fieldName: 'Field Name',
+  fieldAlias: 'Field Alias',
+  fieldType: 'Field Type',
 
   // map-layers batch option
   turnOnAllLayers: 'Turn on all layers',
@@ -1725,10 +1764,11 @@ export default {
   showRuntimeLayers: 'Show runtime layers in layer lists',
   defaultEnabled: 'Enable by default',
   arcade: 'Arcade',
-  arcadeTip:'Connect to data to use Arcade.',
+  arcadeTip: 'Connect to data to use Arcade.',
   editArcadeScript: 'Edit Arcade script',
   setDataExpression: 'Set data expression',
   a11y: 'Accessibility',
+  a11yLabel: 'Accessible label',
   pressTabToContinue: 'Press TAB to continue',
 
   downloadRemind: 'An error occurred, possibly due to network issues or interference from antivirus software.',
@@ -1937,4 +1977,24 @@ export default {
   tertiaryButton: 'Text button',
   dangerButton: 'Danger button',
   linkButton: 'Link button',
+
+  invalidHexColor: 'Invalid hex color',
+
+  // devices
+  largeDevices: 'Large screen devices',
+  mediumDevices: 'Medium screen devices',
+  smallDevices: 'Small screen devices',
+
+  // directions widget
+  hintForAll: 'Hint applied to all search sources',
+  hintForLocator: 'Hint applied to the selected source: {name}',
+
+  //Message action
+  actionRemindMessage: 'To maintain performance, the {name} action will not run if the filtered results from the trigger data exceed 1,000 records.',
+
+  // default display placeholder
+  defaultDisplayPlaceholder: 'Double click to edit text',
+
+  templateUpdateRemind: 'Templates updated - {number} templates available.',
+  experiencesUpdateRemind: 'Experiences updated - {number} experiences available.',
 }

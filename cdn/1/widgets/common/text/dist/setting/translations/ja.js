@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"\u5782\u76f4\u65b9\u5411\u306e\u914d\u7f6e"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"\u5782\u76f4\u65b9\u5411\u306e\u914d\u7f6e",textContent:"\u30c6\u30ad\u30b9\u30c8 \u30b3\u30f3\u30c6\u30f3\u30c4"})}}});

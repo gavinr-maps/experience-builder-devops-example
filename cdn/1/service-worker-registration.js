@@ -169,6 +169,10 @@ async function getJsApiBuildNumberFromJimuConfig (jimuConfig) {
       console.debug('The arcgisJsApiUrl is not from ArcGIS CDN, so we cannot get the JS API build number.');
       return null;
     }
+    if (!/^https?:\/\/js(dev)?\.arcgis\.com\/(.)+-next/.test(jimuConfig.arcgisJsApiUrl)) {
+      console.debug('The version is locked, dont check version update.');
+      return null;
+    }
     const apiCorePromise = fetch(`${jimuConfig.arcgisJsApiUrl}builddate.txt`)
     const componentsPromise = fetch(`${jimuConfig.mapComponentsUrl}builddate.txt`)
     const responses = await Promise.all([apiCorePromise, componentsPromise])

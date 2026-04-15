@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Vertikalno poravnanje"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Vertikalno poravnanje",textContent:"Sadr\u017eaj teksta"})}}});

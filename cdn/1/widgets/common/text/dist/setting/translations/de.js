@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Vertikale Ausrichtung"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Vertikale Ausrichtung",textContent:"Textinhalt"})}}});

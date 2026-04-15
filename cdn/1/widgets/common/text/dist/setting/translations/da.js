@@ -1,1 +1,1 @@
-System.register([],function(e){return{execute:function(){e({verticalAlignment:"Lodret justering"})}}});
+System.register([],function(t){return{execute:function(){t({verticalAlignment:"Lodret justering",textContent:"Tekstindhold"})}}});
