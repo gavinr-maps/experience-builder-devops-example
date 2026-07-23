@@ -163,21 +163,43 @@ function writeJsApiBuildNumber (buildNumber) {
   }
 }
 
+function getJsApiVersionFromUrl (url) {
+  if (!url) {
+    return null
+  }
+
+  try {
+    const parsedUrl = new URL(url)
+    const matchedVersion = parsedUrl.pathname.match(/\/(\d+\.\d+(?:\.\d+)?)\/?$/)
+    return matchedVersion ? matchedVersion[1] : null
+  } catch (err) {
+    const matchedVersion = url.match(/\/(\d+\.\d+(?:\.\d+)?)\/?(?:\?|#|$)/)
+    return matchedVersion ? matchedVersion[1] : null
+  }
+}
+
 async function getJsApiBuildNumberFromJimuConfig (jimuConfig) {
   try {
     if (!/^https?:\/\/js(dev)?\.arcgis\.com\//.test(jimuConfig.arcgisJsApiUrl)) {
       console.debug('The arcgisJsApiUrl is not from ArcGIS CDN, so we cannot get the JS API build number.');
       return null;
     }
-    if (!/^https?:\/\/js(dev)?\.arcgis\.com\/(.)+-next/.test(jimuConfig.arcgisJsApiUrl)) {
-      console.debug('The version is locked, dont check version update.');
+
+    const jsApiVersion = getJsApiVersionFromUrl(jimuConfig.arcgisJsApiUrl)
+    const hasPatchVersion = /^\d+\.\d+\.\d+$/.test(jsApiVersion || '')
+
+    if (!jsApiVersion) {
+      console.debug('The arcgisJsApiUrl does not contain a version.');
       return null;
     }
+
+    if (hasPatchVersion) {
+      return jsApiVersion
+    }
+
     const apiCorePromise = fetch(`${jimuConfig.arcgisJsApiUrl}builddate.txt`)
-    const componentsPromise = fetch(`${jimuConfig.mapComponentsUrl}builddate.txt`)
-    const responses = await Promise.all([apiCorePromise, componentsPromise])
-    const [coreVersionInfo, componentsVersionInfo] = await Promise.all(responses.map(res => res.json()))
-    const buildNumber = `${coreVersionInfo.version}_${componentsVersionInfo.version}`
+    const coreVersionInfo = await (await apiCorePromise).json()
+    const buildNumber = coreVersionInfo.version
     return buildNumber
   } catch (err) {
     console.error('Get JS API build number error.', err);

@@ -14,5 +14,7 @@ export default {
   size: 'Size',
   dockSide: 'Dock side',
   rounded: 'Rounded',
-  square: 'Square'
+  square: 'Square',
+  collapseTooltip: 'Collapse tooltip',
+  expandTooltip: 'Expand tooltip'
 }

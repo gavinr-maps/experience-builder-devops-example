@@ -7,7 +7,6 @@ export default {
   emptyListTip: 'There are currently no items to display',
   enablePopup: 'Enable pop-up',
   disablePopup: 'Disable pop-up',
-  tables: 'Tables',
   visibilityRange: 'Visibility range',
   changeSymbol: 'Change symbol',
   usePredefinedSymbols: 'Use predefined symbols',

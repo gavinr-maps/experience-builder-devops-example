@@ -1,4 +1,8 @@
 export default {
+
+  // general
+  widgetWarning: 'LRS network and event layers must be present and visible in the map to load the widget',
+
   // concurrency-table
   measureAndRouteName: '({measure}) {routeName}',
   fromToMeasuresAndRouteName: '({fromMeasure} to {toMeasure}) {routeName}',
@@ -112,6 +116,9 @@ export default {
   radiusWithUnits: 'Radius ({units})',
   spatialReference: 'Spatial Reference',
   lrs: 'LRS',
+  coordinateSettings: 'Coordinate Settings',
+  spatialReferenceType: 'Spatial Reference Type',
+  searchUnits: 'Search Units',
 
   // add events, split event, merge events
   inches: 'Inches (US Survey)',
@@ -174,6 +181,7 @@ export default {
   lrsNetwork: 'LRS Network',
   lrsEvent: 'LRS Event',
   lrsIntersection: 'LRS Intersection',
+  lrsUtilityNetwork: 'UN Layers',
   nonLrsLayer: 'Non-LRS Layers',
 
   // VMS
@@ -199,9 +207,23 @@ export default {
   measureOutOfRange: 'Measure out of range.',
   referentNotOnRoute: 'Location is not on the selected route.',
   calibrationPointNetworkMismatch: 'Calibration point network does not belong to selected network.',
-  fromMeasureGreaterThanToMeasureError: 'From measure is greater than to measure',
+  fromMeasureGreaterThanToMeasureError: 'The From Measure cannot be greater than or equal to the To Measure.',
 
   // Referent Picker
   selectReferentLabel: 'Select Referent',
-  referentPicker: 'Referent Picker'
+  referentPicker: 'Referent Picker',
+
+  // Search By Coordinate
+  invalidCoordinate: 'Invalid coordinate value',
+  xCoordinateRequiredLabel: 'X Coordinate *',
+  yCoordinateRequiredLabel: 'Y Coordinate *',
+  zCoordinateLabel: 'Z Coordinate',
+  latitudeRequiredLabel: 'Latitude *',
+  longitudeRequiredLabel: 'Longitude *',
+  height: 'Height',
+  fromMeasureWithUnits: 'From Measure ({units})',
+  toMeasureWithUnits: 'To Measure ({units})',
+  measureWithUnits: 'Measure ({units})',
+  distanceWithUnits: 'Distance ({units})',
+  noRouteFoundForCoordinates: 'No routes found with provided coordinate'
 }

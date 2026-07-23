@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>GeoBIM Experience Builder Widgets - Autodesk Authorization</title>
+    <script>
+      const SOURCE = 'geobim-aps-login-callback-event'
+      function onLoad() {
+        // NOTE: URL Params must match AutodeskAuthCallbackParams in types
+        const codeParam = 'code'
+        const errorParam = 'error'
+        const errorDescriptionParam = 'error_description'
+        const url = new URL(window.location.href)
+        const urlParams = url.searchParams
+        const code = urlParams.get(codeParam)
+        const errorName = urlParams.get(errorParam)
+        const errorDescription = urlParams.get(errorDescriptionParam)
+        if (code !== null && window.opener !== null) {
+          // NOTE: messageData must match the GeoBIMMessageEventData type
+          const messageData = {
+            source: SOURCE,
+            message: `{"${codeParam}":"${code}"}`,
+          }
+          window.opener.postMessage(messageData, window.location.origin)
+          // clear code from url for added safety
+          urlParams.delete(codeParam)
+          window.history.replaceState(null, '', url)
+        } else if (errorName !== null && window.opener !== null) {
+          const errorDetails = errorDescription ?? ''
+          const messageData = {
+            source: SOURCE,
+            message: `{"${errorParam}":"${errorName}", "${errorDescriptionParam}":"${errorDetails}"}`,
+          }
+          window.opener.postMessage(messageData, window.location.origin)
+        }
+      }
+    </script>
+  </head>
+  <body onload="onLoad()"></body>
+</html>

@@ -38,39 +38,7 @@
           }
         }
 
-        let openerHref = '';
-        let openerOrigin = '';
-        const rootPath = window.location.href.split('/jimu-core')[0];
-        try {
-          openerHref = window.opener && window.opener.location ? window.opener.location.href : '';
-          openerOrigin = window.opener && window.opener.location ? window.opener.location.origin: '';
-        } catch (error) {
-          // access exb from arcgis online and popup is false
-          openerHref = '';
-        }
-        let usePopupWindow;
-        // Normally, we only need to check 'opener' to know whether use popup window for sign-in, except for one situation:
-        //   Launch Exb from appLauncher (or create button) of online/portal.
-        //   1, Normal popup sign-in:
-        //        'window.location.origin': 'experience_or_portal.arcgis.com'
-        //        'openerOrigin'          : 'experience_or_portal.arcgis.com'
-        //   2, Online appLauncher sign-in:
-        //        'window.location.origin': 'experience.arcgis.com'
-        //        'openerOrigin'          : 'org.arcgis.com'
-        //      for this situation: only if 'window.location.origin === openerOrigin', means is popup window.
-        //   3, Portal appLauncher sign-in:
-        //        'window.location.origin': 'portal.arcgis.com'
-        //        'openerOrigin'          : 'portal.arcgis.com'
-        //        'rootPath'              : 'portal.arcgis.com/arcgis/apps/experiencebuilder'
-        //        'openerHref'            : 'portal.arcgis.com/arcgis/home/...'
-        //      for this situation: has to further check 'openerHref.indexOf(rootPath) > -1', means is popup window.
-        if(authState.isInPortal) {
-          usePopupWindow = opener && opener.parent && window.location.origin === openerOrigin && openerHref.indexOf(rootPath) > -1;
-        } else {
-          usePopupWindow = opener && opener.parent && window.location.origin === openerOrigin;
-        }
-
-        if(usePopupWindow){//popup window
+        if(popup){//popup window
           if (isInIFrame()) {
             // REST-JS 4.x has a problem with embedded OAuth login, oauth-callback window cannot get local storage items from its opener 
             // original reason reference:
