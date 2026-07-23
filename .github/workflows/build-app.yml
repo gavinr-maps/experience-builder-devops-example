@@ -10,13 +10,20 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v6
+
+      # https://pnpm.io/continuous-integration#github-actions ->
+      - name: Install pnpm
+        uses: pnpm/action-setup@8912a9102ac27614460f54aedde9e1e7f9aec20d # v6.0.5
+        with:
+          version: 11
+
       - name: Download Experience Builder
         # WARNING: 
         # THIS METHOD OF DOWNLOADING EXPERIENCE BUILDER MAY BREAK IF ESRI CHANGES HOW DOWNLOADS WORK IN THE FUTURE.
         # IN OTHER WORDS, IT COULD BREAK AT ANY TIME.
         # THERE IS NO WARRANTY OR GUARANTEE THAT THIS COMMAND WILL WORK IN THE FUTURE.
         # ONLY USE THIS COMMAND IF YOU UNDERSTAND HOW IT IS BEING USED AND ARE COMFORTABLE FIXING IT IF IT BREAKS:
-        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.20.zip?f=json&folder=software%2FExperienceBuilder%2F1.20' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
+        run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.21.zip?f=json&folder=software%2FExperienceBuilder%2F1.21' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
       - name: Unzip Experience Builder
         run: unzip -q exb.zip -d exb
       - name: Copy Custom Widgets
@@ -28,12 +35,16 @@ jobs:
         working-directory: exb/server
       - name: Copy apps
         run: cp -r apps/* exb/server/public/apps
+
+      # Before v1.21, use npm. After, use pnpm
+      # https://developers.arcgis.com/experience-builder/guide/install-guide/#2-install-server-service
       - name: NPM install client folder
-        run: npm ci
+        run: pnpm ci
         working-directory: exb/client
       - name: NPM install in server folder
-        run: npm ci
+        run: pnpm ci
         working-directory: exb/server
+
       - name: Build widgets - dev
         run: npm run build:dev
         working-directory: exb/client
